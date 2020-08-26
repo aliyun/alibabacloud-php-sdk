@@ -365,13 +365,13 @@ class Ft extends Rpc
     }
 
     /**
-     * @param string $productId
-     * @param string $regionId
-     * @param string $endpointRule
-     * @param string $network
-     * @param string $suffix
-     * @param array  $endpointMap
-     * @param string $endpoint
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
      *
      * @return string
      */

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class TestHttpApiRequest extends Model
 {
     /**
-     * @var array
+     * @var mixed[]
      */
     public $stringValue;
 
     /**
-     * @var array
+     * @var mixed[]
      */
     public $defaultValue;
 
     /**
-     * @var array
+     * @var mixed[]
      */
     public $otherParam;
 

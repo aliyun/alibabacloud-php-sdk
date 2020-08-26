@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class demo011 extends Model
 {
     /**
-     * @var array
+     * @var demo011[]
      */
     public $demo011;
     protected $_name = [

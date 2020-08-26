@@ -15,7 +15,7 @@ class FtParamListRequest extends Model
     public $name;
 
     /**
-     * @var array
+     * @var disk[]
      */
     public $disk;
     protected $_name = [

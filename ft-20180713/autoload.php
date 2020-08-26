@@ -1,25 +1,13 @@
 <?php
 
-class Autoloader
-{
-    const BASE_NAMESPACE = 'AlibabaCloud\\SDK\\Ft\\V20180713\\';
+spl_autoload_register(function ($class) {
+    $name = str_replace('AlibabaCloud\\SDK\\Ft\\V20180713\\', '', $class);
+    $file = __DIR__ . \DIRECTORY_SEPARATOR . 'src' . \DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $name) . '.php';
+    if (file_exists($file)) {
+        require_once $file;
 
-    const BASE_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR;
-
-    public static function register()
-    {
-        spl_autoload_register(function ($class) {
-            $name = str_replace(self::BASE_NAMESPACE, '', $class);
-            $file = self::BASE_DIR . str_replace('\\', DIRECTORY_SEPARATOR, $name) . '.php';
-            if (file_exists($file)) {
-                require_once $file;
-
-                return true;
-            }
-
-            return false;
-        });
+        return true;
     }
-}
 
-Autoloader::register();
+    return false;
+});

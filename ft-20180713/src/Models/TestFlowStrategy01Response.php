@@ -14,12 +14,12 @@ class TestFlowStrategy01Response extends Model
     public $requestId;
 
     /**
-     * @var array
+     * @var string[]
      */
     public $list;
 
     /**
-     * @var array
+     * @var string[]
      */
     public $names;
     protected $_name = [

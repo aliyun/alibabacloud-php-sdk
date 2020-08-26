@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class TestFlowStrategy01Request extends Model
 {
     /**
-     * @var array
+     * @var mixed[]
      */
     public $names;
     protected $_name = [

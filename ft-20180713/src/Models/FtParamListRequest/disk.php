@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class disk extends Model
 {
     /**
-     * @var array
+     * @var string[]
      */
     public $size;
 
     /**
-     * @var array
+     * @var string[]
      */
     public $type;
     protected $_name = [
