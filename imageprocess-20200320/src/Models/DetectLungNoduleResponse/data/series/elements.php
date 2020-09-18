@@ -47,6 +47,21 @@ class elements extends Model
      * @var float
      */
     public $y;
+
+    /**
+     * @var float
+     */
+    public $imageX;
+
+    /**
+     * @var float
+     */
+    public $imageY;
+
+    /**
+     * @var float
+     */
+    public $imageZ;
     protected $_name = [
         'category'   => 'Category',
         'confidence' => 'Confidence',
@@ -56,6 +71,9 @@ class elements extends Model
         'x'          => 'X',
         'z'          => 'Z',
         'y'          => 'Y',
+        'imageX'     => 'ImageX',
+        'imageY'     => 'ImageY',
+        'imageZ'     => 'ImageZ',
     ];
 
     public function validate()
@@ -68,6 +86,9 @@ class elements extends Model
         Model::validateRequired('x', $this->x, true);
         Model::validateRequired('z', $this->z, true);
         Model::validateRequired('y', $this->y, true);
+        Model::validateRequired('imageX', $this->imageX, true);
+        Model::validateRequired('imageY', $this->imageY, true);
+        Model::validateRequired('imageZ', $this->imageZ, true);
     }
 
     public function toMap()
@@ -96,6 +117,15 @@ class elements extends Model
         }
         if (null !== $this->y) {
             $res['Y'] = $this->y;
+        }
+        if (null !== $this->imageX) {
+            $res['ImageX'] = $this->imageX;
+        }
+        if (null !== $this->imageY) {
+            $res['ImageY'] = $this->imageY;
+        }
+        if (null !== $this->imageZ) {
+            $res['ImageZ'] = $this->imageZ;
         }
 
         return $res;
@@ -132,6 +162,15 @@ class elements extends Model
         }
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
+        }
+        if (isset($map['ImageX'])) {
+            $model->imageX = $map['ImageX'];
+        }
+        if (isset($map['ImageY'])) {
+            $model->imageY = $map['ImageY'];
+        }
+        if (isset($map['ImageZ'])) {
+            $model->imageZ = $map['ImageZ'];
         }
 
         return $model;

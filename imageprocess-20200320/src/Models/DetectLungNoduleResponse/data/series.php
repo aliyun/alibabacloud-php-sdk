@@ -18,15 +18,29 @@ class series extends Model
      * @var elements[]
      */
     public $elements;
+
+    /**
+     * @var float[]
+     */
+    public $origin;
+
+    /**
+     * @var float[]
+     */
+    public $spacing;
     protected $_name = [
         'seriesInstanceUid' => 'SeriesInstanceUid',
         'elements'          => 'Elements',
+        'origin'            => 'Origin',
+        'spacing'           => 'Spacing',
     ];
 
     public function validate()
     {
         Model::validateRequired('seriesInstanceUid', $this->seriesInstanceUid, true);
         Model::validateRequired('elements', $this->elements, true);
+        Model::validateRequired('origin', $this->origin, true);
+        Model::validateRequired('spacing', $this->spacing, true);
     }
 
     public function toMap()
@@ -43,6 +57,12 @@ class series extends Model
                     $res['Elements'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->origin) {
+            $res['Origin'] = $this->origin;
+        }
+        if (null !== $this->spacing) {
+            $res['Spacing'] = $this->spacing;
         }
 
         return $res;
@@ -66,6 +86,16 @@ class series extends Model
                 foreach ($map['Elements'] as $item) {
                     $model->elements[$n++] = null !== $item ? elements::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['Origin'])) {
+            if (!empty($map['Origin'])) {
+                $model->origin = $map['Origin'];
+            }
+        }
+        if (isset($map['Spacing'])) {
+            if (!empty($map['Spacing'])) {
+                $model->spacing = $map['Spacing'];
             }
         }
 

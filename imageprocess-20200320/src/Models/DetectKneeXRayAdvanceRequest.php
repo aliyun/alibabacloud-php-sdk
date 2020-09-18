@@ -17,15 +17,29 @@ class DetectKneeXRayAdvanceRequest extends Model
      * @var string
      */
     public $dataFormat;
+
+    /**
+     * @var string
+     */
+    public $orgName;
+
+    /**
+     * @var string
+     */
+    public $orgId;
     protected $_name = [
         'urlObject'  => 'UrlObject',
         'dataFormat' => 'DataFormat',
+        'orgName'    => 'OrgName',
+        'orgId'      => 'OrgId',
     ];
 
     public function validate()
     {
         Model::validateRequired('urlObject', $this->urlObject, true);
         Model::validateRequired('dataFormat', $this->dataFormat, true);
+        Model::validateRequired('orgName', $this->orgName, true);
+        Model::validateRequired('orgId', $this->orgId, true);
     }
 
     public function toMap()
@@ -36,6 +50,12 @@ class DetectKneeXRayAdvanceRequest extends Model
         }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
+        }
+        if (null !== $this->orgName) {
+            $res['OrgName'] = $this->orgName;
+        }
+        if (null !== $this->orgId) {
+            $res['OrgId'] = $this->orgId;
         }
 
         return $res;
@@ -54,6 +74,12 @@ class DetectKneeXRayAdvanceRequest extends Model
         }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
+        }
+        if (isset($map['OrgName'])) {
+            $model->orgName = $map['OrgName'];
+        }
+        if (isset($map['OrgId'])) {
+            $model->orgId = $map['OrgId'];
         }
 
         return $model;

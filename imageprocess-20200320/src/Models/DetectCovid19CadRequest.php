@@ -13,13 +13,34 @@ class DetectCovid19CadRequest extends Model
      * @var URLList[]
      */
     public $URLList;
+
+    /**
+     * @var string
+     */
+    public $dataFormat;
+
+    /**
+     * @var string
+     */
+    public $orgName;
+
+    /**
+     * @var string
+     */
+    public $orgId;
     protected $_name = [
-        'URLList' => 'URLList',
+        'URLList'    => 'URLList',
+        'dataFormat' => 'DataFormat',
+        'orgName'    => 'OrgName',
+        'orgId'      => 'OrgId',
     ];
 
     public function validate()
     {
         Model::validateRequired('URLList', $this->URLList, true);
+        Model::validateRequired('dataFormat', $this->dataFormat, true);
+        Model::validateRequired('orgName', $this->orgName, true);
+        Model::validateRequired('orgId', $this->orgId, true);
     }
 
     public function toMap()
@@ -33,6 +54,15 @@ class DetectCovid19CadRequest extends Model
                     $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dataFormat) {
+            $res['DataFormat'] = $this->dataFormat;
+        }
+        if (null !== $this->orgName) {
+            $res['OrgName'] = $this->orgName;
+        }
+        if (null !== $this->orgId) {
+            $res['OrgId'] = $this->orgId;
         }
 
         return $res;
@@ -54,6 +84,15 @@ class DetectCovid19CadRequest extends Model
                     $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DataFormat'])) {
+            $model->dataFormat = $map['DataFormat'];
+        }
+        if (isset($map['OrgName'])) {
+            $model->orgName = $map['OrgName'];
+        }
+        if (isset($map['OrgId'])) {
+            $model->orgId = $map['OrgId'];
         }
 
         return $model;
