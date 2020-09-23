@@ -1,0 +1,77 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\CS\V20151215\Models;
+
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponseBody\componentGroups;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponseBody\standardComponents;
+use AlibabaCloud\Tea\Model;
+
+class DescribeAddonsResponseBody extends Model
+{
+    /**
+     * @description 组件分组信息，例如：存储类组件，网络组件等。
+     *
+     * @var componentGroups[]
+     */
+    public $componentGroups;
+
+    /**
+     * @description 标准组件信息，包含各个组件的描述信息。
+     *
+     * @var standardComponents
+     */
+    public $standardComponents;
+    protected $_name = [
+        'componentGroups'    => 'ComponentGroups',
+        'standardComponents' => 'StandardComponents',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->componentGroups) {
+            $res['ComponentGroups'] = [];
+            if (null !== $this->componentGroups && \is_array($this->componentGroups)) {
+                $n = 0;
+                foreach ($this->componentGroups as $item) {
+                    $res['ComponentGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->standardComponents) {
+            $res['StandardComponents'] = null !== $this->standardComponents ? $this->standardComponents->toMap() : null;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return DescribeAddonsResponseBody
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['ComponentGroups'])) {
+            if (!empty($map['ComponentGroups'])) {
+                $model->componentGroups = [];
+                $n                      = 0;
+                foreach ($map['ComponentGroups'] as $item) {
+                    $model->componentGroups[$n++] = null !== $item ? componentGroups::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['StandardComponents'])) {
+            $model->standardComponents = standardComponents::fromMap($map['StandardComponents']);
+        }
+
+        return $model;
+    }
+}
