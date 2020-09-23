@@ -10,21 +10,13 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClusterAddonsRequest extends Model
 {
     /**
-     * @description 集群ID。
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @description Request body，类型是对象数组。
      *
      * @var body[]
      */
     public $body;
     protected $_name = [
-        'clusterId' => 'ClusterId',
-        'body'      => 'body',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -34,9 +26,6 @@ class UpgradeClusterAddonsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->body) {
             $res['body'] = [];
             if (null !== $this->body && \is_array($this->body)) {
@@ -58,9 +47,6 @@ class UpgradeClusterAddonsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['body'])) {
             if (!empty($map['body'])) {
                 $model->body = [];

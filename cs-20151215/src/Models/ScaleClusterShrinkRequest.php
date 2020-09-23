@@ -11,13 +11,6 @@ use AlibabaCloud\Tea\Model;
 class ScaleClusterShrinkRequest extends Model
 {
     /**
-     * @description 集群ID。
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @description 扩容节点数。
      *
      * @var int
@@ -150,7 +143,6 @@ class ScaleClusterShrinkRequest extends Model
      */
     public $taintsShrink;
     protected $_name = [
-        'clusterId'                => 'ClusterId',
         'count'                    => 'count',
         'keyPair'                  => 'key_pair',
         'loginPassword'            => 'login_password',
@@ -179,9 +171,6 @@ class ScaleClusterShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
@@ -263,9 +252,6 @@ class ScaleClusterShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }

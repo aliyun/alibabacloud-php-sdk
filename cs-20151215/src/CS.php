@@ -8,9 +8,7 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\CancelClusterUpgradeRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelClusterUpgradeResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\CancelComponentUpgradeRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterResponse;
@@ -18,25 +16,19 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DeleteKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsUpgradeStatusRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsUpgradeStatusResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsVersionRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsVersionResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonUpgradeStatusRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonUpgradeStatusResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAttachScriptsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAttachScriptsResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterLogsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterLogsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersResponse;
@@ -46,14 +38,12 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterV2UserKubeconfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterV2UserKubeconfigResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeExternalAgentRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeExternalAgentResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserQuotaResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\GetUpgradeStatusRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetUpgradeStatusResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsResponse;
@@ -63,11 +53,9 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterTagsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterTagsResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\PauseComponentUpgradeRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\PauseComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\ResumeComponentUpgradeRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterResponse;
@@ -182,21 +170,47 @@ class CS extends OpenApiClient
     public function attachInstancesWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body                       = [];
-        $body['instances']          = $request->instances;
-        $body['runtime']            = $request->runtime;
-        $body['image_id']           = $request->imageId;
-        $body['format_disk']        = $request->formatDisk;
-        $body['keep_instance_name'] = $request->keepInstanceName;
-        $body['cpu_policy']         = $request->cpuPolicy;
-        $body['key_pair']           = $request->keyPair;
-        $body['password']           = $request->password;
-        $body['is_edge_worker']     = $request->isEdgeWorker;
-        $body['user_data']          = $request->userData;
-        $body['nodepool_id']        = $request->nodepoolId;
-        $body['rds_instances']      = $request->rdsInstances;
-        $body['tags']               = $request->tags;
-        $req                        = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->instances)) {
+            $body['instances'] = $request->instances;
+        }
+        if (!Utils::isUnset($request->runtime)) {
+            $body['runtime'] = $request->runtime;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $body['image_id'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->formatDisk)) {
+            $body['format_disk'] = $request->formatDisk;
+        }
+        if (!Utils::isUnset($request->keepInstanceName)) {
+            $body['keep_instance_name'] = $request->keepInstanceName;
+        }
+        if (!Utils::isUnset($request->cpuPolicy)) {
+            $body['cpu_policy'] = $request->cpuPolicy;
+        }
+        if (!Utils::isUnset($request->keyPair)) {
+            $body['key_pair'] = $request->keyPair;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $body['password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->isEdgeWorker)) {
+            $body['is_edge_worker'] = $request->isEdgeWorker;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $body['user_data'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->nodepoolId)) {
+            $body['nodepool_id'] = $request->nodepoolId;
+        }
+        if (!Utils::isUnset($request->rdsInstances)) {
+            $body['rds_instances'] = $request->rdsInstances;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);
@@ -205,30 +219,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                      $ClusterId
-     * @param CancelClusterUpgradeRequest $request
+     * @param string $ClusterId
      *
      * @return CancelClusterUpgradeResponse
      */
-    public function cancelClusterUpgrade($ClusterId, $request)
+    public function cancelClusterUpgrade($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->cancelClusterUpgradeWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->cancelClusterUpgradeWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
-     * @param string                      $ClusterId
-     * @param CancelClusterUpgradeRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return CancelClusterUpgradeResponse
      */
-    public function cancelClusterUpgradeWithOptions($ClusterId, $request, $headers, $runtime)
+    public function cancelClusterUpgradeWithOptions($ClusterId, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -237,32 +248,29 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                        $clusterid
-     * @param string                        $componentid
-     * @param CancelComponentUpgradeRequest $request
+     * @param string $clusterid
+     * @param string $componentid
      *
      * @return CancelComponentUpgradeResponse
      */
-    public function cancelComponentUpgrade($clusterid, $componentid, $request)
+    public function cancelComponentUpgrade($clusterid, $componentid)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->cancelComponentUpgradeWithOptions($clusterid, $componentid, $request, $headers, $runtime);
+        return $this->cancelComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime);
     }
 
     /**
-     * @param string                        $clusterid
-     * @param string                        $componentid
-     * @param CancelComponentUpgradeRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param string         $clusterid
+     * @param string         $componentid
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return CancelComponentUpgradeResponse
      */
-    public function cancelComponentUpgradeWithOptions($clusterid, $componentid, $request, $headers, $runtime)
+    public function cancelComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -293,65 +301,179 @@ class CS extends OpenApiClient
     public function createClusterWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body                                 = [];
-        $body['name']                         = $request->name;
-        $body['cluster_type']                 = $request->clusterType;
-        $body['region_id']                    = $request->regionId;
-        $body['zone_id']                      = $request->zoneId;
-        $body['kubernetes_version']           = $request->kubernetesVersion;
-        $body['deletion_protection']          = $request->deletionProtection;
-        $body['runtime']                      = $request->runtime;
-        $body['vpcid']                        = $request->vpcid;
-        $body['worker_vswitch_ids']           = $request->workerVswitchIds;
-        $body['container_cidr']               = $request->containerCidr;
-        $body['service_cidr']                 = $request->serviceCidr;
-        $body['node_cidr_mask']               = $request->nodeCidrMask;
-        $body['snat_entry']                   = $request->snatEntry;
-        $body['endpoint_public_access']       = $request->endpointPublicAccess;
-        $body['ssh_flags']                    = $request->sshFlags;
-        $body['rds_instances']                = $request->rdsInstances;
-        $body['security_group_id']            = $request->securityGroupId;
-        $body['is_enterprise_security_group'] = $request->isEnterpriseSecurityGroup;
-        $body['proxy_mode']                   = $request->proxyMode;
-        $body['tags']                         = $request->tags;
-        $body['images_id']                    = $request->imagesId;
-        $body['master_instance_charge_type']  = $request->masterInstanceChargeType;
-        $body['master_period']                = $request->masterPeriod;
-        $body['master_period_unit']           = $request->masterPeriodUnit;
-        $body['master_auto_renew']            = $request->masterAutoRenew;
-        $body['master_auto_renew_period']     = $request->masterAutoRenewPeriod;
-        $body['master_count']                 = $request->masterCount;
-        $body['master_vswitch_ids']           = $request->masterVswitchIds;
-        $body['master_instance_types']        = $request->masterInstanceTypes;
-        $body['master_system_disk_category']  = $request->masterSystemDiskCategory;
-        $body['master_system_disk_size']      = $request->masterSystemDiskSize;
-        $body['worker_instance_charge_type']  = $request->workerInstanceChargeType;
-        $body['worker_period']                = $request->workerPeriod;
-        $body['worker_period_unit']           = $request->workerPeriodUnit;
-        $body['worker_auto_renew']            = $request->workerAutoRenew;
-        $body['worker_auto_renew_period']     = $request->workerAutoRenewPeriod;
-        $body['num_of_nodes']                 = $request->numOfNodes;
-        $body['worker_instance_types']        = $request->workerInstanceTypes;
-        $body['worker_system_disk_category']  = $request->workerSystemDiskCategory;
-        $body['worker_system_disk_size']      = $request->workerSystemDiskSize;
-        $body['worker_data_disks']            = $request->workerDataDisks;
-        $body['os_type']                      = $request->osType;
-        $body['key_pair']                     = $request->keyPair;
-        $body['login_password']               = $request->loginPassword;
-        $body['user_data']                    = $request->userData;
-        $body['node_port_range']              = $request->nodePortRange;
-        $body['cpu_policy']                   = $request->cpuPolicy;
-        $body['taints']                       = $request->taints;
-        $body['cloud_monitor_flags']          = $request->cloudMonitorFlags;
-        $body['addons']                       = $request->addons;
-        $body['platform']                     = $request->platform;
-        $body['vswitch_ids']                  = $request->vswitchIds;
-        $body['private_zone']                 = $request->privateZone;
-        $body['profile']                      = $request->profile;
-        $body['pod_vswitch_ids']              = $request->podVswitchIds;
-        $body['disable_rollback']             = $request->disableRollback;
-        $body['timeout_mins']                 = $request->timeoutMins;
-        $req                                  = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $body['cluster_type'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['region_id'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $body['zone_id'] = $request->zoneId;
+        }
+        if (!Utils::isUnset($request->kubernetesVersion)) {
+            $body['kubernetes_version'] = $request->kubernetesVersion;
+        }
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $body['deletion_protection'] = $request->deletionProtection;
+        }
+        if (!Utils::isUnset($request->runtime)) {
+            $body['runtime'] = $request->runtime;
+        }
+        if (!Utils::isUnset($request->vpcid)) {
+            $body['vpcid'] = $request->vpcid;
+        }
+        if (!Utils::isUnset($request->workerVswitchIds)) {
+            $body['worker_vswitch_ids'] = $request->workerVswitchIds;
+        }
+        if (!Utils::isUnset($request->containerCidr)) {
+            $body['container_cidr'] = $request->containerCidr;
+        }
+        if (!Utils::isUnset($request->serviceCidr)) {
+            $body['service_cidr'] = $request->serviceCidr;
+        }
+        if (!Utils::isUnset($request->nodeCidrMask)) {
+            $body['node_cidr_mask'] = $request->nodeCidrMask;
+        }
+        if (!Utils::isUnset($request->snatEntry)) {
+            $body['snat_entry'] = $request->snatEntry;
+        }
+        if (!Utils::isUnset($request->endpointPublicAccess)) {
+            $body['endpoint_public_access'] = $request->endpointPublicAccess;
+        }
+        if (!Utils::isUnset($request->sshFlags)) {
+            $body['ssh_flags'] = $request->sshFlags;
+        }
+        if (!Utils::isUnset($request->rdsInstances)) {
+            $body['rds_instances'] = $request->rdsInstances;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $body['security_group_id'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->isEnterpriseSecurityGroup)) {
+            $body['is_enterprise_security_group'] = $request->isEnterpriseSecurityGroup;
+        }
+        if (!Utils::isUnset($request->proxyMode)) {
+            $body['proxy_mode'] = $request->proxyMode;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->imagesId)) {
+            $body['images_id'] = $request->imagesId;
+        }
+        if (!Utils::isUnset($request->masterInstanceChargeType)) {
+            $body['master_instance_charge_type'] = $request->masterInstanceChargeType;
+        }
+        if (!Utils::isUnset($request->masterPeriod)) {
+            $body['master_period'] = $request->masterPeriod;
+        }
+        if (!Utils::isUnset($request->masterPeriodUnit)) {
+            $body['master_period_unit'] = $request->masterPeriodUnit;
+        }
+        if (!Utils::isUnset($request->masterAutoRenew)) {
+            $body['master_auto_renew'] = $request->masterAutoRenew;
+        }
+        if (!Utils::isUnset($request->masterAutoRenewPeriod)) {
+            $body['master_auto_renew_period'] = $request->masterAutoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->masterCount)) {
+            $body['master_count'] = $request->masterCount;
+        }
+        if (!Utils::isUnset($request->masterVswitchIds)) {
+            $body['master_vswitch_ids'] = $request->masterVswitchIds;
+        }
+        if (!Utils::isUnset($request->masterInstanceTypes)) {
+            $body['master_instance_types'] = $request->masterInstanceTypes;
+        }
+        if (!Utils::isUnset($request->masterSystemDiskCategory)) {
+            $body['master_system_disk_category'] = $request->masterSystemDiskCategory;
+        }
+        if (!Utils::isUnset($request->masterSystemDiskSize)) {
+            $body['master_system_disk_size'] = $request->masterSystemDiskSize;
+        }
+        if (!Utils::isUnset($request->workerInstanceChargeType)) {
+            $body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
+        }
+        if (!Utils::isUnset($request->workerPeriod)) {
+            $body['worker_period'] = $request->workerPeriod;
+        }
+        if (!Utils::isUnset($request->workerPeriodUnit)) {
+            $body['worker_period_unit'] = $request->workerPeriodUnit;
+        }
+        if (!Utils::isUnset($request->workerAutoRenew)) {
+            $body['worker_auto_renew'] = $request->workerAutoRenew;
+        }
+        if (!Utils::isUnset($request->workerAutoRenewPeriod)) {
+            $body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->numOfNodes)) {
+            $body['num_of_nodes'] = $request->numOfNodes;
+        }
+        if (!Utils::isUnset($request->workerInstanceTypes)) {
+            $body['worker_instance_types'] = $request->workerInstanceTypes;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskCategory)) {
+            $body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskSize)) {
+            $body['worker_system_disk_size'] = $request->workerSystemDiskSize;
+        }
+        if (!Utils::isUnset($request->workerDataDisks)) {
+            $body['worker_data_disks'] = $request->workerDataDisks;
+        }
+        if (!Utils::isUnset($request->osType)) {
+            $body['os_type'] = $request->osType;
+        }
+        if (!Utils::isUnset($request->keyPair)) {
+            $body['key_pair'] = $request->keyPair;
+        }
+        if (!Utils::isUnset($request->loginPassword)) {
+            $body['login_password'] = $request->loginPassword;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $body['user_data'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->nodePortRange)) {
+            $body['node_port_range'] = $request->nodePortRange;
+        }
+        if (!Utils::isUnset($request->cpuPolicy)) {
+            $body['cpu_policy'] = $request->cpuPolicy;
+        }
+        if (!Utils::isUnset($request->taints)) {
+            $body['taints'] = $request->taints;
+        }
+        if (!Utils::isUnset($request->cloudMonitorFlags)) {
+            $body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
+        }
+        if (!Utils::isUnset($request->addons)) {
+            $body['addons'] = $request->addons;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $body['platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->vswitchIds)) {
+            $body['vswitch_ids'] = $request->vswitchIds;
+        }
+        if (!Utils::isUnset($request->privateZone)) {
+            $body['private_zone'] = $request->privateZone;
+        }
+        if (!Utils::isUnset($request->profile)) {
+            $body['profile'] = $request->profile;
+        }
+        if (!Utils::isUnset($request->podVswitchIds)) {
+            $body['pod_vswitch_ids'] = $request->podVswitchIds;
+        }
+        if (!Utils::isUnset($request->disableRollback)) {
+            $body['disable_rollback'] = $request->disableRollback;
+        }
+        if (!Utils::isUnset($request->timeoutMins)) {
+            $body['timeout_mins'] = $request->timeoutMins;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);
@@ -382,12 +504,20 @@ class CS extends OpenApiClient
     public function createKubernetesTriggerWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body              = [];
-        $body['RegionId']  = $request->regionId;
-        $body['ClusterId'] = $request->clusterId;
-        $body['ProjectId'] = $request->projectId;
-        $body['Type']      = $request->type;
-        $req               = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);
@@ -420,9 +550,11 @@ class CS extends OpenApiClient
     public function deleteClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['retain_resources'] = $request->retainResources;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->retainResources)) {
+            $query['retain_resources'] = $request->retainResources;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
@@ -431,30 +563,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                         $Id
-     * @param DeleteKubernetesTriggerRequest $request
+     * @param string $Id
      *
      * @return DeleteKubernetesTriggerResponse
      */
-    public function deleteKubernetesTrigger($Id, $request)
+    public function deleteKubernetesTrigger($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteKubernetesTriggerWithOptions($Id, $request, $headers, $runtime);
+        return $this->deleteKubernetesTriggerWithOptions($Id, $headers, $runtime);
     }
 
     /**
-     * @param string                         $Id
-     * @param DeleteKubernetesTriggerRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param string         $Id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteKubernetesTriggerResponse
      */
-    public function deleteKubernetesTriggerWithOptions($Id, $request, $headers, $runtime)
+    public function deleteKubernetesTriggerWithOptions($Id, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -485,10 +614,14 @@ class CS extends OpenApiClient
     public function describeAddonsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['region']       = $request->region;
-        $query['cluster_type'] = $request->clusterType;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['cluster_type'] = $request->clusterType;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
@@ -497,32 +630,29 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                                   $ClusterId
-     * @param string                                   $ComponentId
-     * @param DescribeClusterAddonUpgradeStatusRequest $request
+     * @param string $ClusterId
+     * @param string $ComponentId
      *
      * @return DescribeClusterAddonUpgradeStatusResponse
      */
-    public function describeClusterAddonUpgradeStatus($ClusterId, $ComponentId, $request)
+    public function describeClusterAddonUpgradeStatus($ClusterId, $ComponentId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $request, $headers, $runtime);
+        return $this->describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $headers, $runtime);
     }
 
     /**
-     * @param string                                   $ClusterId
-     * @param string                                   $ComponentId
-     * @param DescribeClusterAddonUpgradeStatusRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @param string         $ClusterId
+     * @param string         $ComponentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeClusterAddonUpgradeStatusResponse
      */
-    public function describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $request, $headers, $runtime)
+    public function describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -557,9 +687,11 @@ class CS extends OpenApiClient
     public function describeClusterAddonsUpgradeStatusWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['componentIds'] = $request->componentIds;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->componentIds)) {
+            $query['componentIds'] = $request->componentIds;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
@@ -568,30 +700,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                              $ClusterId
-     * @param DescribeClusterAddonsVersionRequest $request
+     * @param string $ClusterId
      *
      * @return DescribeClusterAddonsVersionResponse
      */
-    public function describeClusterAddonsVersion($ClusterId, $request)
+    public function describeClusterAddonsVersion($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterAddonsVersionWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeClusterAddonsVersionWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
-     * @param string                              $ClusterId
-     * @param DescribeClusterAddonsVersionRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeClusterAddonsVersionResponse
      */
-    public function describeClusterAddonsVersionWithOptions($ClusterId, $request, $headers, $runtime)
+    public function describeClusterAddonsVersionWithOptions($ClusterId, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -624,10 +753,14 @@ class CS extends OpenApiClient
     public function describeClusterAttachScriptsWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body            = [];
-        $body['arch']    = $request->arch;
-        $body['options'] = $request->options;
-        $req             = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->arch)) {
+            $body['arch'] = $request->arch;
+        }
+        if (!Utils::isUnset($request->options)) {
+            $body['options'] = $request->options;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);
@@ -636,30 +769,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                       $ClusterId
-     * @param DescribeClusterDetailRequest $request
+     * @param string $ClusterId
      *
      * @return DescribeClusterDetailResponse
      */
-    public function describeClusterDetail($ClusterId, $request)
+    public function describeClusterDetail($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterDetailWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeClusterDetailWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
-     * @param string                       $ClusterId
-     * @param DescribeClusterDetailRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeClusterDetailResponse
      */
-    public function describeClusterDetailWithOptions($ClusterId, $request, $headers, $runtime)
+    public function describeClusterDetailWithOptions($ClusterId, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -668,30 +798,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                     $ClusterId
-     * @param DescribeClusterLogsRequest $request
+     * @param string $ClusterId
      *
      * @return DescribeClusterLogsResponse
      */
-    public function describeClusterLogs($ClusterId, $request)
+    public function describeClusterLogs($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterLogsWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeClusterLogsWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
-     * @param string                     $ClusterId
-     * @param DescribeClusterLogsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeClusterLogsResponse
      */
-    public function describeClusterLogsWithOptions($ClusterId, $request, $headers, $runtime)
+    public function describeClusterLogsWithOptions($ClusterId, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -724,12 +851,20 @@ class CS extends OpenApiClient
     public function describeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['pageSize']    = $request->pageSize;
-        $query['pageNumber']  = $request->pageNumber;
-        $query['nodepool_id'] = $request->nodepoolId;
-        $query['state']       = $request->state;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->nodepoolId)) {
+            $query['nodepool_id'] = $request->nodepoolId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['state'] = $request->state;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
@@ -738,30 +873,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                          $ClusterId
-     * @param DescribeClusterResourcesRequest $request
+     * @param string $ClusterId
      *
      * @return DescribeClusterResourcesResponse
      */
-    public function describeClusterResources($ClusterId, $request)
+    public function describeClusterResources($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterResourcesWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeClusterResourcesWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
-     * @param string                          $ClusterId
-     * @param DescribeClusterResourcesRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeClusterResourcesResponse
      */
-    public function describeClusterResourcesWithOptions($ClusterId, $request, $headers, $runtime)
+    public function describeClusterResourcesWithOptions($ClusterId, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -794,9 +926,11 @@ class CS extends OpenApiClient
     public function describeClusterUserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['PrivateIpAddress'] = $request->privateIpAddress;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
@@ -829,9 +963,11 @@ class CS extends OpenApiClient
     public function describeClusterV2UserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['PrivateIpAddress'] = $request->privateIpAddress;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
@@ -862,10 +998,14 @@ class CS extends OpenApiClient
     public function describeClustersWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['name']        = $request->name;
-        $query['clusterType'] = $request->clusterType;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['clusterType'] = $request->clusterType;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
@@ -896,12 +1036,20 @@ class CS extends OpenApiClient
     public function describeClustersV1WithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Name']        = $request->name;
-        $query['ClusterType'] = $request->clusterType;
-        $query['page_size']   = $request->pageSize;
-        $query['page_number'] = $request->pageNumber;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
@@ -910,30 +1058,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                       $ClusterId
-     * @param DescribeExternalAgentRequest $request
+     * @param string $ClusterId
      *
      * @return DescribeExternalAgentResponse
      */
-    public function describeExternalAgent($ClusterId, $request)
+    public function describeExternalAgent($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeExternalAgentWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeExternalAgentWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
-     * @param string                       $ClusterId
-     * @param DescribeExternalAgentRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeExternalAgentResponse
      */
-    public function describeExternalAgentWithOptions($ClusterId, $request, $headers, $runtime)
+    public function describeExternalAgentWithOptions($ClusterId, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -964,9 +1109,11 @@ class CS extends OpenApiClient
     public function describeTemplatesWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['template_type'] = $request->templateType;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateType)) {
+            $query['template_type'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
@@ -1025,11 +1172,17 @@ class CS extends OpenApiClient
     public function getKubernetesTriggerWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Namespace'] = $request->namespace;
-        $query['Type']      = $request->type;
-        $query['Name']      = $request->name;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->namespace)) {
+            $query['Namespace'] = $request->namespace;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
@@ -1038,30 +1191,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                  $ClusterId
-     * @param GetUpgradeStatusRequest $request
+     * @param string $ClusterId
      *
      * @return GetUpgradeStatusResponse
      */
-    public function getUpgradeStatus($ClusterId, $request)
+    public function getUpgradeStatus($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getUpgradeStatusWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->getUpgradeStatusWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
-     * @param string                  $ClusterId
-     * @param GetUpgradeStatusRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetUpgradeStatusResponse
      */
-    public function getUpgradeStatusWithOptions($ClusterId, $request, $headers, $runtime)
+    public function getUpgradeStatusWithOptions($ClusterId, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1127,14 +1277,26 @@ class CS extends OpenApiClient
     public function modifyClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body                             = [];
-        $body['deletion_protection']      = $request->deletionProtection;
-        $body['ingress_loadbalancer_id']  = $request->ingressLoadbalancerId;
-        $body['api_server_eip']           = $request->apiServerEip;
-        $body['api_server_eip_id']        = $request->apiServerEipId;
-        $body['resource_group_id']        = $request->resourceGroupId;
-        $body['ingress_domain_rebinding'] = $request->ingressDomainRebinding;
-        $req                              = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $body['deletion_protection'] = $request->deletionProtection;
+        }
+        if (!Utils::isUnset($request->ingressLoadbalancerId)) {
+            $body['ingress_loadbalancer_id'] = $request->ingressLoadbalancerId;
+        }
+        if (!Utils::isUnset($request->apiServerEip)) {
+            $body['api_server_eip'] = $request->apiServerEip;
+        }
+        if (!Utils::isUnset($request->apiServerEipId)) {
+            $body['api_server_eip_id'] = $request->apiServerEipId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resource_group_id'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->ingressDomainRebinding)) {
+            $body['ingress_domain_rebinding'] = $request->ingressDomainRebinding;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);
@@ -1167,9 +1329,11 @@ class CS extends OpenApiClient
     public function modifyClusterConfigurationWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body                     = [];
-        $body['customize_config'] = $request->customizeConfig;
-        $req                      = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->customizeConfig)) {
+            $body['customize_config'] = $request->customizeConfig;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);
@@ -1211,32 +1375,29 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                       $clusterid
-     * @param string                       $componentid
-     * @param PauseComponentUpgradeRequest $request
+     * @param string $clusterid
+     * @param string $componentid
      *
      * @return PauseComponentUpgradeResponse
      */
-    public function pauseComponentUpgrade($clusterid, $componentid, $request)
+    public function pauseComponentUpgrade($clusterid, $componentid)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->pauseComponentUpgradeWithOptions($clusterid, $componentid, $request, $headers, $runtime);
+        return $this->pauseComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime);
     }
 
     /**
-     * @param string                       $clusterid
-     * @param string                       $componentid
-     * @param PauseComponentUpgradeRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param string         $clusterid
+     * @param string         $componentid
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return PauseComponentUpgradeResponse
      */
-    public function pauseComponentUpgradeWithOptions($clusterid, $componentid, $request, $headers, $runtime)
+    public function pauseComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1269,11 +1430,17 @@ class CS extends OpenApiClient
     public function removeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body                 = [];
-        $body['release_node'] = $request->releaseNode;
-        $body['drain_node']   = $request->drainNode;
-        $body['nodes']        = $request->nodes;
-        $req                  = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->releaseNode)) {
+            $body['release_node'] = $request->releaseNode;
+        }
+        if (!Utils::isUnset($request->drainNode)) {
+            $body['drain_node'] = $request->drainNode;
+        }
+        if (!Utils::isUnset($request->nodes)) {
+            $body['nodes'] = $request->nodes;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);
@@ -1282,32 +1449,29 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                        $clusterid
-     * @param string                        $componentid
-     * @param ResumeComponentUpgradeRequest $request
+     * @param string $clusterid
+     * @param string $componentid
      *
      * @return ResumeComponentUpgradeResponse
      */
-    public function resumeComponentUpgrade($clusterid, $componentid, $request)
+    public function resumeComponentUpgrade($clusterid, $componentid)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->resumeComponentUpgradeWithOptions($clusterid, $componentid, $request, $headers, $runtime);
+        return $this->resumeComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime);
     }
 
     /**
-     * @param string                        $clusterid
-     * @param string                        $componentid
-     * @param ResumeComponentUpgradeRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param string         $clusterid
+     * @param string         $componentid
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return ResumeComponentUpgradeResponse
      */
-    public function resumeComponentUpgradeWithOptions($clusterid, $componentid, $request, $headers, $runtime)
+    public function resumeComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1345,27 +1509,65 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->taints)) {
             $request->taintsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taints, 'taints', 'json');
         }
-        $body                                = [];
-        $body['count']                       = $request->count;
-        $body['key_pair']                    = $request->keyPair;
-        $body['login_password']              = $request->loginPassword;
-        $body['worker_data_disk']            = $request->workerDataDisk;
-        $body['worker_instance_types']       = $request->workerInstanceTypes;
-        $body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
-        $body['worker_period']               = $request->workerPeriod;
-        $body['worker_period_unit']          = $request->workerPeriodUnit;
-        $body['worker_auto_renew']           = $request->workerAutoRenew;
-        $body['worker_auto_renew_period']    = $request->workerAutoRenewPeriod;
-        $body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
-        $body['worker_system_disk_size']     = $request->workerSystemDiskSize;
-        $body['cloud_monitor_flags']         = $request->cloudMonitorFlags;
-        $body['cpu_policy']                  = $request->cpuPolicy;
-        $body['disable_rollback']            = $request->disableRollback;
-        $body['vswitch_ids']                 = $request->vswitchIds;
-        $body['worker_data_disks']           = $request->workerDataDisks;
-        $body['tags']                        = $request->tags;
-        $body['taints']                      = $request->taintsShrink;
-        $req                                 = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->count)) {
+            $body['count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->keyPair)) {
+            $body['key_pair'] = $request->keyPair;
+        }
+        if (!Utils::isUnset($request->loginPassword)) {
+            $body['login_password'] = $request->loginPassword;
+        }
+        if (!Utils::isUnset($request->workerDataDisk)) {
+            $body['worker_data_disk'] = $request->workerDataDisk;
+        }
+        if (!Utils::isUnset($request->workerInstanceTypes)) {
+            $body['worker_instance_types'] = $request->workerInstanceTypes;
+        }
+        if (!Utils::isUnset($request->workerInstanceChargeType)) {
+            $body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
+        }
+        if (!Utils::isUnset($request->workerPeriod)) {
+            $body['worker_period'] = $request->workerPeriod;
+        }
+        if (!Utils::isUnset($request->workerPeriodUnit)) {
+            $body['worker_period_unit'] = $request->workerPeriodUnit;
+        }
+        if (!Utils::isUnset($request->workerAutoRenew)) {
+            $body['worker_auto_renew'] = $request->workerAutoRenew;
+        }
+        if (!Utils::isUnset($request->workerAutoRenewPeriod)) {
+            $body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskCategory)) {
+            $body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskSize)) {
+            $body['worker_system_disk_size'] = $request->workerSystemDiskSize;
+        }
+        if (!Utils::isUnset($request->cloudMonitorFlags)) {
+            $body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
+        }
+        if (!Utils::isUnset($request->cpuPolicy)) {
+            $body['cpu_policy'] = $request->cpuPolicy;
+        }
+        if (!Utils::isUnset($request->disableRollback)) {
+            $body['disable_rollback'] = $request->disableRollback;
+        }
+        if (!Utils::isUnset($request->vswitchIds)) {
+            $body['vswitch_ids'] = $request->vswitchIds;
+        }
+        if (!Utils::isUnset($request->workerDataDisks)) {
+            $body['worker_data_disks'] = $request->workerDataDisks;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->taintsShrink)) {
+            $body['taints'] = $request->taintsShrink;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);
@@ -1398,31 +1600,77 @@ class CS extends OpenApiClient
     public function scaleOutClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body                                = [];
-        $body['count']                       = $request->count;
-        $body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
-        $body['worker_period']               = $request->workerPeriod;
-        $body['worker_period_unit']          = $request->workerPeriodUnit;
-        $body['worker_auto_renew']           = $request->workerAutoRenew;
-        $body['worker_auto_renew_period']    = $request->workerAutoRenewPeriod;
-        $body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
-        $body['worker_system_disk_size']     = $request->workerSystemDiskSize;
-        $body['worker_data_disk']            = $request->workerDataDisk;
-        $body['key_pair']                    = $request->keyPair;
-        $body['login_password']              = $request->loginPassword;
-        $body['cloud_monitor_flags']         = $request->cloudMonitorFlags;
-        $body['cpu_policy']                  = $request->cpuPolicy;
-        $body['disable_rollback']            = $request->disableRollback;
-        $body['image_id']                    = $request->imageId;
-        $body['user_data']                   = $request->userData;
-        $body['runtime']                     = $request->runtime;
-        $body['vswitch_ids']                 = $request->vswitchIds;
-        $body['worker_instance_types']       = $request->workerInstanceTypes;
-        $body['rds_instances']               = $request->rdsInstances;
-        $body['worker_data_disks']           = $request->workerDataDisks;
-        $body['tags']                        = $request->tags;
-        $body['taints']                      = $request->taints;
-        $req                                 = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->count)) {
+            $body['count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->workerInstanceChargeType)) {
+            $body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
+        }
+        if (!Utils::isUnset($request->workerPeriod)) {
+            $body['worker_period'] = $request->workerPeriod;
+        }
+        if (!Utils::isUnset($request->workerPeriodUnit)) {
+            $body['worker_period_unit'] = $request->workerPeriodUnit;
+        }
+        if (!Utils::isUnset($request->workerAutoRenew)) {
+            $body['worker_auto_renew'] = $request->workerAutoRenew;
+        }
+        if (!Utils::isUnset($request->workerAutoRenewPeriod)) {
+            $body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskCategory)) {
+            $body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskSize)) {
+            $body['worker_system_disk_size'] = $request->workerSystemDiskSize;
+        }
+        if (!Utils::isUnset($request->workerDataDisk)) {
+            $body['worker_data_disk'] = $request->workerDataDisk;
+        }
+        if (!Utils::isUnset($request->keyPair)) {
+            $body['key_pair'] = $request->keyPair;
+        }
+        if (!Utils::isUnset($request->loginPassword)) {
+            $body['login_password'] = $request->loginPassword;
+        }
+        if (!Utils::isUnset($request->cloudMonitorFlags)) {
+            $body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
+        }
+        if (!Utils::isUnset($request->cpuPolicy)) {
+            $body['cpu_policy'] = $request->cpuPolicy;
+        }
+        if (!Utils::isUnset($request->disableRollback)) {
+            $body['disable_rollback'] = $request->disableRollback;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $body['image_id'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $body['user_data'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->runtime)) {
+            $body['runtime'] = $request->runtime;
+        }
+        if (!Utils::isUnset($request->vswitchIds)) {
+            $body['vswitch_ids'] = $request->vswitchIds;
+        }
+        if (!Utils::isUnset($request->workerInstanceTypes)) {
+            $body['worker_instance_types'] = $request->workerInstanceTypes;
+        }
+        if (!Utils::isUnset($request->rdsInstances)) {
+            $body['rds_instances'] = $request->rdsInstances;
+        }
+        if (!Utils::isUnset($request->workerDataDisks)) {
+            $body['worker_data_disks'] = $request->workerDataDisks;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->taints)) {
+            $body['taints'] = $request->taints;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);
@@ -1455,9 +1703,11 @@ class CS extends OpenApiClient
     public function unInstallClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body           = [];
-        $body['addons'] = $request->addons;
-        $req            = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->addons)) {
+            $body['addons'] = $request->addons;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);
@@ -1490,13 +1740,23 @@ class CS extends OpenApiClient
     public function updateTemplateWithOptions($TemplateId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body                  = [];
-        $body['name']          = $request->name;
-        $body['template']      = $request->template;
-        $body['tags']          = $request->tags;
-        $body['description']   = $request->description;
-        $body['template_type'] = $request->templateType;
-        $req                   = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->template)) {
+            $body['template'] = $request->template;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $body['template_type'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);
@@ -1529,11 +1789,17 @@ class CS extends OpenApiClient
     public function upgradeClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body                   = [];
-        $body['component_name'] = $request->componentName;
-        $body['version']        = $request->version;
-        $body['next_version']   = $request->nextVersion;
-        $req                    = new OpenApiRequest([
+        $body = [];
+        if (!Utils::isUnset($request->componentName)) {
+            $body['component_name'] = $request->componentName;
+        }
+        if (!Utils::isUnset($request->version)) {
+            $body['version'] = $request->version;
+        }
+        if (!Utils::isUnset($request->nextVersion)) {
+            $body['next_version'] = $request->nextVersion;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $body,
         ]);

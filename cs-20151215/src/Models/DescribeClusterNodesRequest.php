@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodesRequest extends Model
 {
     /**
-     * @description 集群ID。
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @description 每页展示结果数。
      *
      * @var string
@@ -43,7 +36,6 @@ class DescribeClusterNodesRequest extends Model
      */
     public $state;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
         'pageSize'   => 'pageSize',
         'pageNumber' => 'pageNumber',
         'nodepoolId' => 'nodepool_id',
@@ -57,9 +49,6 @@ class DescribeClusterNodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
@@ -84,9 +73,6 @@ class DescribeClusterNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }

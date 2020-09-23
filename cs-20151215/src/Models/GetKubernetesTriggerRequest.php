@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetKubernetesTriggerRequest extends Model
 {
     /**
-     * @description 集群ID
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @description 应用所属命名空间。
      *
      * @var string
@@ -36,7 +29,6 @@ class GetKubernetesTriggerRequest extends Model
      */
     public $name;
     protected $_name = [
-        'clusterId' => 'ClusterId',
         'namespace' => 'Namespace',
         'type'      => 'Type',
         'name'      => 'Name',
@@ -49,9 +41,6 @@ class GetKubernetesTriggerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -73,9 +62,6 @@ class GetKubernetesTriggerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

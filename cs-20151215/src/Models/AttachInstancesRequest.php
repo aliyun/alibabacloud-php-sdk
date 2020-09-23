@@ -11,13 +11,6 @@ use AlibabaCloud\Tea\Model;
 class AttachInstancesRequest extends Model
 {
     /**
-     * @description 集群ID。
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @description 待添加的实例列表。
      *
      * @var string[]
@@ -108,7 +101,6 @@ class AttachInstancesRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'clusterId'        => 'ClusterId',
         'instances'        => 'instances',
         'runtime'          => 'runtime',
         'imageId'          => 'image_id',
@@ -131,9 +123,6 @@ class AttachInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->instances) {
             $res['instances'] = $this->instances;
         }
@@ -191,9 +180,6 @@ class AttachInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['instances'])) {
             if (!empty($map['instances'])) {
                 $model->instances = $map['instances'];

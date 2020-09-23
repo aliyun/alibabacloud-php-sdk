@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClusterRequest extends Model
 {
     /**
-     * @description 集群ID。
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @description 组件名称，集群升级时取值"k8s"。
      *
      * @var string
@@ -36,7 +29,6 @@ class UpgradeClusterRequest extends Model
      */
     public $nextVersion;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
         'componentName' => 'component_name',
         'version'       => 'version',
         'nextVersion'   => 'next_version',
@@ -49,9 +41,6 @@ class UpgradeClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->componentName) {
             $res['component_name'] = $this->componentName;
         }
@@ -73,9 +62,6 @@ class UpgradeClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['component_name'])) {
             $model->componentName = $map['component_name'];
         }

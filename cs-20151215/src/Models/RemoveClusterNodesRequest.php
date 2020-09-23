@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RemoveClusterNodesRequest extends Model
 {
     /**
-     * @description 集群ID。
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @description 是否同时释放ECS。
      *
      * @var bool
@@ -36,7 +29,6 @@ class RemoveClusterNodesRequest extends Model
      */
     public $nodes;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
         'releaseNode' => 'release_node',
         'drainNode'   => 'drain_node',
         'nodes'       => 'nodes',
@@ -49,9 +41,6 @@ class RemoveClusterNodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->releaseNode) {
             $res['release_node'] = $this->releaseNode;
         }
@@ -73,9 +62,6 @@ class RemoveClusterNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['release_node'])) {
             $model->releaseNode = $map['release_node'];
         }

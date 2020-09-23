@@ -13,13 +13,6 @@ use AlibabaCloud\Tea\Model;
 class ScaleOutClusterRequest extends Model
 {
     /**
-     * @description 扩容目标集群的集群ID。
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @description 扩容实例数量。
      *
      * @var int
@@ -180,7 +173,6 @@ class ScaleOutClusterRequest extends Model
      */
     public $taints;
     protected $_name = [
-        'clusterId'                => 'ClusterId',
         'count'                    => 'count',
         'workerInstanceChargeType' => 'worker_instance_charge_type',
         'workerPeriod'             => 'worker_period',
@@ -213,9 +205,6 @@ class ScaleOutClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
@@ -315,9 +304,6 @@ class ScaleOutClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }

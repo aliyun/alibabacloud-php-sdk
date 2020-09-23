@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterRequest extends Model
 {
     /**
-     * @description 集群ID。
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @description 集群是否开启删除保护。
      *
      * @var bool
@@ -57,7 +50,6 @@ class ModifyClusterRequest extends Model
      */
     public $ingressDomainRebinding;
     protected $_name = [
-        'clusterId'              => 'ClusterId',
         'deletionProtection'     => 'deletion_protection',
         'ingressLoadbalancerId'  => 'ingress_loadbalancer_id',
         'apiServerEip'           => 'api_server_eip',
@@ -73,9 +65,6 @@ class ModifyClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->deletionProtection) {
             $res['deletion_protection'] = $this->deletionProtection;
         }
@@ -106,9 +95,6 @@ class ModifyClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['deletion_protection'])) {
             $model->deletionProtection = $map['deletion_protection'];
         }

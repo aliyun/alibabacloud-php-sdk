@@ -10,21 +10,13 @@ use AlibabaCloud\Tea\Model;
 class UnInstallClusterAddonsRequest extends Model
 {
     /**
-     * @description 集群ID。
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @description 卸载组件列表。
      *
      * @var addons[]
      */
     public $addons;
     protected $_name = [
-        'clusterId' => 'ClusterId',
-        'addons'    => 'addons',
+        'addons' => 'addons',
     ];
 
     public function validate()
@@ -34,9 +26,6 @@ class UnInstallClusterAddonsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->addons) {
             $res['addons'] = [];
             if (null !== $this->addons && \is_array($this->addons)) {
@@ -58,9 +47,6 @@ class UnInstallClusterAddonsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['addons'])) {
             if (!empty($map['addons'])) {
                 $model->addons = [];

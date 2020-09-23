@@ -10,13 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterAttachScriptsRequest extends Model
 {
     /**
-     * @description 集群ID。
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @description 节点CPU架构,支持amd64、arm、arm64。
      *
      * @var string
@@ -30,9 +23,8 @@ class DescribeClusterAttachScriptsRequest extends Model
      */
     public $options;
     protected $_name = [
-        'clusterId' => 'ClusterId',
-        'arch'      => 'arch',
-        'options'   => 'options',
+        'arch'    => 'arch',
+        'options' => 'options',
     ];
 
     public function validate()
@@ -42,9 +34,6 @@ class DescribeClusterAttachScriptsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->arch) {
             $res['arch'] = $this->arch;
         }
@@ -63,9 +52,6 @@ class DescribeClusterAttachScriptsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['arch'])) {
             $model->arch = $map['arch'];
         }

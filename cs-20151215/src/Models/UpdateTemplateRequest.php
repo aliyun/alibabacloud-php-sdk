@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
-     * @description 部署模板ID。
-     *
-     * @var string
-     */
-    public $templateId;
-
-    /**
      * @description 部署模板名称。
      *
      * @var string
@@ -50,7 +43,6 @@ class UpdateTemplateRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'templateId'   => 'TemplateId',
         'name'         => 'name',
         'template'     => 'template',
         'tags'         => 'tags',
@@ -65,9 +57,6 @@ class UpdateTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -95,9 +84,6 @@ class UpdateTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
