@@ -2,14 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20200212\Models;
+namespace AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch;
 
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\SearchImageByPicResponse\auctions;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\SearchImageByPicResponse\head;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\SearchImageByPicResponse\picInfo;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\SearchImageByNameResponse\auctions;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\SearchImageByNameResponse\head;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\SearchImageByNameResponse\picInfo;
 use AlibabaCloud\Tea\Model;
 
-class SearchImageByPicResponse extends Model
+class SearchImageByNameResponse extends Model
 {
     /**
      * @var string
@@ -103,7 +103,7 @@ class SearchImageByPicResponse extends Model
     /**
      * @param array $map
      *
-     * @return SearchImageByPicResponse
+     * @return SearchImageByNameResponse
      */
     public static function fromMap($map = [])
     {

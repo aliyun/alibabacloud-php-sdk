@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20200212\Models\SearchImageByPicResponse;
+namespace AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\SearchImageByPicResponse;
 
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\SearchImageByPicResponse\picInfo\allCategories;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\SearchImageByPicResponse\picInfo\allCategories;
 use AlibabaCloud\Tea\Model;
 
 class picInfo extends Model

@@ -2,17 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20200212\Models;
+namespace AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch;
 
 use AlibabaCloud\Tea\Model;
 
-class AddImageAdvanceRequest extends Model
+class AddImageRequest extends Model
 {
-    /**
-     * @var Stream
-     */
-    public $picContentObject;
-
     /**
      * @var string
      */
@@ -32,6 +27,11 @@ class AddImageAdvanceRequest extends Model
      * @var string
      */
     public $picName;
+
+    /**
+     * @var string
+     */
+    public $picContent;
 
     /**
      * @var bool
@@ -58,32 +58,29 @@ class AddImageAdvanceRequest extends Model
      */
     public $strAttr;
     protected $_name = [
-        'picContentObject' => 'PicContentObject',
-        'instanceName'     => 'InstanceName',
-        'categoryId'       => 'CategoryId',
-        'productId'        => 'ProductId',
-        'picName'          => 'PicName',
-        'crop'             => 'Crop',
-        'region'           => 'Region',
-        'customContent'    => 'CustomContent',
-        'intAttr'          => 'IntAttr',
-        'strAttr'          => 'StrAttr',
+        'instanceName'  => 'InstanceName',
+        'categoryId'    => 'CategoryId',
+        'productId'     => 'ProductId',
+        'picName'       => 'PicName',
+        'picContent'    => 'PicContent',
+        'crop'          => 'Crop',
+        'region'        => 'Region',
+        'customContent' => 'CustomContent',
+        'intAttr'       => 'IntAttr',
+        'strAttr'       => 'StrAttr',
     ];
 
     public function validate()
     {
-        Model::validateRequired('picContentObject', $this->picContentObject, true);
         Model::validateRequired('instanceName', $this->instanceName, true);
         Model::validateRequired('productId', $this->productId, true);
         Model::validateRequired('picName', $this->picName, true);
+        Model::validateRequired('picContent', $this->picContent, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->picContentObject) {
-            $res['PicContentObject'] = $this->picContentObject;
-        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -95,6 +92,9 @@ class AddImageAdvanceRequest extends Model
         }
         if (null !== $this->picName) {
             $res['PicName'] = $this->picName;
+        }
+        if (null !== $this->picContent) {
+            $res['PicContent'] = $this->picContent;
         }
         if (null !== $this->crop) {
             $res['Crop'] = $this->crop;
@@ -118,14 +118,11 @@ class AddImageAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return AddImageAdvanceRequest
+     * @return AddImageRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PicContentObject'])) {
-            $model->picContentObject = $map['PicContentObject'];
-        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
@@ -137,6 +134,9 @@ class AddImageAdvanceRequest extends Model
         }
         if (isset($map['PicName'])) {
             $model->picName = $map['PicName'];
+        }
+        if (isset($map['PicContent'])) {
+            $model->picContent = $map['PicContent'];
         }
         if (isset($map['Crop'])) {
             $model->crop = $map['Crop'];

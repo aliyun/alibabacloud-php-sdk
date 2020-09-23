@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20200212\Models\AddImageResponse;
+namespace AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\AddImageResponse;
 
 use AlibabaCloud\Tea\Model;
 
