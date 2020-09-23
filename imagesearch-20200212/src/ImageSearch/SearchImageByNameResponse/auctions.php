@@ -2,17 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20200212\Models;
+namespace AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\SearchImageByNameResponse;
 
 use AlibabaCloud\Tea\Model;
 
-class AddImageRequest extends Model
+class auctions extends Model
 {
-    /**
-     * @var string
-     */
-    public $instanceName;
-
     /**
      * @var int
      */
@@ -31,22 +26,12 @@ class AddImageRequest extends Model
     /**
      * @var string
      */
-    public $picContent;
-
-    /**
-     * @var bool
-     */
-    public $crop;
-
-    /**
-     * @var string
-     */
-    public $region;
-
-    /**
-     * @var string
-     */
     public $customContent;
+
+    /**
+     * @var string
+     */
+    public $sortExprValues;
 
     /**
      * @var int
@@ -58,32 +43,29 @@ class AddImageRequest extends Model
      */
     public $strAttr;
     protected $_name = [
-        'instanceName'  => 'InstanceName',
-        'categoryId'    => 'CategoryId',
-        'productId'     => 'ProductId',
-        'picName'       => 'PicName',
-        'picContent'    => 'PicContent',
-        'crop'          => 'Crop',
-        'region'        => 'Region',
-        'customContent' => 'CustomContent',
-        'intAttr'       => 'IntAttr',
-        'strAttr'       => 'StrAttr',
+        'categoryId'     => 'CategoryId',
+        'productId'      => 'ProductId',
+        'picName'        => 'PicName',
+        'customContent'  => 'CustomContent',
+        'sortExprValues' => 'SortExprValues',
+        'intAttr'        => 'IntAttr',
+        'strAttr'        => 'StrAttr',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceName', $this->instanceName, true);
+        Model::validateRequired('categoryId', $this->categoryId, true);
         Model::validateRequired('productId', $this->productId, true);
         Model::validateRequired('picName', $this->picName, true);
-        Model::validateRequired('picContent', $this->picContent, true);
+        Model::validateRequired('customContent', $this->customContent, true);
+        Model::validateRequired('sortExprValues', $this->sortExprValues, true);
+        Model::validateRequired('intAttr', $this->intAttr, true);
+        Model::validateRequired('strAttr', $this->strAttr, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
@@ -93,17 +75,11 @@ class AddImageRequest extends Model
         if (null !== $this->picName) {
             $res['PicName'] = $this->picName;
         }
-        if (null !== $this->picContent) {
-            $res['PicContent'] = $this->picContent;
-        }
-        if (null !== $this->crop) {
-            $res['Crop'] = $this->crop;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
         if (null !== $this->customContent) {
             $res['CustomContent'] = $this->customContent;
+        }
+        if (null !== $this->sortExprValues) {
+            $res['SortExprValues'] = $this->sortExprValues;
         }
         if (null !== $this->intAttr) {
             $res['IntAttr'] = $this->intAttr;
@@ -118,14 +94,11 @@ class AddImageRequest extends Model
     /**
      * @param array $map
      *
-     * @return AddImageRequest
+     * @return auctions
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
@@ -135,17 +108,11 @@ class AddImageRequest extends Model
         if (isset($map['PicName'])) {
             $model->picName = $map['PicName'];
         }
-        if (isset($map['PicContent'])) {
-            $model->picContent = $map['PicContent'];
-        }
-        if (isset($map['Crop'])) {
-            $model->crop = $map['Crop'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
         if (isset($map['CustomContent'])) {
             $model->customContent = $map['CustomContent'];
+        }
+        if (isset($map['SortExprValues'])) {
+            $model->sortExprValues = $map['SortExprValues'];
         }
         if (isset($map['IntAttr'])) {
             $model->intAttr = $map['IntAttr'];

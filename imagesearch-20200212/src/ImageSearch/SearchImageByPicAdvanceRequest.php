@@ -2,12 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20200212\Models;
+namespace AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class SearchImageByPicRequest extends Model
+class SearchImageByPicAdvanceRequest extends Model
 {
+    /**
+     * @var Stream
+     */
+    public $picContentObject;
+
     /**
      * @var int
      */
@@ -17,11 +23,6 @@ class SearchImageByPicRequest extends Model
      * @var string
      */
     public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $picContent;
 
     /**
      * @var bool
@@ -48,33 +49,33 @@ class SearchImageByPicRequest extends Model
      */
     public $filter;
     protected $_name = [
-        'categoryId'   => 'CategoryId',
-        'instanceName' => 'InstanceName',
-        'picContent'   => 'PicContent',
-        'crop'         => 'Crop',
-        'region'       => 'Region',
-        'num'          => 'Num',
-        'start'        => 'Start',
-        'filter'       => 'Filter',
+        'picContentObject' => 'PicContentObject',
+        'categoryId'       => 'CategoryId',
+        'instanceName'     => 'InstanceName',
+        'crop'             => 'Crop',
+        'region'           => 'Region',
+        'num'              => 'Num',
+        'start'            => 'Start',
+        'filter'           => 'Filter',
     ];
 
     public function validate()
     {
+        Model::validateRequired('picContentObject', $this->picContentObject, true);
         Model::validateRequired('instanceName', $this->instanceName, true);
-        Model::validateRequired('picContent', $this->picContent, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->picContentObject) {
+            $res['PicContentObject'] = $this->picContentObject;
+        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->picContent) {
-            $res['PicContent'] = $this->picContent;
         }
         if (null !== $this->crop) {
             $res['Crop'] = $this->crop;
@@ -98,19 +99,19 @@ class SearchImageByPicRequest extends Model
     /**
      * @param array $map
      *
-     * @return SearchImageByPicRequest
+     * @return SearchImageByPicAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PicContentObject'])) {
+            $model->picContentObject = $map['PicContentObject'];
+        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['PicContent'])) {
-            $model->picContent = $map['PicContent'];
         }
         if (isset($map['Crop'])) {
             $model->crop = $map['Crop'];

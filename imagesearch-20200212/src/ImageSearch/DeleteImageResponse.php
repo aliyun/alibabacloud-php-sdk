@@ -2,12 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20200212\Models;
+namespace AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch;
 
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\AddImageResponse\picInfo;
 use AlibabaCloud\Tea\Model;
 
-class AddImageResponse extends Model
+class DeleteImageResponse extends Model
 {
     /**
      * @var string
@@ -28,17 +27,11 @@ class AddImageResponse extends Model
      * @var int
      */
     public $code;
-
-    /**
-     * @var picInfo
-     */
-    public $picInfo;
     protected $_name = [
         'requestId' => 'RequestId',
         'success'   => 'Success',
         'message'   => 'Message',
         'code'      => 'Code',
-        'picInfo'   => 'PicInfo',
     ];
 
     public function validate()
@@ -47,7 +40,6 @@ class AddImageResponse extends Model
         Model::validateRequired('success', $this->success, true);
         Model::validateRequired('message', $this->message, true);
         Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('picInfo', $this->picInfo, true);
     }
 
     public function toMap()
@@ -65,9 +57,6 @@ class AddImageResponse extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->picInfo) {
-            $res['PicInfo'] = null !== $this->picInfo ? $this->picInfo->toMap() : null;
-        }
 
         return $res;
     }
@@ -75,7 +64,7 @@ class AddImageResponse extends Model
     /**
      * @param array $map
      *
-     * @return AddImageResponse
+     * @return DeleteImageResponse
      */
     public static function fromMap($map = [])
     {
@@ -91,9 +80,6 @@ class AddImageResponse extends Model
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['PicInfo'])) {
-            $model->picInfo = picInfo::fromMap($map['PicInfo']);
         }
 
         return $model;

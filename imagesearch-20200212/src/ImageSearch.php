@@ -5,16 +5,16 @@
 namespace AlibabaCloud\SDK\ImageSearch\V20200212;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\AddImageAdvanceRequest;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\AddImageRequest;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\AddImageResponse;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\DeleteImageRequest;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\DeleteImageResponse;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\SearchImageByNameRequest;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\SearchImageByNameResponse;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\SearchImageByPicAdvanceRequest;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\SearchImageByPicRequest;
-use AlibabaCloud\SDK\ImageSearch\V20200212\Models\SearchImageByPicResponse;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\AddImageAdvanceRequest;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\AddImageRequest;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\AddImageResponse;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\DeleteImageRequest;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\DeleteImageResponse;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\SearchImageByNameRequest;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\SearchImageByNameResponse;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\SearchImageByPicAdvanceRequest;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\SearchImageByPicRequest;
+use AlibabaCloud\SDK\ImageSearch\V20200212\ImageSearch\SearchImageByPicResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
@@ -47,7 +47,7 @@ class ImageSearch extends Rpc
     {
         Utils::validateModel($request);
 
-        return SearchImageByNameResponse::fromMap($this->doRequest('SearchImageByName', 'HTTPS', 'POST', '2020-02-12', 'AK', null, $request, $runtime));
+        return SearchImageByNameResponse::fromMap($this->doRequest('SearchImageByName', 'HTTPS', 'POST', '2020-02-12', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -60,7 +60,7 @@ class ImageSearch extends Rpc
     {
         Utils::validateModel($request);
 
-        return SearchImageByPicResponse::fromMap($this->doRequest('SearchImageByPic', 'HTTPS', 'POST', '2020-02-12', 'AK', null, $request, $runtime));
+        return SearchImageByPicResponse::fromMap($this->doRequest('SearchImageByPic', 'HTTPS', 'POST', '2020-02-12', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -139,7 +139,7 @@ class ImageSearch extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteImageResponse::fromMap($this->doRequest('DeleteImage', 'HTTPS', 'POST', '2020-02-12', 'AK', null, $request, $runtime));
+        return DeleteImageResponse::fromMap($this->doRequest('DeleteImage', 'HTTPS', 'POST', '2020-02-12', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -152,7 +152,7 @@ class ImageSearch extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddImageResponse::fromMap($this->doRequest('AddImage', 'HTTPS', 'POST', '2020-02-12', 'AK', null, $request, $runtime));
+        return AddImageResponse::fromMap($this->doRequest('AddImage', 'HTTPS', 'POST', '2020-02-12', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
