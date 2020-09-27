@@ -952,7 +952,7 @@ class CS extends OpenApiClient
             'headers' => $headers,
         ]);
 
-        return DescribeClusterNodePoolDetailResponse::fromMap($this->doROARequest('DescribeClusterNodePoolDetail', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}', 'none', $req, $runtime));
+        return DescribeClusterNodePoolDetailResponse::fromMap($this->doROARequest('DescribeClusterNodePoolDetail', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}', 'json', $req, $runtime));
     }
 
     /**
@@ -1524,7 +1524,7 @@ class CS extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doROARequest('ListTagResources', '2015-12-15', 'HTTPS', 'GET', 'AK', '/tags', 'none', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->doROARequest('ListTagResources', '2015-12-15', 'HTTPS', 'GET', 'AK', '/tags', 'json', $req, $runtime));
     }
 
     /**

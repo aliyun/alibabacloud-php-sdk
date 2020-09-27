@@ -12,13 +12,20 @@ class ListTagResourcesResponse extends Model
      * @var string[]
      */
     public $headers;
+
+    /**
+     * @var ListTagResourcesResponseBody
+     */
+    public $body;
     protected $_name = [
         'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
         Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -26,6 +33,9 @@ class ListTagResourcesResponse extends Model
         $res = [];
         if (null !== $this->headers) {
             $res['headers'] = $this->headers;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -41,6 +51,9 @@ class ListTagResourcesResponse extends Model
         $model = new self();
         if (isset($map['headers'])) {
             $model->headers = $map['headers'];
+        }
+        if (isset($map['body'])) {
+            $model->body = ListTagResourcesResponseBody::fromMap($map['body']);
         }
 
         return $model;
