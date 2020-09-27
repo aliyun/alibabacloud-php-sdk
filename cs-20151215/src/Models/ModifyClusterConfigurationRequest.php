@@ -4,19 +4,27 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterConfigurationRequest\customizeConfig;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterConfigurationRequest\configs;
 use AlibabaCloud\Tea\Model;
 
 class ModifyClusterConfigurationRequest extends Model
 {
     /**
-     * @description 自定配置。
+     * @description 配置集合。
      *
-     * @var customizeConfig
+     * @var configs
      */
-    public $customizeConfig;
+    public $configs;
+
+    /**
+     * @description 配置名称。
+     *
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'customizeConfig' => 'customize_config',
+        'configs' => 'configs',
+        'name'    => 'name',
     ];
 
     public function validate()
@@ -26,8 +34,11 @@ class ModifyClusterConfigurationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->customizeConfig) {
-            $res['customize_config'] = null !== $this->customizeConfig ? $this->customizeConfig->toMap() : null;
+        if (null !== $this->configs) {
+            $res['configs'] = null !== $this->configs ? $this->configs->toMap() : null;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
         return $res;
@@ -41,8 +52,11 @@ class ModifyClusterConfigurationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['customize_config'])) {
-            $model->customizeConfig = customizeConfig::fromMap($map['customize_config']);
+        if (isset($map['configs'])) {
+            $model->configs = configs::fromMap($map['configs']);
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
         return $model;

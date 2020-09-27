@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponseBody\componentGroups;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponseBody\standardComponents;
 use AlibabaCloud\Tea\Model;
 
 class DescribeAddonsResponseBody extends Model
@@ -20,7 +19,7 @@ class DescribeAddonsResponseBody extends Model
     /**
      * @description 标准组件信息，包含各个组件的描述信息。
      *
-     * @var standardComponents
+     * @var mixed[][]
      */
     public $standardComponents;
     protected $_name = [
@@ -45,7 +44,7 @@ class DescribeAddonsResponseBody extends Model
             }
         }
         if (null !== $this->standardComponents) {
-            $res['StandardComponents'] = null !== $this->standardComponents ? $this->standardComponents->toMap() : null;
+            $res['StandardComponents'] = $this->standardComponents;
         }
 
         return $res;
@@ -69,7 +68,7 @@ class DescribeAddonsResponseBody extends Model
             }
         }
         if (isset($map['StandardComponents'])) {
-            $model->standardComponents = standardComponents::fromMap($map['StandardComponents']);
+            $model->standardComponents = $map['StandardComponents'];
         }
 
         return $model;

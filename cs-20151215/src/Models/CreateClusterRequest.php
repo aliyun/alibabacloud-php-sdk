@@ -14,11 +14,18 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
-     * @description 集群名称。
+     * @description 组件信息。
      *
-     * @var string
+     * @var addons[]
      */
-    public $name;
+    public $addons;
+
+    /**
+     * @description 是否安装云监控插件。
+     *
+     * @var bool
+     */
+    public $cloudMonitorFlags;
 
     /**
      * @description 集群类型
@@ -28,55 +35,6 @@ class CreateClusterRequest extends Model
     public $clusterType;
 
     /**
-     * @description 集群所属地域ID。
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @description 集群所属地域内的可用区ID。
-     *
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @description 集群版本好。
-     *
-     * @var string
-     */
-    public $kubernetesVersion;
-
-    /**
-     * @description 集群是否开启删除保护。
-     *
-     * @var string
-     */
-    public $deletionProtection;
-
-    /**
-     * @description 容器运行时。
-     *
-     * @var runtime
-     */
-    public $runtime;
-
-    /**
-     * @description 集群使用的VPC。
-     *
-     * @var string
-     */
-    public $vpcid;
-
-    /**
-     * @description 集群使用的虚拟交换机。
-     *
-     * @var string[]
-     */
-    public $workerVswitchIds;
-
-    /**
      * @description POD网络地址段。
      *
      * @var string
@@ -84,25 +42,25 @@ class CreateClusterRequest extends Model
     public $containerCidr;
 
     /**
-     * @description Service网络地址段。
+     * @description CPU管理策略。
      *
      * @var string
      */
-    public $serviceCidr;
+    public $cpuPolicy;
 
     /**
-     * @description 节点IP数量，这里通过CIDR来指定。
-     *
-     * @var string
-     */
-    public $nodeCidrMask;
-
-    /**
-     * @description 集群是否配置SNAT。
+     * @description 集群是否开启删除保护。
      *
      * @var bool
      */
-    public $snatEntry;
+    public $deletionProtection;
+
+    /**
+     * @description 集群创建失败后是否回滚。
+     *
+     * @var bool
+     */
+    public $disableRollback;
 
     /**
      * @description 集群是否运行公网访问。
@@ -112,25 +70,11 @@ class CreateClusterRequest extends Model
     public $endpointPublicAccess;
 
     /**
-     * @description 集群是否开启公网SSH登录。
-     *
-     * @var bool
-     */
-    public $sshFlags;
-
-    /**
-     * @description RDS列表，将该ECS加入到选择的RDS实例的白名单中。。
-     *
-     * @var string[]
-     */
-    public $rdsInstances;
-
-    /**
-     * @description 自定义安全组ID。
+     * @description 自定义镜像ID。
      *
      * @var string
      */
-    public $securityGroupId;
+    public $imagesId;
 
     /**
      * @description 是否自动创建企业安全组，与security_group_id二选一。
@@ -140,46 +84,25 @@ class CreateClusterRequest extends Model
     public $isEnterpriseSecurityGroup;
 
     /**
-     * @description kube-proxy代理模式。
+     * @description key_pair名称，和login_password二选一。
      *
      * @var string
      */
-    public $proxyMode;
+    public $keyPair;
 
     /**
-     * @description 集群标签。
-     *
-     * @var tags[]
-     */
-    public $tags;
-
-    /**
-     * @description 自定义镜像ID。
+     * @description 集群版本好。
      *
      * @var string
      */
-    public $imagesId;
+    public $kubernetesVersion;
 
     /**
-     * @description Master节点付费类型。
+     * @description SSH登录密码，与key_pair二选一。
      *
      * @var string
      */
-    public $masterInstanceChargeType;
-
-    /**
-     * @description Master节点包年包月时长，当master_instance_charge_type取值为PrePaid时才生效且为必选值。
-     *
-     * @var int
-     */
-    public $masterPeriod;
-
-    /**
-     * @description Master节点包年包月周期。
-     *
-     * @var string
-     */
-    public $masterPeriodUnit;
+    public $loginPassword;
 
     /**
      * @description Master节点是否自动续费。
@@ -203,11 +126,11 @@ class CreateClusterRequest extends Model
     public $masterCount;
 
     /**
-     * @description Master节点交换机ID列表。
+     * @description Master节点付费类型。
      *
-     * @var string[]
+     * @var string
      */
-    public $masterVswitchIds;
+    public $masterInstanceChargeType;
 
     /**
      * @description Master节点ECS规格类型。
@@ -215,6 +138,20 @@ class CreateClusterRequest extends Model
      * @var string[]
      */
     public $masterInstanceTypes;
+
+    /**
+     * @description Master节点包年包月时长，当master_instance_charge_type取值为PrePaid时才生效且为必选值。
+     *
+     * @var int
+     */
+    public $masterPeriod;
+
+    /**
+     * @description Master节点包年包月周期。
+     *
+     * @var string
+     */
+    public $masterPeriodUnit;
 
     /**
      * @description Master节点系统盘类型。
@@ -231,102 +168,25 @@ class CreateClusterRequest extends Model
     public $masterSystemDiskSize;
 
     /**
-     * @description Worker节点付费类型。
-     *
-     * @var string
-     */
-    public $workerInstanceChargeType;
-
-    /**
-     * @description Worker节点包年包月时长。
-     *
-     * @var int
-     */
-    public $workerPeriod;
-
-    /**
-     * @description Worker节点包年包月周期。
-     *
-     * @var string
-     */
-    public $workerPeriodUnit;
-
-    /**
-     * @description Worker节点是否自动续费。
-     *
-     * @var bool
-     */
-    public $workerAutoRenew;
-
-    /**
-     * @description Worker节点自动续费周期。
-     *
-     * @var int
-     */
-    public $workerAutoRenewPeriod;
-
-    /**
-     * @description Worker节点数量。
-     *
-     * @var int
-     */
-    public $numOfNodes;
-
-    /**
-     * @description Worker节点ECS实例类型。
+     * @description Master节点交换机ID列表。
      *
      * @var string[]
      */
-    public $workerInstanceTypes;
+    public $masterVswitchIds;
 
     /**
-     * @description Worker节点系统盘类型。
+     * @description 集群名称。
      *
      * @var string
      */
-    public $workerSystemDiskCategory;
+    public $name;
 
     /**
-     * @description Worker节点系统盘大小。
-     *
-     * @var int
-     */
-    public $workerSystemDiskSize;
-
-    /**
-     * @description Worker节点数据盘配置。
-     *
-     * @var workerDataDisks[]
-     */
-    public $workerDataDisks;
-
-    /**
-     * @description 操作系统。
+     * @description 节点IP数量，这里通过CIDR来指定。
      *
      * @var string
      */
-    public $osType;
-
-    /**
-     * @description key_pair名称，和login_password二选一。
-     *
-     * @var string
-     */
-    public $keyPair;
-
-    /**
-     * @description SSH登录密码，与key_pair二选一。
-     *
-     * @var string
-     */
-    public $loginPassword;
-
-    /**
-     * @description 节点用户自定义数据。
-     *
-     * @var string
-     */
-    public $userData;
+    public $nodeCidrMask;
 
     /**
      * @description 节点服务端口范围。
@@ -336,32 +196,18 @@ class CreateClusterRequest extends Model
     public $nodePortRange;
 
     /**
-     * @description CPU管理策略。
+     * @description Worker节点数量。
+     *
+     * @var int
+     */
+    public $numOfNodes;
+
+    /**
+     * @description 操作系统。
      *
      * @var string
      */
-    public $cpuPolicy;
-
-    /**
-     * @description 污点信息。
-     *
-     * @var taints[]
-     */
-    public $taints;
-
-    /**
-     * @description 是否安装云监控插件。
-     *
-     * @var bool
-     */
-    public $cloudMonitorFlags;
-
-    /**
-     * @description 组件信息。
-     *
-     * @var addons[]
-     */
-    public $addons;
+    public $osType;
 
     /**
      * @description 操作系统发行版。
@@ -371,11 +217,11 @@ class CreateClusterRequest extends Model
     public $platform;
 
     /**
-     * @description 虚拟交换机列表。List长度范围为[1，3]。当集群类型为托管版或标准serverless集群时，该参数必填。
+     * @description Pod的虚拟交换机列表，在ENI多网卡模式下，需要传额外的VSwitch ID给addon。
      *
      * @var string[]
      */
-    public $vswitchIds;
+    public $podVswitchIds;
 
     /**
      * @description 是否开启PrivateZone用于服务发现。
@@ -392,18 +238,74 @@ class CreateClusterRequest extends Model
     public $profile;
 
     /**
-     * @description Pod的虚拟交换机列表，在ENI多网卡模式下，需要传额外的VSwitch ID给addon。
+     * @description kube-proxy代理模式。
+     *
+     * @var string
+     */
+    public $proxyMode;
+
+    /**
+     * @description RDS列表，将该ECS加入到选择的RDS实例的白名单中。。
      *
      * @var string[]
      */
-    public $podVswitchIds;
+    public $rdsInstances;
 
     /**
-     * @description 集群创建失败后是否回滚。
+     * @description 集群所属地域ID。
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description 容器运行时。
+     *
+     * @var runtime
+     */
+    public $runtime;
+
+    /**
+     * @description 自定义安全组ID。
+     *
+     * @var string
+     */
+    public $securityGroupId;
+
+    /**
+     * @description Service网络地址段。
+     *
+     * @var string
+     */
+    public $serviceCidr;
+
+    /**
+     * @description 集群是否配置SNAT。
      *
      * @var bool
      */
-    public $disableRollback;
+    public $snatEntry;
+
+    /**
+     * @description 集群是否开启公网SSH登录。
+     *
+     * @var bool
+     */
+    public $sshFlags;
+
+    /**
+     * @description 集群标签。
+     *
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description 污点信息。
+     *
+     * @var taints[]
+     */
+    public $taints;
 
     /**
      * @description 集群创建超时时间。
@@ -411,64 +313,162 @@ class CreateClusterRequest extends Model
      * @var int
      */
     public $timeoutMins;
+
+    /**
+     * @description 节点用户自定义数据。
+     *
+     * @var string
+     */
+    public $userData;
+
+    /**
+     * @description 集群使用的VPC。
+     *
+     * @var string
+     */
+    public $vpcid;
+
+    /**
+     * @description 虚拟交换机列表。List长度范围为[1，3]。当集群类型为托管版或标准serverless集群时，该参数必填。
+     *
+     * @var string[]
+     */
+    public $vswitchIds;
+
+    /**
+     * @description Worker节点是否自动续费。
+     *
+     * @var bool
+     */
+    public $workerAutoRenew;
+
+    /**
+     * @description Worker节点自动续费周期。
+     *
+     * @var int
+     */
+    public $workerAutoRenewPeriod;
+
+    /**
+     * @description Worker节点数据盘配置。
+     *
+     * @var workerDataDisks[]
+     */
+    public $workerDataDisks;
+
+    /**
+     * @description Worker节点付费类型。
+     *
+     * @var string
+     */
+    public $workerInstanceChargeType;
+
+    /**
+     * @description Worker节点ECS实例类型。
+     *
+     * @var string[]
+     */
+    public $workerInstanceTypes;
+
+    /**
+     * @description Worker节点包年包月时长。
+     *
+     * @var int
+     */
+    public $workerPeriod;
+
+    /**
+     * @description Worker节点包年包月周期。
+     *
+     * @var string
+     */
+    public $workerPeriodUnit;
+
+    /**
+     * @description Worker节点系统盘类型。
+     *
+     * @var string
+     */
+    public $workerSystemDiskCategory;
+
+    /**
+     * @description Worker节点系统盘大小。
+     *
+     * @var int
+     */
+    public $workerSystemDiskSize;
+
+    /**
+     * @description 集群使用的虚拟交换机。
+     *
+     * @var string[]
+     */
+    public $workerVswitchIds;
+
+    /**
+     * @description 集群所属地域内的可用区ID。
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'name'                      => 'name',
+        'addons'                    => 'addons',
+        'cloudMonitorFlags'         => 'cloud_monitor_flags',
         'clusterType'               => 'cluster_type',
-        'regionId'                  => 'region_id',
-        'zoneId'                    => 'zone_id',
-        'kubernetesVersion'         => 'kubernetes_version',
-        'deletionProtection'        => 'deletion_protection',
-        'runtime'                   => 'runtime',
-        'vpcid'                     => 'vpcid',
-        'workerVswitchIds'          => 'worker_vswitch_ids',
         'containerCidr'             => 'container_cidr',
-        'serviceCidr'               => 'service_cidr',
-        'nodeCidrMask'              => 'node_cidr_mask',
-        'snatEntry'                 => 'snat_entry',
+        'cpuPolicy'                 => 'cpu_policy',
+        'deletionProtection'        => 'deletion_protection',
+        'disableRollback'           => 'disable_rollback',
         'endpointPublicAccess'      => 'endpoint_public_access',
-        'sshFlags'                  => 'ssh_flags',
-        'rdsInstances'              => 'rds_instances',
-        'securityGroupId'           => 'security_group_id',
-        'isEnterpriseSecurityGroup' => 'is_enterprise_security_group',
-        'proxyMode'                 => 'proxy_mode',
-        'tags'                      => 'tags',
         'imagesId'                  => 'images_id',
-        'masterInstanceChargeType'  => 'master_instance_charge_type',
-        'masterPeriod'              => 'master_period',
-        'masterPeriodUnit'          => 'master_period_unit',
+        'isEnterpriseSecurityGroup' => 'is_enterprise_security_group',
+        'keyPair'                   => 'key_pair',
+        'kubernetesVersion'         => 'kubernetes_version',
+        'loginPassword'             => 'login_password',
         'masterAutoRenew'           => 'master_auto_renew',
         'masterAutoRenewPeriod'     => 'master_auto_renew_period',
         'masterCount'               => 'master_count',
-        'masterVswitchIds'          => 'master_vswitch_ids',
+        'masterInstanceChargeType'  => 'master_instance_charge_type',
         'masterInstanceTypes'       => 'master_instance_types',
+        'masterPeriod'              => 'master_period',
+        'masterPeriodUnit'          => 'master_period_unit',
         'masterSystemDiskCategory'  => 'master_system_disk_category',
         'masterSystemDiskSize'      => 'master_system_disk_size',
-        'workerInstanceChargeType'  => 'worker_instance_charge_type',
-        'workerPeriod'              => 'worker_period',
-        'workerPeriodUnit'          => 'worker_period_unit',
-        'workerAutoRenew'           => 'worker_auto_renew',
-        'workerAutoRenewPeriod'     => 'worker_auto_renew_period',
-        'numOfNodes'                => 'num_of_nodes',
-        'workerInstanceTypes'       => 'worker_instance_types',
-        'workerSystemDiskCategory'  => 'worker_system_disk_category',
-        'workerSystemDiskSize'      => 'worker_system_disk_size',
-        'workerDataDisks'           => 'worker_data_disks',
-        'osType'                    => 'os_type',
-        'keyPair'                   => 'key_pair',
-        'loginPassword'             => 'login_password',
-        'userData'                  => 'user_data',
+        'masterVswitchIds'          => 'master_vswitch_ids',
+        'name'                      => 'name',
+        'nodeCidrMask'              => 'node_cidr_mask',
         'nodePortRange'             => 'node_port_range',
-        'cpuPolicy'                 => 'cpu_policy',
-        'taints'                    => 'taints',
-        'cloudMonitorFlags'         => 'cloud_monitor_flags',
-        'addons'                    => 'addons',
+        'numOfNodes'                => 'num_of_nodes',
+        'osType'                    => 'os_type',
         'platform'                  => 'platform',
-        'vswitchIds'                => 'vswitch_ids',
+        'podVswitchIds'             => 'pod_vswitch_ids',
         'privateZone'               => 'private_zone',
         'profile'                   => 'profile',
-        'podVswitchIds'             => 'pod_vswitch_ids',
-        'disableRollback'           => 'disable_rollback',
+        'proxyMode'                 => 'proxy_mode',
+        'rdsInstances'              => 'rds_instances',
+        'regionId'                  => 'region_id',
+        'runtime'                   => 'runtime',
+        'securityGroupId'           => 'security_group_id',
+        'serviceCidr'               => 'service_cidr',
+        'snatEntry'                 => 'snat_entry',
+        'sshFlags'                  => 'ssh_flags',
+        'tags'                      => 'tags',
+        'taints'                    => 'taints',
         'timeoutMins'               => 'timeout_mins',
+        'userData'                  => 'user_data',
+        'vpcid'                     => 'vpcid',
+        'vswitchIds'                => 'vswitch_ids',
+        'workerAutoRenew'           => 'worker_auto_renew',
+        'workerAutoRenewPeriod'     => 'worker_auto_renew_period',
+        'workerDataDisks'           => 'worker_data_disks',
+        'workerInstanceChargeType'  => 'worker_instance_charge_type',
+        'workerInstanceTypes'       => 'worker_instance_types',
+        'workerPeriod'              => 'worker_period',
+        'workerPeriodUnit'          => 'worker_period_unit',
+        'workerSystemDiskCategory'  => 'worker_system_disk_category',
+        'workerSystemDiskSize'      => 'worker_system_disk_size',
+        'workerVswitchIds'          => 'worker_vswitch_ids',
+        'zoneId'                    => 'zone_id',
     ];
 
     public function validate()
@@ -478,83 +478,50 @@ class CreateClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
+        if (null !== $this->addons) {
+            $res['addons'] = [];
+            if (null !== $this->addons && \is_array($this->addons)) {
+                $n = 0;
+                foreach ($this->addons as $item) {
+                    $res['addons'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->cloudMonitorFlags) {
+            $res['cloud_monitor_flags'] = $this->cloudMonitorFlags;
         }
         if (null !== $this->clusterType) {
             $res['cluster_type'] = $this->clusterType;
         }
-        if (null !== $this->regionId) {
-            $res['region_id'] = $this->regionId;
+        if (null !== $this->containerCidr) {
+            $res['container_cidr'] = $this->containerCidr;
         }
-        if (null !== $this->zoneId) {
-            $res['zone_id'] = $this->zoneId;
-        }
-        if (null !== $this->kubernetesVersion) {
-            $res['kubernetes_version'] = $this->kubernetesVersion;
+        if (null !== $this->cpuPolicy) {
+            $res['cpu_policy'] = $this->cpuPolicy;
         }
         if (null !== $this->deletionProtection) {
             $res['deletion_protection'] = $this->deletionProtection;
         }
-        if (null !== $this->runtime) {
-            $res['runtime'] = null !== $this->runtime ? $this->runtime->toMap() : null;
-        }
-        if (null !== $this->vpcid) {
-            $res['vpcid'] = $this->vpcid;
-        }
-        if (null !== $this->workerVswitchIds) {
-            $res['worker_vswitch_ids'] = $this->workerVswitchIds;
-        }
-        if (null !== $this->containerCidr) {
-            $res['container_cidr'] = $this->containerCidr;
-        }
-        if (null !== $this->serviceCidr) {
-            $res['service_cidr'] = $this->serviceCidr;
-        }
-        if (null !== $this->nodeCidrMask) {
-            $res['node_cidr_mask'] = $this->nodeCidrMask;
-        }
-        if (null !== $this->snatEntry) {
-            $res['snat_entry'] = $this->snatEntry;
+        if (null !== $this->disableRollback) {
+            $res['disable_rollback'] = $this->disableRollback;
         }
         if (null !== $this->endpointPublicAccess) {
             $res['endpoint_public_access'] = $this->endpointPublicAccess;
         }
-        if (null !== $this->sshFlags) {
-            $res['ssh_flags'] = $this->sshFlags;
-        }
-        if (null !== $this->rdsInstances) {
-            $res['rds_instances'] = $this->rdsInstances;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['security_group_id'] = $this->securityGroupId;
+        if (null !== $this->imagesId) {
+            $res['images_id'] = $this->imagesId;
         }
         if (null !== $this->isEnterpriseSecurityGroup) {
             $res['is_enterprise_security_group'] = $this->isEnterpriseSecurityGroup;
         }
-        if (null !== $this->proxyMode) {
-            $res['proxy_mode'] = $this->proxyMode;
+        if (null !== $this->keyPair) {
+            $res['key_pair'] = $this->keyPair;
         }
-        if (null !== $this->tags) {
-            $res['tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->kubernetesVersion) {
+            $res['kubernetes_version'] = $this->kubernetesVersion;
         }
-        if (null !== $this->imagesId) {
-            $res['images_id'] = $this->imagesId;
-        }
-        if (null !== $this->masterInstanceChargeType) {
-            $res['master_instance_charge_type'] = $this->masterInstanceChargeType;
-        }
-        if (null !== $this->masterPeriod) {
-            $res['master_period'] = $this->masterPeriod;
-        }
-        if (null !== $this->masterPeriodUnit) {
-            $res['master_period_unit'] = $this->masterPeriodUnit;
+        if (null !== $this->loginPassword) {
+            $res['login_password'] = $this->loginPassword;
         }
         if (null !== $this->masterAutoRenew) {
             $res['master_auto_renew'] = $this->masterAutoRenew;
@@ -565,11 +532,17 @@ class CreateClusterRequest extends Model
         if (null !== $this->masterCount) {
             $res['master_count'] = $this->masterCount;
         }
-        if (null !== $this->masterVswitchIds) {
-            $res['master_vswitch_ids'] = $this->masterVswitchIds;
+        if (null !== $this->masterInstanceChargeType) {
+            $res['master_instance_charge_type'] = $this->masterInstanceChargeType;
         }
         if (null !== $this->masterInstanceTypes) {
             $res['master_instance_types'] = $this->masterInstanceTypes;
+        }
+        if (null !== $this->masterPeriod) {
+            $res['master_period'] = $this->masterPeriod;
+        }
+        if (null !== $this->masterPeriodUnit) {
+            $res['master_period_unit'] = $this->masterPeriodUnit;
         }
         if (null !== $this->masterSystemDiskCategory) {
             $res['master_system_disk_category'] = $this->masterSystemDiskCategory;
@@ -577,59 +550,68 @@ class CreateClusterRequest extends Model
         if (null !== $this->masterSystemDiskSize) {
             $res['master_system_disk_size'] = $this->masterSystemDiskSize;
         }
-        if (null !== $this->workerInstanceChargeType) {
-            $res['worker_instance_charge_type'] = $this->workerInstanceChargeType;
+        if (null !== $this->masterVswitchIds) {
+            $res['master_vswitch_ids'] = $this->masterVswitchIds;
         }
-        if (null !== $this->workerPeriod) {
-            $res['worker_period'] = $this->workerPeriod;
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
-        if (null !== $this->workerPeriodUnit) {
-            $res['worker_period_unit'] = $this->workerPeriodUnit;
-        }
-        if (null !== $this->workerAutoRenew) {
-            $res['worker_auto_renew'] = $this->workerAutoRenew;
-        }
-        if (null !== $this->workerAutoRenewPeriod) {
-            $res['worker_auto_renew_period'] = $this->workerAutoRenewPeriod;
-        }
-        if (null !== $this->numOfNodes) {
-            $res['num_of_nodes'] = $this->numOfNodes;
-        }
-        if (null !== $this->workerInstanceTypes) {
-            $res['worker_instance_types'] = $this->workerInstanceTypes;
-        }
-        if (null !== $this->workerSystemDiskCategory) {
-            $res['worker_system_disk_category'] = $this->workerSystemDiskCategory;
-        }
-        if (null !== $this->workerSystemDiskSize) {
-            $res['worker_system_disk_size'] = $this->workerSystemDiskSize;
-        }
-        if (null !== $this->workerDataDisks) {
-            $res['worker_data_disks'] = [];
-            if (null !== $this->workerDataDisks && \is_array($this->workerDataDisks)) {
-                $n = 0;
-                foreach ($this->workerDataDisks as $item) {
-                    $res['worker_data_disks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->osType) {
-            $res['os_type'] = $this->osType;
-        }
-        if (null !== $this->keyPair) {
-            $res['key_pair'] = $this->keyPair;
-        }
-        if (null !== $this->loginPassword) {
-            $res['login_password'] = $this->loginPassword;
-        }
-        if (null !== $this->userData) {
-            $res['user_data'] = $this->userData;
+        if (null !== $this->nodeCidrMask) {
+            $res['node_cidr_mask'] = $this->nodeCidrMask;
         }
         if (null !== $this->nodePortRange) {
             $res['node_port_range'] = $this->nodePortRange;
         }
-        if (null !== $this->cpuPolicy) {
-            $res['cpu_policy'] = $this->cpuPolicy;
+        if (null !== $this->numOfNodes) {
+            $res['num_of_nodes'] = $this->numOfNodes;
+        }
+        if (null !== $this->osType) {
+            $res['os_type'] = $this->osType;
+        }
+        if (null !== $this->platform) {
+            $res['platform'] = $this->platform;
+        }
+        if (null !== $this->podVswitchIds) {
+            $res['pod_vswitch_ids'] = $this->podVswitchIds;
+        }
+        if (null !== $this->privateZone) {
+            $res['private_zone'] = $this->privateZone;
+        }
+        if (null !== $this->profile) {
+            $res['profile'] = $this->profile;
+        }
+        if (null !== $this->proxyMode) {
+            $res['proxy_mode'] = $this->proxyMode;
+        }
+        if (null !== $this->rdsInstances) {
+            $res['rds_instances'] = $this->rdsInstances;
+        }
+        if (null !== $this->regionId) {
+            $res['region_id'] = $this->regionId;
+        }
+        if (null !== $this->runtime) {
+            $res['runtime'] = null !== $this->runtime ? $this->runtime->toMap() : null;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['security_group_id'] = $this->securityGroupId;
+        }
+        if (null !== $this->serviceCidr) {
+            $res['service_cidr'] = $this->serviceCidr;
+        }
+        if (null !== $this->snatEntry) {
+            $res['snat_entry'] = $this->snatEntry;
+        }
+        if (null !== $this->sshFlags) {
+            $res['ssh_flags'] = $this->sshFlags;
+        }
+        if (null !== $this->tags) {
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->taints) {
             $res['taints'] = [];
@@ -640,38 +622,56 @@ class CreateClusterRequest extends Model
                 }
             }
         }
-        if (null !== $this->cloudMonitorFlags) {
-            $res['cloud_monitor_flags'] = $this->cloudMonitorFlags;
+        if (null !== $this->timeoutMins) {
+            $res['timeout_mins'] = $this->timeoutMins;
         }
-        if (null !== $this->addons) {
-            $res['addons'] = [];
-            if (null !== $this->addons && \is_array($this->addons)) {
-                $n = 0;
-                foreach ($this->addons as $item) {
-                    $res['addons'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->userData) {
+            $res['user_data'] = $this->userData;
         }
-        if (null !== $this->platform) {
-            $res['platform'] = $this->platform;
+        if (null !== $this->vpcid) {
+            $res['vpcid'] = $this->vpcid;
         }
         if (null !== $this->vswitchIds) {
             $res['vswitch_ids'] = $this->vswitchIds;
         }
-        if (null !== $this->privateZone) {
-            $res['private_zone'] = $this->privateZone;
+        if (null !== $this->workerAutoRenew) {
+            $res['worker_auto_renew'] = $this->workerAutoRenew;
         }
-        if (null !== $this->profile) {
-            $res['profile'] = $this->profile;
+        if (null !== $this->workerAutoRenewPeriod) {
+            $res['worker_auto_renew_period'] = $this->workerAutoRenewPeriod;
         }
-        if (null !== $this->podVswitchIds) {
-            $res['pod_vswitch_ids'] = $this->podVswitchIds;
+        if (null !== $this->workerDataDisks) {
+            $res['worker_data_disks'] = [];
+            if (null !== $this->workerDataDisks && \is_array($this->workerDataDisks)) {
+                $n = 0;
+                foreach ($this->workerDataDisks as $item) {
+                    $res['worker_data_disks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
-        if (null !== $this->disableRollback) {
-            $res['disable_rollback'] = $this->disableRollback;
+        if (null !== $this->workerInstanceChargeType) {
+            $res['worker_instance_charge_type'] = $this->workerInstanceChargeType;
         }
-        if (null !== $this->timeoutMins) {
-            $res['timeout_mins'] = $this->timeoutMins;
+        if (null !== $this->workerInstanceTypes) {
+            $res['worker_instance_types'] = $this->workerInstanceTypes;
+        }
+        if (null !== $this->workerPeriod) {
+            $res['worker_period'] = $this->workerPeriod;
+        }
+        if (null !== $this->workerPeriodUnit) {
+            $res['worker_period_unit'] = $this->workerPeriodUnit;
+        }
+        if (null !== $this->workerSystemDiskCategory) {
+            $res['worker_system_disk_category'] = $this->workerSystemDiskCategory;
+        }
+        if (null !== $this->workerSystemDiskSize) {
+            $res['worker_system_disk_size'] = $this->workerSystemDiskSize;
+        }
+        if (null !== $this->workerVswitchIds) {
+            $res['worker_vswitch_ids'] = $this->workerVswitchIds;
+        }
+        if (null !== $this->zoneId) {
+            $res['zone_id'] = $this->zoneId;
         }
 
         return $res;
@@ -685,87 +685,50 @@ class CreateClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
+        if (isset($map['addons'])) {
+            if (!empty($map['addons'])) {
+                $model->addons = [];
+                $n             = 0;
+                foreach ($map['addons'] as $item) {
+                    $model->addons[$n++] = null !== $item ? addons::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['cloud_monitor_flags'])) {
+            $model->cloudMonitorFlags = $map['cloud_monitor_flags'];
         }
         if (isset($map['cluster_type'])) {
             $model->clusterType = $map['cluster_type'];
         }
-        if (isset($map['region_id'])) {
-            $model->regionId = $map['region_id'];
+        if (isset($map['container_cidr'])) {
+            $model->containerCidr = $map['container_cidr'];
         }
-        if (isset($map['zone_id'])) {
-            $model->zoneId = $map['zone_id'];
-        }
-        if (isset($map['kubernetes_version'])) {
-            $model->kubernetesVersion = $map['kubernetes_version'];
+        if (isset($map['cpu_policy'])) {
+            $model->cpuPolicy = $map['cpu_policy'];
         }
         if (isset($map['deletion_protection'])) {
             $model->deletionProtection = $map['deletion_protection'];
         }
-        if (isset($map['runtime'])) {
-            $model->runtime = runtime::fromMap($map['runtime']);
-        }
-        if (isset($map['vpcid'])) {
-            $model->vpcid = $map['vpcid'];
-        }
-        if (isset($map['worker_vswitch_ids'])) {
-            if (!empty($map['worker_vswitch_ids'])) {
-                $model->workerVswitchIds = $map['worker_vswitch_ids'];
-            }
-        }
-        if (isset($map['container_cidr'])) {
-            $model->containerCidr = $map['container_cidr'];
-        }
-        if (isset($map['service_cidr'])) {
-            $model->serviceCidr = $map['service_cidr'];
-        }
-        if (isset($map['node_cidr_mask'])) {
-            $model->nodeCidrMask = $map['node_cidr_mask'];
-        }
-        if (isset($map['snat_entry'])) {
-            $model->snatEntry = $map['snat_entry'];
+        if (isset($map['disable_rollback'])) {
+            $model->disableRollback = $map['disable_rollback'];
         }
         if (isset($map['endpoint_public_access'])) {
             $model->endpointPublicAccess = $map['endpoint_public_access'];
         }
-        if (isset($map['ssh_flags'])) {
-            $model->sshFlags = $map['ssh_flags'];
-        }
-        if (isset($map['rds_instances'])) {
-            if (!empty($map['rds_instances'])) {
-                $model->rdsInstances = $map['rds_instances'];
-            }
-        }
-        if (isset($map['security_group_id'])) {
-            $model->securityGroupId = $map['security_group_id'];
+        if (isset($map['images_id'])) {
+            $model->imagesId = $map['images_id'];
         }
         if (isset($map['is_enterprise_security_group'])) {
             $model->isEnterpriseSecurityGroup = $map['is_enterprise_security_group'];
         }
-        if (isset($map['proxy_mode'])) {
-            $model->proxyMode = $map['proxy_mode'];
+        if (isset($map['key_pair'])) {
+            $model->keyPair = $map['key_pair'];
         }
-        if (isset($map['tags'])) {
-            if (!empty($map['tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['kubernetes_version'])) {
+            $model->kubernetesVersion = $map['kubernetes_version'];
         }
-        if (isset($map['images_id'])) {
-            $model->imagesId = $map['images_id'];
-        }
-        if (isset($map['master_instance_charge_type'])) {
-            $model->masterInstanceChargeType = $map['master_instance_charge_type'];
-        }
-        if (isset($map['master_period'])) {
-            $model->masterPeriod = $map['master_period'];
-        }
-        if (isset($map['master_period_unit'])) {
-            $model->masterPeriodUnit = $map['master_period_unit'];
+        if (isset($map['login_password'])) {
+            $model->loginPassword = $map['login_password'];
         }
         if (isset($map['master_auto_renew'])) {
             $model->masterAutoRenew = $map['master_auto_renew'];
@@ -776,15 +739,19 @@ class CreateClusterRequest extends Model
         if (isset($map['master_count'])) {
             $model->masterCount = $map['master_count'];
         }
-        if (isset($map['master_vswitch_ids'])) {
-            if (!empty($map['master_vswitch_ids'])) {
-                $model->masterVswitchIds = $map['master_vswitch_ids'];
-            }
+        if (isset($map['master_instance_charge_type'])) {
+            $model->masterInstanceChargeType = $map['master_instance_charge_type'];
         }
         if (isset($map['master_instance_types'])) {
             if (!empty($map['master_instance_types'])) {
                 $model->masterInstanceTypes = $map['master_instance_types'];
             }
+        }
+        if (isset($map['master_period'])) {
+            $model->masterPeriod = $map['master_period'];
+        }
+        if (isset($map['master_period_unit'])) {
+            $model->masterPeriodUnit = $map['master_period_unit'];
         }
         if (isset($map['master_system_disk_category'])) {
             $model->masterSystemDiskCategory = $map['master_system_disk_category'];
@@ -792,61 +759,74 @@ class CreateClusterRequest extends Model
         if (isset($map['master_system_disk_size'])) {
             $model->masterSystemDiskSize = $map['master_system_disk_size'];
         }
-        if (isset($map['worker_instance_charge_type'])) {
-            $model->workerInstanceChargeType = $map['worker_instance_charge_type'];
-        }
-        if (isset($map['worker_period'])) {
-            $model->workerPeriod = $map['worker_period'];
-        }
-        if (isset($map['worker_period_unit'])) {
-            $model->workerPeriodUnit = $map['worker_period_unit'];
-        }
-        if (isset($map['worker_auto_renew'])) {
-            $model->workerAutoRenew = $map['worker_auto_renew'];
-        }
-        if (isset($map['worker_auto_renew_period'])) {
-            $model->workerAutoRenewPeriod = $map['worker_auto_renew_period'];
-        }
-        if (isset($map['num_of_nodes'])) {
-            $model->numOfNodes = $map['num_of_nodes'];
-        }
-        if (isset($map['worker_instance_types'])) {
-            if (!empty($map['worker_instance_types'])) {
-                $model->workerInstanceTypes = $map['worker_instance_types'];
+        if (isset($map['master_vswitch_ids'])) {
+            if (!empty($map['master_vswitch_ids'])) {
+                $model->masterVswitchIds = $map['master_vswitch_ids'];
             }
         }
-        if (isset($map['worker_system_disk_category'])) {
-            $model->workerSystemDiskCategory = $map['worker_system_disk_category'];
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
-        if (isset($map['worker_system_disk_size'])) {
-            $model->workerSystemDiskSize = $map['worker_system_disk_size'];
-        }
-        if (isset($map['worker_data_disks'])) {
-            if (!empty($map['worker_data_disks'])) {
-                $model->workerDataDisks = [];
-                $n                      = 0;
-                foreach ($map['worker_data_disks'] as $item) {
-                    $model->workerDataDisks[$n++] = null !== $item ? workerDataDisks::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['os_type'])) {
-            $model->osType = $map['os_type'];
-        }
-        if (isset($map['key_pair'])) {
-            $model->keyPair = $map['key_pair'];
-        }
-        if (isset($map['login_password'])) {
-            $model->loginPassword = $map['login_password'];
-        }
-        if (isset($map['user_data'])) {
-            $model->userData = $map['user_data'];
+        if (isset($map['node_cidr_mask'])) {
+            $model->nodeCidrMask = $map['node_cidr_mask'];
         }
         if (isset($map['node_port_range'])) {
             $model->nodePortRange = $map['node_port_range'];
         }
-        if (isset($map['cpu_policy'])) {
-            $model->cpuPolicy = $map['cpu_policy'];
+        if (isset($map['num_of_nodes'])) {
+            $model->numOfNodes = $map['num_of_nodes'];
+        }
+        if (isset($map['os_type'])) {
+            $model->osType = $map['os_type'];
+        }
+        if (isset($map['platform'])) {
+            $model->platform = $map['platform'];
+        }
+        if (isset($map['pod_vswitch_ids'])) {
+            if (!empty($map['pod_vswitch_ids'])) {
+                $model->podVswitchIds = $map['pod_vswitch_ids'];
+            }
+        }
+        if (isset($map['private_zone'])) {
+            $model->privateZone = $map['private_zone'];
+        }
+        if (isset($map['profile'])) {
+            $model->profile = $map['profile'];
+        }
+        if (isset($map['proxy_mode'])) {
+            $model->proxyMode = $map['proxy_mode'];
+        }
+        if (isset($map['rds_instances'])) {
+            if (!empty($map['rds_instances'])) {
+                $model->rdsInstances = $map['rds_instances'];
+            }
+        }
+        if (isset($map['region_id'])) {
+            $model->regionId = $map['region_id'];
+        }
+        if (isset($map['runtime'])) {
+            $model->runtime = runtime::fromMap($map['runtime']);
+        }
+        if (isset($map['security_group_id'])) {
+            $model->securityGroupId = $map['security_group_id'];
+        }
+        if (isset($map['service_cidr'])) {
+            $model->serviceCidr = $map['service_cidr'];
+        }
+        if (isset($map['snat_entry'])) {
+            $model->snatEntry = $map['snat_entry'];
+        }
+        if (isset($map['ssh_flags'])) {
+            $model->sshFlags = $map['ssh_flags'];
+        }
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['taints'])) {
             if (!empty($map['taints'])) {
@@ -857,42 +837,62 @@ class CreateClusterRequest extends Model
                 }
             }
         }
-        if (isset($map['cloud_monitor_flags'])) {
-            $model->cloudMonitorFlags = $map['cloud_monitor_flags'];
+        if (isset($map['timeout_mins'])) {
+            $model->timeoutMins = $map['timeout_mins'];
         }
-        if (isset($map['addons'])) {
-            if (!empty($map['addons'])) {
-                $model->addons = [];
-                $n             = 0;
-                foreach ($map['addons'] as $item) {
-                    $model->addons[$n++] = null !== $item ? addons::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['user_data'])) {
+            $model->userData = $map['user_data'];
         }
-        if (isset($map['platform'])) {
-            $model->platform = $map['platform'];
+        if (isset($map['vpcid'])) {
+            $model->vpcid = $map['vpcid'];
         }
         if (isset($map['vswitch_ids'])) {
             if (!empty($map['vswitch_ids'])) {
                 $model->vswitchIds = $map['vswitch_ids'];
             }
         }
-        if (isset($map['private_zone'])) {
-            $model->privateZone = $map['private_zone'];
+        if (isset($map['worker_auto_renew'])) {
+            $model->workerAutoRenew = $map['worker_auto_renew'];
         }
-        if (isset($map['profile'])) {
-            $model->profile = $map['profile'];
+        if (isset($map['worker_auto_renew_period'])) {
+            $model->workerAutoRenewPeriod = $map['worker_auto_renew_period'];
         }
-        if (isset($map['pod_vswitch_ids'])) {
-            if (!empty($map['pod_vswitch_ids'])) {
-                $model->podVswitchIds = $map['pod_vswitch_ids'];
+        if (isset($map['worker_data_disks'])) {
+            if (!empty($map['worker_data_disks'])) {
+                $model->workerDataDisks = [];
+                $n                      = 0;
+                foreach ($map['worker_data_disks'] as $item) {
+                    $model->workerDataDisks[$n++] = null !== $item ? workerDataDisks::fromMap($item) : $item;
+                }
             }
         }
-        if (isset($map['disable_rollback'])) {
-            $model->disableRollback = $map['disable_rollback'];
+        if (isset($map['worker_instance_charge_type'])) {
+            $model->workerInstanceChargeType = $map['worker_instance_charge_type'];
         }
-        if (isset($map['timeout_mins'])) {
-            $model->timeoutMins = $map['timeout_mins'];
+        if (isset($map['worker_instance_types'])) {
+            if (!empty($map['worker_instance_types'])) {
+                $model->workerInstanceTypes = $map['worker_instance_types'];
+            }
+        }
+        if (isset($map['worker_period'])) {
+            $model->workerPeriod = $map['worker_period'];
+        }
+        if (isset($map['worker_period_unit'])) {
+            $model->workerPeriodUnit = $map['worker_period_unit'];
+        }
+        if (isset($map['worker_system_disk_category'])) {
+            $model->workerSystemDiskCategory = $map['worker_system_disk_category'];
+        }
+        if (isset($map['worker_system_disk_size'])) {
+            $model->workerSystemDiskSize = $map['worker_system_disk_size'];
+        }
+        if (isset($map['worker_vswitch_ids'])) {
+            if (!empty($map['worker_vswitch_ids'])) {
+                $model->workerVswitchIds = $map['worker_vswitch_ids'];
+            }
+        }
+        if (isset($map['zone_id'])) {
+            $model->zoneId = $map['zone_id'];
         }
 
         return $model;

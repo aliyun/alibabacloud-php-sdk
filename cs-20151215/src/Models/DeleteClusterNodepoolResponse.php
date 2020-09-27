@@ -6,27 +6,26 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeClusterAddonsVersionResponseBody extends Model
+class DeleteClusterNodepoolResponse extends Model
 {
     /**
-     * @description 组件名称。
-     *
-     * @var mixed[][]
+     * @var string[]
      */
-    public $addonsName;
+    public $headers;
     protected $_name = [
-        'addonsName' => 'AddonsName',
+        'headers' => 'headers',
     ];
 
     public function validate()
     {
+        Model::validateRequired('headers', $this->headers, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->addonsName) {
-            $res['AddonsName'] = $this->addonsName;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
 
         return $res;
@@ -35,13 +34,13 @@ class DescribeClusterAddonsVersionResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeClusterAddonsVersionResponseBody
+     * @return DeleteClusterNodepoolResponse
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AddonsName'])) {
-            $model->addonsName = $map['AddonsName'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
 
         return $model;

@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RemoveClusterNodesRequest extends Model
 {
     /**
-     * @description 是否同时释放ECS。
-     *
-     * @var bool
-     */
-    public $releaseNode;
-
-    /**
      * @description 是否排空节点上的Pod。
      *
      * @var bool
@@ -28,10 +21,17 @@ class RemoveClusterNodesRequest extends Model
      * @var string[]
      */
     public $nodes;
+
+    /**
+     * @description 是否同时释放ECS。
+     *
+     * @var bool
+     */
+    public $releaseNode;
     protected $_name = [
-        'releaseNode' => 'release_node',
         'drainNode'   => 'drain_node',
         'nodes'       => 'nodes',
+        'releaseNode' => 'release_node',
     ];
 
     public function validate()
@@ -41,14 +41,14 @@ class RemoveClusterNodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->releaseNode) {
-            $res['release_node'] = $this->releaseNode;
-        }
         if (null !== $this->drainNode) {
             $res['drain_node'] = $this->drainNode;
         }
         if (null !== $this->nodes) {
             $res['nodes'] = $this->nodes;
+        }
+        if (null !== $this->releaseNode) {
+            $res['release_node'] = $this->releaseNode;
         }
 
         return $res;
@@ -62,9 +62,6 @@ class RemoveClusterNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['release_node'])) {
-            $model->releaseNode = $map['release_node'];
-        }
         if (isset($map['drain_node'])) {
             $model->drainNode = $map['drain_node'];
         }
@@ -72,6 +69,9 @@ class RemoveClusterNodesRequest extends Model
             if (!empty($map['nodes'])) {
                 $model->nodes = $map['nodes'];
             }
+        }
+        if (isset($map['release_node'])) {
+            $model->releaseNode = $map['release_node'];
         }
 
         return $model;

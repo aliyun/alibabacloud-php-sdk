@@ -16,22 +16,22 @@ class UpgradeClusterRequest extends Model
     public $componentName;
 
     /**
-     * @description 当前版本。
-     *
-     * @var string
-     */
-    public $version;
-
-    /**
      * @description 目标版本。
      *
      * @var string
      */
     public $nextVersion;
+
+    /**
+     * @description 当前版本。
+     *
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'componentName' => 'component_name',
-        'version'       => 'version',
         'nextVersion'   => 'next_version',
+        'version'       => 'version',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class UpgradeClusterRequest extends Model
         if (null !== $this->componentName) {
             $res['component_name'] = $this->componentName;
         }
-        if (null !== $this->version) {
-            $res['version'] = $this->version;
-        }
         if (null !== $this->nextVersion) {
             $res['next_version'] = $this->nextVersion;
+        }
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class UpgradeClusterRequest extends Model
         if (isset($map['component_name'])) {
             $model->componentName = $map['component_name'];
         }
-        if (isset($map['version'])) {
-            $model->version = $map['version'];
-        }
         if (isset($map['next_version'])) {
             $model->nextVersion = $map['next_version'];
+        }
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

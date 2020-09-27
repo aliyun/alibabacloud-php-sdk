@@ -9,20 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterRequest extends Model
 {
     /**
-     * @description 集群是否开启删除保护。
-     *
-     * @var bool
-     */
-    public $deletionProtection;
-
-    /**
-     * @description 集群的Ingress SLB的ID。
-     *
-     * @var string
-     */
-    public $ingressLoadbalancerId;
-
-    /**
      * @description 集群是否开启EIP。
      *
      * @var bool
@@ -37,11 +23,11 @@ class ModifyClusterRequest extends Model
     public $apiServerEipId;
 
     /**
-     * @description 集群资源组ID。
+     * @description 集群是否开启删除保护。
      *
-     * @var string
+     * @var bool
      */
-    public $resourceGroupId;
+    public $deletionProtection;
 
     /**
      * @description 域名是否重新绑定到Ingress的SLB地址。
@@ -49,13 +35,27 @@ class ModifyClusterRequest extends Model
      * @var string
      */
     public $ingressDomainRebinding;
+
+    /**
+     * @description 集群的Ingress SLB的ID。
+     *
+     * @var string
+     */
+    public $ingressLoadbalancerId;
+
+    /**
+     * @description 集群资源组ID。
+     *
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'deletionProtection'     => 'deletion_protection',
-        'ingressLoadbalancerId'  => 'ingress_loadbalancer_id',
         'apiServerEip'           => 'api_server_eip',
         'apiServerEipId'         => 'api_server_eip_id',
-        'resourceGroupId'        => 'resource_group_id',
+        'deletionProtection'     => 'deletion_protection',
         'ingressDomainRebinding' => 'ingress_domain_rebinding',
+        'ingressLoadbalancerId'  => 'ingress_loadbalancer_id',
+        'resourceGroupId'        => 'resource_group_id',
     ];
 
     public function validate()
@@ -65,23 +65,23 @@ class ModifyClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deletionProtection) {
-            $res['deletion_protection'] = $this->deletionProtection;
-        }
-        if (null !== $this->ingressLoadbalancerId) {
-            $res['ingress_loadbalancer_id'] = $this->ingressLoadbalancerId;
-        }
         if (null !== $this->apiServerEip) {
             $res['api_server_eip'] = $this->apiServerEip;
         }
         if (null !== $this->apiServerEipId) {
             $res['api_server_eip_id'] = $this->apiServerEipId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['resource_group_id'] = $this->resourceGroupId;
+        if (null !== $this->deletionProtection) {
+            $res['deletion_protection'] = $this->deletionProtection;
         }
         if (null !== $this->ingressDomainRebinding) {
             $res['ingress_domain_rebinding'] = $this->ingressDomainRebinding;
+        }
+        if (null !== $this->ingressLoadbalancerId) {
+            $res['ingress_loadbalancer_id'] = $this->ingressLoadbalancerId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resource_group_id'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class ModifyClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['deletion_protection'])) {
-            $model->deletionProtection = $map['deletion_protection'];
-        }
-        if (isset($map['ingress_loadbalancer_id'])) {
-            $model->ingressLoadbalancerId = $map['ingress_loadbalancer_id'];
-        }
         if (isset($map['api_server_eip'])) {
             $model->apiServerEip = $map['api_server_eip'];
         }
         if (isset($map['api_server_eip_id'])) {
             $model->apiServerEipId = $map['api_server_eip_id'];
         }
-        if (isset($map['resource_group_id'])) {
-            $model->resourceGroupId = $map['resource_group_id'];
+        if (isset($map['deletion_protection'])) {
+            $model->deletionProtection = $map['deletion_protection'];
         }
         if (isset($map['ingress_domain_rebinding'])) {
             $model->ingressDomainRebinding = $map['ingress_domain_rebinding'];
+        }
+        if (isset($map['ingress_loadbalancer_id'])) {
+            $model->ingressLoadbalancerId = $map['ingress_loadbalancer_id'];
+        }
+        if (isset($map['resource_group_id'])) {
+            $model->resourceGroupId = $map['resource_group_id'];
         }
 
         return $model;

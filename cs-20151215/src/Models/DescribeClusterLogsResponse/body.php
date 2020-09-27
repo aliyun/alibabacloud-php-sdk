@@ -2,16 +2,16 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models;
+namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterLogsResponse;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeClusterLogsResponseBody extends Model
+class body extends Model
 {
     /**
      * @description 日志ID。
      *
-     * @var string
+     * @var int
      */
     public $ID;
 
@@ -23,7 +23,7 @@ class DescribeClusterLogsResponseBody extends Model
     public $clusterId;
 
     /**
-     * @description 日志详情。
+     * @description 集群日志。
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class DescribeClusterLogsResponseBody extends Model
     public $created;
 
     /**
-     * @description 日志级别。
+     * @description 日志等级。
      *
      * @var string
      */
@@ -90,7 +90,7 @@ class DescribeClusterLogsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeClusterLogsResponseBody
+     * @return body
      */
     public static function fromMap($map = [])
     {

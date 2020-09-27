@@ -2,28 +2,36 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterConfigurationRequest\customizeConfig;
+namespace AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolRequest\kubernetesConfig;
 
 use AlibabaCloud\Tea\Model;
 
-class configs extends Model
+class taints extends Model
 {
     /**
-     * @description key。
+     * @description 污点策略
+     *
+     * @var string
+     */
+    public $effect;
+
+    /**
+     * @description key
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description value。
+     * @description value
      *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'key',
-        'value' => 'value',
+        'effect' => 'effect',
+        'key'    => 'key',
+        'value'  => 'value',
     ];
 
     public function validate()
@@ -33,6 +41,9 @@ class configs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->effect) {
+            $res['effect'] = $this->effect;
+        }
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
@@ -46,11 +57,14 @@ class configs extends Model
     /**
      * @param array $map
      *
-     * @return configs
+     * @return taints
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['effect'])) {
+            $model->effect = $map['effect'];
+        }
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }

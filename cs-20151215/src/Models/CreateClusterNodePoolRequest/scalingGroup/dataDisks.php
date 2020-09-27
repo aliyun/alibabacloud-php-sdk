@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterShrinkRequest;
+namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGroup;
 
 use AlibabaCloud\Tea\Model;
 
-class workerDataDisks extends Model
+class dataDisks extends Model
 {
     /**
      * @description 数据盘类型。
@@ -16,7 +16,7 @@ class workerDataDisks extends Model
     public $category;
 
     /**
-     * @description 是否对数据盘加密。
+     * @description 数据盘是否加密。
      *
      * @var string
      */
@@ -25,7 +25,7 @@ class workerDataDisks extends Model
     /**
      * @description 数据盘大小。
      *
-     * @var string
+     * @var int
      */
     public $size;
     protected $_name = [
@@ -57,7 +57,7 @@ class workerDataDisks extends Model
     /**
      * @param array $map
      *
-     * @return workerDataDisks
+     * @return dataDisks
      */
     public static function fromMap($map = [])
     {

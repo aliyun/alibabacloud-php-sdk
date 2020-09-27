@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterLogsResponse\body;
 use AlibabaCloud\Tea\Model;
 
-class DescribeClusterLogsResponse extends Model
+class CreateClusterNodePoolResponse extends Model
 {
     /**
      * @var string[]
@@ -15,7 +14,7 @@ class DescribeClusterLogsResponse extends Model
     public $headers;
 
     /**
-     * @var body[]
+     * @var CreateClusterNodePoolResponseBody
      */
     public $body;
     protected $_name = [
@@ -36,13 +35,7 @@ class DescribeClusterLogsResponse extends Model
             $res['headers'] = $this->headers;
         }
         if (null !== $this->body) {
-            $res['body'] = [];
-            if (null !== $this->body && \is_array($this->body)) {
-                $n = 0;
-                foreach ($this->body as $item) {
-                    $res['body'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -51,7 +44,7 @@ class DescribeClusterLogsResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeClusterLogsResponse
+     * @return CreateClusterNodePoolResponse
      */
     public static function fromMap($map = [])
     {
@@ -60,13 +53,7 @@ class DescribeClusterLogsResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            if (!empty($map['body'])) {
-                $model->body = [];
-                $n           = 0;
-                foreach ($map['body'] as $item) {
-                    $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
-                }
-            }
+            $model->body = CreateClusterNodePoolResponseBody::fromMap($map['body']);
         }
 
         return $model;
