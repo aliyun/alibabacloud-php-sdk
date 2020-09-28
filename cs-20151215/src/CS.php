@@ -981,7 +981,7 @@ class CS extends OpenApiClient
             'headers' => $headers,
         ]);
 
-        return DescribeClusterNodePoolsResponse::fromMap($this->doROARequest('DescribeClusterNodePools', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/nodepools', 'none', $req, $runtime));
+        return DescribeClusterNodePoolsResponse::fromMap($this->doROARequest('DescribeClusterNodePools', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/nodepools', 'json', $req, $runtime));
     }
 
     /**
@@ -1271,6 +1271,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
         }
+        if (!Utils::isUnset($request->multiAZ)) {
+            $query['MultiAZ'] = $request->multiAZ;
+        }
         if (!Utils::isUnset($request->clusterType)) {
             $query['ClusterType'] = $request->clusterType;
         }
@@ -1285,7 +1288,7 @@ class CS extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
         ]);
 
-        return DescribeKubernetesVersionMetadataResponse::fromMap($this->doROARequest('DescribeKubernetesVersionMetadata', '2015-12-15', 'HTTPS', 'GET', 'AK', '/api/v1/metadata/versions', 'none', $req, $runtime));
+        return DescribeKubernetesVersionMetadataResponse::fromMap($this->doROARequest('DescribeKubernetesVersionMetadata', '2015-12-15', 'HTTPS', 'GET', 'AK', '/api/v1/metadata/versions', 'array', $req, $runtime));
     }
 
     /**
@@ -1314,7 +1317,7 @@ class CS extends OpenApiClient
             'headers' => $headers,
         ]);
 
-        return DescribeTemplateAttributeResponse::fromMap($this->doROARequest('DescribeTemplateAttribute', '2015-12-15', 'HTTPS', 'GET', 'AK', '/templates/' . $TemplateId . '', 'none', $req, $runtime));
+        return DescribeTemplateAttributeResponse::fromMap($this->doROARequest('DescribeTemplateAttribute', '2015-12-15', 'HTTPS', 'GET', 'AK', '/templates/' . $TemplateId . '', 'array', $req, $runtime));
     }
 
     /**

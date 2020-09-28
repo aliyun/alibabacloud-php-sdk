@@ -2,28 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterRequest;
+namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\scalingGroup;
 
 use AlibabaCloud\Tea\Model;
 
-class workerDataDisks extends Model
+class dataDisks extends Model
 {
     /**
-     * @description 数据盘类型。
+     * @description 数据盘类型
      *
      * @var string
      */
     public $category;
 
     /**
-     * @description 是否对数据盘加密。
+     * @description 数据盘是否加密
      *
      * @var string
      */
     public $encrypted;
 
     /**
-     * @description 数据盘大小。
+     * @description 数据盘大小
      *
      * @var int
      */
@@ -57,7 +57,7 @@ class workerDataDisks extends Model
     /**
      * @param array $map
      *
-     * @return workerDataDisks
+     * @return dataDisks
      */
     public static function fromMap($map = [])
     {

@@ -16,6 +16,13 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     public $region;
 
     /**
+     * @description 是否多可用区。
+     *
+     * @var bool
+     */
+    public $multiAZ;
+
+    /**
      * @description 集群类型。
      *
      * @var string
@@ -37,6 +44,7 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     public $profile;
     protected $_name = [
         'region'            => 'Region',
+        'multiAZ'           => 'MultiAZ',
         'clusterType'       => 'ClusterType',
         'kubernetesVersion' => 'KubernetesVersion',
         'profile'           => 'Profile',
@@ -51,6 +59,9 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         $res = [];
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->multiAZ) {
+            $res['MultiAZ'] = $this->multiAZ;
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
@@ -75,6 +86,9 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         $model = new self();
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['MultiAZ'])) {
+            $model->multiAZ = $map['MultiAZ'];
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];

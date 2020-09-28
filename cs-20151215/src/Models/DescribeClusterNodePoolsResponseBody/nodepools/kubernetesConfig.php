@@ -2,10 +2,10 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody;
+namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\kubernetesConfig\labels;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\kubernetesConfig\taints;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\kubernetesConfig\labels;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\kubernetesConfig\taints;
 use AlibabaCloud\Tea\Model;
 
 class kubernetesConfig extends Model
@@ -25,21 +25,21 @@ class kubernetesConfig extends Model
     public $cpuPolicy;
 
     /**
-     * @description 节点标签。
+     * @description ECS标签。
      *
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description 节点命名规则。
+     * @description 节点命名策略。
      *
      * @var string
      */
     public $nodeNameMode;
 
     /**
-     * @description 是否更新主机名。
+     * @description 是否覆盖主机名。
      *
      * @var bool
      */
@@ -53,14 +53,14 @@ class kubernetesConfig extends Model
     public $runtime;
 
     /**
-     * @description 容器运行时版本。
+     * @description 容器运行时版本
      *
      * @var string
      */
     public $runtimeVersion;
 
     /**
-     * @description 污点配置。
+     * @description 污点配置
      *
      * @var taints[]
      */
