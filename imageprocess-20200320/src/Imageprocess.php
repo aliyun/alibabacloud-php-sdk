@@ -23,12 +23,17 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectKneeXRayRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectKneeXRayResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectLungNoduleRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectLungNoduleResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSkinDiseaseAdvanceRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSkinDiseaseRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSkinDiseaseResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSpineMRIRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSpineMRIResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\GetAsyncJobResultRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\GetAsyncJobResultResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunCTRegistrationRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunCTRegistrationResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunMedQARequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunMedQAResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\TranslateMedRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\TranslateMedResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
@@ -51,6 +56,98 @@ class Imageprocess extends Rpc
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('imageprocess', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param DetectSkinDiseaseRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DetectSkinDiseaseResponse
+     */
+    public function detectSkinDisease($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DetectSkinDiseaseResponse::fromMap($this->doRequest('DetectSkinDisease', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+    }
+
+    /**
+     * @param DetectSkinDiseaseAdvanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DetectSkinDiseaseResponse
+     */
+    public function detectSkinDiseaseAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageprocess',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        RpcUtils::convert($runtime, $ossRuntime);
+        $detectSkinDiseasereq = new DetectSkinDiseaseRequest([]);
+        RpcUtils::convert($request, $detectSkinDiseasereq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->urlObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $detectSkinDiseasereq->url = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->detectSkinDisease($detectSkinDiseasereq, $runtime);
+    }
+
+    /**
+     * @param RunMedQARequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return RunMedQAResponse
+     */
+    public function runMedQA($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return RunMedQAResponse::fromMap($this->doRequest('RunMedQA', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
     }
 
     /**

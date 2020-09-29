@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
-use GuzzleHttp\Psr7\Stream;
 
 class DetectKneeKeypointXRayAdvanceRequest extends Model
 {

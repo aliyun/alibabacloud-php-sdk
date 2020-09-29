@@ -12,13 +12,20 @@ class data extends Model
      * @var string
      */
     public $score;
+
+    /**
+     * @var string
+     */
+    public $resultUrl;
     protected $_name = [
-        'score' => 'Score',
+        'score'     => 'Score',
+        'resultUrl' => 'ResultUrl',
     ];
 
     public function validate()
     {
         Model::validateRequired('score', $this->score, true);
+        Model::validateRequired('resultUrl', $this->resultUrl, true);
     }
 
     public function toMap()
@@ -26,6 +33,9 @@ class data extends Model
         $res = [];
         if (null !== $this->score) {
             $res['Score'] = $this->score;
+        }
+        if (null !== $this->resultUrl) {
+            $res['ResultUrl'] = $this->resultUrl;
         }
 
         return $res;
@@ -41,6 +51,9 @@ class data extends Model
         $model = new self();
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
+        }
+        if (isset($map['ResultUrl'])) {
+            $model->resultUrl = $map['ResultUrl'];
         }
 
         return $model;
