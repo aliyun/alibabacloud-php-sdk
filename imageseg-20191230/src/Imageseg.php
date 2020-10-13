@@ -55,6 +55,9 @@ use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentLogoResponse;
 use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentSceneAdvanceRequest;
 use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentSceneRequest;
 use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentSceneResponse;
+use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentSkinAdvanceRequest;
+use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentSkinRequest;
+use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentSkinResponse;
 use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentSkyAdvanceRequest;
 use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentSkyRequest;
 use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentSkyResponse;
@@ -81,6 +84,85 @@ class Imageseg extends Rpc
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('imageseg', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param SegmentSkinRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SegmentSkinResponse
+     */
+    public function segmentSkin($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return SegmentSkinResponse::fromMap($this->doRequest('SegmentSkin', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+    }
+
+    /**
+     * @param SegmentSkinAdvanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SegmentSkinResponse
+     */
+    public function segmentSkinAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        RpcUtils::convert($runtime, $ossRuntime);
+        $segmentSkinreq = new SegmentSkinRequest([]);
+        RpcUtils::convert($request, $segmentSkinreq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->URLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentSkinreq->URL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentSkin($segmentSkinreq, $runtime);
     }
 
     /**
