@@ -6,19 +6,13 @@ namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ExtractPedestrianFeatureAttributeRequest extends Model
+class PedestrianDetectAttributeRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $mode;
-
     /**
      * @var string
      */
     public $imageURL;
     protected $_name = [
-        'mode'     => 'Mode',
         'imageURL' => 'ImageURL',
     ];
 
@@ -30,9 +24,6 @@ class ExtractPedestrianFeatureAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
@@ -43,14 +34,11 @@ class ExtractPedestrianFeatureAttributeRequest extends Model
     /**
      * @param array $map
      *
-     * @return ExtractPedestrianFeatureAttributeRequest
+     * @return PedestrianDetectAttributeRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
