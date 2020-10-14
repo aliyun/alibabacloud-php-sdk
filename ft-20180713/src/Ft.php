@@ -107,7 +107,7 @@ class Ft extends Rpc
             $request->namesShrink = Utils::toJSONString($tmp->names);
         }
 
-        return TestFlowStrategy01Response::fromMap($this->doRequest('TestFlowStrategy01', 'HTTPS', 'PUT', '2018-07-13', 'AK', null, $request, $runtime));
+        return TestFlowStrategy01Response::fromMap($this->doRequest('TestFlowStrategy01', 'HTTPS', 'PUT', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -143,7 +143,7 @@ class Ft extends Rpc
             $request->otherParamShrink = Utils::toJSONString($tmp->otherParam);
         }
 
-        return TestHttpApiResponse::fromMap($this->doRequest('TestHttpApi', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request, $runtime));
+        return TestHttpApiResponse::fromMap($this->doRequest('TestHttpApi', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -168,7 +168,7 @@ class Ft extends Rpc
     {
         Utils::validateModel($request);
 
-        return BatchAuditTest01Response::fromMap($this->doRequest('BatchAuditTest01', 'HTTPS', 'POST', '2018-07-13', 'Anonymous', null, $request, $runtime));
+        return BatchAuditTest01Response::fromMap($this->doRequest('BatchAuditTest01', 'HTTPS', 'POST', '2018-07-13', 'Anonymous', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -193,7 +193,7 @@ class Ft extends Rpc
     {
         Utils::validateModel($request);
 
-        return FtIpFlowControlResponse::fromMap($this->doRequest('FtIpFlowControl', 'HTTPS', 'POST', '2018-07-13', 'Anonymous', null, $request, $runtime));
+        return FtIpFlowControlResponse::fromMap($this->doRequest('FtIpFlowControl', 'HTTPS', 'POST', '2018-07-13', 'Anonymous', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -218,7 +218,7 @@ class Ft extends Rpc
     {
         Utils::validateModel($request);
 
-        return FtDynamicAddressDubboResponse::fromMap($this->doRequest('FtDynamicAddressDubbo', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request, $runtime));
+        return FtDynamicAddressDubboResponse::fromMap($this->doRequest('FtDynamicAddressDubbo', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -243,7 +243,7 @@ class Ft extends Rpc
     {
         Utils::validateModel($request);
 
-        return FtDynamicAddressHsfResponse::fromMap($this->doRequest('FtDynamicAddressHsf', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request, $runtime));
+        return FtDynamicAddressHsfResponse::fromMap($this->doRequest('FtDynamicAddressHsf', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -268,7 +268,7 @@ class Ft extends Rpc
     {
         Utils::validateModel($request);
 
-        return FtFlowSpecialResponse::fromMap($this->doRequest('FtFlowSpecial', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request, $runtime));
+        return FtFlowSpecialResponse::fromMap($this->doRequest('FtFlowSpecial', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -293,7 +293,7 @@ class Ft extends Rpc
     {
         Utils::validateModel($request);
 
-        return FTApiAliasApiResponse::fromMap($this->doRequest('FTApiAliasApi', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request, $runtime));
+        return FTApiAliasApiResponse::fromMap($this->doRequest('FTApiAliasApi', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -318,7 +318,7 @@ class Ft extends Rpc
     {
         Utils::validateModel($request);
 
-        return FtEagleEyeResponse::fromMap($this->doRequest('FtEagleEye', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request, $runtime));
+        return FtEagleEyeResponse::fromMap($this->doRequest('FtEagleEye', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -343,7 +343,7 @@ class Ft extends Rpc
     {
         Utils::validateModel($request);
 
-        return FtParamListResponse::fromMap($this->doRequest('FtParamList', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request, $runtime));
+        return FtParamListResponse::fromMap($this->doRequest('FtParamList', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -368,7 +368,7 @@ class Ft extends Rpc
     {
         Utils::validateModel($request);
 
-        return FtGatedLaunchPolicy4Response::fromMap($this->doRequest('FtGatedLaunchPolicy4', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request, $runtime));
+        return FtGatedLaunchPolicy4Response::fromMap($this->doRequest('FtGatedLaunchPolicy4', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -399,8 +399,8 @@ class Ft extends Rpc
         if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_($endpointMap['regionId'])) {
-            return $endpointMap['regionId'];
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap['regionId'])) {
+            return @$endpointMap['regionId'];
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
