@@ -347,7 +347,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListQualityResultsByEntityResponse::fromMap($this->doRequest('ListQualityResultsByEntity', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListQualityResultsByEntityResponse::fromMap($this->doRequest('ListQualityResultsByEntity', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -372,7 +372,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetNodeTypeListInfoResponse::fromMap($this->doRequest('GetNodeTypeListInfo', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetNodeTypeListInfoResponse::fromMap($this->doRequest('GetNodeTypeListInfo', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -397,7 +397,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetInstanceStatusCountResponse::fromMap($this->doRequest('GetInstanceStatusCount', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetInstanceStatusCountResponse::fromMap($this->doRequest('GetInstanceStatusCount', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -422,7 +422,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListDataServiceFoldersResponse::fromMap($this->doRequest('ListDataServiceFolders', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListDataServiceFoldersResponse::fromMap($this->doRequest('ListDataServiceFolders', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -447,7 +447,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListQualityResultsByRuleResponse::fromMap($this->doRequest('ListQualityResultsByRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListQualityResultsByRuleResponse::fromMap($this->doRequest('ListQualityResultsByRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -472,7 +472,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListMetaDBResponse::fromMap($this->doRequest('ListMetaDB', 'HTTPS', 'GET', '2020-05-18', 'AK', $request, null, $runtime));
+        return ListMetaDBResponse::fromMap($this->doRequest('ListMetaDB', 'HTTPS', 'GET', '2020-05-18', 'AK', $request->toMap(), null, $runtime));
     }
 
     /**
@@ -497,7 +497,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateTableResponse::fromMap($this->doRequest('CreateTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateTableResponse::fromMap($this->doRequest('CreateTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -522,7 +522,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateTableThemeResponse::fromMap($this->doRequest('CreateTableTheme', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateTableThemeResponse::fromMap($this->doRequest('CreateTableTheme', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -547,7 +547,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetInstanceErrorRankResponse::fromMap($this->doRequest('GetInstanceErrorRank', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetInstanceErrorRankResponse::fromMap($this->doRequest('GetInstanceErrorRank', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -572,7 +572,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDDLJobStatusResponse::fromMap($this->doRequest('GetDDLJobStatus', 'HTTPS', 'GET', '2020-05-18', 'AK', $request, null, $runtime));
+        return GetDDLJobStatusResponse::fromMap($this->doRequest('GetDDLJobStatus', 'HTTPS', 'GET', '2020-05-18', 'AK', $request->toMap(), null, $runtime));
     }
 
     /**
@@ -597,7 +597,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetInstanceConsumeTimeRankResponse::fromMap($this->doRequest('GetInstanceConsumeTimeRank', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetInstanceConsumeTimeRankResponse::fromMap($this->doRequest('GetInstanceConsumeTimeRank', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -622,7 +622,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateDataServiceApiAuthorityResponse::fromMap($this->doRequest('CreateDataServiceApiAuthority', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateDataServiceApiAuthorityResponse::fromMap($this->doRequest('CreateDataServiceApiAuthority', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -647,7 +647,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteDataServiceApiAuthorityResponse::fromMap($this->doRequest('DeleteDataServiceApiAuthority', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteDataServiceApiAuthorityResponse::fromMap($this->doRequest('DeleteDataServiceApiAuthority', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -672,7 +672,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateDataServiceGroupResponse::fromMap($this->doRequest('CreateDataServiceGroup', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateDataServiceGroupResponse::fromMap($this->doRequest('CreateDataServiceGroup', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -697,7 +697,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateMetaTableResponse::fromMap($this->doRequest('UpdateMetaTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateMetaTableResponse::fromMap($this->doRequest('UpdateMetaTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -722,7 +722,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetInstanceCountTrendResponse::fromMap($this->doRequest('GetInstanceCountTrend', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetInstanceCountTrendResponse::fromMap($this->doRequest('GetInstanceCountTrend', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -747,7 +747,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteTableResponse::fromMap($this->doRequest('DeleteTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteTableResponse::fromMap($this->doRequest('DeleteTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -772,7 +772,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListTableThemeResponse::fromMap($this->doRequest('ListTableTheme', 'HTTPS', 'GET', '2020-05-18', 'AK', $request, null, $runtime));
+        return ListTableThemeResponse::fromMap($this->doRequest('ListTableTheme', 'HTTPS', 'GET', '2020-05-18', 'AK', $request->toMap(), null, $runtime));
     }
 
     /**
@@ -797,7 +797,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetSuccessInstanceTrendResponse::fromMap($this->doRequest('GetSuccessInstanceTrend', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetSuccessInstanceTrendResponse::fromMap($this->doRequest('GetSuccessInstanceTrend', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -822,7 +822,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateTableResponse::fromMap($this->doRequest('UpdateTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateTableResponse::fromMap($this->doRequest('UpdateTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -847,7 +847,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDataServiceFolderResponse::fromMap($this->doRequest('GetDataServiceFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetDataServiceFolderResponse::fromMap($this->doRequest('GetDataServiceFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -872,7 +872,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListTableLevelResponse::fromMap($this->doRequest('ListTableLevel', 'HTTPS', 'GET', '2020-05-18', 'AK', $request, null, $runtime));
+        return ListTableLevelResponse::fromMap($this->doRequest('ListTableLevel', 'HTTPS', 'GET', '2020-05-18', 'AK', $request->toMap(), null, $runtime));
     }
 
     /**
@@ -897,7 +897,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListDataServiceGroupsResponse::fromMap($this->doRequest('ListDataServiceGroups', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListDataServiceGroupsResponse::fromMap($this->doRequest('ListDataServiceGroups', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -922,7 +922,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateTableThemeResponse::fromMap($this->doRequest('UpdateTableTheme', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateTableThemeResponse::fromMap($this->doRequest('UpdateTableTheme', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -947,7 +947,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateDataServiceFolderResponse::fromMap($this->doRequest('CreateDataServiceFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateDataServiceFolderResponse::fromMap($this->doRequest('CreateDataServiceFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -972,7 +972,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDataServiceGroupResponse::fromMap($this->doRequest('GetDataServiceGroup', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetDataServiceGroupResponse::fromMap($this->doRequest('GetDataServiceGroup', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -997,7 +997,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateTableLevelResponse::fromMap($this->doRequest('CreateTableLevel', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateTableLevelResponse::fromMap($this->doRequest('CreateTableLevel', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1022,7 +1022,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateMetaTableIntroWikiResponse::fromMap($this->doRequest('UpdateMetaTableIntroWiki', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateMetaTableIntroWikiResponse::fromMap($this->doRequest('UpdateMetaTableIntroWiki', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1047,7 +1047,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteTableLevelResponse::fromMap($this->doRequest('DeleteTableLevel', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteTableLevelResponse::fromMap($this->doRequest('DeleteTableLevel', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1072,7 +1072,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateTableLevelResponse::fromMap($this->doRequest('UpdateTableLevel', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateTableLevelResponse::fromMap($this->doRequest('UpdateTableLevel', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1097,7 +1097,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteTableThemeResponse::fromMap($this->doRequest('DeleteTableTheme', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteTableThemeResponse::fromMap($this->doRequest('DeleteTableTheme', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1122,7 +1122,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListProgramTypeCountResponse::fromMap($this->doRequest('ListProgramTypeCount', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListProgramTypeCountResponse::fromMap($this->doRequest('ListProgramTypeCount', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1147,7 +1147,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateTableModelInfoResponse::fromMap($this->doRequest('UpdateTableModelInfo', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateTableModelInfoResponse::fromMap($this->doRequest('UpdateTableModelInfo', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1172,7 +1172,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListProjectsResponse::fromMap($this->doRequest('ListProjects', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListProjectsResponse::fromMap($this->doRequest('ListProjects', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1197,7 +1197,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListProjectMembersResponse::fromMap($this->doRequest('ListProjectMembers', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListProjectMembersResponse::fromMap($this->doRequest('ListProjectMembers', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1222,7 +1222,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateProjectMemberResponse::fromMap($this->doRequest('CreateProjectMember', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateProjectMemberResponse::fromMap($this->doRequest('CreateProjectMember', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1247,7 +1247,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListProjectRolesResponse::fromMap($this->doRequest('ListProjectRoles', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListProjectRolesResponse::fromMap($this->doRequest('ListProjectRoles', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1272,7 +1272,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddProjectMemberToRoleResponse::fromMap($this->doRequest('AddProjectMemberToRole', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return AddProjectMemberToRoleResponse::fromMap($this->doRequest('AddProjectMemberToRole', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1297,7 +1297,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return RemoveProjectMemberFromRoleResponse::fromMap($this->doRequest('RemoveProjectMemberFromRole', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return RemoveProjectMemberFromRoleResponse::fromMap($this->doRequest('RemoveProjectMemberFromRole', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1322,7 +1322,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteProjectMemberResponse::fromMap($this->doRequest('DeleteProjectMember', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteProjectMemberResponse::fromMap($this->doRequest('DeleteProjectMember', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1347,7 +1347,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateDagComplementResponse::fromMap($this->doRequest('CreateDagComplement', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateDagComplementResponse::fromMap($this->doRequest('CreateDagComplement', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1372,7 +1372,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateDagTestResponse::fromMap($this->doRequest('CreateDagTest', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateDagTestResponse::fromMap($this->doRequest('CreateDagTest', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1397,7 +1397,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListCalcEnginesResponse::fromMap($this->doRequest('ListCalcEngines', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListCalcEnginesResponse::fromMap($this->doRequest('ListCalcEngines', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1422,7 +1422,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListConnectionsResponse::fromMap($this->doRequest('ListConnections', 'HTTPS', 'GET', '2020-05-18', 'AK', $request, null, $runtime));
+        return ListConnectionsResponse::fromMap($this->doRequest('ListConnections', 'HTTPS', 'GET', '2020-05-18', 'AK', $request->toMap(), null, $runtime));
     }
 
     /**
@@ -1447,7 +1447,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateConnectionResponse::fromMap($this->doRequest('UpdateConnection', 'HTTPS', 'PUT', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateConnectionResponse::fromMap($this->doRequest('UpdateConnection', 'HTTPS', 'PUT', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1472,7 +1472,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteConnectionResponse::fromMap($this->doRequest('DeleteConnection', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteConnectionResponse::fromMap($this->doRequest('DeleteConnection', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1497,7 +1497,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetProjectDetailResponse::fromMap($this->doRequest('GetProjectDetail', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetProjectDetailResponse::fromMap($this->doRequest('GetProjectDetail', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1522,7 +1522,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListResourceGroupsResponse::fromMap($this->doRequest('ListResourceGroups', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListResourceGroupsResponse::fromMap($this->doRequest('ListResourceGroups', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1547,7 +1547,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateConnectionResponse::fromMap($this->doRequest('CreateConnection', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateConnectionResponse::fromMap($this->doRequest('CreateConnection', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1572,7 +1572,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDataServiceApplicationResponse::fromMap($this->doRequest('GetDataServiceApplication', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetDataServiceApplicationResponse::fromMap($this->doRequest('GetDataServiceApplication', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1597,7 +1597,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListDataServiceApplicationsResponse::fromMap($this->doRequest('ListDataServiceApplications', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListDataServiceApplicationsResponse::fromMap($this->doRequest('ListDataServiceApplications', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1622,7 +1622,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetNodeOnBaselineResponse::fromMap($this->doRequest('GetNodeOnBaseline', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetNodeOnBaselineResponse::fromMap($this->doRequest('GetNodeOnBaseline', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1647,7 +1647,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListBaselineConfigsResponse::fromMap($this->doRequest('ListBaselineConfigs', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListBaselineConfigsResponse::fromMap($this->doRequest('ListBaselineConfigs', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1672,7 +1672,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaTableChangeLogResponse::fromMap($this->doRequest('GetMetaTableChangeLog', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetMetaTableChangeLogResponse::fromMap($this->doRequest('GetMetaTableChangeLog', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1697,7 +1697,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaTableOutputResponse::fromMap($this->doRequest('GetMetaTableOutput', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetMetaTableOutputResponse::fromMap($this->doRequest('GetMetaTableOutput', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1722,7 +1722,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaTablePartitionResponse::fromMap($this->doRequest('GetMetaTablePartition', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetMetaTablePartitionResponse::fromMap($this->doRequest('GetMetaTablePartition', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1747,7 +1747,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaTableFullInfoResponse::fromMap($this->doRequest('GetMetaTableFullInfo', 'HTTPS', 'GET', '2020-05-18', 'AK', $request, null, $runtime));
+        return GetMetaTableFullInfoResponse::fromMap($this->doRequest('GetMetaTableFullInfo', 'HTTPS', 'GET', '2020-05-18', 'AK', $request->toMap(), null, $runtime));
     }
 
     /**
@@ -1772,7 +1772,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetFileVersionResponse::fromMap($this->doRequest('GetFileVersion', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetFileVersionResponse::fromMap($this->doRequest('GetFileVersion', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1797,7 +1797,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaTableBasicInfoResponse::fromMap($this->doRequest('GetMetaTableBasicInfo', 'HTTPS', 'GET', '2020-05-18', 'AK', $request, null, $runtime));
+        return GetMetaTableBasicInfoResponse::fromMap($this->doRequest('GetMetaTableBasicInfo', 'HTTPS', 'GET', '2020-05-18', 'AK', $request->toMap(), null, $runtime));
     }
 
     /**
@@ -1822,7 +1822,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaTableColumnResponse::fromMap($this->doRequest('GetMetaTableColumn', 'HTTPS', 'GET', '2020-05-18', 'AK', $request, null, $runtime));
+        return GetMetaTableColumnResponse::fromMap($this->doRequest('GetMetaTableColumn', 'HTTPS', 'GET', '2020-05-18', 'AK', $request->toMap(), null, $runtime));
     }
 
     /**
@@ -1847,7 +1847,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaDBInfoResponse::fromMap($this->doRequest('GetMetaDBInfo', 'HTTPS', 'GET', '2020-05-18', 'AK', $request, null, $runtime));
+        return GetMetaDBInfoResponse::fromMap($this->doRequest('GetMetaDBInfo', 'HTTPS', 'GET', '2020-05-18', 'AK', $request->toMap(), null, $runtime));
     }
 
     /**
@@ -1872,7 +1872,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaCategoryResponse::fromMap($this->doRequest('GetMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetMetaCategoryResponse::fromMap($this->doRequest('GetMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1897,7 +1897,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListAlertMessagesResponse::fromMap($this->doRequest('ListAlertMessages', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListAlertMessagesResponse::fromMap($this->doRequest('ListAlertMessages', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1922,7 +1922,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetBaselineConfigResponse::fromMap($this->doRequest('GetBaselineConfig', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetBaselineConfigResponse::fromMap($this->doRequest('GetBaselineConfig', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1947,7 +1947,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return SearchMetaTablesResponse::fromMap($this->doRequest('SearchMetaTables', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return SearchMetaTablesResponse::fromMap($this->doRequest('SearchMetaTables', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -1972,7 +1972,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaTableListByCategoryResponse::fromMap($this->doRequest('GetMetaTableListByCategory', 'HTTPS', 'GET', '2020-05-18', 'AK', $request, null, $runtime));
+        return GetMetaTableListByCategoryResponse::fromMap($this->doRequest('GetMetaTableListByCategory', 'HTTPS', 'GET', '2020-05-18', 'AK', $request->toMap(), null, $runtime));
     }
 
     /**
@@ -1997,7 +1997,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteMetaCategoryResponse::fromMap($this->doRequest('DeleteMetaCategory', 'HTTPS', 'GET', '2020-05-18', 'AK', $request, null, $runtime));
+        return DeleteMetaCategoryResponse::fromMap($this->doRequest('DeleteMetaCategory', 'HTTPS', 'GET', '2020-05-18', 'AK', $request->toMap(), null, $runtime));
     }
 
     /**
@@ -2022,7 +2022,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateMetaCategoryResponse::fromMap($this->doRequest('UpdateMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateMetaCategoryResponse::fromMap($this->doRequest('UpdateMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2047,7 +2047,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListTopicsResponse::fromMap($this->doRequest('ListTopics', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListTopicsResponse::fromMap($this->doRequest('ListTopics', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2072,7 +2072,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListFileVersionsResponse::fromMap($this->doRequest('ListFileVersions', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListFileVersionsResponse::fromMap($this->doRequest('ListFileVersions', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2097,7 +2097,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateMetaCategoryResponse::fromMap($this->doRequest('CreateMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateMetaCategoryResponse::fromMap($this->doRequest('CreateMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2122,7 +2122,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListNodeIOResponse::fromMap($this->doRequest('ListNodeIO', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListNodeIOResponse::fromMap($this->doRequest('ListNodeIO', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2147,7 +2147,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetTopicInfluenceResponse::fromMap($this->doRequest('GetTopicInfluence', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetTopicInfluenceResponse::fromMap($this->doRequest('GetTopicInfluence', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2172,7 +2172,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetTopicResponse::fromMap($this->doRequest('GetTopic', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetTopicResponse::fromMap($this->doRequest('GetTopic', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2197,7 +2197,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteFromMetaCategoryResponse::fromMap($this->doRequest('DeleteFromMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteFromMetaCategoryResponse::fromMap($this->doRequest('DeleteFromMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2222,7 +2222,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetNodeResponse::fromMap($this->doRequest('GetNode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetNodeResponse::fromMap($this->doRequest('GetNode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2247,7 +2247,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListNodesResponse::fromMap($this->doRequest('ListNodes', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListNodesResponse::fromMap($this->doRequest('ListNodes', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2272,7 +2272,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetNodeCodeResponse::fromMap($this->doRequest('GetNodeCode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetNodeCodeResponse::fromMap($this->doRequest('GetNodeCode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2297,7 +2297,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return EstablishRelationTableToBusinessResponse::fromMap($this->doRequest('EstablishRelationTableToBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return EstablishRelationTableToBusinessResponse::fromMap($this->doRequest('EstablishRelationTableToBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2322,7 +2322,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateDataServiceApiResponse::fromMap($this->doRequest('UpdateDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateDataServiceApiResponse::fromMap($this->doRequest('UpdateDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2347,7 +2347,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateUdfFileResponse::fromMap($this->doRequest('UpdateUdfFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateUdfFileResponse::fromMap($this->doRequest('UpdateUdfFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2372,7 +2372,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateUdfFileResponse::fromMap($this->doRequest('CreateUdfFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateUdfFileResponse::fromMap($this->doRequest('CreateUdfFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2397,7 +2397,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListFilesResponse::fromMap($this->doRequest('ListFiles', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListFilesResponse::fromMap($this->doRequest('ListFiles', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2422,7 +2422,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListDataServiceAuthorizedApisResponse::fromMap($this->doRequest('ListDataServiceAuthorizedApis', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListDataServiceAuthorizedApisResponse::fromMap($this->doRequest('ListDataServiceAuthorizedApis', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2447,7 +2447,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateFileResponse::fromMap($this->doRequest('UpdateFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateFileResponse::fromMap($this->doRequest('UpdateFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2472,7 +2472,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteFolderResponse::fromMap($this->doRequest('DeleteFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteFolderResponse::fromMap($this->doRequest('DeleteFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2497,7 +2497,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListFoldersResponse::fromMap($this->doRequest('ListFolders', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListFoldersResponse::fromMap($this->doRequest('ListFolders', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2522,7 +2522,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CheckMetaPartitionResponse::fromMap($this->doRequest('CheckMetaPartition', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CheckMetaPartitionResponse::fromMap($this->doRequest('CheckMetaPartition', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2547,7 +2547,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateFolderResponse::fromMap($this->doRequest('UpdateFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateFolderResponse::fromMap($this->doRequest('UpdateFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2572,7 +2572,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteRemindResponse::fromMap($this->doRequest('DeleteRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteRemindResponse::fromMap($this->doRequest('DeleteRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2597,7 +2597,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddToMetaCategoryResponse::fromMap($this->doRequest('AddToMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return AddToMetaCategoryResponse::fromMap($this->doRequest('AddToMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2622,7 +2622,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListInstancesResponse::fromMap($this->doRequest('ListInstances', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListInstancesResponse::fromMap($this->doRequest('ListInstances', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2647,7 +2647,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return SetSuccessInstanceResponse::fromMap($this->doRequest('SetSuccessInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return SetSuccessInstanceResponse::fromMap($this->doRequest('SetSuccessInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2672,7 +2672,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateFileResponse::fromMap($this->doRequest('CreateFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateFileResponse::fromMap($this->doRequest('CreateFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2697,7 +2697,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return StopInstanceResponse::fromMap($this->doRequest('StopInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return StopInstanceResponse::fromMap($this->doRequest('StopInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2722,7 +2722,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ResumeInstanceResponse::fromMap($this->doRequest('ResumeInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ResumeInstanceResponse::fromMap($this->doRequest('ResumeInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2747,7 +2747,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return SuspendInstanceResponse::fromMap($this->doRequest('SuspendInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return SuspendInstanceResponse::fromMap($this->doRequest('SuspendInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2772,7 +2772,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return RestartInstanceResponse::fromMap($this->doRequest('RestartInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return RestartInstanceResponse::fromMap($this->doRequest('RestartInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2797,7 +2797,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListDataServiceApiAuthoritiesResponse::fromMap($this->doRequest('ListDataServiceApiAuthorities', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListDataServiceApiAuthoritiesResponse::fromMap($this->doRequest('ListDataServiceApiAuthorities', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2822,7 +2822,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListDataServicePublishedApisResponse::fromMap($this->doRequest('ListDataServicePublishedApis', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListDataServicePublishedApisResponse::fromMap($this->doRequest('ListDataServicePublishedApis', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2847,7 +2847,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetInstanceLogResponse::fromMap($this->doRequest('GetInstanceLog', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetInstanceLogResponse::fromMap($this->doRequest('GetInstanceLog', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2872,7 +2872,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateFolderResponse::fromMap($this->doRequest('CreateFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateFolderResponse::fromMap($this->doRequest('CreateFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2897,7 +2897,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetBusinessResponse::fromMap($this->doRequest('GetBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetBusinessResponse::fromMap($this->doRequest('GetBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2922,7 +2922,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetInstanceResponse::fromMap($this->doRequest('GetInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetInstanceResponse::fromMap($this->doRequest('GetInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2947,7 +2947,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetFileResponse::fromMap($this->doRequest('GetFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetFileResponse::fromMap($this->doRequest('GetFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2972,7 +2972,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListBusinessResponse::fromMap($this->doRequest('ListBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListBusinessResponse::fromMap($this->doRequest('ListBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -2997,7 +2997,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaDBTableListResponse::fromMap($this->doRequest('GetMetaDBTableList', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetMetaDBTableListResponse::fromMap($this->doRequest('GetMetaDBTableList', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3022,7 +3022,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CheckMetaTableResponse::fromMap($this->doRequest('CheckMetaTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CheckMetaTableResponse::fromMap($this->doRequest('CheckMetaTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3047,7 +3047,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetFolderResponse::fromMap($this->doRequest('GetFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetFolderResponse::fromMap($this->doRequest('GetFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3072,7 +3072,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeployFileResponse::fromMap($this->doRequest('DeployFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeployFileResponse::fromMap($this->doRequest('DeployFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3097,7 +3097,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteBusinessResponse::fromMap($this->doRequest('DeleteBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteBusinessResponse::fromMap($this->doRequest('DeleteBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3122,7 +3122,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteFileResponse::fromMap($this->doRequest('DeleteFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteFileResponse::fromMap($this->doRequest('DeleteFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3147,7 +3147,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListQualityRulesResponse::fromMap($this->doRequest('ListQualityRules', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListQualityRulesResponse::fromMap($this->doRequest('ListQualityRules', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3172,7 +3172,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateRemindResponse::fromMap($this->doRequest('CreateRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateRemindResponse::fromMap($this->doRequest('CreateRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3197,7 +3197,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetQualityRuleResponse::fromMap($this->doRequest('GetQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetQualityRuleResponse::fromMap($this->doRequest('GetQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3222,7 +3222,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDeploymentResponse::fromMap($this->doRequest('GetDeployment', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetDeploymentResponse::fromMap($this->doRequest('GetDeployment', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3247,7 +3247,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateRemindResponse::fromMap($this->doRequest('UpdateRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateRemindResponse::fromMap($this->doRequest('UpdateRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3272,7 +3272,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaColumnLineageResponse::fromMap($this->doRequest('GetMetaColumnLineage', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetMetaColumnLineageResponse::fromMap($this->doRequest('GetMetaColumnLineage', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3297,7 +3297,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateBusinessResponse::fromMap($this->doRequest('UpdateBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateBusinessResponse::fromMap($this->doRequest('UpdateBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3322,7 +3322,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateQualityRuleResponse::fromMap($this->doRequest('UpdateQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateQualityRuleResponse::fromMap($this->doRequest('UpdateQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3347,7 +3347,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteQualityRuleResponse::fromMap($this->doRequest('DeleteQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteQualityRuleResponse::fromMap($this->doRequest('DeleteQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3372,7 +3372,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return SubmitFileResponse::fromMap($this->doRequest('SubmitFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return SubmitFileResponse::fromMap($this->doRequest('SubmitFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3397,7 +3397,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDataServiceApiResponse::fromMap($this->doRequest('GetDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetDataServiceApiResponse::fromMap($this->doRequest('GetDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3422,7 +3422,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListDataServiceApisResponse::fromMap($this->doRequest('ListDataServiceApis', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListDataServiceApisResponse::fromMap($this->doRequest('ListDataServiceApis', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3447,7 +3447,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDataServicePublishedApiResponse::fromMap($this->doRequest('GetDataServicePublishedApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetDataServicePublishedApiResponse::fromMap($this->doRequest('GetDataServicePublishedApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3472,7 +3472,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetBaselineKeyPathResponse::fromMap($this->doRequest('GetBaselineKeyPath', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetBaselineKeyPathResponse::fromMap($this->doRequest('GetBaselineKeyPath', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3497,7 +3497,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetRemindResponse::fromMap($this->doRequest('GetRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetRemindResponse::fromMap($this->doRequest('GetRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3522,7 +3522,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaTableIntroWikiResponse::fromMap($this->doRequest('GetMetaTableIntroWiki', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetMetaTableIntroWikiResponse::fromMap($this->doRequest('GetMetaTableIntroWiki', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3547,7 +3547,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetBaselineStatusResponse::fromMap($this->doRequest('GetBaselineStatus', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetBaselineStatusResponse::fromMap($this->doRequest('GetBaselineStatus', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3572,7 +3572,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteDataServiceApiResponse::fromMap($this->doRequest('DeleteDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteDataServiceApiResponse::fromMap($this->doRequest('DeleteDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3597,7 +3597,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return PublishDataServiceApiResponse::fromMap($this->doRequest('PublishDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return PublishDataServiceApiResponse::fromMap($this->doRequest('PublishDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3622,7 +3622,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMetaTableLineageResponse::fromMap($this->doRequest('GetMetaTableLineage', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetMetaTableLineageResponse::fromMap($this->doRequest('GetMetaTableLineage', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3647,7 +3647,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListBaselineStatusesResponse::fromMap($this->doRequest('ListBaselineStatuses', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListBaselineStatusesResponse::fromMap($this->doRequest('ListBaselineStatuses', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3672,7 +3672,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListRemindsResponse::fromMap($this->doRequest('ListReminds', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return ListRemindsResponse::fromMap($this->doRequest('ListReminds', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3697,7 +3697,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteQualityEntityResponse::fromMap($this->doRequest('DeleteQualityEntity', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteQualityEntityResponse::fromMap($this->doRequest('DeleteQualityEntity', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3722,7 +3722,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateQualityFollowerResponse::fromMap($this->doRequest('CreateQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateQualityFollowerResponse::fromMap($this->doRequest('CreateQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3747,7 +3747,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateDataServiceApiResponse::fromMap($this->doRequest('CreateDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateDataServiceApiResponse::fromMap($this->doRequest('CreateDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3772,7 +3772,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return AbolishDataServiceApiResponse::fromMap($this->doRequest('AbolishDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return AbolishDataServiceApiResponse::fromMap($this->doRequest('AbolishDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3797,7 +3797,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetQualityEntityResponse::fromMap($this->doRequest('GetQualityEntity', 'HTTP', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetQualityEntityResponse::fromMap($this->doRequest('GetQualityEntity', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3822,7 +3822,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetQualityFollowerResponse::fromMap($this->doRequest('GetQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return GetQualityFollowerResponse::fromMap($this->doRequest('GetQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3847,7 +3847,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteQualityFollowerResponse::fromMap($this->doRequest('DeleteQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteQualityFollowerResponse::fromMap($this->doRequest('DeleteQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3872,7 +3872,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateQualityEntityResponse::fromMap($this->doRequest('CreateQualityEntity', 'HTTP', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateQualityEntityResponse::fromMap($this->doRequest('CreateQualityEntity', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3897,7 +3897,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateQualityRuleResponse::fromMap($this->doRequest('CreateQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateQualityRuleResponse::fromMap($this->doRequest('CreateQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3922,7 +3922,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateQualityFollowerResponse::fromMap($this->doRequest('UpdateQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return UpdateQualityFollowerResponse::fromMap($this->doRequest('UpdateQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3947,7 +3947,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateQualityRelativeNodeResponse::fromMap($this->doRequest('CreateQualityRelativeNode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return CreateQualityRelativeNodeResponse::fromMap($this->doRequest('CreateQualityRelativeNode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -3972,7 +3972,7 @@ class Dataworkspublic extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteQualityRelativeNodeResponse::fromMap($this->doRequest('DeleteQualityRelativeNode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request, $runtime));
+        return DeleteQualityRelativeNodeResponse::fromMap($this->doRequest('DeleteQualityRelativeNode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -4003,8 +4003,8 @@ class Dataworkspublic extends Rpc
         if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_($endpointMap['regionId'])) {
-            return $endpointMap['regionId'];
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap['regionId'])) {
+            return @$endpointMap['regionId'];
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);

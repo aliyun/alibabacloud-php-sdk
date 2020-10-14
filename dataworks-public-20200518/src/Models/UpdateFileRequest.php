@@ -112,6 +112,16 @@ class UpdateFileRequest extends Model
      * @var string
      */
     public $resourceGroupIdentifier;
+
+    /**
+     * @var string
+     */
+    public $connectionName;
+
+    /**
+     * @var string
+     */
+    public $owner;
     protected $_name = [
         'fileFolderPath'          => 'FileFolderPath',
         'projectId'               => 'ProjectId',
@@ -134,6 +144,8 @@ class UpdateFileRequest extends Model
         'fileId'                  => 'FileId',
         'outputList'              => 'OutputList',
         'resourceGroupIdentifier' => 'ResourceGroupIdentifier',
+        'connectionName'          => 'ConnectionName',
+        'owner'                   => 'Owner',
     ];
 
     public function validate()
@@ -206,6 +218,12 @@ class UpdateFileRequest extends Model
         }
         if (null !== $this->resourceGroupIdentifier) {
             $res['ResourceGroupIdentifier'] = $this->resourceGroupIdentifier;
+        }
+        if (null !== $this->connectionName) {
+            $res['ConnectionName'] = $this->connectionName;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         return $res;
@@ -281,6 +299,12 @@ class UpdateFileRequest extends Model
         }
         if (isset($map['ResourceGroupIdentifier'])) {
             $model->resourceGroupIdentifier = $map['ResourceGroupIdentifier'];
+        }
+        if (isset($map['ConnectionName'])) {
+            $model->connectionName = $map['ConnectionName'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         return $model;

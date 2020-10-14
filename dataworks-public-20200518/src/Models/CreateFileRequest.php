@@ -112,6 +112,16 @@ class CreateFileRequest extends Model
      * @var string
      */
     public $resourceGroupIdentifier;
+
+    /**
+     * @var int
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $connectionName;
     protected $_name = [
         'fileFolderPath'          => 'FileFolderPath',
         'projectId'               => 'ProjectId',
@@ -134,6 +144,8 @@ class CreateFileRequest extends Model
         'inputList'               => 'InputList',
         'projectIdentifier'       => 'ProjectIdentifier',
         'resourceGroupIdentifier' => 'ResourceGroupIdentifier',
+        'resourceGroupId'         => 'ResourceGroupId',
+        'connectionName'          => 'ConnectionName',
     ];
 
     public function validate()
@@ -209,6 +221,12 @@ class CreateFileRequest extends Model
         if (null !== $this->resourceGroupIdentifier) {
             $res['ResourceGroupIdentifier'] = $this->resourceGroupIdentifier;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->connectionName) {
+            $res['ConnectionName'] = $this->connectionName;
+        }
 
         return $res;
     }
@@ -283,6 +301,12 @@ class CreateFileRequest extends Model
         }
         if (isset($map['ResourceGroupIdentifier'])) {
             $model->resourceGroupIdentifier = $map['ResourceGroupIdentifier'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ConnectionName'])) {
+            $model->connectionName = $map['ConnectionName'];
         }
 
         return $model;
