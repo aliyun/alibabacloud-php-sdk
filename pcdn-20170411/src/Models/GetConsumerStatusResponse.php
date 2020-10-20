@@ -44,7 +44,7 @@ class GetConsumerStatusResponse extends Model
     public $cdnUrlRedirectFlag;
 
     /**
-     * @var bool
+     * @var string
      */
     public $businessType;
 
