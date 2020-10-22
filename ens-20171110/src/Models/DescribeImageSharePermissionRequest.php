@@ -22,10 +22,16 @@ class DescribeImageSharePermissionRequest extends Model
      * @var string
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $aliyunId;
     protected $_name = [
         'imageId'    => 'ImageId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'aliyunId'   => 'AliyunId',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class DescribeImageSharePermissionRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->aliyunId) {
+            $res['AliyunId'] = $this->aliyunId;
         }
 
         return $res;
@@ -65,6 +74,9 @@ class DescribeImageSharePermissionRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['AliyunId'])) {
+            $model->aliyunId = $map['AliyunId'];
         }
 
         return $model;
