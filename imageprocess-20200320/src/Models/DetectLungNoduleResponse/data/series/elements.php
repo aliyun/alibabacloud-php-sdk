@@ -62,18 +62,24 @@ class elements extends Model
      * @var float
      */
     public $imageZ;
+
+    /**
+     * @var string
+     */
+    public $SOPInstanceUID;
     protected $_name = [
-        'category'   => 'Category',
-        'confidence' => 'Confidence',
-        'diameter'   => 'Diameter',
-        'lobe'       => 'Lobe',
-        'lung'       => 'Lung',
-        'x'          => 'X',
-        'z'          => 'Z',
-        'y'          => 'Y',
-        'imageX'     => 'ImageX',
-        'imageY'     => 'ImageY',
-        'imageZ'     => 'ImageZ',
+        'category'       => 'Category',
+        'confidence'     => 'Confidence',
+        'diameter'       => 'Diameter',
+        'lobe'           => 'Lobe',
+        'lung'           => 'Lung',
+        'x'              => 'X',
+        'z'              => 'Z',
+        'y'              => 'Y',
+        'imageX'         => 'ImageX',
+        'imageY'         => 'ImageY',
+        'imageZ'         => 'ImageZ',
+        'SOPInstanceUID' => 'SOPInstanceUID',
     ];
 
     public function validate()
@@ -89,6 +95,7 @@ class elements extends Model
         Model::validateRequired('imageX', $this->imageX, true);
         Model::validateRequired('imageY', $this->imageY, true);
         Model::validateRequired('imageZ', $this->imageZ, true);
+        Model::validateRequired('SOPInstanceUID', $this->SOPInstanceUID, true);
     }
 
     public function toMap()
@@ -126,6 +133,9 @@ class elements extends Model
         }
         if (null !== $this->imageZ) {
             $res['ImageZ'] = $this->imageZ;
+        }
+        if (null !== $this->SOPInstanceUID) {
+            $res['SOPInstanceUID'] = $this->SOPInstanceUID;
         }
 
         return $res;
@@ -171,6 +181,9 @@ class elements extends Model
         }
         if (isset($map['ImageZ'])) {
             $model->imageZ = $map['ImageZ'];
+        }
+        if (isset($map['SOPInstanceUID'])) {
+            $model->SOPInstanceUID = $map['SOPInstanceUID'];
         }
 
         return $model;

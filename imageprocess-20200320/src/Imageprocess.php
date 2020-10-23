@@ -68,7 +68,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectSkinDiseaseResponse::fromMap($this->doRequest('DetectSkinDisease', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return DetectSkinDiseaseResponse::fromMap($this->doRequest('DetectSkinDisease', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -147,7 +147,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return RunMedQAResponse::fromMap($this->doRequest('RunMedQA', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return RunMedQAResponse::fromMap($this->doRequest('RunMedQA', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -160,7 +160,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectKneeKeypointXRayResponse::fromMap($this->doRequest('DetectKneeKeypointXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return DetectKneeKeypointXRayResponse::fromMap($this->doRequest('DetectKneeKeypointXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -239,7 +239,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return ClassifyFNFResponse::fromMap($this->doRequest('ClassifyFNF', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return ClassifyFNFResponse::fromMap($this->doRequest('ClassifyFNF', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -318,7 +318,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return RunCTRegistrationResponse::fromMap($this->doRequest('RunCTRegistration', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return RunCTRegistrationResponse::fromMap($this->doRequest('RunCTRegistration', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -331,7 +331,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectHipKeypointXRayResponse::fromMap($this->doRequest('DetectHipKeypointXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return DetectHipKeypointXRayResponse::fromMap($this->doRequest('DetectHipKeypointXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -410,7 +410,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return CalcCACSResponse::fromMap($this->doRequest('CalcCACS', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return CalcCACSResponse::fromMap($this->doRequest('CalcCACS', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -423,7 +423,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectKneeXRayResponse::fromMap($this->doRequest('DetectKneeXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return DetectKneeXRayResponse::fromMap($this->doRequest('DetectKneeXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -502,7 +502,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectSpineMRIResponse::fromMap($this->doRequest('DetectSpineMRI', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return DetectSpineMRIResponse::fromMap($this->doRequest('DetectSpineMRI', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -515,7 +515,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return TranslateMedResponse::fromMap($this->doRequest('TranslateMed', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return TranslateMedResponse::fromMap($this->doRequest('TranslateMed', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -528,7 +528,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectLungNoduleResponse::fromMap($this->doRequest('DetectLungNodule', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return DetectLungNoduleResponse::fromMap($this->doRequest('DetectLungNodule', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -541,7 +541,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectCovid19CadResponse::fromMap($this->doRequest('DetectCovid19Cad', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return DetectCovid19CadResponse::fromMap($this->doRequest('DetectCovid19Cad', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -554,7 +554,7 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetAsyncJobResultResponse::fromMap($this->doRequest('GetAsyncJobResult', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request, $runtime));
+        return GetAsyncJobResultResponse::fromMap($this->doRequest('GetAsyncJobResult', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
     }
 
     /**
@@ -573,8 +573,8 @@ class Imageprocess extends Rpc
         if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_($endpointMap['regionId'])) {
-            return $endpointMap['regionId'];
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap['regionId'])) {
+            return @$endpointMap['regionId'];
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
