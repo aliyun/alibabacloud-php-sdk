@@ -117,10 +117,14 @@ use AlibabaCloud\SDK\Vcs\V20200515\Models\ListMotorAlgorithmResultsRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\ListMotorAlgorithmResultsResponse;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\ListPersonsRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\ListPersonsResponse;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\ListPersonTraceDetailsRequest;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\ListPersonTraceDetailsResponse;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\ListPersonTraceRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\ListPersonTraceResponse;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\ListPersonVisitCountRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\ListPersonVisitCountResponse;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\ListSubscribeDeviceRequest;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\ListSubscribeDeviceResponse;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\ListUserGroupsResponse;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\ListUsersRequest;
@@ -147,6 +151,10 @@ use AlibabaCloud\SDK\Vcs\V20200515\Models\SearchObjectResponse;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\SearchObjectShrinkRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\StopMonitorRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\StopMonitorResponse;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\SubscribeDeviceEventRequest;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\SubscribeDeviceEventResponse;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\SubscribeSpaceEventRequest;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\SubscribeSpaceEventResponse;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\SyncDeviceTimeRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\SyncDeviceTimeResponse;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\UnbindCorpGroupRequest;
@@ -155,6 +163,10 @@ use AlibabaCloud\SDK\Vcs\V20200515\Models\UnbindPersonRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\UnbindPersonResponse;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\UnbindUserRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\UnbindUserResponse;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\UnsubscribeDeviceEventRequest;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\UnsubscribeDeviceEventResponse;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\UnsubscribeSpaceEventRequest;
+use AlibabaCloud\SDK\Vcs\V20200515\Models\UnsubscribeSpaceEventResponse;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\UpdateCorpRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\UpdateCorpResponse;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\UpdateDeviceRequest;
@@ -175,6 +187,7 @@ use AlibabaCloud\SDK\Vcs\V20200515\Models\UploadImageRequest;
 use AlibabaCloud\SDK\Vcs\V20200515\Models\UploadImageResponse;
 use AlibabaCloud\Tea\Rpc\Rpc;
 use AlibabaCloud\Tea\RpcUtils\RpcUtils;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 
@@ -189,6 +202,156 @@ class Vcs extends Rpc
     }
 
     /**
+     * @param UnsubscribeDeviceEventRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UnsubscribeDeviceEventResponse
+     */
+    public function unsubscribeDeviceEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return UnsubscribeDeviceEventResponse::fromMap($this->doRequest('UnsubscribeDeviceEvent', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param UnsubscribeDeviceEventRequest $request
+     *
+     * @return UnsubscribeDeviceEventResponse
+     */
+    public function unsubscribeDeviceEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unsubscribeDeviceEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSubscribeDeviceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSubscribeDeviceResponse
+     */
+    public function listSubscribeDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ListSubscribeDeviceResponse::fromMap($this->doRequest('ListSubscribeDevice', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ListSubscribeDeviceRequest $request
+     *
+     * @return ListSubscribeDeviceResponse
+     */
+    public function listSubscribeDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSubscribeDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubscribeDeviceEventRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubscribeDeviceEventResponse
+     */
+    public function subscribeDeviceEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return SubscribeDeviceEventResponse::fromMap($this->doRequest('SubscribeDeviceEvent', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param SubscribeDeviceEventRequest $request
+     *
+     * @return SubscribeDeviceEventResponse
+     */
+    public function subscribeDeviceEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->subscribeDeviceEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubscribeSpaceEventRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubscribeSpaceEventResponse
+     */
+    public function subscribeSpaceEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return SubscribeSpaceEventResponse::fromMap($this->doRequest('SubscribeSpaceEvent', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param SubscribeSpaceEventRequest $request
+     *
+     * @return SubscribeSpaceEventResponse
+     */
+    public function subscribeSpaceEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->subscribeSpaceEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnsubscribeSpaceEventRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UnsubscribeSpaceEventResponse
+     */
+    public function unsubscribeSpaceEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return UnsubscribeSpaceEventResponse::fromMap($this->doRequest('UnsubscribeSpaceEvent', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param UnsubscribeSpaceEventRequest $request
+     *
+     * @return UnsubscribeSpaceEventResponse
+     */
+    public function unsubscribeSpaceEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unsubscribeSpaceEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPersonTraceDetailsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListPersonTraceDetailsResponse
+     */
+    public function listPersonTraceDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ListPersonTraceDetailsResponse::fromMap($this->doRequest('ListPersonTraceDetails', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ListPersonTraceDetailsRequest $request
+     *
+     * @return ListPersonTraceDetailsResponse
+     */
+    public function listPersonTraceDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPersonTraceDetailsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetMonitorListRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -198,7 +361,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMonitorListResponse::fromMap($this->doRequest('GetMonitorList', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetMonitorListResponse::fromMap($this->doRequest('GetMonitorList', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -223,7 +386,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListDeviceGroupsResponse::fromMap($this->doRequest('ListDeviceGroups', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return ListDeviceGroupsResponse::fromMap($this->doRequest('ListDeviceGroups', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -259,7 +422,7 @@ class Vcs extends Rpc
             $request->imagePathShrink = Utils::toJSONString($tmp->imagePath);
         }
 
-        return SearchObjectResponse::fromMap($this->doRequest('SearchObject', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return SearchObjectResponse::fromMap($this->doRequest('SearchObject', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -284,7 +447,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeDevicesResponse::fromMap($this->doRequest('DescribeDevices', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return DescribeDevicesResponse::fromMap($this->doRequest('DescribeDevices', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -317,7 +480,7 @@ class Vcs extends Rpc
             $request->profileIdListShrink = Utils::toJSONString($tmp->profileIdList);
         }
 
-        return GetProfileListResponse::fromMap($this->doRequest('GetProfileList', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetProfileListResponse::fromMap($this->doRequest('GetProfileList', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -342,7 +505,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetProfileDetailResponse::fromMap($this->doRequest('GetProfileDetail', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetProfileDetailResponse::fromMap($this->doRequest('GetProfileDetail', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -367,7 +530,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteProfileCatalogResponse::fromMap($this->doRequest('DeleteProfileCatalog', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return DeleteProfileCatalogResponse::fromMap($this->doRequest('DeleteProfileCatalog', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -392,7 +555,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return BindPersonResponse::fromMap($this->doRequest('BindPerson', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return BindPersonResponse::fromMap($this->doRequest('BindPerson', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -417,7 +580,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateProfileResponse::fromMap($this->doRequest('UpdateProfile', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UpdateProfileResponse::fromMap($this->doRequest('UpdateProfile', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -442,7 +605,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UnbindPersonResponse::fromMap($this->doRequest('UnbindPerson', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UnbindPersonResponse::fromMap($this->doRequest('UnbindPerson', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -467,7 +630,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddProfileResponse::fromMap($this->doRequest('AddProfile', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return AddProfileResponse::fromMap($this->doRequest('AddProfile', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -492,7 +655,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateProfileCatalogResponse::fromMap($this->doRequest('UpdateProfileCatalog', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UpdateProfileCatalogResponse::fromMap($this->doRequest('UpdateProfileCatalog', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -517,7 +680,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddProfileCatalogResponse::fromMap($this->doRequest('AddProfileCatalog', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return AddProfileCatalogResponse::fromMap($this->doRequest('AddProfileCatalog', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -542,7 +705,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetCatalogListResponse::fromMap($this->doRequest('GetCatalogList', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetCatalogListResponse::fromMap($this->doRequest('GetCatalogList', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -567,7 +730,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteProfileResponse::fromMap($this->doRequest('DeleteProfile', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return DeleteProfileResponse::fromMap($this->doRequest('DeleteProfile', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -592,7 +755,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UnbindCorpGroupResponse::fromMap($this->doRequest('UnbindCorpGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UnbindCorpGroupResponse::fromMap($this->doRequest('UnbindCorpGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -617,7 +780,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return BindCorpGroupResponse::fromMap($this->doRequest('BindCorpGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return BindCorpGroupResponse::fromMap($this->doRequest('BindCorpGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -642,7 +805,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListUserGroupsResponse::fromMap($this->doRequest('ListUserGroups', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return ListUserGroupsResponse::fromMap($this->doRequest('ListUserGroups', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -675,7 +838,7 @@ class Vcs extends Rpc
             $request->personIdListShrink = Utils::toJSONString($tmp->personIdList);
         }
 
-        return GetPersonListResponse::fromMap($this->doRequest('GetPersonList', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetPersonListResponse::fromMap($this->doRequest('GetPersonList', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -708,7 +871,7 @@ class Vcs extends Rpc
             $request->userListShrink = Utils::toJSONString($tmp->userList);
         }
 
-        return ListUsersResponse::fromMap($this->doRequest('ListUsers', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return ListUsersResponse::fromMap($this->doRequest('ListUsers', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -733,7 +896,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateUserResponse::fromMap($this->doRequest('CreateUser', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return CreateUserResponse::fromMap($this->doRequest('CreateUser', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -758,7 +921,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return BindUserResponse::fromMap($this->doRequest('BindUser', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return BindUserResponse::fromMap($this->doRequest('BindUser', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -783,7 +946,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetUserDetailResponse::fromMap($this->doRequest('GetUserDetail', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetUserDetailResponse::fromMap($this->doRequest('GetUserDetail', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -808,7 +971,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UploadImageResponse::fromMap($this->doRequest('UploadImage', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UploadImageResponse::fromMap($this->doRequest('UploadImage', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -833,7 +996,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateUserGroupResponse::fromMap($this->doRequest('UpdateUserGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UpdateUserGroupResponse::fromMap($this->doRequest('UpdateUserGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -858,7 +1021,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateUserGroupResponse::fromMap($this->doRequest('CreateUserGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return CreateUserGroupResponse::fromMap($this->doRequest('CreateUserGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -883,7 +1046,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UnbindUserResponse::fromMap($this->doRequest('UnbindUser', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UnbindUserResponse::fromMap($this->doRequest('UnbindUser', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -908,7 +1071,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateUserResponse::fromMap($this->doRequest('UpdateUser', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UpdateUserResponse::fromMap($this->doRequest('UpdateUser', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -933,7 +1096,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteUserResponse::fromMap($this->doRequest('DeleteUser', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return DeleteUserResponse::fromMap($this->doRequest('DeleteUser', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -958,7 +1121,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteUserGroupResponse::fromMap($this->doRequest('DeleteUserGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return DeleteUserGroupResponse::fromMap($this->doRequest('DeleteUserGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -983,7 +1146,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListPersonVisitCountResponse::fromMap($this->doRequest('ListPersonVisitCount', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, $request->toMap(), $runtime));
+        return ListPersonVisitCountResponse::fromMap($this->doRequest('ListPersonVisitCount', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1008,7 +1171,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListEventAlgorithmDetailsResponse::fromMap($this->doRequest('ListEventAlgorithmDetails', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, $request->toMap(), $runtime));
+        return ListEventAlgorithmDetailsResponse::fromMap($this->doRequest('ListEventAlgorithmDetails', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1033,7 +1196,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListCorpMetricsResponse::fromMap($this->doRequest('ListCorpMetrics', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, $request->toMap(), $runtime));
+        return ListCorpMetricsResponse::fromMap($this->doRequest('ListCorpMetrics', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1058,7 +1221,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListPersonTraceResponse::fromMap($this->doRequest('ListPersonTrace', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, $request->toMap(), $runtime));
+        return ListPersonTraceResponse::fromMap($this->doRequest('ListPersonTrace', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1083,7 +1246,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListCorpGroupMetricsResponse::fromMap($this->doRequest('ListCorpGroupMetrics', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, $request->toMap(), $runtime));
+        return ListCorpGroupMetricsResponse::fromMap($this->doRequest('ListCorpGroupMetrics', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1108,7 +1271,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetFaceModelResultResponse::fromMap($this->doRequest('GetFaceModelResult', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetFaceModelResultResponse::fromMap($this->doRequest('GetFaceModelResult', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1133,7 +1296,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateCorpGroupResponse::fromMap($this->doRequest('CreateCorpGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return CreateCorpGroupResponse::fromMap($this->doRequest('CreateCorpGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1158,7 +1321,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListCorpGroupsResponse::fromMap($this->doRequest('ListCorpGroups', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, $request->toMap(), $runtime));
+        return ListCorpGroupsResponse::fromMap($this->doRequest('ListCorpGroups', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1183,7 +1346,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteCorpGroupResponse::fromMap($this->doRequest('DeleteCorpGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return DeleteCorpGroupResponse::fromMap($this->doRequest('DeleteCorpGroup', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1208,7 +1371,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return InvokeMotorModelResponse::fromMap($this->doRequest('InvokeMotorModel', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return InvokeMotorModelResponse::fromMap($this->doRequest('InvokeMotorModel', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1233,7 +1396,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDeviceConfigResponse::fromMap($this->doRequest('GetDeviceConfig', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetDeviceConfigResponse::fromMap($this->doRequest('GetDeviceConfig', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1258,7 +1421,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return SyncDeviceTimeResponse::fromMap($this->doRequest('SyncDeviceTime', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return SyncDeviceTimeResponse::fromMap($this->doRequest('SyncDeviceTime', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1283,7 +1446,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return RegisterDeviceResponse::fromMap($this->doRequest('RegisterDevice', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return RegisterDeviceResponse::fromMap($this->doRequest('RegisterDevice', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1308,7 +1471,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ReportDeviceCapacityResponse::fromMap($this->doRequest('ReportDeviceCapacity', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return ReportDeviceCapacityResponse::fromMap($this->doRequest('ReportDeviceCapacity', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1333,7 +1496,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return SaveVideoSummaryTaskVideoResponse::fromMap($this->doRequest('SaveVideoSummaryTaskVideo', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return SaveVideoSummaryTaskVideoResponse::fromMap($this->doRequest('SaveVideoSummaryTaskVideo', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1358,7 +1521,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListBodyAlgorithmResultsResponse::fromMap($this->doRequest('ListBodyAlgorithmResults', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return ListBodyAlgorithmResultsResponse::fromMap($this->doRequest('ListBodyAlgorithmResults', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1383,7 +1546,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddDataSourceResponse::fromMap($this->doRequest('AddDataSource', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return AddDataSourceResponse::fromMap($this->doRequest('AddDataSource', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1408,7 +1571,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetVideoComposeResultResponse::fromMap($this->doRequest('GetVideoComposeResult', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetVideoComposeResultResponse::fromMap($this->doRequest('GetVideoComposeResult', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1433,7 +1596,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateVideoComposeTaskResponse::fromMap($this->doRequest('CreateVideoComposeTask', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return CreateVideoComposeTaskResponse::fromMap($this->doRequest('CreateVideoComposeTask', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1458,7 +1621,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteDataSourceResponse::fromMap($this->doRequest('DeleteDataSource', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return DeleteDataSourceResponse::fromMap($this->doRequest('DeleteDataSource', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1483,7 +1646,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UploadFileResponse::fromMap($this->doRequest('UploadFile', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UploadFileResponse::fromMap($this->doRequest('UploadFile', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1508,7 +1671,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListEventAlgorithmResultsResponse::fromMap($this->doRequest('ListEventAlgorithmResults', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return ListEventAlgorithmResultsResponse::fromMap($this->doRequest('ListEventAlgorithmResults', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1533,7 +1696,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteVideoSummaryTaskResponse::fromMap($this->doRequest('DeleteVideoSummaryTask', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return DeleteVideoSummaryTaskResponse::fromMap($this->doRequest('DeleteVideoSummaryTask', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1558,7 +1721,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetVideoSummaryTaskResultResponse::fromMap($this->doRequest('GetVideoSummaryTaskResult', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetVideoSummaryTaskResultResponse::fromMap($this->doRequest('GetVideoSummaryTaskResult', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1583,7 +1746,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateVideoSummaryTaskResponse::fromMap($this->doRequest('CreateVideoSummaryTask', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return CreateVideoSummaryTaskResponse::fromMap($this->doRequest('CreateVideoSummaryTask', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1608,7 +1771,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListMotorAlgorithmResultsResponse::fromMap($this->doRequest('ListMotorAlgorithmResults', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return ListMotorAlgorithmResultsResponse::fromMap($this->doRequest('ListMotorAlgorithmResults', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1633,7 +1796,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListFaceAlgorithmResultsResponse::fromMap($this->doRequest('ListFaceAlgorithmResults', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return ListFaceAlgorithmResultsResponse::fromMap($this->doRequest('ListFaceAlgorithmResults', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1658,7 +1821,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListMetricsResponse::fromMap($this->doRequest('ListMetrics', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return ListMetricsResponse::fromMap($this->doRequest('ListMetrics', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1683,7 +1846,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteRecordsResponse::fromMap($this->doRequest('DeleteRecords', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return DeleteRecordsResponse::fromMap($this->doRequest('DeleteRecords', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1708,7 +1871,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return RecognizeFaceQualityResponse::fromMap($this->doRequest('RecognizeFaceQuality', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return RecognizeFaceQualityResponse::fromMap($this->doRequest('RecognizeFaceQuality', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1733,7 +1896,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListPersonsResponse::fromMap($this->doRequest('ListPersons', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return ListPersonsResponse::fromMap($this->doRequest('ListPersons', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1758,7 +1921,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetPersonDetailResponse::fromMap($this->doRequest('GetPersonDetail', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetPersonDetailResponse::fromMap($this->doRequest('GetPersonDetail', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1783,7 +1946,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetFaceOptionsResponse::fromMap($this->doRequest('GetFaceOptions', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetFaceOptionsResponse::fromMap($this->doRequest('GetFaceOptions', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1808,7 +1971,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetBodyOptionsResponse::fromMap($this->doRequest('GetBodyOptions', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetBodyOptionsResponse::fromMap($this->doRequest('GetBodyOptions', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1833,7 +1996,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return StopMonitorResponse::fromMap($this->doRequest('StopMonitor', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return StopMonitorResponse::fromMap($this->doRequest('StopMonitor', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1863,7 +2026,7 @@ class Vcs extends Rpc
             $request->optionListShrink = Utils::toJSONString($tmp->optionList);
         }
 
-        return SearchBodyResponse::fromMap($this->doRequest('SearchBody', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return SearchBodyResponse::fromMap($this->doRequest('SearchBody', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1888,7 +2051,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddMonitorResponse::fromMap($this->doRequest('AddMonitor', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return AddMonitorResponse::fromMap($this->doRequest('AddMonitor', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1913,7 +2076,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetMonitorResultResponse::fromMap($this->doRequest('GetMonitorResult', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetMonitorResultResponse::fromMap($this->doRequest('GetMonitorResult', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1938,7 +2101,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateMonitorResponse::fromMap($this->doRequest('UpdateMonitor', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UpdateMonitorResponse::fromMap($this->doRequest('UpdateMonitor', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1963,7 +2126,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDeviceVideoUrlResponse::fromMap($this->doRequest('GetDeviceVideoUrl', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetDeviceVideoUrlResponse::fromMap($this->doRequest('GetDeviceVideoUrl', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1988,7 +2151,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetInventoryResponse::fromMap($this->doRequest('GetInventory', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetInventoryResponse::fromMap($this->doRequest('GetInventory', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2013,7 +2176,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return RecognizeImageResponse::fromMap($this->doRequest('RecognizeImage', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return RecognizeImageResponse::fromMap($this->doRequest('RecognizeImage', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2038,7 +2201,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListCorpsResponse::fromMap($this->doRequest('ListCorps', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, $request->toMap(), $runtime));
+        return ListCorpsResponse::fromMap($this->doRequest('ListCorps', 'HTTPS', 'POST', '2020-05-15', 'AK,APP', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2063,7 +2226,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateCorpResponse::fromMap($this->doRequest('UpdateCorp', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UpdateCorpResponse::fromMap($this->doRequest('UpdateCorp', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2088,7 +2251,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateDeviceResponse::fromMap($this->doRequest('UpdateDevice', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return UpdateDeviceResponse::fromMap($this->doRequest('UpdateDevice', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2113,7 +2276,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListDevicesResponse::fromMap($this->doRequest('ListDevices', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return ListDevicesResponse::fromMap($this->doRequest('ListDevices', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2138,7 +2301,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDeviceLiveUrlResponse::fromMap($this->doRequest('GetDeviceLiveUrl', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return GetDeviceLiveUrlResponse::fromMap($this->doRequest('GetDeviceLiveUrl', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2168,7 +2331,7 @@ class Vcs extends Rpc
             $request->optionListShrink = Utils::toJSONString($tmp->optionList);
         }
 
-        return SearchFaceResponse::fromMap($this->doRequest('SearchFace', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return SearchFaceResponse::fromMap($this->doRequest('SearchFace', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2193,7 +2356,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddDeviceResponse::fromMap($this->doRequest('AddDevice', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return AddDeviceResponse::fromMap($this->doRequest('AddDevice', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2218,7 +2381,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateCorpResponse::fromMap($this->doRequest('CreateCorp', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return CreateCorpResponse::fromMap($this->doRequest('CreateCorp', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2243,7 +2406,7 @@ class Vcs extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteDeviceResponse::fromMap($this->doRequest('DeleteDevice', 'HTTPS', 'POST', '2020-05-15', 'AK', null, $request->toMap(), $runtime));
+        return DeleteDeviceResponse::fromMap($this->doRequest('DeleteDevice', 'HTTPS', 'POST', '2020-05-15', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2274,8 +2437,8 @@ class Vcs extends Rpc
         if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap['regionId'])) {
-            return @$endpointMap['regionId'];
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);

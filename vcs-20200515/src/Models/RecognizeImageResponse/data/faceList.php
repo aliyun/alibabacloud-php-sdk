@@ -52,6 +52,16 @@ class faceList extends Model
      * @var string
      */
     public $rightBottomY;
+
+    /**
+     * @var float
+     */
+    public $quality;
+
+    /**
+     * @var float
+     */
+    public $keyPointQuality;
     protected $_name = [
         'feature'          => 'Feature',
         'fileName'         => 'FileName',
@@ -62,6 +72,8 @@ class faceList extends Model
         'respiratorColor'  => 'RespiratorColor',
         'rightBottomX'     => 'RightBottomX',
         'rightBottomY'     => 'RightBottomY',
+        'quality'          => 'Quality',
+        'keyPointQuality'  => 'KeyPointQuality',
     ];
 
     public function validate()
@@ -75,6 +87,8 @@ class faceList extends Model
         Model::validateRequired('respiratorColor', $this->respiratorColor, true);
         Model::validateRequired('rightBottomX', $this->rightBottomX, true);
         Model::validateRequired('rightBottomY', $this->rightBottomY, true);
+        Model::validateRequired('quality', $this->quality, true);
+        Model::validateRequired('keyPointQuality', $this->keyPointQuality, true);
     }
 
     public function toMap()
@@ -106,6 +120,12 @@ class faceList extends Model
         }
         if (null !== $this->rightBottomY) {
             $res['RightBottomY'] = $this->rightBottomY;
+        }
+        if (null !== $this->quality) {
+            $res['Quality'] = $this->quality;
+        }
+        if (null !== $this->keyPointQuality) {
+            $res['KeyPointQuality'] = $this->keyPointQuality;
         }
 
         return $res;
@@ -145,6 +165,12 @@ class faceList extends Model
         }
         if (isset($map['RightBottomY'])) {
             $model->rightBottomY = $map['RightBottomY'];
+        }
+        if (isset($map['Quality'])) {
+            $model->quality = $map['Quality'];
+        }
+        if (isset($map['KeyPointQuality'])) {
+            $model->keyPointQuality = $map['KeyPointQuality'];
         }
 
         return $model;
