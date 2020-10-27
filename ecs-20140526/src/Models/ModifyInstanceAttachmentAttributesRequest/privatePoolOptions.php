@@ -1,0 +1,60 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceAttachmentAttributesRequest;
+
+use AlibabaCloud\Tea\Model;
+
+class privatePoolOptions extends Model
+{
+    /**
+     * @var string
+     */
+    public $matchCriteria;
+
+    /**
+     * @var string
+     */
+    public $id;
+    protected $_name = [
+        'matchCriteria' => 'MatchCriteria',
+        'id'            => 'Id',
+    ];
+
+    public function validate()
+    {
+        Model::validateRequired('matchCriteria', $this->matchCriteria, true);
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->matchCriteria) {
+            $res['MatchCriteria'] = $this->matchCriteria;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return privatePoolOptions
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['MatchCriteria'])) {
+            $model->matchCriteria = $map['MatchCriteria'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+
+        return $model;
+    }
+}
