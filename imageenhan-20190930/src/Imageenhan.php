@@ -20,6 +20,9 @@ use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ChangeImageSizeResponse;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\EnhanceImageColorAdvanceRequest;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\EnhanceImageColorRequest;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\EnhanceImageColorResponse;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ErasePersonAdvanceRequest;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ErasePersonRequest;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ErasePersonResponse;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ExtendImageStyleRequest;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\ExtendImageStyleResponse;
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\GenerateDynamicImageAdvanceRequest;
@@ -62,6 +65,7 @@ use AlibabaCloud\Tea\FileForm\FileForm\FileField;
 use AlibabaCloud\Tea\Rpc\Rpc;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\RpcUtils\RpcUtils;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 
@@ -76,6 +80,85 @@ class Imageenhan extends Rpc
     }
 
     /**
+     * @param ErasePersonRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ErasePersonResponse
+     */
+    public function erasePerson($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ErasePersonResponse::fromMap($this->doRequest('ErasePerson', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ErasePersonAdvanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ErasePersonResponse
+     */
+    public function erasePersonAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        RpcUtils::convert($runtime, $ossRuntime);
+        $erasePersonreq = new ErasePersonRequest([]);
+        RpcUtils::convert($request, $erasePersonreq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $erasePersonreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->erasePerson($erasePersonreq, $runtime);
+    }
+
+    /**
      * @param GenerateDynamicImageRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -85,7 +168,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return GenerateDynamicImageResponse::fromMap($this->doRequest('GenerateDynamicImage', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return GenerateDynamicImageResponse::fromMap($this->doRequest('GenerateDynamicImage', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -164,7 +247,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetAsyncJobResultResponse::fromMap($this->doRequest('GetAsyncJobResult', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return GetAsyncJobResultResponse::fromMap($this->doRequest('GetAsyncJobResult', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -177,7 +260,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return ImitatePhotoStyleResponse::fromMap($this->doRequest('ImitatePhotoStyle', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return ImitatePhotoStyleResponse::fromMap($this->doRequest('ImitatePhotoStyle', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -256,7 +339,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return EnhanceImageColorResponse::fromMap($this->doRequest('EnhanceImageColor', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return EnhanceImageColorResponse::fromMap($this->doRequest('EnhanceImageColor', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -335,7 +418,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return RecolorHDImageResponse::fromMap($this->doRequest('RecolorHDImage', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return RecolorHDImageResponse::fromMap($this->doRequest('RecolorHDImage', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -414,7 +497,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return AssessCompositionResponse::fromMap($this->doRequest('AssessComposition', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return AssessCompositionResponse::fromMap($this->doRequest('AssessComposition', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -493,7 +576,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return AssessSharpnessResponse::fromMap($this->doRequest('AssessSharpness', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return AssessSharpnessResponse::fromMap($this->doRequest('AssessSharpness', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -572,7 +655,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return AssessExposureResponse::fromMap($this->doRequest('AssessExposure', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return AssessExposureResponse::fromMap($this->doRequest('AssessExposure', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -651,7 +734,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return ImageBlindCharacterWatermarkResponse::fromMap($this->doRequest('ImageBlindCharacterWatermark', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return ImageBlindCharacterWatermarkResponse::fromMap($this->doRequest('ImageBlindCharacterWatermark', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -730,7 +813,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return RemoveImageSubtitlesResponse::fromMap($this->doRequest('RemoveImageSubtitles', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return RemoveImageSubtitlesResponse::fromMap($this->doRequest('RemoveImageSubtitles', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -809,7 +892,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return RemoveImageWatermarkResponse::fromMap($this->doRequest('RemoveImageWatermark', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return RemoveImageWatermarkResponse::fromMap($this->doRequest('RemoveImageWatermark', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -888,7 +971,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return ImageBlindPicWatermarkResponse::fromMap($this->doRequest('ImageBlindPicWatermark', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return ImageBlindPicWatermarkResponse::fromMap($this->doRequest('ImageBlindPicWatermark', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -967,7 +1050,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return IntelligentCompositionResponse::fromMap($this->doRequest('IntelligentComposition', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return IntelligentCompositionResponse::fromMap($this->doRequest('IntelligentComposition', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1046,7 +1129,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return ChangeImageSizeResponse::fromMap($this->doRequest('ChangeImageSize', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return ChangeImageSizeResponse::fromMap($this->doRequest('ChangeImageSize', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1125,7 +1208,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return ExtendImageStyleResponse::fromMap($this->doRequest('ExtendImageStyle', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return ExtendImageStyleResponse::fromMap($this->doRequest('ExtendImageStyle', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1138,7 +1221,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return MakeSuperResolutionImageResponse::fromMap($this->doRequest('MakeSuperResolutionImage', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return MakeSuperResolutionImageResponse::fromMap($this->doRequest('MakeSuperResolutionImage', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1217,7 +1300,7 @@ class Imageenhan extends Rpc
     {
         Utils::validateModel($request);
 
-        return RecolorImageResponse::fromMap($this->doRequest('RecolorImage', 'HTTPS', 'POST', '2019-09-30', 'AK', null, $request, $runtime));
+        return RecolorImageResponse::fromMap($this->doRequest('RecolorImage', 'HTTPS', 'POST', '2019-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1236,8 +1319,8 @@ class Imageenhan extends Rpc
         if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_($endpointMap['regionId'])) {
-            return $endpointMap['regionId'];
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);

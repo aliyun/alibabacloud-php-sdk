@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
 use AlibabaCloud\Tea\Model;
-use GuzzleHttp\Psr7\Stream;
 
 class GenerateDynamicImageAdvanceRequest extends Model
 {
