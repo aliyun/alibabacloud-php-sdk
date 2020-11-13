@@ -2,12 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttributeResponse;
+namespace AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttributeResponse\data;
 
-use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttributeResponse\data\elements;
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class elements extends Model
 {
     /**
      * @var string
@@ -98,11 +97,6 @@ class data extends Model
      * @var float
      */
     public $ageScore;
-
-    /**
-     * @var elements[]
-     */
-    public $elements;
     protected $_name = [
         'objType'         => 'ObjType',
         'objTypeScore'    => 'ObjTypeScore',
@@ -122,7 +116,6 @@ class data extends Model
         'hairScore'       => 'HairScore',
         'age'             => 'Age',
         'ageScore'        => 'AgeScore',
-        'elements'        => 'Elements',
     ];
 
     public function validate()
@@ -145,7 +138,6 @@ class data extends Model
         Model::validateRequired('hairScore', $this->hairScore, true);
         Model::validateRequired('age', $this->age, true);
         Model::validateRequired('ageScore', $this->ageScore, true);
-        Model::validateRequired('elements', $this->elements, true);
     }
 
     public function toMap()
@@ -205,15 +197,6 @@ class data extends Model
         if (null !== $this->ageScore) {
             $res['AgeScore'] = $this->ageScore;
         }
-        if (null !== $this->elements) {
-            $res['Elements'] = [];
-            if (null !== $this->elements && \is_array($this->elements)) {
-                $n = 0;
-                foreach ($this->elements as $item) {
-                    $res['Elements'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
 
         return $res;
     }
@@ -221,7 +204,7 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return elements
      */
     public static function fromMap($map = [])
     {
@@ -279,15 +262,6 @@ class data extends Model
         }
         if (isset($map['AgeScore'])) {
             $model->ageScore = $map['AgeScore'];
-        }
-        if (isset($map['Elements'])) {
-            if (!empty($map['Elements'])) {
-                $model->elements = [];
-                $n               = 0;
-                foreach ($map['Elements'] as $item) {
-                    $model->elements[$n++] = null !== $item ? elements::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

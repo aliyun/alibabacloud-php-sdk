@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PedestrianDetectAttributeAdvanceRequest extends Model
+class GenerateHumanAnimeStyleAdvanceRequest extends Model
 {
     /**
      * @var Stream
@@ -34,7 +34,7 @@ class PedestrianDetectAttributeAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return PedestrianDetectAttributeAdvanceRequest
+     * @return GenerateHumanAnimeStyleAdvanceRequest
      */
     public static function fromMap($map = [])
     {

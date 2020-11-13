@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
+use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttributeRequest\urlList;
 use AlibabaCloud\Tea\Model;
 
 class ExtractPedestrianFeatureAttributeRequest extends Model
@@ -17,14 +18,19 @@ class ExtractPedestrianFeatureAttributeRequest extends Model
      * @var string
      */
     public $imageURL;
+
+    /**
+     * @var urlList[]
+     */
+    public $urlList;
     protected $_name = [
         'mode'     => 'Mode',
         'imageURL' => 'ImageURL',
+        'urlList'  => 'UrlList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURL', $this->imageURL, true);
     }
 
     public function toMap()
@@ -35,6 +41,15 @@ class ExtractPedestrianFeatureAttributeRequest extends Model
         }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->urlList) {
+            $res['UrlList'] = [];
+            if (null !== $this->urlList && \is_array($this->urlList)) {
+                $n = 0;
+                foreach ($this->urlList as $item) {
+                    $res['UrlList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -53,6 +68,15 @@ class ExtractPedestrianFeatureAttributeRequest extends Model
         }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['UrlList'])) {
+            if (!empty($map['UrlList'])) {
+                $model->urlList = [];
+                $n              = 0;
+                foreach ($map['UrlList'] as $item) {
+                    $model->urlList[$n++] = null !== $item ? urlList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -18,6 +18,9 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\BodyPostureRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\BodyPostureResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CompareFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CompareFaceResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\CountCrowdAdvanceRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\CountCrowdRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\CountCrowdResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateFaceDbRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateFaceDbResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DeleteFaceDbRequest;
@@ -71,6 +74,9 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceMakeupResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceTidyupAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceTidyupRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceTidyupResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\GenerateHumanAnimeStyleAdvanceRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\GenerateHumanAnimeStyleRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\GenerateHumanAnimeStyleResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetFaceEntityRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetFaceEntityResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureAdvanceRequest;
@@ -113,6 +119,7 @@ use AlibabaCloud\Tea\FileForm\FileForm\FileField;
 use AlibabaCloud\Tea\Rpc\Rpc;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\RpcUtils\RpcUtils;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 
@@ -127,6 +134,164 @@ class Facebody extends Rpc
     }
 
     /**
+     * @param CountCrowdRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CountCrowdResponse
+     */
+    public function countCrowd($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CountCrowdResponse::fromMap($this->doRequest('CountCrowd', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CountCrowdAdvanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CountCrowdResponse
+     */
+    public function countCrowdAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'facebody',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        RpcUtils::convert($runtime, $ossRuntime);
+        $countCrowdreq = new CountCrowdRequest([]);
+        RpcUtils::convert($request, $countCrowdreq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $countCrowdreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->countCrowd($countCrowdreq, $runtime);
+    }
+
+    /**
+     * @param GenerateHumanAnimeStyleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GenerateHumanAnimeStyleResponse
+     */
+    public function generateHumanAnimeStyle($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return GenerateHumanAnimeStyleResponse::fromMap($this->doRequest('GenerateHumanAnimeStyle', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param GenerateHumanAnimeStyleAdvanceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GenerateHumanAnimeStyleResponse
+     */
+    public function generateHumanAnimeStyleAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'facebody',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        RpcUtils::convert($runtime, $ossRuntime);
+        $generateHumanAnimeStylereq = new GenerateHumanAnimeStyleRequest([]);
+        RpcUtils::convert($request, $generateHumanAnimeStylereq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $generateHumanAnimeStylereq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->generateHumanAnimeStyle($generateHumanAnimeStylereq, $runtime);
+    }
+
+    /**
      * @param PedestrianDetectAttributeRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -136,7 +301,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return PedestrianDetectAttributeResponse::fromMap($this->doRequest('PedestrianDetectAttribute', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return PedestrianDetectAttributeResponse::fromMap($this->doRequest('PedestrianDetectAttribute', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -215,7 +380,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectChefCapResponse::fromMap($this->doRequest('DetectChefCap', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DetectChefCapResponse::fromMap($this->doRequest('DetectChefCap', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -294,7 +459,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return ExtractPedestrianFeatureAttrResponse::fromMap($this->doRequest('ExtractPedestrianFeatureAttr', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return ExtractPedestrianFeatureAttrResponse::fromMap($this->doRequest('ExtractPedestrianFeatureAttr', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -373,7 +538,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectIPCPedestrianResponse::fromMap($this->doRequest('DetectIPCPedestrian', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DetectIPCPedestrianResponse::fromMap($this->doRequest('DetectIPCPedestrian', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -386,7 +551,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return BlurFaceResponse::fromMap($this->doRequest('BlurFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return BlurFaceResponse::fromMap($this->doRequest('BlurFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -465,7 +630,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return ExtractPedestrianFeatureAttributeResponse::fromMap($this->doRequest('ExtractPedestrianFeatureAttribute', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return ExtractPedestrianFeatureAttributeResponse::fromMap($this->doRequest('ExtractPedestrianFeatureAttribute', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -478,7 +643,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectCelebrityResponse::fromMap($this->doRequest('DetectCelebrity', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DetectCelebrityResponse::fromMap($this->doRequest('DetectCelebrity', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -557,7 +722,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return VerifyFaceMaskResponse::fromMap($this->doRequest('VerifyFaceMask', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return VerifyFaceMaskResponse::fromMap($this->doRequest('VerifyFaceMask', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -636,7 +801,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return RecognizeActionResponse::fromMap($this->doRequest('RecognizeAction', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return RecognizeActionResponse::fromMap($this->doRequest('RecognizeAction', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -649,7 +814,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectVideoLivingFaceResponse::fromMap($this->doRequest('DetectVideoLivingFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DetectVideoLivingFaceResponse::fromMap($this->doRequest('DetectVideoLivingFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -728,7 +893,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return SwapFacialFeaturesResponse::fromMap($this->doRequest('SwapFacialFeatures', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return SwapFacialFeaturesResponse::fromMap($this->doRequest('SwapFacialFeatures', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -807,7 +972,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddFaceEntityResponse::fromMap($this->doRequest('AddFaceEntity', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return AddFaceEntityResponse::fromMap($this->doRequest('AddFaceEntity', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -820,7 +985,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteFaceEntityResponse::fromMap($this->doRequest('DeleteFaceEntity', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DeleteFaceEntityResponse::fromMap($this->doRequest('DeleteFaceEntity', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -833,7 +998,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListFaceEntitiesResponse::fromMap($this->doRequest('ListFaceEntities', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return ListFaceEntitiesResponse::fromMap($this->doRequest('ListFaceEntities', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -846,7 +1011,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetFaceEntityResponse::fromMap($this->doRequest('GetFaceEntity', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return GetFaceEntityResponse::fromMap($this->doRequest('GetFaceEntity', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -859,7 +1024,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateFaceEntityResponse::fromMap($this->doRequest('UpdateFaceEntity', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return UpdateFaceEntityResponse::fromMap($this->doRequest('UpdateFaceEntity', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -872,7 +1037,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return FaceMakeupResponse::fromMap($this->doRequest('FaceMakeup', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return FaceMakeupResponse::fromMap($this->doRequest('FaceMakeup', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -951,7 +1116,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return HandPostureResponse::fromMap($this->doRequest('HandPosture', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return HandPostureResponse::fromMap($this->doRequest('HandPosture', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1030,7 +1195,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return BodyPostureResponse::fromMap($this->doRequest('BodyPosture', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return BodyPostureResponse::fromMap($this->doRequest('BodyPosture', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1109,7 +1274,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectPedestrianResponse::fromMap($this->doRequest('DetectPedestrian', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DetectPedestrianResponse::fromMap($this->doRequest('DetectPedestrian', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1188,7 +1353,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return FaceBeautyResponse::fromMap($this->doRequest('FaceBeauty', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return FaceBeautyResponse::fromMap($this->doRequest('FaceBeauty', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1267,7 +1432,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return FaceFilterResponse::fromMap($this->doRequest('FaceFilter', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return FaceFilterResponse::fromMap($this->doRequest('FaceFilter', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1346,7 +1511,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return EnhanceFaceResponse::fromMap($this->doRequest('EnhanceFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return EnhanceFaceResponse::fromMap($this->doRequest('EnhanceFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1425,7 +1590,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return FaceTidyupResponse::fromMap($this->doRequest('FaceTidyup', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return FaceTidyupResponse::fromMap($this->doRequest('FaceTidyup', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1504,7 +1669,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return SearchFaceResponse::fromMap($this->doRequest('SearchFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return SearchFaceResponse::fromMap($this->doRequest('SearchFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1583,7 +1748,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return ListFaceDbsResponse::fromMap($this->doRequest('ListFaceDbs', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return ListFaceDbsResponse::fromMap($this->doRequest('ListFaceDbs', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1596,7 +1761,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateFaceDbResponse::fromMap($this->doRequest('CreateFaceDb', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return CreateFaceDbResponse::fromMap($this->doRequest('CreateFaceDb', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1609,7 +1774,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteFaceResponse::fromMap($this->doRequest('DeleteFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DeleteFaceResponse::fromMap($this->doRequest('DeleteFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1622,7 +1787,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteFaceDbResponse::fromMap($this->doRequest('DeleteFaceDb', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DeleteFaceDbResponse::fromMap($this->doRequest('DeleteFaceDb', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1635,7 +1800,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddFaceResponse::fromMap($this->doRequest('AddFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return AddFaceResponse::fromMap($this->doRequest('AddFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1714,7 +1879,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return RecognizeExpressionResponse::fromMap($this->doRequest('RecognizeExpression', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return RecognizeExpressionResponse::fromMap($this->doRequest('RecognizeExpression', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1793,7 +1958,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return RecognizePublicFaceResponse::fromMap($this->doRequest('RecognizePublicFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return RecognizePublicFaceResponse::fromMap($this->doRequest('RecognizePublicFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1806,7 +1971,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectLivingFaceResponse::fromMap($this->doRequest('DetectLivingFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DetectLivingFaceResponse::fromMap($this->doRequest('DetectLivingFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1819,7 +1984,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectBodyCountResponse::fromMap($this->doRequest('DetectBodyCount', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DetectBodyCountResponse::fromMap($this->doRequest('DetectBodyCount', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1898,7 +2063,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectMaskResponse::fromMap($this->doRequest('DetectMask', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DetectMaskResponse::fromMap($this->doRequest('DetectMask', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1977,7 +2142,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return RecognizeFaceResponse::fromMap($this->doRequest('RecognizeFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return RecognizeFaceResponse::fromMap($this->doRequest('RecognizeFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2056,7 +2221,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return CompareFaceResponse::fromMap($this->doRequest('CompareFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return CompareFaceResponse::fromMap($this->doRequest('CompareFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2069,7 +2234,7 @@ class Facebody extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectFaceResponse::fromMap($this->doRequest('DetectFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, $request, $runtime));
+        return DetectFaceResponse::fromMap($this->doRequest('DetectFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2154,8 +2319,8 @@ class Facebody extends Rpc
         if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_($endpointMap['regionId'])) {
-            return $endpointMap['regionId'];
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);

@@ -5,15 +5,22 @@
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class PedestrianDetectAttributeAdvanceRequest extends Model
+class CountCrowdAdvanceRequest extends Model
 {
     /**
      * @var Stream
      */
     public $imageURLObject;
+
+    /**
+     * @var bool
+     */
+    public $isShow;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
+        'isShow'         => 'IsShow',
     ];
 
     public function validate()
@@ -27,6 +34,9 @@ class PedestrianDetectAttributeAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
         }
+        if (null !== $this->isShow) {
+            $res['IsShow'] = $this->isShow;
+        }
 
         return $res;
     }
@@ -34,13 +44,16 @@ class PedestrianDetectAttributeAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return PedestrianDetectAttributeAdvanceRequest
+     * @return CountCrowdAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
+        }
+        if (isset($map['IsShow'])) {
+            $model->isShow = $map['IsShow'];
         }
 
         return $model;
