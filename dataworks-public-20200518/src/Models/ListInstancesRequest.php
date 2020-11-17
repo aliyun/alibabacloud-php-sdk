@@ -52,6 +52,11 @@ class ListInstancesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $dagId;
     protected $_name = [
         'projectEnv'  => 'ProjectEnv',
         'nodeId'      => 'NodeId',
@@ -62,6 +67,7 @@ class ListInstancesRequest extends Model
         'programType' => 'ProgramType',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
+        'dagId'       => 'DagId',
     ];
 
     public function validate()
@@ -99,6 +105,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->dagId) {
+            $res['DagId'] = $this->dagId;
         }
 
         return $res;
@@ -138,6 +147,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['DagId'])) {
+            $model->dagId = $map['DagId'];
         }
 
         return $model;

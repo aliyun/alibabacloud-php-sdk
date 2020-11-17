@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstancesResponse\data;
+namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetManualDagInstancesResponse;
 
 use AlibabaCloud\Tea\Model;
 
@@ -36,7 +36,7 @@ class instances extends Model
     /**
      * @var int
      */
-    public $bizdate;
+    public $bizDate;
 
     /**
      * @var int
@@ -82,58 +82,13 @@ class instances extends Model
      * @var int
      */
     public $finishTime;
-
-    /**
-     * @var int
-     */
-    public $priority;
-
-    /**
-     * @var int
-     */
-    public $baselineId;
-
-    /**
-     * @var bool
-     */
-    public $repeatability;
-
-    /**
-     * @var int
-     */
-    public $repeatInterval;
-
-    /**
-     * @var string
-     */
-    public $connection;
-
-    /**
-     * @var int
-     */
-    public $dqcType;
-
-    /**
-     * @var string
-     */
-    public $dqcDescription;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var int
-     */
-    public $relatedFlowId;
     protected $_name = [
         'nodeId'            => 'NodeId',
         'instanceId'        => 'InstanceId',
         'dagId'             => 'DagId',
         'dagType'           => 'DagType',
         'status'            => 'Status',
-        'bizdate'           => 'Bizdate',
+        'bizDate'           => 'BizDate',
         'cycTime'           => 'CycTime',
         'createTime'        => 'CreateTime',
         'modifyTime'        => 'ModifyTime',
@@ -143,15 +98,6 @@ class instances extends Model
         'beginRunningTime'  => 'BeginRunningTime',
         'paramValues'       => 'ParamValues',
         'finishTime'        => 'FinishTime',
-        'priority'          => 'Priority',
-        'baselineId'        => 'BaselineId',
-        'repeatability'     => 'Repeatability',
-        'repeatInterval'    => 'RepeatInterval',
-        'connection'        => 'Connection',
-        'dqcType'           => 'DqcType',
-        'dqcDescription'    => 'DqcDescription',
-        'errorMessage'      => 'ErrorMessage',
-        'relatedFlowId'     => 'RelatedFlowId',
     ];
 
     public function validate()
@@ -161,7 +107,7 @@ class instances extends Model
         Model::validateRequired('dagId', $this->dagId, true);
         Model::validateRequired('dagType', $this->dagType, true);
         Model::validateRequired('status', $this->status, true);
-        Model::validateRequired('bizdate', $this->bizdate, true);
+        Model::validateRequired('bizDate', $this->bizDate, true);
         Model::validateRequired('cycTime', $this->cycTime, true);
         Model::validateRequired('createTime', $this->createTime, true);
         Model::validateRequired('modifyTime', $this->modifyTime, true);
@@ -171,15 +117,6 @@ class instances extends Model
         Model::validateRequired('beginRunningTime', $this->beginRunningTime, true);
         Model::validateRequired('paramValues', $this->paramValues, true);
         Model::validateRequired('finishTime', $this->finishTime, true);
-        Model::validateRequired('priority', $this->priority, true);
-        Model::validateRequired('baselineId', $this->baselineId, true);
-        Model::validateRequired('repeatability', $this->repeatability, true);
-        Model::validateRequired('repeatInterval', $this->repeatInterval, true);
-        Model::validateRequired('connection', $this->connection, true);
-        Model::validateRequired('dqcType', $this->dqcType, true);
-        Model::validateRequired('dqcDescription', $this->dqcDescription, true);
-        Model::validateRequired('errorMessage', $this->errorMessage, true);
-        Model::validateRequired('relatedFlowId', $this->relatedFlowId, true);
     }
 
     public function toMap()
@@ -200,8 +137,8 @@ class instances extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->bizdate) {
-            $res['Bizdate'] = $this->bizdate;
+        if (null !== $this->bizDate) {
+            $res['BizDate'] = $this->bizDate;
         }
         if (null !== $this->cycTime) {
             $res['CycTime'] = $this->cycTime;
@@ -230,33 +167,6 @@ class instances extends Model
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
         }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
-        }
-        if (null !== $this->baselineId) {
-            $res['BaselineId'] = $this->baselineId;
-        }
-        if (null !== $this->repeatability) {
-            $res['Repeatability'] = $this->repeatability;
-        }
-        if (null !== $this->repeatInterval) {
-            $res['RepeatInterval'] = $this->repeatInterval;
-        }
-        if (null !== $this->connection) {
-            $res['Connection'] = $this->connection;
-        }
-        if (null !== $this->dqcType) {
-            $res['DqcType'] = $this->dqcType;
-        }
-        if (null !== $this->dqcDescription) {
-            $res['DqcDescription'] = $this->dqcDescription;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->relatedFlowId) {
-            $res['RelatedFlowId'] = $this->relatedFlowId;
-        }
 
         return $res;
     }
@@ -284,8 +194,8 @@ class instances extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['Bizdate'])) {
-            $model->bizdate = $map['Bizdate'];
+        if (isset($map['BizDate'])) {
+            $model->bizDate = $map['BizDate'];
         }
         if (isset($map['CycTime'])) {
             $model->cycTime = $map['CycTime'];
@@ -313,33 +223,6 @@ class instances extends Model
         }
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
-        }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
-        }
-        if (isset($map['BaselineId'])) {
-            $model->baselineId = $map['BaselineId'];
-        }
-        if (isset($map['Repeatability'])) {
-            $model->repeatability = $map['Repeatability'];
-        }
-        if (isset($map['RepeatInterval'])) {
-            $model->repeatInterval = $map['RepeatInterval'];
-        }
-        if (isset($map['Connection'])) {
-            $model->connection = $map['Connection'];
-        }
-        if (isset($map['DqcType'])) {
-            $model->dqcType = $map['DqcType'];
-        }
-        if (isset($map['DqcDescription'])) {
-            $model->dqcDescription = $map['DqcDescription'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['RelatedFlowId'])) {
-            $model->relatedFlowId = $map['RelatedFlowId'];
         }
 
         return $model;

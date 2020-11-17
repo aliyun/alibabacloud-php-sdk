@@ -89,6 +89,11 @@ class CreateTableRequest extends Model
      * @var string
      */
     public $appGuid;
+
+    /**
+     * @var string
+     */
+    public $comment;
     protected $_name = [
         'hasPart'           => 'HasPart',
         'columns'           => 'Columns',
@@ -106,6 +111,7 @@ class CreateTableRequest extends Model
         'envType'           => 'EnvType',
         'themes'            => 'Themes',
         'appGuid'           => 'AppGuid',
+        'comment'           => 'Comment',
     ];
 
     public function validate()
@@ -176,6 +182,9 @@ class CreateTableRequest extends Model
         }
         if (null !== $this->appGuid) {
             $res['AppGuid'] = $this->appGuid;
+        }
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
 
         return $res;
@@ -248,6 +257,9 @@ class CreateTableRequest extends Model
         }
         if (isset($map['AppGuid'])) {
             $model->appGuid = $map['AppGuid'];
+        }
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
 
         return $model;

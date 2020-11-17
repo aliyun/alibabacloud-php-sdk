@@ -62,18 +62,60 @@ class data extends Model
      * @var string
      */
     public $paramValues;
+
+    /**
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @var int
+     */
+    public $baselineId;
+
+    /**
+     * @var int
+     */
+    public $repeatInterval;
+
+    /**
+     * @var string
+     */
+    public $connection;
+
+    /**
+     * @var int
+     */
+    public $dqcType;
+
+    /**
+     * @var string
+     */
+    public $dqcDescription;
+
+    /**
+     * @var int
+     */
+    public $relatedFlowId;
     protected $_name = [
-        'nodeId'        => 'NodeId',
-        'ownerId'       => 'OwnerId',
-        'description'   => 'Description',
-        'resGroupName'  => 'ResGroupName',
-        'nodeName'      => 'NodeName',
-        'cronExpress'   => 'CronExpress',
-        'repeatability' => 'Repeatability',
-        'programType'   => 'ProgramType',
-        'projectId'     => 'ProjectId',
-        'schedulerType' => 'SchedulerType',
-        'paramValues'   => 'ParamValues',
+        'nodeId'         => 'NodeId',
+        'ownerId'        => 'OwnerId',
+        'description'    => 'Description',
+        'resGroupName'   => 'ResGroupName',
+        'nodeName'       => 'NodeName',
+        'cronExpress'    => 'CronExpress',
+        'repeatability'  => 'Repeatability',
+        'programType'    => 'ProgramType',
+        'projectId'      => 'ProjectId',
+        'schedulerType'  => 'SchedulerType',
+        'paramValues'    => 'ParamValues',
+        'priority'       => 'Priority',
+        'baselineId'     => 'BaselineId',
+        'repeatInterval' => 'RepeatInterval',
+        'connection'     => 'Connection',
+        'dqcType'        => 'DqcType',
+        'dqcDescription' => 'DqcDescription',
+        'relatedFlowId'  => 'RelatedFlowId',
     ];
 
     public function validate()
@@ -89,6 +131,13 @@ class data extends Model
         Model::validateRequired('projectId', $this->projectId, true);
         Model::validateRequired('schedulerType', $this->schedulerType, true);
         Model::validateRequired('paramValues', $this->paramValues, true);
+        Model::validateRequired('priority', $this->priority, true);
+        Model::validateRequired('baselineId', $this->baselineId, true);
+        Model::validateRequired('repeatInterval', $this->repeatInterval, true);
+        Model::validateRequired('connection', $this->connection, true);
+        Model::validateRequired('dqcType', $this->dqcType, true);
+        Model::validateRequired('dqcDescription', $this->dqcDescription, true);
+        Model::validateRequired('relatedFlowId', $this->relatedFlowId, true);
     }
 
     public function toMap()
@@ -126,6 +175,27 @@ class data extends Model
         }
         if (null !== $this->paramValues) {
             $res['ParamValues'] = $this->paramValues;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->baselineId) {
+            $res['BaselineId'] = $this->baselineId;
+        }
+        if (null !== $this->repeatInterval) {
+            $res['RepeatInterval'] = $this->repeatInterval;
+        }
+        if (null !== $this->connection) {
+            $res['Connection'] = $this->connection;
+        }
+        if (null !== $this->dqcType) {
+            $res['DqcType'] = $this->dqcType;
+        }
+        if (null !== $this->dqcDescription) {
+            $res['DqcDescription'] = $this->dqcDescription;
+        }
+        if (null !== $this->relatedFlowId) {
+            $res['RelatedFlowId'] = $this->relatedFlowId;
         }
 
         return $res;
@@ -171,6 +241,27 @@ class data extends Model
         }
         if (isset($map['ParamValues'])) {
             $model->paramValues = $map['ParamValues'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
+        if (isset($map['BaselineId'])) {
+            $model->baselineId = $map['BaselineId'];
+        }
+        if (isset($map['RepeatInterval'])) {
+            $model->repeatInterval = $map['RepeatInterval'];
+        }
+        if (isset($map['Connection'])) {
+            $model->connection = $map['Connection'];
+        }
+        if (isset($map['DqcType'])) {
+            $model->dqcType = $map['DqcType'];
+        }
+        if (isset($map['DqcDescription'])) {
+            $model->dqcDescription = $map['DqcDescription'];
+        }
+        if (isset($map['RelatedFlowId'])) {
+            $model->relatedFlowId = $map['RelatedFlowId'];
         }
 
         return $model;

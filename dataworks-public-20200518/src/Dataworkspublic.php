@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateFolderRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateFolderResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateManualDagRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateManualDagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateMetaCategoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateProjectMemberRequest;
@@ -101,6 +103,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBusinessResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDagRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApplicationRequest;
@@ -133,6 +137,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceStatusCountRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetInstanceStatusCountResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetManualDagInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetManualDagInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaCategoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaColumnLineageRequest;
@@ -257,6 +263,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ResumeInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ResumeInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchMetaTablesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchMetaTablesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchNodesByOutputRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchNodesByOutputResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetSuccessInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetSuccessInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopInstanceRequest;
@@ -336,6 +344,106 @@ class Dataworkspublic extends Rpc
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dataworks-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param GetDagRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDagResponse
+     */
+    public function getDagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return GetDagResponse::fromMap($this->doRequest('GetDag', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param GetDagRequest $request
+     *
+     * @return GetDagResponse
+     */
+    public function getDag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchNodesByOutputRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SearchNodesByOutputResponse
+     */
+    public function searchNodesByOutputWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return SearchNodesByOutputResponse::fromMap($this->doRequest('SearchNodesByOutput', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param SearchNodesByOutputRequest $request
+     *
+     * @return SearchNodesByOutputResponse
+     */
+    public function searchNodesByOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchNodesByOutputWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetManualDagInstancesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetManualDagInstancesResponse
+     */
+    public function getManualDagInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return GetManualDagInstancesResponse::fromMap($this->doRequest('GetManualDagInstances', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param GetManualDagInstancesRequest $request
+     *
+     * @return GetManualDagInstancesResponse
+     */
+    public function getManualDagInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getManualDagInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateManualDagRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateManualDagResponse
+     */
+    public function createManualDagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateManualDagResponse::fromMap($this->doRequest('CreateManualDag', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateManualDagRequest $request
+     *
+     * @return CreateManualDagResponse
+     */
+    public function createManualDag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createManualDagWithOptions($request, $runtime);
     }
 
     /**
