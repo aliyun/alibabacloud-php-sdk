@@ -1,3 +1,6 @@
+2020-11-19 Version: 0.1.15
+- Update SegmentBody.
+
 2020-11-13 Version: 0.1.13
 - Release SegmentHDSky SegmentHDCommonImage.
 
