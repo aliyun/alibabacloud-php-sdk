@@ -12,38 +12,38 @@ class data extends Model
     /**
      * @var int
      */
-    public $width;
+    public $height;
 
     /**
      * @var int
      */
-    public $height;
+    public $width;
 
     /**
      * @var elements[]
      */
     public $elements;
     protected $_name = [
-        'width'    => 'Width',
         'height'   => 'Height',
+        'width'    => 'Width',
         'elements' => 'Elements',
     ];
 
     public function validate()
     {
-        Model::validateRequired('width', $this->width, true);
         Model::validateRequired('height', $this->height, true);
+        Model::validateRequired('width', $this->width, true);
         Model::validateRequired('elements', $this->elements, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
         if (null !== $this->elements) {
             $res['Elements'] = [];
@@ -66,11 +66,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
         if (isset($map['Elements'])) {
             if (!empty($map['Elements'])) {
