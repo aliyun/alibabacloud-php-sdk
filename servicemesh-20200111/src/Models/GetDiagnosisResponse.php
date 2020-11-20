@@ -17,15 +17,22 @@ class GetDiagnosisResponse extends Model
      * @var string
      */
     public $result;
+
+    /**
+     * @var string
+     */
+    public $runAt;
     protected $_name = [
         'requestId' => 'RequestId',
         'result'    => 'Result',
+        'runAt'     => 'RunAt',
     ];
 
     public function validate()
     {
         Model::validateRequired('requestId', $this->requestId, true);
         Model::validateRequired('result', $this->result, true);
+        Model::validateRequired('runAt', $this->runAt, true);
     }
 
     public function toMap()
@@ -36,6 +43,9 @@ class GetDiagnosisResponse extends Model
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
+        }
+        if (null !== $this->runAt) {
+            $res['RunAt'] = $this->runAt;
         }
 
         return $res;
@@ -54,6 +64,9 @@ class GetDiagnosisResponse extends Model
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
+        }
+        if (isset($map['RunAt'])) {
+            $model->runAt = $map['RunAt'];
         }
 
         return $model;

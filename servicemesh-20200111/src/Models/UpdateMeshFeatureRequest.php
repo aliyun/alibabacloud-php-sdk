@@ -112,28 +112,70 @@ class UpdateMeshFeatureRequest extends Model
      * @var string
      */
     public $includeIPRanges;
+
+    /**
+     * @var bool
+     */
+    public $enableNamespacesByDefault;
+
+    /**
+     * @var bool
+     */
+    public $autoInjectionPolicyEnabled;
+
+    /**
+     * @var string
+     */
+    public $sidecarInjectorRequestCPU;
+
+    /**
+     * @var string
+     */
+    public $sidecarInjectorRequestMemory;
+
+    /**
+     * @var string
+     */
+    public $sidecarInjectorLimitCPU;
+
+    /**
+     * @var string
+     */
+    public $sidecarInjectorLimitMemory;
+
+    /**
+     * @var string
+     */
+    public $sidecarInjectorWebhookAsYaml;
     protected $_name = [
-        'serviceMeshId'         => 'ServiceMeshId',
-        'tracing'               => 'Tracing',
-        'traceSampling'         => 'TraceSampling',
-        'localityLoadBalancing' => 'LocalityLoadBalancing',
-        'telemetry'             => 'Telemetry',
-        'openAgentPolicy'       => 'OpenAgentPolicy',
-        'OPALogLevel'           => 'OPALogLevel',
-        'OPARequestCPU'         => 'OPARequestCPU',
-        'OPARequestMemory'      => 'OPARequestMemory',
-        'OPALimitCPU'           => 'OPALimitCPU',
-        'OPALimitMemory'        => 'OPALimitMemory',
-        'enableAudit'           => 'EnableAudit',
-        'auditProject'          => 'AuditProject',
-        'clusterDomain'         => 'ClusterDomain',
-        'customizedZipkin'      => 'CustomizedZipkin',
-        'outboundTrafficPolicy' => 'OutboundTrafficPolicy',
-        'proxyRequestCPU'       => 'ProxyRequestCPU',
-        'proxyRequestMemory'    => 'ProxyRequestMemory',
-        'proxyLimitCPU'         => 'ProxyLimitCPU',
-        'proxyLimitMemory'      => 'ProxyLimitMemory',
-        'includeIPRanges'       => 'IncludeIPRanges',
+        'serviceMeshId'                => 'ServiceMeshId',
+        'tracing'                      => 'Tracing',
+        'traceSampling'                => 'TraceSampling',
+        'localityLoadBalancing'        => 'LocalityLoadBalancing',
+        'telemetry'                    => 'Telemetry',
+        'openAgentPolicy'              => 'OpenAgentPolicy',
+        'OPALogLevel'                  => 'OPALogLevel',
+        'OPARequestCPU'                => 'OPARequestCPU',
+        'OPARequestMemory'             => 'OPARequestMemory',
+        'OPALimitCPU'                  => 'OPALimitCPU',
+        'OPALimitMemory'               => 'OPALimitMemory',
+        'enableAudit'                  => 'EnableAudit',
+        'auditProject'                 => 'AuditProject',
+        'clusterDomain'                => 'ClusterDomain',
+        'customizedZipkin'             => 'CustomizedZipkin',
+        'outboundTrafficPolicy'        => 'OutboundTrafficPolicy',
+        'proxyRequestCPU'              => 'ProxyRequestCPU',
+        'proxyRequestMemory'           => 'ProxyRequestMemory',
+        'proxyLimitCPU'                => 'ProxyLimitCPU',
+        'proxyLimitMemory'             => 'ProxyLimitMemory',
+        'includeIPRanges'              => 'IncludeIPRanges',
+        'enableNamespacesByDefault'    => 'EnableNamespacesByDefault',
+        'autoInjectionPolicyEnabled'   => 'AutoInjectionPolicyEnabled',
+        'sidecarInjectorRequestCPU'    => 'SidecarInjectorRequestCPU',
+        'sidecarInjectorRequestMemory' => 'SidecarInjectorRequestMemory',
+        'sidecarInjectorLimitCPU'      => 'SidecarInjectorLimitCPU',
+        'sidecarInjectorLimitMemory'   => 'SidecarInjectorLimitMemory',
+        'sidecarInjectorWebhookAsYaml' => 'SidecarInjectorWebhookAsYaml',
     ];
 
     public function validate()
@@ -206,6 +248,27 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->includeIPRanges) {
             $res['IncludeIPRanges'] = $this->includeIPRanges;
+        }
+        if (null !== $this->enableNamespacesByDefault) {
+            $res['EnableNamespacesByDefault'] = $this->enableNamespacesByDefault;
+        }
+        if (null !== $this->autoInjectionPolicyEnabled) {
+            $res['AutoInjectionPolicyEnabled'] = $this->autoInjectionPolicyEnabled;
+        }
+        if (null !== $this->sidecarInjectorRequestCPU) {
+            $res['SidecarInjectorRequestCPU'] = $this->sidecarInjectorRequestCPU;
+        }
+        if (null !== $this->sidecarInjectorRequestMemory) {
+            $res['SidecarInjectorRequestMemory'] = $this->sidecarInjectorRequestMemory;
+        }
+        if (null !== $this->sidecarInjectorLimitCPU) {
+            $res['SidecarInjectorLimitCPU'] = $this->sidecarInjectorLimitCPU;
+        }
+        if (null !== $this->sidecarInjectorLimitMemory) {
+            $res['SidecarInjectorLimitMemory'] = $this->sidecarInjectorLimitMemory;
+        }
+        if (null !== $this->sidecarInjectorWebhookAsYaml) {
+            $res['SidecarInjectorWebhookAsYaml'] = $this->sidecarInjectorWebhookAsYaml;
         }
 
         return $res;
@@ -281,6 +344,27 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['IncludeIPRanges'])) {
             $model->includeIPRanges = $map['IncludeIPRanges'];
+        }
+        if (isset($map['EnableNamespacesByDefault'])) {
+            $model->enableNamespacesByDefault = $map['EnableNamespacesByDefault'];
+        }
+        if (isset($map['AutoInjectionPolicyEnabled'])) {
+            $model->autoInjectionPolicyEnabled = $map['AutoInjectionPolicyEnabled'];
+        }
+        if (isset($map['SidecarInjectorRequestCPU'])) {
+            $model->sidecarInjectorRequestCPU = $map['SidecarInjectorRequestCPU'];
+        }
+        if (isset($map['SidecarInjectorRequestMemory'])) {
+            $model->sidecarInjectorRequestMemory = $map['SidecarInjectorRequestMemory'];
+        }
+        if (isset($map['SidecarInjectorLimitCPU'])) {
+            $model->sidecarInjectorLimitCPU = $map['SidecarInjectorLimitCPU'];
+        }
+        if (isset($map['SidecarInjectorLimitMemory'])) {
+            $model->sidecarInjectorLimitMemory = $map['SidecarInjectorLimitMemory'];
+        }
+        if (isset($map['SidecarInjectorWebhookAsYaml'])) {
+            $model->sidecarInjectorWebhookAsYaml = $map['SidecarInjectorWebhookAsYaml'];
         }
 
         return $model;

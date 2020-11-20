@@ -62,6 +62,7 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateMeshFeatureResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshVersionRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshVersionResponse;
 use AlibabaCloud\Tea\Rpc\Rpc;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 
@@ -85,7 +86,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddVmAppToMeshResponse::fromMap($this->doRequest('AddVmAppToMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return AddVmAppToMeshResponse::fromMap($this->doRequest('AddVmAppToMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -110,7 +111,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetVmAppMeshInfoResponse::fromMap($this->doRequest('GetVmAppMeshInfo', 'HTTPS', 'GET', '2020-01-11', 'AK', $request, null, $runtime));
+        return GetVmAppMeshInfoResponse::fromMap($this->doRequest('GetVmAppMeshInfo', 'HTTPS', 'GET', '2020-01-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -135,7 +136,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetVmMetaResponse::fromMap($this->doRequest('GetVmMeta', 'HTTPS', 'GET', '2020-01-11', 'AK', $request, null, $runtime));
+        return GetVmMetaResponse::fromMap($this->doRequest('GetVmMeta', 'HTTPS', 'GET', '2020-01-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -160,7 +161,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return RemoveVmAppFromMeshResponse::fromMap($this->doRequest('RemoveVmAppFromMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return RemoveVmAppFromMeshResponse::fromMap($this->doRequest('RemoveVmAppFromMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -185,7 +186,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetRegisteredServiceEndpointsResponse::fromMap($this->doRequest('GetRegisteredServiceEndpoints', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return GetRegisteredServiceEndpointsResponse::fromMap($this->doRequest('GetRegisteredServiceEndpoints', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -210,7 +211,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetServiceMeshSlbResponse::fromMap($this->doRequest('GetServiceMeshSlb', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return GetServiceMeshSlbResponse::fromMap($this->doRequest('GetServiceMeshSlb', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -235,7 +236,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetRegisteredServicesResponse::fromMap($this->doRequest('GetRegisteredServices', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return GetRegisteredServicesResponse::fromMap($this->doRequest('GetRegisteredServices', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -260,7 +261,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDiagnosisResponse::fromMap($this->doRequest('GetDiagnosis', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return GetDiagnosisResponse::fromMap($this->doRequest('GetDiagnosis', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -285,7 +286,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetRegisteredServiceNamespacesResponse::fromMap($this->doRequest('GetRegisteredServiceNamespaces', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return GetRegisteredServiceNamespacesResponse::fromMap($this->doRequest('GetRegisteredServiceNamespaces', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -310,7 +311,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return RunDiagnosisResponse::fromMap($this->doRequest('RunDiagnosis', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return RunDiagnosisResponse::fromMap($this->doRequest('RunDiagnosis', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -335,7 +336,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return RemoveClusterFromServiceMeshResponse::fromMap($this->doRequest('RemoveClusterFromServiceMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return RemoveClusterFromServiceMeshResponse::fromMap($this->doRequest('RemoveClusterFromServiceMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -360,7 +361,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddClusterIntoServiceMeshResponse::fromMap($this->doRequest('AddClusterIntoServiceMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return AddClusterIntoServiceMeshResponse::fromMap($this->doRequest('AddClusterIntoServiceMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -385,7 +386,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateIstioInjectionConfigResponse::fromMap($this->doRequest('UpdateIstioInjectionConfig', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return UpdateIstioInjectionConfigResponse::fromMap($this->doRequest('UpdateIstioInjectionConfig', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -410,7 +411,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeGuestClusterAccessLogDashboardsResponse::fromMap($this->doRequest('DescribeGuestClusterAccessLogDashboards', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return DescribeGuestClusterAccessLogDashboardsResponse::fromMap($this->doRequest('DescribeGuestClusterAccessLogDashboards', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -435,7 +436,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeClusterPrometheusResponse::fromMap($this->doRequest('DescribeClusterPrometheus', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return DescribeClusterPrometheusResponse::fromMap($this->doRequest('DescribeClusterPrometheus', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -460,7 +461,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeClusterGrafanaResponse::fromMap($this->doRequest('DescribeClusterGrafana', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return DescribeClusterGrafanaResponse::fromMap($this->doRequest('DescribeClusterGrafana', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -485,7 +486,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeRegionsResponse::fromMap($this->doRequest('DescribeRegions', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return DescribeRegionsResponse::fromMap($this->doRequest('DescribeRegions', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -510,7 +511,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeCensResponse::fromMap($this->doRequest('DescribeCens', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return DescribeCensResponse::fromMap($this->doRequest('DescribeCens', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -535,7 +536,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeClustersInServiceMeshResponse::fromMap($this->doRequest('DescribeClustersInServiceMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return DescribeClustersInServiceMeshResponse::fromMap($this->doRequest('DescribeClustersInServiceMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -560,7 +561,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeIngressGatewaysResponse::fromMap($this->doRequest('DescribeIngressGateways', 'HTTPS', 'GET', '2020-01-11', 'AK', $request, null, $runtime));
+        return DescribeIngressGatewaysResponse::fromMap($this->doRequest('DescribeIngressGateways', 'HTTPS', 'GET', '2020-01-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -585,7 +586,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeUpgradeVersionResponse::fromMap($this->doRequest('DescribeUpgradeVersion', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return DescribeUpgradeVersionResponse::fromMap($this->doRequest('DescribeUpgradeVersion', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -610,7 +611,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpdateMeshFeatureResponse::fromMap($this->doRequest('UpdateMeshFeature', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return UpdateMeshFeatureResponse::fromMap($this->doRequest('UpdateMeshFeature', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -635,7 +636,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return UpgradeMeshVersionResponse::fromMap($this->doRequest('UpgradeMeshVersion', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return UpgradeMeshVersionResponse::fromMap($this->doRequest('UpgradeMeshVersion', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -660,7 +661,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeServiceMeshesResponse::fromMap($this->doRequest('DescribeServiceMeshes', 'HTTPS', 'GET', '2020-01-11', 'AK', $request, null, $runtime));
+        return DescribeServiceMeshesResponse::fromMap($this->doRequest('DescribeServiceMeshes', 'HTTPS', 'GET', '2020-01-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -685,7 +686,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeServiceMeshDetailResponse::fromMap($this->doRequest('DescribeServiceMeshDetail', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return DescribeServiceMeshDetailResponse::fromMap($this->doRequest('DescribeServiceMeshDetail', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -710,7 +711,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DescribeServiceMeshKubeconfigResponse::fromMap($this->doRequest('DescribeServiceMeshKubeconfig', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return DescribeServiceMeshKubeconfigResponse::fromMap($this->doRequest('DescribeServiceMeshKubeconfig', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -735,7 +736,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return CreateServiceMeshResponse::fromMap($this->doRequest('CreateServiceMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return CreateServiceMeshResponse::fromMap($this->doRequest('CreateServiceMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -760,7 +761,7 @@ class Servicemesh extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteServiceMeshResponse::fromMap($this->doRequest('DeleteServiceMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, $request, $runtime));
+        return DeleteServiceMeshResponse::fromMap($this->doRequest('DeleteServiceMesh', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -791,8 +792,8 @@ class Servicemesh extends Rpc
         if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_($endpointMap['regionId'])) {
-            return $endpointMap['regionId'];
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);

@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailRespo
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponse\serviceMesh\spec\meshConfig\OPA;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponse\serviceMesh\spec\meshConfig\pilot;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponse\serviceMesh\spec\meshConfig\proxy;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponse\serviceMesh\spec\meshConfig\sidecarInjector;
 use AlibabaCloud\Tea\Model;
 
 class meshConfig extends Model
@@ -61,6 +62,11 @@ class meshConfig extends Model
      * @var proxy
      */
     public $proxy;
+
+    /**
+     * @var sidecarInjector
+     */
+    public $sidecarInjector;
     protected $_name = [
         'enableLocalityLB'      => 'EnableLocalityLB',
         'telemetry'             => 'Telemetry',
@@ -72,6 +78,7 @@ class meshConfig extends Model
         'OPA'                   => 'OPA',
         'audit'                 => 'Audit',
         'proxy'                 => 'Proxy',
+        'sidecarInjector'       => 'SidecarInjector',
     ];
 
     public function validate()
@@ -86,6 +93,7 @@ class meshConfig extends Model
         Model::validateRequired('OPA', $this->OPA, true);
         Model::validateRequired('audit', $this->audit, true);
         Model::validateRequired('proxy', $this->proxy, true);
+        Model::validateRequired('sidecarInjector', $this->sidecarInjector, true);
     }
 
     public function toMap()
@@ -120,6 +128,9 @@ class meshConfig extends Model
         }
         if (null !== $this->proxy) {
             $res['Proxy'] = null !== $this->proxy ? $this->proxy->toMap() : null;
+        }
+        if (null !== $this->sidecarInjector) {
+            $res['SidecarInjector'] = null !== $this->sidecarInjector ? $this->sidecarInjector->toMap() : null;
         }
 
         return $res;
@@ -162,6 +173,9 @@ class meshConfig extends Model
         }
         if (isset($map['Proxy'])) {
             $model->proxy = proxy::fromMap($map['Proxy']);
+        }
+        if (isset($map['SidecarInjector'])) {
+            $model->sidecarInjector = sidecarInjector::fromMap($map['SidecarInjector']);
         }
 
         return $model;

@@ -57,6 +57,16 @@ class vmMetaInfo extends Model
      * @var string
      */
     public $hostsContent;
+
+    /**
+     * @var string
+     */
+    public $tokenPath;
+
+    /**
+     * @var string
+     */
+    public $tokenContent;
     protected $_name = [
         'rootCertPath'     => 'RootCertPath',
         'rootCertContent'  => 'RootCertContent',
@@ -68,6 +78,8 @@ class vmMetaInfo extends Model
         'envoyEnvContent'  => 'EnvoyEnvContent',
         'hostsPath'        => 'HostsPath',
         'hostsContent'     => 'HostsContent',
+        'tokenPath'        => 'TokenPath',
+        'tokenContent'     => 'TokenContent',
     ];
 
     public function validate()
@@ -82,6 +94,8 @@ class vmMetaInfo extends Model
         Model::validateRequired('envoyEnvContent', $this->envoyEnvContent, true);
         Model::validateRequired('hostsPath', $this->hostsPath, true);
         Model::validateRequired('hostsContent', $this->hostsContent, true);
+        Model::validateRequired('tokenPath', $this->tokenPath, true);
+        Model::validateRequired('tokenContent', $this->tokenContent, true);
     }
 
     public function toMap()
@@ -116,6 +130,12 @@ class vmMetaInfo extends Model
         }
         if (null !== $this->hostsContent) {
             $res['HostsContent'] = $this->hostsContent;
+        }
+        if (null !== $this->tokenPath) {
+            $res['TokenPath'] = $this->tokenPath;
+        }
+        if (null !== $this->tokenContent) {
+            $res['TokenContent'] = $this->tokenContent;
         }
 
         return $res;
@@ -158,6 +178,12 @@ class vmMetaInfo extends Model
         }
         if (isset($map['HostsContent'])) {
             $model->hostsContent = $map['HostsContent'];
+        }
+        if (isset($map['TokenPath'])) {
+            $model->tokenPath = $map['TokenPath'];
+        }
+        if (isset($map['TokenContent'])) {
+            $model->tokenContent = $map['TokenContent'];
         }
 
         return $model;
