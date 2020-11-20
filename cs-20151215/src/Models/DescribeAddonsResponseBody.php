@@ -19,7 +19,7 @@ class DescribeAddonsResponseBody extends Model
     /**
      * @description 标准组件信息，包含各个组件的描述信息。
      *
-     * @var mixed[][]
+     * @var StandardComponentsValue[]
      */
     public $standardComponents;
     protected $_name = [
@@ -44,7 +44,12 @@ class DescribeAddonsResponseBody extends Model
             }
         }
         if (null !== $this->standardComponents) {
-            $res['StandardComponents'] = $this->standardComponents;
+            $res['StandardComponents'] = [];
+            if (null !== $this->standardComponents && \is_array($this->standardComponents)) {
+                foreach ($this->standardComponents as $key => $val) {
+                    $res['StandardComponents'][$key] = null !== $val ? $val->toMap() : $val;
+                }
+            }
         }
 
         return $res;

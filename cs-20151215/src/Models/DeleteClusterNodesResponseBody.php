@@ -2,20 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolRequest;
+namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class teeConfig extends Model
+class DeleteClusterNodesResponseBody extends Model
 {
     /**
-     * @description 是否为加密计算节点池
+     * @description 请求ID。
      *
-     * @var bool
+     * @var string
      */
-    public $teeEnable;
+    public $requestId;
     protected $_name = [
-        'teeEnable' => 'tee_enable',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class teeConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->teeEnable) {
-            $res['tee_enable'] = $this->teeEnable;
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class teeConfig extends Model
     /**
      * @param array $map
      *
-     * @return teeConfig
+     * @return DeleteClusterNodesResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['tee_enable'])) {
-            $model->teeEnable = $map['tee_enable'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;
