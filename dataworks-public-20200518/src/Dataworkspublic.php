@@ -261,6 +261,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RestartInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RestartInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ResumeInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ResumeInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RunTriggerNodeRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RunTriggerNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchMetaTablesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchMetaTablesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchNodesByOutputRequest;
@@ -344,6 +346,31 @@ class Dataworkspublic extends Rpc
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dataworks-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param RunTriggerNodeRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RunTriggerNodeResponse
+     */
+    public function runTriggerNodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return RunTriggerNodeResponse::fromMap($this->doRequest('RunTriggerNode', 'HTTPS', 'PUT', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param RunTriggerNodeRequest $request
+     *
+     * @return RunTriggerNodeResponse
+     */
+    public function runTriggerNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runTriggerNodeWithOptions($request, $runtime);
     }
 
     /**
