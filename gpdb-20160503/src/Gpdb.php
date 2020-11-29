@@ -43,6 +43,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModifyParameterLogRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModifyParameterLogResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeParametersRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeParametersResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVpcsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVpcsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVSwitchsRequest;
@@ -83,6 +87,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceNetworkTypeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceNetworkTypeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceSSLResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyParametersRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyParametersResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySQLCollectorPolicyRequest;
@@ -131,6 +137,81 @@ class Gpdb extends Rpc
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('gpdb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param DescribeModifyParameterLogRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeModifyParameterLogResponse
+     */
+    public function describeModifyParameterLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeModifyParameterLogResponse::fromMap($this->doRequest('DescribeModifyParameterLog', 'HTTPS', 'POST', '2016-05-03', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeModifyParameterLogRequest $request
+     *
+     * @return DescribeModifyParameterLogResponse
+     */
+    public function describeModifyParameterLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModifyParameterLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeParametersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeParametersResponse
+     */
+    public function describeParametersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeParametersResponse::fromMap($this->doRequest('DescribeParameters', 'HTTPS', 'POST', '2016-05-03', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeParametersRequest $request
+     *
+     * @return DescribeParametersResponse
+     */
+    public function describeParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParametersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyParametersRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyParametersResponse
+     */
+    public function modifyParametersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ModifyParametersResponse::fromMap($this->doRequest('ModifyParameters', 'HTTPS', 'POST', '2016-05-03', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ModifyParametersRequest $request
+     *
+     * @return ModifyParametersResponse
+     */
+    public function modifyParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyParametersWithOptions($request, $runtime);
     }
 
     /**

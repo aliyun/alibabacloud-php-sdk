@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDBInstanceSSLRequest extends Model
+class ModifyParametersRequest extends Model
 {
     /**
      * @var string
@@ -16,22 +16,22 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @var string
      */
-    public $connectionString;
+    public $parameters;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $SSLEnabled;
+    public $forceRestartInstance;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'connectionString' => 'ConnectionString',
-        'SSLEnabled'       => 'SSLEnabled',
+        'DBInstanceId'         => 'DBInstanceId',
+        'parameters'           => 'Parameters',
+        'forceRestartInstance' => 'ForceRestartInstance',
     ];
 
     public function validate()
     {
         Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('SSLEnabled', $this->SSLEnabled, true);
+        Model::validateRequired('parameters', $this->parameters, true);
     }
 
     public function toMap()
@@ -40,11 +40,11 @@ class ModifyDBInstanceSSLRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
         }
-        if (null !== $this->SSLEnabled) {
-            $res['SSLEnabled'] = $this->SSLEnabled;
+        if (null !== $this->forceRestartInstance) {
+            $res['ForceRestartInstance'] = $this->forceRestartInstance;
         }
 
         return $res;
@@ -53,7 +53,7 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDBInstanceSSLRequest
+     * @return ModifyParametersRequest
      */
     public static function fromMap($map = [])
     {
@@ -61,11 +61,11 @@ class ModifyDBInstanceSSLRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
         }
-        if (isset($map['SSLEnabled'])) {
-            $model->SSLEnabled = $map['SSLEnabled'];
+        if (isset($map['ForceRestartInstance'])) {
+            $model->forceRestartInstance = $map['ForceRestartInstance'];
         }
 
         return $model;

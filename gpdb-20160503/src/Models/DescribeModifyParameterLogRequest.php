@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDBInstanceSSLRequest extends Model
+class DescribeModifyParameterLogRequest extends Model
 {
     /**
      * @var string
@@ -16,22 +16,21 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @var string
      */
-    public $connectionString;
+    public $startTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $SSLEnabled;
+    public $endTime;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'connectionString' => 'ConnectionString',
-        'SSLEnabled'       => 'SSLEnabled',
+        'DBInstanceId' => 'DBInstanceId',
+        'startTime'    => 'StartTime',
+        'endTime'      => 'EndTime',
     ];
 
     public function validate()
     {
         Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('SSLEnabled', $this->SSLEnabled, true);
     }
 
     public function toMap()
@@ -40,11 +39,11 @@ class ModifyDBInstanceSSLRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->SSLEnabled) {
-            $res['SSLEnabled'] = $this->SSLEnabled;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -53,7 +52,7 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDBInstanceSSLRequest
+     * @return DescribeModifyParameterLogRequest
      */
     public static function fromMap($map = [])
     {
@@ -61,11 +60,11 @@ class ModifyDBInstanceSSLRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
-        if (isset($map['SSLEnabled'])) {
-            $model->SSLEnabled = $map['SSLEnabled'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
 
         return $model;
