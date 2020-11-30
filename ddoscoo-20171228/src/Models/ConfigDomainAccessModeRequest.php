@@ -1,0 +1,73 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class ConfigDomainAccessModeRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
+    public $domain;
+
+    /**
+     * @var int
+     */
+    public $accessMode;
+    protected $_name = [
+        'sourceIp'   => 'SourceIp',
+        'domain'     => 'Domain',
+        'accessMode' => 'AccessMode',
+    ];
+
+    public function validate()
+    {
+        Model::validateRequired('domain', $this->domain, true);
+        Model::validateRequired('accessMode', $this->accessMode, true);
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->accessMode) {
+            $res['AccessMode'] = $this->accessMode;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return ConfigDomainAccessModeRequest
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['AccessMode'])) {
+            $model->accessMode = $map['AccessMode'];
+        }
+
+        return $model;
+    }
+}
