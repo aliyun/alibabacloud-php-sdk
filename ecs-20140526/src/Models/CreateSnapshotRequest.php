@@ -48,15 +48,27 @@ class CreateSnapshotRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var bool
+     */
+    public $instantAccess;
+
+    /**
+     * @var int
+     */
+    public $instantAccessRetentionDays;
     protected $_name = [
-        'diskId'          => 'DiskId',
-        'snapshotName'    => 'SnapshotName',
-        'description'     => 'Description',
-        'retentionDays'   => 'RetentionDays',
-        'category'        => 'Category',
-        'clientToken'     => 'ClientToken',
-        'tag'             => 'Tag',
-        'resourceGroupId' => 'ResourceGroupId',
+        'diskId'                     => 'DiskId',
+        'snapshotName'               => 'SnapshotName',
+        'description'                => 'Description',
+        'retentionDays'              => 'RetentionDays',
+        'category'                   => 'Category',
+        'clientToken'                => 'ClientToken',
+        'tag'                        => 'Tag',
+        'resourceGroupId'            => 'ResourceGroupId',
+        'instantAccess'              => 'InstantAccess',
+        'instantAccessRetentionDays' => 'InstantAccessRetentionDays',
     ];
 
     public function validate()
@@ -96,6 +108,12 @@ class CreateSnapshotRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->instantAccess) {
+            $res['InstantAccess'] = $this->instantAccess;
+        }
+        if (null !== $this->instantAccessRetentionDays) {
+            $res['InstantAccessRetentionDays'] = $this->instantAccessRetentionDays;
         }
 
         return $res;
@@ -138,6 +156,12 @@ class CreateSnapshotRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['InstantAccess'])) {
+            $model->instantAccess = $map['InstantAccess'];
+        }
+        if (isset($map['InstantAccessRetentionDays'])) {
+            $model->instantAccessRetentionDays = $map['InstantAccessRetentionDays'];
         }
 
         return $model;

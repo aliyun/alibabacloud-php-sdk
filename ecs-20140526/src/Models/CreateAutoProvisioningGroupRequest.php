@@ -4,7 +4,10 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\dataDiskConfig;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchTemplateConfig;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\systemDiskConfig;
 use AlibabaCloud\Tea\Model;
 
 class CreateAutoProvisioningGroupRequest extends Model
@@ -118,6 +121,21 @@ class CreateAutoProvisioningGroupRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var launchConfiguration
+     */
+    public $launchConfiguration;
+
+    /**
+     * @var systemDiskConfig[]
+     */
+    public $systemDiskConfig;
+
+    /**
+     * @var dataDiskConfig[]
+     */
+    public $dataDiskConfig;
     protected $_name = [
         'regionId'                         => 'RegionId',
         'resourceGroupId'                  => 'ResourceGroupId',
@@ -141,13 +159,15 @@ class CreateAutoProvisioningGroupRequest extends Model
         'launchTemplateVersion'            => 'LaunchTemplateVersion',
         'launchTemplateConfig'             => 'LaunchTemplateConfig',
         'description'                      => 'Description',
+        'launchConfiguration'              => 'LaunchConfiguration',
+        'systemDiskConfig'                 => 'SystemDiskConfig',
+        'dataDiskConfig'                   => 'DataDiskConfig',
     ];
 
     public function validate()
     {
         Model::validateRequired('regionId', $this->regionId, true);
         Model::validateRequired('totalTargetCapacity', $this->totalTargetCapacity, true);
-        Model::validateRequired('launchTemplateId', $this->launchTemplateId, true);
     }
 
     public function toMap()
@@ -224,6 +244,27 @@ class CreateAutoProvisioningGroupRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->launchConfiguration) {
+            $res['LaunchConfiguration'] = null !== $this->launchConfiguration ? $this->launchConfiguration->toMap() : null;
+        }
+        if (null !== $this->systemDiskConfig) {
+            $res['SystemDiskConfig'] = [];
+            if (null !== $this->systemDiskConfig && \is_array($this->systemDiskConfig)) {
+                $n = 0;
+                foreach ($this->systemDiskConfig as $item) {
+                    $res['SystemDiskConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->dataDiskConfig) {
+            $res['DataDiskConfig'] = [];
+            if (null !== $this->dataDiskConfig && \is_array($this->dataDiskConfig)) {
+                $n = 0;
+                foreach ($this->dataDiskConfig as $item) {
+                    $res['DataDiskConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -308,6 +349,27 @@ class CreateAutoProvisioningGroupRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['LaunchConfiguration'])) {
+            $model->launchConfiguration = launchConfiguration::fromMap($map['LaunchConfiguration']);
+        }
+        if (isset($map['SystemDiskConfig'])) {
+            if (!empty($map['SystemDiskConfig'])) {
+                $model->systemDiskConfig = [];
+                $n                       = 0;
+                foreach ($map['SystemDiskConfig'] as $item) {
+                    $model->systemDiskConfig[$n++] = null !== $item ? systemDiskConfig::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['DataDiskConfig'])) {
+            if (!empty($map['DataDiskConfig'])) {
+                $model->dataDiskConfig = [];
+                $n                     = 0;
+                foreach ($map['DataDiskConfig'] as $item) {
+                    $model->dataDiskConfig[$n++] = null !== $item ? dataDiskConfig::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

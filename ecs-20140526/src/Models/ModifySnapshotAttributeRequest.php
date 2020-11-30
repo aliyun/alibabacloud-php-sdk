@@ -22,10 +22,16 @@ class ModifySnapshotAttributeRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $disableInstantAccess;
     protected $_name = [
-        'snapshotId'   => 'SnapshotId',
-        'snapshotName' => 'SnapshotName',
-        'description'  => 'Description',
+        'snapshotId'           => 'SnapshotId',
+        'snapshotName'         => 'SnapshotName',
+        'description'          => 'Description',
+        'disableInstantAccess' => 'DisableInstantAccess',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class ModifySnapshotAttributeRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->disableInstantAccess) {
+            $res['DisableInstantAccess'] = $this->disableInstantAccess;
         }
 
         return $res;
@@ -65,6 +74,9 @@ class ModifySnapshotAttributeRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DisableInstantAccess'])) {
+            $model->disableInstantAccess = $map['DisableInstantAccess'];
         }
 
         return $model;

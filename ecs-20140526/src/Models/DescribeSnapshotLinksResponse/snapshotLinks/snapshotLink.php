@@ -54,6 +54,11 @@ class snapshotLink extends Model
     public $category;
 
     /**
+     * @var bool
+     */
+    public $instantAccess;
+
+    /**
      * @var int
      */
     public $totalSize;
@@ -72,6 +77,7 @@ class snapshotLink extends Model
         'sourceDiskSize' => 'SourceDiskSize',
         'sourceDiskType' => 'SourceDiskType',
         'category'       => 'Category',
+        'instantAccess'  => 'InstantAccess',
         'totalSize'      => 'TotalSize',
         'totalCount'     => 'TotalCount',
     ];
@@ -87,6 +93,7 @@ class snapshotLink extends Model
         Model::validateRequired('sourceDiskSize', $this->sourceDiskSize, true);
         Model::validateRequired('sourceDiskType', $this->sourceDiskType, true);
         Model::validateRequired('category', $this->category, true);
+        Model::validateRequired('instantAccess', $this->instantAccess, true);
         Model::validateRequired('totalSize', $this->totalSize, true);
         Model::validateRequired('totalCount', $this->totalCount, true);
     }
@@ -120,6 +127,9 @@ class snapshotLink extends Model
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+        if (null !== $this->instantAccess) {
+            $res['InstantAccess'] = $this->instantAccess;
         }
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
@@ -165,6 +175,9 @@ class snapshotLink extends Model
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+        if (isset($map['InstantAccess'])) {
+            $model->instantAccess = $map['InstantAccess'];
         }
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];

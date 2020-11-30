@@ -114,6 +114,11 @@ class DescribePriceRequest extends Model
      * @var string[]
      */
     public $instanceTypeList;
+
+    /**
+     * @var string
+     */
+    public $isp;
     protected $_name = [
         'regionId'                => 'RegionId',
         'resourceType'            => 'ResourceType',
@@ -136,6 +141,7 @@ class DescribePriceRequest extends Model
         'assuranceTimes'          => 'AssuranceTimes',
         'instanceCpuCoreCount'    => 'InstanceCpuCoreCount',
         'instanceTypeList'        => 'InstanceTypeList',
+        'isp'                     => 'Isp',
     ];
 
     public function validate()
@@ -214,6 +220,9 @@ class DescribePriceRequest extends Model
         }
         if (null !== $this->instanceTypeList) {
             $res['InstanceTypeList'] = $this->instanceTypeList;
+        }
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
         }
 
         return $res;
@@ -297,6 +306,9 @@ class DescribePriceRequest extends Model
             if (!empty($map['InstanceTypeList'])) {
                 $model->instanceTypeList = $map['InstanceTypeList'];
             }
+        }
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
         }
 
         return $model;

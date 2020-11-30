@@ -41,6 +41,11 @@ class ModifyImageAttributeRequest extends Model
     /**
      * @var string
      */
+    public $licenseType;
+
+    /**
+     * @var string
+     */
     public $description;
     protected $_name = [
         'regionId'    => 'RegionId',
@@ -49,6 +54,7 @@ class ModifyImageAttributeRequest extends Model
         'status'      => 'Status',
         'imageFamily' => 'ImageFamily',
         'bootMode'    => 'BootMode',
+        'licenseType' => 'LicenseType',
         'description' => 'Description',
     ];
 
@@ -78,6 +84,9 @@ class ModifyImageAttributeRequest extends Model
         }
         if (null !== $this->bootMode) {
             $res['BootMode'] = $this->bootMode;
+        }
+        if (null !== $this->licenseType) {
+            $res['LicenseType'] = $this->licenseType;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -111,6 +120,9 @@ class ModifyImageAttributeRequest extends Model
         }
         if (isset($map['BootMode'])) {
             $model->bootMode = $map['BootMode'];
+        }
+        if (isset($map['LicenseType'])) {
+            $model->licenseType = $map['LicenseType'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

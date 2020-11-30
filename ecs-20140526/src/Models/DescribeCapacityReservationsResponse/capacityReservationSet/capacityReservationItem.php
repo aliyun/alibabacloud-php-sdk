@@ -65,6 +65,11 @@ class capacityReservationItem extends Model
     public $platform;
 
     /**
+     * @var string
+     */
+    public $timeSlot;
+
+    /**
      * @var allocatedResources
      */
     public $allocatedResources;
@@ -80,6 +85,7 @@ class capacityReservationItem extends Model
         'endTimeType'                     => 'EndTimeType',
         'instanceChargeType'              => 'InstanceChargeType',
         'platform'                        => 'Platform',
+        'timeSlot'                        => 'TimeSlot',
         'allocatedResources'              => 'AllocatedResources',
     ];
 
@@ -96,6 +102,7 @@ class capacityReservationItem extends Model
         Model::validateRequired('endTimeType', $this->endTimeType, true);
         Model::validateRequired('instanceChargeType', $this->instanceChargeType, true);
         Model::validateRequired('platform', $this->platform, true);
+        Model::validateRequired('timeSlot', $this->timeSlot, true);
         Model::validateRequired('allocatedResources', $this->allocatedResources, true);
     }
 
@@ -134,6 +141,9 @@ class capacityReservationItem extends Model
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->timeSlot) {
+            $res['TimeSlot'] = $this->timeSlot;
         }
         if (null !== $this->allocatedResources) {
             $res['AllocatedResources'] = null !== $this->allocatedResources ? $this->allocatedResources->toMap() : null;
@@ -182,6 +192,9 @@ class capacityReservationItem extends Model
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+        if (isset($map['TimeSlot'])) {
+            $model->timeSlot = $map['TimeSlot'];
         }
         if (isset($map['AllocatedResources'])) {
             $model->allocatedResources = allocatedResources::fromMap($map['AllocatedResources']);

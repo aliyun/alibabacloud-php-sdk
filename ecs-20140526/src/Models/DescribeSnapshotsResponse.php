@@ -30,6 +30,11 @@ class DescribeSnapshotsResponse extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var snapshots
      */
     public $snapshots;
@@ -38,6 +43,7 @@ class DescribeSnapshotsResponse extends Model
         'totalCount' => 'TotalCount',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'nextToken'  => 'NextToken',
         'snapshots'  => 'Snapshots',
     ];
 
@@ -47,6 +53,7 @@ class DescribeSnapshotsResponse extends Model
         Model::validateRequired('totalCount', $this->totalCount, true);
         Model::validateRequired('pageNumber', $this->pageNumber, true);
         Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('nextToken', $this->nextToken, true);
         Model::validateRequired('snapshots', $this->snapshots, true);
     }
 
@@ -64,6 +71,9 @@ class DescribeSnapshotsResponse extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->snapshots) {
             $res['Snapshots'] = null !== $this->snapshots ? $this->snapshots->toMap() : null;
@@ -91,6 +101,9 @@ class DescribeSnapshotsResponse extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['Snapshots'])) {
             $model->snapshots = snapshots::fromMap($map['Snapshots']);

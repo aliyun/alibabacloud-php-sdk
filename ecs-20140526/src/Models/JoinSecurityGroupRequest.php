@@ -17,15 +17,26 @@ class JoinSecurityGroupRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $networkInterfaceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'securityGroupId' => 'SecurityGroupId',
-        'instanceId'      => 'InstanceId',
+        'securityGroupId'    => 'SecurityGroupId',
+        'instanceId'         => 'InstanceId',
+        'networkInterfaceId' => 'NetworkInterfaceId',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
     {
         Model::validateRequired('securityGroupId', $this->securityGroupId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
@@ -36,6 +47,12 @@ class JoinSecurityGroupRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->networkInterfaceId) {
+            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -54,6 +71,12 @@ class JoinSecurityGroupRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NetworkInterfaceId'])) {
+            $model->networkInterfaceId = $map['NetworkInterfaceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

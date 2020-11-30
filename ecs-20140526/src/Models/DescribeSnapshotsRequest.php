@@ -48,6 +48,16 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @var string
      */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
     public $snapshotName;
 
     /**
@@ -112,6 +122,8 @@ class DescribeSnapshotsRequest extends Model
         'snapshotIds'     => 'SnapshotIds',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'nextToken'       => 'NextToken',
+        'maxResults'      => 'MaxResults',
         'snapshotName'    => 'SnapshotName',
         'status'          => 'Status',
         'snapshotType'    => 'SnapshotType',
@@ -154,6 +166,12 @@ class DescribeSnapshotsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
@@ -235,6 +253,12 @@ class DescribeSnapshotsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];

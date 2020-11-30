@@ -253,6 +253,11 @@ class instance extends Model
     public $deletionProtection;
 
     /**
+     * @var string
+     */
+    public $ISP;
+
+    /**
      * @var networkInterfaces
      */
     public $networkInterfaces;
@@ -368,6 +373,7 @@ class instance extends Model
         'stoppedMode'                => 'StoppedMode',
         'creditSpecification'        => 'CreditSpecification',
         'deletionProtection'         => 'DeletionProtection',
+        'ISP'                        => 'ISP',
         'networkInterfaces'          => 'NetworkInterfaces',
         'operationLocks'             => 'OperationLocks',
         'tags'                       => 'Tags',
@@ -432,6 +438,7 @@ class instance extends Model
         Model::validateRequired('stoppedMode', $this->stoppedMode, true);
         Model::validateRequired('creditSpecification', $this->creditSpecification, true);
         Model::validateRequired('deletionProtection', $this->deletionProtection, true);
+        Model::validateRequired('ISP', $this->ISP, true);
         Model::validateRequired('networkInterfaces', $this->networkInterfaces, true);
         Model::validateRequired('operationLocks', $this->operationLocks, true);
         Model::validateRequired('tags', $this->tags, true);
@@ -588,6 +595,9 @@ class instance extends Model
         }
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
+        }
+        if (null !== $this->ISP) {
+            $res['ISP'] = $this->ISP;
         }
         if (null !== $this->networkInterfaces) {
             $res['NetworkInterfaces'] = null !== $this->networkInterfaces ? $this->networkInterfaces->toMap() : null;
@@ -780,6 +790,9 @@ class instance extends Model
         }
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
+        }
+        if (isset($map['ISP'])) {
+            $model->ISP = $map['ISP'];
         }
         if (isset($map['NetworkInterfaces'])) {
             $model->networkInterfaces = networkInterfaces::fromMap($map['NetworkInterfaces']);

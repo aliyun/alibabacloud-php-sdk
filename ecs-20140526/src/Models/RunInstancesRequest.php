@@ -334,6 +334,11 @@ class RunInstancesRequest extends Model
      * @var privatePoolOptions
      */
     public $privatePoolOptions;
+
+    /**
+     * @var string
+     */
+    public $isp;
     protected $_name = [
         'regionId'                    => 'RegionId',
         'imageId'                     => 'ImageId',
@@ -399,6 +404,7 @@ class RunInstancesRequest extends Model
         'httpTokens'                  => 'HttpTokens',
         'httpPutResponseHopLimit'     => 'HttpPutResponseHopLimit',
         'privatePoolOptions'          => 'PrivatePoolOptions',
+        'isp'                         => 'Isp',
     ];
 
     public function validate()
@@ -624,6 +630,9 @@ class RunInstancesRequest extends Model
         }
         if (null !== $this->privatePoolOptions) {
             $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
+        }
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
         }
 
         return $res;
@@ -856,6 +865,9 @@ class RunInstancesRequest extends Model
         }
         if (isset($map['PrivatePoolOptions'])) {
             $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);
+        }
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
         }
 
         return $model;

@@ -26,6 +26,11 @@ class ModifyInstanceNetworkSpecRequest extends Model
     /**
      * @var string
      */
+    public $ISP;
+
+    /**
+     * @var string
+     */
     public $networkChargeType;
 
     /**
@@ -56,6 +61,7 @@ class ModifyInstanceNetworkSpecRequest extends Model
         'instanceId'              => 'InstanceId',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'internetMaxBandwidthIn'  => 'InternetMaxBandwidthIn',
+        'ISP'                     => 'ISP',
         'networkChargeType'       => 'NetworkChargeType',
         'allocatePublicIp'        => 'AllocatePublicIp',
         'startTime'               => 'StartTime',
@@ -80,6 +86,9 @@ class ModifyInstanceNetworkSpecRequest extends Model
         }
         if (null !== $this->internetMaxBandwidthIn) {
             $res['InternetMaxBandwidthIn'] = $this->internetMaxBandwidthIn;
+        }
+        if (null !== $this->ISP) {
+            $res['ISP'] = $this->ISP;
         }
         if (null !== $this->networkChargeType) {
             $res['NetworkChargeType'] = $this->networkChargeType;
@@ -119,6 +128,9 @@ class ModifyInstanceNetworkSpecRequest extends Model
         }
         if (isset($map['InternetMaxBandwidthIn'])) {
             $model->internetMaxBandwidthIn = $map['InternetMaxBandwidthIn'];
+        }
+        if (isset($map['ISP'])) {
+            $model->ISP = $map['ISP'];
         }
         if (isset($map['NetworkChargeType'])) {
             $model->networkChargeType = $map['NetworkChargeType'];

@@ -115,32 +115,44 @@ class snapshot extends Model
     public $snapshotType;
 
     /**
+     * @var bool
+     */
+    public $instantAccess;
+
+    /**
+     * @var int
+     */
+    public $instantAccessRetentionDays;
+
+    /**
      * @var tags
      */
     public $tags;
     protected $_name = [
-        'snapshotId'        => 'SnapshotId',
-        'snapshotSN'        => 'SnapshotSN',
-        'snapshotName'      => 'SnapshotName',
-        'progress'          => 'Progress',
-        'productCode'       => 'ProductCode',
-        'sourceDiskId'      => 'SourceDiskId',
-        'sourceDiskType'    => 'SourceDiskType',
-        'retentionDays'     => 'RetentionDays',
-        'encrypted'         => 'Encrypted',
-        'sourceDiskSize'    => 'SourceDiskSize',
-        'description'       => 'Description',
-        'creationTime'      => 'CreationTime',
-        'lastModifiedTime'  => 'LastModifiedTime',
-        'status'            => 'Status',
-        'usage'             => 'Usage',
-        'sourceStorageType' => 'SourceStorageType',
-        'remainTime'        => 'RemainTime',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'KMSKeyId'          => 'KMSKeyId',
-        'category'          => 'Category',
-        'snapshotType'      => 'SnapshotType',
-        'tags'              => 'Tags',
+        'snapshotId'                 => 'SnapshotId',
+        'snapshotSN'                 => 'SnapshotSN',
+        'snapshotName'               => 'SnapshotName',
+        'progress'                   => 'Progress',
+        'productCode'                => 'ProductCode',
+        'sourceDiskId'               => 'SourceDiskId',
+        'sourceDiskType'             => 'SourceDiskType',
+        'retentionDays'              => 'RetentionDays',
+        'encrypted'                  => 'Encrypted',
+        'sourceDiskSize'             => 'SourceDiskSize',
+        'description'                => 'Description',
+        'creationTime'               => 'CreationTime',
+        'lastModifiedTime'           => 'LastModifiedTime',
+        'status'                     => 'Status',
+        'usage'                      => 'Usage',
+        'sourceStorageType'          => 'SourceStorageType',
+        'remainTime'                 => 'RemainTime',
+        'resourceGroupId'            => 'ResourceGroupId',
+        'KMSKeyId'                   => 'KMSKeyId',
+        'category'                   => 'Category',
+        'snapshotType'               => 'SnapshotType',
+        'instantAccess'              => 'InstantAccess',
+        'instantAccessRetentionDays' => 'InstantAccessRetentionDays',
+        'tags'                       => 'Tags',
     ];
 
     public function validate()
@@ -166,6 +178,8 @@ class snapshot extends Model
         Model::validateRequired('KMSKeyId', $this->KMSKeyId, true);
         Model::validateRequired('category', $this->category, true);
         Model::validateRequired('snapshotType', $this->snapshotType, true);
+        Model::validateRequired('instantAccess', $this->instantAccess, true);
+        Model::validateRequired('instantAccessRetentionDays', $this->instantAccessRetentionDays, true);
         Model::validateRequired('tags', $this->tags, true);
     }
 
@@ -234,6 +248,12 @@ class snapshot extends Model
         }
         if (null !== $this->snapshotType) {
             $res['SnapshotType'] = $this->snapshotType;
+        }
+        if (null !== $this->instantAccess) {
+            $res['InstantAccess'] = $this->instantAccess;
+        }
+        if (null !== $this->instantAccessRetentionDays) {
+            $res['InstantAccessRetentionDays'] = $this->instantAccessRetentionDays;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -312,6 +332,12 @@ class snapshot extends Model
         }
         if (isset($map['SnapshotType'])) {
             $model->snapshotType = $map['SnapshotType'];
+        }
+        if (isset($map['InstantAccess'])) {
+            $model->instantAccess = $map['InstantAccess'];
+        }
+        if (isset($map['InstantAccessRetentionDays'])) {
+            $model->instantAccessRetentionDays = $map['InstantAccessRetentionDays'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
