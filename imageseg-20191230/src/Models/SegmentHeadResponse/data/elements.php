@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
-     * @var string
-     */
-    public $imageURL;
-
-    /**
      * @var int
      */
     public $x;
@@ -24,48 +19,53 @@ class elements extends Model
     public $y;
 
     /**
-     * @var int
+     * @var string
      */
-    public $width;
+    public $imageURL;
 
     /**
      * @var int
      */
     public $height;
+
+    /**
+     * @var int
+     */
+    public $width;
     protected $_name = [
-        'imageURL' => 'ImageURL',
         'x'        => 'X',
         'y'        => 'Y',
-        'width'    => 'Width',
+        'imageURL' => 'ImageURL',
         'height'   => 'Height',
+        'width'    => 'Width',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURL', $this->imageURL, true);
         Model::validateRequired('x', $this->x, true);
         Model::validateRequired('y', $this->y, true);
-        Model::validateRequired('width', $this->width, true);
+        Model::validateRequired('imageURL', $this->imageURL, true);
         Model::validateRequired('height', $this->height, true);
+        Model::validateRequired('width', $this->width, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
-        }
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
         if (null !== $this->y) {
             $res['Y'] = $this->y;
         }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
+        if (null !== $this->imageURL) {
+            $res['ImageURL'] = $this->imageURL;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -79,20 +79,20 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
-        }
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
         }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
+        if (isset($map['ImageURL'])) {
+            $model->imageURL = $map['ImageURL'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

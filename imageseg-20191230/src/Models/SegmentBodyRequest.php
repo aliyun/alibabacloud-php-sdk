@@ -17,9 +17,15 @@ class SegmentBodyRequest extends Model
      * @var bool
      */
     public $async;
+
+    /**
+     * @var string
+     */
+    public $returnForm;
     protected $_name = [
-        'imageURL' => 'ImageURL',
-        'async'    => 'Async',
+        'imageURL'   => 'ImageURL',
+        'async'      => 'Async',
+        'returnForm' => 'ReturnForm',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class SegmentBodyRequest extends Model
         }
         if (null !== $this->async) {
             $res['Async'] = $this->async;
+        }
+        if (null !== $this->returnForm) {
+            $res['ReturnForm'] = $this->returnForm;
         }
 
         return $res;
@@ -53,6 +62,9 @@ class SegmentBodyRequest extends Model
         }
         if (isset($map['Async'])) {
             $model->async = $map['Async'];
+        }
+        if (isset($map['ReturnForm'])) {
+            $model->returnForm = $map['ReturnForm'];
         }
 
         return $model;
