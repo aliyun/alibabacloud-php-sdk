@@ -5,27 +5,21 @@
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class ErasePersonAdvanceRequest extends Model
+class ColorizeImageAdvanceRequest extends Model
 {
     /**
      * @var Stream
      */
     public $imageURLObject;
-
-    /**
-     * @var string
-     */
-    public $userMask;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
-        'userMask'       => 'UserMask',
     ];
 
     public function validate()
     {
         Model::validateRequired('imageURLObject', $this->imageURLObject, true);
-        Model::validateRequired('userMask', $this->userMask, true);
     }
 
     public function toMap()
@@ -34,9 +28,6 @@ class ErasePersonAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
         }
-        if (null !== $this->userMask) {
-            $res['UserMask'] = $this->userMask;
-        }
 
         return $res;
     }
@@ -44,16 +35,13 @@ class ErasePersonAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return ErasePersonAdvanceRequest
+     * @return ColorizeImageAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
-        }
-        if (isset($map['UserMask'])) {
-            $model->userMask = $map['UserMask'];
         }
 
         return $model;

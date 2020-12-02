@@ -1,3 +1,6 @@
+2020-12-02 Version: 0.1.11
+- Release ColorizeImage.
+
 2020-11-13 Version: 0.1.10
 - Release ErasePerson.
 
