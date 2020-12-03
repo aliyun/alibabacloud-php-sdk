@@ -45,6 +45,7 @@ use AlibabaCloud\Tea\FileForm\FileForm\FileField;
 use AlibabaCloud\Tea\Rpc\Rpc;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\RpcUtils\RpcUtils;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 
@@ -68,7 +69,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectSkinDiseaseResponse::fromMap($this->doRequest('DetectSkinDisease', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return DetectSkinDiseaseResponse::fromMap($this->doRequest('DetectSkinDisease', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DetectSkinDiseaseRequest $request
+     *
+     * @return DetectSkinDiseaseResponse
+     */
+    public function detectSkinDiseaseSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectSkinDisease($request, $runtime);
     }
 
     /**
@@ -108,8 +121,8 @@ class Imageprocess extends Rpc
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         RpcUtils::convert($runtime, $ossRuntime);
-        $detectSkinDiseasereq = new DetectSkinDiseaseRequest([]);
-        RpcUtils::convert($request, $detectSkinDiseasereq);
+        $detectSkinDiseaseReq = new DetectSkinDiseaseRequest([]);
+        RpcUtils::convert($request, $detectSkinDiseaseReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
         $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
@@ -132,9 +145,9 @@ class Imageprocess extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectSkinDiseasereq->url = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $detectSkinDiseaseReq->url = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->detectSkinDisease($detectSkinDiseasereq, $runtime);
+        return $this->detectSkinDisease($detectSkinDiseaseReq, $runtime);
     }
 
     /**
@@ -147,7 +160,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return RunMedQAResponse::fromMap($this->doRequest('RunMedQA', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return RunMedQAResponse::fromMap($this->doRequest('RunMedQA', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param RunMedQARequest $request
+     *
+     * @return RunMedQAResponse
+     */
+    public function runMedQASimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runMedQA($request, $runtime);
     }
 
     /**
@@ -160,7 +185,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectKneeKeypointXRayResponse::fromMap($this->doRequest('DetectKneeKeypointXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return DetectKneeKeypointXRayResponse::fromMap($this->doRequest('DetectKneeKeypointXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DetectKneeKeypointXRayRequest $request
+     *
+     * @return DetectKneeKeypointXRayResponse
+     */
+    public function detectKneeKeypointXRaySimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectKneeKeypointXRay($request, $runtime);
     }
 
     /**
@@ -200,8 +237,8 @@ class Imageprocess extends Rpc
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         RpcUtils::convert($runtime, $ossRuntime);
-        $detectKneeKeypointXRayreq = new DetectKneeKeypointXRayRequest([]);
-        RpcUtils::convert($request, $detectKneeKeypointXRayreq);
+        $detectKneeKeypointXRayReq = new DetectKneeKeypointXRayRequest([]);
+        RpcUtils::convert($request, $detectKneeKeypointXRayReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
         $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
@@ -224,9 +261,9 @@ class Imageprocess extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectKneeKeypointXRayreq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $detectKneeKeypointXRayReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->detectKneeKeypointXRay($detectKneeKeypointXRayreq, $runtime);
+        return $this->detectKneeKeypointXRay($detectKneeKeypointXRayReq, $runtime);
     }
 
     /**
@@ -239,7 +276,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return ClassifyFNFResponse::fromMap($this->doRequest('ClassifyFNF', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return ClassifyFNFResponse::fromMap($this->doRequest('ClassifyFNF', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ClassifyFNFRequest $request
+     *
+     * @return ClassifyFNFResponse
+     */
+    public function classifyFNFSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->classifyFNF($request, $runtime);
     }
 
     /**
@@ -279,8 +328,8 @@ class Imageprocess extends Rpc
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         RpcUtils::convert($runtime, $ossRuntime);
-        $classifyFNFreq = new ClassifyFNFRequest([]);
-        RpcUtils::convert($request, $classifyFNFreq);
+        $classifyFNFReq = new ClassifyFNFRequest([]);
+        RpcUtils::convert($request, $classifyFNFReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
         $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
@@ -303,9 +352,9 @@ class Imageprocess extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $classifyFNFreq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $classifyFNFReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->classifyFNF($classifyFNFreq, $runtime);
+        return $this->classifyFNF($classifyFNFReq, $runtime);
     }
 
     /**
@@ -318,7 +367,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return RunCTRegistrationResponse::fromMap($this->doRequest('RunCTRegistration', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return RunCTRegistrationResponse::fromMap($this->doRequest('RunCTRegistration', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param RunCTRegistrationRequest $request
+     *
+     * @return RunCTRegistrationResponse
+     */
+    public function runCTRegistrationSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runCTRegistration($request, $runtime);
     }
 
     /**
@@ -331,7 +392,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectHipKeypointXRayResponse::fromMap($this->doRequest('DetectHipKeypointXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return DetectHipKeypointXRayResponse::fromMap($this->doRequest('DetectHipKeypointXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DetectHipKeypointXRayRequest $request
+     *
+     * @return DetectHipKeypointXRayResponse
+     */
+    public function detectHipKeypointXRaySimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectHipKeypointXRay($request, $runtime);
     }
 
     /**
@@ -371,8 +444,8 @@ class Imageprocess extends Rpc
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         RpcUtils::convert($runtime, $ossRuntime);
-        $detectHipKeypointXRayreq = new DetectHipKeypointXRayRequest([]);
-        RpcUtils::convert($request, $detectHipKeypointXRayreq);
+        $detectHipKeypointXRayReq = new DetectHipKeypointXRayRequest([]);
+        RpcUtils::convert($request, $detectHipKeypointXRayReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
         $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
@@ -395,9 +468,9 @@ class Imageprocess extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectHipKeypointXRayreq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $detectHipKeypointXRayReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->detectHipKeypointXRay($detectHipKeypointXRayreq, $runtime);
+        return $this->detectHipKeypointXRay($detectHipKeypointXRayReq, $runtime);
     }
 
     /**
@@ -410,7 +483,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return CalcCACSResponse::fromMap($this->doRequest('CalcCACS', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return CalcCACSResponse::fromMap($this->doRequest('CalcCACS', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CalcCACSRequest $request
+     *
+     * @return CalcCACSResponse
+     */
+    public function calcCACSSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->calcCACS($request, $runtime);
     }
 
     /**
@@ -423,7 +508,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectKneeXRayResponse::fromMap($this->doRequest('DetectKneeXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return DetectKneeXRayResponse::fromMap($this->doRequest('DetectKneeXRay', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DetectKneeXRayRequest $request
+     *
+     * @return DetectKneeXRayResponse
+     */
+    public function detectKneeXRaySimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectKneeXRay($request, $runtime);
     }
 
     /**
@@ -463,8 +560,8 @@ class Imageprocess extends Rpc
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         RpcUtils::convert($runtime, $ossRuntime);
-        $detectKneeXRayreq = new DetectKneeXRayRequest([]);
-        RpcUtils::convert($request, $detectKneeXRayreq);
+        $detectKneeXRayReq = new DetectKneeXRayRequest([]);
+        RpcUtils::convert($request, $detectKneeXRayReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
         $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
@@ -487,9 +584,9 @@ class Imageprocess extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectKneeXRayreq->url = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $detectKneeXRayReq->url = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->detectKneeXRay($detectKneeXRayreq, $runtime);
+        return $this->detectKneeXRay($detectKneeXRayReq, $runtime);
     }
 
     /**
@@ -502,7 +599,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectSpineMRIResponse::fromMap($this->doRequest('DetectSpineMRI', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return DetectSpineMRIResponse::fromMap($this->doRequest('DetectSpineMRI', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DetectSpineMRIRequest $request
+     *
+     * @return DetectSpineMRIResponse
+     */
+    public function detectSpineMRISimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectSpineMRI($request, $runtime);
     }
 
     /**
@@ -515,7 +624,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return TranslateMedResponse::fromMap($this->doRequest('TranslateMed', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return TranslateMedResponse::fromMap($this->doRequest('TranslateMed', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param TranslateMedRequest $request
+     *
+     * @return TranslateMedResponse
+     */
+    public function translateMedSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->translateMed($request, $runtime);
     }
 
     /**
@@ -528,7 +649,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectLungNoduleResponse::fromMap($this->doRequest('DetectLungNodule', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return DetectLungNoduleResponse::fromMap($this->doRequest('DetectLungNodule', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DetectLungNoduleRequest $request
+     *
+     * @return DetectLungNoduleResponse
+     */
+    public function detectLungNoduleSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectLungNodule($request, $runtime);
     }
 
     /**
@@ -541,7 +674,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return DetectCovid19CadResponse::fromMap($this->doRequest('DetectCovid19Cad', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return DetectCovid19CadResponse::fromMap($this->doRequest('DetectCovid19Cad', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DetectCovid19CadRequest $request
+     *
+     * @return DetectCovid19CadResponse
+     */
+    public function detectCovid19CadSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectCovid19Cad($request, $runtime);
     }
 
     /**
@@ -554,7 +699,19 @@ class Imageprocess extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetAsyncJobResultResponse::fromMap($this->doRequest('GetAsyncJobResult', 'HTTPS', 'POST', '2020-03-20', 'AK', null, $request->toMap(), $runtime));
+        return GetAsyncJobResultResponse::fromMap($this->doRequest('GetAsyncJobResult', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param GetAsyncJobResultRequest $request
+     *
+     * @return GetAsyncJobResultResponse
+     */
+    public function getAsyncJobResultSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAsyncJobResult($request, $runtime);
     }
 
     /**
@@ -573,8 +730,8 @@ class Imageprocess extends Rpc
         if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap['regionId'])) {
-            return @$endpointMap['regionId'];
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);

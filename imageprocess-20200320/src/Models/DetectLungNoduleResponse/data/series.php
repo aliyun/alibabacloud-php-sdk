@@ -15,6 +15,11 @@ class series extends Model
     public $seriesInstanceUid;
 
     /**
+     * @var string
+     */
+    public $report;
+
+    /**
      * @var elements[]
      */
     public $elements;
@@ -30,6 +35,7 @@ class series extends Model
     public $spacing;
     protected $_name = [
         'seriesInstanceUid' => 'SeriesInstanceUid',
+        'report'            => 'Report',
         'elements'          => 'Elements',
         'origin'            => 'Origin',
         'spacing'           => 'Spacing',
@@ -38,6 +44,7 @@ class series extends Model
     public function validate()
     {
         Model::validateRequired('seriesInstanceUid', $this->seriesInstanceUid, true);
+        Model::validateRequired('report', $this->report, true);
         Model::validateRequired('elements', $this->elements, true);
         Model::validateRequired('origin', $this->origin, true);
         Model::validateRequired('spacing', $this->spacing, true);
@@ -48,6 +55,9 @@ class series extends Model
         $res = [];
         if (null !== $this->seriesInstanceUid) {
             $res['SeriesInstanceUid'] = $this->seriesInstanceUid;
+        }
+        if (null !== $this->report) {
+            $res['Report'] = $this->report;
         }
         if (null !== $this->elements) {
             $res['Elements'] = [];
@@ -78,6 +88,9 @@ class series extends Model
         $model = new self();
         if (isset($map['SeriesInstanceUid'])) {
             $model->seriesInstanceUid = $map['SeriesInstanceUid'];
+        }
+        if (isset($map['Report'])) {
+            $model->report = $map['Report'];
         }
         if (isset($map['Elements'])) {
             if (!empty($map['Elements'])) {

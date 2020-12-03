@@ -67,6 +67,16 @@ class elements extends Model
      * @var string
      */
     public $SOPInstanceUID;
+
+    /**
+     * @var float
+     */
+    public $volume;
+
+    /**
+     * @var float
+     */
+    public $meanValue;
     protected $_name = [
         'category'       => 'Category',
         'confidence'     => 'Confidence',
@@ -80,6 +90,8 @@ class elements extends Model
         'imageY'         => 'ImageY',
         'imageZ'         => 'ImageZ',
         'SOPInstanceUID' => 'SOPInstanceUID',
+        'volume'         => 'Volume',
+        'meanValue'      => 'MeanValue',
     ];
 
     public function validate()
@@ -96,6 +108,8 @@ class elements extends Model
         Model::validateRequired('imageY', $this->imageY, true);
         Model::validateRequired('imageZ', $this->imageZ, true);
         Model::validateRequired('SOPInstanceUID', $this->SOPInstanceUID, true);
+        Model::validateRequired('volume', $this->volume, true);
+        Model::validateRequired('meanValue', $this->meanValue, true);
     }
 
     public function toMap()
@@ -136,6 +150,12 @@ class elements extends Model
         }
         if (null !== $this->SOPInstanceUID) {
             $res['SOPInstanceUID'] = $this->SOPInstanceUID;
+        }
+        if (null !== $this->volume) {
+            $res['Volume'] = $this->volume;
+        }
+        if (null !== $this->meanValue) {
+            $res['MeanValue'] = $this->meanValue;
         }
 
         return $res;
@@ -184,6 +204,12 @@ class elements extends Model
         }
         if (isset($map['SOPInstanceUID'])) {
             $model->SOPInstanceUID = $map['SOPInstanceUID'];
+        }
+        if (isset($map['Volume'])) {
+            $model->volume = $map['Volume'];
+        }
+        if (isset($map['MeanValue'])) {
+            $model->meanValue = $map['MeanValue'];
         }
 
         return $model;
