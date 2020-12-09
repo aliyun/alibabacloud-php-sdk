@@ -2,7 +2,7 @@ English | [简体中文](README-CN.md)
 
 ![](https://aliyunsdk-pages.alicdn.com/icons/AlibabaCloud.svg)
 
-## Alibaba Cloud imageseg (20191230) SDK Library for PHP
+## ${desc}
 
 ## Installation
 
@@ -14,7 +14,7 @@ composer require alibabacloud/imageseg-20191230
 
 ## Issues
 
-[Opening an Issue](https://github.com/aliyun/alibabacloud-sdk/issues/new), Issues not conforming to the guidelines may be closed immediately.
+[Opening an Issue](${github}/issues/new), Issues not conforming to the guidelines may be closed immediately.
 
 ## Changelog
 
@@ -22,7 +22,7 @@ Detailed changes for each release are documented in the [release notes](./Change
 
 ## References
 
-* [Latest Release](https://github.com/aliyun/alibabacloud-sdk)
+* [Latest Release](${github})
 
 ## License
 
