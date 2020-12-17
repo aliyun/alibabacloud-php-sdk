@@ -2,28 +2,36 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1ResponseBody\clusters;
+namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class Taint extends Model
 {
     /**
-     * @description 标签键。
+     * @description key值。
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 标签值。
+     * @description value值。
      *
      * @var string
      */
     public $value;
+
+    /**
+     * @description 污点生效策略。
+     *
+     * @var string
+     */
+    public $effect;
     protected $_name = [
-        'key'   => 'key',
-        'value' => 'value',
+        'key'    => 'key',
+        'value'  => 'value',
+        'effect' => 'effect',
     ];
 
     public function validate()
@@ -39,6 +47,9 @@ class tags extends Model
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
+        if (null !== $this->effect) {
+            $res['effect'] = $this->effect;
+        }
 
         return $res;
     }
@@ -46,7 +57,7 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return Taint
      */
     public static function fromMap($map = [])
     {
@@ -56,6 +67,9 @@ class tags extends Model
         }
         if (isset($map['value'])) {
             $model->value = $map['value'];
+        }
+        if (isset($map['effect'])) {
+            $model->effect = $map['effect'];
         }
 
         return $model;

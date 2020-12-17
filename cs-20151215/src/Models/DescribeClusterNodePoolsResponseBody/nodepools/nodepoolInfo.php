@@ -16,7 +16,7 @@ class nodepoolInfo extends Model
     public $created;
 
     /**
-     * @description 默认节点池
+     * @description 是否为默认节点池
      *
      * @var bool
      */

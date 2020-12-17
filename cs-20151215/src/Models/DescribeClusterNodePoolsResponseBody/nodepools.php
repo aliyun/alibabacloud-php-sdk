@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseB
 
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\autoScaling;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\kubernetesConfig;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\management;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\nodepoolInfo;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\scalingGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\status;
@@ -15,46 +16,53 @@ use AlibabaCloud\Tea\Model;
 class nodepools extends Model
 {
     /**
-     * @description 自动伸缩配置。
+     * @description 自动伸缩配置详情。
      *
      * @var autoScaling
      */
     public $autoScaling;
 
     /**
-     * @description 集群配置。
+     * @description 集群配置信息。
      *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
-     * @description 节点池信息
+     * @description 节点池配置详情。
      *
      * @var nodepoolInfo
      */
     public $nodepoolInfo;
 
     /**
-     * @description 扩容组配置。
+     * @description 扩容组配置详情。
      *
      * @var scalingGroup
      */
     public $scalingGroup;
 
     /**
-     * @description 节点池状态信息。
+     * @description 节点池状态详情。
      *
      * @var status
      */
     public $status;
 
     /**
-     * @description 加密计算配置。
+     * @description 加密计算配置详情。
      *
      * @var teeConfig
      */
     public $teeConfig;
+
+    /**
+     * @description 托管节点池配置。
+     *
+     * @var management
+     */
+    public $management;
     protected $_name = [
         'autoScaling'      => 'auto_scaling',
         'kubernetesConfig' => 'kubernetes_config',
@@ -62,6 +70,7 @@ class nodepools extends Model
         'scalingGroup'     => 'scaling_group',
         'status'           => 'status',
         'teeConfig'        => 'tee_config',
+        'management'       => 'management',
     ];
 
     public function validate()
@@ -88,6 +97,9 @@ class nodepools extends Model
         }
         if (null !== $this->teeConfig) {
             $res['tee_config'] = null !== $this->teeConfig ? $this->teeConfig->toMap() : null;
+        }
+        if (null !== $this->management) {
+            $res['management'] = null !== $this->management ? $this->management->toMap() : null;
         }
 
         return $res;
@@ -118,6 +130,9 @@ class nodepools extends Model
         }
         if (isset($map['tee_config'])) {
             $model->teeConfig = teeConfig::fromMap($map['tee_config']);
+        }
+        if (isset($map['management'])) {
+            $model->management = management::fromMap($map['management']);
         }
 
         return $model;

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\autoScaling;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\kubernetesConfig;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\management;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\nodepoolInfo;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\scalingGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\teeConfig;
@@ -14,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterNodePoolRequest extends Model
 {
     /**
-     * @description 自动伸缩配置。
+     * @description 自动伸缩节点池配置。
      *
      * @var autoScaling
      */
@@ -49,6 +50,13 @@ class ModifyClusterNodePoolRequest extends Model
     public $teeConfig;
 
     /**
+     * @description 托管版节点池配置。
+     *
+     * @var management
+     */
+    public $management;
+
+    /**
      * @description 是否同步更新节点标签及污点。
      *
      * @var bool
@@ -60,6 +68,7 @@ class ModifyClusterNodePoolRequest extends Model
         'nodepoolInfo'     => 'nodepool_info',
         'scalingGroup'     => 'scaling_group',
         'teeConfig'        => 'tee_config',
+        'management'       => 'management',
         'updateNodes'      => 'update_nodes',
     ];
 
@@ -84,6 +93,9 @@ class ModifyClusterNodePoolRequest extends Model
         }
         if (null !== $this->teeConfig) {
             $res['tee_config'] = null !== $this->teeConfig ? $this->teeConfig->toMap() : null;
+        }
+        if (null !== $this->management) {
+            $res['management'] = null !== $this->management ? $this->management->toMap() : null;
         }
         if (null !== $this->updateNodes) {
             $res['update_nodes'] = $this->updateNodes;
@@ -114,6 +126,9 @@ class ModifyClusterNodePoolRequest extends Model
         }
         if (isset($map['tee_config'])) {
             $model->teeConfig = teeConfig::fromMap($map['tee_config']);
+        }
+        if (isset($map['management'])) {
+            $model->management = management::fromMap($map['management']);
         }
         if (isset($map['update_nodes'])) {
             $model->updateNodes = $map['update_nodes'];

@@ -2,21 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataResponse\body;
+namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class runtimes extends Model
+class Runtime extends Model
 {
     /**
-     * @description 运行时名称。
+     * @description 容器运行时名称
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 运行时版本。
+     * @description 容器运行时版本
      *
      * @var string
      */
@@ -46,7 +46,7 @@ class runtimes extends Model
     /**
      * @param array $map
      *
-     * @return runtimes
+     * @return Runtime
      */
     public static function fromMap($map = [])
     {

@@ -16,7 +16,14 @@ class autoScaling extends Model
     public $eipBandwidth;
 
     /**
-     * @description EIP付费类型
+     * @description 是否绑定EIP
+     *
+     * @var bool
+     */
+    public $isBondEip;
+
+    /**
+     * @description EIP实例计费方式
      *
      * @var string
      */
@@ -28,13 +35,6 @@ class autoScaling extends Model
      * @var bool
      */
     public $enable;
-
-    /**
-     * @description 健康检查策略
-     *
-     * @var string
-     */
-    public $healthCheckType;
 
     /**
      * @description 最大节点数
@@ -51,16 +51,16 @@ class autoScaling extends Model
     public $minInstances;
 
     /**
-     * @description 自动扩容节点类型。
+     * @description 扩容组类型。
      *
      * @var string
      */
     public $type;
     protected $_name = [
         'eipBandwidth'          => 'eip_bandwidth',
+        'isBondEip'             => 'is_bond_eip',
         'eipInternetChargeType' => 'eip_internet_charge_type',
         'enable'                => 'enable',
-        'healthCheckType'       => 'health_check_type',
         'maxInstances'          => 'max_instances',
         'minInstances'          => 'min_instances',
         'type'                  => 'type',
@@ -76,14 +76,14 @@ class autoScaling extends Model
         if (null !== $this->eipBandwidth) {
             $res['eip_bandwidth'] = $this->eipBandwidth;
         }
+        if (null !== $this->isBondEip) {
+            $res['is_bond_eip'] = $this->isBondEip;
+        }
         if (null !== $this->eipInternetChargeType) {
             $res['eip_internet_charge_type'] = $this->eipInternetChargeType;
         }
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
-        }
-        if (null !== $this->healthCheckType) {
-            $res['health_check_type'] = $this->healthCheckType;
         }
         if (null !== $this->maxInstances) {
             $res['max_instances'] = $this->maxInstances;
@@ -109,14 +109,14 @@ class autoScaling extends Model
         if (isset($map['eip_bandwidth'])) {
             $model->eipBandwidth = $map['eip_bandwidth'];
         }
+        if (isset($map['is_bond_eip'])) {
+            $model->isBondEip = $map['is_bond_eip'];
+        }
         if (isset($map['eip_internet_charge_type'])) {
             $model->eipInternetChargeType = $map['eip_internet_charge_type'];
         }
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
-        }
-        if (isset($map['health_check_type'])) {
-            $model->healthCheckType = $map['health_check_type'];
         }
         if (isset($map['max_instances'])) {
             $model->maxInstances = $map['max_instances'];

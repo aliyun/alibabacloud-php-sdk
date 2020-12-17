@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\kubernetesConfig\labels;
-use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\kubernetesConfig\taints;
+use AlibabaCloud\SDK\CS\V20151215\Models\Tags;
+use AlibabaCloud\SDK\CS\V20151215\Models\Taints;
 use AlibabaCloud\Tea\Model;
 
 class kubernetesConfig extends Model
@@ -18,16 +18,16 @@ class kubernetesConfig extends Model
     public $cmsEnabled;
 
     /**
-     * @description 自定义镜像。
+     * @description CPU管理策略。
      *
      * @var string
      */
-    public $imageId;
+    public $cpuPolicy;
 
     /**
      * @description 节点标签。
      *
-     * @var labels[]
+     * @var Tags[]
      */
     public $labels;
 
@@ -48,7 +48,7 @@ class kubernetesConfig extends Model
     /**
      * @description 污点配置。
      *
-     * @var taints[]
+     * @var Taints[]
      */
     public $taints;
 
@@ -60,7 +60,7 @@ class kubernetesConfig extends Model
     public $userData;
     protected $_name = [
         'cmsEnabled'     => 'cms_enabled',
-        'imageId'        => 'image_id',
+        'cpuPolicy'      => 'cpu_policy',
         'labels'         => 'labels',
         'runtime'        => 'runtime',
         'runtimeVersion' => 'runtime_version',
@@ -78,8 +78,8 @@ class kubernetesConfig extends Model
         if (null !== $this->cmsEnabled) {
             $res['cms_enabled'] = $this->cmsEnabled;
         }
-        if (null !== $this->imageId) {
-            $res['image_id'] = $this->imageId;
+        if (null !== $this->cpuPolicy) {
+            $res['cpu_policy'] = $this->cpuPolicy;
         }
         if (null !== $this->labels) {
             $res['labels'] = [];
@@ -123,15 +123,15 @@ class kubernetesConfig extends Model
         if (isset($map['cms_enabled'])) {
             $model->cmsEnabled = $map['cms_enabled'];
         }
-        if (isset($map['image_id'])) {
-            $model->imageId = $map['image_id'];
+        if (isset($map['cpu_policy'])) {
+            $model->cpuPolicy = $map['cpu_policy'];
         }
         if (isset($map['labels'])) {
             if (!empty($map['labels'])) {
                 $model->labels = [];
                 $n             = 0;
                 foreach ($map['labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                    $model->labels[$n++] = null !== $item ? Tags::fromMap($item) : $item;
                 }
             }
         }
@@ -146,7 +146,7 @@ class kubernetesConfig extends Model
                 $model->taints = [];
                 $n             = 0;
                 foreach ($map['taints'] as $item) {
-                    $model->taints[$n++] = null !== $item ? taints::fromMap($item) : $item;
+                    $model->taints[$n++] = null !== $item ? Taints::fromMap($item) : $item;
                 }
             }
         }

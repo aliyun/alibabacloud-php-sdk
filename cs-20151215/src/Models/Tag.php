@@ -2,21 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody;
+namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class Tag extends Model
 {
     /**
-     * @description 标签名。
+     * @description key值。
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 标签值。
+     * @description value值。
      *
      * @var string
      */
@@ -46,7 +46,7 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return Tag
      */
     public static function fromMap($map = [])
     {

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\kubernetesConfig\labels;
-use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\kubernetesConfig\taints;
+use AlibabaCloud\SDK\CS\V20151215\Models\Tags;
+use AlibabaCloud\SDK\CS\V20151215\Models\Taints;
 use AlibabaCloud\Tea\Model;
 
 class kubernetesConfig extends Model
@@ -27,7 +27,7 @@ class kubernetesConfig extends Model
     /**
      * @description 节点标签。
      *
-     * @var labels[]
+     * @var Tags[]
      */
     public $labels;
 
@@ -48,7 +48,7 @@ class kubernetesConfig extends Model
     /**
      * @description 污点信息。
      *
-     * @var taints[]
+     * @var Taints[]
      */
     public $taints;
 
@@ -131,7 +131,7 @@ class kubernetesConfig extends Model
                 $model->labels = [];
                 $n             = 0;
                 foreach ($map['labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                    $model->labels[$n++] = null !== $item ? Tags::fromMap($item) : $item;
                 }
             }
         }
@@ -146,7 +146,7 @@ class kubernetesConfig extends Model
                 $model->taints = [];
                 $n             = 0;
                 foreach ($map['taints'] as $item) {
-                    $model->taints[$n++] = null !== $item ? taints::fromMap($item) : $item;
+                    $model->taints[$n++] = null !== $item ? Taints::fromMap($item) : $item;
                 }
             }
         }

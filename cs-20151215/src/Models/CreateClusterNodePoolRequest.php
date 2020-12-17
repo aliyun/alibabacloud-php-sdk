@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\autoScaling;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\kubernetesConfig;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\management;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\nodepoolInfo;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\teeConfig;
@@ -14,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterNodePoolRequest extends Model
 {
     /**
-     * @description 自动伸缩配置。
+     * @description 自动伸缩节点池配置。
      *
      * @var autoScaling
      */
@@ -35,24 +36,40 @@ class CreateClusterNodePoolRequest extends Model
     public $nodepoolInfo;
 
     /**
-     * @description 节点池扩容配置
+     * @description 伸缩组配置
      *
      * @var scalingGroup
      */
     public $scalingGroup;
 
     /**
-     * @description 加密计算配置。
+     * @description 加密计算节点池配置。
      *
      * @var teeConfig
      */
     public $teeConfig;
+
+    /**
+     * @description 托管节点池配置。
+     *
+     * @var management
+     */
+    public $management;
+
+    /**
+     * @description 节点数量。
+     *
+     * @var int
+     */
+    public $count;
     protected $_name = [
         'autoScaling'      => 'auto_scaling',
         'kubernetesConfig' => 'kubernetes_config',
         'nodepoolInfo'     => 'nodepool_info',
         'scalingGroup'     => 'scaling_group',
         'teeConfig'        => 'tee_config',
+        'management'       => 'management',
+        'count'            => 'count',
     ];
 
     public function validate()
@@ -76,6 +93,12 @@ class CreateClusterNodePoolRequest extends Model
         }
         if (null !== $this->teeConfig) {
             $res['tee_config'] = null !== $this->teeConfig ? $this->teeConfig->toMap() : null;
+        }
+        if (null !== $this->management) {
+            $res['management'] = null !== $this->management ? $this->management->toMap() : null;
+        }
+        if (null !== $this->count) {
+            $res['count'] = $this->count;
         }
 
         return $res;
@@ -103,6 +126,12 @@ class CreateClusterNodePoolRequest extends Model
         }
         if (isset($map['tee_config'])) {
             $model->teeConfig = teeConfig::fromMap($map['tee_config']);
+        }
+        if (isset($map['management'])) {
+            $model->management = management::fromMap($map['management']);
+        }
+        if (isset($map['count'])) {
+            $model->count = $map['count'];
         }
 
         return $model;

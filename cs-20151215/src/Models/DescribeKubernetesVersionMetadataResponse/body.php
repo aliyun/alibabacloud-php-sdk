@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataResponse;
 
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataResponse\body\images;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataResponse\body\runtimes;
+use AlibabaCloud\SDK\CS\V20151215\Models\Runtimes;
 use AlibabaCloud\Tea\Model;
 
 class body extends Model
@@ -32,16 +32,9 @@ class body extends Model
     public $metaData;
 
     /**
-     * @description 是否为多可用区。
-     *
-     * @var string
-     */
-    public $multiAz;
-
-    /**
      * @description 容器运行时详情。
      *
-     * @var runtimes[]
+     * @var Runtimes[]
      */
     public $runtimes;
 
@@ -51,13 +44,20 @@ class body extends Model
      * @var string
      */
     public $version;
+
+    /**
+     * @description 是否为多可用区。
+     *
+     * @var string
+     */
+    public $multiAz;
     protected $_name = [
         'capabilities' => 'capabilities',
         'images'       => 'images',
         'metaData'     => 'meta_data',
-        'multiAz'      => 'multi_az',
         'runtimes'     => 'runtimes',
         'version'      => 'version',
+        'multiAz'      => 'multi_az',
     ];
 
     public function validate()
@@ -82,9 +82,6 @@ class body extends Model
         if (null !== $this->metaData) {
             $res['meta_data'] = $this->metaData;
         }
-        if (null !== $this->multiAz) {
-            $res['multi_az'] = $this->multiAz;
-        }
         if (null !== $this->runtimes) {
             $res['runtimes'] = [];
             if (null !== $this->runtimes && \is_array($this->runtimes)) {
@@ -96,6 +93,9 @@ class body extends Model
         }
         if (null !== $this->version) {
             $res['version'] = $this->version;
+        }
+        if (null !== $this->multiAz) {
+            $res['multi_az'] = $this->multiAz;
         }
 
         return $res;
@@ -124,20 +124,20 @@ class body extends Model
         if (isset($map['meta_data'])) {
             $model->metaData = $map['meta_data'];
         }
-        if (isset($map['multi_az'])) {
-            $model->multiAz = $map['multi_az'];
-        }
         if (isset($map['runtimes'])) {
             if (!empty($map['runtimes'])) {
                 $model->runtimes = [];
                 $n               = 0;
                 foreach ($map['runtimes'] as $item) {
-                    $model->runtimes[$n++] = null !== $item ? runtimes::fromMap($item) : $item;
+                    $model->runtimes[$n++] = null !== $item ? Runtimes::fromMap($item) : $item;
                 }
             }
         }
         if (isset($map['version'])) {
             $model->version = $map['version'];
+        }
+        if (isset($map['multi_az'])) {
+            $model->multiAz = $map['multi_az'];
         }
 
         return $model;

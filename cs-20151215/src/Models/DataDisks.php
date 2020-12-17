@@ -2,36 +2,36 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGroup;
+namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class dataDisks extends Model
+class DataDisks extends Model
 {
     /**
-     * @description 数据盘类型。
+     * @description 数据盘类型。取值cloud,cloud-ssd等
      *
      * @var string
      */
     public $category;
 
     /**
-     * @description 数据盘是否加密。
-     *
-     * @var string
-     */
-    public $encrypted;
-
-    /**
-     * @description 数据盘大小。
+     * @description 数据盘大小。最小值40，单位：GiB
      *
      * @var int
      */
     public $size;
+
+    /**
+     * @description 是否对数据盘加密。默认值：false。
+     *
+     * @var bool
+     */
+    public $encrypted;
     protected $_name = [
         'category'  => 'category',
-        'encrypted' => 'encrypted',
         'size'      => 'size',
+        'encrypted' => 'encrypted',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class dataDisks extends Model
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
-        if (null !== $this->encrypted) {
-            $res['encrypted'] = $this->encrypted;
-        }
         if (null !== $this->size) {
             $res['size'] = $this->size;
+        }
+        if (null !== $this->encrypted) {
+            $res['encrypted'] = $this->encrypted;
         }
 
         return $res;
@@ -57,7 +57,7 @@ class dataDisks extends Model
     /**
      * @param array $map
      *
-     * @return dataDisks
+     * @return DataDisks
      */
     public static function fromMap($map = [])
     {
@@ -65,11 +65,11 @@ class dataDisks extends Model
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
-        if (isset($map['encrypted'])) {
-            $model->encrypted = $map['encrypted'];
-        }
         if (isset($map['size'])) {
             $model->size = $map['size'];
+        }
+        if (isset($map['encrypted'])) {
+            $model->encrypted = $map['encrypted'];
         }
 
         return $model;

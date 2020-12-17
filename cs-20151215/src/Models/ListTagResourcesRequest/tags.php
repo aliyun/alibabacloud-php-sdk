@@ -2,21 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\kubernetesConfig;
+namespace AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class labels extends Model
+class tags extends Model
 {
     /**
-     * @description key
+     * @description 标签key。
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description value
+     * @description 标签值。
      *
      * @var string
      */
@@ -46,7 +46,7 @@ class labels extends Model
     /**
      * @param array $map
      *
-     * @return labels
+     * @return tags
      */
     public static function fromMap($map = [])
     {

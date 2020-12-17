@@ -4,8 +4,9 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\scalingGroup\dataDisks;
-use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\scalingGroup\tags;
+use AlibabaCloud\SDK\CS\V20151215\Models\DataDisks;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\scalingGroup\spotPriceLimit;
+use AlibabaCloud\SDK\CS\V20151215\Models\Tags;
 use AlibabaCloud\Tea\Model;
 
 class scalingGroup extends Model
@@ -13,7 +14,7 @@ class scalingGroup extends Model
     /**
      * @description 数据盘配置。
      *
-     * @var dataDisks[]
+     * @var DataDisks[]
      */
     public $dataDisks;
 
@@ -23,6 +24,62 @@ class scalingGroup extends Model
      * @var string
      */
     public $instanceChargeType;
+
+    /**
+     * @description 包年包月时长
+     *
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @description 付费周期
+     *
+     * @var string
+     */
+    public $periodUnit;
+
+    /**
+     * @description 节点池节点是启用自动续费
+     *
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
+     * @description 节点池节点自动续费周期
+     *
+     * @var int
+     */
+    public $autoRenewPeriod;
+
+    /**
+     * @description 操作系统发行版。
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
+     * @description 自定义镜像
+     *
+     * @var string
+     */
+    public $imageId;
+
+    /**
+     * @description 抢占式实例类型
+     *
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
+     * @description 抢占实例价格上限配置
+     *
+     * @var spotPriceLimit[]
+     */
+    public $spotPriceLimit;
 
     /**
      * @description 节点实例规格。
@@ -76,16 +133,9 @@ class scalingGroup extends Model
     /**
      * @description ECS标签。
      *
-     * @var tags[]
+     * @var Tags[]
      */
     public $tags;
-
-    /**
-     * @description VPC网络ID。
-     *
-     * @var string
-     */
-    public $vpcId;
 
     /**
      * @description 节点使用的虚拟交换机ID。
@@ -96,6 +146,14 @@ class scalingGroup extends Model
     protected $_name = [
         'dataDisks'          => 'data_disks',
         'instanceChargeType' => 'instance_charge_type',
+        'period'             => 'period',
+        'periodUnit'         => 'period_unit',
+        'autoRenew'          => 'auto_renew',
+        'autoRenewPeriod'    => 'auto_renew_period',
+        'platform'           => 'platform',
+        'imageId'            => 'image_id',
+        'spotStrategy'       => 'spot_strategy',
+        'spotPriceLimit'     => 'spot_price_limit',
         'instanceTypes'      => 'instance_types',
         'keyPair'            => 'key_pair',
         'loginPassword'      => 'login_password',
@@ -104,7 +162,6 @@ class scalingGroup extends Model
         'systemDiskCategory' => 'system_disk_category',
         'systemDiskSize'     => 'system_disk_size',
         'tags'               => 'tags',
-        'vpcId'              => 'vpc_id',
         'vswitchIds'         => 'vswitch_ids',
     ];
 
@@ -126,6 +183,36 @@ class scalingGroup extends Model
         }
         if (null !== $this->instanceChargeType) {
             $res['instance_charge_type'] = $this->instanceChargeType;
+        }
+        if (null !== $this->period) {
+            $res['period'] = $this->period;
+        }
+        if (null !== $this->periodUnit) {
+            $res['period_unit'] = $this->periodUnit;
+        }
+        if (null !== $this->autoRenew) {
+            $res['auto_renew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewPeriod) {
+            $res['auto_renew_period'] = $this->autoRenewPeriod;
+        }
+        if (null !== $this->platform) {
+            $res['platform'] = $this->platform;
+        }
+        if (null !== $this->imageId) {
+            $res['image_id'] = $this->imageId;
+        }
+        if (null !== $this->spotStrategy) {
+            $res['spot_strategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->spotPriceLimit) {
+            $res['spot_price_limit'] = [];
+            if (null !== $this->spotPriceLimit && \is_array($this->spotPriceLimit)) {
+                $n = 0;
+                foreach ($this->spotPriceLimit as $item) {
+                    $res['spot_price_limit'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->instanceTypes) {
             $res['instance_types'] = $this->instanceTypes;
@@ -157,9 +244,6 @@ class scalingGroup extends Model
                 }
             }
         }
-        if (null !== $this->vpcId) {
-            $res['vpc_id'] = $this->vpcId;
-        }
         if (null !== $this->vswitchIds) {
             $res['vswitch_ids'] = $this->vswitchIds;
         }
@@ -180,12 +264,42 @@ class scalingGroup extends Model
                 $model->dataDisks = [];
                 $n                = 0;
                 foreach ($map['data_disks'] as $item) {
-                    $model->dataDisks[$n++] = null !== $item ? dataDisks::fromMap($item) : $item;
+                    $model->dataDisks[$n++] = null !== $item ? DataDisks::fromMap($item) : $item;
                 }
             }
         }
         if (isset($map['instance_charge_type'])) {
             $model->instanceChargeType = $map['instance_charge_type'];
+        }
+        if (isset($map['period'])) {
+            $model->period = $map['period'];
+        }
+        if (isset($map['period_unit'])) {
+            $model->periodUnit = $map['period_unit'];
+        }
+        if (isset($map['auto_renew'])) {
+            $model->autoRenew = $map['auto_renew'];
+        }
+        if (isset($map['auto_renew_period'])) {
+            $model->autoRenewPeriod = $map['auto_renew_period'];
+        }
+        if (isset($map['platform'])) {
+            $model->platform = $map['platform'];
+        }
+        if (isset($map['image_id'])) {
+            $model->imageId = $map['image_id'];
+        }
+        if (isset($map['spot_strategy'])) {
+            $model->spotStrategy = $map['spot_strategy'];
+        }
+        if (isset($map['spot_price_limit'])) {
+            if (!empty($map['spot_price_limit'])) {
+                $model->spotPriceLimit = [];
+                $n                     = 0;
+                foreach ($map['spot_price_limit'] as $item) {
+                    $model->spotPriceLimit[$n++] = null !== $item ? spotPriceLimit::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['instance_types'])) {
             if (!empty($map['instance_types'])) {
@@ -217,12 +331,9 @@ class scalingGroup extends Model
                 $model->tags = [];
                 $n           = 0;
                 foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                    $model->tags[$n++] = null !== $item ? Tags::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['vpc_id'])) {
-            $model->vpcId = $map['vpc_id'];
         }
         if (isset($map['vswitch_ids'])) {
             if (!empty($map['vswitch_ids'])) {

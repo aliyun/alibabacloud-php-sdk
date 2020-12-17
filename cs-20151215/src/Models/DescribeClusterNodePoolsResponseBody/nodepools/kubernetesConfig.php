@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\kubernetesConfig\labels;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\kubernetesConfig\taints;
+use AlibabaCloud\SDK\CS\V20151215\Models\Tags;
+use AlibabaCloud\SDK\CS\V20151215\Models\Taints;
 use AlibabaCloud\Tea\Model;
 
 class kubernetesConfig extends Model
@@ -27,23 +27,9 @@ class kubernetesConfig extends Model
     /**
      * @description ECS标签。
      *
-     * @var labels[]
+     * @var Tags[]
      */
     public $labels;
-
-    /**
-     * @description 节点命名策略。
-     *
-     * @var string
-     */
-    public $nodeNameMode;
-
-    /**
-     * @description 是否覆盖主机名。
-     *
-     * @var bool
-     */
-    public $overwriteHostname;
 
     /**
      * @description 容器运行时
@@ -62,7 +48,7 @@ class kubernetesConfig extends Model
     /**
      * @description 污点配置
      *
-     * @var taints[]
+     * @var Taints[]
      */
     public $taints;
 
@@ -73,15 +59,13 @@ class kubernetesConfig extends Model
      */
     public $userData;
     protected $_name = [
-        'cmsEnabled'        => 'cms_enabled',
-        'cpuPolicy'         => 'cpu_policy',
-        'labels'            => 'labels',
-        'nodeNameMode'      => 'node_name_mode',
-        'overwriteHostname' => 'overwrite_hostname',
-        'runtime'           => 'runtime',
-        'runtimeVersion'    => 'runtime_version',
-        'taints'            => 'taints',
-        'userData'          => 'user_data',
+        'cmsEnabled'     => 'cms_enabled',
+        'cpuPolicy'      => 'cpu_policy',
+        'labels'         => 'labels',
+        'runtime'        => 'runtime',
+        'runtimeVersion' => 'runtime_version',
+        'taints'         => 'taints',
+        'userData'       => 'user_data',
     ];
 
     public function validate()
@@ -105,12 +89,6 @@ class kubernetesConfig extends Model
                     $res['labels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nodeNameMode) {
-            $res['node_name_mode'] = $this->nodeNameMode;
-        }
-        if (null !== $this->overwriteHostname) {
-            $res['overwrite_hostname'] = $this->overwriteHostname;
         }
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
@@ -153,15 +131,9 @@ class kubernetesConfig extends Model
                 $model->labels = [];
                 $n             = 0;
                 foreach ($map['labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                    $model->labels[$n++] = null !== $item ? Tags::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['node_name_mode'])) {
-            $model->nodeNameMode = $map['node_name_mode'];
-        }
-        if (isset($map['overwrite_hostname'])) {
-            $model->overwriteHostname = $map['overwrite_hostname'];
         }
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];
@@ -174,7 +146,7 @@ class kubernetesConfig extends Model
                 $model->taints = [];
                 $n             = 0;
                 foreach ($map['taints'] as $item) {
-                    $model->taints[$n++] = null !== $item ? taints::fromMap($item) : $item;
+                    $model->taints[$n++] = null !== $item ? Taints::fromMap($item) : $item;
                 }
             }
         }

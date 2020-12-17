@@ -4,42 +4,35 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description 下一个版本。
+     * @description 集群ID列表。
      *
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @description 资源ID。
-     *
-     * @var string
+     * @var string[]
      */
     public $resourceIds;
 
     /**
      * @description 按标签查找。
      *
-     * @var string
+     * @var tags[]
      */
     public $tags;
 
     /**
-     * @description 资源类型，例如：SLB。
+     * @description 下一次查询Token。
      *
      * @var string
      */
-    public $resourceType;
+    public $nextToken;
     protected $_name = [
-        'nextToken'    => 'next_token',
-        'resourceIds'  => 'resource_ids',
-        'tags'         => 'tags',
-        'resourceType' => 'resource_type',
+        'resourceIds' => 'resource_ids',
+        'tags'        => 'tags',
+        'nextToken'   => 'next_token',
     ];
 
     public function validate()
@@ -49,17 +42,20 @@ class ListTagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['next_token'] = $this->nextToken;
-        }
         if (null !== $this->resourceIds) {
             $res['resource_ids'] = $this->resourceIds;
         }
         if (null !== $this->tags) {
-            $res['tags'] = $this->tags;
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
-        if (null !== $this->resourceType) {
-            $res['resource_type'] = $this->resourceType;
+        if (null !== $this->nextToken) {
+            $res['next_token'] = $this->nextToken;
         }
 
         return $res;
@@ -73,17 +69,22 @@ class ListTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['next_token'])) {
-            $model->nextToken = $map['next_token'];
-        }
         if (isset($map['resource_ids'])) {
-            $model->resourceIds = $map['resource_ids'];
+            if (!empty($map['resource_ids'])) {
+                $model->resourceIds = $map['resource_ids'];
+            }
         }
         if (isset($map['tags'])) {
-            $model->tags = $map['tags'];
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
-        if (isset($map['resource_type'])) {
-            $model->resourceType = $map['resource_type'];
+        if (isset($map['next_token'])) {
+            $model->nextToken = $map['next_token'];
         }
 
         return $model;

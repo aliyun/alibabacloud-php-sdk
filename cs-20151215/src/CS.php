@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateKubernetesTriggerResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodepoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesResponse;
@@ -45,9 +47,11 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterV2UserKubeconfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterV2UserKubeconfigResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeExternalAgentRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeExternalAgentResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTaskInfoResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplateAttributeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesResponse;
@@ -184,17 +188,14 @@ class CS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            @$query['next_token'] = $request->nextToken;
-        }
         if (!Utils::isUnset($request->resourceIds)) {
             @$query['resource_ids'] = $request->resourceIds;
         }
         if (!Utils::isUnset($request->tags)) {
             @$query['tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            @$query['resource_type'] = $request->resourceType;
+        if (!Utils::isUnset($request->nextToken)) {
+            @$query['next_token'] = $request->nextToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -239,6 +240,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->deletionProtection)) {
             @$body['deletion_protection'] = $request->deletionProtection;
         }
+        if (!Utils::isUnset($request->instanceDeletionProtection)) {
+            @$body['instance_deletion_protection'] = $request->instanceDeletionProtection;
+        }
         if (!Utils::isUnset($request->ingressDomainRebinding)) {
             @$body['ingress_domain_rebinding'] = $request->ingressDomainRebinding;
         }
@@ -247,6 +251,9 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             @$body['resource_group_id'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->maintenanceWindow)) {
+            @$body['maintenance_window'] = $request->maintenanceWindow;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -323,11 +330,11 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->region)) {
             @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->multiAZ)) {
-            @$query['MultiAZ'] = $request->multiAZ;
-        }
         if (!Utils::isUnset($request->clusterType)) {
             @$query['ClusterType'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->multiAZ)) {
+            @$query['MultiAZ'] = $request->multiAZ;
         }
         if (!Utils::isUnset($request->kubernetesVersion)) {
             @$query['KubernetesVersion'] = $request->kubernetesVersion;
@@ -560,6 +567,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->teeConfig)) {
             @$body['tee_config'] = $request->teeConfig;
         }
+        if (!Utils::isUnset($request->management)) {
+            @$body['management'] = $request->management;
+        }
         if (!Utils::isUnset($request->updateNodes)) {
             @$body['update_nodes'] = $request->updateNodes;
         }
@@ -568,7 +578,7 @@ class CS extends OpenApiClient
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
-        return ModifyClusterNodePoolResponse::fromMap($this->doROARequest('ModifyClusterNodePool', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}', 'none', $req, $runtime));
+        return ModifyClusterNodePoolResponse::fromMap($this->doROARequest('ModifyClusterNodePool', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}', 'json', $req, $runtime));
     }
 
     /**
@@ -636,7 +646,7 @@ class CS extends OpenApiClient
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
-        return ScaleClusterNodePoolResponse::fromMap($this->doROARequest('ScaleClusterNodePool', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}', 'none', $req, $runtime));
+        return ScaleClusterNodePoolResponse::fromMap($this->doROARequest('ScaleClusterNodePool', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}', 'json', $req, $runtime));
     }
 
     /**
@@ -710,6 +720,12 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->teeConfig)) {
             @$body['tee_config'] = $request->teeConfig;
+        }
+        if (!Utils::isUnset($request->management)) {
+            @$body['management'] = $request->management;
+        }
+        if (!Utils::isUnset($request->count)) {
+            @$body['count'] = $request->count;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1338,6 +1354,50 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param CreateTemplateRequest $request
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateTemplateRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            @$body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->template)) {
+            @$body['template'] = $request->template;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            @$body['tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            @$body['template_type'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return CreateTemplateResponse::fromMap($this->doROARequestWithForm('CreateTemplate', '2015-12-15', 'HTTPS', 'POST', 'AK', '/templates', 'json', $req, $runtime));
+    }
+
+    /**
      * @param string                      $ClusterId
      * @param DescribeClusterNodesRequest $request
      *
@@ -1412,12 +1472,20 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->retainResources)) {
             @$query['retain_resources'] = $request->retainResources;
         }
+        $body = [];
+        if (!Utils::isUnset($request->retainAllResources)) {
+            @$body['retain_all_resources'] = $request->retainAllResources;
+        }
+        if (!Utils::isUnset($request->keepSlb)) {
+            @$body['keep_slb'] = $request->keepSlb;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
-        return DeleteClusterResponse::fromMap($this->doROARequest('DeleteCluster', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/clusters/' . $ClusterId . '', 'none', $req, $runtime));
+        return DeleteClusterResponse::fromMap($this->doROARequestWithForm('DeleteCluster', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/clusters/' . $ClusterId . '', 'none', $req, $runtime));
     }
 
     /**
@@ -1481,29 +1549,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string                       $ClusterId
+     * @param DescribeExternalAgentRequest $request
      *
      * @return DescribeExternalAgentResponse
      */
-    public function describeExternalAgent($ClusterId)
+    public function describeExternalAgent($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeExternalAgentWithOptions($ClusterId, $headers, $runtime);
+        return $this->describeExternalAgentWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                       $ClusterId
+     * @param DescribeExternalAgentRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
      * @return DescribeExternalAgentResponse
      */
-    public function describeExternalAgentWithOptions($ClusterId, $headers, $runtime)
+    public function describeExternalAgentWithOptions($ClusterId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
 
         return DescribeExternalAgentResponse::fromMap($this->doROARequest('DescribeExternalAgent', '2015-12-15', 'HTTPS', 'GET', 'AK', '/k8s/' . $ClusterId . '/external/agent/deployment', 'json', $req, $runtime));
@@ -1598,10 +1674,10 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
+            @$query['name'] = $request->name;
         }
         if (!Utils::isUnset($request->clusterType)) {
-            @$query['ClusterType'] = $request->clusterType;
+            @$query['cluster_type'] = $request->clusterType;
         }
         if (!Utils::isUnset($request->pageSize)) {
             @$query['page_size'] = $request->pageSize;
@@ -1655,6 +1731,35 @@ class CS extends OpenApiClient
         ]);
 
         return ModifyClusterConfigurationResponse::fromMap($this->doROARequest('ModifyClusterConfiguration', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/clusters/' . $ClusterId . '/configuration', 'none', $req, $runtime));
+    }
+
+    /**
+     * @param string $taskId
+     *
+     * @return DescribeTaskInfoResponse
+     */
+    public function describeTaskInfo($taskId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeTaskInfoWithOptions($taskId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $taskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeTaskInfoResponse
+     */
+    public function describeTaskInfoWithOptions($taskId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return DescribeTaskInfoResponse::fromMap($this->doROARequest('DescribeTaskInfo', '2015-12-15', 'HTTPS', 'GET', 'AK', '/tasks/' . $taskId . '', 'json', $req, $runtime));
     }
 
     /**

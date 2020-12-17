@@ -4,8 +4,9 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\scalingGroup\dataDisks;
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\scalingGroup\tags;
+use AlibabaCloud\SDK\CS\V20151215\Models\DataDisks;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\scalingGroup\spotPriceLimit;
+use AlibabaCloud\SDK\CS\V20151215\Models\Tags;
 use AlibabaCloud\Tea\Model;
 
 class scalingGroup extends Model
@@ -27,7 +28,7 @@ class scalingGroup extends Model
     /**
      * @description 数据盘配置。
      *
-     * @var dataDisks[]
+     * @var DataDisks[]
      */
     public $dataDisks;
 
@@ -88,6 +89,20 @@ class scalingGroup extends Model
     public $ramPolicy;
 
     /**
+     * @description 抢占式实例类型
+     *
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
+     * @description 抢占式实例价格上限配置。
+     *
+     * @var spotPriceLimit[]
+     */
+    public $spotPriceLimit;
+
+    /**
      * @description RDS实例列表。
      *
      * @var string[]
@@ -132,7 +147,7 @@ class scalingGroup extends Model
     /**
      * @description ECS标签
      *
-     * @var tags[]
+     * @var Tags[]
      */
     public $tags;
 
@@ -142,6 +157,20 @@ class scalingGroup extends Model
      * @var string[]
      */
     public $vswitchIds;
+
+    /**
+     * @description 登录密码
+     *
+     * @var string
+     */
+    public $loginPassword;
+
+    /**
+     * @description 密钥对名称
+     *
+     * @var string
+     */
+    public $keyPair;
     protected $_name = [
         'autoRenew'          => 'auto_renew',
         'autoRenewPeriod'    => 'auto_renew_period',
@@ -154,6 +183,8 @@ class scalingGroup extends Model
         'periodUnit'         => 'period_unit',
         'platform'           => 'platform',
         'ramPolicy'          => 'ram_policy',
+        'spotStrategy'       => 'spot_strategy',
+        'spotPriceLimit'     => 'spot_price_limit',
         'rdsInstances'       => 'rds_instances',
         'scalingGroupId'     => 'scaling_group_id',
         'scalingPolicy'      => 'scaling_policy',
@@ -162,6 +193,8 @@ class scalingGroup extends Model
         'systemDiskSize'     => 'system_disk_size',
         'tags'               => 'tags',
         'vswitchIds'         => 'vswitch_ids',
+        'loginPassword'      => 'login_password',
+        'keyPair'            => 'key_pair',
     ];
 
     public function validate()
@@ -210,6 +243,18 @@ class scalingGroup extends Model
         if (null !== $this->ramPolicy) {
             $res['ram_policy'] = $this->ramPolicy;
         }
+        if (null !== $this->spotStrategy) {
+            $res['spot_strategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->spotPriceLimit) {
+            $res['spot_price_limit'] = [];
+            if (null !== $this->spotPriceLimit && \is_array($this->spotPriceLimit)) {
+                $n = 0;
+                foreach ($this->spotPriceLimit as $item) {
+                    $res['spot_price_limit'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->rdsInstances) {
             $res['rds_instances'] = $this->rdsInstances;
         }
@@ -240,6 +285,12 @@ class scalingGroup extends Model
         if (null !== $this->vswitchIds) {
             $res['vswitch_ids'] = $this->vswitchIds;
         }
+        if (null !== $this->loginPassword) {
+            $res['login_password'] = $this->loginPassword;
+        }
+        if (null !== $this->keyPair) {
+            $res['key_pair'] = $this->keyPair;
+        }
 
         return $res;
     }
@@ -263,7 +314,7 @@ class scalingGroup extends Model
                 $model->dataDisks = [];
                 $n                = 0;
                 foreach ($map['data_disks'] as $item) {
-                    $model->dataDisks[$n++] = null !== $item ? dataDisks::fromMap($item) : $item;
+                    $model->dataDisks[$n++] = null !== $item ? DataDisks::fromMap($item) : $item;
                 }
             }
         }
@@ -293,6 +344,18 @@ class scalingGroup extends Model
         if (isset($map['ram_policy'])) {
             $model->ramPolicy = $map['ram_policy'];
         }
+        if (isset($map['spot_strategy'])) {
+            $model->spotStrategy = $map['spot_strategy'];
+        }
+        if (isset($map['spot_price_limit'])) {
+            if (!empty($map['spot_price_limit'])) {
+                $model->spotPriceLimit = [];
+                $n                     = 0;
+                foreach ($map['spot_price_limit'] as $item) {
+                    $model->spotPriceLimit[$n++] = null !== $item ? spotPriceLimit::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['rds_instances'])) {
             if (!empty($map['rds_instances'])) {
                 $model->rdsInstances = $map['rds_instances'];
@@ -318,7 +381,7 @@ class scalingGroup extends Model
                 $model->tags = [];
                 $n           = 0;
                 foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                    $model->tags[$n++] = null !== $item ? Tags::fromMap($item) : $item;
                 }
             }
         }
@@ -326,6 +389,12 @@ class scalingGroup extends Model
             if (!empty($map['vswitch_ids'])) {
                 $model->vswitchIds = $map['vswitch_ids'];
             }
+        }
+        if (isset($map['login_password'])) {
+            $model->loginPassword = $map['login_password'];
+        }
+        if (isset($map['key_pair'])) {
+            $model->keyPair = $map['key_pair'];
         }
 
         return $model;

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\autoScaling;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\kubernetesConfig;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\management;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\nodepoolInfo;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\scalingGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\status;
@@ -55,6 +56,13 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
      * @var teeConfig
      */
     public $teeConfig;
+
+    /**
+     * @description 托管版节点池配置。
+     *
+     * @var management
+     */
+    public $management;
     protected $_name = [
         'autoScaling'      => 'auto_scaling',
         'kubernetesConfig' => 'kubernetes_config',
@@ -62,6 +70,7 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
         'scalingGroup'     => 'scaling_group',
         'status'           => 'status',
         'teeConfig'        => 'tee_config',
+        'management'       => 'management',
     ];
 
     public function validate()
@@ -88,6 +97,9 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
         }
         if (null !== $this->teeConfig) {
             $res['tee_config'] = null !== $this->teeConfig ? $this->teeConfig->toMap() : null;
+        }
+        if (null !== $this->management) {
+            $res['management'] = null !== $this->management ? $this->management->toMap() : null;
         }
 
         return $res;
@@ -118,6 +130,9 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
         }
         if (isset($map['tee_config'])) {
             $model->teeConfig = teeConfig::fromMap($map['tee_config']);
+        }
+        if (isset($map['management'])) {
+            $model->management = management::fromMap($map['management']);
         }
 
         return $model;

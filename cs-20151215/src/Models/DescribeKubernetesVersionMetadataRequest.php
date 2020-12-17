@@ -16,18 +16,18 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     public $region;
 
     /**
-     * @description 是否多可用区。
-     *
-     * @var bool
-     */
-    public $multiAZ;
-
-    /**
      * @description 集群类型。
      *
      * @var string
      */
     public $clusterType;
+
+    /**
+     * @description 是否查询多可用区。
+     *
+     * @var bool
+     */
+    public $multiAZ;
 
     /**
      * @description 要查询的版本，如果为空则查所有版本。
@@ -44,8 +44,8 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     public $profile;
     protected $_name = [
         'region'            => 'Region',
-        'multiAZ'           => 'MultiAZ',
         'clusterType'       => 'ClusterType',
+        'multiAZ'           => 'MultiAZ',
         'kubernetesVersion' => 'KubernetesVersion',
         'profile'           => 'Profile',
     ];
@@ -60,11 +60,11 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->multiAZ) {
-            $res['MultiAZ'] = $this->multiAZ;
-        }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->multiAZ) {
+            $res['MultiAZ'] = $this->multiAZ;
         }
         if (null !== $this->kubernetesVersion) {
             $res['KubernetesVersion'] = $this->kubernetesVersion;
@@ -87,11 +87,11 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-        if (isset($map['MultiAZ'])) {
-            $model->multiAZ = $map['MultiAZ'];
-        }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['MultiAZ'])) {
+            $model->multiAZ = $map['MultiAZ'];
         }
         if (isset($map['KubernetesVersion'])) {
             $model->kubernetesVersion = $map['KubernetesVersion'];

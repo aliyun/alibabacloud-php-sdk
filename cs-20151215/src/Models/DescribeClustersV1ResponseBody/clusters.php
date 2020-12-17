@@ -4,18 +4,12 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1ResponseBody;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1ResponseBody\clusters\tags;
+use AlibabaCloud\SDK\CS\V20151215\Models\MaintenanceWindow;
+use AlibabaCloud\SDK\CS\V20151215\Models\Tags;
 use AlibabaCloud\Tea\Model;
 
 class clusters extends Model
 {
-    /**
-     * @description 集群健康状态。
-     *
-     * @var string
-     */
-    public $clusterHealthy;
-
     /**
      * @description 集群ID。
      *
@@ -31,11 +25,18 @@ class clusters extends Model
     public $clusterType;
 
     /**
-     * @description 集群创建时间。
+     * @description 集群初始化时间。
      *
      * @var string
      */
     public $created;
+
+    /**
+     * @description 集群初始化版本。
+     *
+     * @var string
+     */
+    public $initVersion;
 
     /**
      * @description 集群当前版本。
@@ -45,18 +46,11 @@ class clusters extends Model
     public $currentVersion;
 
     /**
-     * @description 数据盘类型。
+     * @description 集群可升级版本。
      *
      * @var string
      */
-    public $dataDiskCategory;
-
-    /**
-     * @description 数据盘大小。
-     *
-     * @var int
-     */
-    public $dataDiskSize;
+    public $nextVersion;
 
     /**
      * @description 集群是否开启删除保护。
@@ -73,21 +67,14 @@ class clusters extends Model
     public $dockerVersion;
 
     /**
-     * @description 集群Ingress对应的SLB的地址。
+     * @description 集群负载均衡服务的ID。
      *
      * @var string
      */
     public $externalLoadbalancerId;
 
     /**
-     * @description 集群初始化版本。
-     *
-     * @var string
-     */
-    public $initVersion;
-
-    /**
-     * @description 集群访问的端点信息。
+     * @description 集群访问地址列表。
      *
      * @var string
      */
@@ -113,13 +100,6 @@ class clusters extends Model
      * @var string
      */
     public $networkMode;
-
-    /**
-     * @description 节点状态。
-     *
-     * @var string
-     */
-    public $nodeStatus;
 
     /**
      * @description 集群是否开启Private Zone。
@@ -180,7 +160,7 @@ class clusters extends Model
     /**
      * @description 集群标签。
      *
-     * @var tags[]
+     * @var Tags[]
      */
     public $tags;
 
@@ -197,13 +177,6 @@ class clusters extends Model
      * @var string
      */
     public $vpcId;
-
-    /**
-     * @description 虚拟交换机CIDR。
-     *
-     * @var string
-     */
-    public $vswitchCidr;
 
     /**
      * @description 集群使用的虚拟交换ID。
@@ -225,23 +198,32 @@ class clusters extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @description 托管版集群类型，面向托管集群。 • ack.pro.small：专业托管集群。 • ack.standard ：标准托管集群。
+     *
+     * @var string
+     */
+    public $clusterSpec;
+
+    /**
+     * @var MaintenanceWindow
+     */
+    public $maintenanceWindow;
     protected $_name = [
-        'clusterHealthy'         => 'cluster_healthy',
         'clusterId'              => 'cluster_id',
         'clusterType'            => 'cluster_type',
         'created'                => 'created',
+        'initVersion'            => 'init_version',
         'currentVersion'         => 'current_version',
-        'dataDiskCategory'       => 'data_disk_category',
-        'dataDiskSize'           => 'data_disk_size',
+        'nextVersion'            => 'next_version',
         'deletionProtection'     => 'deletion_protection',
         'dockerVersion'          => 'docker_version',
         'externalLoadbalancerId' => 'external_loadbalancer_id',
-        'initVersion'            => 'init_version',
         'masterUrl'              => 'master_url',
         'metaData'               => 'meta_data',
         'name'                   => 'name',
         'networkMode'            => 'network_mode',
-        'nodeStatus'             => 'node_status',
         'privateZone'            => 'private_zone',
         'profile'                => 'profile',
         'regionId'               => 'region_id',
@@ -253,10 +235,11 @@ class clusters extends Model
         'tags'                   => 'tags',
         'updated'                => 'updated',
         'vpcId'                  => 'vpc_id',
-        'vswitchCidr'            => 'vswitch_cidr',
         'vswitchId'              => 'vswitch_id',
         'workerRamRoleName'      => 'worker_ram_role_name',
         'zoneId'                 => 'zone_id',
+        'clusterSpec'            => 'cluster_spec',
+        'maintenanceWindow'      => 'maintenance_window',
     ];
 
     public function validate()
@@ -266,9 +249,6 @@ class clusters extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterHealthy) {
-            $res['cluster_healthy'] = $this->clusterHealthy;
-        }
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
@@ -278,14 +258,14 @@ class clusters extends Model
         if (null !== $this->created) {
             $res['created'] = $this->created;
         }
+        if (null !== $this->initVersion) {
+            $res['init_version'] = $this->initVersion;
+        }
         if (null !== $this->currentVersion) {
             $res['current_version'] = $this->currentVersion;
         }
-        if (null !== $this->dataDiskCategory) {
-            $res['data_disk_category'] = $this->dataDiskCategory;
-        }
-        if (null !== $this->dataDiskSize) {
-            $res['data_disk_size'] = $this->dataDiskSize;
+        if (null !== $this->nextVersion) {
+            $res['next_version'] = $this->nextVersion;
         }
         if (null !== $this->deletionProtection) {
             $res['deletion_protection'] = $this->deletionProtection;
@@ -295,9 +275,6 @@ class clusters extends Model
         }
         if (null !== $this->externalLoadbalancerId) {
             $res['external_loadbalancer_id'] = $this->externalLoadbalancerId;
-        }
-        if (null !== $this->initVersion) {
-            $res['init_version'] = $this->initVersion;
         }
         if (null !== $this->masterUrl) {
             $res['master_url'] = $this->masterUrl;
@@ -310,9 +287,6 @@ class clusters extends Model
         }
         if (null !== $this->networkMode) {
             $res['network_mode'] = $this->networkMode;
-        }
-        if (null !== $this->nodeStatus) {
-            $res['node_status'] = $this->nodeStatus;
         }
         if (null !== $this->privateZone) {
             $res['private_zone'] = $this->privateZone;
@@ -353,9 +327,6 @@ class clusters extends Model
         if (null !== $this->vpcId) {
             $res['vpc_id'] = $this->vpcId;
         }
-        if (null !== $this->vswitchCidr) {
-            $res['vswitch_cidr'] = $this->vswitchCidr;
-        }
         if (null !== $this->vswitchId) {
             $res['vswitch_id'] = $this->vswitchId;
         }
@@ -364,6 +335,12 @@ class clusters extends Model
         }
         if (null !== $this->zoneId) {
             $res['zone_id'] = $this->zoneId;
+        }
+        if (null !== $this->clusterSpec) {
+            $res['cluster_spec'] = $this->clusterSpec;
+        }
+        if (null !== $this->maintenanceWindow) {
+            $res['maintenance_window'] = null !== $this->maintenanceWindow ? $this->maintenanceWindow->toMap() : null;
         }
 
         return $res;
@@ -377,9 +354,6 @@ class clusters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['cluster_healthy'])) {
-            $model->clusterHealthy = $map['cluster_healthy'];
-        }
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
@@ -389,14 +363,14 @@ class clusters extends Model
         if (isset($map['created'])) {
             $model->created = $map['created'];
         }
+        if (isset($map['init_version'])) {
+            $model->initVersion = $map['init_version'];
+        }
         if (isset($map['current_version'])) {
             $model->currentVersion = $map['current_version'];
         }
-        if (isset($map['data_disk_category'])) {
-            $model->dataDiskCategory = $map['data_disk_category'];
-        }
-        if (isset($map['data_disk_size'])) {
-            $model->dataDiskSize = $map['data_disk_size'];
+        if (isset($map['next_version'])) {
+            $model->nextVersion = $map['next_version'];
         }
         if (isset($map['deletion_protection'])) {
             $model->deletionProtection = $map['deletion_protection'];
@@ -406,9 +380,6 @@ class clusters extends Model
         }
         if (isset($map['external_loadbalancer_id'])) {
             $model->externalLoadbalancerId = $map['external_loadbalancer_id'];
-        }
-        if (isset($map['init_version'])) {
-            $model->initVersion = $map['init_version'];
         }
         if (isset($map['master_url'])) {
             $model->masterUrl = $map['master_url'];
@@ -421,9 +392,6 @@ class clusters extends Model
         }
         if (isset($map['network_mode'])) {
             $model->networkMode = $map['network_mode'];
-        }
-        if (isset($map['node_status'])) {
-            $model->nodeStatus = $map['node_status'];
         }
         if (isset($map['private_zone'])) {
             $model->privateZone = $map['private_zone'];
@@ -454,7 +422,7 @@ class clusters extends Model
                 $model->tags = [];
                 $n           = 0;
                 foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                    $model->tags[$n++] = null !== $item ? Tags::fromMap($item) : $item;
                 }
             }
         }
@@ -464,9 +432,6 @@ class clusters extends Model
         if (isset($map['vpc_id'])) {
             $model->vpcId = $map['vpc_id'];
         }
-        if (isset($map['vswitch_cidr'])) {
-            $model->vswitchCidr = $map['vswitch_cidr'];
-        }
         if (isset($map['vswitch_id'])) {
             $model->vswitchId = $map['vswitch_id'];
         }
@@ -475,6 +440,12 @@ class clusters extends Model
         }
         if (isset($map['zone_id'])) {
             $model->zoneId = $map['zone_id'];
+        }
+        if (isset($map['cluster_spec'])) {
+            $model->clusterSpec = $map['cluster_spec'];
+        }
+        if (isset($map['maintenance_window'])) {
+            $model->maintenanceWindow = MaintenanceWindow::fromMap($map['maintenance_window']);
         }
 
         return $model;

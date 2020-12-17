@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersV1Request extends Model
 {
     /**
-     * @description 集群名称。
+     * @description 通过集群名称进行模糊查询。
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 集群类型。
+     * @description 集群类型。  Kubernetes: 专有版集群。 ManagedKubernetes：托管版集群。 Ask：Serverless集群。 ExternalKubernetes：注册集群。 ServiceMesh：ASM集群。
      *
      * @var string
      */
@@ -36,8 +36,8 @@ class DescribeClustersV1Request extends Model
      */
     public $pageNumber;
     protected $_name = [
-        'name'        => 'Name',
-        'clusterType' => 'ClusterType',
+        'name'        => 'name',
+        'clusterType' => 'cluster_type',
         'pageSize'    => 'page_size',
         'pageNumber'  => 'page_number',
     ];
@@ -50,10 +50,10 @@ class DescribeClustersV1Request extends Model
     {
         $res = [];
         if (null !== $this->name) {
-            $res['Name'] = $this->name;
+            $res['name'] = $this->name;
         }
         if (null !== $this->clusterType) {
-            $res['ClusterType'] = $this->clusterType;
+            $res['cluster_type'] = $this->clusterType;
         }
         if (null !== $this->pageSize) {
             $res['page_size'] = $this->pageSize;
@@ -73,11 +73,11 @@ class DescribeClustersV1Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
-        if (isset($map['ClusterType'])) {
-            $model->clusterType = $map['ClusterType'];
+        if (isset($map['cluster_type'])) {
+            $model->clusterType = $map['cluster_type'];
         }
         if (isset($map['page_size'])) {
             $model->pageSize = $map['page_size'];

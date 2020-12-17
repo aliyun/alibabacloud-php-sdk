@@ -16,25 +16,18 @@ class autoScaling extends Model
     public $eipBandwidth;
 
     /**
-     * @description 节点池付费类型。
+     * @description EIP实例付费类型。
      *
      * @var string
      */
     public $eipInternetChargeType;
 
     /**
-     * @description 是否开启自动伸缩。
+     * @description 是否启用自动伸缩。
      *
      * @var bool
      */
     public $enable;
-
-    /**
-     * @description 健康检查类型。
-     *
-     * @var string
-     */
-    public $healthCheckType;
 
     /**
      * @description 是否绑定EIP。
@@ -58,7 +51,7 @@ class autoScaling extends Model
     public $minInstances;
 
     /**
-     * @description 节点规格类型。
+     * @description 扩容组类型
      *
      * @var string
      */
@@ -67,7 +60,6 @@ class autoScaling extends Model
         'eipBandwidth'          => 'eip_bandwidth',
         'eipInternetChargeType' => 'eip_internet_charge_type',
         'enable'                => 'enable',
-        'healthCheckType'       => 'health_check_type',
         'isBondEip'             => 'is_bond_eip',
         'maxInstances'          => 'max_instances',
         'minInstances'          => 'min_instances',
@@ -89,9 +81,6 @@ class autoScaling extends Model
         }
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
-        }
-        if (null !== $this->healthCheckType) {
-            $res['health_check_type'] = $this->healthCheckType;
         }
         if (null !== $this->isBondEip) {
             $res['is_bond_eip'] = $this->isBondEip;
@@ -125,9 +114,6 @@ class autoScaling extends Model
         }
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
-        }
-        if (isset($map['health_check_type'])) {
-            $model->healthCheckType = $map['health_check_type'];
         }
         if (isset($map['is_bond_eip'])) {
             $model->isBondEip = $map['is_bond_eip'];

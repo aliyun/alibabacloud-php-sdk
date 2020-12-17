@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\GetUpgradeStatusResponseBody\upgradeTask;
 use AlibabaCloud\Tea\Model;
 
 class GetUpgradeStatusResponseBody extends Model
@@ -35,11 +36,19 @@ class GetUpgradeStatusResponseBody extends Model
      * @var string
      */
     public $upgradeStep;
+
+    /**
+     * @description 升级任务详情。
+     *
+     * @var upgradeTask
+     */
+    public $upgradeTask;
     protected $_name = [
         'errorMessage'     => 'error_message',
         'precheckReportId' => 'precheck_report_id',
         'status'           => 'status',
         'upgradeStep'      => 'upgrade_step',
+        'upgradeTask'      => 'upgrade_task',
     ];
 
     public function validate()
@@ -60,6 +69,9 @@ class GetUpgradeStatusResponseBody extends Model
         }
         if (null !== $this->upgradeStep) {
             $res['upgrade_step'] = $this->upgradeStep;
+        }
+        if (null !== $this->upgradeTask) {
+            $res['upgrade_task'] = null !== $this->upgradeTask ? $this->upgradeTask->toMap() : null;
         }
 
         return $res;
@@ -84,6 +96,9 @@ class GetUpgradeStatusResponseBody extends Model
         }
         if (isset($map['upgrade_step'])) {
             $model->upgradeStep = $map['upgrade_step'];
+        }
+        if (isset($map['upgrade_task'])) {
+            $model->upgradeTask = upgradeTask::fromMap($map['upgrade_task']);
         }
 
         return $model;

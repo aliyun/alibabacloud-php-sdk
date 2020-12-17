@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class autoScaling extends Model
 {
     /**
-     * @description EIP带宽峰值。
+     * @description 带宽峰值。
      *
      * @var int
      */
     public $eipBandwidth;
 
     /**
-     * @description EIP付费类型。
+     * @description EIP计费类型。
      *
      * @var string
      */

@@ -4,8 +4,9 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGroup\dataDisks;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGroup\spotPriceLimit;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGroup\tags;
+use AlibabaCloud\SDK\CS\V20151215\Models\DataDisks;
 use AlibabaCloud\Tea\Model;
 
 class scalingGroup extends Model
@@ -27,7 +28,7 @@ class scalingGroup extends Model
     /**
      * @description 数据盘配置。
      *
-     * @var dataDisks[]
+     * @var DataDisks[]
      */
     public $dataDisks;
 
@@ -95,6 +96,20 @@ class scalingGroup extends Model
     public $rdsInstances;
 
     /**
+     * @description 抢占式实例类型
+     *
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
+     * @description 抢占实例价格上限配置。
+     *
+     * @var spotPriceLimit[]
+     */
+    public $spotPriceLimit;
+
+    /**
      * @description 自动伸缩。
      *
      * @var string
@@ -130,13 +145,6 @@ class scalingGroup extends Model
     public $tags;
 
     /**
-     * @description VPC网络ID
-     *
-     * @var string
-     */
-    public $vpcId;
-
-    /**
      * @description 虚拟交换机ID。
      *
      * @var string[]
@@ -155,12 +163,13 @@ class scalingGroup extends Model
         'periodUnit'         => 'period_unit',
         'platform'           => 'platform',
         'rdsInstances'       => 'rds_instances',
+        'spotStrategy'       => 'spot_strategy',
+        'spotPriceLimit'     => 'spot_price_limit',
         'scalingPolicy'      => 'scaling_policy',
         'securityGroupId'    => 'security_group_id',
         'systemDiskCategory' => 'system_disk_category',
         'systemDiskSize'     => 'system_disk_size',
         'tags'               => 'tags',
-        'vpcId'              => 'vpc_id',
         'vswitchIds'         => 'vswitch_ids',
     ];
 
@@ -213,6 +222,18 @@ class scalingGroup extends Model
         if (null !== $this->rdsInstances) {
             $res['rds_instances'] = $this->rdsInstances;
         }
+        if (null !== $this->spotStrategy) {
+            $res['spot_strategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->spotPriceLimit) {
+            $res['spot_price_limit'] = [];
+            if (null !== $this->spotPriceLimit && \is_array($this->spotPriceLimit)) {
+                $n = 0;
+                foreach ($this->spotPriceLimit as $item) {
+                    $res['spot_price_limit'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->scalingPolicy) {
             $res['scaling_policy'] = $this->scalingPolicy;
         }
@@ -233,9 +254,6 @@ class scalingGroup extends Model
                     $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->vpcId) {
-            $res['vpc_id'] = $this->vpcId;
         }
         if (null !== $this->vswitchIds) {
             $res['vswitch_ids'] = $this->vswitchIds;
@@ -263,7 +281,7 @@ class scalingGroup extends Model
                 $model->dataDisks = [];
                 $n                = 0;
                 foreach ($map['data_disks'] as $item) {
-                    $model->dataDisks[$n++] = null !== $item ? dataDisks::fromMap($item) : $item;
+                    $model->dataDisks[$n++] = null !== $item ? DataDisks::fromMap($item) : $item;
                 }
             }
         }
@@ -298,6 +316,18 @@ class scalingGroup extends Model
                 $model->rdsInstances = $map['rds_instances'];
             }
         }
+        if (isset($map['spot_strategy'])) {
+            $model->spotStrategy = $map['spot_strategy'];
+        }
+        if (isset($map['spot_price_limit'])) {
+            if (!empty($map['spot_price_limit'])) {
+                $model->spotPriceLimit = [];
+                $n                     = 0;
+                foreach ($map['spot_price_limit'] as $item) {
+                    $model->spotPriceLimit[$n++] = null !== $item ? spotPriceLimit::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['scaling_policy'])) {
             $model->scalingPolicy = $map['scaling_policy'];
         }
@@ -318,9 +348,6 @@ class scalingGroup extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['vpc_id'])) {
-            $model->vpcId = $map['vpc_id'];
         }
         if (isset($map['vswitch_ids'])) {
             if (!empty($map['vswitch_ids'])) {

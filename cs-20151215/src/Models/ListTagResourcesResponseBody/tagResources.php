@@ -12,7 +12,7 @@ class tagResources extends Model
     /**
      * @description 资源标签。
      *
-     * @var tagResource
+     * @var tagResource[]
      */
     public $tagResource;
     protected $_name = [
@@ -27,7 +27,13 @@ class tagResources extends Model
     {
         $res = [];
         if (null !== $this->tagResource) {
-            $res['tag_resource'] = null !== $this->tagResource ? $this->tagResource->toMap() : null;
+            $res['tag_resource'] = [];
+            if (null !== $this->tagResource && \is_array($this->tagResource)) {
+                $n = 0;
+                foreach ($this->tagResource as $item) {
+                    $res['tag_resource'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -42,7 +48,13 @@ class tagResources extends Model
     {
         $model = new self();
         if (isset($map['tag_resource'])) {
-            $model->tagResource = tagResource::fromMap($map['tag_resource']);
+            if (!empty($map['tag_resource'])) {
+                $model->tagResource = [];
+                $n                  = 0;
+                foreach ($map['tag_resource'] as $item) {
+                    $model->tagResource[$n++] = null !== $item ? tagResource::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
