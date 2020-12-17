@@ -142,6 +142,11 @@ class CreateServiceMeshRequest extends Model
      * @var string
      */
     public $excludeInboundPorts;
+
+    /**
+     * @var bool
+     */
+    public $opaEnabled;
     protected $_name = [
         'regionId'              => 'RegionId',
         'istioVersion'          => 'IstioVersion',
@@ -170,12 +175,14 @@ class CreateServiceMeshRequest extends Model
         'excludeIPRanges'       => 'ExcludeIPRanges',
         'excludeOutboundPorts'  => 'ExcludeOutboundPorts',
         'excludeInboundPorts'   => 'ExcludeInboundPorts',
+        'opaEnabled'            => 'OpaEnabled',
     ];
 
     public function validate()
     {
         Model::validateRequired('regionId', $this->regionId, true);
         Model::validateRequired('vpcId', $this->vpcId, true);
+        Model::validateRequired('vSwitches', $this->vSwitches, true);
     }
 
     public function toMap()
@@ -261,6 +268,9 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->excludeInboundPorts) {
             $res['ExcludeInboundPorts'] = $this->excludeInboundPorts;
+        }
+        if (null !== $this->opaEnabled) {
+            $res['OpaEnabled'] = $this->opaEnabled;
         }
 
         return $res;
@@ -354,6 +364,9 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['ExcludeInboundPorts'])) {
             $model->excludeInboundPorts = $map['ExcludeInboundPorts'];
+        }
+        if (isset($map['OpaEnabled'])) {
+            $model->opaEnabled = $map['OpaEnabled'];
         }
 
         return $model;

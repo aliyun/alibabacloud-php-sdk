@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponse\serviceMesh\spec\meshConfig;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponse\serviceMesh\spec\meshConfig\sidecarInjector\initCNIConfiguration;
 use AlibabaCloud\Tea\Model;
 
 class sidecarInjector extends Model
@@ -42,6 +43,11 @@ class sidecarInjector extends Model
      * @var string
      */
     public $sidecarInjectorWebhookAsYaml;
+
+    /**
+     * @var initCNIConfiguration
+     */
+    public $initCNIConfiguration;
     protected $_name = [
         'enableNamespacesByDefault'    => 'EnableNamespacesByDefault',
         'autoInjectionPolicyEnabled'   => 'AutoInjectionPolicyEnabled',
@@ -50,6 +56,7 @@ class sidecarInjector extends Model
         'limitCPU'                     => 'LimitCPU',
         'limitMemory'                  => 'LimitMemory',
         'sidecarInjectorWebhookAsYaml' => 'SidecarInjectorWebhookAsYaml',
+        'initCNIConfiguration'         => 'InitCNIConfiguration',
     ];
 
     public function validate()
@@ -61,6 +68,7 @@ class sidecarInjector extends Model
         Model::validateRequired('limitCPU', $this->limitCPU, true);
         Model::validateRequired('limitMemory', $this->limitMemory, true);
         Model::validateRequired('sidecarInjectorWebhookAsYaml', $this->sidecarInjectorWebhookAsYaml, true);
+        Model::validateRequired('initCNIConfiguration', $this->initCNIConfiguration, true);
     }
 
     public function toMap()
@@ -86,6 +94,9 @@ class sidecarInjector extends Model
         }
         if (null !== $this->sidecarInjectorWebhookAsYaml) {
             $res['SidecarInjectorWebhookAsYaml'] = $this->sidecarInjectorWebhookAsYaml;
+        }
+        if (null !== $this->initCNIConfiguration) {
+            $res['InitCNIConfiguration'] = null !== $this->initCNIConfiguration ? $this->initCNIConfiguration->toMap() : null;
         }
 
         return $res;
@@ -119,6 +130,9 @@ class sidecarInjector extends Model
         }
         if (isset($map['SidecarInjectorWebhookAsYaml'])) {
             $model->sidecarInjectorWebhookAsYaml = $map['SidecarInjectorWebhookAsYaml'];
+        }
+        if (isset($map['InitCNIConfiguration'])) {
+            $model->initCNIConfiguration = initCNIConfiguration::fromMap($map['InitCNIConfiguration']);
         }
 
         return $model;

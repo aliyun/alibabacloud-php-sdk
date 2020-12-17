@@ -25,8 +25,6 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterAccessLogD
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterAccessLogDashboardsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIngressGatewaysRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIngressGatewaysResponse;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeRegionsRequest;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesRequest;
@@ -474,31 +472,6 @@ class Servicemesh extends Rpc
         $runtime = new RuntimeOptions([]);
 
         return $this->describeClusterGrafanaWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
-     */
-    public function describeRegionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeRegionsResponse::fromMap($this->doRequest('DescribeRegions', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
-     */
-    public function describeRegions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRegionsWithOptions($request, $runtime);
     }
 
     /**

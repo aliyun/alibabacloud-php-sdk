@@ -37,8 +37,6 @@ class GetVmMetaRequest extends Model
     public function validate()
     {
         Model::validateRequired('serviceMeshId', $this->serviceMeshId, true);
-        Model::validateRequired('namespace', $this->namespace, true);
-        Model::validateRequired('serviceAccount', $this->serviceAccount, true);
     }
 
     public function toMap()

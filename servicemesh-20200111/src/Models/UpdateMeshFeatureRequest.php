@@ -147,6 +147,26 @@ class UpdateMeshFeatureRequest extends Model
      * @var string
      */
     public $sidecarInjectorWebhookAsYaml;
+
+    /**
+     * @var bool
+     */
+    public $cniEnabled;
+
+    /**
+     * @var string
+     */
+    public $cniExcludeNamespaces;
+
+    /**
+     * @var bool
+     */
+    public $opaEnabled;
+
+    /**
+     * @var bool
+     */
+    public $http10Enabled;
     protected $_name = [
         'serviceMeshId'                => 'ServiceMeshId',
         'tracing'                      => 'Tracing',
@@ -176,6 +196,10 @@ class UpdateMeshFeatureRequest extends Model
         'sidecarInjectorLimitCPU'      => 'SidecarInjectorLimitCPU',
         'sidecarInjectorLimitMemory'   => 'SidecarInjectorLimitMemory',
         'sidecarInjectorWebhookAsYaml' => 'SidecarInjectorWebhookAsYaml',
+        'cniEnabled'                   => 'CniEnabled',
+        'cniExcludeNamespaces'         => 'CniExcludeNamespaces',
+        'opaEnabled'                   => 'OpaEnabled',
+        'http10Enabled'                => 'Http10Enabled',
     ];
 
     public function validate()
@@ -269,6 +293,18 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->sidecarInjectorWebhookAsYaml) {
             $res['SidecarInjectorWebhookAsYaml'] = $this->sidecarInjectorWebhookAsYaml;
+        }
+        if (null !== $this->cniEnabled) {
+            $res['CniEnabled'] = $this->cniEnabled;
+        }
+        if (null !== $this->cniExcludeNamespaces) {
+            $res['CniExcludeNamespaces'] = $this->cniExcludeNamespaces;
+        }
+        if (null !== $this->opaEnabled) {
+            $res['OpaEnabled'] = $this->opaEnabled;
+        }
+        if (null !== $this->http10Enabled) {
+            $res['Http10Enabled'] = $this->http10Enabled;
         }
 
         return $res;
@@ -365,6 +401,18 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['SidecarInjectorWebhookAsYaml'])) {
             $model->sidecarInjectorWebhookAsYaml = $map['SidecarInjectorWebhookAsYaml'];
+        }
+        if (isset($map['CniEnabled'])) {
+            $model->cniEnabled = $map['CniEnabled'];
+        }
+        if (isset($map['CniExcludeNamespaces'])) {
+            $model->cniExcludeNamespaces = $map['CniExcludeNamespaces'];
+        }
+        if (isset($map['OpaEnabled'])) {
+            $model->opaEnabled = $map['OpaEnabled'];
+        }
+        if (isset($map['Http10Enabled'])) {
+            $model->http10Enabled = $map['Http10Enabled'];
         }
 
         return $model;

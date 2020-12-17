@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponse\serviceMeshes\spec;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponse\serviceMeshes\spec\meshConfig\pilot;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponse\serviceMeshes\spec\meshConfig\sidecarInjector;
 use AlibabaCloud\Tea\Model;
 
 class meshConfig extends Model
@@ -32,12 +34,24 @@ class meshConfig extends Model
      * @var bool
      */
     public $telemetry;
+
+    /**
+     * @var pilot
+     */
+    public $pilot;
+
+    /**
+     * @var sidecarInjector
+     */
+    public $sidecarInjector;
     protected $_name = [
         'mtls'                  => 'Mtls',
         'outboundTrafficPolicy' => 'OutboundTrafficPolicy',
         'strictMtls'            => 'StrictMtls',
         'tracing'               => 'Tracing',
         'telemetry'             => 'Telemetry',
+        'pilot'                 => 'Pilot',
+        'sidecarInjector'       => 'SidecarInjector',
     ];
 
     public function validate()
@@ -47,6 +61,8 @@ class meshConfig extends Model
         Model::validateRequired('strictMtls', $this->strictMtls, true);
         Model::validateRequired('tracing', $this->tracing, true);
         Model::validateRequired('telemetry', $this->telemetry, true);
+        Model::validateRequired('pilot', $this->pilot, true);
+        Model::validateRequired('sidecarInjector', $this->sidecarInjector, true);
     }
 
     public function toMap()
@@ -66,6 +82,12 @@ class meshConfig extends Model
         }
         if (null !== $this->telemetry) {
             $res['Telemetry'] = $this->telemetry;
+        }
+        if (null !== $this->pilot) {
+            $res['Pilot'] = null !== $this->pilot ? $this->pilot->toMap() : null;
+        }
+        if (null !== $this->sidecarInjector) {
+            $res['SidecarInjector'] = null !== $this->sidecarInjector ? $this->sidecarInjector->toMap() : null;
         }
 
         return $res;
@@ -93,6 +115,12 @@ class meshConfig extends Model
         }
         if (isset($map['Telemetry'])) {
             $model->telemetry = $map['Telemetry'];
+        }
+        if (isset($map['Pilot'])) {
+            $model->pilot = pilot::fromMap($map['Pilot']);
+        }
+        if (isset($map['SidecarInjector'])) {
+            $model->sidecarInjector = sidecarInjector::fromMap($map['SidecarInjector']);
         }
 
         return $model;
