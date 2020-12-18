@@ -1,0 +1,50 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models\RecognizeImageStyleResponse;
+
+use AlibabaCloud\Tea\Model;
+
+class data extends Model
+{
+    /**
+     * @var string[]
+     */
+    public $styles;
+    protected $_name = [
+        'styles' => 'Styles',
+    ];
+
+    public function validate()
+    {
+        Model::validateRequired('styles', $this->styles, true);
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->styles) {
+            $res['Styles'] = $this->styles;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Styles'])) {
+            if (!empty($map['Styles'])) {
+                $model->styles = $map['Styles'];
+            }
+        }
+
+        return $model;
+    }
+}
