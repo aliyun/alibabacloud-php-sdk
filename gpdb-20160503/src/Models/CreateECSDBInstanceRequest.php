@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateECSDBInstanceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -97,7 +102,18 @@ class CreateECSDBInstanceRequest extends Model
      * @var string
      */
     public $privateIpAddress;
+
+    /**
+     * @var string
+     */
+    public $encryptionKey;
+
+    /**
+     * @var string
+     */
+    public $encryptionType;
     protected $_name = [
+        'ownerId'               => 'OwnerId',
         'regionId'              => 'RegionId',
         'zoneId'                => 'ZoneId',
         'engineVersion'         => 'EngineVersion',
@@ -116,6 +132,8 @@ class CreateECSDBInstanceRequest extends Model
         'VPCId'                 => 'VPCId',
         'vSwitchId'             => 'VSwitchId',
         'privateIpAddress'      => 'PrivateIpAddress',
+        'encryptionKey'         => 'EncryptionKey',
+        'encryptionType'        => 'EncryptionType',
     ];
 
     public function validate()
@@ -133,6 +151,9 @@ class CreateECSDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -187,6 +208,12 @@ class CreateECSDBInstanceRequest extends Model
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
+        if (null !== $this->encryptionKey) {
+            $res['EncryptionKey'] = $this->encryptionKey;
+        }
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
+        }
 
         return $res;
     }
@@ -199,6 +226,9 @@ class CreateECSDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -252,6 +282,12 @@ class CreateECSDBInstanceRequest extends Model
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['EncryptionKey'])) {
+            $model->encryptionKey = $map['EncryptionKey'];
+        }
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
 
         return $model;

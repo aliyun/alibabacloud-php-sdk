@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBVersionRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -38,6 +43,7 @@ class UpgradeDBVersionRequest extends Model
      */
     public $switchTime;
     protected $_name = [
+        'ownerId'        => 'OwnerId',
         'regionId'       => 'RegionId',
         'DBInstanceId'   => 'DBInstanceId',
         'minorVersion'   => 'MinorVersion',
@@ -54,6 +60,9 @@ class UpgradeDBVersionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -84,6 +93,9 @@ class UpgradeDBVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

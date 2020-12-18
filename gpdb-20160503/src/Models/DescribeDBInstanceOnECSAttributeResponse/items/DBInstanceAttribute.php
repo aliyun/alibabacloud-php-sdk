@@ -130,6 +130,16 @@ class DBInstanceAttribute extends Model
     public $port;
 
     /**
+     * @var string
+     */
+    public $encryptionType;
+
+    /**
+     * @var string
+     */
+    public $encryptionKey;
+
+    /**
      * @var tags
      */
     public $tags;
@@ -158,6 +168,8 @@ class DBInstanceAttribute extends Model
         'vSwitchId'             => 'VSwitchId',
         'connectionString'      => 'ConnectionString',
         'port'                  => 'Port',
+        'encryptionType'        => 'EncryptionType',
+        'encryptionKey'         => 'EncryptionKey',
         'tags'                  => 'Tags',
     ];
 
@@ -187,6 +199,8 @@ class DBInstanceAttribute extends Model
         Model::validateRequired('vSwitchId', $this->vSwitchId, true);
         Model::validateRequired('connectionString', $this->connectionString, true);
         Model::validateRequired('port', $this->port, true);
+        Model::validateRequired('encryptionType', $this->encryptionType, true);
+        Model::validateRequired('encryptionKey', $this->encryptionKey, true);
         Model::validateRequired('tags', $this->tags, true);
     }
 
@@ -264,6 +278,12 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
+        }
+        if (null !== $this->encryptionKey) {
+            $res['EncryptionKey'] = $this->encryptionKey;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -351,6 +371,12 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
+        }
+        if (isset($map['EncryptionKey'])) {
+            $model->encryptionKey = $map['EncryptionKey'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBInstanceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -18,6 +23,7 @@ class DeleteDBInstanceRequest extends Model
      */
     public $DBInstanceId;
     protected $_name = [
+        'ownerId'      => 'OwnerId',
         'clientToken'  => 'ClientToken',
         'DBInstanceId' => 'DBInstanceId',
     ];
@@ -30,6 +36,9 @@ class DeleteDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -48,6 +57,9 @@ class DeleteDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

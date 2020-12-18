@@ -71,6 +71,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeUserEncryptionKeyListRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeUserEncryptionKeyListResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAccountDescriptionRequest;
@@ -137,6 +139,31 @@ class Gpdb extends Rpc
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('gpdb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param DescribeUserEncryptionKeyListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeUserEncryptionKeyListResponse
+     */
+    public function describeUserEncryptionKeyListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeUserEncryptionKeyListResponse::fromMap($this->doRequest('DescribeUserEncryptionKeyList', 'HTTPS', 'POST', '2016-05-03', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeUserEncryptionKeyListRequest $request
+     *
+     * @return DescribeUserEncryptionKeyListResponse
+     */
+    public function describeUserEncryptionKeyList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserEncryptionKeyListWithOptions($request, $runtime);
     }
 
     /**

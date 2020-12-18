@@ -1,3 +1,6 @@
+2020-12-18 Version: 1.0.2
+- Support encryption cloud disk. 
+
 2020-11-29 Version: 1.0.1
 - ADB for PG sdk.
 
