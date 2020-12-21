@@ -90,9 +90,6 @@ class UpdateProfileRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('isvSubId', $this->isvSubId, true);
-        Model::validateRequired('catalogId', $this->catalogId, true);
-        Model::validateRequired('profileId', $this->profileId, true);
     }
 
     public function toMap()

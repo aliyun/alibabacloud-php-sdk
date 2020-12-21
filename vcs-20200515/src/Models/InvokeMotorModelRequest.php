@@ -36,8 +36,6 @@ class InvokeMotorModelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('picId', $this->picId, true);
-        Model::validateRequired('corpId', $this->corpId, true);
     }
 
     public function toMap()

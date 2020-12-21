@@ -36,8 +36,6 @@ class RecognizeImageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('picFormat', $this->picFormat, true);
     }
 
     public function toMap()

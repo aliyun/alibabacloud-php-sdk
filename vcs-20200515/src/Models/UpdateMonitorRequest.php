@@ -120,8 +120,6 @@ class UpdateMonitorRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('taskId', $this->taskId, true);
-        Model::validateRequired('algorithmVendor', $this->algorithmVendor, true);
     }
 
     public function toMap()

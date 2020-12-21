@@ -54,11 +54,6 @@ class SearchFaceShrinkRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('startTimeStamp', $this->startTimeStamp, true);
-        Model::validateRequired('endTimeStamp', $this->endTimeStamp, true);
-        Model::validateRequired('pageNo', $this->pageNo, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

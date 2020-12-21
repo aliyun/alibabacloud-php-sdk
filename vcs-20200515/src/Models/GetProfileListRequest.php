@@ -120,9 +120,6 @@ class GetProfileListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('isvSubId', $this->isvSubId, true);
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

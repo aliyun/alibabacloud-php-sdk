@@ -48,10 +48,6 @@ class CreateVideoSummaryTaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('deviceId', $this->deviceId, true);
-        Model::validateRequired('startTimeStamp', $this->startTimeStamp, true);
-        Model::validateRequired('endTimeStamp', $this->endTimeStamp, true);
     }
 
     public function toMap()

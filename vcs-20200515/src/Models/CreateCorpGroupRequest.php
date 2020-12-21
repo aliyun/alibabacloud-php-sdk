@@ -30,9 +30,6 @@ class CreateCorpGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('groupId', $this->groupId, true);
-        Model::validateRequired('clientToken', $this->clientToken, true);
     }
 
     public function toMap()

@@ -16,7 +16,7 @@ class streamCapacities extends Model
     /**
      * @var string
      */
-    public $resolution;
+    public $govLengthRange;
 
     /**
      * @var string
@@ -26,34 +26,28 @@ class streamCapacities extends Model
     /**
      * @var string
      */
-    public $maxStream;
-
-    /**
-     * @var string
-     */
     public $bitrateRange;
 
     /**
      * @var string
      */
-    public $govLengthRange;
+    public $maxStream;
+
+    /**
+     * @var string
+     */
+    public $resolution;
     protected $_name = [
         'encodeFormat'   => 'EncodeFormat',
-        'resolution'     => 'Resolution',
-        'maxFrameRate'   => 'MaxFrameRate',
-        'maxStream'      => 'MaxStream',
-        'bitrateRange'   => 'BitrateRange',
         'govLengthRange' => 'GovLengthRange',
+        'maxFrameRate'   => 'MaxFrameRate',
+        'bitrateRange'   => 'BitrateRange',
+        'maxStream'      => 'MaxStream',
+        'resolution'     => 'Resolution',
     ];
 
     public function validate()
     {
-        Model::validateRequired('encodeFormat', $this->encodeFormat, true);
-        Model::validateRequired('resolution', $this->resolution, true);
-        Model::validateRequired('maxFrameRate', $this->maxFrameRate, true);
-        Model::validateRequired('maxStream', $this->maxStream, true);
-        Model::validateRequired('bitrateRange', $this->bitrateRange, true);
-        Model::validateRequired('govLengthRange', $this->govLengthRange, true);
     }
 
     public function toMap()
@@ -62,20 +56,20 @@ class streamCapacities extends Model
         if (null !== $this->encodeFormat) {
             $res['EncodeFormat'] = $this->encodeFormat;
         }
-        if (null !== $this->resolution) {
-            $res['Resolution'] = $this->resolution;
+        if (null !== $this->govLengthRange) {
+            $res['GovLengthRange'] = $this->govLengthRange;
         }
         if (null !== $this->maxFrameRate) {
             $res['MaxFrameRate'] = $this->maxFrameRate;
         }
-        if (null !== $this->maxStream) {
-            $res['MaxStream'] = $this->maxStream;
-        }
         if (null !== $this->bitrateRange) {
             $res['BitrateRange'] = $this->bitrateRange;
         }
-        if (null !== $this->govLengthRange) {
-            $res['GovLengthRange'] = $this->govLengthRange;
+        if (null !== $this->maxStream) {
+            $res['MaxStream'] = $this->maxStream;
+        }
+        if (null !== $this->resolution) {
+            $res['Resolution'] = $this->resolution;
         }
 
         return $res;
@@ -92,20 +86,20 @@ class streamCapacities extends Model
         if (isset($map['EncodeFormat'])) {
             $model->encodeFormat = $map['EncodeFormat'];
         }
-        if (isset($map['Resolution'])) {
-            $model->resolution = $map['Resolution'];
+        if (isset($map['GovLengthRange'])) {
+            $model->govLengthRange = $map['GovLengthRange'];
         }
         if (isset($map['MaxFrameRate'])) {
             $model->maxFrameRate = $map['MaxFrameRate'];
         }
-        if (isset($map['MaxStream'])) {
-            $model->maxStream = $map['MaxStream'];
-        }
         if (isset($map['BitrateRange'])) {
             $model->bitrateRange = $map['BitrateRange'];
         }
-        if (isset($map['GovLengthRange'])) {
-            $model->govLengthRange = $map['GovLengthRange'];
+        if (isset($map['MaxStream'])) {
+            $model->maxStream = $map['MaxStream'];
+        }
+        if (isset($map['Resolution'])) {
+            $model->resolution = $map['Resolution'];
         }
 
         return $model;

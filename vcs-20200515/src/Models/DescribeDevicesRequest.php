@@ -30,9 +30,6 @@ class DescribeDevicesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageNum', $this->pageNum, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('corpIdList', $this->corpIdList, true);
     }
 
     public function toMap()

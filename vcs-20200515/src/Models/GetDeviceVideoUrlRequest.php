@@ -48,7 +48,6 @@ class GetDeviceVideoUrlRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
     }
 
     public function toMap()

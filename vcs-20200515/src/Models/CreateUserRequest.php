@@ -90,9 +90,6 @@ class CreateUserRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('isvSubId', $this->isvSubId, true);
-        Model::validateRequired('userName', $this->userName, true);
-        Model::validateRequired('userGroupId', $this->userGroupId, true);
     }
 
     public function toMap()

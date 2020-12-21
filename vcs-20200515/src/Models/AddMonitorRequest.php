@@ -72,9 +72,6 @@ class AddMonitorRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('monitorType', $this->monitorType, true);
-        Model::validateRequired('algorithmVendor', $this->algorithmVendor, true);
     }
 
     public function toMap()

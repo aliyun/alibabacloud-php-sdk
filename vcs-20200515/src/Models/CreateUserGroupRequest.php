@@ -36,8 +36,6 @@ class CreateUserGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('isvSubId', $this->isvSubId, true);
-        Model::validateRequired('userGroupName', $this->userGroupName, true);
     }
 
     public function toMap()

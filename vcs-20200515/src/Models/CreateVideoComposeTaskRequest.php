@@ -60,11 +60,6 @@ class CreateVideoComposeTaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('bucketName', $this->bucketName, true);
-        Model::validateRequired('imageFileNames', $this->imageFileNames, true);
-        Model::validateRequired('audioFileName', $this->audioFileName, true);
-        Model::validateRequired('imageParameters', $this->imageParameters, true);
     }
 
     public function toMap()

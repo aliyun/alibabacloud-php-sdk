@@ -42,9 +42,6 @@ class AddDataSourceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('dataSourceName', $this->dataSourceName, true);
-        Model::validateRequired('dataSourceType', $this->dataSourceType, true);
     }
 
     public function toMap()

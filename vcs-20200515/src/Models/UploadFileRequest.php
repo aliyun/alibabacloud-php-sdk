@@ -60,10 +60,6 @@ class UploadFileRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('fileType', $this->fileType, true);
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('fileName', $this->fileName, true);
-        Model::validateRequired('dataSourceId', $this->dataSourceId, true);
     }
 
     public function toMap()

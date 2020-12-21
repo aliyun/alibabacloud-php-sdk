@@ -24,8 +24,6 @@ class DeleteCorpGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('groupId', $this->groupId, true);
     }
 
     public function toMap()

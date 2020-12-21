@@ -24,8 +24,6 @@ class DeleteDataSourceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('dataSourceId', $this->dataSourceId, true);
     }
 
     public function toMap()

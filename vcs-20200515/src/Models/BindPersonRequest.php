@@ -42,10 +42,6 @@ class BindPersonRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('isvSubId', $this->isvSubId, true);
-        Model::validateRequired('personMatchingRate', $this->personMatchingRate, true);
-        Model::validateRequired('personId', $this->personId, true);
-        Model::validateRequired('profileId', $this->profileId, true);
     }
 
     public function toMap()

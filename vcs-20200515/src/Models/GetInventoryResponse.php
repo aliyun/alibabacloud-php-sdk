@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Vcs\V20200515\Models;
 
-use AlibabaCloud\SDK\Vcs\V20200515\Models\GetInventoryResponse\data;
 use AlibabaCloud\Tea\Model;
 
 class GetInventoryResponse extends Model
 {
     /**
-     * @var bool
+     * @var string[]
      */
-    public $success;
+    public $headers;
 
     /**
-     * @var data
+     * @var GetInventoryResponseBody
      */
-    public $data;
+    public $body;
     protected $_name = [
-        'success' => 'Success',
-        'data'    => 'Data',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('success', $this->success, true);
-        Model::validateRequired('data', $this->data, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class GetInventoryResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['body'])) {
+            $model->body = GetInventoryResponseBody::fromMap($map['body']);
         }
 
         return $model;

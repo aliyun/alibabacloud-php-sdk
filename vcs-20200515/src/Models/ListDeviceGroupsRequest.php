@@ -42,6 +42,11 @@ class ListDeviceGroupsRequest extends Model
      * @var string
      */
     public $group;
+
+    /**
+     * @var string
+     */
+    public $dataSourceType;
     protected $_name = [
         'deviceCodeList' => 'DeviceCodeList',
         'corpIdList'     => 'CorpIdList',
@@ -50,13 +55,11 @@ class ListDeviceGroupsRequest extends Model
         'pageNum'        => 'PageNum',
         'pageSize'       => 'PageSize',
         'group'          => 'Group',
+        'dataSourceType' => 'DataSourceType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('isPage', $this->isPage, true);
-        Model::validateRequired('pageNum', $this->pageNum, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()
@@ -82,6 +85,9 @@ class ListDeviceGroupsRequest extends Model
         }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
+        }
+        if (null !== $this->dataSourceType) {
+            $res['DataSourceType'] = $this->dataSourceType;
         }
 
         return $res;
@@ -115,6 +121,9 @@ class ListDeviceGroupsRequest extends Model
         }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
+        }
+        if (isset($map['DataSourceType'])) {
+            $model->dataSourceType = $map['DataSourceType'];
         }
 
         return $model;

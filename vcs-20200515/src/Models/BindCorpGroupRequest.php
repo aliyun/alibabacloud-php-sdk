@@ -24,8 +24,6 @@ class BindCorpGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('corpGroupId', $this->corpGroupId, true);
     }
 
     public function toMap()

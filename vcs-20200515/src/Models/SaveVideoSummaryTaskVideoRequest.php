@@ -30,9 +30,6 @@ class SaveVideoSummaryTaskVideoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('taskId', $this->taskId, true);
-        Model::validateRequired('saveVideo', $this->saveVideo, true);
     }
 
     public function toMap()

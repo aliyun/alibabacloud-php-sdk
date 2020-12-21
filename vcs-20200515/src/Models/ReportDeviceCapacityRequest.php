@@ -40,14 +40,14 @@ class ReportDeviceCapacityRequest extends Model
     public $deviceSn;
 
     /**
-     * @var streamCapacities[]
-     */
-    public $streamCapacities;
-
-    /**
      * @var string
      */
     public $deviceTimeStamp;
+
+    /**
+     * @var streamCapacities[]
+     */
+    public $streamCapacities;
     protected $_name = [
         'longitude'        => 'Longitude',
         'latitude'         => 'Latitude',
@@ -55,15 +55,12 @@ class ReportDeviceCapacityRequest extends Model
         'presetNum'        => 'PresetNum',
         'PTZCapacity'      => 'PTZCapacity',
         'deviceSn'         => 'DeviceSn',
-        'streamCapacities' => 'StreamCapacities',
         'deviceTimeStamp'  => 'DeviceTimeStamp',
+        'streamCapacities' => 'StreamCapacities',
     ];
 
     public function validate()
     {
-        Model::validateRequired('deviceSn', $this->deviceSn, true);
-        Model::validateRequired('streamCapacities', $this->streamCapacities, true);
-        Model::validateRequired('deviceTimeStamp', $this->deviceTimeStamp, true);
     }
 
     public function toMap()
@@ -87,6 +84,9 @@ class ReportDeviceCapacityRequest extends Model
         if (null !== $this->deviceSn) {
             $res['DeviceSn'] = $this->deviceSn;
         }
+        if (null !== $this->deviceTimeStamp) {
+            $res['DeviceTimeStamp'] = $this->deviceTimeStamp;
+        }
         if (null !== $this->streamCapacities) {
             $res['StreamCapacities'] = [];
             if (null !== $this->streamCapacities && \is_array($this->streamCapacities)) {
@@ -95,9 +95,6 @@ class ReportDeviceCapacityRequest extends Model
                     $res['StreamCapacities'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->deviceTimeStamp) {
-            $res['DeviceTimeStamp'] = $this->deviceTimeStamp;
         }
 
         return $res;
@@ -129,6 +126,9 @@ class ReportDeviceCapacityRequest extends Model
         if (isset($map['DeviceSn'])) {
             $model->deviceSn = $map['DeviceSn'];
         }
+        if (isset($map['DeviceTimeStamp'])) {
+            $model->deviceTimeStamp = $map['DeviceTimeStamp'];
+        }
         if (isset($map['StreamCapacities'])) {
             if (!empty($map['StreamCapacities'])) {
                 $model->streamCapacities = [];
@@ -137,9 +137,6 @@ class ReportDeviceCapacityRequest extends Model
                     $model->streamCapacities[$n++] = null !== $item ? streamCapacities::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['DeviceTimeStamp'])) {
-            $model->deviceTimeStamp = $map['DeviceTimeStamp'];
         }
 
         return $model;

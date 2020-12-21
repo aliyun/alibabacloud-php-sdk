@@ -54,8 +54,6 @@ class CreateCorpRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpName', $this->corpName, true);
-        Model::validateRequired('appName', $this->appName, true);
     }
 
     public function toMap()

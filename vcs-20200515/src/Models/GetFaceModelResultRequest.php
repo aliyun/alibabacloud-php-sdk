@@ -30,7 +30,6 @@ class GetFaceModelResultRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pictureId', $this->pictureId, true);
     }
 
     public function toMap()

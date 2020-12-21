@@ -36,9 +36,6 @@ class UpdateUserGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('isvSubId', $this->isvSubId, true);
-        Model::validateRequired('userGroupId', $this->userGroupId, true);
-        Model::validateRequired('userGroupName', $this->userGroupName, true);
     }
 
     public function toMap()

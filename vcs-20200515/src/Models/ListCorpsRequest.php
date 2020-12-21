@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListCorpsRequest extends Model
 {
     /**
+     * @description 页码
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页大小
+     *
      * @var int
      */
     public $pageSize;
@@ -30,8 +34,6 @@ class ListCorpsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

@@ -30,8 +30,6 @@ class UnbindPersonRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('isvSubId', $this->isvSubId, true);
-        Model::validateRequired('profileId', $this->profileId, true);
     }
 
     public function toMap()

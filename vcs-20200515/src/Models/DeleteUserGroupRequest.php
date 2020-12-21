@@ -30,8 +30,6 @@ class DeleteUserGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('isvSubId', $this->isvSubId, true);
-        Model::validateRequired('userGroupId', $this->userGroupId, true);
     }
 
     public function toMap()

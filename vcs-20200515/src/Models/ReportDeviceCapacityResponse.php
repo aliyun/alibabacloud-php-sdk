@@ -9,53 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ReportDeviceCapacityResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $code;
+    public $headers;
 
     /**
-     * @var string
+     * @var ReportDeviceCapacityResponseBody
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $retryInterval;
+    public $body;
     protected $_name = [
-        'code'          => 'Code',
-        'message'       => 'Message',
-        'requestId'     => 'RequestId',
-        'retryInterval' => 'RetryInterval',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('message', $this->message, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('retryInterval', $this->retryInterval, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->retryInterval) {
-            $res['RetryInterval'] = $this->retryInterval;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +49,11 @@ class ReportDeviceCapacityResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['RetryInterval'])) {
-            $model->retryInterval = $map['RetryInterval'];
+        if (isset($map['body'])) {
+            $model->body = ReportDeviceCapacityResponseBody::fromMap($map['body']);
         }
 
         return $model;

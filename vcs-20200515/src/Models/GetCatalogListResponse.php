@@ -4,65 +4,38 @@
 
 namespace AlibabaCloud\SDK\Vcs\V20200515\Models;
 
-use AlibabaCloud\SDK\Vcs\V20200515\Models\GetCatalogListResponse\data;
 use AlibabaCloud\Tea\Model;
 
 class GetCatalogListResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $code;
+    public $headers;
 
     /**
-     * @var string
+     * @var GetCatalogListResponseBody
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var data[]
-     */
-    public $data;
+    public $body;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'data'      => 'Data',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('message', $this->message, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('data', $this->data, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -76,23 +49,11 @@ class GetCatalogListResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = GetCatalogListResponseBody::fromMap($map['body']);
         }
 
         return $model;

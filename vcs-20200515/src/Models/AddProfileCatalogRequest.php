@@ -36,8 +36,6 @@ class AddProfileCatalogRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('isvSubId', $this->isvSubId, true);
-        Model::validateRequired('catalogName', $this->catalogName, true);
     }
 
     public function toMap()

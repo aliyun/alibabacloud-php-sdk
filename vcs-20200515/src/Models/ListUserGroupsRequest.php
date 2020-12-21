@@ -24,7 +24,6 @@ class ListUserGroupsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('isvSubId', $this->isvSubId, true);
     }
 
     public function toMap()

@@ -24,8 +24,6 @@ class GetVideoComposeResultRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('corpId', $this->corpId, true);
-        Model::validateRequired('taskRequestId', $this->taskRequestId, true);
     }
 
     public function toMap()

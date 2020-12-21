@@ -72,12 +72,6 @@ class ListCorpGroupMetricsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('tagCode', $this->tagCode, true);
-        Model::validateRequired('endTime', $this->endTime, true);
-        Model::validateRequired('groupId', $this->groupId, true);
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

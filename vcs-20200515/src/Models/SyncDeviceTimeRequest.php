@@ -24,8 +24,6 @@ class SyncDeviceTimeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceSn', $this->deviceSn, true);
-        Model::validateRequired('deviceTimeStamp', $this->deviceTimeStamp, true);
     }
 
     public function toMap()

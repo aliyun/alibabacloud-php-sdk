@@ -18,7 +18,6 @@ class UploadImageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageUrl', $this->imageUrl, true);
     }
 
     public function toMap()
