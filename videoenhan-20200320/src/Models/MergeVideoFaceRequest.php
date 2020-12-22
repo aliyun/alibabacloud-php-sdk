@@ -14,6 +14,11 @@ class MergeVideoFaceRequest extends Model
     public $videoURL;
 
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
      * @var string
      */
     public $postURL;
@@ -24,15 +29,13 @@ class MergeVideoFaceRequest extends Model
     public $referenceURL;
     protected $_name = [
         'videoURL'     => 'VideoURL',
+        'async'        => 'Async',
         'postURL'      => 'PostURL',
         'referenceURL' => 'ReferenceURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoURL', $this->videoURL, true);
-        Model::validateRequired('postURL', $this->postURL, true);
-        Model::validateRequired('referenceURL', $this->referenceURL, true);
     }
 
     public function toMap()
@@ -40,6 +43,9 @@ class MergeVideoFaceRequest extends Model
         $res = [];
         if (null !== $this->videoURL) {
             $res['VideoURL'] = $this->videoURL;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
         if (null !== $this->postURL) {
             $res['PostURL'] = $this->postURL;
@@ -61,6 +67,9 @@ class MergeVideoFaceRequest extends Model
         $model = new self();
         if (isset($map['VideoURL'])) {
             $model->videoURL = $map['VideoURL'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
         if (isset($map['PostURL'])) {
             $model->postURL = $map['PostURL'];

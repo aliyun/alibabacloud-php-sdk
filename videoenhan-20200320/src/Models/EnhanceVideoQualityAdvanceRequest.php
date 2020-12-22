@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class EnhanceVideoQualityAdvanceRequest extends Model
 {
@@ -12,6 +13,11 @@ class EnhanceVideoQualityAdvanceRequest extends Model
      * @var Stream
      */
     public $videoURLObject;
+
+    /**
+     * @var bool
+     */
+    public $async;
 
     /**
      * @var int
@@ -44,6 +50,7 @@ class EnhanceVideoQualityAdvanceRequest extends Model
     public $bitrate;
     protected $_name = [
         'videoURLObject' => 'VideoURLObject',
+        'async'          => 'Async',
         'outPutWidth'    => 'OutPutWidth',
         'outPutHeight'   => 'OutPutHeight',
         'frameRate'      => 'FrameRate',
@@ -62,6 +69,9 @@ class EnhanceVideoQualityAdvanceRequest extends Model
         $res = [];
         if (null !== $this->videoURLObject) {
             $res['VideoURLObject'] = $this->videoURLObject;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
         if (null !== $this->outPutWidth) {
             $res['OutPutWidth'] = $this->outPutWidth;
@@ -95,6 +105,9 @@ class EnhanceVideoQualityAdvanceRequest extends Model
         $model = new self();
         if (isset($map['VideoURLObject'])) {
             $model->videoURLObject = $map['VideoURLObject'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
         if (isset($map['OutPutWidth'])) {
             $model->outPutWidth = $map['OutPutWidth'];

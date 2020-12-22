@@ -14,6 +14,11 @@ class AbstractEcommerceVideoAdvanceRequest extends Model
     public $videoUrlObject;
 
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
      * @var float
      */
     public $duration;
@@ -29,6 +34,7 @@ class AbstractEcommerceVideoAdvanceRequest extends Model
     public $height;
     protected $_name = [
         'videoUrlObject' => 'VideoUrlObject',
+        'async'          => 'Async',
         'duration'       => 'Duration',
         'width'          => 'Width',
         'height'         => 'Height',
@@ -37,7 +43,6 @@ class AbstractEcommerceVideoAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
-        Model::validateRequired('duration', $this->duration, true);
     }
 
     public function toMap()
@@ -45,6 +50,9 @@ class AbstractEcommerceVideoAdvanceRequest extends Model
         $res = [];
         if (null !== $this->videoUrlObject) {
             $res['VideoUrlObject'] = $this->videoUrlObject;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -69,6 +77,9 @@ class AbstractEcommerceVideoAdvanceRequest extends Model
         $model = new self();
         if (isset($map['VideoUrlObject'])) {
             $model->videoUrlObject = $map['VideoUrlObject'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];

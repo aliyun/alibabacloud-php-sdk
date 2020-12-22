@@ -14,6 +14,11 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
     public $videoUrlObject;
 
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
      * @var float
      */
     public $BX;
@@ -34,6 +39,7 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
     public $BH;
     protected $_name = [
         'videoUrlObject' => 'VideoUrlObject',
+        'async'          => 'Async',
         'BX'             => 'BX',
         'BY'             => 'BY',
         'BW'             => 'BW',
@@ -50,6 +56,9 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
         $res = [];
         if (null !== $this->videoUrlObject) {
             $res['VideoUrlObject'] = $this->videoUrlObject;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
         if (null !== $this->BX) {
             $res['BX'] = $this->BX;
@@ -77,6 +86,9 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
         $model = new self();
         if (isset($map['VideoUrlObject'])) {
             $model->videoUrlObject = $map['VideoUrlObject'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
         if (isset($map['BX'])) {
             $model->BX = $map['BX'];
