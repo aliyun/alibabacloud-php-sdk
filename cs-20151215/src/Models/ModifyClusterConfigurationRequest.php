@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterConfigurationRequest\configs;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterConfigurationRequest\customizeConfig;
 use AlibabaCloud\Tea\Model;
 
 class ModifyClusterConfigurationRequest extends Model
 {
     /**
-     * @description 配置集合。
+     * @description 自定义配置。
      *
-     * @var configs
+     * @var customizeConfig[]
      */
-    public $configs;
-
-    /**
-     * @description 配置名称。
-     *
-     * @var string
-     */
-    public $name;
+    public $customizeConfig;
     protected $_name = [
-        'configs' => 'configs',
-        'name'    => 'name',
+        'customizeConfig' => 'customize_config',
     ];
 
     public function validate()
@@ -34,11 +26,14 @@ class ModifyClusterConfigurationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->configs) {
-            $res['configs'] = null !== $this->configs ? $this->configs->toMap() : null;
-        }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
+        if (null !== $this->customizeConfig) {
+            $res['customize_config'] = [];
+            if (null !== $this->customizeConfig && \is_array($this->customizeConfig)) {
+                $n = 0;
+                foreach ($this->customizeConfig as $item) {
+                    $res['customize_config'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -52,11 +47,14 @@ class ModifyClusterConfigurationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['configs'])) {
-            $model->configs = configs::fromMap($map['configs']);
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
+        if (isset($map['customize_config'])) {
+            if (!empty($map['customize_config'])) {
+                $model->customizeConfig = [];
+                $n                      = 0;
+                foreach ($map['customize_config'] as $item) {
+                    $model->customizeConfig[$n++] = null !== $item ? customizeConfig::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

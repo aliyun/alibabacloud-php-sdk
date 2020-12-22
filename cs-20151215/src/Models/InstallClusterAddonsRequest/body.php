@@ -9,45 +9,29 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description Addon配置信息。
-     *
-     * @var string
-     */
-    public $config;
-
-    /**
-     * @description 是否禁止默认安装。
-     *
-     * @var bool
-     */
-    public $disabled;
-
-    /**
-     * @description Addon名称。
+     * @description 组件名称。
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 是否默认安装。
-     *
-     * @var string
-     */
-    public $required;
-
-    /**
-     * @description Addon版本号。
+     * @description 组件版本号。
      *
      * @var string
      */
     public $version;
+
+    /**
+     * @description 组件配置信息。
+     *
+     * @var string
+     */
+    public $config;
     protected $_name = [
-        'config'   => 'config',
-        'disabled' => 'disabled',
-        'name'     => 'name',
-        'required' => 'required',
-        'version'  => 'version',
+        'name'    => 'name',
+        'version' => 'version',
+        'config'  => 'config',
     ];
 
     public function validate()
@@ -57,20 +41,14 @@ class body extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->config) {
-            $res['config'] = $this->config;
-        }
-        if (null !== $this->disabled) {
-            $res['disabled'] = $this->disabled;
-        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-        if (null !== $this->required) {
-            $res['required'] = $this->required;
-        }
         if (null !== $this->version) {
             $res['version'] = $this->version;
+        }
+        if (null !== $this->config) {
+            $res['config'] = $this->config;
         }
 
         return $res;
@@ -84,20 +62,14 @@ class body extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['config'])) {
-            $model->config = $map['config'];
-        }
-        if (isset($map['disabled'])) {
-            $model->disabled = $map['disabled'];
-        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-        if (isset($map['required'])) {
-            $model->required = $map['required'];
-        }
         if (isset($map['version'])) {
             $model->version = $map['version'];
+        }
+        if (isset($map['config'])) {
+            $model->config = $map['config'];
         }
 
         return $model;

@@ -2,31 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponseBody\componentGroups;
+namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class items extends Model
+class DeleteTemplateResponse extends Model
 {
     /**
-     * @description 组件名称。
-     *
-     * @var string
+     * @var string[]
      */
-    public $name;
+    public $headers;
     protected $_name = [
-        'name' => 'name',
+        'headers' => 'headers',
     ];
 
     public function validate()
     {
+        Model::validateRequired('headers', $this->headers, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
 
         return $res;
@@ -35,13 +34,13 @@ class items extends Model
     /**
      * @param array $map
      *
-     * @return items
+     * @return DeleteTemplateResponse
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
 
         return $model;

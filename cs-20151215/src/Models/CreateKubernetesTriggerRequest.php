@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateKubernetesTriggerRequest extends Model
 {
     /**
-     * @description 触发器行为。
-     *
-     * @var string
-     */
-    public $action;
-
-    /**
      * @description 集群ID。
      *
      * @var string
@@ -30,24 +23,23 @@ class CreateKubernetesTriggerRequest extends Model
     public $projectId;
 
     /**
-     * @description 地域ID。
+     * @description 触发器行为
      *
      * @var string
      */
-    public $regionId;
+    public $action;
 
     /**
-     * @description 触发器类型。
+     * @description 触发器类型。默认deployment。
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'action'    => 'Action',
-        'clusterId' => 'ClusterId',
-        'projectId' => 'ProjectId',
-        'regionId'  => 'RegionId',
-        'type'      => 'Type',
+        'clusterId' => 'cluster_id',
+        'projectId' => 'project_id',
+        'action'    => 'action',
+        'type'      => 'type',
     ];
 
     public function validate()
@@ -57,20 +49,17 @@ class CreateKubernetesTriggerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->action) {
-            $res['Action'] = $this->action;
-        }
         if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+            $res['cluster_id'] = $this->clusterId;
         }
         if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+            $res['project_id'] = $this->projectId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->action) {
+            $res['action'] = $this->action;
         }
         if (null !== $this->type) {
-            $res['Type'] = $this->type;
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -84,20 +73,17 @@ class CreateKubernetesTriggerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Action'])) {
-            $model->action = $map['Action'];
+        if (isset($map['cluster_id'])) {
+            $model->clusterId = $map['cluster_id'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['project_id'])) {
+            $model->projectId = $map['project_id'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['action'])) {
+            $model->action = $map['action'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\DataDisks;
+use AlibabaCloud\SDK\CS\V20151215\Models\DataDisk;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\scalingGroup\spotPriceLimit;
-use AlibabaCloud\SDK\CS\V20151215\Models\Tags;
+use AlibabaCloud\SDK\CS\V20151215\Models\Tag;
 use AlibabaCloud\Tea\Model;
 
 class scalingGroup extends Model
@@ -14,7 +14,7 @@ class scalingGroup extends Model
     /**
      * @description 数据盘配置。
      *
-     * @var DataDisks[]
+     * @var DataDisk[]
      */
     public $dataDisks;
 
@@ -133,7 +133,7 @@ class scalingGroup extends Model
     /**
      * @description ECS标签。
      *
-     * @var Tags[]
+     * @var Tag[]
      */
     public $tags;
 
@@ -143,26 +143,74 @@ class scalingGroup extends Model
      * @var string[]
      */
     public $vswitchIds;
+
+    /**
+     * @description 多可用区伸缩组ECS实例扩缩容策略
+     *
+     * @var string
+     */
+    public $multiAzPolicy;
+
+    /**
+     * @description 伸缩组所需要按量实例个数的最小值，取值范围：0~1000。当按量实例个数少于该值时，将优先创建按量实例。
+     *
+     * @var int
+     */
+    public $onDemandBaseCapacity;
+
+    /**
+     * @description 伸缩组满足最小按量实例数（OnDemandBaseCapacity）要求后，超出的实例中按量实例应占的比例，取值范围：0～100。
+     *
+     * @var int
+     */
+    public $onDemandPercentageAboveBaseCapacity;
+
+    /**
+     * @description 指定可用实例规格的个数，伸缩组将按成本最低的多个规格均衡创建抢占式实例。取值范围：1~10。
+     *
+     * @var int
+     */
+    public $spotInstancePools;
+
+    /**
+     * @description 是否开启补齐抢占式实例。开启后，当收到抢占式实例将被回收的系统消息时，伸缩组将尝试创建新的实例，替换掉将被回收的抢占式实例。
+     *
+     * @var bool
+     */
+    public $spotInstanceRemedy;
+
+    /**
+     * @description 当MultiAZPolicy取值为COST_OPTIMIZED时，如果因价格、库存等原因无法创建足够的抢占式实例，是否允许自动尝试创建按量实例满足ECS实例数量要求。取值范围：true：允许。false：不允许。默认值：true
+     *
+     * @var bool
+     */
+    public $compensateWithOnDemand;
     protected $_name = [
-        'dataDisks'          => 'data_disks',
-        'instanceChargeType' => 'instance_charge_type',
-        'period'             => 'period',
-        'periodUnit'         => 'period_unit',
-        'autoRenew'          => 'auto_renew',
-        'autoRenewPeriod'    => 'auto_renew_period',
-        'platform'           => 'platform',
-        'imageId'            => 'image_id',
-        'spotStrategy'       => 'spot_strategy',
-        'spotPriceLimit'     => 'spot_price_limit',
-        'instanceTypes'      => 'instance_types',
-        'keyPair'            => 'key_pair',
-        'loginPassword'      => 'login_password',
-        'rdsInstances'       => 'rds_instances',
-        'scalingPolicy'      => 'scaling_policy',
-        'systemDiskCategory' => 'system_disk_category',
-        'systemDiskSize'     => 'system_disk_size',
-        'tags'               => 'tags',
-        'vswitchIds'         => 'vswitch_ids',
+        'dataDisks'                           => 'data_disks',
+        'instanceChargeType'                  => 'instance_charge_type',
+        'period'                              => 'period',
+        'periodUnit'                          => 'period_unit',
+        'autoRenew'                           => 'auto_renew',
+        'autoRenewPeriod'                     => 'auto_renew_period',
+        'platform'                            => 'platform',
+        'imageId'                             => 'image_id',
+        'spotStrategy'                        => 'spot_strategy',
+        'spotPriceLimit'                      => 'spot_price_limit',
+        'instanceTypes'                       => 'instance_types',
+        'keyPair'                             => 'key_pair',
+        'loginPassword'                       => 'login_password',
+        'rdsInstances'                        => 'rds_instances',
+        'scalingPolicy'                       => 'scaling_policy',
+        'systemDiskCategory'                  => 'system_disk_category',
+        'systemDiskSize'                      => 'system_disk_size',
+        'tags'                                => 'tags',
+        'vswitchIds'                          => 'vswitch_ids',
+        'multiAzPolicy'                       => 'multi_az_policy',
+        'onDemandBaseCapacity'                => 'on_demand_base_capacity',
+        'onDemandPercentageAboveBaseCapacity' => 'on_demand_percentage_above_base_capacity',
+        'spotInstancePools'                   => 'spot_instance_pools',
+        'spotInstanceRemedy'                  => 'spot_instance_remedy',
+        'compensateWithOnDemand'              => 'compensate_with_on_demand',
     ];
 
     public function validate()
@@ -247,6 +295,24 @@ class scalingGroup extends Model
         if (null !== $this->vswitchIds) {
             $res['vswitch_ids'] = $this->vswitchIds;
         }
+        if (null !== $this->multiAzPolicy) {
+            $res['multi_az_policy'] = $this->multiAzPolicy;
+        }
+        if (null !== $this->onDemandBaseCapacity) {
+            $res['on_demand_base_capacity'] = $this->onDemandBaseCapacity;
+        }
+        if (null !== $this->onDemandPercentageAboveBaseCapacity) {
+            $res['on_demand_percentage_above_base_capacity'] = $this->onDemandPercentageAboveBaseCapacity;
+        }
+        if (null !== $this->spotInstancePools) {
+            $res['spot_instance_pools'] = $this->spotInstancePools;
+        }
+        if (null !== $this->spotInstanceRemedy) {
+            $res['spot_instance_remedy'] = $this->spotInstanceRemedy;
+        }
+        if (null !== $this->compensateWithOnDemand) {
+            $res['compensate_with_on_demand'] = $this->compensateWithOnDemand;
+        }
 
         return $res;
     }
@@ -264,7 +330,7 @@ class scalingGroup extends Model
                 $model->dataDisks = [];
                 $n                = 0;
                 foreach ($map['data_disks'] as $item) {
-                    $model->dataDisks[$n++] = null !== $item ? DataDisks::fromMap($item) : $item;
+                    $model->dataDisks[$n++] = null !== $item ? DataDisk::fromMap($item) : $item;
                 }
             }
         }
@@ -331,7 +397,7 @@ class scalingGroup extends Model
                 $model->tags = [];
                 $n           = 0;
                 foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? Tags::fromMap($item) : $item;
+                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
                 }
             }
         }
@@ -339,6 +405,24 @@ class scalingGroup extends Model
             if (!empty($map['vswitch_ids'])) {
                 $model->vswitchIds = $map['vswitch_ids'];
             }
+        }
+        if (isset($map['multi_az_policy'])) {
+            $model->multiAzPolicy = $map['multi_az_policy'];
+        }
+        if (isset($map['on_demand_base_capacity'])) {
+            $model->onDemandBaseCapacity = $map['on_demand_base_capacity'];
+        }
+        if (isset($map['on_demand_percentage_above_base_capacity'])) {
+            $model->onDemandPercentageAboveBaseCapacity = $map['on_demand_percentage_above_base_capacity'];
+        }
+        if (isset($map['spot_instance_pools'])) {
+            $model->spotInstancePools = $map['spot_instance_pools'];
+        }
+        if (isset($map['spot_instance_remedy'])) {
+            $model->spotInstanceRemedy = $map['spot_instance_remedy'];
+        }
+        if (isset($map['compensate_with_on_demand'])) {
+            $model->compensateWithOnDemand = $map['compensate_with_on_demand'];
         }
 
         return $model;

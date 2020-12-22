@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description 下一个查询token。
+     * @description 下一个查询开始Token，为空说明没有下一个
      *
      * @var string
      */

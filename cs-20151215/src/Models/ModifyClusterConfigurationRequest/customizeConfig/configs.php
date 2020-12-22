@@ -2,36 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
+namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterConfigurationRequest\customizeConfig;
 
 use AlibabaCloud\Tea\Model;
 
-class taints extends Model
+class configs extends Model
 {
     /**
-     * @description 调度策略。
-     *
-     * @var string
-     */
-    public $effect;
-
-    /**
-     * @description 污点key。
+     * @description key值。
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 污点值。
+     * @description value值。
      *
      * @var string
      */
     public $value;
     protected $_name = [
-        'effect' => 'effect',
-        'key'    => 'key',
-        'value'  => 'value',
+        'key'   => 'key',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -41,9 +33,6 @@ class taints extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->effect) {
-            $res['effect'] = $this->effect;
-        }
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
@@ -57,14 +46,11 @@ class taints extends Model
     /**
      * @param array $map
      *
-     * @return taints
+     * @return configs
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['effect'])) {
-            $model->effect = $map['effect'];
-        }
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }

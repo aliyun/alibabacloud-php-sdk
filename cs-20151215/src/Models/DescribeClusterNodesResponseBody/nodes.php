@@ -58,7 +58,7 @@ class nodes extends Model
     public $instanceId;
 
     /**
-     * @description 节点实例名称。
+     * @description 节点名称。
      *
      * @var string
      */
@@ -121,7 +121,7 @@ class nodes extends Model
     public $nodeStatus;
 
     /**
-     * @description 节点所属的节点池ID。
+     * @description 节点池ID。
      *
      * @var string
      */
@@ -135,11 +135,18 @@ class nodes extends Model
     public $source;
 
     /**
-     * @description ECS运行状态，例如：running。
+     * @description ECS运行状态，例如：Running。
      *
      * @var string
      */
     public $state;
+
+    /**
+     * @description 抢占时实例类型
+     *
+     * @var string
+     */
+    public $spotStrategy;
     protected $_name = [
         'creationTime'       => 'creation_time',
         'errorMessage'       => 'error_message',
@@ -160,6 +167,7 @@ class nodes extends Model
         'nodepoolId'         => 'nodepool_id',
         'source'             => 'source',
         'state'              => 'state',
+        'spotStrategy'       => 'spot_strategy',
     ];
 
     public function validate()
@@ -225,6 +233,9 @@ class nodes extends Model
         }
         if (null !== $this->state) {
             $res['state'] = $this->state;
+        }
+        if (null !== $this->spotStrategy) {
+            $res['spot_strategy'] = $this->spotStrategy;
         }
 
         return $res;
@@ -296,6 +307,9 @@ class nodes extends Model
         }
         if (isset($map['state'])) {
             $model->state = $map['state'];
+        }
+        if (isset($map['spot_strategy'])) {
+            $model->spotStrategy = $map['spot_strategy'];
         }
 
         return $model;

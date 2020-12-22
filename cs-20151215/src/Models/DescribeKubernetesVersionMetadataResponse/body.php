@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataResponse;
 
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataResponse\body\images;
-use AlibabaCloud\SDK\CS\V20151215\Models\Runtimes;
+use AlibabaCloud\SDK\CS\V20151215\Models\Runtime;
 use AlibabaCloud\Tea\Model;
 
 class body extends Model
@@ -34,7 +34,7 @@ class body extends Model
     /**
      * @description 容器运行时详情。
      *
-     * @var Runtimes[]
+     * @var Runtime[]
      */
     public $runtimes;
 
@@ -129,7 +129,7 @@ class body extends Model
                 $model->runtimes = [];
                 $n               = 0;
                 foreach ($map['runtimes'] as $item) {
-                    $model->runtimes[$n++] = null !== $item ? Runtimes::fromMap($item) : $item;
+                    $model->runtimes[$n++] = null !== $item ? Runtime::fromMap($item) : $item;
                 }
             }
         }

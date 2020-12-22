@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1ResponseBody;
 
 use AlibabaCloud\SDK\CS\V20151215\Models\MaintenanceWindow;
-use AlibabaCloud\SDK\CS\V20151215\Models\Tags;
+use AlibabaCloud\SDK\CS\V20151215\Models\Tag;
 use AlibabaCloud\Tea\Model;
 
 class clusters extends Model
@@ -160,7 +160,7 @@ class clusters extends Model
     /**
      * @description 集群标签。
      *
-     * @var Tags[]
+     * @var Tag[]
      */
     public $tags;
 
@@ -422,7 +422,7 @@ class clusters extends Model
                 $model->tags = [];
                 $n           = 0;
                 foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? Tags::fromMap($item) : $item;
+                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
                 }
             }
         }

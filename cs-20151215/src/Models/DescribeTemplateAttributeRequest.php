@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateTemplateResponseBody extends Model
+class DescribeTemplateAttributeRequest extends Model
 {
     /**
-     * @description 模板ID。
+     * @description 模板类型，值为创建部署模板时指定的模板类型。
      *
      * @var string
      */
-    public $templateId;
+    public $templateType;
     protected $_name = [
-        'templateId' => 'template_id',
+        'templateType' => 'template_type',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class CreateTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateId) {
-            $res['template_id'] = $this->templateId;
+        if (null !== $this->templateType) {
+            $res['template_type'] = $this->templateType;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class CreateTemplateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateTemplateResponseBody
+     * @return DescribeTemplateAttributeRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['template_id'])) {
-            $model->templateId = $map['template_id'];
+        if (isset($map['template_type'])) {
+            $model->templateType = $map['template_type'];
         }
 
         return $model;

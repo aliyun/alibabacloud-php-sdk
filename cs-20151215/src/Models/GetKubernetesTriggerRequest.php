@@ -28,10 +28,18 @@ class GetKubernetesTriggerRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @description 触发器行为。
+     *
+     * @var string
+     */
+    public $action;
     protected $_name = [
         'namespace' => 'Namespace',
         'type'      => 'Type',
         'name'      => 'Name',
+        'action'    => 'action',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class GetKubernetesTriggerRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->action) {
+            $res['action'] = $this->action;
         }
 
         return $res;
@@ -70,6 +81,9 @@ class GetKubernetesTriggerRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['action'])) {
+            $model->action = $map['action'];
         }
 
         return $model;

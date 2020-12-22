@@ -23,18 +23,11 @@ class body extends Model
     public $clusterId;
 
     /**
-     * @description 集群日志。
+     * @description 日志内容。
      *
      * @var string
      */
     public $clusterLog;
-
-    /**
-     * @description 日志创建时间。
-     *
-     * @var string
-     */
-    public $created;
 
     /**
      * @description 日志等级。
@@ -42,6 +35,13 @@ class body extends Model
      * @var string
      */
     public $logLevel;
+
+    /**
+     * @description 日志创建时间。
+     *
+     * @var string
+     */
+    public $created;
 
     /**
      * @description 日志更新时间。
@@ -53,8 +53,8 @@ class body extends Model
         'ID'         => 'ID',
         'clusterId'  => 'cluster_id',
         'clusterLog' => 'cluster_log',
-        'created'    => 'created',
         'logLevel'   => 'log_level',
+        'created'    => 'created',
         'updated'    => 'updated',
     ];
 
@@ -74,11 +74,11 @@ class body extends Model
         if (null !== $this->clusterLog) {
             $res['cluster_log'] = $this->clusterLog;
         }
-        if (null !== $this->created) {
-            $res['created'] = $this->created;
-        }
         if (null !== $this->logLevel) {
             $res['log_level'] = $this->logLevel;
+        }
+        if (null !== $this->created) {
+            $res['created'] = $this->created;
         }
         if (null !== $this->updated) {
             $res['updated'] = $this->updated;
@@ -104,11 +104,11 @@ class body extends Model
         if (isset($map['cluster_log'])) {
             $model->clusterLog = $map['cluster_log'];
         }
-        if (isset($map['created'])) {
-            $model->created = $map['created'];
-        }
         if (isset($map['log_level'])) {
             $model->logLevel = $map['log_level'];
+        }
+        if (isset($map['created'])) {
+            $model->created = $map['created'];
         }
         if (isset($map['updated'])) {
             $model->updated = $map['updated'];

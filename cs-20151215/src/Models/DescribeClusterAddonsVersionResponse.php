@@ -14,7 +14,7 @@ class DescribeClusterAddonsVersionResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeClusterAddonsVersionResponseBody
+     * @var mixed[]
      */
     public $body;
     protected $_name = [
@@ -35,7 +35,7 @@ class DescribeClusterAddonsVersionResponse extends Model
             $res['headers'] = $this->headers;
         }
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -53,7 +53,7 @@ class DescribeClusterAddonsVersionResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeClusterAddonsVersionResponseBody::fromMap($map['body']);
+            $model->body = $map['body'];
         }
 
         return $model;

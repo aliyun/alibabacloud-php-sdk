@@ -10,13 +10,6 @@ use AlibabaCloud\Tea\Model;
 class componentGroups extends Model
 {
     /**
-     * @description 默认组件组。
-     *
-     * @var string[]
-     */
-    public $default;
-
-    /**
      * @description 组件组名称。
      *
      * @var string
@@ -24,13 +17,12 @@ class componentGroups extends Model
     public $groupName;
 
     /**
-     * @description 组件清单。
+     * @description 组件列表
      *
      * @var items[]
      */
     public $items;
     protected $_name = [
-        'default'   => 'default',
         'groupName' => 'group_name',
         'items'     => 'items',
     ];
@@ -42,9 +34,6 @@ class componentGroups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->default) {
-            $res['default'] = $this->default;
-        }
         if (null !== $this->groupName) {
             $res['group_name'] = $this->groupName;
         }
@@ -69,11 +58,6 @@ class componentGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['default'])) {
-            if (!empty($map['default'])) {
-                $model->default = $map['default'];
-            }
-        }
         if (isset($map['group_name'])) {
             $model->groupName = $map['group_name'];
         }

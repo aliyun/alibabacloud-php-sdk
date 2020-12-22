@@ -9,18 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodesRequest extends Model
 {
     /**
-     * @description 每页展示结果数。
+     * @description 节点实例ID，按照实例ID进行过滤。  节点池ID不为空时会忽略此字段。
      *
-     * @var string
+     * @var string[]
      */
-    public $pageSize;
-
-    /**
-     * @description 结果只展示几页。
-     *
-     * @var string
-     */
-    public $pageNumber;
+    public $instanceIds;
 
     /**
      * @description 节点池ID。
@@ -30,16 +23,31 @@ class DescribeClusterNodesRequest extends Model
     public $nodepoolId;
 
     /**
-     * @description 节点状态信息。
+     * @description 节点状态。默认值：all。
      *
      * @var string
      */
     public $state;
+
+    /**
+     * @description 每页大小。
+     *
+     * @var string
+     */
+    public $pageSize;
+
+    /**
+     * @description 分页数量
+     *
+     * @var string
+     */
+    public $pageNumber;
     protected $_name = [
-        'pageSize'   => 'pageSize',
-        'pageNumber' => 'pageNumber',
-        'nodepoolId' => 'nodepool_id',
-        'state'      => 'state',
+        'instanceIds' => 'instanceIds',
+        'nodepoolId'  => 'nodepool_id',
+        'state'       => 'state',
+        'pageSize'    => 'pageSize',
+        'pageNumber'  => 'pageNumber',
     ];
 
     public function validate()
@@ -49,17 +57,20 @@ class DescribeClusterNodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['pageNumber'] = $this->pageNumber;
+        if (null !== $this->instanceIds) {
+            $res['instanceIds'] = $this->instanceIds;
         }
         if (null !== $this->nodepoolId) {
             $res['nodepool_id'] = $this->nodepoolId;
         }
         if (null !== $this->state) {
             $res['state'] = $this->state;
+        }
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -73,17 +84,22 @@ class DescribeClusterNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
-        }
-        if (isset($map['pageNumber'])) {
-            $model->pageNumber = $map['pageNumber'];
+        if (isset($map['instanceIds'])) {
+            if (!empty($map['instanceIds'])) {
+                $model->instanceIds = $map['instanceIds'];
+            }
         }
         if (isset($map['nodepool_id'])) {
             $model->nodepoolId = $map['nodepool_id'];
         }
         if (isset($map['state'])) {
             $model->state = $map['state'];
+        }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
         }
 
         return $model;

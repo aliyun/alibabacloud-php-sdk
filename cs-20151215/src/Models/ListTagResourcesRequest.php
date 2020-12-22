@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class ListTagResourcesRequest extends Model
@@ -19,7 +18,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description 按标签查找。
      *
-     * @var tags[]
+     * @var Tag[]
      */
     public $tags;
 
@@ -79,7 +78,7 @@ class ListTagResourcesRequest extends Model
                 $model->tags = [];
                 $n           = 0;
                 foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
                 }
             }
         }

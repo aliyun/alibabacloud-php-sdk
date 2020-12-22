@@ -131,7 +131,7 @@ class DescribeClusterDetailResponseBody extends Model
     /**
      * @description 集群标签。
      *
-     * @var Tags[]
+     * @var Tag[]
      */
     public $tags;
 
@@ -437,7 +437,7 @@ class DescribeClusterDetailResponseBody extends Model
                 $model->tags = [];
                 $n           = 0;
                 foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? Tags::fromMap($item) : $item;
+                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
                 }
             }
         }

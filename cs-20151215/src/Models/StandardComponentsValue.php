@@ -9,25 +9,25 @@ use AlibabaCloud\Tea\Model;
 class StandardComponentsValue extends Model
 {
     /**
-     * @description 标准组件信息，包含各个组件的描述信息。
-     *
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @description 是否禁止默认安装。
-     *
-     * @var bool
-     */
-    public $disabled;
-
-    /**
      * @description 组件名称。
      *
      * @var string
      */
     public $name;
+
+    /**
+     * @description 组件版本。
+     *
+     * @var string
+     */
+    public $version;
+
+    /**
+     * @description 组件描述信息。
+     *
+     * @var string
+     */
+    public $description;
 
     /**
      * @description 是否为必需组件。
@@ -37,17 +37,17 @@ class StandardComponentsValue extends Model
     public $required;
 
     /**
-     * @description 组件版本。
+     * @description 是否禁止默认安装。
      *
-     * @var string
+     * @var bool
      */
-    public $version;
+    public $disabled;
     protected $_name = [
-        'description' => 'description',
-        'disabled'    => 'disabled',
         'name'        => 'name',
-        'required'    => 'required',
         'version'     => 'version',
+        'description' => 'description',
+        'required'    => 'required',
+        'disabled'    => 'disabled',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class StandardComponentsValue extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
-        }
-        if (null !== $this->disabled) {
-            $res['disabled'] = $this->disabled;
-        }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
+        }
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
         if (null !== $this->required) {
             $res['required'] = $this->required;
         }
-        if (null !== $this->version) {
-            $res['version'] = $this->version;
+        if (null !== $this->disabled) {
+            $res['disabled'] = $this->disabled;
         }
 
         return $res;
@@ -84,20 +84,20 @@ class StandardComponentsValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
-        }
-        if (isset($map['disabled'])) {
-            $model->disabled = $map['disabled'];
-        }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
+        }
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
         if (isset($map['required'])) {
             $model->required = $map['required'];
         }
-        if (isset($map['version'])) {
-            $model->version = $map['version'];
+        if (isset($map['disabled'])) {
+            $model->disabled = $map['disabled'];
         }
 
         return $model;

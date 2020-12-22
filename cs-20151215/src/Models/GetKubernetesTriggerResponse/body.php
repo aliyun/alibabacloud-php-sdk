@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models;
+namespace AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerResponse;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateKubernetesTriggerResponseBody extends Model
+class body extends Model
 {
     /**
      * @description 触发器ID。
@@ -16,34 +16,42 @@ class CreateKubernetesTriggerResponseBody extends Model
     public $id;
 
     /**
-     * @description 集群ID。
+     * @description 触发器名称。
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description 集群ID
      *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 触发器项目名称。
+     * @description 触发器项目名称
      *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 触发器类型。默认值为 deployment 。
+     * @description 触发器类型。
      *
      * @var string
      */
     public $type;
 
     /**
-     * @description 触发器行为。
+     * @description 触发器行为
      *
      * @var string
      */
     public $action;
     protected $_name = [
         'id'        => 'id',
+        'name'      => 'name',
         'clusterId' => 'cluster_id',
         'projectId' => 'project_id',
         'type'      => 'type',
@@ -59,6 +67,9 @@ class CreateKubernetesTriggerResponseBody extends Model
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
@@ -79,13 +90,16 @@ class CreateKubernetesTriggerResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateKubernetesTriggerResponseBody
+     * @return body
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];

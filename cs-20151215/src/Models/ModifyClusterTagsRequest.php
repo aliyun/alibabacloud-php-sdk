@@ -4,15 +4,14 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterTagsRequest\body;
 use AlibabaCloud\Tea\Model;
 
 class ModifyClusterTagsRequest extends Model
 {
     /**
-     * @description 标签列表。
+     * @description 集群标签列表。
      *
-     * @var body[]
+     * @var Tag[]
      */
     public $body;
     protected $_name = [
@@ -52,7 +51,7 @@ class ModifyClusterTagsRequest extends Model
                 $model->body = [];
                 $n           = 0;
                 foreach ($map['body'] as $item) {
-                    $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
+                    $model->body[$n++] = null !== $item ? Tag::fromMap($item) : $item;
                 }
             }
         }

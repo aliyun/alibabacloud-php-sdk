@@ -9,21 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateRequest extends Model
 {
     /**
+     * @description 模板名称。
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description YAML格式的模板内容。
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description 模板标签。
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description 模板描述。
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description 模板类型。默认值：kubernetes
+     *
      * @var string
      */
     public $templateType;
@@ -31,6 +46,7 @@ class CreateTemplateRequest extends Model
         'name'         => 'name',
         'template'     => 'template',
         'tags'         => 'tags',
+        'description'  => 'description',
         'templateType' => 'template_type',
     ];
 
@@ -49,6 +65,9 @@ class CreateTemplateRequest extends Model
         }
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
+        }
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
         if (null !== $this->templateType) {
             $res['template_type'] = $this->templateType;
@@ -73,6 +92,9 @@ class CreateTemplateRequest extends Model
         }
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];
+        }
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
         if (isset($map['template_type'])) {
             $model->templateType = $map['template_type'];
