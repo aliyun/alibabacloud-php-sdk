@@ -18,7 +18,6 @@ class DetectVideoLivingFaceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('videoUrl', $this->videoUrl, true);
     }
 
     public function toMap()

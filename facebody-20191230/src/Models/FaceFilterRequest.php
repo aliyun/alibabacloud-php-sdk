@@ -30,9 +30,6 @@ class FaceFilterRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageURL', $this->imageURL, true);
-        Model::validateRequired('resourceType', $this->resourceType, true);
-        Model::validateRequired('strength', $this->strength, true);
     }
 
     public function toMap()

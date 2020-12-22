@@ -30,9 +30,6 @@ class SwapFacialFeaturesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('sourceImageURL', $this->sourceImageURL, true);
-        Model::validateRequired('editPart', $this->editPart, true);
-        Model::validateRequired('targetImageURL', $this->targetImageURL, true);
     }
 
     public function toMap()

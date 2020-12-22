@@ -37,9 +37,6 @@ class FaceMakeupAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('imageURLObject', $this->imageURLObject, true);
-        Model::validateRequired('makeupType', $this->makeupType, true);
-        Model::validateRequired('resourceType', $this->resourceType, true);
-        Model::validateRequired('strength', $this->strength, true);
     }
 
     public function toMap()

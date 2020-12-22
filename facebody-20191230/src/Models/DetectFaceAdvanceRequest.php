@@ -12,8 +12,14 @@ class DetectFaceAdvanceRequest extends Model
      * @var Stream
      */
     public $imageURLObject;
+
+    /**
+     * @var int
+     */
+    public $imageType;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
+        'imageType'      => 'ImageType',
     ];
 
     public function validate()
@@ -26,6 +32,9 @@ class DetectFaceAdvanceRequest extends Model
         $res = [];
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
+        }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
         }
 
         return $res;
@@ -41,6 +50,9 @@ class DetectFaceAdvanceRequest extends Model
         $model = new self();
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
+        }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
         }
 
         return $model;

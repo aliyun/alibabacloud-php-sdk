@@ -36,10 +36,6 @@ class FaceBeautyRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageURL', $this->imageURL, true);
-        Model::validateRequired('sharp', $this->sharp, true);
-        Model::validateRequired('smooth', $this->smooth, true);
-        Model::validateRequired('white', $this->white, true);
     }
 
     public function toMap()

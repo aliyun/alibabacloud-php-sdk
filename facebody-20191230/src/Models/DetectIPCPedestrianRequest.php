@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
+use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectIPCPedestrianRequest\URLList;
 use AlibabaCloud\Tea\Model;
 
 class DetectIPCPedestrianRequest extends Model
 {
+    /**
+     * @var bool
+     */
+    public $continueOnError;
+
     /**
      * @var string
      */
@@ -22,10 +28,17 @@ class DetectIPCPedestrianRequest extends Model
      * @var int
      */
     public $height;
+
+    /**
+     * @var URLList[]
+     */
+    public $URLList;
     protected $_name = [
-        'imageData' => 'ImageData',
-        'width'     => 'Width',
-        'height'    => 'Height',
+        'continueOnError' => 'ContinueOnError',
+        'imageData'       => 'ImageData',
+        'width'           => 'Width',
+        'height'          => 'Height',
+        'URLList'         => 'URLList',
     ];
 
     public function validate()
@@ -35,6 +48,9 @@ class DetectIPCPedestrianRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->continueOnError) {
+            $res['ContinueOnError'] = $this->continueOnError;
+        }
         if (null !== $this->imageData) {
             $res['ImageData'] = $this->imageData;
         }
@@ -43,6 +59,15 @@ class DetectIPCPedestrianRequest extends Model
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+        if (null !== $this->URLList) {
+            $res['URLList'] = [];
+            if (null !== $this->URLList && \is_array($this->URLList)) {
+                $n = 0;
+                foreach ($this->URLList as $item) {
+                    $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,6 +81,9 @@ class DetectIPCPedestrianRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContinueOnError'])) {
+            $model->continueOnError = $map['ContinueOnError'];
+        }
         if (isset($map['ImageData'])) {
             $model->imageData = $map['ImageData'];
         }
@@ -64,6 +92,15 @@ class DetectIPCPedestrianRequest extends Model
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['URLList'])) {
+            if (!empty($map['URLList'])) {
+                $model->URLList = [];
+                $n              = 0;
+                foreach ($map['URLList'] as $item) {
+                    $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

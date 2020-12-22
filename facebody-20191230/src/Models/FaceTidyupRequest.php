@@ -30,9 +30,6 @@ class FaceTidyupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageURL', $this->imageURL, true);
-        Model::validateRequired('shapeType', $this->shapeType, true);
-        Model::validateRequired('strength', $this->strength, true);
     }
 
     public function toMap()

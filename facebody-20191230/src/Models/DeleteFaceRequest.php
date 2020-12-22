@@ -24,8 +24,6 @@ class DeleteFaceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dbName', $this->dbName, true);
-        Model::validateRequired('faceId', $this->faceId, true);
     }
 
     public function toMap()

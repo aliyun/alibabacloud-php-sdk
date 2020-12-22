@@ -25,7 +25,6 @@ class VerifyFaceMaskAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('imageURLObject', $this->imageURLObject, true);
-        Model::validateRequired('refUrl', $this->refUrl, true);
     }
 
     public function toMap()

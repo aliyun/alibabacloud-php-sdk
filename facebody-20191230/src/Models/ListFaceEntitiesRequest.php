@@ -54,7 +54,6 @@ class ListFaceEntitiesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dbName', $this->dbName, true);
     }
 
     public function toMap()

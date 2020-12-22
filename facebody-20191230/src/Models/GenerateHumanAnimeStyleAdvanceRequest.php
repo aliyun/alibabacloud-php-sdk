@@ -12,8 +12,14 @@ class GenerateHumanAnimeStyleAdvanceRequest extends Model
      * @var Stream
      */
     public $imageURLObject;
+
+    /**
+     * @var string
+     */
+    public $algoType;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
+        'algoType'       => 'AlgoType',
     ];
 
     public function validate()
@@ -26,6 +32,9 @@ class GenerateHumanAnimeStyleAdvanceRequest extends Model
         $res = [];
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
+        }
+        if (null !== $this->algoType) {
+            $res['AlgoType'] = $this->algoType;
         }
 
         return $res;
@@ -41,6 +50,9 @@ class GenerateHumanAnimeStyleAdvanceRequest extends Model
         $model = new self();
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
+        }
+        if (isset($map['AlgoType'])) {
+            $model->algoType = $map['AlgoType'];
         }
 
         return $model;

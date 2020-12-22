@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class RecognizeActionRequest extends Model
 {
     /**
-     * @var URLList[]
-     */
-    public $URLList;
-
-    /**
      * @var int
      */
     public $type;
@@ -23,20 +18,30 @@ class RecognizeActionRequest extends Model
      * @var string
      */
     public $videoUrl;
+
+    /**
+     * @var URLList[]
+     */
+    public $URLList;
     protected $_name = [
-        'URLList'  => 'URLList',
         'type'     => 'Type',
         'videoUrl' => 'VideoUrl',
+        'URLList'  => 'URLList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
+        }
         if (null !== $this->URLList) {
             $res['URLList'] = [];
             if (null !== $this->URLList && \is_array($this->URLList)) {
@@ -45,12 +50,6 @@ class RecognizeActionRequest extends Model
                     $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
         }
 
         return $res;
@@ -64,6 +63,12 @@ class RecognizeActionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
+        }
         if (isset($map['URLList'])) {
             if (!empty($map['URLList'])) {
                 $model->URLList = [];
@@ -72,12 +77,6 @@ class RecognizeActionRequest extends Model
                     $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
         }
 
         return $model;

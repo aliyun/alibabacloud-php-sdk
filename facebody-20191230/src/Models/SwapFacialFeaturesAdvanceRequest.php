@@ -31,8 +31,6 @@ class SwapFacialFeaturesAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('sourceImageURLObject', $this->sourceImageURLObject, true);
-        Model::validateRequired('editPart', $this->editPart, true);
-        Model::validateRequired('targetImageURL', $this->targetImageURL, true);
     }
 
     public function toMap()

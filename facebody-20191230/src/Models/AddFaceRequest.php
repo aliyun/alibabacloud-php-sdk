@@ -36,9 +36,6 @@ class AddFaceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dbName', $this->dbName, true);
-        Model::validateRequired('imageUrl', $this->imageUrl, true);
-        Model::validateRequired('entityId', $this->entityId, true);
     }
 
     public function toMap()

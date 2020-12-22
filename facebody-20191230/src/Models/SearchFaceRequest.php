@@ -22,17 +22,20 @@ class SearchFaceRequest extends Model
      * @var int
      */
     public $limit;
+
+    /**
+     * @var string
+     */
+    public $dbNames;
     protected $_name = [
         'dbName'   => 'DbName',
         'imageUrl' => 'ImageUrl',
         'limit'    => 'Limit',
+        'dbNames'  => 'DbNames',
     ];
 
     public function validate()
     {
-        Model::validateRequired('dbName', $this->dbName, true);
-        Model::validateRequired('imageUrl', $this->imageUrl, true);
-        Model::validateRequired('limit', $this->limit, true);
     }
 
     public function toMap()
@@ -46,6 +49,9 @@ class SearchFaceRequest extends Model
         }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->dbNames) {
+            $res['DbNames'] = $this->dbNames;
         }
 
         return $res;
@@ -67,6 +73,9 @@ class SearchFaceRequest extends Model
         }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
+        }
+        if (isset($map['DbNames'])) {
+            $model->dbNames = $map['DbNames'];
         }
 
         return $model;

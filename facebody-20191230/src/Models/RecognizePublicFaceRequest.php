@@ -19,7 +19,6 @@ class RecognizePublicFaceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('task', $this->task, true);
     }
 
     public function toMap()

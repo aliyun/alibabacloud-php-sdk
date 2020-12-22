@@ -37,8 +37,6 @@ class AddFaceAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('imageUrlObject', $this->imageUrlObject, true);
-        Model::validateRequired('dbName', $this->dbName, true);
-        Model::validateRequired('entityId', $this->entityId, true);
     }
 
     public function toMap()

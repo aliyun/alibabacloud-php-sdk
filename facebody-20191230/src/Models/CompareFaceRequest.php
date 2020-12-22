@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CompareFaceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $imageType;
+
+    /**
      * @var string
      */
     public $imageURLA;
@@ -18,19 +23,21 @@ class CompareFaceRequest extends Model
      */
     public $imageURLB;
     protected $_name = [
+        'imageType' => 'ImageType',
         'imageURLA' => 'ImageURLA',
         'imageURLB' => 'ImageURLB',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLA', $this->imageURLA, true);
-        Model::validateRequired('imageURLB', $this->imageURLB, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
+        }
         if (null !== $this->imageURLA) {
             $res['ImageURLA'] = $this->imageURLA;
         }
@@ -49,6 +56,9 @@ class CompareFaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
+        }
         if (isset($map['ImageURLA'])) {
             $model->imageURLA = $map['ImageURLA'];
         }

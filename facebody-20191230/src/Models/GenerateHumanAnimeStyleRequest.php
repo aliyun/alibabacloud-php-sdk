@@ -12,13 +12,18 @@ class GenerateHumanAnimeStyleRequest extends Model
      * @var string
      */
     public $imageURL;
+
+    /**
+     * @var string
+     */
+    public $algoType;
     protected $_name = [
         'imageURL' => 'ImageURL',
+        'algoType' => 'AlgoType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURL', $this->imageURL, true);
     }
 
     public function toMap()
@@ -26,6 +31,9 @@ class GenerateHumanAnimeStyleRequest extends Model
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->algoType) {
+            $res['AlgoType'] = $this->algoType;
         }
 
         return $res;
@@ -41,6 +49,9 @@ class GenerateHumanAnimeStyleRequest extends Model
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['AlgoType'])) {
+            $model->algoType = $map['AlgoType'];
         }
 
         return $model;
