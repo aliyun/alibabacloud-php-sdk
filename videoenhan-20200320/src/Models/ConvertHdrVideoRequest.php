@@ -6,27 +6,12 @@ namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EnhanceVideoQualityAdvanceRequest extends Model
+class ConvertHdrVideoRequest extends Model
 {
     /**
-     * @var Stream
+     * @var string
      */
-    public $videoURLObject;
-
-    /**
-     * @var int
-     */
-    public $outPutWidth;
-
-    /**
-     * @var int
-     */
-    public $outPutHeight;
-
-    /**
-     * @var int
-     */
-    public $frameRate;
+    public $videoURL;
 
     /**
      * @var string
@@ -43,10 +28,7 @@ class EnhanceVideoQualityAdvanceRequest extends Model
      */
     public $bitrate;
     protected $_name = [
-        'videoURLObject' => 'VideoURLObject',
-        'outPutWidth'    => 'OutPutWidth',
-        'outPutHeight'   => 'OutPutHeight',
-        'frameRate'      => 'FrameRate',
+        'videoURL'       => 'VideoURL',
         'HDRFormat'      => 'HDRFormat',
         'maxIlluminance' => 'MaxIlluminance',
         'bitrate'        => 'Bitrate',
@@ -54,23 +36,14 @@ class EnhanceVideoQualityAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
+        Model::validateRequired('videoURL', $this->videoURL, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoURLObject) {
-            $res['VideoURLObject'] = $this->videoURLObject;
-        }
-        if (null !== $this->outPutWidth) {
-            $res['OutPutWidth'] = $this->outPutWidth;
-        }
-        if (null !== $this->outPutHeight) {
-            $res['OutPutHeight'] = $this->outPutHeight;
-        }
-        if (null !== $this->frameRate) {
-            $res['FrameRate'] = $this->frameRate;
+        if (null !== $this->videoURL) {
+            $res['VideoURL'] = $this->videoURL;
         }
         if (null !== $this->HDRFormat) {
             $res['HDRFormat'] = $this->HDRFormat;
@@ -88,22 +61,13 @@ class EnhanceVideoQualityAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return EnhanceVideoQualityAdvanceRequest
+     * @return ConvertHdrVideoRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURLObject'])) {
-            $model->videoURLObject = $map['VideoURLObject'];
-        }
-        if (isset($map['OutPutWidth'])) {
-            $model->outPutWidth = $map['OutPutWidth'];
-        }
-        if (isset($map['OutPutHeight'])) {
-            $model->outPutHeight = $map['OutPutHeight'];
-        }
-        if (isset($map['FrameRate'])) {
-            $model->frameRate = $map['FrameRate'];
+        if (isset($map['VideoURL'])) {
+            $model->videoURL = $map['VideoURL'];
         }
         if (isset($map['HDRFormat'])) {
             $model->HDRFormat = $map['HDRFormat'];

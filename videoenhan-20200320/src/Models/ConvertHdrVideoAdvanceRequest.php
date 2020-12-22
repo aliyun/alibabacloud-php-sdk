@@ -5,28 +5,14 @@
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class EnhanceVideoQualityAdvanceRequest extends Model
+class ConvertHdrVideoAdvanceRequest extends Model
 {
     /**
      * @var Stream
      */
     public $videoURLObject;
-
-    /**
-     * @var int
-     */
-    public $outPutWidth;
-
-    /**
-     * @var int
-     */
-    public $outPutHeight;
-
-    /**
-     * @var int
-     */
-    public $frameRate;
 
     /**
      * @var string
@@ -44,9 +30,6 @@ class EnhanceVideoQualityAdvanceRequest extends Model
     public $bitrate;
     protected $_name = [
         'videoURLObject' => 'VideoURLObject',
-        'outPutWidth'    => 'OutPutWidth',
-        'outPutHeight'   => 'OutPutHeight',
-        'frameRate'      => 'FrameRate',
         'HDRFormat'      => 'HDRFormat',
         'maxIlluminance' => 'MaxIlluminance',
         'bitrate'        => 'Bitrate',
@@ -62,15 +45,6 @@ class EnhanceVideoQualityAdvanceRequest extends Model
         $res = [];
         if (null !== $this->videoURLObject) {
             $res['VideoURLObject'] = $this->videoURLObject;
-        }
-        if (null !== $this->outPutWidth) {
-            $res['OutPutWidth'] = $this->outPutWidth;
-        }
-        if (null !== $this->outPutHeight) {
-            $res['OutPutHeight'] = $this->outPutHeight;
-        }
-        if (null !== $this->frameRate) {
-            $res['FrameRate'] = $this->frameRate;
         }
         if (null !== $this->HDRFormat) {
             $res['HDRFormat'] = $this->HDRFormat;
@@ -88,22 +62,13 @@ class EnhanceVideoQualityAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return EnhanceVideoQualityAdvanceRequest
+     * @return ConvertHdrVideoAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VideoURLObject'])) {
             $model->videoURLObject = $map['VideoURLObject'];
-        }
-        if (isset($map['OutPutWidth'])) {
-            $model->outPutWidth = $map['OutPutWidth'];
-        }
-        if (isset($map['OutPutHeight'])) {
-            $model->outPutHeight = $map['OutPutHeight'];
-        }
-        if (isset($map['FrameRate'])) {
-            $model->frameRate = $map['FrameRate'];
         }
         if (isset($map['HDRFormat'])) {
             $model->HDRFormat = $map['HDRFormat'];
