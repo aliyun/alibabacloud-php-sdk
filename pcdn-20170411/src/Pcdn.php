@@ -76,6 +76,7 @@ use AlibabaCloud\SDK\Pcdn\V20170411\Models\StartDomainResponse;
 use AlibabaCloud\SDK\Pcdn\V20170411\Models\StopDomainRequest;
 use AlibabaCloud\SDK\Pcdn\V20170411\Models\StopDomainResponse;
 use AlibabaCloud\Tea\Rpc\Rpc;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 
@@ -99,7 +100,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return StopDomainResponse::fromMap($this->doRequest('StopDomain', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return StopDomainResponse::fromMap($this->doRequest('StopDomain', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -124,7 +125,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return StartDomainResponse::fromMap($this->doRequest('StartDomain', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return StartDomainResponse::fromMap($this->doRequest('StartDomain', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -149,7 +150,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeleteDomainResponse::fromMap($this->doRequest('DeleteDomain', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return DeleteDomainResponse::fromMap($this->doRequest('DeleteDomain', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -174,7 +175,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddDomainResponse::fromMap($this->doRequest('AddDomain', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return AddDomainResponse::fromMap($this->doRequest('AddDomain', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -199,7 +200,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetBalanceTrafficDataResponse::fromMap($this->doRequest('GetBalanceTrafficData', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetBalanceTrafficDataResponse::fromMap($this->doRequest('GetBalanceTrafficData', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -224,7 +225,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddPcdnControlRuleResponse::fromMap($this->doRequest('AddPcdnControlRule', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return AddPcdnControlRuleResponse::fromMap($this->doRequest('AddPcdnControlRule', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -249,7 +250,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddConsumerResponse::fromMap($this->doRequest('AddConsumer', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return AddConsumerResponse::fromMap($this->doRequest('AddConsumer', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -274,7 +275,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetAccessDataResponse::fromMap($this->doRequest('GetAccessData', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetAccessDataResponse::fromMap($this->doRequest('GetAccessData', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -299,7 +300,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return EnablePcdnControlRuleResponse::fromMap($this->doRequest('EnablePcdnControlRule', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return EnablePcdnControlRuleResponse::fromMap($this->doRequest('EnablePcdnControlRule', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -324,7 +325,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return EditPcdnControlRuleResponse::fromMap($this->doRequest('EditPcdnControlRule', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return EditPcdnControlRuleResponse::fromMap($this->doRequest('EditPcdnControlRule', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -349,7 +350,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return DisablePcdnControlRuleResponse::fromMap($this->doRequest('DisablePcdnControlRule', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return DisablePcdnControlRuleResponse::fromMap($this->doRequest('DisablePcdnControlRule', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -374,7 +375,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return DeletePcdnControlRuleResponse::fromMap($this->doRequest('DeletePcdnControlRule', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return DeletePcdnControlRuleResponse::fromMap($this->doRequest('DeletePcdnControlRule', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -399,7 +400,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetAllPlatformTypesResponse::fromMap($this->doRequest('GetAllPlatformTypes', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetAllPlatformTypesResponse::fromMap($this->doRequest('GetAllPlatformTypes', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -424,7 +425,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetAllMarketsResponse::fromMap($this->doRequest('GetAllMarkets', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetAllMarketsResponse::fromMap($this->doRequest('GetAllMarkets', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -449,7 +450,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetAllIspResponse::fromMap($this->doRequest('GetAllIsp', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetAllIspResponse::fromMap($this->doRequest('GetAllIsp', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -474,7 +475,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetAllAppVersionsResponse::fromMap($this->doRequest('GetAllAppVersions', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetAllAppVersionsResponse::fromMap($this->doRequest('GetAllAppVersions', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -499,7 +500,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetConsumerStatusResponse::fromMap($this->doRequest('GetConsumerStatus', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetConsumerStatusResponse::fromMap($this->doRequest('GetConsumerStatus', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -524,7 +525,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetClientsRatioResponse::fromMap($this->doRequest('GetClientsRatio', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetClientsRatioResponse::fromMap($this->doRequest('GetClientsRatio', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -549,7 +550,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetBandwidthDataResponse::fromMap($this->doRequest('GetBandwidthData', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetBandwidthDataResponse::fromMap($this->doRequest('GetBandwidthData', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -574,7 +575,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetBalanceBandwidthDataResponse::fromMap($this->doRequest('GetBalanceBandwidthData', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetBalanceBandwidthDataResponse::fromMap($this->doRequest('GetBalanceBandwidthData', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -599,7 +600,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetControlRulesResponse::fromMap($this->doRequest('GetControlRules', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetControlRulesResponse::fromMap($this->doRequest('GetControlRules', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -624,7 +625,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDomainCountResponse::fromMap($this->doRequest('GetDomainCount', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetDomainCountResponse::fromMap($this->doRequest('GetDomainCount', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -649,7 +650,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetCurrentModeResponse::fromMap($this->doRequest('GetCurrentMode', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetCurrentModeResponse::fromMap($this->doRequest('GetCurrentMode', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -674,7 +675,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetCoverRateDataResponse::fromMap($this->doRequest('GetCoverRateData', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetCoverRateDataResponse::fromMap($this->doRequest('GetCoverRateData', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -699,7 +700,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetFeeHistoryResponse::fromMap($this->doRequest('GetFeeHistory', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetFeeHistoryResponse::fromMap($this->doRequest('GetFeeHistory', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -724,7 +725,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetExpenseSummaryResponse::fromMap($this->doRequest('GetExpenseSummary', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetExpenseSummaryResponse::fromMap($this->doRequest('GetExpenseSummary', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -749,7 +750,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetDomainsResponse::fromMap($this->doRequest('GetDomains', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetDomainsResponse::fromMap($this->doRequest('GetDomains', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -774,7 +775,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetLogsListResponse::fromMap($this->doRequest('GetLogsList', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetLogsListResponse::fromMap($this->doRequest('GetLogsList', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -799,7 +800,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetFluencyDataResponse::fromMap($this->doRequest('GetFluencyData', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetFluencyDataResponse::fromMap($this->doRequest('GetFluencyData', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -824,7 +825,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetFirstFrameDelayDataResponse::fromMap($this->doRequest('GetFirstFrameDelayData', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetFirstFrameDelayDataResponse::fromMap($this->doRequest('GetFirstFrameDelayData', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -849,7 +850,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetTokenListResponse::fromMap($this->doRequest('GetTokenList', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetTokenListResponse::fromMap($this->doRequest('GetTokenList', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -874,7 +875,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetShareRateDataResponse::fromMap($this->doRequest('GetShareRateData', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetShareRateDataResponse::fromMap($this->doRequest('GetShareRateData', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -899,7 +900,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetTrafficDataResponse::fromMap($this->doRequest('GetTrafficData', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetTrafficDataResponse::fromMap($this->doRequest('GetTrafficData', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -924,7 +925,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetTrafficByRegionResponse::fromMap($this->doRequest('GetTrafficByRegion', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetTrafficByRegionResponse::fromMap($this->doRequest('GetTrafficByRegion', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -949,7 +950,7 @@ class Pcdn extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetAllRegionsResponse::fromMap($this->doRequest('GetAllRegions', 'HTTPS', 'GET', '2017-04-11', 'AK', $request->toMap(), null, $runtime));
+        return GetAllRegionsResponse::fromMap($this->doRequest('GetAllRegions', 'HTTPS', 'GET', '2017-04-11', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -980,8 +981,8 @@ class Pcdn extends Rpc
         if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap['regionId'])) {
-            return @$endpointMap['regionId'];
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
