@@ -12,8 +12,14 @@ class SegmentAnimalRequest extends Model
      * @var string
      */
     public $imageURL;
+
+    /**
+     * @var string
+     */
+    public $returnForm;
     protected $_name = [
-        'imageURL' => 'ImageURL',
+        'imageURL'   => 'ImageURL',
+        'returnForm' => 'ReturnForm',
     ];
 
     public function validate()
@@ -26,6 +32,9 @@ class SegmentAnimalRequest extends Model
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->returnForm) {
+            $res['ReturnForm'] = $this->returnForm;
         }
 
         return $res;
@@ -41,6 +50,9 @@ class SegmentAnimalRequest extends Model
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['ReturnForm'])) {
+            $model->returnForm = $map['ReturnForm'];
         }
 
         return $model;
