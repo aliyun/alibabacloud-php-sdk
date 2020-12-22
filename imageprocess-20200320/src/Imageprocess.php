@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectKneeXRayRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectKneeXRayResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectLungNoduleRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectLungNoduleResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectRibFractureRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectRibFractureResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSkinDiseaseAdvanceRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSkinDiseaseRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectSkinDiseaseResponse;
@@ -34,6 +36,8 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunCTRegistrationRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunCTRegistrationResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunMedQARequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunMedQAResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\TranslateMedRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\TranslateMedResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
@@ -57,6 +61,56 @@ class Imageprocess extends Rpc
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('imageprocess', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param DetectRibFractureRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DetectRibFractureResponse
+     */
+    public function detectRibFracture($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DetectRibFractureResponse::fromMap($this->doRequest('DetectRibFracture', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DetectRibFractureRequest $request
+     *
+     * @return DetectRibFractureResponse
+     */
+    public function detectRibFractureSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectRibFracture($request, $runtime);
+    }
+
+    /**
+     * @param ScreenChestCTRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ScreenChestCTResponse
+     */
+    public function screenChestCT($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ScreenChestCTResponse::fromMap($this->doRequest('ScreenChestCT', 'HTTPS', 'POST', '2020-03-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ScreenChestCTRequest $request
+     *
+     * @return ScreenChestCTResponse
+     */
+    public function screenChestCTSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->screenChestCT($request, $runtime);
     }
 
     /**
