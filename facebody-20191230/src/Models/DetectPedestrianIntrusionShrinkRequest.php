@@ -16,16 +16,16 @@ class DetectPedestrianIntrusionShrinkRequest extends Model
     /**
      * @var string
      */
-    public $regionShrink;
+    public $detectRegionShrink;
 
     /**
      * @var string
      */
     public $regionType;
     protected $_name = [
-        'imageURL'     => 'ImageURL',
-        'regionShrink' => 'Region',
-        'regionType'   => 'RegionType',
+        'imageURL'           => 'ImageURL',
+        'detectRegionShrink' => 'DetectRegion',
+        'regionType'         => 'RegionType',
     ];
 
     public function validate()
@@ -38,8 +38,8 @@ class DetectPedestrianIntrusionShrinkRequest extends Model
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
-        if (null !== $this->regionShrink) {
-            $res['Region'] = $this->regionShrink;
+        if (null !== $this->detectRegionShrink) {
+            $res['DetectRegion'] = $this->detectRegionShrink;
         }
         if (null !== $this->regionType) {
             $res['RegionType'] = $this->regionType;
@@ -59,8 +59,8 @@ class DetectPedestrianIntrusionShrinkRequest extends Model
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
-        if (isset($map['Region'])) {
-            $model->regionShrink = $map['Region'];
+        if (isset($map['DetectRegion'])) {
+            $model->detectRegionShrink = $map['DetectRegion'];
         }
         if (isset($map['RegionType'])) {
             $model->regionType = $map['RegionType'];

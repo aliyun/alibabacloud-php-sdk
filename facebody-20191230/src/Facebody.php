@@ -2420,8 +2420,8 @@ class Facebody extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new DetectPedestrianIntrusionShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->region)) {
-            $request->regionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->region, 'Region', 'json');
+        if (!Utils::isUnset($tmpReq->detectRegion)) {
+            $request->detectRegionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->detectRegion, 'DetectRegion', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),

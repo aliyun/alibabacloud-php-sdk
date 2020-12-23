@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest\region;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest\detectRegion;
 use AlibabaCloud\Tea\Model;
 
 class DetectPedestrianIntrusionRequest extends Model
@@ -15,18 +15,18 @@ class DetectPedestrianIntrusionRequest extends Model
     public $imageURL;
 
     /**
-     * @var region[]
+     * @var detectRegion[]
      */
-    public $region;
+    public $detectRegion;
 
     /**
      * @var string
      */
     public $regionType;
     protected $_name = [
-        'imageURL'   => 'ImageURL',
-        'region'     => 'Region',
-        'regionType' => 'RegionType',
+        'imageURL'     => 'ImageURL',
+        'detectRegion' => 'DetectRegion',
+        'regionType'   => 'RegionType',
     ];
 
     public function validate()
@@ -39,12 +39,12 @@ class DetectPedestrianIntrusionRequest extends Model
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
-        if (null !== $this->region) {
-            $res['Region'] = [];
-            if (null !== $this->region && \is_array($this->region)) {
+        if (null !== $this->detectRegion) {
+            $res['DetectRegion'] = [];
+            if (null !== $this->detectRegion && \is_array($this->detectRegion)) {
                 $n = 0;
-                foreach ($this->region as $item) {
-                    $res['Region'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->detectRegion as $item) {
+                    $res['DetectRegion'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -66,12 +66,12 @@ class DetectPedestrianIntrusionRequest extends Model
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
-        if (isset($map['Region'])) {
-            if (!empty($map['Region'])) {
-                $model->region = [];
-                $n             = 0;
-                foreach ($map['Region'] as $item) {
-                    $model->region[$n++] = null !== $item ? region::fromMap($item) : $item;
+        if (isset($map['DetectRegion'])) {
+            if (!empty($map['DetectRegion'])) {
+                $model->detectRegion = [];
+                $n                   = 0;
+                foreach ($map['DetectRegion'] as $item) {
+                    $model->detectRegion[$n++] = null !== $item ? detectRegion::fromMap($item) : $item;
                 }
             }
         }

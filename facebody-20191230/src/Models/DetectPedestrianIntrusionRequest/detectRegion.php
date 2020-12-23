@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest;
 
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest\region\line;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest\region\rect;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest\detectRegion\line;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectPedestrianIntrusionRequest\detectRegion\rect;
 use AlibabaCloud\Tea\Model;
 
-class region extends Model
+class detectRegion extends Model
 {
     /**
      * @var rect
@@ -44,7 +44,7 @@ class region extends Model
     /**
      * @param array $map
      *
-     * @return region
+     * @return detectRegion
      */
     public static function fromMap($map = [])
     {
