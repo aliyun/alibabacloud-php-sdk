@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models;
 
 use AlibabaCloud\Tea\Model;
-use GuzzleHttp\Psr7\Stream;
 
 class ElementSmartVerifyAdvanceRequest extends Model
 {

@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Cloudauth\V20200618;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\SDK\Cloudauth\V20200618\Models\ContrastSmartVerifyAdvanceRequest;
+use AlibabaCloud\SDK\Cloudauth\V20200618\Models\ContrastSmartVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20200618\Models\ContrastSmartVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20200618\Models\DescribeSmartVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20200618\Models\DescribeSmartVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20200618\Models\ElementSmartVerifyAdvanceRequest;
@@ -36,6 +39,97 @@ class Cloudauth extends Rpc
     }
 
     /**
+     * @param ContrastSmartVerifyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ContrastSmartVerifyResponse
+     */
+    public function contrastSmartVerify($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ContrastSmartVerifyResponse::fromMap($this->doRequest('ContrastSmartVerify', 'HTTPS', 'POST', '2020-06-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ContrastSmartVerifyRequest $request
+     *
+     * @return ContrastSmartVerifyResponse
+     */
+    public function contrastSmartVerifySimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->contrastSmartVerify($request, $runtime);
+    }
+
+    /**
+     * @param ContrastSmartVerifyAdvanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ContrastSmartVerifyResponse
+     */
+    public function contrastSmartVerifyAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'Cloudauth',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        RpcUtils::convert($runtime, $ossRuntime);
+        $contrastSmartVerifyReq = new ContrastSmartVerifyRequest([]);
+        RpcUtils::convert($request, $contrastSmartVerifyReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->facePicFileObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $contrastSmartVerifyReq->facePicFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->contrastSmartVerify($contrastSmartVerifyReq, $runtime);
+    }
+
+    /**
      * @param ElementSmartVerifyRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -46,6 +140,18 @@ class Cloudauth extends Rpc
         Utils::validateModel($request);
 
         return ElementSmartVerifyResponse::fromMap($this->doRequest('ElementSmartVerify', 'HTTPS', 'POST', '2020-06-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ElementSmartVerifyRequest $request
+     *
+     * @return ElementSmartVerifyResponse
+     */
+    public function elementSmartVerifySimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->elementSmartVerify($request, $runtime);
     }
 
     /**
@@ -85,8 +191,8 @@ class Cloudauth extends Rpc
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         RpcUtils::convert($runtime, $ossRuntime);
-        $elementSmartVerifyreq = new ElementSmartVerifyRequest([]);
-        RpcUtils::convert($request, $elementSmartVerifyreq);
+        $elementSmartVerifyReq = new ElementSmartVerifyRequest([]);
+        RpcUtils::convert($request, $elementSmartVerifyReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
         $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
@@ -109,9 +215,9 @@ class Cloudauth extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $elementSmartVerifyreq->certFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $elementSmartVerifyReq->certFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->elementSmartVerify($elementSmartVerifyreq, $runtime);
+        return $this->elementSmartVerify($elementSmartVerifyReq, $runtime);
     }
 
     /**
@@ -128,6 +234,18 @@ class Cloudauth extends Rpc
     }
 
     /**
+     * @param InitSmartVerifyRequest $request
+     *
+     * @return InitSmartVerifyResponse
+     */
+    public function initSmartVerifySimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initSmartVerify($request, $runtime);
+    }
+
+    /**
      * @param DescribeSmartVerifyRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -138,6 +256,18 @@ class Cloudauth extends Rpc
         Utils::validateModel($request);
 
         return DescribeSmartVerifyResponse::fromMap($this->doRequest('DescribeSmartVerify', 'HTTPS', 'POST', '2020-06-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeSmartVerifyRequest $request
+     *
+     * @return DescribeSmartVerifyResponse
+     */
+    public function describeSmartVerifySimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSmartVerify($request, $runtime);
     }
 
     /**
