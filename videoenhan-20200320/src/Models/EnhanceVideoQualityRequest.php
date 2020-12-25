@@ -14,11 +14,6 @@ class EnhanceVideoQualityRequest extends Model
     public $videoURL;
 
     /**
-     * @var bool
-     */
-    public $async;
-
-    /**
      * @var int
      */
     public $outPutWidth;
@@ -49,7 +44,6 @@ class EnhanceVideoQualityRequest extends Model
     public $bitrate;
     protected $_name = [
         'videoURL'       => 'VideoURL',
-        'async'          => 'Async',
         'outPutWidth'    => 'OutPutWidth',
         'outPutHeight'   => 'OutPutHeight',
         'frameRate'      => 'FrameRate',
@@ -60,6 +54,7 @@ class EnhanceVideoQualityRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('videoURL', $this->videoURL, true);
     }
 
     public function toMap()
@@ -67,9 +62,6 @@ class EnhanceVideoQualityRequest extends Model
         $res = [];
         if (null !== $this->videoURL) {
             $res['VideoURL'] = $this->videoURL;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->outPutWidth) {
             $res['OutPutWidth'] = $this->outPutWidth;
@@ -103,9 +95,6 @@ class EnhanceVideoQualityRequest extends Model
         $model = new self();
         if (isset($map['VideoURL'])) {
             $model->videoURL = $map['VideoURL'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['OutPutWidth'])) {
             $model->outPutWidth = $map['OutPutWidth'];

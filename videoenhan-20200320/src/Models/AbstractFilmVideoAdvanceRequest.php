@@ -14,23 +14,18 @@ class AbstractFilmVideoAdvanceRequest extends Model
     public $videoUrlObject;
 
     /**
-     * @var bool
-     */
-    public $async;
-
-    /**
      * @var int
      */
     public $length;
     protected $_name = [
         'videoUrlObject' => 'VideoUrlObject',
-        'async'          => 'Async',
         'length'         => 'Length',
     ];
 
     public function validate()
     {
         Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
+        Model::validateRequired('length', $this->length, true);
     }
 
     public function toMap()
@@ -38,9 +33,6 @@ class AbstractFilmVideoAdvanceRequest extends Model
         $res = [];
         if (null !== $this->videoUrlObject) {
             $res['VideoUrlObject'] = $this->videoUrlObject;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->length) {
             $res['Length'] = $this->length;
@@ -59,9 +51,6 @@ class AbstractFilmVideoAdvanceRequest extends Model
         $model = new self();
         if (isset($map['VideoUrlObject'])) {
             $model->videoUrlObject = $map['VideoUrlObject'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['Length'])) {
             $model->length = $map['Length'];

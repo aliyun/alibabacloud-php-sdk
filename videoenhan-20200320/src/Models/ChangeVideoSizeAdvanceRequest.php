@@ -14,11 +14,6 @@ class ChangeVideoSizeAdvanceRequest extends Model
     public $videoUrlObject;
 
     /**
-     * @var bool
-     */
-    public $async;
-
-    /**
      * @var int
      */
     public $width;
@@ -59,7 +54,6 @@ class ChangeVideoSizeAdvanceRequest extends Model
     public $b;
     protected $_name = [
         'videoUrlObject' => 'VideoUrlObject',
-        'async'          => 'Async',
         'width'          => 'Width',
         'height'         => 'Height',
         'cropType'       => 'CropType',
@@ -73,6 +67,8 @@ class ChangeVideoSizeAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
+        Model::validateRequired('width', $this->width, true);
+        Model::validateRequired('height', $this->height, true);
     }
 
     public function toMap()
@@ -80,9 +76,6 @@ class ChangeVideoSizeAdvanceRequest extends Model
         $res = [];
         if (null !== $this->videoUrlObject) {
             $res['VideoUrlObject'] = $this->videoUrlObject;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
@@ -122,9 +115,6 @@ class ChangeVideoSizeAdvanceRequest extends Model
         $model = new self();
         if (isset($map['VideoUrlObject'])) {
             $model->videoUrlObject = $map['VideoUrlObject'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];

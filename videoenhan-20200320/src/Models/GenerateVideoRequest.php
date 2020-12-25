@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GenerateVideoRequest extends Model
 {
     /**
-     * @var bool
+     * @var fileList[]
      */
-    public $async;
+    public $fileList;
 
     /**
      * @var string
@@ -63,13 +63,8 @@ class GenerateVideoRequest extends Model
      * @var bool
      */
     public $mute;
-
-    /**
-     * @var fileList[]
-     */
-    public $fileList;
     protected $_name = [
-        'async'            => 'Async',
+        'fileList'         => 'FileList',
         'scene'            => 'Scene',
         'width'            => 'Width',
         'height'           => 'Height',
@@ -80,18 +75,24 @@ class GenerateVideoRequest extends Model
         'smartEffect'      => 'SmartEffect',
         'puzzleEffect'     => 'PuzzleEffect',
         'mute'             => 'Mute',
-        'fileList'         => 'FileList',
     ];
 
     public function validate()
     {
+        Model::validateRequired('fileList', $this->fileList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
+        if (null !== $this->fileList) {
+            $res['FileList'] = [];
+            if (null !== $this->fileList && \is_array($this->fileList)) {
+                $n = 0;
+                foreach ($this->fileList as $item) {
+                    $res['FileList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
@@ -123,15 +124,6 @@ class GenerateVideoRequest extends Model
         if (null !== $this->mute) {
             $res['Mute'] = $this->mute;
         }
-        if (null !== $this->fileList) {
-            $res['FileList'] = [];
-            if (null !== $this->fileList && \is_array($this->fileList)) {
-                $n = 0;
-                foreach ($this->fileList as $item) {
-                    $res['FileList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
 
         return $res;
     }
@@ -144,8 +136,14 @@ class GenerateVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
+        if (isset($map['FileList'])) {
+            if (!empty($map['FileList'])) {
+                $model->fileList = [];
+                $n               = 0;
+                foreach ($map['FileList'] as $item) {
+                    $model->fileList[$n++] = null !== $item ? fileList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
@@ -176,15 +174,6 @@ class GenerateVideoRequest extends Model
         }
         if (isset($map['Mute'])) {
             $model->mute = $map['Mute'];
-        }
-        if (isset($map['FileList'])) {
-            if (!empty($map['FileList'])) {
-                $model->fileList = [];
-                $n               = 0;
-                foreach ($map['FileList'] as $item) {
-                    $model->fileList[$n++] = null !== $item ? fileList::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

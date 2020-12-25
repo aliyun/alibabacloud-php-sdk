@@ -14,11 +14,6 @@ class EraseVideoSubtitlesRequest extends Model
     public $videoUrl;
 
     /**
-     * @var bool
-     */
-    public $async;
-
-    /**
      * @var float
      */
     public $BX;
@@ -39,7 +34,6 @@ class EraseVideoSubtitlesRequest extends Model
     public $BH;
     protected $_name = [
         'videoUrl' => 'VideoUrl',
-        'async'    => 'Async',
         'BX'       => 'BX',
         'BY'       => 'BY',
         'BW'       => 'BW',
@@ -48,6 +42,7 @@ class EraseVideoSubtitlesRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('videoUrl', $this->videoUrl, true);
     }
 
     public function toMap()
@@ -55,9 +50,6 @@ class EraseVideoSubtitlesRequest extends Model
         $res = [];
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->BX) {
             $res['BX'] = $this->BX;
@@ -85,9 +77,6 @@ class EraseVideoSubtitlesRequest extends Model
         $model = new self();
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['BX'])) {
             $model->BX = $map['BX'];
