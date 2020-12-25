@@ -14,6 +14,11 @@ class AdjustVideoColorRequest extends Model
     public $videoUrl;
 
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
      * @var string
      */
     public $videoBitrate;
@@ -34,6 +39,7 @@ class AdjustVideoColorRequest extends Model
     public $mode;
     protected $_name = [
         'videoUrl'     => 'VideoUrl',
+        'async'        => 'Async',
         'videoBitrate' => 'VideoBitrate',
         'videoCodec'   => 'VideoCodec',
         'videoFormat'  => 'VideoFormat',
@@ -42,8 +48,6 @@ class AdjustVideoColorRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('videoUrl', $this->videoUrl, true);
-        Model::validateRequired('mode', $this->mode, true);
     }
 
     public function toMap()
@@ -51,6 +55,9 @@ class AdjustVideoColorRequest extends Model
         $res = [];
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
         if (null !== $this->videoBitrate) {
             $res['VideoBitrate'] = $this->videoBitrate;
@@ -78,6 +85,9 @@ class AdjustVideoColorRequest extends Model
         $model = new self();
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
         if (isset($map['VideoBitrate'])) {
             $model->videoBitrate = $map['VideoBitrate'];

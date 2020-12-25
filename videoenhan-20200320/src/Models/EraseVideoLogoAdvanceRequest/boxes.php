@@ -11,27 +11,27 @@ class boxes extends Model
     /**
      * @var float
      */
-    public $h;
-
-    /**
-     * @var float
-     */
     public $w;
 
     /**
      * @var float
      */
-    public $x;
+    public $h;
 
     /**
      * @var float
      */
     public $y;
+
+    /**
+     * @var float
+     */
+    public $x;
     protected $_name = [
-        'h' => 'H',
         'w' => 'W',
-        'x' => 'X',
+        'h' => 'H',
         'y' => 'Y',
+        'x' => 'X',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class boxes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->h) {
-            $res['H'] = $this->h;
-        }
         if (null !== $this->w) {
             $res['W'] = $this->w;
         }
-        if (null !== $this->x) {
-            $res['X'] = $this->x;
+        if (null !== $this->h) {
+            $res['H'] = $this->h;
         }
         if (null !== $this->y) {
             $res['Y'] = $this->y;
+        }
+        if (null !== $this->x) {
+            $res['X'] = $this->x;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class boxes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['H'])) {
-            $model->h = $map['H'];
-        }
         if (isset($map['W'])) {
             $model->w = $map['W'];
         }
-        if (isset($map['X'])) {
-            $model->x = $map['X'];
+        if (isset($map['H'])) {
+            $model->h = $map['H'];
         }
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
+        }
+        if (isset($map['X'])) {
+            $model->x = $map['X'];
         }
 
         return $model;
