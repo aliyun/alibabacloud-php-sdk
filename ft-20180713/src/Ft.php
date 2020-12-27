@@ -5,13 +5,13 @@
 namespace AlibabaCloud\SDK\Ft\V20180713;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Request;
 use AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FTApiAliasApiRequest;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FTApiAliasApiResponse;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FtDynamicAddressDubboRequest;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FtDynamicAddressDubboResponse;
-use AlibabaCloud\SDK\Ft\V20180713\Models\FtDynamicAddressHsfRequest;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FtDynamicAddressHsfResponse;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FtEagleEyeRequest;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FtEagleEyeResponse;
@@ -29,12 +29,12 @@ use AlibabaCloud\SDK\Ft\V20180713\Models\TestFlowStrategy01ShrinkRequest;
 use AlibabaCloud\SDK\Ft\V20180713\Models\TestHttpApiRequest;
 use AlibabaCloud\SDK\Ft\V20180713\Models\TestHttpApiResponse;
 use AlibabaCloud\SDK\Ft\V20180713\Models\TestHttpApiShrinkRequest;
-use AlibabaCloud\Tea\Rpc\Rpc;
-use AlibabaCloud\Tea\RpcUtils\RpcUtils;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\OpenApiClient;
 
-class Ft extends Rpc
+class Ft extends OpenApiClient
 {
     public function __construct($config)
     {
@@ -65,6 +65,7 @@ class Ft extends Rpc
             'cn-hangzhou-test-306'        => 'ft.aliyuncs.com',
             'cn-hongkong-finance-pop'     => 'ft.aliyuncs.com',
             'cn-huhehaote'                => 'ft.aliyuncs.com',
+            'cn-huhehaote-nebula-1'       => 'ft.aliyuncs.com',
             'cn-qingdao'                  => 'ft.aliyuncs.com',
             'cn-qingdao-nebula'           => 'ft.aliyuncs.com',
             'cn-shanghai-et15-b01'        => 'ft.aliyuncs.com',
@@ -77,7 +78,9 @@ class Ft extends Rpc
             'cn-shenzhen-st4-d01'         => 'ft.aliyuncs.com',
             'cn-shenzhen-su18-b01'        => 'ft.aliyuncs.com',
             'cn-wuhan'                    => 'ft.aliyuncs.com',
+            'cn-wulanchabu'               => 'ft.aliyuncs.com',
             'cn-yushanfang'               => 'ft.aliyuncs.com',
+            'cn-zhangbei'                 => 'ft.aliyuncs.com',
             'cn-zhangbei-na61-b01'        => 'ft.aliyuncs.com',
             'cn-zhangjiakou-na62-a01'     => 'ft.aliyuncs.com',
             'cn-zhengzhou-nebula-1'       => 'ft.aliyuncs.com',
@@ -90,297 +93,6 @@ class Ft extends Rpc
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ft', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
-    }
-
-    /**
-     * @param TestFlowStrategy01Request $tmp
-     * @param RuntimeOptions            $runtime
-     *
-     * @return TestFlowStrategy01Response
-     */
-    public function testFlowStrategy01WithOptions($tmp, $runtime)
-    {
-        Utils::validateModel($tmp);
-        $request = new TestFlowStrategy01ShrinkRequest([]);
-        RpcUtils::convert($tmp, $request);
-        if (!Utils::isUnset($tmp->names)) {
-            $request->namesShrink = Utils::toJSONString($tmp->names);
-        }
-
-        return TestFlowStrategy01Response::fromMap($this->doRequest('TestFlowStrategy01', 'HTTPS', 'PUT', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
-    }
-
-    /**
-     * @param TestFlowStrategy01Request $request
-     *
-     * @return TestFlowStrategy01Response
-     */
-    public function testFlowStrategy01($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->testFlowStrategy01WithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TestHttpApiRequest $tmp
-     * @param RuntimeOptions     $runtime
-     *
-     * @return TestHttpApiResponse
-     */
-    public function testHttpApiWithOptions($tmp, $runtime)
-    {
-        Utils::validateModel($tmp);
-        $request = new TestHttpApiShrinkRequest([]);
-        RpcUtils::convert($tmp, $request);
-        if (!Utils::isUnset($tmp->stringValue)) {
-            $request->stringValueShrink = Utils::toJSONString($tmp->stringValue);
-        }
-        if (!Utils::isUnset($tmp->defaultValue)) {
-            $request->defaultValueShrink = Utils::toJSONString($tmp->defaultValue);
-        }
-        if (!Utils::isUnset($tmp->otherParam)) {
-            $request->otherParamShrink = Utils::toJSONString($tmp->otherParam);
-        }
-
-        return TestHttpApiResponse::fromMap($this->doRequest('TestHttpApi', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
-    }
-
-    /**
-     * @param TestHttpApiRequest $request
-     *
-     * @return TestHttpApiResponse
-     */
-    public function testHttpApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->testHttpApiWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BatchAuditTest01Request $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return BatchAuditTest01Response
-     */
-    public function batchAuditTest01WithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return BatchAuditTest01Response::fromMap($this->doRequest('BatchAuditTest01', 'HTTPS', 'POST', '2018-07-13', 'Anonymous', null, $request->toMap(), $runtime));
-    }
-
-    /**
-     * @param BatchAuditTest01Request $request
-     *
-     * @return BatchAuditTest01Response
-     */
-    public function batchAuditTest01($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchAuditTest01WithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FtIpFlowControlRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return FtIpFlowControlResponse
-     */
-    public function ftIpFlowControlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return FtIpFlowControlResponse::fromMap($this->doRequest('FtIpFlowControl', 'HTTPS', 'POST', '2018-07-13', 'Anonymous', null, $request->toMap(), $runtime));
-    }
-
-    /**
-     * @param FtIpFlowControlRequest $request
-     *
-     * @return FtIpFlowControlResponse
-     */
-    public function ftIpFlowControl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->ftIpFlowControlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FtDynamicAddressDubboRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return FtDynamicAddressDubboResponse
-     */
-    public function ftDynamicAddressDubboWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return FtDynamicAddressDubboResponse::fromMap($this->doRequest('FtDynamicAddressDubbo', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
-    }
-
-    /**
-     * @param FtDynamicAddressDubboRequest $request
-     *
-     * @return FtDynamicAddressDubboResponse
-     */
-    public function ftDynamicAddressDubbo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->ftDynamicAddressDubboWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FtDynamicAddressHsfRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return FtDynamicAddressHsfResponse
-     */
-    public function ftDynamicAddressHsfWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return FtDynamicAddressHsfResponse::fromMap($this->doRequest('FtDynamicAddressHsf', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
-    }
-
-    /**
-     * @param FtDynamicAddressHsfRequest $request
-     *
-     * @return FtDynamicAddressHsfResponse
-     */
-    public function ftDynamicAddressHsf($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->ftDynamicAddressHsfWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FtFlowSpecialRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return FtFlowSpecialResponse
-     */
-    public function ftFlowSpecialWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return FtFlowSpecialResponse::fromMap($this->doRequest('FtFlowSpecial', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
-    }
-
-    /**
-     * @param FtFlowSpecialRequest $request
-     *
-     * @return FtFlowSpecialResponse
-     */
-    public function ftFlowSpecial($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->ftFlowSpecialWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FTApiAliasApiRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return FTApiAliasApiResponse
-     */
-    public function FTApiAliasApiWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return FTApiAliasApiResponse::fromMap($this->doRequest('FTApiAliasApi', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
-    }
-
-    /**
-     * @param FTApiAliasApiRequest $request
-     *
-     * @return FTApiAliasApiResponse
-     */
-    public function FTApiAliasApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->FTApiAliasApiWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FtEagleEyeRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return FtEagleEyeResponse
-     */
-    public function ftEagleEyeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return FtEagleEyeResponse::fromMap($this->doRequest('FtEagleEye', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
-    }
-
-    /**
-     * @param FtEagleEyeRequest $request
-     *
-     * @return FtEagleEyeResponse
-     */
-    public function ftEagleEye($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->ftEagleEyeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FtParamListRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return FtParamListResponse
-     */
-    public function ftParamListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return FtParamListResponse::fromMap($this->doRequest('FtParamList', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
-    }
-
-    /**
-     * @param FtParamListRequest $request
-     *
-     * @return FtParamListResponse
-     */
-    public function ftParamList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->ftParamListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param FtGatedLaunchPolicy4Request $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return FtGatedLaunchPolicy4Response
-     */
-    public function ftGatedLaunchPolicy4WithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return FtGatedLaunchPolicy4Response::fromMap($this->doRequest('FtGatedLaunchPolicy4', 'HTTPS', 'POST', '2018-07-13', 'AK', null, $request->toMap(), $runtime));
-    }
-
-    /**
-     * @param FtGatedLaunchPolicy4Request $request
-     *
-     * @return FtGatedLaunchPolicy4Response
-     */
-    public function ftGatedLaunchPolicy4($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->ftGatedLaunchPolicy4WithOptions($request, $runtime);
     }
 
     /**
@@ -399,10 +111,328 @@ class Ft extends Rpc
         if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap['regionId'])) {
-            return @$endpointMap['regionId'];
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param BatchAuditTest01Request $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BatchAuditTest01Response
+     */
+    public function batchAuditTest01WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BatchAuditTest01Response::fromMap($this->doRPCRequest('BatchAuditTest01', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BatchAuditTest01Request $request
+     *
+     * @return BatchAuditTest01Response
+     */
+    public function batchAuditTest01($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchAuditTest01WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FTApiAliasApiRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return FTApiAliasApiResponse
+     */
+    public function fTApiAliasApiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return FTApiAliasApiResponse::fromMap($this->doRPCRequest('FTApiAliasApi', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param FTApiAliasApiRequest $request
+     *
+     * @return FTApiAliasApiResponse
+     */
+    public function fTApiAliasApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->fTApiAliasApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FtDynamicAddressDubboRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return FtDynamicAddressDubboResponse
+     */
+    public function ftDynamicAddressDubboWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return FtDynamicAddressDubboResponse::fromMap($this->doRPCRequest('FtDynamicAddressDubbo', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param FtDynamicAddressDubboRequest $request
+     *
+     * @return FtDynamicAddressDubboResponse
+     */
+    public function ftDynamicAddressDubbo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ftDynamicAddressDubboWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return FtDynamicAddressHsfResponse
+     */
+    public function ftDynamicAddressHsfWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return FtDynamicAddressHsfResponse::fromMap($this->doRPCRequest('FtDynamicAddressHsf', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return FtDynamicAddressHsfResponse
+     */
+    public function ftDynamicAddressHsf()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ftDynamicAddressHsfWithOptions($runtime);
+    }
+
+    /**
+     * @param FtEagleEyeRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return FtEagleEyeResponse
+     */
+    public function ftEagleEyeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return FtEagleEyeResponse::fromMap($this->doRPCRequest('FtEagleEye', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param FtEagleEyeRequest $request
+     *
+     * @return FtEagleEyeResponse
+     */
+    public function ftEagleEye($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ftEagleEyeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FtFlowSpecialRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return FtFlowSpecialResponse
+     */
+    public function ftFlowSpecialWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return FtFlowSpecialResponse::fromMap($this->doRPCRequest('FtFlowSpecial', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param FtFlowSpecialRequest $request
+     *
+     * @return FtFlowSpecialResponse
+     */
+    public function ftFlowSpecial($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ftFlowSpecialWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FtGatedLaunchPolicy4Request $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return FtGatedLaunchPolicy4Response
+     */
+    public function ftGatedLaunchPolicy4WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return FtGatedLaunchPolicy4Response::fromMap($this->doRPCRequest('FtGatedLaunchPolicy4', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param FtGatedLaunchPolicy4Request $request
+     *
+     * @return FtGatedLaunchPolicy4Response
+     */
+    public function ftGatedLaunchPolicy4($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ftGatedLaunchPolicy4WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FtIpFlowControlRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return FtIpFlowControlResponse
+     */
+    public function ftIpFlowControlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return FtIpFlowControlResponse::fromMap($this->doRPCRequest('FtIpFlowControl', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param FtIpFlowControlRequest $request
+     *
+     * @return FtIpFlowControlResponse
+     */
+    public function ftIpFlowControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ftIpFlowControlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FtParamListRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return FtParamListResponse
+     */
+    public function ftParamListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return FtParamListResponse::fromMap($this->doRPCRequest('FtParamList', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param FtParamListRequest $request
+     *
+     * @return FtParamListResponse
+     */
+    public function ftParamList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ftParamListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TestFlowStrategy01Request $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TestFlowStrategy01Response
+     */
+    public function testFlowStrategy01WithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TestFlowStrategy01ShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->names)) {
+            $request->namesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->names, 'Names', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TestFlowStrategy01Response::fromMap($this->doRPCRequest('TestFlowStrategy01', '2018-07-13', 'HTTPS', 'PUT', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TestFlowStrategy01Request $request
+     *
+     * @return TestFlowStrategy01Response
+     */
+    public function testFlowStrategy01($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testFlowStrategy01WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TestHttpApiRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return TestHttpApiResponse
+     */
+    public function testHttpApiWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TestHttpApiShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->stringValue)) {
+            $request->stringValueShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stringValue, 'StringValue', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->defaultValue)) {
+            $request->defaultValueShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->defaultValue, 'DefaultValue', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->otherParam)) {
+            $request->otherParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->otherParam, 'OtherParam', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TestHttpApiResponse::fromMap($this->doRPCRequest('TestHttpApi', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TestHttpApiRequest $request
+     *
+     * @return TestHttpApiResponse
+     */
+    public function testHttpApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testHttpApiWithOptions($request, $runtime);
     }
 }

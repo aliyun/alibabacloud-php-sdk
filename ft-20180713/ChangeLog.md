@@ -1,3 +1,6 @@
+2020-12-27 Version: 2.0.0
+- AMP Version Change.
+
 2020-10-14 Version: 1.0.3
 - Generated php 2018-07-13 for Ft.
 

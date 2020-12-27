@@ -11,15 +11,15 @@ class disk extends Model
     /**
      * @var string[]
      */
-    public $size;
+    public $type;
 
     /**
      * @var string[]
      */
-    public $type;
+    public $size;
     protected $_name = [
-        'size' => 'Size',
         'type' => 'Type',
+        'size' => 'Size',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class disk extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         return $res;
@@ -47,14 +47,14 @@ class disk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Size'])) {
-            if (!empty($map['Size'])) {
-                $model->size = $map['Size'];
-            }
-        }
         if (isset($map['Type'])) {
             if (!empty($map['Type'])) {
                 $model->type = $map['Type'];
+            }
+        }
+        if (isset($map['Size'])) {
+            if (!empty($map['Size'])) {
+                $model->size = $map['Size'];
             }
         }
 

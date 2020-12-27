@@ -2,30 +2,29 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response\demo01\demo011;
+namespace AlibabaCloud\SDK\Ft\V20180713\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class demo011 extends Model
+class FtDynamicAddressHsfResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $demo0111;
+    public $requestId;
     protected $_name = [
-        'demo0111' => 'Demo0111',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('demo0111', $this->demo0111, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->demo0111) {
-            $res['Demo0111'] = $this->demo0111;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -34,13 +33,13 @@ class demo011 extends Model
     /**
      * @param array $map
      *
-     * @return demo011
+     * @return FtDynamicAddressHsfResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Demo0111'])) {
-            $model->demo0111 = $map['Demo0111'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

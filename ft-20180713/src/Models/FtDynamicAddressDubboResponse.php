@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class FtDynamicAddressDubboResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var FtDynamicAddressDubboResponseBody
      */
-    public $stringValue;
-
-    /**
-     * @var int
-     */
-    public $intValue;
+    public $body;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'stringValue' => 'StringValue',
-        'intValue'    => 'IntValue',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('stringValue', $this->stringValue, true);
-        Model::validateRequired('intValue', $this->intValue, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->stringValue) {
-            $res['StringValue'] = $this->stringValue;
-        }
-        if (null !== $this->intValue) {
-            $res['IntValue'] = $this->intValue;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class FtDynamicAddressDubboResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['StringValue'])) {
-            $model->stringValue = $map['StringValue'];
-        }
-        if (isset($map['IntValue'])) {
-            $model->intValue = $map['IntValue'];
+        if (isset($map['body'])) {
+            $model->body = FtDynamicAddressDubboResponseBody::fromMap($map['body']);
         }
 
         return $model;
