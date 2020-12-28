@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class PurchaseStorageCapacityUnitRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -58,27 +78,41 @@ class PurchaseStorageCapacityUnitRequest extends Model
      */
     public $amount;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'name'        => 'Name',
-        'capacity'    => 'Capacity',
-        'description' => 'Description',
-        'startTime'   => 'StartTime',
-        'period'      => 'Period',
-        'periodUnit'  => 'PeriodUnit',
-        'fromApp'     => 'FromApp',
-        'clientToken' => 'ClientToken',
-        'amount'      => 'Amount',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
+        'name'                 => 'Name',
+        'capacity'             => 'Capacity',
+        'description'          => 'Description',
+        'startTime'            => 'StartTime',
+        'period'               => 'Period',
+        'periodUnit'           => 'PeriodUnit',
+        'fromApp'              => 'FromApp',
+        'clientToken'          => 'ClientToken',
+        'amount'               => 'Amount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('capacity', $this->capacity, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -121,6 +155,18 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

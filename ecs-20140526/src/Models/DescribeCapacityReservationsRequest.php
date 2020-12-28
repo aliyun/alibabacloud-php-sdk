@@ -10,6 +10,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeCapacityReservationsRequest extends Model
 {
     /**
+     * @var privatePoolOptions
+     */
+    public $privatePoolOptions;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -23,11 +48,6 @@ class DescribeCapacityReservationsRequest extends Model
      * @var string
      */
     public $nextToken;
-
-    /**
-     * @var privatePoolOptions
-     */
-    public $privatePoolOptions;
 
     /**
      * @var string
@@ -48,25 +68,55 @@ class DescribeCapacityReservationsRequest extends Model
      * @var string
      */
     public $instanceChargeType;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $packageType;
     protected $_name = [
-        'regionId'           => 'RegionId',
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'privatePoolOptions' => 'PrivatePoolOptions',
-        'platform'           => 'Platform',
-        'instanceType'       => 'InstanceType',
-        'zoneId'             => 'ZoneId',
-        'instanceChargeType' => 'InstanceChargeType',
+        'privatePoolOptions'   => 'PrivatePoolOptions',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
+        'platform'             => 'Platform',
+        'instanceType'         => 'InstanceType',
+        'zoneId'               => 'ZoneId',
+        'instanceChargeType'   => 'InstanceChargeType',
+        'status'               => 'Status',
+        'packageType'          => 'PackageType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->privatePoolOptions) {
+            $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -75,9 +125,6 @@ class DescribeCapacityReservationsRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->privatePoolOptions) {
-            $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
@@ -91,6 +138,12 @@ class DescribeCapacityReservationsRequest extends Model
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->packageType) {
+            $res['PackageType'] = $this->packageType;
+        }
 
         return $res;
     }
@@ -103,6 +156,21 @@ class DescribeCapacityReservationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PrivatePoolOptions'])) {
+            $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -111,9 +179,6 @@ class DescribeCapacityReservationsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['PrivatePoolOptions'])) {
-            $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
@@ -126,6 +191,12 @@ class DescribeCapacityReservationsRequest extends Model
         }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['PackageType'])) {
+            $model->packageType = $map['PackageType'];
         }
 
         return $model;

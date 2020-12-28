@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupAttributeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $securityGroupId;
@@ -26,23 +41,39 @@ class DescribeSecurityGroupAttributeRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $direction;
     protected $_name = [
-        'securityGroupId' => 'SecurityGroupId',
-        'regionId'        => 'RegionId',
-        'nicType'         => 'NicType',
-        'direction'       => 'Direction',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'securityGroupId'      => 'SecurityGroupId',
+        'regionId'             => 'RegionId',
+        'nicType'              => 'NicType',
+        'ownerAccount'         => 'OwnerAccount',
+        'direction'            => 'Direction',
     ];
 
     public function validate()
     {
-        Model::validateRequired('securityGroupId', $this->securityGroupId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
@@ -51,6 +82,9 @@ class DescribeSecurityGroupAttributeRequest extends Model
         }
         if (null !== $this->nicType) {
             $res['NicType'] = $this->nicType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
@@ -67,6 +101,15 @@ class DescribeSecurityGroupAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
@@ -75,6 +118,9 @@ class DescribeSecurityGroupAttributeRequest extends Model
         }
         if (isset($map['NicType'])) {
             $model->nicType = $map['NicType'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];

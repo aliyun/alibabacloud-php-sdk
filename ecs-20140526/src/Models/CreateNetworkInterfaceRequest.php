@@ -10,6 +10,26 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkInterfaceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -40,11 +60,6 @@ class CreateNetworkInterfaceRequest extends Model
     public $securityGroupId;
 
     /**
-     * @var string[]
-     */
-    public $securityGroupIds;
-
-    /**
      * @var string
      */
     public $networkInterfaceName;
@@ -70,11 +85,6 @@ class CreateNetworkInterfaceRequest extends Model
     public $businessType;
 
     /**
-     * @var string[]
-     */
-    public $privateIpAddress;
-
-    /**
      * @var int
      */
     public $secondaryPrivateIpAddressCount;
@@ -88,34 +98,58 @@ class CreateNetworkInterfaceRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string[]
+     */
+    public $securityGroupIds;
+
+    /**
+     * @var string[]
+     */
+    public $privateIpAddress;
     protected $_name = [
+        'ownerId'                        => 'OwnerId',
+        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
+        'resourceOwnerId'                => 'ResourceOwnerId',
+        'ownerAccount'                   => 'OwnerAccount',
         'regionId'                       => 'RegionId',
         'tag'                            => 'Tag',
         'resourceGroupId'                => 'ResourceGroupId',
         'vSwitchId'                      => 'VSwitchId',
         'primaryIpAddress'               => 'PrimaryIpAddress',
         'securityGroupId'                => 'SecurityGroupId',
-        'securityGroupIds'               => 'SecurityGroupIds',
         'networkInterfaceName'           => 'NetworkInterfaceName',
         'description'                    => 'Description',
         'visible'                        => 'Visible',
         'instanceType'                   => 'InstanceType',
         'businessType'                   => 'BusinessType',
-        'privateIpAddress'               => 'PrivateIpAddress',
         'secondaryPrivateIpAddressCount' => 'SecondaryPrivateIpAddressCount',
         'queueNumber'                    => 'QueueNumber',
         'clientToken'                    => 'ClientToken',
+        'securityGroupIds'               => 'SecurityGroupIds',
+        'privateIpAddress'               => 'PrivateIpAddress',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('vSwitchId', $this->vSwitchId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -140,9 +174,6 @@ class CreateNetworkInterfaceRequest extends Model
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
-        if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = $this->securityGroupIds;
-        }
         if (null !== $this->networkInterfaceName) {
             $res['NetworkInterfaceName'] = $this->networkInterfaceName;
         }
@@ -158,9 +189,6 @@ class CreateNetworkInterfaceRequest extends Model
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
-        }
         if (null !== $this->secondaryPrivateIpAddressCount) {
             $res['SecondaryPrivateIpAddressCount'] = $this->secondaryPrivateIpAddressCount;
         }
@@ -169,6 +197,12 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->securityGroupIds) {
+            $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
 
         return $res;
@@ -182,6 +216,18 @@ class CreateNetworkInterfaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -206,11 +252,6 @@ class CreateNetworkInterfaceRequest extends Model
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
-        if (isset($map['SecurityGroupIds'])) {
-            if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = $map['SecurityGroupIds'];
-            }
-        }
         if (isset($map['NetworkInterfaceName'])) {
             $model->networkInterfaceName = $map['NetworkInterfaceName'];
         }
@@ -226,11 +267,6 @@ class CreateNetworkInterfaceRequest extends Model
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
-        if (isset($map['PrivateIpAddress'])) {
-            if (!empty($map['PrivateIpAddress'])) {
-                $model->privateIpAddress = $map['PrivateIpAddress'];
-            }
-        }
         if (isset($map['SecondaryPrivateIpAddressCount'])) {
             $model->secondaryPrivateIpAddressCount = $map['SecondaryPrivateIpAddressCount'];
         }
@@ -239,6 +275,16 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['SecurityGroupIds'])) {
+            if (!empty($map['SecurityGroupIds'])) {
+                $model->securityGroupIds = $map['SecurityGroupIds'];
+            }
+        }
+        if (isset($map['PrivateIpAddress'])) {
+            if (!empty($map['PrivateIpAddress'])) {
+                $model->privateIpAddress = $map['PrivateIpAddress'];
+            }
         }
 
         return $model;

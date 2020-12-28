@@ -14,6 +14,31 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
+     * @var systemDisk
+     */
+    public $systemDisk;
+
+    /**
+     * @var privatePoolOptions
+     */
+    public $privatePoolOptions;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -119,21 +144,6 @@ class CreateInstanceRequest extends Model
     public $innerIpAddress;
 
     /**
-     * @var systemDisk
-     */
-    public $systemDisk;
-
-    /**
-     * @var dataDisk[]
-     */
-    public $dataDisk;
-
-    /**
-     * @var arn[]
-     */
-    public $arn;
-
-    /**
      * @var string
      */
     public $nodeControllerId;
@@ -159,6 +169,11 @@ class CreateInstanceRequest extends Model
     public $ioOptimized;
 
     /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var bool
      */
     public $useAdditionalService;
@@ -177,11 +192,6 @@ class CreateInstanceRequest extends Model
      * @var string
      */
     public $periodUnit;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
 
     /**
      * @var string
@@ -256,6 +266,16 @@ class CreateInstanceRequest extends Model
     /**
      * @var string
      */
+    public $capacityReservationId;
+
+    /**
+     * @var string
+     */
+    public $capacityReservationPreference;
+
+    /**
+     * @var string
+     */
     public $affinity;
 
     /**
@@ -289,77 +309,106 @@ class CreateInstanceRequest extends Model
     public $httpPutResponseHopLimit;
 
     /**
-     * @var privatePoolOptions
+     * @var dataDisk[]
      */
-    public $privatePoolOptions;
+    public $dataDisk;
+
+    /**
+     * @var arn[]
+     */
+    public $arn;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'regionId'                    => 'RegionId',
-        'imageId'                     => 'ImageId',
-        'imageFamily'                 => 'ImageFamily',
-        'instanceType'                => 'InstanceType',
-        'securityGroupId'             => 'SecurityGroupId',
-        'instanceName'                => 'InstanceName',
-        'internetChargeType'          => 'InternetChargeType',
-        'autoRenew'                   => 'AutoRenew',
-        'autoRenewPeriod'             => 'AutoRenewPeriod',
-        'internetMaxBandwidthIn'      => 'InternetMaxBandwidthIn',
-        'internetMaxBandwidthOut'     => 'InternetMaxBandwidthOut',
-        'hostName'                    => 'HostName',
-        'password'                    => 'Password',
-        'passwordInherit'             => 'PasswordInherit',
-        'deploymentSetId'             => 'DeploymentSetId',
-        'deploymentSetGroupNo'        => 'DeploymentSetGroupNo',
-        'zoneId'                      => 'ZoneId',
-        'clusterId'                   => 'ClusterId',
-        'clientToken'                 => 'ClientToken',
-        'vlanId'                      => 'VlanId',
-        'innerIpAddress'              => 'InnerIpAddress',
-        'systemDisk'                  => 'SystemDisk',
-        'dataDisk'                    => 'DataDisk',
-        'arn'                         => 'Arn',
-        'nodeControllerId'            => 'NodeControllerId',
-        'description'                 => 'Description',
-        'vSwitchId'                   => 'VSwitchId',
-        'privateIpAddress'            => 'PrivateIpAddress',
-        'ioOptimized'                 => 'IoOptimized',
-        'useAdditionalService'        => 'UseAdditionalService',
-        'instanceChargeType'          => 'InstanceChargeType',
-        'period'                      => 'Period',
-        'periodUnit'                  => 'PeriodUnit',
-        'tag'                         => 'Tag',
-        'userData'                    => 'UserData',
-        'spotStrategy'                => 'SpotStrategy',
-        'keyPairName'                 => 'KeyPairName',
-        'spotPriceLimit'              => 'SpotPriceLimit',
-        'spotDuration'                => 'SpotDuration',
-        'spotInterruptionBehavior'    => 'SpotInterruptionBehavior',
-        'ramRoleName'                 => 'RamRoleName',
-        'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
-        'resourceGroupId'             => 'ResourceGroupId',
-        'hpcClusterId'                => 'HpcClusterId',
-        'dryRun'                      => 'DryRun',
-        'dedicatedHostId'             => 'DedicatedHostId',
-        'creditSpecification'         => 'CreditSpecification',
-        'deletionProtection'          => 'DeletionProtection',
-        'affinity'                    => 'Affinity',
-        'tenancy'                     => 'Tenancy',
-        'storageSetId'                => 'StorageSetId',
-        'storageSetPartitionNumber'   => 'StorageSetPartitionNumber',
-        'httpEndpoint'                => 'HttpEndpoint',
-        'httpTokens'                  => 'HttpTokens',
-        'httpPutResponseHopLimit'     => 'HttpPutResponseHopLimit',
-        'privatePoolOptions'          => 'PrivatePoolOptions',
+        'systemDisk'                    => 'SystemDisk',
+        'privatePoolOptions'            => 'PrivatePoolOptions',
+        'ownerId'                       => 'OwnerId',
+        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
+        'resourceOwnerId'               => 'ResourceOwnerId',
+        'regionId'                      => 'RegionId',
+        'imageId'                       => 'ImageId',
+        'imageFamily'                   => 'ImageFamily',
+        'instanceType'                  => 'InstanceType',
+        'securityGroupId'               => 'SecurityGroupId',
+        'instanceName'                  => 'InstanceName',
+        'internetChargeType'            => 'InternetChargeType',
+        'autoRenew'                     => 'AutoRenew',
+        'autoRenewPeriod'               => 'AutoRenewPeriod',
+        'internetMaxBandwidthIn'        => 'InternetMaxBandwidthIn',
+        'internetMaxBandwidthOut'       => 'InternetMaxBandwidthOut',
+        'hostName'                      => 'HostName',
+        'password'                      => 'Password',
+        'passwordInherit'               => 'PasswordInherit',
+        'deploymentSetId'               => 'DeploymentSetId',
+        'deploymentSetGroupNo'          => 'DeploymentSetGroupNo',
+        'zoneId'                        => 'ZoneId',
+        'clusterId'                     => 'ClusterId',
+        'clientToken'                   => 'ClientToken',
+        'vlanId'                        => 'VlanId',
+        'innerIpAddress'                => 'InnerIpAddress',
+        'nodeControllerId'              => 'NodeControllerId',
+        'description'                   => 'Description',
+        'vSwitchId'                     => 'VSwitchId',
+        'privateIpAddress'              => 'PrivateIpAddress',
+        'ioOptimized'                   => 'IoOptimized',
+        'ownerAccount'                  => 'OwnerAccount',
+        'useAdditionalService'          => 'UseAdditionalService',
+        'instanceChargeType'            => 'InstanceChargeType',
+        'period'                        => 'Period',
+        'periodUnit'                    => 'PeriodUnit',
+        'userData'                      => 'UserData',
+        'spotStrategy'                  => 'SpotStrategy',
+        'keyPairName'                   => 'KeyPairName',
+        'spotPriceLimit'                => 'SpotPriceLimit',
+        'spotDuration'                  => 'SpotDuration',
+        'spotInterruptionBehavior'      => 'SpotInterruptionBehavior',
+        'ramRoleName'                   => 'RamRoleName',
+        'securityEnhancementStrategy'   => 'SecurityEnhancementStrategy',
+        'resourceGroupId'               => 'ResourceGroupId',
+        'hpcClusterId'                  => 'HpcClusterId',
+        'dryRun'                        => 'DryRun',
+        'dedicatedHostId'               => 'DedicatedHostId',
+        'creditSpecification'           => 'CreditSpecification',
+        'deletionProtection'            => 'DeletionProtection',
+        'capacityReservationId'         => 'CapacityReservationId',
+        'capacityReservationPreference' => 'CapacityReservationPreference',
+        'affinity'                      => 'Affinity',
+        'tenancy'                       => 'Tenancy',
+        'storageSetId'                  => 'StorageSetId',
+        'storageSetPartitionNumber'     => 'StorageSetPartitionNumber',
+        'httpEndpoint'                  => 'HttpEndpoint',
+        'httpTokens'                    => 'HttpTokens',
+        'httpPutResponseHopLimit'       => 'HttpPutResponseHopLimit',
+        'dataDisk'                      => 'DataDisk',
+        'arn'                           => 'Arn',
+        'tag'                           => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('instanceType', $this->instanceType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->privatePoolOptions) {
+            $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -423,27 +472,6 @@ class CreateInstanceRequest extends Model
         if (null !== $this->innerIpAddress) {
             $res['InnerIpAddress'] = $this->innerIpAddress;
         }
-        if (null !== $this->systemDisk) {
-            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
-        }
-        if (null !== $this->dataDisk) {
-            $res['DataDisk'] = [];
-            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
-                $n = 0;
-                foreach ($this->dataDisk as $item) {
-                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->arn) {
-            $res['Arn'] = [];
-            if (null !== $this->arn && \is_array($this->arn)) {
-                $n = 0;
-                foreach ($this->arn as $item) {
-                    $res['Arn'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->nodeControllerId) {
             $res['NodeControllerId'] = $this->nodeControllerId;
         }
@@ -459,6 +487,9 @@ class CreateInstanceRequest extends Model
         if (null !== $this->ioOptimized) {
             $res['IoOptimized'] = $this->ioOptimized;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->useAdditionalService) {
             $res['UseAdditionalService'] = $this->useAdditionalService;
         }
@@ -470,15 +501,6 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -522,6 +544,12 @@ class CreateInstanceRequest extends Model
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
         }
+        if (null !== $this->capacityReservationId) {
+            $res['CapacityReservationId'] = $this->capacityReservationId;
+        }
+        if (null !== $this->capacityReservationPreference) {
+            $res['CapacityReservationPreference'] = $this->capacityReservationPreference;
+        }
         if (null !== $this->affinity) {
             $res['Affinity'] = $this->affinity;
         }
@@ -543,8 +571,32 @@ class CreateInstanceRequest extends Model
         if (null !== $this->httpPutResponseHopLimit) {
             $res['HttpPutResponseHopLimit'] = $this->httpPutResponseHopLimit;
         }
-        if (null !== $this->privatePoolOptions) {
-            $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
+        if (null !== $this->dataDisk) {
+            $res['DataDisk'] = [];
+            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
+                $n = 0;
+                foreach ($this->dataDisk as $item) {
+                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->arn) {
+            $res['Arn'] = [];
+            if (null !== $this->arn && \is_array($this->arn)) {
+                $n = 0;
+                foreach ($this->arn as $item) {
+                    $res['Arn'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -558,6 +610,21 @@ class CreateInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        }
+        if (isset($map['PrivatePoolOptions'])) {
+            $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -621,27 +688,6 @@ class CreateInstanceRequest extends Model
         if (isset($map['InnerIpAddress'])) {
             $model->innerIpAddress = $map['InnerIpAddress'];
         }
-        if (isset($map['SystemDisk'])) {
-            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
-        }
-        if (isset($map['DataDisk'])) {
-            if (!empty($map['DataDisk'])) {
-                $model->dataDisk = [];
-                $n               = 0;
-                foreach ($map['DataDisk'] as $item) {
-                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Arn'])) {
-            if (!empty($map['Arn'])) {
-                $model->arn = [];
-                $n          = 0;
-                foreach ($map['Arn'] as $item) {
-                    $model->arn[$n++] = null !== $item ? arn::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['NodeControllerId'])) {
             $model->nodeControllerId = $map['NodeControllerId'];
         }
@@ -657,6 +703,9 @@ class CreateInstanceRequest extends Model
         if (isset($map['IoOptimized'])) {
             $model->ioOptimized = $map['IoOptimized'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['UseAdditionalService'])) {
             $model->useAdditionalService = $map['UseAdditionalService'];
         }
@@ -668,15 +717,6 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
@@ -720,6 +760,12 @@ class CreateInstanceRequest extends Model
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
         }
+        if (isset($map['CapacityReservationId'])) {
+            $model->capacityReservationId = $map['CapacityReservationId'];
+        }
+        if (isset($map['CapacityReservationPreference'])) {
+            $model->capacityReservationPreference = $map['CapacityReservationPreference'];
+        }
         if (isset($map['Affinity'])) {
             $model->affinity = $map['Affinity'];
         }
@@ -741,8 +787,32 @@ class CreateInstanceRequest extends Model
         if (isset($map['HttpPutResponseHopLimit'])) {
             $model->httpPutResponseHopLimit = $map['HttpPutResponseHopLimit'];
         }
-        if (isset($map['PrivatePoolOptions'])) {
-            $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);
+        if (isset($map['DataDisk'])) {
+            if (!empty($map['DataDisk'])) {
+                $model->dataDisk = [];
+                $n               = 0;
+                foreach ($map['DataDisk'] as $item) {
+                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Arn'])) {
+            if (!empty($map['Arn'])) {
+                $model->arn = [];
+                $n          = 0;
+                foreach ($map['Arn'] as $item) {
+                    $model->arn[$n++] = null !== $item ? arn::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

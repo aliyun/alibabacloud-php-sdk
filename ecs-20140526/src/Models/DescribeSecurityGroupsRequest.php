@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -32,12 +47,12 @@ class DescribeSecurityGroupsRequest extends Model
     /**
      * @var string
      */
-    public $securityGroupIds;
+    public $ownerAccount;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $securityGroupIds;
 
     /**
      * @var string
@@ -78,31 +93,48 @@ class DescribeSecurityGroupsRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'vpcId'             => 'VpcId',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'securityGroupIds'  => 'SecurityGroupIds',
-        'tag'               => 'Tag',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'networkType'       => 'NetworkType',
-        'securityGroupId'   => 'SecurityGroupId',
-        'securityGroupName' => 'SecurityGroupName',
-        'isQueryEcsCount'   => 'IsQueryEcsCount',
-        'fuzzyQuery'        => 'FuzzyQuery',
-        'securityGroupType' => 'SecurityGroupType',
-        'dryRun'            => 'DryRun',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'regionId'             => 'RegionId',
+        'vpcId'                => 'VpcId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
+        'ownerAccount'         => 'OwnerAccount',
+        'securityGroupIds'     => 'SecurityGroupIds',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'networkType'          => 'NetworkType',
+        'securityGroupId'      => 'SecurityGroupId',
+        'securityGroupName'    => 'SecurityGroupName',
+        'isQueryEcsCount'      => 'IsQueryEcsCount',
+        'fuzzyQuery'           => 'FuzzyQuery',
+        'securityGroupType'    => 'SecurityGroupType',
+        'dryRun'               => 'DryRun',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -115,17 +147,11 @@ class DescribeSecurityGroupsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -151,6 +177,15 @@ class DescribeSecurityGroupsRequest extends Model
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -163,6 +198,15 @@ class DescribeSecurityGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -175,17 +219,11 @@ class DescribeSecurityGroupsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['SecurityGroupIds'])) {
             $model->securityGroupIds = $map['SecurityGroupIds'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -210,6 +248,15 @@ class DescribeSecurityGroupsRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

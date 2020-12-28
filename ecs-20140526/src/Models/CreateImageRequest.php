@@ -11,9 +11,19 @@ use AlibabaCloud\Tea\Model;
 class CreateImageRequest extends Model
 {
     /**
-     * @var diskDeviceMapping[]
+     * @var int
      */
-    public $diskDeviceMapping;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -66,46 +76,59 @@ class CreateImageRequest extends Model
     public $clientToken;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $ownerAccount;
 
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var diskDeviceMapping[]
+     */
+    public $diskDeviceMapping;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'diskDeviceMapping' => 'DiskDeviceMapping',
-        'regionId'          => 'RegionId',
-        'snapshotId'        => 'SnapshotId',
-        'instanceId'        => 'InstanceId',
-        'imageName'         => 'ImageName',
-        'imageFamily'       => 'ImageFamily',
-        'imageVersion'      => 'ImageVersion',
-        'description'       => 'Description',
-        'platform'          => 'Platform',
-        'architecture'      => 'Architecture',
-        'clientToken'       => 'ClientToken',
-        'tag'               => 'Tag',
-        'resourceGroupId'   => 'ResourceGroupId',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'regionId'             => 'RegionId',
+        'snapshotId'           => 'SnapshotId',
+        'instanceId'           => 'InstanceId',
+        'imageName'            => 'ImageName',
+        'imageFamily'          => 'ImageFamily',
+        'imageVersion'         => 'ImageVersion',
+        'description'          => 'Description',
+        'platform'             => 'Platform',
+        'architecture'         => 'Architecture',
+        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'diskDeviceMapping'    => 'DiskDeviceMapping',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->diskDeviceMapping) {
-            $res['DiskDeviceMapping'] = [];
-            if (null !== $this->diskDeviceMapping && \is_array($this->diskDeviceMapping)) {
-                $n = 0;
-                foreach ($this->diskDeviceMapping as $item) {
-                    $res['DiskDeviceMapping'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -137,6 +160,21 @@ class CreateImageRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->diskDeviceMapping) {
+            $res['DiskDeviceMapping'] = [];
+            if (null !== $this->diskDeviceMapping && \is_array($this->diskDeviceMapping)) {
+                $n = 0;
+                foreach ($this->diskDeviceMapping as $item) {
+                    $res['DiskDeviceMapping'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -145,9 +183,6 @@ class CreateImageRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -161,14 +196,14 @@ class CreateImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DiskDeviceMapping'])) {
-            if (!empty($map['DiskDeviceMapping'])) {
-                $model->diskDeviceMapping = [];
-                $n                        = 0;
-                foreach ($map['DiskDeviceMapping'] as $item) {
-                    $model->diskDeviceMapping[$n++] = null !== $item ? diskDeviceMapping::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -200,6 +235,21 @@ class CreateImageRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['DiskDeviceMapping'])) {
+            if (!empty($map['DiskDeviceMapping'])) {
+                $model->diskDeviceMapping = [];
+                $n                        = 0;
+                foreach ($map['DiskDeviceMapping'] as $item) {
+                    $model->diskDeviceMapping[$n++] = null !== $item ? diskDeviceMapping::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -208,9 +258,6 @@ class CreateImageRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

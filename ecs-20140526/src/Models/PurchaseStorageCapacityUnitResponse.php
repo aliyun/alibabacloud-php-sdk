@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\PurchaseStorageCapacityUnitResponse\storageCapacityUnitIds;
 use AlibabaCloud\Tea\Model;
 
 class PurchaseStorageCapacityUnitResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var PurchaseStorageCapacityUnitResponseBody
      */
-    public $orderId;
-
-    /**
-     * @var storageCapacityUnitIds
-     */
-    public $storageCapacityUnitIds;
+    public $body;
     protected $_name = [
-        'requestId'              => 'RequestId',
-        'orderId'                => 'OrderId',
-        'storageCapacityUnitIds' => 'StorageCapacityUnitIds',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('orderId', $this->orderId, true);
-        Model::validateRequired('storageCapacityUnitIds', $this->storageCapacityUnitIds, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->storageCapacityUnitIds) {
-            $res['StorageCapacityUnitIds'] = null !== $this->storageCapacityUnitIds ? $this->storageCapacityUnitIds->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class PurchaseStorageCapacityUnitResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['StorageCapacityUnitIds'])) {
-            $model->storageCapacityUnitIds = storageCapacityUnitIds::fromMap($map['StorageCapacityUnitIds']);
+        if (isset($map['body'])) {
+            $model->body = PurchaseStorageCapacityUnitResponseBody::fromMap($map['body']);
         }
 
         return $model;

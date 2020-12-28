@@ -4,99 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupAttributeResponse\permissions;
 use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityGroupAttributeResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeSecurityGroupAttributeResponseBody
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $securityGroupId;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $securityGroupName;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $innerAccessPolicy;
-
-    /**
-     * @var permissions
-     */
-    public $permissions;
+    public $body;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'regionId'          => 'RegionId',
-        'securityGroupId'   => 'SecurityGroupId',
-        'description'       => 'Description',
-        'securityGroupName' => 'SecurityGroupName',
-        'vpcId'             => 'VpcId',
-        'innerAccessPolicy' => 'InnerAccessPolicy',
-        'permissions'       => 'Permissions',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('securityGroupId', $this->securityGroupId, true);
-        Model::validateRequired('description', $this->description, true);
-        Model::validateRequired('securityGroupName', $this->securityGroupName, true);
-        Model::validateRequired('vpcId', $this->vpcId, true);
-        Model::validateRequired('innerAccessPolicy', $this->innerAccessPolicy, true);
-        Model::validateRequired('permissions', $this->permissions, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->securityGroupName) {
-            $res['SecurityGroupName'] = $this->securityGroupName;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->innerAccessPolicy) {
-            $res['InnerAccessPolicy'] = $this->innerAccessPolicy;
-        }
-        if (null !== $this->permissions) {
-            $res['Permissions'] = null !== $this->permissions ? $this->permissions->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -110,29 +49,11 @@ class DescribeSecurityGroupAttributeResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['SecurityGroupName'])) {
-            $model->securityGroupName = $map['SecurityGroupName'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['InnerAccessPolicy'])) {
-            $model->innerAccessPolicy = $map['InnerAccessPolicy'];
-        }
-        if (isset($map['Permissions'])) {
-            $model->permissions = permissions::fromMap($map['Permissions']);
+        if (isset($map['body'])) {
+            $model->body = DescribeSecurityGroupAttributeResponseBody::fromMap($map['body']);
         }
 
         return $model;

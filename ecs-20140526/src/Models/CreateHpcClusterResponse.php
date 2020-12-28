@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateHpcClusterResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateHpcClusterResponseBody
      */
-    public $hpcClusterId;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'hpcClusterId' => 'HpcClusterId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('hpcClusterId', $this->hpcClusterId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->hpcClusterId) {
-            $res['HpcClusterId'] = $this->hpcClusterId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class CreateHpcClusterResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['HpcClusterId'])) {
-            $model->hpcClusterId = $map['HpcClusterId'];
+        if (isset($map['body'])) {
+            $model->body = CreateHpcClusterResponseBody::fromMap($map['body']);
         }
 
         return $model;

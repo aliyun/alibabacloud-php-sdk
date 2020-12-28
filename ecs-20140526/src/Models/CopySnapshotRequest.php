@@ -10,14 +10,29 @@ use AlibabaCloud\Tea\Model;
 class CopySnapshotRequest extends Model
 {
     /**
-     * @var tag[]
+     * @var int
      */
-    public $tag;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @var string
@@ -49,8 +64,11 @@ class CopySnapshotRequest extends Model
      */
     public $retentionDays;
     protected $_name = [
-        'tag'                            => 'Tag',
+        'ownerId'                        => 'OwnerId',
+        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
+        'resourceOwnerId'                => 'ResourceOwnerId',
         'resourceGroupId'                => 'ResourceGroupId',
+        'tag'                            => 'Tag',
         'regionId'                       => 'RegionId',
         'destinationRegionId'            => 'DestinationRegionId',
         'snapshotId'                     => 'SnapshotId',
@@ -61,16 +79,23 @@ class CopySnapshotRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('destinationRegionId', $this->destinationRegionId, true);
-        Model::validateRequired('snapshotId', $this->snapshotId, true);
-        Model::validateRequired('destinationSnapshotName', $this->destinationSnapshotName, true);
-        Model::validateRequired('destinationSnapshotDescription', $this->destinationSnapshotDescription, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -79,9 +104,6 @@ class CopySnapshotRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -113,6 +135,18 @@ class CopySnapshotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -121,9 +155,6 @@ class CopySnapshotRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

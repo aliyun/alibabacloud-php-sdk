@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateVSwitchRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $zoneId;
@@ -42,26 +57,41 @@ class CreateVSwitchRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
     protected $_name = [
-        'zoneId'      => 'ZoneId',
-        'cidrBlock'   => 'CidrBlock',
-        'vpcId'       => 'VpcId',
-        'regionId'    => 'RegionId',
-        'vSwitchName' => 'VSwitchName',
-        'description' => 'Description',
-        'clientToken' => 'ClientToken',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'zoneId'               => 'ZoneId',
+        'cidrBlock'            => 'CidrBlock',
+        'vpcId'                => 'VpcId',
+        'regionId'             => 'RegionId',
+        'vSwitchName'          => 'VSwitchName',
+        'description'          => 'Description',
+        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('zoneId', $this->zoneId, true);
-        Model::validateRequired('cidrBlock', $this->cidrBlock, true);
-        Model::validateRequired('vpcId', $this->vpcId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -83,6 +113,9 @@ class CreateVSwitchRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
 
         return $res;
     }
@@ -95,6 +128,15 @@ class CreateVSwitchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
@@ -115,6 +157,9 @@ class CreateVSwitchRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

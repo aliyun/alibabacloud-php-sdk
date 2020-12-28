@@ -13,6 +13,31 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoProvisioningGroupRequest extends Model
 {
     /**
+     * @var launchConfiguration
+     */
+    public $launchConfiguration;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -113,19 +138,14 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $launchTemplateVersion;
 
     /**
-     * @var launchTemplateConfig[]
-     */
-    public $launchTemplateConfig;
-
-    /**
      * @var string
      */
     public $description;
 
     /**
-     * @var launchConfiguration
+     * @var launchTemplateConfig[]
      */
-    public $launchConfiguration;
+    public $launchTemplateConfig;
 
     /**
      * @var systemDiskConfig[]
@@ -137,6 +157,11 @@ class CreateAutoProvisioningGroupRequest extends Model
      */
     public $dataDiskConfig;
     protected $_name = [
+        'launchConfiguration'              => 'LaunchConfiguration',
+        'ownerId'                          => 'OwnerId',
+        'resourceOwnerAccount'             => 'ResourceOwnerAccount',
+        'resourceOwnerId'                  => 'ResourceOwnerId',
+        'ownerAccount'                     => 'OwnerAccount',
         'regionId'                         => 'RegionId',
         'resourceGroupId'                  => 'ResourceGroupId',
         'autoProvisioningGroupName'        => 'AutoProvisioningGroupName',
@@ -157,22 +182,34 @@ class CreateAutoProvisioningGroupRequest extends Model
         'defaultTargetCapacityType'        => 'DefaultTargetCapacityType',
         'launchTemplateId'                 => 'LaunchTemplateId',
         'launchTemplateVersion'            => 'LaunchTemplateVersion',
-        'launchTemplateConfig'             => 'LaunchTemplateConfig',
         'description'                      => 'Description',
-        'launchConfiguration'              => 'LaunchConfiguration',
+        'launchTemplateConfig'             => 'LaunchTemplateConfig',
         'systemDiskConfig'                 => 'SystemDiskConfig',
         'dataDiskConfig'                   => 'DataDiskConfig',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('totalTargetCapacity', $this->totalTargetCapacity, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->launchConfiguration) {
+            $res['LaunchConfiguration'] = null !== $this->launchConfiguration ? $this->launchConfiguration->toMap() : null;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -233,6 +270,9 @@ class CreateAutoProvisioningGroupRequest extends Model
         if (null !== $this->launchTemplateVersion) {
             $res['LaunchTemplateVersion'] = $this->launchTemplateVersion;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->launchTemplateConfig) {
             $res['LaunchTemplateConfig'] = [];
             if (null !== $this->launchTemplateConfig && \is_array($this->launchTemplateConfig)) {
@@ -241,12 +281,6 @@ class CreateAutoProvisioningGroupRequest extends Model
                     $res['LaunchTemplateConfig'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->launchConfiguration) {
-            $res['LaunchConfiguration'] = null !== $this->launchConfiguration ? $this->launchConfiguration->toMap() : null;
         }
         if (null !== $this->systemDiskConfig) {
             $res['SystemDiskConfig'] = [];
@@ -278,6 +312,21 @@ class CreateAutoProvisioningGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LaunchConfiguration'])) {
+            $model->launchConfiguration = launchConfiguration::fromMap($map['LaunchConfiguration']);
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -338,6 +387,9 @@ class CreateAutoProvisioningGroupRequest extends Model
         if (isset($map['LaunchTemplateVersion'])) {
             $model->launchTemplateVersion = $map['LaunchTemplateVersion'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['LaunchTemplateConfig'])) {
             if (!empty($map['LaunchTemplateConfig'])) {
                 $model->launchTemplateConfig = [];
@@ -346,12 +398,6 @@ class CreateAutoProvisioningGroupRequest extends Model
                     $model->launchTemplateConfig[$n++] = null !== $item ? launchTemplateConfig::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['LaunchConfiguration'])) {
-            $model->launchConfiguration = launchConfiguration::fromMap($map['LaunchConfiguration']);
         }
         if (isset($map['SystemDiskConfig'])) {
             if (!empty($map['SystemDiskConfig'])) {

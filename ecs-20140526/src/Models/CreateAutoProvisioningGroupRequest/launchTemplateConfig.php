@@ -11,7 +11,7 @@ class launchTemplateConfig extends Model
     /**
      * @var string
      */
-    public $instanceType;
+    public $vSwitchId;
 
     /**
      * @var float
@@ -19,9 +19,9 @@ class launchTemplateConfig extends Model
     public $maxPrice;
 
     /**
-     * @var string
+     * @var int
      */
-    public $vSwitchId;
+    public $priority;
 
     /**
      * @var float
@@ -29,15 +29,15 @@ class launchTemplateConfig extends Model
     public $weightedCapacity;
 
     /**
-     * @var int
+     * @var string
      */
-    public $priority;
+    public $instanceType;
     protected $_name = [
-        'instanceType'     => 'InstanceType',
-        'maxPrice'         => 'MaxPrice',
         'vSwitchId'        => 'VSwitchId',
-        'weightedCapacity' => 'WeightedCapacity',
+        'maxPrice'         => 'MaxPrice',
         'priority'         => 'Priority',
+        'weightedCapacity' => 'WeightedCapacity',
+        'instanceType'     => 'InstanceType',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class launchTemplateConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->maxPrice) {
             $res['MaxPrice'] = $this->maxPrice;
         }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->weightedCapacity) {
             $res['WeightedCapacity'] = $this->weightedCapacity;
         }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class launchTemplateConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['MaxPrice'])) {
             $model->maxPrice = $map['MaxPrice'];
         }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['WeightedCapacity'])) {
             $model->weightedCapacity = $map['WeightedCapacity'];
         }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         return $model;

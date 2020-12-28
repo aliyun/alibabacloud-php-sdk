@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyDemandRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -73,30 +93,44 @@ class ModifyDemandRequest extends Model
      */
     public $endTime;
     protected $_name = [
-        'clientToken'        => 'ClientToken',
-        'regionId'           => 'RegionId',
-        'zoneId'             => 'ZoneId',
-        'demandId'           => 'DemandId',
-        'demandName'         => 'DemandName',
-        'demandDescription'  => 'DemandDescription',
-        'instanceType'       => 'InstanceType',
-        'amount'             => 'Amount',
-        'instanceChargeType' => 'InstanceChargeType',
-        'period'             => 'Period',
-        'periodUnit'         => 'PeriodUnit',
-        'startTime'          => 'StartTime',
-        'endTime'            => 'EndTime',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'clientToken'          => 'ClientToken',
+        'regionId'             => 'RegionId',
+        'zoneId'               => 'ZoneId',
+        'demandId'             => 'DemandId',
+        'demandName'           => 'DemandName',
+        'demandDescription'    => 'DemandDescription',
+        'instanceType'         => 'InstanceType',
+        'amount'               => 'Amount',
+        'instanceChargeType'   => 'InstanceChargeType',
+        'period'               => 'Period',
+        'periodUnit'           => 'PeriodUnit',
+        'startTime'            => 'StartTime',
+        'endTime'              => 'EndTime',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('demandId', $this->demandId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -148,6 +182,18 @@ class ModifyDemandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

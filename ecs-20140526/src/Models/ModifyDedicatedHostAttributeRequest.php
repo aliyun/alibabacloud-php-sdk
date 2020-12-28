@@ -10,6 +10,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostAttributeRequest extends Model
 {
     /**
+     * @var networkAttributes
+     */
+    public $networkAttributes;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -35,11 +60,6 @@ class ModifyDedicatedHostAttributeRequest extends Model
     public $actionOnMaintenance;
 
     /**
-     * @var networkAttributes
-     */
-    public $networkAttributes;
-
-    /**
      * @var string
      */
     public $autoPlacement;
@@ -54,12 +74,16 @@ class ModifyDedicatedHostAttributeRequest extends Model
      */
     public $cpuOverCommitRatio;
     protected $_name = [
+        'networkAttributes'      => 'NetworkAttributes',
+        'ownerId'                => 'OwnerId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'ownerAccount'           => 'OwnerAccount',
         'regionId'               => 'RegionId',
         'dedicatedHostId'        => 'DedicatedHostId',
         'dedicatedHostName'      => 'DedicatedHostName',
         'description'            => 'Description',
         'actionOnMaintenance'    => 'ActionOnMaintenance',
-        'networkAttributes'      => 'NetworkAttributes',
         'autoPlacement'          => 'AutoPlacement',
         'dedicatedHostClusterId' => 'DedicatedHostClusterId',
         'cpuOverCommitRatio'     => 'CpuOverCommitRatio',
@@ -67,13 +91,26 @@ class ModifyDedicatedHostAttributeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('dedicatedHostId', $this->dedicatedHostId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->networkAttributes) {
+            $res['NetworkAttributes'] = null !== $this->networkAttributes ? $this->networkAttributes->toMap() : null;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -88,9 +125,6 @@ class ModifyDedicatedHostAttributeRequest extends Model
         }
         if (null !== $this->actionOnMaintenance) {
             $res['ActionOnMaintenance'] = $this->actionOnMaintenance;
-        }
-        if (null !== $this->networkAttributes) {
-            $res['NetworkAttributes'] = null !== $this->networkAttributes ? $this->networkAttributes->toMap() : null;
         }
         if (null !== $this->autoPlacement) {
             $res['AutoPlacement'] = $this->autoPlacement;
@@ -113,6 +147,21 @@ class ModifyDedicatedHostAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NetworkAttributes'])) {
+            $model->networkAttributes = networkAttributes::fromMap($map['NetworkAttributes']);
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -127,9 +176,6 @@ class ModifyDedicatedHostAttributeRequest extends Model
         }
         if (isset($map['ActionOnMaintenance'])) {
             $model->actionOnMaintenance = $map['ActionOnMaintenance'];
-        }
-        if (isset($map['NetworkAttributes'])) {
-            $model->networkAttributes = networkAttributes::fromMap($map['NetworkAttributes']);
         }
         if (isset($map['AutoPlacement'])) {
             $model->autoPlacement = $map['AutoPlacement'];

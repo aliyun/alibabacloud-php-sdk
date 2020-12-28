@@ -19,6 +19,21 @@ class RecoverVirtualBorderRouterRequest extends Model
     public $vbrId;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -26,18 +41,25 @@ class RecoverVirtualBorderRouterRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $userCidr;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'vbrId'       => 'VbrId',
-        'clientToken' => 'ClientToken',
-        'userCidr'    => 'UserCidr',
+        'regionId'             => 'RegionId',
+        'vbrId'                => 'VbrId',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
+        'userCidr'             => 'UserCidr',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('vbrId', $this->vbrId, true);
     }
 
     public function toMap()
@@ -49,8 +71,20 @@ class RecoverVirtualBorderRouterRequest extends Model
         if (null !== $this->vbrId) {
             $res['VbrId'] = $this->vbrId;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->userCidr) {
             $res['UserCidr'] = $this->userCidr;
@@ -73,8 +107,20 @@ class RecoverVirtualBorderRouterRequest extends Model
         if (isset($map['VbrId'])) {
             $model->vbrId = $map['VbrId'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['UserCidr'])) {
             $model->userCidr = $map['UserCidr'];

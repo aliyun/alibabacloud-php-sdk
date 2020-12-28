@@ -4,60 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNatGatewayResponse\bandwidthPackageIds;
-use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNatGatewayResponse\forwardTableIds;
 use AlibabaCloud\Tea\Model;
 
 class CreateNatGatewayResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateNatGatewayResponseBody
      */
-    public $natGatewayId;
-
-    /**
-     * @var forwardTableIds
-     */
-    public $forwardTableIds;
-
-    /**
-     * @var bandwidthPackageIds
-     */
-    public $bandwidthPackageIds;
+    public $body;
     protected $_name = [
-        'requestId'           => 'RequestId',
-        'natGatewayId'        => 'NatGatewayId',
-        'forwardTableIds'     => 'ForwardTableIds',
-        'bandwidthPackageIds' => 'BandwidthPackageIds',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('natGatewayId', $this->natGatewayId, true);
-        Model::validateRequired('forwardTableIds', $this->forwardTableIds, true);
-        Model::validateRequired('bandwidthPackageIds', $this->bandwidthPackageIds, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->natGatewayId) {
-            $res['NatGatewayId'] = $this->natGatewayId;
-        }
-        if (null !== $this->forwardTableIds) {
-            $res['ForwardTableIds'] = null !== $this->forwardTableIds ? $this->forwardTableIds->toMap() : null;
-        }
-        if (null !== $this->bandwidthPackageIds) {
-            $res['BandwidthPackageIds'] = null !== $this->bandwidthPackageIds ? $this->bandwidthPackageIds->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -71,17 +49,11 @@ class CreateNatGatewayResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['NatGatewayId'])) {
-            $model->natGatewayId = $map['NatGatewayId'];
-        }
-        if (isset($map['ForwardTableIds'])) {
-            $model->forwardTableIds = forwardTableIds::fromMap($map['ForwardTableIds']);
-        }
-        if (isset($map['BandwidthPackageIds'])) {
-            $model->bandwidthPackageIds = bandwidthPackageIds::fromMap($map['BandwidthPackageIds']);
+        if (isset($map['body'])) {
+            $model->body = CreateNatGatewayResponseBody::fromMap($map['body']);
         }
 
         return $model;

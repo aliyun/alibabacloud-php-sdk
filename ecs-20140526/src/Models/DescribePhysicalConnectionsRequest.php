@@ -25,9 +25,19 @@ class DescribePhysicalConnectionsRequest extends Model
     public $pageSize;
 
     /**
-     * @var filter[]
+     * @var int
      */
-    public $filter;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -37,19 +47,32 @@ class DescribePhysicalConnectionsRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $userCidr;
+
+    /**
+     * @var filter[]
+     */
+    public $filter;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'filter'      => 'Filter',
-        'clientToken' => 'ClientToken',
-        'userCidr'    => 'UserCidr',
+        'regionId'             => 'RegionId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
+        'userCidr'             => 'UserCidr',
+        'filter'               => 'Filter',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -64,6 +87,24 @@ class DescribePhysicalConnectionsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->userCidr) {
+            $res['UserCidr'] = $this->userCidr;
+        }
         if (null !== $this->filter) {
             $res['Filter'] = [];
             if (null !== $this->filter && \is_array($this->filter)) {
@@ -72,12 +113,6 @@ class DescribePhysicalConnectionsRequest extends Model
                     $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->userCidr) {
-            $res['UserCidr'] = $this->userCidr;
         }
 
         return $res;
@@ -100,6 +135,24 @@ class DescribePhysicalConnectionsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['UserCidr'])) {
+            $model->userCidr = $map['UserCidr'];
+        }
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
@@ -108,12 +161,6 @@ class DescribePhysicalConnectionsRequest extends Model
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['UserCidr'])) {
-            $model->userCidr = $map['UserCidr'];
         }
 
         return $model;

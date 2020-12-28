@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\dataDisk;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest\launchConfiguration\tag;
 use AlibabaCloud\Tea\Model;
 
 class launchConfiguration extends Model
@@ -22,11 +24,6 @@ class launchConfiguration extends Model
      * @var string
      */
     public $ioOptimized;
-
-    /**
-     * @var string[]
-     */
-    public $dataDisk;
 
     /**
      * @var string
@@ -74,11 +71,6 @@ class launchConfiguration extends Model
     public $securityEnhancementStrategy;
 
     /**
-     * @var string[]
-     */
-    public $tag;
-
-    /**
      * @var string
      */
     public $userData;
@@ -122,11 +114,20 @@ class launchConfiguration extends Model
      * @var string
      */
     public $creditSpecification;
+
+    /**
+     * @var dataDisk[]
+     */
+    public $dataDisk;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'imageId'                     => 'ImageId',
         'securityGroupId'             => 'SecurityGroupId',
         'ioOptimized'                 => 'IoOptimized',
-        'dataDisk'                    => 'DataDisk',
         'internetChargeType'          => 'InternetChargeType',
         'internetMaxBandwidthIn'      => 'InternetMaxBandwidthIn',
         'internetMaxBandwidthOut'     => 'InternetMaxBandwidthOut',
@@ -136,7 +137,6 @@ class launchConfiguration extends Model
         'keyPairName'                 => 'KeyPairName',
         'ramRoleName'                 => 'RamRoleName',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
-        'tag'                         => 'Tag',
         'userData'                    => 'UserData',
         'systemDiskCategory'          => 'SystemDiskCategory',
         'systemDiskSize'              => 'SystemDiskSize',
@@ -146,6 +146,8 @@ class launchConfiguration extends Model
         'passwordInherit'             => 'PasswordInherit',
         'resourceGroupId'             => 'ResourceGroupId',
         'creditSpecification'         => 'CreditSpecification',
+        'dataDisk'                    => 'DataDisk',
+        'tag'                         => 'Tag',
     ];
 
     public function validate()
@@ -163,9 +165,6 @@ class launchConfiguration extends Model
         }
         if (null !== $this->ioOptimized) {
             $res['IoOptimized'] = $this->ioOptimized;
-        }
-        if (null !== $this->dataDisk) {
-            $res['DataDisk'] = $this->dataDisk;
         }
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
@@ -194,9 +193,6 @@ class launchConfiguration extends Model
         if (null !== $this->securityEnhancementStrategy) {
             $res['SecurityEnhancementStrategy'] = $this->securityEnhancementStrategy;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -224,6 +220,24 @@ class launchConfiguration extends Model
         if (null !== $this->creditSpecification) {
             $res['CreditSpecification'] = $this->creditSpecification;
         }
+        if (null !== $this->dataDisk) {
+            $res['DataDisk'] = [];
+            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
+                $n = 0;
+                foreach ($this->dataDisk as $item) {
+                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -244,11 +258,6 @@ class launchConfiguration extends Model
         }
         if (isset($map['IoOptimized'])) {
             $model->ioOptimized = $map['IoOptimized'];
-        }
-        if (isset($map['DataDisk'])) {
-            if (!empty($map['DataDisk'])) {
-                $model->dataDisk = $map['DataDisk'];
-            }
         }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
@@ -277,11 +286,6 @@ class launchConfiguration extends Model
         if (isset($map['SecurityEnhancementStrategy'])) {
             $model->securityEnhancementStrategy = $map['SecurityEnhancementStrategy'];
         }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = $map['Tag'];
-            }
-        }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }
@@ -308,6 +312,24 @@ class launchConfiguration extends Model
         }
         if (isset($map['CreditSpecification'])) {
             $model->creditSpecification = $map['CreditSpecification'];
+        }
+        if (isset($map['DataDisk'])) {
+            if (!empty($map['DataDisk'])) {
+                $model->dataDisk = [];
+                $n               = 0;
+                foreach ($map['DataDisk'] as $item) {
+                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

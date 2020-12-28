@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class RunCommandShrinkRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -59,11 +79,6 @@ class RunCommandShrinkRequest extends Model
     public $frequency;
 
     /**
-     * @var string[]
-     */
-    public $instanceId;
-
-    /**
      * @var string
      */
     public $parametersShrink;
@@ -77,34 +92,57 @@ class RunCommandShrinkRequest extends Model
      * @var string
      */
     public $contentEncoding;
+
+    /**
+     * @var string
+     */
+    public $username;
+
+    /**
+     * @var string[]
+     */
+    public $instanceId;
     protected $_name = [
-        'regionId'         => 'RegionId',
-        'name'             => 'Name',
-        'description'      => 'Description',
-        'type'             => 'Type',
-        'commandContent'   => 'CommandContent',
-        'workingDir'       => 'WorkingDir',
-        'timeout'          => 'Timeout',
-        'enableParameter'  => 'EnableParameter',
-        'timed'            => 'Timed',
-        'frequency'        => 'Frequency',
-        'instanceId'       => 'InstanceId',
-        'parametersShrink' => 'Parameters',
-        'keepCommand'      => 'KeepCommand',
-        'contentEncoding'  => 'ContentEncoding',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
+        'name'                 => 'Name',
+        'description'          => 'Description',
+        'type'                 => 'Type',
+        'commandContent'       => 'CommandContent',
+        'workingDir'           => 'WorkingDir',
+        'timeout'              => 'Timeout',
+        'enableParameter'      => 'EnableParameter',
+        'timed'                => 'Timed',
+        'frequency'            => 'Frequency',
+        'parametersShrink'     => 'Parameters',
+        'keepCommand'          => 'KeepCommand',
+        'contentEncoding'      => 'ContentEncoding',
+        'username'             => 'Username',
+        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('type', $this->type, true);
-        Model::validateRequired('commandContent', $this->commandContent, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -135,9 +173,6 @@ class RunCommandShrinkRequest extends Model
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->parametersShrink) {
             $res['Parameters'] = $this->parametersShrink;
         }
@@ -146,6 +181,12 @@ class RunCommandShrinkRequest extends Model
         }
         if (null !== $this->contentEncoding) {
             $res['ContentEncoding'] = $this->contentEncoding;
+        }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -159,6 +200,18 @@ class RunCommandShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -189,11 +242,6 @@ class RunCommandShrinkRequest extends Model
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];
         }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
-        }
         if (isset($map['Parameters'])) {
             $model->parametersShrink = $map['Parameters'];
         }
@@ -202,6 +250,14 @@ class RunCommandShrinkRequest extends Model
         }
         if (isset($map['ContentEncoding'])) {
             $model->contentEncoding = $map['ContentEncoding'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
+        }
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
         }
 
         return $model;

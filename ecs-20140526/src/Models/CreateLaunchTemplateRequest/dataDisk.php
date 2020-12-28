@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $size;
+    public $description;
 
     /**
      * @var string
@@ -19,14 +19,14 @@ class dataDisk extends Model
     public $snapshotId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $category;
+    public $size;
 
     /**
      * @var string
      */
-    public $encrypted;
+    public $device;
 
     /**
      * @var string
@@ -36,7 +36,7 @@ class dataDisk extends Model
     /**
      * @var string
      */
-    public $description;
+    public $category;
 
     /**
      * @var bool
@@ -46,16 +46,16 @@ class dataDisk extends Model
     /**
      * @var string
      */
-    public $device;
+    public $encrypted;
     protected $_name = [
-        'size'               => 'Size',
-        'snapshotId'         => 'SnapshotId',
-        'category'           => 'Category',
-        'encrypted'          => 'Encrypted',
-        'diskName'           => 'DiskName',
         'description'        => 'Description',
-        'deleteWithInstance' => 'DeleteWithInstance',
+        'snapshotId'         => 'SnapshotId',
+        'size'               => 'Size',
         'device'             => 'Device',
+        'diskName'           => 'DiskName',
+        'category'           => 'Category',
+        'deleteWithInstance' => 'DeleteWithInstance',
+        'encrypted'          => 'Encrypted',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class dataDisk extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
-        if (null !== $this->encrypted) {
-            $res['Encrypted'] = $this->encrypted;
+        if (null !== $this->device) {
+            $res['Device'] = $this->device;
         }
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->deleteWithInstance) {
             $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
-        if (null !== $this->device) {
-            $res['Device'] = $this->device;
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class dataDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
-        if (isset($map['Encrypted'])) {
-            $model->encrypted = $map['Encrypted'];
+        if (isset($map['Device'])) {
+            $model->device = $map['Device'];
         }
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['DeleteWithInstance'])) {
             $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
-        if (isset($map['Device'])) {
-            $model->device = $map['Device'];
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
         }
 
         return $model;

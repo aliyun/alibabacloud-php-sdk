@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAttributeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -36,6 +51,11 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $userData;
 
     /**
@@ -54,36 +74,48 @@ class ModifyInstanceAttributeRequest extends Model
     public $deletionProtection;
 
     /**
-     * @var string[]
-     */
-    public $securityGroupIds;
-
-    /**
      * @var int
      */
     public $networkInterfaceQueueNumber;
+
+    /**
+     * @var string[]
+     */
+    public $securityGroupIds;
     protected $_name = [
+        'ownerId'                     => 'OwnerId',
+        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
+        'resourceOwnerId'             => 'ResourceOwnerId',
         'instanceId'                  => 'InstanceId',
         'password'                    => 'Password',
         'hostName'                    => 'HostName',
         'instanceName'                => 'InstanceName',
         'description'                 => 'Description',
+        'ownerAccount'                => 'OwnerAccount',
         'userData'                    => 'UserData',
         'recyclable'                  => 'Recyclable',
         'creditSpecification'         => 'CreditSpecification',
         'deletionProtection'          => 'DeletionProtection',
-        'securityGroupIds'            => 'SecurityGroupIds',
         'networkInterfaceQueueNumber' => 'NetworkInterfaceQueueNumber',
+        'securityGroupIds'            => 'SecurityGroupIds',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -99,6 +131,9 @@ class ModifyInstanceAttributeRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -111,11 +146,11 @@ class ModifyInstanceAttributeRequest extends Model
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
         }
-        if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = $this->securityGroupIds;
-        }
         if (null !== $this->networkInterfaceQueueNumber) {
             $res['NetworkInterfaceQueueNumber'] = $this->networkInterfaceQueueNumber;
+        }
+        if (null !== $this->securityGroupIds) {
+            $res['SecurityGroupIds'] = $this->securityGroupIds;
         }
 
         return $res;
@@ -129,6 +164,15 @@ class ModifyInstanceAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -144,6 +188,9 @@ class ModifyInstanceAttributeRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }
@@ -156,13 +203,13 @@ class ModifyInstanceAttributeRequest extends Model
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
         }
+        if (isset($map['NetworkInterfaceQueueNumber'])) {
+            $model->networkInterfaceQueueNumber = $map['NetworkInterfaceQueueNumber'];
+        }
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
             }
-        }
-        if (isset($map['NetworkInterfaceQueueNumber'])) {
-            $model->networkInterfaceQueueNumber = $map['NetworkInterfaceQueueNumber'];
         }
 
         return $model;

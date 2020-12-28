@@ -4,69 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\AttachKeyPairResponse\results;
 use AlibabaCloud\Tea\Model;
 
 class AttachKeyPairResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var AttachKeyPairResponseBody
      */
-    public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $failCount;
-
-    /**
-     * @var string
-     */
-    public $keyPairName;
-
-    /**
-     * @var results
-     */
-    public $results;
+    public $body;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
-        'failCount'   => 'FailCount',
-        'keyPairName' => 'KeyPairName',
-        'results'     => 'Results',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('totalCount', $this->totalCount, true);
-        Model::validateRequired('failCount', $this->failCount, true);
-        Model::validateRequired('keyPairName', $this->keyPairName, true);
-        Model::validateRequired('results', $this->results, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->failCount) {
-            $res['FailCount'] = $this->failCount;
-        }
-        if (null !== $this->keyPairName) {
-            $res['KeyPairName'] = $this->keyPairName;
-        }
-        if (null !== $this->results) {
-            $res['Results'] = null !== $this->results ? $this->results->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -80,20 +49,11 @@ class AttachKeyPairResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['FailCount'])) {
-            $model->failCount = $map['FailCount'];
-        }
-        if (isset($map['KeyPairName'])) {
-            $model->keyPairName = $map['KeyPairName'];
-        }
-        if (isset($map['Results'])) {
-            $model->results = results::fromMap($map['Results']);
+        if (isset($map['body'])) {
+            $model->body = AttachKeyPairResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -10,6 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeLaunchTemplatesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -18,16 +38,6 @@ class DescribeLaunchTemplatesRequest extends Model
      * @var templateTag[]
      */
     public $templateTag;
-
-    /**
-     * @var string[]
-     */
-    public $launchTemplateId;
-
-    /**
-     * @var string[]
-     */
-    public $launchTemplateName;
 
     /**
      * @var int
@@ -43,24 +53,49 @@ class DescribeLaunchTemplatesRequest extends Model
      * @var string
      */
     public $templateResourceGroupId;
+
+    /**
+     * @var string[]
+     */
+    public $launchTemplateId;
+
+    /**
+     * @var string[]
+     */
+    public $launchTemplateName;
     protected $_name = [
+        'ownerId'                 => 'OwnerId',
+        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
+        'resourceOwnerId'         => 'ResourceOwnerId',
+        'ownerAccount'            => 'OwnerAccount',
         'regionId'                => 'RegionId',
         'templateTag'             => 'TemplateTag',
-        'launchTemplateId'        => 'LaunchTemplateId',
-        'launchTemplateName'      => 'LaunchTemplateName',
         'pageNumber'              => 'PageNumber',
         'pageSize'                => 'PageSize',
         'templateResourceGroupId' => 'TemplateResourceGroupId',
+        'launchTemplateId'        => 'LaunchTemplateId',
+        'launchTemplateName'      => 'LaunchTemplateName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -73,12 +108,6 @@ class DescribeLaunchTemplatesRequest extends Model
                 }
             }
         }
-        if (null !== $this->launchTemplateId) {
-            $res['LaunchTemplateId'] = $this->launchTemplateId;
-        }
-        if (null !== $this->launchTemplateName) {
-            $res['LaunchTemplateName'] = $this->launchTemplateName;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -87,6 +116,12 @@ class DescribeLaunchTemplatesRequest extends Model
         }
         if (null !== $this->templateResourceGroupId) {
             $res['TemplateResourceGroupId'] = $this->templateResourceGroupId;
+        }
+        if (null !== $this->launchTemplateId) {
+            $res['LaunchTemplateId'] = $this->launchTemplateId;
+        }
+        if (null !== $this->launchTemplateName) {
+            $res['LaunchTemplateName'] = $this->launchTemplateName;
         }
 
         return $res;
@@ -100,6 +135,18 @@ class DescribeLaunchTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -112,6 +159,15 @@ class DescribeLaunchTemplatesRequest extends Model
                 }
             }
         }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TemplateResourceGroupId'])) {
+            $model->templateResourceGroupId = $map['TemplateResourceGroupId'];
+        }
         if (isset($map['LaunchTemplateId'])) {
             if (!empty($map['LaunchTemplateId'])) {
                 $model->launchTemplateId = $map['LaunchTemplateId'];
@@ -121,15 +177,6 @@ class DescribeLaunchTemplatesRequest extends Model
             if (!empty($map['LaunchTemplateName'])) {
                 $model->launchTemplateName = $map['LaunchTemplateName'];
             }
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TemplateResourceGroupId'])) {
-            $model->templateResourceGroupId = $map['TemplateResourceGroupId'];
         }
 
         return $model;

@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class CreateSecurityGroupRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -45,34 +60,51 @@ class CreateSecurityGroupRequest extends Model
     public $serviceManaged;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $ownerAccount;
 
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'description'       => 'Description',
-        'clientToken'       => 'ClientToken',
-        'securityGroupName' => 'SecurityGroupName',
-        'vpcId'             => 'VpcId',
-        'securityGroupType' => 'SecurityGroupType',
-        'serviceManaged'    => 'ServiceManaged',
-        'tag'               => 'Tag',
-        'resourceGroupId'   => 'ResourceGroupId',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'regionId'             => 'RegionId',
+        'description'          => 'Description',
+        'clientToken'          => 'ClientToken',
+        'securityGroupName'    => 'SecurityGroupName',
+        'vpcId'                => 'VpcId',
+        'securityGroupType'    => 'SecurityGroupType',
+        'serviceManaged'       => 'ServiceManaged',
+        'ownerAccount'         => 'OwnerAccount',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -94,6 +126,12 @@ class CreateSecurityGroupRequest extends Model
         if (null !== $this->serviceManaged) {
             $res['ServiceManaged'] = $this->serviceManaged;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -102,9 +140,6 @@ class CreateSecurityGroupRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -118,6 +153,15 @@ class CreateSecurityGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -139,6 +183,12 @@ class CreateSecurityGroupRequest extends Model
         if (isset($map['ServiceManaged'])) {
             $model->serviceManaged = $map['ServiceManaged'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -147,9 +197,6 @@ class CreateSecurityGroupRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

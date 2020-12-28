@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class EipNotifyPaidResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var EipNotifyPaidResponseBody
      */
-    public $data;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var bool
-     */
-    public $success;
+    public $body;
     protected $_name = [
-        'requestId' => 'requestId',
-        'data'      => 'data',
-        'code'      => 'code',
-        'message'   => 'message',
-        'success'   => 'success',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('data', $this->data, true);
-        Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('message', $this->message, true);
-        Model::validateRequired('success', $this->success, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->data) {
-            $res['data'] = $this->data;
-        }
-        if (null !== $this->code) {
-            $res['code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['message'] = $this->message;
-        }
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,20 +49,11 @@ class EipNotifyPaidResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['data'])) {
-            $model->data = $map['data'];
-        }
-        if (isset($map['code'])) {
-            $model->code = $map['code'];
-        }
-        if (isset($map['message'])) {
-            $model->message = $map['message'];
-        }
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
+        if (isset($map['body'])) {
+            $model->body = EipNotifyPaidResponseBody::fromMap($map['body']);
         }
 
         return $model;

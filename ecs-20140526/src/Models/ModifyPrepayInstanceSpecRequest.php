@@ -10,6 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyPrepayInstanceSpecRequest extends Model
 {
     /**
+     * @var systemDisk
+     */
+    public $systemDisk;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -45,9 +65,9 @@ class ModifyPrepayInstanceSpecRequest extends Model
     public $migrateAcrossZone;
 
     /**
-     * @var systemDisk
+     * @var string
      */
-    public $systemDisk;
+    public $ownerAccount;
 
     /**
      * @var string
@@ -64,29 +84,42 @@ class ModifyPrepayInstanceSpecRequest extends Model
      */
     public $rebootWhenFinished;
     protected $_name = [
-        'instanceId'         => 'InstanceId',
-        'regionId'           => 'RegionId',
-        'instanceType'       => 'InstanceType',
-        'operatorType'       => 'OperatorType',
-        'clientToken'        => 'ClientToken',
-        'autoPay'            => 'AutoPay',
-        'migrateAcrossZone'  => 'MigrateAcrossZone',
-        'systemDisk'         => 'SystemDisk',
-        'rebootTime'         => 'RebootTime',
-        'endTime'            => 'EndTime',
-        'rebootWhenFinished' => 'RebootWhenFinished',
+        'systemDisk'           => 'SystemDisk',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'instanceId'           => 'InstanceId',
+        'regionId'             => 'RegionId',
+        'instanceType'         => 'InstanceType',
+        'operatorType'         => 'OperatorType',
+        'clientToken'          => 'ClientToken',
+        'autoPay'              => 'AutoPay',
+        'migrateAcrossZone'    => 'MigrateAcrossZone',
+        'ownerAccount'         => 'OwnerAccount',
+        'rebootTime'           => 'RebootTime',
+        'endTime'              => 'EndTime',
+        'rebootWhenFinished'   => 'RebootWhenFinished',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('instanceType', $this->instanceType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -108,8 +141,8 @@ class ModifyPrepayInstanceSpecRequest extends Model
         if (null !== $this->migrateAcrossZone) {
             $res['MigrateAcrossZone'] = $this->migrateAcrossZone;
         }
-        if (null !== $this->systemDisk) {
-            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->rebootTime) {
             $res['RebootTime'] = $this->rebootTime;
@@ -132,6 +165,18 @@ class ModifyPrepayInstanceSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -153,8 +198,8 @@ class ModifyPrepayInstanceSpecRequest extends Model
         if (isset($map['MigrateAcrossZone'])) {
             $model->migrateAcrossZone = $map['MigrateAcrossZone'];
         }
-        if (isset($map['SystemDisk'])) {
-            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['RebootTime'])) {
             $model->rebootTime = $map['RebootTime'];

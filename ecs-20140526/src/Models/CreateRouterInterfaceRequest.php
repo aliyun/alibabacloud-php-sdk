@@ -114,6 +114,26 @@ class CreateRouterInterfaceRequest extends Model
     public $clientToken;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $userCidr;
@@ -139,17 +159,15 @@ class CreateRouterInterfaceRequest extends Model
         'autoPay'                  => 'AutoPay',
         'pricingCycle'             => 'PricingCycle',
         'clientToken'              => 'ClientToken',
+        'ownerId'                  => 'OwnerId',
+        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
+        'resourceOwnerId'          => 'ResourceOwnerId',
+        'ownerAccount'             => 'OwnerAccount',
         'userCidr'                 => 'UserCidr',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('role', $this->role, true);
-        Model::validateRequired('oppositeRegionId', $this->oppositeRegionId, true);
-        Model::validateRequired('spec', $this->spec, true);
-        Model::validateRequired('routerType', $this->routerType, true);
-        Model::validateRequired('routerId', $this->routerId, true);
     }
 
     public function toMap()
@@ -217,6 +235,18 @@ class CreateRouterInterfaceRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->userCidr) {
             $res['UserCidr'] = $this->userCidr;
@@ -295,6 +325,18 @@ class CreateRouterInterfaceRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['UserCidr'])) {
             $model->userCidr = $map['UserCidr'];

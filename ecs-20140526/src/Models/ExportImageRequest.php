@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ExportImageRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -38,24 +53,33 @@ class ExportImageRequest extends Model
      */
     public $roleName;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'imageId'     => 'ImageId',
-        'OSSBucket'   => 'OSSBucket',
-        'OSSPrefix'   => 'OSSPrefix',
-        'imageFormat' => 'ImageFormat',
-        'roleName'    => 'RoleName',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'regionId'             => 'RegionId',
+        'imageId'              => 'ImageId',
+        'OSSBucket'            => 'OSSBucket',
+        'OSSPrefix'            => 'OSSPrefix',
+        'imageFormat'          => 'ImageFormat',
+        'roleName'             => 'RoleName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('imageId', $this->imageId, true);
-        Model::validateRequired('OSSBucket', $this->OSSBucket, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -86,6 +110,15 @@ class ExportImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

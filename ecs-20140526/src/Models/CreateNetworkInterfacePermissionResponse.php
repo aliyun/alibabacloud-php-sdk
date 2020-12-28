@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfacePermissionResponse\networkInterfacePermission;
 use AlibabaCloud\Tea\Model;
 
 class CreateNetworkInterfacePermissionResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var networkInterfacePermission
+     * @var CreateNetworkInterfacePermissionResponseBody
      */
-    public $networkInterfacePermission;
+    public $body;
     protected $_name = [
-        'requestId'                  => 'RequestId',
-        'networkInterfacePermission' => 'NetworkInterfacePermission',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('networkInterfacePermission', $this->networkInterfacePermission, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->networkInterfacePermission) {
-            $res['NetworkInterfacePermission'] = null !== $this->networkInterfacePermission ? $this->networkInterfacePermission->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class CreateNetworkInterfacePermissionResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['NetworkInterfacePermission'])) {
-            $model->networkInterfacePermission = networkInterfacePermission::fromMap($map['NetworkInterfacePermission']);
+        if (isset($map['body'])) {
+            $model->body = CreateNetworkInterfacePermissionResponseBody::fromMap($map['body']);
         }
 
         return $model;

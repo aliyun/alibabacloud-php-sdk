@@ -10,6 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ReplaceSystemDiskRequest extends Model
 {
     /**
+     * @var systemDisk
+     */
+    public $systemDisk;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -20,14 +40,14 @@ class ReplaceSystemDiskRequest extends Model
     public $imageId;
 
     /**
-     * @var systemDisk
+     * @var string
      */
-    public $systemDisk;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $ownerAccount;
 
     /**
      * @var bool
@@ -69,10 +89,14 @@ class ReplaceSystemDiskRequest extends Model
      */
     public $securityEnhancementStrategy;
     protected $_name = [
+        'systemDisk'                  => 'SystemDisk',
+        'ownerId'                     => 'OwnerId',
+        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
+        'resourceOwnerId'             => 'ResourceOwnerId',
         'instanceId'                  => 'InstanceId',
         'imageId'                     => 'ImageId',
-        'systemDisk'                  => 'SystemDisk',
         'clientToken'                 => 'ClientToken',
+        'ownerAccount'                => 'OwnerAccount',
         'useAdditionalService'        => 'UseAdditionalService',
         'password'                    => 'Password',
         'passwordInherit'             => 'PasswordInherit',
@@ -85,23 +109,34 @@ class ReplaceSystemDiskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-        if (null !== $this->systemDisk) {
-            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->useAdditionalService) {
             $res['UseAdditionalService'] = $this->useAdditionalService;
@@ -139,17 +174,29 @@ class ReplaceSystemDiskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-        if (isset($map['SystemDisk'])) {
-            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['UseAdditionalService'])) {
             $model->useAdditionalService = $map['UseAdditionalService'];

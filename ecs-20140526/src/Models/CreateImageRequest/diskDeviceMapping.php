@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class diskDeviceMapping extends Model
 {
     /**
-     * @var int
-     */
-    public $size;
-
-    /**
      * @var string
      */
     public $snapshotId;
+
+    /**
+     * @var int
+     */
+    public $size;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class diskDeviceMapping extends Model
      */
     public $diskType;
     protected $_name = [
-        'size'       => 'Size',
         'snapshotId' => 'SnapshotId',
+        'size'       => 'Size',
         'device'     => 'Device',
         'diskType'   => 'DiskType',
     ];
@@ -41,11 +41,11 @@ class diskDeviceMapping extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
         if (null !== $this->device) {
             $res['Device'] = $this->device;
@@ -65,11 +65,11 @@ class diskDeviceMapping extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
+        }
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
         if (isset($map['Device'])) {
             $model->device = $map['Device'];

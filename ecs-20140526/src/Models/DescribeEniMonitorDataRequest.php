@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeEniMonitorDataRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $eniId;
@@ -38,25 +58,37 @@ class DescribeEniMonitorDataRequest extends Model
      */
     public $period;
     protected $_name = [
-        'eniId'      => 'EniId',
-        'regionId'   => 'RegionId',
-        'instanceId' => 'InstanceId',
-        'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
-        'period'     => 'Period',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'eniId'                => 'EniId',
+        'regionId'             => 'RegionId',
+        'instanceId'           => 'InstanceId',
+        'startTime'            => 'StartTime',
+        'endTime'              => 'EndTime',
+        'period'               => 'Period',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->eniId) {
             $res['EniId'] = $this->eniId;
         }
@@ -87,6 +119,18 @@ class DescribeEniMonitorDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['EniId'])) {
             $model->eniId = $map['EniId'];
         }

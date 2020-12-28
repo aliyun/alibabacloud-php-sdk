@@ -11,17 +11,12 @@ class configuration extends Model
     /**
      * @var string
      */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
     public $reservedInstanceName;
 
     /**
      * @var string
      */
-    public $instanceType;
+    public $zoneId;
 
     /**
      * @var string
@@ -29,14 +24,19 @@ class configuration extends Model
     public $scope;
 
     /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @var int
      */
     public $instanceAmount;
     protected $_name = [
-        'zoneId'               => 'ZoneId',
         'reservedInstanceName' => 'ReservedInstanceName',
-        'instanceType'         => 'InstanceType',
+        'zoneId'               => 'ZoneId',
         'scope'                => 'Scope',
+        'instanceType'         => 'InstanceType',
         'instanceAmount'       => 'InstanceAmount',
     ];
 
@@ -47,17 +47,17 @@ class configuration extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->reservedInstanceName) {
             $res['ReservedInstanceName'] = $this->reservedInstanceName;
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->instanceAmount) {
             $res['InstanceAmount'] = $this->instanceAmount;
@@ -74,17 +74,17 @@ class configuration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['ReservedInstanceName'])) {
             $model->reservedInstanceName = $map['ReservedInstanceName'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['InstanceAmount'])) {
             $model->instanceAmount = $map['InstanceAmount'];

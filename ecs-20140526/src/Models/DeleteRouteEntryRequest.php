@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouteEntryRequest extends Model
 {
     /**
-     * @var nextHopList[]
+     * @var int
      */
-    public $nextHopList;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -33,31 +43,43 @@ class DeleteRouteEntryRequest extends Model
      * @var string
      */
     public $nextHopId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var nextHopList[]
+     */
+    public $nextHopList;
     protected $_name = [
-        'nextHopList'          => 'NextHopList',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'regionId'             => 'RegionId',
         'routeTableId'         => 'RouteTableId',
         'destinationCidrBlock' => 'DestinationCidrBlock',
         'nextHopId'            => 'NextHopId',
+        'ownerAccount'         => 'OwnerAccount',
+        'nextHopList'          => 'NextHopList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('routeTableId', $this->routeTableId, true);
-        Model::validateRequired('destinationCidrBlock', $this->destinationCidrBlock, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextHopList) {
-            $res['NextHopList'] = [];
-            if (null !== $this->nextHopList && \is_array($this->nextHopList)) {
-                $n = 0;
-                foreach ($this->nextHopList as $item) {
-                    $res['NextHopList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -71,6 +93,18 @@ class DeleteRouteEntryRequest extends Model
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->nextHopList) {
+            $res['NextHopList'] = [];
+            if (null !== $this->nextHopList && \is_array($this->nextHopList)) {
+                $n = 0;
+                foreach ($this->nextHopList as $item) {
+                    $res['NextHopList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -83,14 +117,14 @@ class DeleteRouteEntryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextHopList'])) {
-            if (!empty($map['NextHopList'])) {
-                $model->nextHopList = [];
-                $n                  = 0;
-                foreach ($map['NextHopList'] as $item) {
-                    $model->nextHopList[$n++] = null !== $item ? nextHopList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -103,6 +137,18 @@ class DeleteRouteEntryRequest extends Model
         }
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['NextHopList'])) {
+            if (!empty($map['NextHopList'])) {
+                $model->nextHopList = [];
+                $n                  = 0;
+                foreach ($map['NextHopList'] as $item) {
+                    $model->nextHopList[$n++] = null !== $item ? nextHopList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

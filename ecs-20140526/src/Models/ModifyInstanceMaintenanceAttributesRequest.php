@@ -10,9 +10,34 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMaintenanceAttributesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $actionOnMaintenance;
 
     /**
      * @var string[]
@@ -23,28 +48,41 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
      * @var maintenanceWindow[]
      */
     public $maintenanceWindow;
-
-    /**
-     * @var string
-     */
-    public $actionOnMaintenance;
     protected $_name = [
-        'regionId'            => 'RegionId',
-        'instanceId'          => 'InstanceId',
-        'maintenanceWindow'   => 'MaintenanceWindow',
-        'actionOnMaintenance' => 'ActionOnMaintenance',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
+        'actionOnMaintenance'  => 'ActionOnMaintenance',
+        'instanceId'           => 'InstanceId',
+        'maintenanceWindow'    => 'MaintenanceWindow',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->actionOnMaintenance) {
+            $res['ActionOnMaintenance'] = $this->actionOnMaintenance;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -58,9 +96,6 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
                 }
             }
         }
-        if (null !== $this->actionOnMaintenance) {
-            $res['ActionOnMaintenance'] = $this->actionOnMaintenance;
-        }
 
         return $res;
     }
@@ -73,8 +108,23 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ActionOnMaintenance'])) {
+            $model->actionOnMaintenance = $map['ActionOnMaintenance'];
         }
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
@@ -89,9 +139,6 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
                     $model->maintenanceWindow[$n++] = null !== $item ? maintenanceWindow::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ActionOnMaintenance'])) {
-            $model->actionOnMaintenance = $map['ActionOnMaintenance'];
         }
 
         return $model;

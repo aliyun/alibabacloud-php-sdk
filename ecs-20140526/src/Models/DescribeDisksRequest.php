@@ -11,6 +11,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisksRequest extends Model
 {
     /**
+     * @var filter[]
+     */
+    public $filter;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -88,6 +108,11 @@ class DescribeDisksRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $diskName;
 
     /**
@@ -116,16 +141,6 @@ class DescribeDisksRequest extends Model
     public $lockReason;
 
     /**
-     * @var filter[]
-     */
-    public $filter;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
      * @var string
      */
     public $resourceGroupId;
@@ -141,11 +156,6 @@ class DescribeDisksRequest extends Model
     public $encrypted;
 
     /**
-     * @var string[]
-     */
-    public $additionalAttributes;
-
-    /**
      * @var bool
      */
     public $dryRun;
@@ -154,7 +164,21 @@ class DescribeDisksRequest extends Model
      * @var string
      */
     public $KMSKeyId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @var string[]
+     */
+    public $additionalAttributes;
     protected $_name = [
+        'filter'                        => 'Filter',
+        'ownerId'                       => 'OwnerId',
+        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
+        'resourceOwnerId'               => 'ResourceOwnerId',
         'regionId'                      => 'RegionId',
         'zoneId'                        => 'ZoneId',
         'diskIds'                       => 'DiskIds',
@@ -170,30 +194,47 @@ class DescribeDisksRequest extends Model
         'pageSize'                      => 'PageSize',
         'nextToken'                     => 'NextToken',
         'maxResults'                    => 'MaxResults',
+        'ownerAccount'                  => 'OwnerAccount',
         'diskName'                      => 'DiskName',
         'autoSnapshotPolicyId'          => 'AutoSnapshotPolicyId',
         'enableAutoSnapshot'            => 'EnableAutoSnapshot',
         'enableAutomatedSnapshotPolicy' => 'EnableAutomatedSnapshotPolicy',
         'diskChargeType'                => 'DiskChargeType',
         'lockReason'                    => 'LockReason',
-        'filter'                        => 'Filter',
-        'tag'                           => 'Tag',
         'resourceGroupId'               => 'ResourceGroupId',
         'enableShared'                  => 'EnableShared',
         'encrypted'                     => 'Encrypted',
-        'additionalAttributes'          => 'AdditionalAttributes',
         'dryRun'                        => 'DryRun',
         'KMSKeyId'                      => 'KMSKeyId',
+        'tag'                           => 'Tag',
+        'additionalAttributes'          => 'AdditionalAttributes',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->filter) {
+            $res['Filter'] = [];
+            if (null !== $this->filter && \is_array($this->filter)) {
+                $n = 0;
+                foreach ($this->filter as $item) {
+                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -239,6 +280,9 @@ class DescribeDisksRequest extends Model
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
         }
@@ -257,14 +301,20 @@ class DescribeDisksRequest extends Model
         if (null !== $this->lockReason) {
             $res['LockReason'] = $this->lockReason;
         }
-        if (null !== $this->filter) {
-            $res['Filter'] = [];
-            if (null !== $this->filter && \is_array($this->filter)) {
-                $n = 0;
-                foreach ($this->filter as $item) {
-                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->enableShared) {
+            $res['EnableShared'] = $this->enableShared;
+        }
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -275,23 +325,8 @@ class DescribeDisksRequest extends Model
                 }
             }
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->enableShared) {
-            $res['EnableShared'] = $this->enableShared;
-        }
-        if (null !== $this->encrypted) {
-            $res['Encrypted'] = $this->encrypted;
-        }
         if (null !== $this->additionalAttributes) {
             $res['AdditionalAttributes'] = $this->additionalAttributes;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->KMSKeyId) {
-            $res['KMSKeyId'] = $this->KMSKeyId;
         }
 
         return $res;
@@ -305,6 +340,24 @@ class DescribeDisksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Filter'])) {
+            if (!empty($map['Filter'])) {
+                $model->filter = [];
+                $n             = 0;
+                foreach ($map['Filter'] as $item) {
+                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -350,6 +403,9 @@ class DescribeDisksRequest extends Model
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
         }
@@ -368,14 +424,20 @@ class DescribeDisksRequest extends Model
         if (isset($map['LockReason'])) {
             $model->lockReason = $map['LockReason'];
         }
-        if (isset($map['Filter'])) {
-            if (!empty($map['Filter'])) {
-                $model->filter = [];
-                $n             = 0;
-                foreach ($map['Filter'] as $item) {
-                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['EnableShared'])) {
+            $model->enableShared = $map['EnableShared'];
+        }
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -386,25 +448,10 @@ class DescribeDisksRequest extends Model
                 }
             }
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['EnableShared'])) {
-            $model->enableShared = $map['EnableShared'];
-        }
-        if (isset($map['Encrypted'])) {
-            $model->encrypted = $map['Encrypted'];
-        }
         if (isset($map['AdditionalAttributes'])) {
             if (!empty($map['AdditionalAttributes'])) {
                 $model->additionalAttributes = $map['AdditionalAttributes'];
             }
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['KMSKeyId'])) {
-            $model->KMSKeyId = $map['KMSKeyId'];
         }
 
         return $model;

@@ -14,6 +14,31 @@ use AlibabaCloud\Tea\Model;
 class CreateLaunchTemplateRequest extends Model
 {
     /**
+     * @var systemDisk
+     */
+    public $systemDisk;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -99,24 +124,9 @@ class CreateLaunchTemplateRequest extends Model
     public $zoneId;
 
     /**
-     * @var systemDisk
-     */
-    public $systemDisk;
-
-    /**
-     * @var dataDisk[]
-     */
-    public $dataDisk;
-
-    /**
      * @var string
      */
     public $ioOptimized;
-
-    /**
-     * @var networkInterface[]
-     */
-    public $networkInterface;
 
     /**
      * @var string
@@ -194,10 +204,25 @@ class CreateLaunchTemplateRequest extends Model
     public $securityEnhancementStrategy;
 
     /**
+     * @var dataDisk[]
+     */
+    public $dataDisk;
+
+    /**
+     * @var networkInterface[]
+     */
+    public $networkInterface;
+
+    /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
+        'systemDisk'                  => 'SystemDisk',
+        'ownerId'                     => 'OwnerId',
+        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
+        'resourceOwnerId'             => 'ResourceOwnerId',
+        'ownerAccount'                => 'OwnerAccount',
         'regionId'                    => 'RegionId',
         'templateTag'                 => 'TemplateTag',
         'launchTemplateName'          => 'LaunchTemplateName',
@@ -215,10 +240,7 @@ class CreateLaunchTemplateRequest extends Model
         'internetMaxBandwidthOut'     => 'InternetMaxBandwidthOut',
         'hostName'                    => 'HostName',
         'zoneId'                      => 'ZoneId',
-        'systemDisk'                  => 'SystemDisk',
-        'dataDisk'                    => 'DataDisk',
         'ioOptimized'                 => 'IoOptimized',
-        'networkInterface'            => 'NetworkInterface',
         'instanceChargeType'          => 'InstanceChargeType',
         'period'                      => 'Period',
         'internetChargeType'          => 'InternetChargeType',
@@ -234,18 +256,33 @@ class CreateLaunchTemplateRequest extends Model
         'resourceGroupId'             => 'ResourceGroupId',
         'templateResourceGroupId'     => 'TemplateResourceGroupId',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
+        'dataDisk'                    => 'DataDisk',
+        'networkInterface'            => 'NetworkInterface',
         'tag'                         => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('launchTemplateName', $this->launchTemplateName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -303,29 +340,8 @@ class CreateLaunchTemplateRequest extends Model
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
-        if (null !== $this->systemDisk) {
-            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
-        }
-        if (null !== $this->dataDisk) {
-            $res['DataDisk'] = [];
-            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
-                $n = 0;
-                foreach ($this->dataDisk as $item) {
-                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->ioOptimized) {
             $res['IoOptimized'] = $this->ioOptimized;
-        }
-        if (null !== $this->networkInterface) {
-            $res['NetworkInterface'] = [];
-            if (null !== $this->networkInterface && \is_array($this->networkInterface)) {
-                $n = 0;
-                foreach ($this->networkInterface as $item) {
-                    $res['NetworkInterface'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
@@ -372,6 +388,24 @@ class CreateLaunchTemplateRequest extends Model
         if (null !== $this->securityEnhancementStrategy) {
             $res['SecurityEnhancementStrategy'] = $this->securityEnhancementStrategy;
         }
+        if (null !== $this->dataDisk) {
+            $res['DataDisk'] = [];
+            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
+                $n = 0;
+                foreach ($this->dataDisk as $item) {
+                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->networkInterface) {
+            $res['NetworkInterface'] = [];
+            if (null !== $this->networkInterface && \is_array($this->networkInterface)) {
+                $n = 0;
+                foreach ($this->networkInterface as $item) {
+                    $res['NetworkInterface'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -393,6 +427,21 @@ class CreateLaunchTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -450,29 +499,8 @@ class CreateLaunchTemplateRequest extends Model
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
-        if (isset($map['SystemDisk'])) {
-            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
-        }
-        if (isset($map['DataDisk'])) {
-            if (!empty($map['DataDisk'])) {
-                $model->dataDisk = [];
-                $n               = 0;
-                foreach ($map['DataDisk'] as $item) {
-                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['IoOptimized'])) {
             $model->ioOptimized = $map['IoOptimized'];
-        }
-        if (isset($map['NetworkInterface'])) {
-            if (!empty($map['NetworkInterface'])) {
-                $model->networkInterface = [];
-                $n                       = 0;
-                foreach ($map['NetworkInterface'] as $item) {
-                    $model->networkInterface[$n++] = null !== $item ? networkInterface::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
@@ -518,6 +546,24 @@ class CreateLaunchTemplateRequest extends Model
         }
         if (isset($map['SecurityEnhancementStrategy'])) {
             $model->securityEnhancementStrategy = $map['SecurityEnhancementStrategy'];
+        }
+        if (isset($map['DataDisk'])) {
+            if (!empty($map['DataDisk'])) {
+                $model->dataDisk = [];
+                $n               = 0;
+                foreach ($map['DataDisk'] as $item) {
+                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['NetworkInterface'])) {
+            if (!empty($map['NetworkInterface'])) {
+                $model->networkInterface = [];
+                $n                       = 0;
+                foreach ($map['NetworkInterface'] as $item) {
+                    $model->networkInterface[$n++] = null !== $item ? networkInterface::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

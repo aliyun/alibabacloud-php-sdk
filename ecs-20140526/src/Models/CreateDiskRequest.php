@@ -11,6 +11,21 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -58,17 +73,12 @@ class CreateDiskRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $instanceId;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
-     * @var arn[]
-     */
-    public $arn;
 
     /**
      * @var string
@@ -104,7 +114,20 @@ class CreateDiskRequest extends Model
      * @var int
      */
     public $storageSetPartitionNumber;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @var arn[]
+     */
+    public $arn;
     protected $_name = [
+        'ownerId'                   => 'OwnerId',
+        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
+        'resourceOwnerId'           => 'ResourceOwnerId',
         'regionId'                  => 'RegionId',
         'zoneId'                    => 'ZoneId',
         'snapshotId'                => 'SnapshotId',
@@ -114,9 +137,8 @@ class CreateDiskRequest extends Model
         'description'               => 'Description',
         'encrypted'                 => 'Encrypted',
         'clientToken'               => 'ClientToken',
+        'ownerAccount'              => 'OwnerAccount',
         'instanceId'                => 'InstanceId',
-        'tag'                       => 'Tag',
-        'arn'                       => 'Arn',
         'resourceGroupId'           => 'ResourceGroupId',
         'KMSKeyId'                  => 'KMSKeyId',
         'performanceLevel'          => 'PerformanceLevel',
@@ -124,16 +146,26 @@ class CreateDiskRequest extends Model
         'storageSetId'              => 'StorageSetId',
         'encryptAlgorithm'          => 'EncryptAlgorithm',
         'storageSetPartitionNumber' => 'StorageSetPartitionNumber',
+        'tag'                       => 'Tag',
+        'arn'                       => 'Arn',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -161,26 +193,11 @@ class CreateDiskRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->arn) {
-            $res['Arn'] = [];
-            if (null !== $this->arn && \is_array($this->arn)) {
-                $n = 0;
-                foreach ($this->arn as $item) {
-                    $res['Arn'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -203,6 +220,24 @@ class CreateDiskRequest extends Model
         if (null !== $this->storageSetPartitionNumber) {
             $res['StorageSetPartitionNumber'] = $this->storageSetPartitionNumber;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->arn) {
+            $res['Arn'] = [];
+            if (null !== $this->arn && \is_array($this->arn)) {
+                $n = 0;
+                foreach ($this->arn as $item) {
+                    $res['Arn'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -215,6 +250,15 @@ class CreateDiskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -242,26 +286,11 @@ class CreateDiskRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Arn'])) {
-            if (!empty($map['Arn'])) {
-                $model->arn = [];
-                $n          = 0;
-                foreach ($map['Arn'] as $item) {
-                    $model->arn[$n++] = null !== $item ? arn::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -283,6 +312,24 @@ class CreateDiskRequest extends Model
         }
         if (isset($map['StorageSetPartitionNumber'])) {
             $model->storageSetPartitionNumber = $map['StorageSetPartitionNumber'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Arn'])) {
+            if (!empty($map['Arn'])) {
+                $model->arn = [];
+                $n          = 0;
+                foreach ($map['Arn'] as $item) {
+                    $model->arn[$n++] = null !== $item ? arn::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

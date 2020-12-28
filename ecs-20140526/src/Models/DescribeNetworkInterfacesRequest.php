@@ -10,19 +10,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfacesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
 
     /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @var string
@@ -38,11 +58,6 @@ class DescribeNetworkInterfacesRequest extends Model
      * @var string
      */
     public $primaryIpAddress;
-
-    /**
-     * @var string[]
-     */
-    public $privateIpAddress;
 
     /**
      * @var string
@@ -63,11 +78,6 @@ class DescribeNetworkInterfacesRequest extends Model
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string[]
-     */
-    public $networkInterfaceId;
 
     /**
      * @var bool
@@ -98,37 +108,65 @@ class DescribeNetworkInterfacesRequest extends Model
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var string[]
+     */
+    public $privateIpAddress;
+
+    /**
+     * @var string[]
+     */
+    public $networkInterfaceId;
     protected $_name = [
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'tag'                  => 'Tag',
         'resourceGroupId'      => 'ResourceGroupId',
+        'tag'                  => 'Tag',
         'vSwitchId'            => 'VSwitchId',
         'vpcId'                => 'VpcId',
         'primaryIpAddress'     => 'PrimaryIpAddress',
-        'privateIpAddress'     => 'PrivateIpAddress',
         'securityGroupId'      => 'SecurityGroupId',
         'networkInterfaceName' => 'NetworkInterfaceName',
         'type'                 => 'Type',
         'instanceId'           => 'InstanceId',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
         'serviceManaged'       => 'ServiceManaged',
         'status'               => 'Status',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'nextToken'            => 'NextToken',
         'maxResults'           => 'MaxResults',
+        'privateIpAddress'     => 'PrivateIpAddress',
+        'networkInterfaceId'   => 'NetworkInterfaceId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -139,9 +177,6 @@ class DescribeNetworkInterfacesRequest extends Model
                 }
             }
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -150,9 +185,6 @@ class DescribeNetworkInterfacesRequest extends Model
         }
         if (null !== $this->primaryIpAddress) {
             $res['PrimaryIpAddress'] = $this->primaryIpAddress;
-        }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
@@ -165,9 +197,6 @@ class DescribeNetworkInterfacesRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->networkInterfaceId) {
-            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
         if (null !== $this->serviceManaged) {
             $res['ServiceManaged'] = $this->serviceManaged;
@@ -187,6 +216,12 @@ class DescribeNetworkInterfacesRequest extends Model
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->networkInterfaceId) {
+            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
+        }
 
         return $res;
     }
@@ -199,8 +234,23 @@ class DescribeNetworkInterfacesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -211,9 +261,6 @@ class DescribeNetworkInterfacesRequest extends Model
                 }
             }
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
@@ -222,11 +269,6 @@ class DescribeNetworkInterfacesRequest extends Model
         }
         if (isset($map['PrimaryIpAddress'])) {
             $model->primaryIpAddress = $map['PrimaryIpAddress'];
-        }
-        if (isset($map['PrivateIpAddress'])) {
-            if (!empty($map['PrivateIpAddress'])) {
-                $model->privateIpAddress = $map['PrivateIpAddress'];
-            }
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
@@ -239,11 +281,6 @@ class DescribeNetworkInterfacesRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['NetworkInterfaceId'])) {
-            if (!empty($map['NetworkInterfaceId'])) {
-                $model->networkInterfaceId = $map['NetworkInterfaceId'];
-            }
         }
         if (isset($map['ServiceManaged'])) {
             $model->serviceManaged = $map['ServiceManaged'];
@@ -262,6 +299,16 @@ class DescribeNetworkInterfacesRequest extends Model
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['PrivateIpAddress'])) {
+            if (!empty($map['PrivateIpAddress'])) {
+                $model->privateIpAddress = $map['PrivateIpAddress'];
+            }
+        }
+        if (isset($map['NetworkInterfaceId'])) {
+            if (!empty($map['NetworkInterfaceId'])) {
+                $model->networkInterfaceId = $map['NetworkInterfaceId'];
+            }
         }
 
         return $model;

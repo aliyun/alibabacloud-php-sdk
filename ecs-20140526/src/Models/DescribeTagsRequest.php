@@ -12,6 +12,21 @@ class DescribeTagsRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
     public $pageSize;
 
     /**
@@ -35,32 +50,43 @@ class DescribeTagsRequest extends Model
     public $regionId;
 
     /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
      * @var string
      */
     public $category;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'pageSize'     => 'PageSize',
-        'pageNumber'   => 'PageNumber',
-        'resourceType' => 'ResourceType',
-        'resourceId'   => 'ResourceId',
-        'regionId'     => 'RegionId',
-        'tag'          => 'Tag',
-        'category'     => 'Category',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'pageSize'             => 'PageSize',
+        'pageNumber'           => 'PageNumber',
+        'resourceType'         => 'ResourceType',
+        'resourceId'           => 'ResourceId',
+        'regionId'             => 'RegionId',
+        'category'             => 'Category',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -76,6 +102,9 @@ class DescribeTagsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -84,9 +113,6 @@ class DescribeTagsRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
         }
 
         return $res;
@@ -100,6 +126,15 @@ class DescribeTagsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -115,6 +150,9 @@ class DescribeTagsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -123,9 +161,6 @@ class DescribeTagsRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
         }
 
         return $model;

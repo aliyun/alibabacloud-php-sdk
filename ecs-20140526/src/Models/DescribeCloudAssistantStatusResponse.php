@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantStatusResponse\instanceCloudAssistantStatusSet;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCloudAssistantStatusResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var instanceCloudAssistantStatusSet
+     * @var DescribeCloudAssistantStatusResponseBody
      */
-    public $instanceCloudAssistantStatusSet;
+    public $body;
     protected $_name = [
-        'requestId'                       => 'RequestId',
-        'instanceCloudAssistantStatusSet' => 'InstanceCloudAssistantStatusSet',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('instanceCloudAssistantStatusSet', $this->instanceCloudAssistantStatusSet, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->instanceCloudAssistantStatusSet) {
-            $res['InstanceCloudAssistantStatusSet'] = null !== $this->instanceCloudAssistantStatusSet ? $this->instanceCloudAssistantStatusSet->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeCloudAssistantStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['InstanceCloudAssistantStatusSet'])) {
-            $model->instanceCloudAssistantStatusSet = instanceCloudAssistantStatusSet::fromMap($map['InstanceCloudAssistantStatusSet']);
+        if (isset($map['body'])) {
+            $model->body = DescribeCloudAssistantStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

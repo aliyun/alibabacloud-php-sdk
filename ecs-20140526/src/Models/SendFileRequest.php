@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class SendFileRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -32,11 +52,6 @@ class SendFileRequest extends Model
      * @var string
      */
     public $targetDir;
-
-    /**
-     * @var string[]
-     */
-    public $instanceId;
 
     /**
      * @var string
@@ -67,33 +82,49 @@ class SendFileRequest extends Model
      * @var bool
      */
     public $overwrite;
+
+    /**
+     * @var string[]
+     */
+    public $instanceId;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'name'        => 'Name',
-        'description' => 'Description',
-        'timeout'     => 'Timeout',
-        'targetDir'   => 'TargetDir',
-        'instanceId'  => 'InstanceId',
-        'contentType' => 'ContentType',
-        'content'     => 'Content',
-        'fileOwner'   => 'FileOwner',
-        'fileGroup'   => 'FileGroup',
-        'fileMode'    => 'FileMode',
-        'overwrite'   => 'Overwrite',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
+        'name'                 => 'Name',
+        'description'          => 'Description',
+        'timeout'              => 'Timeout',
+        'targetDir'            => 'TargetDir',
+        'contentType'          => 'ContentType',
+        'content'              => 'Content',
+        'fileOwner'            => 'FileOwner',
+        'fileGroup'            => 'FileGroup',
+        'fileMode'             => 'FileMode',
+        'overwrite'            => 'Overwrite',
+        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('targetDir', $this->targetDir, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('content', $this->content, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -108,9 +139,6 @@ class SendFileRequest extends Model
         }
         if (null !== $this->targetDir) {
             $res['TargetDir'] = $this->targetDir;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
@@ -130,6 +158,9 @@ class SendFileRequest extends Model
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
 
         return $res;
     }
@@ -142,6 +173,18 @@ class SendFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -156,11 +199,6 @@ class SendFileRequest extends Model
         }
         if (isset($map['TargetDir'])) {
             $model->targetDir = $map['TargetDir'];
-        }
-        if (isset($map['InstanceId'])) {
-            if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
-            }
         }
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
@@ -179,6 +217,11 @@ class SendFileRequest extends Model
         }
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
+        }
+        if (isset($map['InstanceId'])) {
+            if (!empty($map['InstanceId'])) {
+                $model->instanceId = $map['InstanceId'];
+            }
         }
 
         return $model;

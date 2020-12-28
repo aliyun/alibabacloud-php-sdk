@@ -11,6 +11,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @var filter[]
+     */
+    public $filter;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -78,6 +98,11 @@ class DescribeInstancesRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $instanceChargeType;
 
     /**
@@ -106,11 +131,6 @@ class DescribeInstancesRequest extends Model
     public $lockReason;
 
     /**
-     * @var filter[]
-     */
-    public $filter;
-
-    /**
      * @var bool
      */
     public $deviceAvailable;
@@ -124,11 +144,6 @@ class DescribeInstancesRequest extends Model
      * @var bool
      */
     public $needSaleCycle;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
 
     /**
      * @var string
@@ -166,11 +181,6 @@ class DescribeInstancesRequest extends Model
     public $dryRun;
 
     /**
-     * @var string[]
-     */
-    public $additionalAttributes;
-
-    /**
      * @var string
      */
     public $httpEndpoint;
@@ -184,7 +194,21 @@ class DescribeInstancesRequest extends Model
      * @var int
      */
     public $httpPutResponseHopLimit;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @var string[]
+     */
+    public $additionalAttributes;
     protected $_name = [
+        'filter'                  => 'Filter',
+        'ownerId'                 => 'OwnerId',
+        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
+        'resourceOwnerId'         => 'ResourceOwnerId',
         'regionId'                => 'RegionId',
         'vpcId'                   => 'VpcId',
         'vSwitchId'               => 'VSwitchId',
@@ -198,17 +222,16 @@ class DescribeInstancesRequest extends Model
         'privateIpAddresses'      => 'PrivateIpAddresses',
         'publicIpAddresses'       => 'PublicIpAddresses',
         'eipAddresses'            => 'EipAddresses',
+        'ownerAccount'            => 'OwnerAccount',
         'instanceChargeType'      => 'InstanceChargeType',
         'internetChargeType'      => 'InternetChargeType',
         'instanceName'            => 'InstanceName',
         'imageId'                 => 'ImageId',
         'status'                  => 'Status',
         'lockReason'              => 'LockReason',
-        'filter'                  => 'Filter',
         'deviceAvailable'         => 'DeviceAvailable',
         'ioOptimized'             => 'IoOptimized',
         'needSaleCycle'           => 'NeedSaleCycle',
-        'tag'                     => 'Tag',
         'instanceType'            => 'InstanceType',
         'instanceTypeFamily'      => 'InstanceTypeFamily',
         'keyPairName'             => 'KeyPairName',
@@ -216,20 +239,38 @@ class DescribeInstancesRequest extends Model
         'hpcClusterId'            => 'HpcClusterId',
         'rdmaIpAddresses'         => 'RdmaIpAddresses',
         'dryRun'                  => 'DryRun',
-        'additionalAttributes'    => 'AdditionalAttributes',
         'httpEndpoint'            => 'HttpEndpoint',
         'httpTokens'              => 'HttpTokens',
         'httpPutResponseHopLimit' => 'HttpPutResponseHopLimit',
+        'tag'                     => 'Tag',
+        'additionalAttributes'    => 'AdditionalAttributes',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->filter) {
+            $res['Filter'] = [];
+            if (null !== $this->filter && \is_array($this->filter)) {
+                $n = 0;
+                foreach ($this->filter as $item) {
+                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -269,6 +310,9 @@ class DescribeInstancesRequest extends Model
         if (null !== $this->eipAddresses) {
             $res['EipAddresses'] = $this->eipAddresses;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
@@ -287,15 +331,6 @@ class DescribeInstancesRequest extends Model
         if (null !== $this->lockReason) {
             $res['LockReason'] = $this->lockReason;
         }
-        if (null !== $this->filter) {
-            $res['Filter'] = [];
-            if (null !== $this->filter && \is_array($this->filter)) {
-                $n = 0;
-                foreach ($this->filter as $item) {
-                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->deviceAvailable) {
             $res['DeviceAvailable'] = $this->deviceAvailable;
         }
@@ -304,15 +339,6 @@ class DescribeInstancesRequest extends Model
         }
         if (null !== $this->needSaleCycle) {
             $res['NeedSaleCycle'] = $this->needSaleCycle;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -335,9 +361,6 @@ class DescribeInstancesRequest extends Model
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-        if (null !== $this->additionalAttributes) {
-            $res['AdditionalAttributes'] = $this->additionalAttributes;
-        }
         if (null !== $this->httpEndpoint) {
             $res['HttpEndpoint'] = $this->httpEndpoint;
         }
@@ -346,6 +369,18 @@ class DescribeInstancesRequest extends Model
         }
         if (null !== $this->httpPutResponseHopLimit) {
             $res['HttpPutResponseHopLimit'] = $this->httpPutResponseHopLimit;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->additionalAttributes) {
+            $res['AdditionalAttributes'] = $this->additionalAttributes;
         }
 
         return $res;
@@ -359,6 +394,24 @@ class DescribeInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Filter'])) {
+            if (!empty($map['Filter'])) {
+                $model->filter = [];
+                $n             = 0;
+                foreach ($map['Filter'] as $item) {
+                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -398,6 +451,9 @@ class DescribeInstancesRequest extends Model
         if (isset($map['EipAddresses'])) {
             $model->eipAddresses = $map['EipAddresses'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
@@ -416,15 +472,6 @@ class DescribeInstancesRequest extends Model
         if (isset($map['LockReason'])) {
             $model->lockReason = $map['LockReason'];
         }
-        if (isset($map['Filter'])) {
-            if (!empty($map['Filter'])) {
-                $model->filter = [];
-                $n             = 0;
-                foreach ($map['Filter'] as $item) {
-                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['DeviceAvailable'])) {
             $model->deviceAvailable = $map['DeviceAvailable'];
         }
@@ -433,15 +480,6 @@ class DescribeInstancesRequest extends Model
         }
         if (isset($map['NeedSaleCycle'])) {
             $model->needSaleCycle = $map['NeedSaleCycle'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
@@ -464,11 +502,6 @@ class DescribeInstancesRequest extends Model
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-        if (isset($map['AdditionalAttributes'])) {
-            if (!empty($map['AdditionalAttributes'])) {
-                $model->additionalAttributes = $map['AdditionalAttributes'];
-            }
-        }
         if (isset($map['HttpEndpoint'])) {
             $model->httpEndpoint = $map['HttpEndpoint'];
         }
@@ -477,6 +510,20 @@ class DescribeInstancesRequest extends Model
         }
         if (isset($map['HttpPutResponseHopLimit'])) {
             $model->httpPutResponseHopLimit = $map['HttpPutResponseHopLimit'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['AdditionalAttributes'])) {
+            if (!empty($map['AdditionalAttributes'])) {
+                $model->additionalAttributes = $map['AdditionalAttributes'];
+            }
         }
 
         return $model;

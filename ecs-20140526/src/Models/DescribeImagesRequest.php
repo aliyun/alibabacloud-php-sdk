@@ -11,6 +11,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -88,12 +103,12 @@ class DescribeImagesRequest extends Model
     /**
      * @var string
      */
-    public $usage;
+    public $ownerAccount;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $usage;
 
     /**
      * @var bool
@@ -106,15 +121,23 @@ class DescribeImagesRequest extends Model
     public $actionType;
 
     /**
-     * @var filter[]
-     */
-    public $filter;
-
-    /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @var filter[]
+     */
+    public $filter;
     protected $_name = [
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'regionId'             => 'RegionId',
         'status'               => 'Status',
         'imageId'              => 'ImageId',
@@ -130,22 +153,31 @@ class DescribeImagesRequest extends Model
         'architecture'         => 'Architecture',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'ownerAccount'         => 'OwnerAccount',
         'usage'                => 'Usage',
-        'tag'                  => 'Tag',
         'dryRun'               => 'DryRun',
         'actionType'           => 'ActionType',
-        'filter'               => 'Filter',
         'resourceGroupId'      => 'ResourceGroupId',
+        'tag'                  => 'Tag',
+        'filter'               => 'Filter',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -191,8 +223,20 @@ class DescribeImagesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->actionType) {
+            $res['ActionType'] = $this->actionType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -203,12 +247,6 @@ class DescribeImagesRequest extends Model
                 }
             }
         }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->actionType) {
-            $res['ActionType'] = $this->actionType;
-        }
         if (null !== $this->filter) {
             $res['Filter'] = [];
             if (null !== $this->filter && \is_array($this->filter)) {
@@ -217,9 +255,6 @@ class DescribeImagesRequest extends Model
                     $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -233,6 +268,15 @@ class DescribeImagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -278,8 +322,20 @@ class DescribeImagesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['ActionType'])) {
+            $model->actionType = $map['ActionType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -290,12 +346,6 @@ class DescribeImagesRequest extends Model
                 }
             }
         }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['ActionType'])) {
-            $model->actionType = $map['ActionType'];
-        }
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
@@ -304,9 +354,6 @@ class DescribeImagesRequest extends Model
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

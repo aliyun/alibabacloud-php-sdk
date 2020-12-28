@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ImportSnapshotRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $snapshotName;
@@ -33,24 +48,32 @@ class ImportSnapshotRequest extends Model
      */
     public $roleName;
     protected $_name = [
-        'snapshotName' => 'SnapshotName',
-        'regionId'     => 'RegionId',
-        'ossBucket'    => 'OssBucket',
-        'ossObject'    => 'OssObject',
-        'roleName'     => 'RoleName',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'snapshotName'         => 'SnapshotName',
+        'regionId'             => 'RegionId',
+        'ossBucket'            => 'OssBucket',
+        'ossObject'            => 'OssObject',
+        'roleName'             => 'RoleName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('snapshotName', $this->snapshotName, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('ossBucket', $this->ossBucket, true);
-        Model::validateRequired('ossObject', $this->ossObject, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
         }
@@ -78,6 +101,15 @@ class ImportSnapshotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];
         }

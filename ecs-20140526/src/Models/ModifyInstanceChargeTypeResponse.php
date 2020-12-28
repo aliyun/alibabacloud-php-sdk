@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceChargeTypeResponse\feeOfInstances;
 use AlibabaCloud\Tea\Model;
 
 class ModifyInstanceChargeTypeResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var ModifyInstanceChargeTypeResponseBody
      */
-    public $orderId;
-
-    /**
-     * @var feeOfInstances
-     */
-    public $feeOfInstances;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'orderId'        => 'OrderId',
-        'feeOfInstances' => 'FeeOfInstances',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('orderId', $this->orderId, true);
-        Model::validateRequired('feeOfInstances', $this->feeOfInstances, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->feeOfInstances) {
-            $res['FeeOfInstances'] = null !== $this->feeOfInstances ? $this->feeOfInstances->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class ModifyInstanceChargeTypeResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['FeeOfInstances'])) {
-            $model->feeOfInstances = feeOfInstances::fromMap($map['FeeOfInstances']);
+        if (isset($map['body'])) {
+            $model->body = ModifyInstanceChargeTypeResponseBody::fromMap($map['body']);
         }
 
         return $model;

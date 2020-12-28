@@ -11,6 +11,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotsRequest extends Model
 {
     /**
+     * @var filter[]
+     */
+    public $filter;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -58,6 +78,11 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $snapshotName;
 
     /**
@@ -71,11 +96,6 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotType;
 
     /**
-     * @var filter[]
-     */
-    public $filter;
-
-    /**
      * @var string
      */
     public $usage;
@@ -84,11 +104,6 @@ class DescribeSnapshotsRequest extends Model
      * @var string
      */
     public $sourceDiskType;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
 
     /**
      * @var bool
@@ -114,38 +129,64 @@ class DescribeSnapshotsRequest extends Model
      * @var string
      */
     public $category;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'diskId'          => 'DiskId',
-        'snapshotLinkId'  => 'SnapshotLinkId',
-        'regionId'        => 'RegionId',
-        'snapshotIds'     => 'SnapshotIds',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'nextToken'       => 'NextToken',
-        'maxResults'      => 'MaxResults',
-        'snapshotName'    => 'SnapshotName',
-        'status'          => 'Status',
-        'snapshotType'    => 'SnapshotType',
-        'filter'          => 'Filter',
-        'usage'           => 'Usage',
-        'sourceDiskType'  => 'SourceDiskType',
-        'tag'             => 'Tag',
-        'encrypted'       => 'Encrypted',
-        'resourceGroupId' => 'ResourceGroupId',
-        'dryRun'          => 'DryRun',
-        'KMSKeyId'        => 'KMSKeyId',
-        'category'        => 'Category',
+        'filter'               => 'Filter',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'instanceId'           => 'InstanceId',
+        'diskId'               => 'DiskId',
+        'snapshotLinkId'       => 'SnapshotLinkId',
+        'regionId'             => 'RegionId',
+        'snapshotIds'          => 'SnapshotIds',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
+        'nextToken'            => 'NextToken',
+        'maxResults'           => 'MaxResults',
+        'ownerAccount'         => 'OwnerAccount',
+        'snapshotName'         => 'SnapshotName',
+        'status'               => 'Status',
+        'snapshotType'         => 'SnapshotType',
+        'usage'                => 'Usage',
+        'sourceDiskType'       => 'SourceDiskType',
+        'encrypted'            => 'Encrypted',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'dryRun'               => 'DryRun',
+        'KMSKeyId'             => 'KMSKeyId',
+        'category'             => 'Category',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->filter) {
+            $res['Filter'] = [];
+            if (null !== $this->filter && \is_array($this->filter)) {
+                $n = 0;
+                foreach ($this->filter as $item) {
+                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -173,6 +214,9 @@ class DescribeSnapshotsRequest extends Model
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
         }
@@ -182,29 +226,11 @@ class DescribeSnapshotsRequest extends Model
         if (null !== $this->snapshotType) {
             $res['SnapshotType'] = $this->snapshotType;
         }
-        if (null !== $this->filter) {
-            $res['Filter'] = [];
-            if (null !== $this->filter && \is_array($this->filter)) {
-                $n = 0;
-                foreach ($this->filter as $item) {
-                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
         if (null !== $this->sourceDiskType) {
             $res['SourceDiskType'] = $this->sourceDiskType;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
@@ -221,6 +247,15 @@ class DescribeSnapshotsRequest extends Model
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -233,6 +268,24 @@ class DescribeSnapshotsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Filter'])) {
+            if (!empty($map['Filter'])) {
+                $model->filter = [];
+                $n             = 0;
+                foreach ($map['Filter'] as $item) {
+                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -260,6 +313,9 @@ class DescribeSnapshotsRequest extends Model
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];
         }
@@ -269,29 +325,11 @@ class DescribeSnapshotsRequest extends Model
         if (isset($map['SnapshotType'])) {
             $model->snapshotType = $map['SnapshotType'];
         }
-        if (isset($map['Filter'])) {
-            if (!empty($map['Filter'])) {
-                $model->filter = [];
-                $n             = 0;
-                foreach ($map['Filter'] as $item) {
-                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }
         if (isset($map['SourceDiskType'])) {
             $model->sourceDiskType = $map['SourceDiskType'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
@@ -307,6 +345,15 @@ class DescribeSnapshotsRequest extends Model
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

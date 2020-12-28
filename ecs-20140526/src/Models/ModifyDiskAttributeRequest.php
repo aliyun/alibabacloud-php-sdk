@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskAttributeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $diskId;
-
-    /**
-     * @var string[]
-     */
-    public $diskIds;
 
     /**
      * @var string
@@ -42,14 +52,28 @@ class ModifyDiskAttributeRequest extends Model
      * @var bool
      */
     public $enableAutoSnapshot;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var string[]
+     */
+    public $diskIds;
     protected $_name = [
-        'diskId'             => 'DiskId',
-        'diskIds'            => 'DiskIds',
-        'diskName'           => 'DiskName',
-        'description'        => 'Description',
-        'deleteWithInstance' => 'DeleteWithInstance',
-        'deleteAutoSnapshot' => 'DeleteAutoSnapshot',
-        'enableAutoSnapshot' => 'EnableAutoSnapshot',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'diskId'               => 'DiskId',
+        'diskName'             => 'DiskName',
+        'description'          => 'Description',
+        'deleteWithInstance'   => 'DeleteWithInstance',
+        'deleteAutoSnapshot'   => 'DeleteAutoSnapshot',
+        'enableAutoSnapshot'   => 'EnableAutoSnapshot',
+        'ownerAccount'         => 'OwnerAccount',
+        'diskIds'              => 'DiskIds',
     ];
 
     public function validate()
@@ -59,11 +83,17 @@ class ModifyDiskAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
-        }
-        if (null !== $this->diskIds) {
-            $res['DiskIds'] = $this->diskIds;
         }
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
@@ -80,6 +110,12 @@ class ModifyDiskAttributeRequest extends Model
         if (null !== $this->enableAutoSnapshot) {
             $res['EnableAutoSnapshot'] = $this->enableAutoSnapshot;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->diskIds) {
+            $res['DiskIds'] = $this->diskIds;
+        }
 
         return $res;
     }
@@ -92,13 +128,17 @@ class ModifyDiskAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
-        }
-        if (isset($map['DiskIds'])) {
-            if (!empty($map['DiskIds'])) {
-                $model->diskIds = $map['DiskIds'];
-            }
         }
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
@@ -114,6 +154,14 @@ class ModifyDiskAttributeRequest extends Model
         }
         if (isset($map['EnableAutoSnapshot'])) {
             $model->enableAutoSnapshot = $map['EnableAutoSnapshot'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['DiskIds'])) {
+            if (!empty($map['DiskIds'])) {
+                $model->diskIds = $map['DiskIds'];
+            }
         }
 
         return $model;

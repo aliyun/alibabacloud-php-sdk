@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeBandwidthLimitationResponse\bandwidths;
 use AlibabaCloud\Tea\Model;
 
 class DescribeBandwidthLimitationResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bandwidths
+     * @var DescribeBandwidthLimitationResponseBody
      */
-    public $bandwidths;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'bandwidths' => 'Bandwidths',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('bandwidths', $this->bandwidths, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->bandwidths) {
-            $res['Bandwidths'] = null !== $this->bandwidths ? $this->bandwidths->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeBandwidthLimitationResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Bandwidths'])) {
-            $model->bandwidths = bandwidths::fromMap($map['Bandwidths']);
+        if (isset($map['body'])) {
+            $model->body = DescribeBandwidthLimitationResponseBody::fromMap($map['body']);
         }
 
         return $model;

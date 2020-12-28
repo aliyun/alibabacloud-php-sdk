@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceScreenshotResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var GetInstanceScreenshotResponseBody
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $screenshot;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'instanceId' => 'InstanceId',
-        'screenshot' => 'Screenshot',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('screenshot', $this->screenshot, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->screenshot) {
-            $res['Screenshot'] = $this->screenshot;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class GetInstanceScreenshotResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Screenshot'])) {
-            $model->screenshot = $map['Screenshot'];
+        if (isset($map['body'])) {
+            $model->body = GetInstanceScreenshotResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class RunCommandResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var RunCommandResponseBody
      */
-    public $commandId;
-
-    /**
-     * @var string
-     */
-    public $invokeId;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'commandId' => 'CommandId',
-        'invokeId'  => 'InvokeId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('commandId', $this->commandId, true);
-        Model::validateRequired('invokeId', $this->invokeId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->commandId) {
-            $res['CommandId'] = $this->commandId;
-        }
-        if (null !== $this->invokeId) {
-            $res['InvokeId'] = $this->invokeId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class RunCommandResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['CommandId'])) {
-            $model->commandId = $map['CommandId'];
-        }
-        if (isset($map['InvokeId'])) {
-            $model->invokeId = $map['InvokeId'];
+        if (isset($map['body'])) {
+            $model->body = RunCommandResponseBody::fromMap($map['body']);
         }
 
         return $model;

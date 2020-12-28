@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class arn extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $assumeRoleFor;
+    public $roleType;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class arn extends Model
     public $rolearn;
 
     /**
-     * @var string
+     * @var int
      */
-    public $roleType;
+    public $assumeRoleFor;
     protected $_name = [
-        'assumeRoleFor' => 'AssumeRoleFor',
-        'rolearn'       => 'Rolearn',
         'roleType'      => 'RoleType',
+        'rolearn'       => 'Rolearn',
+        'assumeRoleFor' => 'AssumeRoleFor',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class arn extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->assumeRoleFor) {
-            $res['AssumeRoleFor'] = $this->assumeRoleFor;
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
         if (null !== $this->rolearn) {
             $res['Rolearn'] = $this->rolearn;
         }
-        if (null !== $this->roleType) {
-            $res['RoleType'] = $this->roleType;
+        if (null !== $this->assumeRoleFor) {
+            $res['AssumeRoleFor'] = $this->assumeRoleFor;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class arn extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AssumeRoleFor'])) {
-            $model->assumeRoleFor = $map['AssumeRoleFor'];
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
         if (isset($map['Rolearn'])) {
             $model->rolearn = $map['Rolearn'];
         }
-        if (isset($map['RoleType'])) {
-            $model->roleType = $map['RoleType'];
+        if (isset($map['AssumeRoleFor'])) {
+            $model->assumeRoleFor = $map['AssumeRoleFor'];
         }
 
         return $model;

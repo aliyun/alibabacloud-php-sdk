@@ -24,7 +24,6 @@ class privatePoolOptions extends Model
 
     public function validate()
     {
-        Model::validateRequired('matchCriteria', $this->matchCriteria, true);
     }
 
     public function toMap()

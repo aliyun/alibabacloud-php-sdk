@@ -9,14 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkInterfaceAttributeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string[]
-     */
-    public $securityGroupId;
 
     /**
      * @var string
@@ -37,29 +52,45 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string[]
+     */
+    public $securityGroupId;
     protected $_name = [
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'securityGroupId'      => 'SecurityGroupId',
         'networkInterfaceName' => 'NetworkInterfaceName',
         'networkInterfaceId'   => 'NetworkInterfaceId',
         'queueNumber'          => 'QueueNumber',
         'description'          => 'Description',
+        'securityGroupId'      => 'SecurityGroupId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('networkInterfaceId', $this->networkInterfaceId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->networkInterfaceName) {
             $res['NetworkInterfaceName'] = $this->networkInterfaceName;
@@ -73,6 +104,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
 
         return $res;
     }
@@ -85,13 +119,20 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            if (!empty($map['SecurityGroupId'])) {
-                $model->securityGroupId = $map['SecurityGroupId'];
-            }
         }
         if (isset($map['NetworkInterfaceName'])) {
             $model->networkInterfaceName = $map['NetworkInterfaceName'];
@@ -104,6 +145,11 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            if (!empty($map['SecurityGroupId'])) {
+                $model->securityGroupId = $map['SecurityGroupId'];
+            }
         }
 
         return $model;

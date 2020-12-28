@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponse\instanceTypes;
 use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceTypesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var instanceTypes
+     * @var DescribeInstanceTypesResponseBody
      */
-    public $instanceTypes;
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'instanceTypes' => 'InstanceTypes',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('instanceTypes', $this->instanceTypes, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = null !== $this->instanceTypes ? $this->instanceTypes->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeInstanceTypesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['InstanceTypes'])) {
-            $model->instanceTypes = instanceTypes::fromMap($map['InstanceTypes']);
+        if (isset($map['body'])) {
+            $model->body = DescribeInstanceTypesResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSimulatedSystemEventsResponse\eventIdSet;
 use AlibabaCloud\Tea\Model;
 
 class CreateSimulatedSystemEventsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var eventIdSet
+     * @var CreateSimulatedSystemEventsResponseBody
      */
-    public $eventIdSet;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'eventIdSet' => 'EventIdSet',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('eventIdSet', $this->eventIdSet, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->eventIdSet) {
-            $res['EventIdSet'] = null !== $this->eventIdSet ? $this->eventIdSet->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class CreateSimulatedSystemEventsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['EventIdSet'])) {
-            $model->eventIdSet = eventIdSet::fromMap($map['EventIdSet']);
+        if (isset($map['body'])) {
+            $model->body = CreateSimulatedSystemEventsResponseBody::fromMap($map['body']);
         }
 
         return $model;

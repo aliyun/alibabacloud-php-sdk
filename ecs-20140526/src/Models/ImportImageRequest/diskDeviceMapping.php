@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class diskDeviceMapping extends Model
 {
     /**
+     * @var int
+     */
+    public $diskImSize;
+
+    /**
      * @var string
      */
-    public $format;
+    public $device;
 
     /**
      * @var string
@@ -21,29 +26,24 @@ class diskDeviceMapping extends Model
     /**
      * @var string
      */
+    public $format;
+
+    /**
+     * @var string
+     */
     public $OSSObject;
 
     /**
      * @var int
      */
-    public $diskImSize;
-
-    /**
-     * @var int
-     */
     public $diskImageSize;
-
-    /**
-     * @var string
-     */
-    public $device;
     protected $_name = [
-        'format'        => 'Format',
-        'OSSBucket'     => 'OSSBucket',
-        'OSSObject'     => 'OSSObject',
         'diskImSize'    => 'DiskImSize',
-        'diskImageSize' => 'DiskImageSize',
         'device'        => 'Device',
+        'OSSBucket'     => 'OSSBucket',
+        'format'        => 'Format',
+        'OSSObject'     => 'OSSObject',
+        'diskImageSize' => 'DiskImageSize',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class diskDeviceMapping extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->format) {
-            $res['Format'] = $this->format;
+        if (null !== $this->diskImSize) {
+            $res['DiskImSize'] = $this->diskImSize;
+        }
+        if (null !== $this->device) {
+            $res['Device'] = $this->device;
         }
         if (null !== $this->OSSBucket) {
             $res['OSSBucket'] = $this->OSSBucket;
         }
+        if (null !== $this->format) {
+            $res['Format'] = $this->format;
+        }
         if (null !== $this->OSSObject) {
             $res['OSSObject'] = $this->OSSObject;
         }
-        if (null !== $this->diskImSize) {
-            $res['DiskImSize'] = $this->diskImSize;
-        }
         if (null !== $this->diskImageSize) {
             $res['DiskImageSize'] = $this->diskImageSize;
-        }
-        if (null !== $this->device) {
-            $res['Device'] = $this->device;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class diskDeviceMapping extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Format'])) {
-            $model->format = $map['Format'];
+        if (isset($map['DiskImSize'])) {
+            $model->diskImSize = $map['DiskImSize'];
+        }
+        if (isset($map['Device'])) {
+            $model->device = $map['Device'];
         }
         if (isset($map['OSSBucket'])) {
             $model->OSSBucket = $map['OSSBucket'];
         }
+        if (isset($map['Format'])) {
+            $model->format = $map['Format'];
+        }
         if (isset($map['OSSObject'])) {
             $model->OSSObject = $map['OSSObject'];
         }
-        if (isset($map['DiskImSize'])) {
-            $model->diskImSize = $map['DiskImSize'];
-        }
         if (isset($map['DiskImageSize'])) {
             $model->diskImageSize = $map['DiskImageSize'];
-        }
-        if (isset($map['Device'])) {
-            $model->device = $map['Device'];
         }
 
         return $model;

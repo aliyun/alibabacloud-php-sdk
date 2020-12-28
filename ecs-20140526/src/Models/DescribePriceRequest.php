@@ -11,6 +11,36 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceRequest extends Model
 {
     /**
+     * @var systemDisk
+     */
+    public $systemDisk;
+
+    /**
+     * @var dataDisk[]
+     */
+    public $dataDisk;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -49,16 +79,6 @@ class DescribePriceRequest extends Model
      * @var int
      */
     public $internetMaxBandwidthOut;
-
-    /**
-     * @var systemDisk
-     */
-    public $systemDisk;
-
-    /**
-     * @var dataDisk[]
-     */
-    public $dataDisk;
 
     /**
      * @var int
@@ -111,15 +131,21 @@ class DescribePriceRequest extends Model
     public $instanceCpuCoreCount;
 
     /**
-     * @var string[]
-     */
-    public $instanceTypeList;
-
-    /**
      * @var string
      */
     public $isp;
+
+    /**
+     * @var string[]
+     */
+    public $instanceTypeList;
     protected $_name = [
+        'systemDisk'              => 'SystemDisk',
+        'dataDisk'                => 'DataDisk',
+        'ownerId'                 => 'OwnerId',
+        'ownerAccount'            => 'OwnerAccount',
+        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
+        'resourceOwnerId'         => 'ResourceOwnerId',
         'regionId'                => 'RegionId',
         'resourceType'            => 'ResourceType',
         'imageId'                 => 'ImageId',
@@ -128,8 +154,6 @@ class DescribePriceRequest extends Model
         'instanceNetworkType'     => 'InstanceNetworkType',
         'internetChargeType'      => 'InternetChargeType',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
-        'systemDisk'              => 'SystemDisk',
-        'dataDisk'                => 'DataDisk',
         'period'                  => 'Period',
         'priceUnit'               => 'PriceUnit',
         'amount'                  => 'Amount',
@@ -140,18 +164,41 @@ class DescribePriceRequest extends Model
         'capacity'                => 'Capacity',
         'assuranceTimes'          => 'AssuranceTimes',
         'instanceCpuCoreCount'    => 'InstanceCpuCoreCount',
-        'instanceTypeList'        => 'InstanceTypeList',
         'isp'                     => 'Isp',
+        'instanceTypeList'        => 'InstanceTypeList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->dataDisk) {
+            $res['DataDisk'] = [];
+            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
+                $n = 0;
+                foreach ($this->dataDisk as $item) {
+                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -175,18 +222,6 @@ class DescribePriceRequest extends Model
         }
         if (null !== $this->internetMaxBandwidthOut) {
             $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
-        }
-        if (null !== $this->systemDisk) {
-            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
-        }
-        if (null !== $this->dataDisk) {
-            $res['DataDisk'] = [];
-            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
-                $n = 0;
-                foreach ($this->dataDisk as $item) {
-                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -218,11 +253,11 @@ class DescribePriceRequest extends Model
         if (null !== $this->instanceCpuCoreCount) {
             $res['InstanceCpuCoreCount'] = $this->instanceCpuCoreCount;
         }
-        if (null !== $this->instanceTypeList) {
-            $res['InstanceTypeList'] = $this->instanceTypeList;
-        }
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
+        }
+        if (null !== $this->instanceTypeList) {
+            $res['InstanceTypeList'] = $this->instanceTypeList;
         }
 
         return $res;
@@ -236,6 +271,30 @@ class DescribePriceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        }
+        if (isset($map['DataDisk'])) {
+            if (!empty($map['DataDisk'])) {
+                $model->dataDisk = [];
+                $n               = 0;
+                foreach ($map['DataDisk'] as $item) {
+                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -259,18 +318,6 @@ class DescribePriceRequest extends Model
         }
         if (isset($map['InternetMaxBandwidthOut'])) {
             $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
-        }
-        if (isset($map['SystemDisk'])) {
-            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
-        }
-        if (isset($map['DataDisk'])) {
-            if (!empty($map['DataDisk'])) {
-                $model->dataDisk = [];
-                $n               = 0;
-                foreach ($map['DataDisk'] as $item) {
-                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
@@ -302,13 +349,13 @@ class DescribePriceRequest extends Model
         if (isset($map['InstanceCpuCoreCount'])) {
             $model->instanceCpuCoreCount = $map['InstanceCpuCoreCount'];
         }
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
+        }
         if (isset($map['InstanceTypeList'])) {
             if (!empty($map['InstanceTypeList'])) {
                 $model->instanceTypeList = $map['InstanceTypeList'];
             }
-        }
-        if (isset($map['Isp'])) {
-            $model->isp = $map['Isp'];
         }
 
         return $model;

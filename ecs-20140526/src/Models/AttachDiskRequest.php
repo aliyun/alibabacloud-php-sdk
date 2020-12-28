@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AttachDiskRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -42,25 +57,41 @@ class AttachDiskRequest extends Model
      * @var string
      */
     public $keyPairName;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
     protected $_name = [
-        'instanceId'         => 'InstanceId',
-        'diskId'             => 'DiskId',
-        'device'             => 'Device',
-        'deleteWithInstance' => 'DeleteWithInstance',
-        'bootable'           => 'Bootable',
-        'password'           => 'Password',
-        'keyPairName'        => 'KeyPairName',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'instanceId'           => 'InstanceId',
+        'diskId'               => 'DiskId',
+        'device'               => 'Device',
+        'deleteWithInstance'   => 'DeleteWithInstance',
+        'bootable'             => 'Bootable',
+        'password'             => 'Password',
+        'keyPairName'          => 'KeyPairName',
+        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('diskId', $this->diskId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -82,6 +113,9 @@ class AttachDiskRequest extends Model
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
 
         return $res;
     }
@@ -94,6 +128,15 @@ class AttachDiskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -114,6 +157,9 @@ class AttachDiskRequest extends Model
         }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

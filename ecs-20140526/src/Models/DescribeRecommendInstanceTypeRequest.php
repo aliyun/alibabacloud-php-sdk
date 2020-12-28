@@ -11,6 +11,26 @@ class DescribeRecommendInstanceTypeRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
     public $cores;
 
     /**
@@ -49,11 +69,6 @@ class DescribeRecommendInstanceTypeRequest extends Model
     public $ioOptimized;
 
     /**
-     * @var string[]
-     */
-    public $instanceTypeFamily;
-
-    /**
      * @var string
      */
     public $priorityStrategy;
@@ -62,6 +77,26 @@ class DescribeRecommendInstanceTypeRequest extends Model
      * @var float
      */
     public $maxPrice;
+
+    /**
+     * @var int
+     */
+    public $instanceBandwidthRx;
+
+    /**
+     * @var int
+     */
+    public $instanceBandwidthTx;
+
+    /**
+     * @var int
+     */
+    public $instancePpsRx;
+
+    /**
+     * @var int
+     */
+    public $instancePpsTx;
 
     /**
      * @var string
@@ -82,33 +117,56 @@ class DescribeRecommendInstanceTypeRequest extends Model
      * @var string
      */
     public $scene;
+
+    /**
+     * @var string[]
+     */
+    public $instanceTypeFamily;
     protected $_name = [
-        'cores'               => 'Cores',
-        'memory'              => 'Memory',
-        'instanceFamilyLevel' => 'InstanceFamilyLevel',
-        'instanceType'        => 'InstanceType',
-        'networkType'         => 'NetworkType',
-        'instanceChargeType'  => 'InstanceChargeType',
-        'spotStrategy'        => 'SpotStrategy',
-        'ioOptimized'         => 'IoOptimized',
-        'instanceTypeFamily'  => 'InstanceTypeFamily',
-        'priorityStrategy'    => 'PriorityStrategy',
-        'maxPrice'            => 'MaxPrice',
-        'regionId'            => 'RegionId',
-        'zoneId'              => 'ZoneId',
-        'systemDiskCategory'  => 'SystemDiskCategory',
-        'scene'               => 'Scene',
+        'ownerId'              => 'OwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'cores'                => 'Cores',
+        'memory'               => 'Memory',
+        'instanceFamilyLevel'  => 'InstanceFamilyLevel',
+        'instanceType'         => 'InstanceType',
+        'networkType'          => 'NetworkType',
+        'instanceChargeType'   => 'InstanceChargeType',
+        'spotStrategy'         => 'SpotStrategy',
+        'ioOptimized'          => 'IoOptimized',
+        'priorityStrategy'     => 'PriorityStrategy',
+        'maxPrice'             => 'MaxPrice',
+        'instanceBandwidthRx'  => 'InstanceBandwidthRx',
+        'instanceBandwidthTx'  => 'InstanceBandwidthTx',
+        'instancePpsRx'        => 'InstancePpsRx',
+        'instancePpsTx'        => 'InstancePpsTx',
+        'regionId'             => 'RegionId',
+        'zoneId'               => 'ZoneId',
+        'systemDiskCategory'   => 'SystemDiskCategory',
+        'scene'                => 'Scene',
+        'instanceTypeFamily'   => 'InstanceTypeFamily',
     ];
 
     public function validate()
     {
-        Model::validateRequired('networkType', $this->networkType, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->cores) {
             $res['Cores'] = $this->cores;
         }
@@ -133,14 +191,23 @@ class DescribeRecommendInstanceTypeRequest extends Model
         if (null !== $this->ioOptimized) {
             $res['IoOptimized'] = $this->ioOptimized;
         }
-        if (null !== $this->instanceTypeFamily) {
-            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
-        }
         if (null !== $this->priorityStrategy) {
             $res['PriorityStrategy'] = $this->priorityStrategy;
         }
         if (null !== $this->maxPrice) {
             $res['MaxPrice'] = $this->maxPrice;
+        }
+        if (null !== $this->instanceBandwidthRx) {
+            $res['InstanceBandwidthRx'] = $this->instanceBandwidthRx;
+        }
+        if (null !== $this->instanceBandwidthTx) {
+            $res['InstanceBandwidthTx'] = $this->instanceBandwidthTx;
+        }
+        if (null !== $this->instancePpsRx) {
+            $res['InstancePpsRx'] = $this->instancePpsRx;
+        }
+        if (null !== $this->instancePpsTx) {
+            $res['InstancePpsTx'] = $this->instancePpsTx;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -154,6 +221,9 @@ class DescribeRecommendInstanceTypeRequest extends Model
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
+        if (null !== $this->instanceTypeFamily) {
+            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
+        }
 
         return $res;
     }
@@ -166,6 +236,18 @@ class DescribeRecommendInstanceTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['Cores'])) {
             $model->cores = $map['Cores'];
         }
@@ -190,16 +272,23 @@ class DescribeRecommendInstanceTypeRequest extends Model
         if (isset($map['IoOptimized'])) {
             $model->ioOptimized = $map['IoOptimized'];
         }
-        if (isset($map['InstanceTypeFamily'])) {
-            if (!empty($map['InstanceTypeFamily'])) {
-                $model->instanceTypeFamily = $map['InstanceTypeFamily'];
-            }
-        }
         if (isset($map['PriorityStrategy'])) {
             $model->priorityStrategy = $map['PriorityStrategy'];
         }
         if (isset($map['MaxPrice'])) {
             $model->maxPrice = $map['MaxPrice'];
+        }
+        if (isset($map['InstanceBandwidthRx'])) {
+            $model->instanceBandwidthRx = $map['InstanceBandwidthRx'];
+        }
+        if (isset($map['InstanceBandwidthTx'])) {
+            $model->instanceBandwidthTx = $map['InstanceBandwidthTx'];
+        }
+        if (isset($map['InstancePpsRx'])) {
+            $model->instancePpsRx = $map['InstancePpsRx'];
+        }
+        if (isset($map['InstancePpsTx'])) {
+            $model->instancePpsTx = $map['InstancePpsTx'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -212,6 +301,11 @@ class DescribeRecommendInstanceTypeRequest extends Model
         }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
+        }
+        if (isset($map['InstanceTypeFamily'])) {
+            if (!empty($map['InstanceTypeFamily'])) {
+                $model->instanceTypeFamily = $map['InstanceTypeFamily'];
+            }
         }
 
         return $model;

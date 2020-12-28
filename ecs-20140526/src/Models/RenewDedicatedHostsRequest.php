@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class RenewDedicatedHostsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $dedicatedHostIds;
@@ -33,23 +53,36 @@ class RenewDedicatedHostsRequest extends Model
      */
     public $clientToken;
     protected $_name = [
-        'dedicatedHostIds' => 'DedicatedHostIds',
-        'regionId'         => 'RegionId',
-        'period'           => 'Period',
-        'periodUnit'       => 'PeriodUnit',
-        'clientToken'      => 'ClientToken',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'dedicatedHostIds'     => 'DedicatedHostIds',
+        'regionId'             => 'RegionId',
+        'period'               => 'Period',
+        'periodUnit'           => 'PeriodUnit',
+        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
     {
-        Model::validateRequired('dedicatedHostIds', $this->dedicatedHostIds, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('period', $this->period, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->dedicatedHostIds) {
             $res['DedicatedHostIds'] = $this->dedicatedHostIds;
         }
@@ -77,6 +110,18 @@ class RenewDedicatedHostsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['DedicatedHostIds'])) {
             $model->dedicatedHostIds = $map['DedicatedHostIds'];
         }

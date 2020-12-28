@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ReInitDiskRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $diskId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var string
@@ -33,7 +53,11 @@ class ReInitDiskRequest extends Model
      */
     public $securityEnhancementStrategy;
     protected $_name = [
+        'ownerId'                     => 'OwnerId',
+        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
+        'resourceOwnerId'             => 'ResourceOwnerId',
         'diskId'                      => 'DiskId',
+        'ownerAccount'                => 'OwnerAccount',
         'password'                    => 'Password',
         'keyPairName'                 => 'KeyPairName',
         'autoStartInstance'           => 'AutoStartInstance',
@@ -42,14 +66,25 @@ class ReInitDiskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('diskId', $this->diskId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -75,8 +110,20 @@ class ReInitDiskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];

@@ -11,9 +11,19 @@ use AlibabaCloud\Tea\Model;
 class ImportImageRequest extends Model
 {
     /**
-     * @var diskDeviceMapping[]
+     * @var int
      */
-    public $diskDeviceMapping;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -61,45 +71,52 @@ class ImportImageRequest extends Model
     public $licenseType;
 
     /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var diskDeviceMapping[]
+     */
+    public $diskDeviceMapping;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'diskDeviceMapping' => 'DiskDeviceMapping',
-        'regionId'          => 'RegionId',
-        'imageName'         => 'ImageName',
-        'description'       => 'Description',
-        'architecture'      => 'Architecture',
-        'OSType'            => 'OSType',
-        'platform'          => 'Platform',
-        'bootMode'          => 'BootMode',
-        'roleName'          => 'RoleName',
-        'licenseType'       => 'LicenseType',
-        'tag'               => 'Tag',
-        'resourceGroupId'   => 'ResourceGroupId',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'regionId'             => 'RegionId',
+        'imageName'            => 'ImageName',
+        'description'          => 'Description',
+        'architecture'         => 'Architecture',
+        'OSType'               => 'OSType',
+        'platform'             => 'Platform',
+        'bootMode'             => 'BootMode',
+        'roleName'             => 'RoleName',
+        'licenseType'          => 'LicenseType',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'diskDeviceMapping'    => 'DiskDeviceMapping',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->diskDeviceMapping) {
-            $res['DiskDeviceMapping'] = [];
-            if (null !== $this->diskDeviceMapping && \is_array($this->diskDeviceMapping)) {
-                $n = 0;
-                foreach ($this->diskDeviceMapping as $item) {
-                    $res['DiskDeviceMapping'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -128,6 +145,18 @@ class ImportImageRequest extends Model
         if (null !== $this->licenseType) {
             $res['LicenseType'] = $this->licenseType;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->diskDeviceMapping) {
+            $res['DiskDeviceMapping'] = [];
+            if (null !== $this->diskDeviceMapping && \is_array($this->diskDeviceMapping)) {
+                $n = 0;
+                foreach ($this->diskDeviceMapping as $item) {
+                    $res['DiskDeviceMapping'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -136,9 +165,6 @@ class ImportImageRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -152,14 +178,14 @@ class ImportImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DiskDeviceMapping'])) {
-            if (!empty($map['DiskDeviceMapping'])) {
-                $model->diskDeviceMapping = [];
-                $n                        = 0;
-                foreach ($map['DiskDeviceMapping'] as $item) {
-                    $model->diskDeviceMapping[$n++] = null !== $item ? diskDeviceMapping::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -188,6 +214,18 @@ class ImportImageRequest extends Model
         if (isset($map['LicenseType'])) {
             $model->licenseType = $map['LicenseType'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['DiskDeviceMapping'])) {
+            if (!empty($map['DiskDeviceMapping'])) {
+                $model->diskDeviceMapping = [];
+                $n                        = 0;
+                foreach ($map['DiskDeviceMapping'] as $item) {
+                    $model->diskDeviceMapping[$n++] = null !== $item ? diskDeviceMapping::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -196,9 +234,6 @@ class ImportImageRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

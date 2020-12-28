@@ -4,59 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSupportInstanceTypesResponse\instanceTypes;
 use AlibabaCloud\Tea\Model;
 
 class DescribeImageSupportInstanceTypesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeImageSupportInstanceTypesResponseBody
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $imageId;
-
-    /**
-     * @var instanceTypes
-     */
-    public $instanceTypes;
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'regionId'      => 'RegionId',
-        'imageId'       => 'ImageId',
-        'instanceTypes' => 'InstanceTypes',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('imageId', $this->imageId, true);
-        Model::validateRequired('instanceTypes', $this->instanceTypes, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
-        }
-        if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = null !== $this->instanceTypes ? $this->instanceTypes->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -70,17 +49,11 @@ class DescribeImageSupportInstanceTypesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
-        }
-        if (isset($map['InstanceTypes'])) {
-            $model->instanceTypes = instanceTypes::fromMap($map['InstanceTypes']);
+        if (isset($map['body'])) {
+            $model->body = DescribeImageSupportInstanceTypesResponseBody::fromMap($map['body']);
         }
 
         return $model;

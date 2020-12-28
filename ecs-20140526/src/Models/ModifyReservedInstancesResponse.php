@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyReservedInstancesResponse\reservedInstanceIdSets;
 use AlibabaCloud\Tea\Model;
 
 class ModifyReservedInstancesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var reservedInstanceIdSets
+     * @var ModifyReservedInstancesResponseBody
      */
-    public $reservedInstanceIdSets;
+    public $body;
     protected $_name = [
-        'requestId'              => 'RequestId',
-        'reservedInstanceIdSets' => 'ReservedInstanceIdSets',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('reservedInstanceIdSets', $this->reservedInstanceIdSets, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->reservedInstanceIdSets) {
-            $res['ReservedInstanceIdSets'] = null !== $this->reservedInstanceIdSets ? $this->reservedInstanceIdSets->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class ModifyReservedInstancesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ReservedInstanceIdSets'])) {
-            $model->reservedInstanceIdSets = reservedInstanceIdSets::fromMap($map['ReservedInstanceIdSets']);
+        if (isset($map['body'])) {
+            $model->body = ModifyReservedInstancesResponseBody::fromMap($map['body']);
         }
 
         return $model;
