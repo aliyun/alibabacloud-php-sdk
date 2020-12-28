@@ -27,7 +27,6 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\CountCrowdRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CountCrowdResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateBodyDbRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateBodyDbResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateBodyInstanceResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateBodyPersonRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateBodyPersonResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateFaceDbRequest;
@@ -94,15 +93,21 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceTidyupResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GenerateHumanAnimeStyleAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GenerateHumanAnimeStyleRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GenerateHumanAnimeStyleResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\GenRealPersonVerificationTokenRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\GenRealPersonVerificationTokenResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetBodyPersonRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetBodyPersonResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetFaceEntityRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetFaceEntityResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\GetRealPersonVerificationResultRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\GetRealPersonVerificationResultResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyDbsRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyDbsResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyPersonRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyPersonResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceDbsResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceEntitiesRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceEntitiesResponse;
@@ -1296,6 +1301,34 @@ class Facebody extends OpenApiClient
     }
 
     /**
+     * @param GenRealPersonVerificationTokenRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GenRealPersonVerificationTokenResponse
+     */
+    public function genRealPersonVerificationTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenRealPersonVerificationTokenResponse::fromMap($this->doRPCRequest('GenRealPersonVerificationToken', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenRealPersonVerificationTokenRequest $request
+     *
+     * @return GenRealPersonVerificationTokenResponse
+     */
+    public function genRealPersonVerificationToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->genRealPersonVerificationTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return ListFaceDbsResponse
@@ -1562,6 +1595,34 @@ class Facebody extends OpenApiClient
     }
 
     /**
+     * @param GetRealPersonVerificationResultRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetRealPersonVerificationResultResponse
+     */
+    public function getRealPersonVerificationResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetRealPersonVerificationResultResponse::fromMap($this->doRPCRequest('GetRealPersonVerificationResult', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetRealPersonVerificationResultRequest $request
+     *
+     * @return GetRealPersonVerificationResultResponse
+     */
+    public function getRealPersonVerificationResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRealPersonVerificationResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteFaceRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1587,28 +1648,6 @@ class Facebody extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFaceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return CreateBodyInstanceResponse
-     */
-    public function createBodyInstanceWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return CreateBodyInstanceResponse::fromMap($this->doRPCRequest('CreateBodyInstance', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return CreateBodyInstanceResponse
-     */
-    public function createBodyInstance()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createBodyInstanceWithOptions($runtime);
     }
 
     /**
@@ -2751,6 +2790,35 @@ class Facebody extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFaceDbWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBodyPersonRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListBodyPersonResponse
+     */
+    public function listBodyPersonWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListBodyPersonResponse::fromMap($this->doRPCRequest('ListBodyPerson', '2019-12-30', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBodyPersonRequest $request
+     *
+     * @return ListBodyPersonResponse
+     */
+    public function listBodyPerson($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBodyPersonWithOptions($request, $runtime);
     }
 
     /**

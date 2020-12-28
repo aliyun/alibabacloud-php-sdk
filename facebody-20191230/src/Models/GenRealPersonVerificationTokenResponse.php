@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateBodyInstanceResponse extends Model
+class GenRealPersonVerificationTokenResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class CreateBodyInstanceResponse extends Model
     public $headers;
 
     /**
-     * @var CreateBodyInstanceResponseBody
+     * @var GenRealPersonVerificationTokenResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class CreateBodyInstanceResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateBodyInstanceResponse
+     * @return GenRealPersonVerificationTokenResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class CreateBodyInstanceResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateBodyInstanceResponseBody::fromMap($map['body']);
+            $model->body = GenRealPersonVerificationTokenResponseBody::fromMap($map['body']);
         }
 
         return $model;

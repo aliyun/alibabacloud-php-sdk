@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateBodyPersonResponseBody\data;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyPersonResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateBodyPersonResponseBody extends Model
+class ListBodyPersonResponseBody extends Model
 {
     /**
      * @description RequestId
@@ -45,7 +45,7 @@ class CreateBodyPersonResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateBodyPersonResponseBody
+     * @return ListBodyPersonResponseBody
      */
     public static function fromMap($map = [])
     {

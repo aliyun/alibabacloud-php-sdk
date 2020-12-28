@@ -20,21 +20,9 @@ class SearchBodyTraceResponseBody extends Model
      * @var data
      */
     public $data;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $message;
     protected $_name = [
         'requestId' => 'RequestId',
         'data'      => 'Data',
-        'code'      => 'Code',
-        'message'   => 'Message',
     ];
 
     public function validate()
@@ -49,12 +37,6 @@ class SearchBodyTraceResponseBody extends Model
         }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -73,12 +55,6 @@ class SearchBodyTraceResponseBody extends Model
         }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
         }
 
         return $model;
