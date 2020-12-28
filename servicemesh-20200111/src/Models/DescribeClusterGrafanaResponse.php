@@ -4,45 +4,38 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeClusterGrafanaResponse\dashboards;
 use AlibabaCloud\Tea\Model;
 
 class DescribeClusterGrafanaResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var dashboards[]
+     * @var DescribeClusterGrafanaResponseBody
      */
-    public $dashboards;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'dashboards' => 'Dashboards',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('dashboards', $this->dashboards, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->dashboards) {
-            $res['Dashboards'] = [];
-            if (null !== $this->dashboards && \is_array($this->dashboards)) {
-                $n = 0;
-                foreach ($this->dashboards as $item) {
-                    $res['Dashboards'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +49,11 @@ class DescribeClusterGrafanaResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Dashboards'])) {
-            if (!empty($map['Dashboards'])) {
-                $model->dashboards = [];
-                $n                 = 0;
-                foreach ($map['Dashboards'] as $item) {
-                    $model->dashboards[$n++] = null !== $item ? dashboards::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeClusterGrafanaResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -4,45 +4,38 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServiceEndpointsResponse\serviceEndpoints;
 use AlibabaCloud\Tea\Model;
 
 class GetRegisteredServiceEndpointsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var serviceEndpoints[]
+     * @var GetRegisteredServiceEndpointsResponseBody
      */
-    public $serviceEndpoints;
+    public $body;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'serviceEndpoints' => 'ServiceEndpoints',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('serviceEndpoints', $this->serviceEndpoints, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->serviceEndpoints) {
-            $res['ServiceEndpoints'] = [];
-            if (null !== $this->serviceEndpoints && \is_array($this->serviceEndpoints)) {
-                $n = 0;
-                foreach ($this->serviceEndpoints as $item) {
-                    $res['ServiceEndpoints'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +49,11 @@ class GetRegisteredServiceEndpointsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ServiceEndpoints'])) {
-            if (!empty($map['ServiceEndpoints'])) {
-                $model->serviceEndpoints = [];
-                $n                       = 0;
-                foreach ($map['ServiceEndpoints'] as $item) {
-                    $model->serviceEndpoints[$n++] = null !== $item ? serviceEndpoints::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = GetRegisteredServiceEndpointsResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -24,8 +24,6 @@ class DescribeClusterGrafanaRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('serviceMeshId', $this->serviceMeshId, true);
-        Model::validateRequired('k8sClusterId', $this->k8sClusterId, true);
     }
 
     public function toMap()

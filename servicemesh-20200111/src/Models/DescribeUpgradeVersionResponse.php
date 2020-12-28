@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeUpgradeVersionResponse\version;
 use AlibabaCloud\Tea\Model;
 
 class DescribeUpgradeVersionResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var version
+     * @var DescribeUpgradeVersionResponseBody
      */
-    public $version;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'version'   => 'Version',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('version', $this->version, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->version) {
-            $res['Version'] = null !== $this->version ? $this->version->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeUpgradeVersionResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Version'])) {
-            $model->version = version::fromMap($map['Version']);
+        if (isset($map['body'])) {
+            $model->body = DescribeUpgradeVersionResponseBody::fromMap($map['body']);
         }
 
         return $model;

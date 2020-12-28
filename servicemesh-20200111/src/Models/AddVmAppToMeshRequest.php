@@ -51,6 +51,11 @@ class AddVmAppToMeshRequest extends Model
     /**
      * @var bool
      */
+    public $useWorkload;
+
+    /**
+     * @var bool
+     */
     public $force;
     protected $_name = [
         'serviceMeshId'  => 'ServiceMeshId',
@@ -61,17 +66,12 @@ class AddVmAppToMeshRequest extends Model
         'labels'         => 'Labels',
         'annotations'    => 'Annotations',
         'serviceAccount' => 'ServiceAccount',
+        'useWorkload'    => 'UseWorkload',
         'force'          => 'Force',
     ];
 
     public function validate()
     {
-        Model::validateRequired('serviceMeshId', $this->serviceMeshId, true);
-        Model::validateRequired('namespace', $this->namespace, true);
-        Model::validateRequired('serviceName', $this->serviceName, true);
-        Model::validateRequired('ips', $this->ips, true);
-        Model::validateRequired('ports', $this->ports, true);
-        Model::validateRequired('labels', $this->labels, true);
     }
 
     public function toMap()
@@ -100,6 +100,9 @@ class AddVmAppToMeshRequest extends Model
         }
         if (null !== $this->serviceAccount) {
             $res['ServiceAccount'] = $this->serviceAccount;
+        }
+        if (null !== $this->useWorkload) {
+            $res['UseWorkload'] = $this->useWorkload;
         }
         if (null !== $this->force) {
             $res['Force'] = $this->force;
@@ -139,6 +142,9 @@ class AddVmAppToMeshRequest extends Model
         }
         if (isset($map['ServiceAccount'])) {
             $model->serviceAccount = $map['ServiceAccount'];
+        }
+        if (isset($map['UseWorkload'])) {
+            $model->useWorkload = $map['UseWorkload'];
         }
         if (isset($map['Force'])) {
             $model->force = $map['Force'];

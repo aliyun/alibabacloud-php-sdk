@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmMetaResponse\vmMetaInfo;
 use AlibabaCloud\Tea\Model;
 
 class GetVmMetaResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var vmMetaInfo
+     * @var GetVmMetaResponseBody
      */
-    public $vmMetaInfo;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'vmMetaInfo' => 'VmMetaInfo',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('vmMetaInfo', $this->vmMetaInfo, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->vmMetaInfo) {
-            $res['VmMetaInfo'] = null !== $this->vmMetaInfo ? $this->vmMetaInfo->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class GetVmMetaResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['VmMetaInfo'])) {
-            $model->vmMetaInfo = vmMetaInfo::fromMap($map['VmMetaInfo']);
+        if (isset($map['body'])) {
+            $model->body = GetVmMetaResponseBody::fromMap($map['body']);
         }
 
         return $model;

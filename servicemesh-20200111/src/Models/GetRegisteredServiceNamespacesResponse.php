@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class GetRegisteredServiceNamespacesResponse extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string[]
      */
-    public $namespaces;
+    public $headers;
+
+    /**
+     * @var GetRegisteredServiceNamespacesResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'namespaces' => 'Namespaces',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('namespaces', $this->namespaces, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->namespaces) {
-            $res['Namespaces'] = $this->namespaces;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,13 +49,11 @@ class GetRegisteredServiceNamespacesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Namespaces'])) {
-            if (!empty($map['Namespaces'])) {
-                $model->namespaces = $map['Namespaces'];
-            }
+        if (isset($map['body'])) {
+            $model->body = GetRegisteredServiceNamespacesResponseBody::fromMap($map['body']);
         }
 
         return $model;
