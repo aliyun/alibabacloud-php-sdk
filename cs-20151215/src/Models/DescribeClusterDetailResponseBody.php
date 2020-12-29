@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\outputs;
 use AlibabaCloud\Tea\Model;
 
 class DescribeClusterDetailResponseBody extends Model
@@ -209,20 +208,6 @@ class DescribeClusterDetailResponseBody extends Model
      * @var MaintenanceWindow
      */
     public $maintenanceWindow;
-
-    /**
-     * @description 创建集群参数。
-     *
-     * @var mixed[]
-     */
-    public $parameters;
-
-    /**
-     * @description 集群创建的资源列表。
-     *
-     * @var outputs[]
-     */
-    public $outputs;
     protected $_name = [
         'clusterId'              => 'cluster_id',
         'clusterType'            => 'cluster_type',
@@ -253,8 +238,6 @@ class DescribeClusterDetailResponseBody extends Model
         'clusterSpec'            => 'cluster_spec',
         'workerRamRoleName'      => 'worker_ram_role_name',
         'maintenanceWindow'      => 'maintenance_window',
-        'parameters'             => 'parameters',
-        'outputs'                => 'outputs',
     ];
 
     public function validate()
@@ -356,18 +339,6 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (null !== $this->maintenanceWindow) {
             $res['maintenance_window'] = null !== $this->maintenanceWindow ? $this->maintenanceWindow->toMap() : null;
-        }
-        if (null !== $this->parameters) {
-            $res['parameters'] = $this->parameters;
-        }
-        if (null !== $this->outputs) {
-            $res['outputs'] = [];
-            if (null !== $this->outputs && \is_array($this->outputs)) {
-                $n = 0;
-                foreach ($this->outputs as $item) {
-                    $res['outputs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -473,18 +444,6 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (isset($map['maintenance_window'])) {
             $model->maintenanceWindow = MaintenanceWindow::fromMap($map['maintenance_window']);
-        }
-        if (isset($map['parameters'])) {
-            $model->parameters = $map['parameters'];
-        }
-        if (isset($map['outputs'])) {
-            if (!empty($map['outputs'])) {
-                $model->outputs = [];
-                $n              = 0;
-                foreach ($map['outputs'] as $item) {
-                    $model->outputs[$n++] = null !== $item ? outputs::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

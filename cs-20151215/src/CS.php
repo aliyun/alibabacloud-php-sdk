@@ -347,9 +347,6 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->clusterType)) {
             @$query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->multiAZ)) {
-            @$query['MultiAZ'] = $request->multiAZ;
-        }
         if (!Utils::isUnset($request->kubernetesVersion)) {
             @$query['KubernetesVersion'] = $request->kubernetesVersion;
         }
@@ -2459,6 +2456,6 @@ class CS extends OpenApiClient
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
-        return DeleteClusterNodesResponse::fromMap($this->doROARequest('DeleteClusterNodes', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/nodes', 'json', $req, $runtime));
+        return DeleteClusterNodesResponse::fromMap($this->doROARequest('DeleteClusterNodes', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/nodes', 'none', $req, $runtime));
     }
 }
