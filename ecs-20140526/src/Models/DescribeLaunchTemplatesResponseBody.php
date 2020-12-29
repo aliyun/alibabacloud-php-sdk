@@ -15,7 +15,7 @@ class DescribeLaunchTemplatesResponseBody extends Model
     public $totalCount;
 
     /**
-     * @var launchTemplateSets[]
+     * @var launchTemplateSets
      */
     public $launchTemplateSets;
 
@@ -52,13 +52,7 @@ class DescribeLaunchTemplatesResponseBody extends Model
             $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->launchTemplateSets) {
-            $res['LaunchTemplateSets'] = [];
-            if (null !== $this->launchTemplateSets && \is_array($this->launchTemplateSets)) {
-                $n = 0;
-                foreach ($this->launchTemplateSets as $item) {
-                    $res['LaunchTemplateSets'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['LaunchTemplateSets'] = null !== $this->launchTemplateSets ? $this->launchTemplateSets->toMap() : null;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -85,13 +79,7 @@ class DescribeLaunchTemplatesResponseBody extends Model
             $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['LaunchTemplateSets'])) {
-            if (!empty($map['LaunchTemplateSets'])) {
-                $model->launchTemplateSets = [];
-                $n                         = 0;
-                foreach ($map['LaunchTemplateSets'] as $item) {
-                    $model->launchTemplateSets[$n++] = null !== $item ? launchTemplateSets::fromMap($item) : $item;
-                }
-            }
+            $model->launchTemplateSets = launchTemplateSets::fromMap($map['LaunchTemplateSets']);
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

@@ -4,58 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeForwardTableEntriesResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeForwardTableEntriesResponseBody\forwardTableEntries\forwardTableEntry;
 use AlibabaCloud\Tea\Model;
 
 class forwardTableEntries extends Model
 {
     /**
-     * @var string
+     * @var forwardTableEntry[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $forwardEntryId;
-
-    /**
-     * @var string
-     */
-    public $internalIp;
-
-    /**
-     * @var string
-     */
-    public $internalPort;
-
-    /**
-     * @var string
-     */
-    public $forwardTableId;
-
-    /**
-     * @var string
-     */
-    public $externalPort;
-
-    /**
-     * @var string
-     */
-    public $ipProtocol;
-
-    /**
-     * @var string
-     */
-    public $externalIp;
+    public $forwardTableEntry;
     protected $_name = [
-        'status'         => 'Status',
-        'forwardEntryId' => 'ForwardEntryId',
-        'internalIp'     => 'InternalIp',
-        'internalPort'   => 'InternalPort',
-        'forwardTableId' => 'ForwardTableId',
-        'externalPort'   => 'ExternalPort',
-        'ipProtocol'     => 'IpProtocol',
-        'externalIp'     => 'ExternalIp',
+        'forwardTableEntry' => 'ForwardTableEntry',
     ];
 
     public function validate()
@@ -65,29 +24,14 @@ class forwardTableEntries extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->forwardEntryId) {
-            $res['ForwardEntryId'] = $this->forwardEntryId;
-        }
-        if (null !== $this->internalIp) {
-            $res['InternalIp'] = $this->internalIp;
-        }
-        if (null !== $this->internalPort) {
-            $res['InternalPort'] = $this->internalPort;
-        }
-        if (null !== $this->forwardTableId) {
-            $res['ForwardTableId'] = $this->forwardTableId;
-        }
-        if (null !== $this->externalPort) {
-            $res['ExternalPort'] = $this->externalPort;
-        }
-        if (null !== $this->ipProtocol) {
-            $res['IpProtocol'] = $this->ipProtocol;
-        }
-        if (null !== $this->externalIp) {
-            $res['ExternalIp'] = $this->externalIp;
+        if (null !== $this->forwardTableEntry) {
+            $res['ForwardTableEntry'] = [];
+            if (null !== $this->forwardTableEntry && \is_array($this->forwardTableEntry)) {
+                $n = 0;
+                foreach ($this->forwardTableEntry as $item) {
+                    $res['ForwardTableEntry'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -101,29 +45,14 @@ class forwardTableEntries extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ForwardEntryId'])) {
-            $model->forwardEntryId = $map['ForwardEntryId'];
-        }
-        if (isset($map['InternalIp'])) {
-            $model->internalIp = $map['InternalIp'];
-        }
-        if (isset($map['InternalPort'])) {
-            $model->internalPort = $map['InternalPort'];
-        }
-        if (isset($map['ForwardTableId'])) {
-            $model->forwardTableId = $map['ForwardTableId'];
-        }
-        if (isset($map['ExternalPort'])) {
-            $model->externalPort = $map['ExternalPort'];
-        }
-        if (isset($map['IpProtocol'])) {
-            $model->ipProtocol = $map['IpProtocol'];
-        }
-        if (isset($map['ExternalIp'])) {
-            $model->externalIp = $map['ExternalIp'];
+        if (isset($map['ForwardTableEntry'])) {
+            if (!empty($map['ForwardTableEntry'])) {
+                $model->forwardTableEntry = [];
+                $n                        = 0;
+                foreach ($map['ForwardTableEntry'] as $item) {
+                    $model->forwardTableEntry[$n++] = null !== $item ? forwardTableEntry::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

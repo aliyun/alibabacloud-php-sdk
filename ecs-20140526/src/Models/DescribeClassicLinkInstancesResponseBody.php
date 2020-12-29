@@ -30,7 +30,7 @@ class DescribeClassicLinkInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var links[]
+     * @var links
      */
     public $links;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeClassicLinkInstancesResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->links) {
-            $res['Links'] = [];
-            if (null !== $this->links && \is_array($this->links)) {
-                $n = 0;
-                foreach ($this->links as $item) {
-                    $res['Links'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Links'] = null !== $this->links ? $this->links->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeClassicLinkInstancesResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['Links'])) {
-            if (!empty($map['Links'])) {
-                $model->links = [];
-                $n            = 0;
-                foreach ($map['Links'] as $item) {
-                    $model->links[$n++] = null !== $item ? links::fromMap($item) : $item;
-                }
-            }
+            $model->links = links::fromMap($map['Links']);
         }
 
         return $model;

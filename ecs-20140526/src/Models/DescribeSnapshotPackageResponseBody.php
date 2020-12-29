@@ -30,7 +30,7 @@ class DescribeSnapshotPackageResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var snapshotPackages[]
+     * @var snapshotPackages
      */
     public $snapshotPackages;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeSnapshotPackageResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->snapshotPackages) {
-            $res['SnapshotPackages'] = [];
-            if (null !== $this->snapshotPackages && \is_array($this->snapshotPackages)) {
-                $n = 0;
-                foreach ($this->snapshotPackages as $item) {
-                    $res['SnapshotPackages'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['SnapshotPackages'] = null !== $this->snapshotPackages ? $this->snapshotPackages->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeSnapshotPackageResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['SnapshotPackages'])) {
-            if (!empty($map['SnapshotPackages'])) {
-                $model->snapshotPackages = [];
-                $n                       = 0;
-                foreach ($map['SnapshotPackages'] as $item) {
-                    $model->snapshotPackages[$n++] = null !== $item ? snapshotPackages::fromMap($item) : $item;
-                }
-            }
+            $model->snapshotPackages = snapshotPackages::fromMap($map['SnapshotPackages']);
         }
 
         return $model;

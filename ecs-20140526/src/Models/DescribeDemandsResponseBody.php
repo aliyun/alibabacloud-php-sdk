@@ -30,7 +30,7 @@ class DescribeDemandsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var demands[]
+     * @var demands
      */
     public $demands;
 
@@ -67,13 +67,7 @@ class DescribeDemandsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->demands) {
-            $res['Demands'] = [];
-            if (null !== $this->demands && \is_array($this->demands)) {
-                $n = 0;
-                foreach ($this->demands as $item) {
-                    $res['Demands'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Demands'] = null !== $this->demands ? $this->demands->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -103,13 +97,7 @@ class DescribeDemandsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['Demands'])) {
-            if (!empty($map['Demands'])) {
-                $model->demands = [];
-                $n              = 0;
-                foreach ($map['Demands'] as $item) {
-                    $model->demands[$n++] = null !== $item ? demands::fromMap($item) : $item;
-                }
-            }
+            $model->demands = demands::fromMap($map['Demands']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

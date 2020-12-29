@@ -20,7 +20,7 @@ class DescribeDiskMonitorDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @var monitorData[]
+     * @var monitorData
      */
     public $monitorData;
     protected $_name = [
@@ -43,13 +43,7 @@ class DescribeDiskMonitorDataResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->monitorData) {
-            $res['MonitorData'] = [];
-            if (null !== $this->monitorData && \is_array($this->monitorData)) {
-                $n = 0;
-                foreach ($this->monitorData as $item) {
-                    $res['MonitorData'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['MonitorData'] = null !== $this->monitorData ? $this->monitorData->toMap() : null;
         }
 
         return $res;
@@ -70,13 +64,7 @@ class DescribeDiskMonitorDataResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['MonitorData'])) {
-            if (!empty($map['MonitorData'])) {
-                $model->monitorData = [];
-                $n                  = 0;
-                foreach ($map['MonitorData'] as $item) {
-                    $model->monitorData[$n++] = null !== $item ? monitorData::fromMap($item) : $item;
-                }
-            }
+            $model->monitorData = monitorData::fromMap($map['MonitorData']);
         }
 
         return $model;

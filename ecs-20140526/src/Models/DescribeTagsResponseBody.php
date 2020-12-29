@@ -30,7 +30,7 @@ class DescribeTagsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var tags[]
+     * @var tags
      */
     public $tags;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeTagsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeTagsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

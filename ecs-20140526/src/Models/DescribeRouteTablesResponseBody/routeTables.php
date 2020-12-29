@@ -4,47 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouteTablesResponseBody;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouteTablesResponseBody\routeTables\routeEntrys;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouteTablesResponseBody\routeTables\routeTable;
 use AlibabaCloud\Tea\Model;
 
 class routeTables extends Model
 {
     /**
-     * @var string
+     * @var routeTable[]
      */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $VRouterId;
-
-    /**
-     * @var routeEntrys[]
-     */
-    public $routeEntrys;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $routeTableType;
-
-    /**
-     * @var string
-     */
-    public $routeTableId;
+    public $routeTable;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
-        'VRouterId'       => 'VRouterId',
-        'routeEntrys'     => 'RouteEntrys',
-        'resourceGroupId' => 'ResourceGroupId',
-        'routeTableType'  => 'RouteTableType',
-        'routeTableId'    => 'RouteTableId',
+        'routeTable' => 'RouteTable',
     ];
 
     public function validate()
@@ -54,29 +24,14 @@ class routeTables extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->VRouterId) {
-            $res['VRouterId'] = $this->VRouterId;
-        }
-        if (null !== $this->routeEntrys) {
-            $res['RouteEntrys'] = [];
-            if (null !== $this->routeEntrys && \is_array($this->routeEntrys)) {
+        if (null !== $this->routeTable) {
+            $res['RouteTable'] = [];
+            if (null !== $this->routeTable && \is_array($this->routeTable)) {
                 $n = 0;
-                foreach ($this->routeEntrys as $item) {
-                    $res['RouteEntrys'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->routeTable as $item) {
+                    $res['RouteTable'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->routeTableType) {
-            $res['RouteTableType'] = $this->routeTableType;
-        }
-        if (null !== $this->routeTableId) {
-            $res['RouteTableId'] = $this->routeTableId;
         }
 
         return $res;
@@ -90,29 +45,14 @@ class routeTables extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['VRouterId'])) {
-            $model->VRouterId = $map['VRouterId'];
-        }
-        if (isset($map['RouteEntrys'])) {
-            if (!empty($map['RouteEntrys'])) {
-                $model->routeEntrys = [];
-                $n                  = 0;
-                foreach ($map['RouteEntrys'] as $item) {
-                    $model->routeEntrys[$n++] = null !== $item ? routeEntrys::fromMap($item) : $item;
+        if (isset($map['RouteTable'])) {
+            if (!empty($map['RouteTable'])) {
+                $model->routeTable = [];
+                $n                 = 0;
+                foreach ($map['RouteTable'] as $item) {
+                    $model->routeTable[$n++] = null !== $item ? routeTable::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['RouteTableType'])) {
-            $model->routeTableType = $map['RouteTableType'];
-        }
-        if (isset($map['RouteTableId'])) {
-            $model->routeTableId = $map['RouteTableId'];
         }
 
         return $model;

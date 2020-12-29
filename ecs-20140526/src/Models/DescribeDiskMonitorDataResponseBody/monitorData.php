@@ -4,70 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskMonitorDataResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskMonitorDataResponseBody\monitorData\diskMonitorData;
 use AlibabaCloud\Tea\Model;
 
 class monitorData extends Model
 {
     /**
-     * @var int
+     * @var diskMonitorData[]
      */
-    public $BPSRead;
-
-    /**
-     * @var int
-     */
-    public $IOPSRead;
-
-    /**
-     * @var int
-     */
-    public $latencyRead;
-
-    /**
-     * @var int
-     */
-    public $BPSTotal;
-
-    /**
-     * @var int
-     */
-    public $IOPSTotal;
-
-    /**
-     * @var string
-     */
-    public $timeStamp;
-
-    /**
-     * @var int
-     */
-    public $latencyWrite;
-
-    /**
-     * @var int
-     */
-    public $IOPSWrite;
-
-    /**
-     * @var string
-     */
-    public $diskId;
-
-    /**
-     * @var int
-     */
-    public $BPSWrite;
+    public $diskMonitorData;
     protected $_name = [
-        'BPSRead'      => 'BPSRead',
-        'IOPSRead'     => 'IOPSRead',
-        'latencyRead'  => 'LatencyRead',
-        'BPSTotal'     => 'BPSTotal',
-        'IOPSTotal'    => 'IOPSTotal',
-        'timeStamp'    => 'TimeStamp',
-        'latencyWrite' => 'LatencyWrite',
-        'IOPSWrite'    => 'IOPSWrite',
-        'diskId'       => 'DiskId',
-        'BPSWrite'     => 'BPSWrite',
+        'diskMonitorData' => 'DiskMonitorData',
     ];
 
     public function validate()
@@ -77,35 +24,14 @@ class monitorData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->BPSRead) {
-            $res['BPSRead'] = $this->BPSRead;
-        }
-        if (null !== $this->IOPSRead) {
-            $res['IOPSRead'] = $this->IOPSRead;
-        }
-        if (null !== $this->latencyRead) {
-            $res['LatencyRead'] = $this->latencyRead;
-        }
-        if (null !== $this->BPSTotal) {
-            $res['BPSTotal'] = $this->BPSTotal;
-        }
-        if (null !== $this->IOPSTotal) {
-            $res['IOPSTotal'] = $this->IOPSTotal;
-        }
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
-        if (null !== $this->latencyWrite) {
-            $res['LatencyWrite'] = $this->latencyWrite;
-        }
-        if (null !== $this->IOPSWrite) {
-            $res['IOPSWrite'] = $this->IOPSWrite;
-        }
-        if (null !== $this->diskId) {
-            $res['DiskId'] = $this->diskId;
-        }
-        if (null !== $this->BPSWrite) {
-            $res['BPSWrite'] = $this->BPSWrite;
+        if (null !== $this->diskMonitorData) {
+            $res['DiskMonitorData'] = [];
+            if (null !== $this->diskMonitorData && \is_array($this->diskMonitorData)) {
+                $n = 0;
+                foreach ($this->diskMonitorData as $item) {
+                    $res['DiskMonitorData'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -119,35 +45,14 @@ class monitorData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BPSRead'])) {
-            $model->BPSRead = $map['BPSRead'];
-        }
-        if (isset($map['IOPSRead'])) {
-            $model->IOPSRead = $map['IOPSRead'];
-        }
-        if (isset($map['LatencyRead'])) {
-            $model->latencyRead = $map['LatencyRead'];
-        }
-        if (isset($map['BPSTotal'])) {
-            $model->BPSTotal = $map['BPSTotal'];
-        }
-        if (isset($map['IOPSTotal'])) {
-            $model->IOPSTotal = $map['IOPSTotal'];
-        }
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
-        if (isset($map['LatencyWrite'])) {
-            $model->latencyWrite = $map['LatencyWrite'];
-        }
-        if (isset($map['IOPSWrite'])) {
-            $model->IOPSWrite = $map['IOPSWrite'];
-        }
-        if (isset($map['DiskId'])) {
-            $model->diskId = $map['DiskId'];
-        }
-        if (isset($map['BPSWrite'])) {
-            $model->BPSWrite = $map['BPSWrite'];
+        if (isset($map['DiskMonitorData'])) {
+            if (!empty($map['DiskMonitorData'])) {
+                $model->diskMonitorData = [];
+                $n                      = 0;
+                foreach ($map['DiskMonitorData'] as $item) {
+                    $model->diskMonitorData[$n++] = null !== $item ? diskMonitorData::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

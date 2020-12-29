@@ -4,46 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfacePermissionsResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfacePermissionsResponseBody\networkInterfacePermissions\networkInterfacePermission;
 use AlibabaCloud\Tea\Model;
 
 class networkInterfacePermissions extends Model
 {
     /**
-     * @var string
+     * @var networkInterfacePermission[]
      */
-    public $permission;
-
-    /**
-     * @var string
-     */
-    public $networkInterfaceId;
-
-    /**
-     * @var int
-     */
-    public $accountId;
-
-    /**
-     * @var string
-     */
-    public $networkInterfacePermissionId;
-
-    /**
-     * @var string
-     */
-    public $serviceName;
-
-    /**
-     * @var string
-     */
-    public $permissionState;
+    public $networkInterfacePermission;
     protected $_name = [
-        'permission'                   => 'Permission',
-        'networkInterfaceId'           => 'NetworkInterfaceId',
-        'accountId'                    => 'AccountId',
-        'networkInterfacePermissionId' => 'NetworkInterfacePermissionId',
-        'serviceName'                  => 'ServiceName',
-        'permissionState'              => 'PermissionState',
+        'networkInterfacePermission' => 'NetworkInterfacePermission',
     ];
 
     public function validate()
@@ -53,23 +24,14 @@ class networkInterfacePermissions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->permission) {
-            $res['Permission'] = $this->permission;
-        }
-        if (null !== $this->networkInterfaceId) {
-            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
-        }
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
-        }
-        if (null !== $this->networkInterfacePermissionId) {
-            $res['NetworkInterfacePermissionId'] = $this->networkInterfacePermissionId;
-        }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
-        }
-        if (null !== $this->permissionState) {
-            $res['PermissionState'] = $this->permissionState;
+        if (null !== $this->networkInterfacePermission) {
+            $res['NetworkInterfacePermission'] = [];
+            if (null !== $this->networkInterfacePermission && \is_array($this->networkInterfacePermission)) {
+                $n = 0;
+                foreach ($this->networkInterfacePermission as $item) {
+                    $res['NetworkInterfacePermission'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -83,23 +45,14 @@ class networkInterfacePermissions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Permission'])) {
-            $model->permission = $map['Permission'];
-        }
-        if (isset($map['NetworkInterfaceId'])) {
-            $model->networkInterfaceId = $map['NetworkInterfaceId'];
-        }
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
-        }
-        if (isset($map['NetworkInterfacePermissionId'])) {
-            $model->networkInterfacePermissionId = $map['NetworkInterfacePermissionId'];
-        }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
-        }
-        if (isset($map['PermissionState'])) {
-            $model->permissionState = $map['PermissionState'];
+        if (isset($map['NetworkInterfacePermission'])) {
+            if (!empty($map['NetworkInterfacePermission'])) {
+                $model->networkInterfacePermission = [];
+                $n                                 = 0;
+                foreach ($map['NetworkInterfacePermission'] as $item) {
+                    $model->networkInterfacePermission[$n++] = null !== $item ? networkInterfacePermission::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

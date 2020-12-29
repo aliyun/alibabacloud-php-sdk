@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AttachInstanceRamRoleResponseBody extends Model
 {
     /**
-     * @var attachInstanceRamRoleResults[]
+     * @var attachInstanceRamRoleResults
      */
     public $attachInstanceRamRoleResults;
 
@@ -49,13 +49,7 @@ class AttachInstanceRamRoleResponseBody extends Model
     {
         $res = [];
         if (null !== $this->attachInstanceRamRoleResults) {
-            $res['AttachInstanceRamRoleResults'] = [];
-            if (null !== $this->attachInstanceRamRoleResults && \is_array($this->attachInstanceRamRoleResults)) {
-                $n = 0;
-                foreach ($this->attachInstanceRamRoleResults as $item) {
-                    $res['AttachInstanceRamRoleResults'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['AttachInstanceRamRoleResults'] = null !== $this->attachInstanceRamRoleResults ? $this->attachInstanceRamRoleResults->toMap() : null;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -82,13 +76,7 @@ class AttachInstanceRamRoleResponseBody extends Model
     {
         $model = new self();
         if (isset($map['AttachInstanceRamRoleResults'])) {
-            if (!empty($map['AttachInstanceRamRoleResults'])) {
-                $model->attachInstanceRamRoleResults = [];
-                $n                                   = 0;
-                foreach ($map['AttachInstanceRamRoleResults'] as $item) {
-                    $model->attachInstanceRamRoleResults[$n++] = null !== $item ? attachInstanceRamRoleResults::fromMap($item) : $item;
-                }
-            }
+            $model->attachInstanceRamRoleResults = attachInstanceRamRoleResults::fromMap($map['AttachInstanceRamRoleResults']);
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

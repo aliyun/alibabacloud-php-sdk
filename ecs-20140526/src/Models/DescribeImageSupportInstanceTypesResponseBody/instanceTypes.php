@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSupportInstanceTypesResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSupportInstanceTypesResponseBody\instanceTypes\instanceType;
 use AlibabaCloud\Tea\Model;
 
 class instanceTypes extends Model
 {
     /**
-     * @var string
+     * @var instanceType[]
      */
-    public $instanceTypeId;
-
-    /**
-     * @var string
-     */
-    public $instanceTypeFamily;
-
-    /**
-     * @var int
-     */
-    public $cpuCoreCount;
-
-    /**
-     * @var float
-     */
-    public $memorySize;
+    public $instanceType;
     protected $_name = [
-        'instanceTypeId'     => 'InstanceTypeId',
-        'instanceTypeFamily' => 'InstanceTypeFamily',
-        'cpuCoreCount'       => 'CpuCoreCount',
-        'memorySize'         => 'MemorySize',
+        'instanceType' => 'InstanceType',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class instanceTypes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceTypeId) {
-            $res['InstanceTypeId'] = $this->instanceTypeId;
-        }
-        if (null !== $this->instanceTypeFamily) {
-            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
-        }
-        if (null !== $this->cpuCoreCount) {
-            $res['CpuCoreCount'] = $this->cpuCoreCount;
-        }
-        if (null !== $this->memorySize) {
-            $res['MemorySize'] = $this->memorySize;
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = [];
+            if (null !== $this->instanceType && \is_array($this->instanceType)) {
+                $n = 0;
+                foreach ($this->instanceType as $item) {
+                    $res['InstanceType'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class instanceTypes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceTypeId'])) {
-            $model->instanceTypeId = $map['InstanceTypeId'];
-        }
-        if (isset($map['InstanceTypeFamily'])) {
-            $model->instanceTypeFamily = $map['InstanceTypeFamily'];
-        }
-        if (isset($map['CpuCoreCount'])) {
-            $model->cpuCoreCount = $map['CpuCoreCount'];
-        }
-        if (isset($map['MemorySize'])) {
-            $model->memorySize = $map['MemorySize'];
+        if (isset($map['InstanceType'])) {
+            if (!empty($map['InstanceType'])) {
+                $model->instanceType = [];
+                $n                   = 0;
+                foreach ($map['InstanceType'] as $item) {
+                    $model->instanceType[$n++] = null !== $item ? instanceType::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

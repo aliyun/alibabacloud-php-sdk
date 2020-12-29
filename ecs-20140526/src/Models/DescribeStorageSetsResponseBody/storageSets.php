@@ -4,52 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeStorageSetsResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeStorageSetsResponseBody\storageSets\storageSet;
 use AlibabaCloud\Tea\Model;
 
 class storageSets extends Model
 {
     /**
-     * @var string
+     * @var storageSet[]
      */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $storageSetId;
-
-    /**
-     * @var int
-     */
-    public $storageSetPartitionNumber;
-
-    /**
-     * @var string
-     */
-    public $storageSetName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $storageSet;
     protected $_name = [
-        'creationTime'              => 'CreationTime',
-        'description'               => 'Description',
-        'zoneId'                    => 'ZoneId',
-        'storageSetId'              => 'StorageSetId',
-        'storageSetPartitionNumber' => 'StorageSetPartitionNumber',
-        'storageSetName'            => 'StorageSetName',
-        'regionId'                  => 'RegionId',
+        'storageSet' => 'StorageSet',
     ];
 
     public function validate()
@@ -59,26 +24,14 @@ class storageSets extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->storageSetId) {
-            $res['StorageSetId'] = $this->storageSetId;
-        }
-        if (null !== $this->storageSetPartitionNumber) {
-            $res['StorageSetPartitionNumber'] = $this->storageSetPartitionNumber;
-        }
-        if (null !== $this->storageSetName) {
-            $res['StorageSetName'] = $this->storageSetName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->storageSet) {
+            $res['StorageSet'] = [];
+            if (null !== $this->storageSet && \is_array($this->storageSet)) {
+                $n = 0;
+                foreach ($this->storageSet as $item) {
+                    $res['StorageSet'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -92,26 +45,14 @@ class storageSets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['StorageSetId'])) {
-            $model->storageSetId = $map['StorageSetId'];
-        }
-        if (isset($map['StorageSetPartitionNumber'])) {
-            $model->storageSetPartitionNumber = $map['StorageSetPartitionNumber'];
-        }
-        if (isset($map['StorageSetName'])) {
-            $model->storageSetName = $map['StorageSetName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['StorageSet'])) {
+            if (!empty($map['StorageSet'])) {
+                $model->storageSet = [];
+                $n                 = 0;
+                foreach ($map['StorageSet'] as $item) {
+                    $model->storageSet[$n++] = null !== $item ? storageSet::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -30,7 +30,7 @@ class DescribeResourceByTagsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var resources[]
+     * @var resources
      */
     public $resources;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeResourceByTagsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->resources) {
-            $res['Resources'] = [];
-            if (null !== $this->resources && \is_array($this->resources)) {
-                $n = 0;
-                foreach ($this->resources as $item) {
-                    $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeResourceByTagsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['Resources'])) {
-            if (!empty($map['Resources'])) {
-                $model->resources = [];
-                $n                = 0;
-                foreach ($map['Resources'] as $item) {
-                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
-                }
-            }
+            $model->resources = resources::fromMap($map['Resources']);
         }
 
         return $model;

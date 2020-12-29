@@ -4,30 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMaintenanceAttributesResponseBody;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMaintenanceAttributesResponseBody\maintenanceAttributes\actionOnMaintenance;
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMaintenanceAttributesResponseBody\maintenanceAttributes\maintenanceWindows;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMaintenanceAttributesResponseBody\maintenanceAttributes\maintenanceAttribute;
 use AlibabaCloud\Tea\Model;
 
 class maintenanceAttributes extends Model
 {
     /**
-     * @var maintenanceWindows[]
+     * @var maintenanceAttribute[]
      */
-    public $maintenanceWindows;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var actionOnMaintenance
-     */
-    public $actionOnMaintenance;
+    public $maintenanceAttribute;
     protected $_name = [
-        'maintenanceWindows'  => 'MaintenanceWindows',
-        'instanceId'          => 'InstanceId',
-        'actionOnMaintenance' => 'ActionOnMaintenance',
+        'maintenanceAttribute' => 'MaintenanceAttribute',
     ];
 
     public function validate()
@@ -37,20 +24,14 @@ class maintenanceAttributes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maintenanceWindows) {
-            $res['MaintenanceWindows'] = [];
-            if (null !== $this->maintenanceWindows && \is_array($this->maintenanceWindows)) {
+        if (null !== $this->maintenanceAttribute) {
+            $res['MaintenanceAttribute'] = [];
+            if (null !== $this->maintenanceAttribute && \is_array($this->maintenanceAttribute)) {
                 $n = 0;
-                foreach ($this->maintenanceWindows as $item) {
-                    $res['MaintenanceWindows'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->maintenanceAttribute as $item) {
+                    $res['MaintenanceAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->actionOnMaintenance) {
-            $res['ActionOnMaintenance'] = null !== $this->actionOnMaintenance ? $this->actionOnMaintenance->toMap() : null;
         }
 
         return $res;
@@ -64,20 +45,14 @@ class maintenanceAttributes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaintenanceWindows'])) {
-            if (!empty($map['MaintenanceWindows'])) {
-                $model->maintenanceWindows = [];
-                $n                         = 0;
-                foreach ($map['MaintenanceWindows'] as $item) {
-                    $model->maintenanceWindows[$n++] = null !== $item ? maintenanceWindows::fromMap($item) : $item;
+        if (isset($map['MaintenanceAttribute'])) {
+            if (!empty($map['MaintenanceAttribute'])) {
+                $model->maintenanceAttribute = [];
+                $n                           = 0;
+                foreach ($map['MaintenanceAttribute'] as $item) {
+                    $model->maintenanceAttribute[$n++] = null !== $item ? maintenanceAttribute::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ActionOnMaintenance'])) {
-            $model->actionOnMaintenance = actionOnMaintenance::fromMap($map['ActionOnMaintenance']);
         }
 
         return $model;

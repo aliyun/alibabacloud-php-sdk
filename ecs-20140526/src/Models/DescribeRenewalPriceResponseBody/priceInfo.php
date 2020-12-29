@@ -16,7 +16,7 @@ class priceInfo extends Model
     public $price;
 
     /**
-     * @var rules[]
+     * @var rules
      */
     public $rules;
     protected $_name = [
@@ -35,13 +35,7 @@ class priceInfo extends Model
             $res['Price'] = null !== $this->price ? $this->price->toMap() : null;
         }
         if (null !== $this->rules) {
-            $res['Rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
         }
 
         return $res;
@@ -59,13 +53,7 @@ class priceInfo extends Model
             $model->price = price::fromMap($map['Price']);
         }
         if (isset($map['Rules'])) {
-            if (!empty($map['Rules'])) {
-                $model->rules = [];
-                $n            = 0;
-                foreach ($map['Rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
-                }
-            }
+            $model->rules = rules::fromMap($map['Rules']);
         }
 
         return $model;

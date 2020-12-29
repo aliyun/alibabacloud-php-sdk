@@ -4,35 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTaskAttributeResponseBody;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTaskAttributeResponseBody\operationProgressSet\relatedItemSet;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTaskAttributeResponseBody\operationProgressSet\operationProgress;
 use AlibabaCloud\Tea\Model;
 
 class operationProgressSet extends Model
 {
     /**
-     * @var string
+     * @var operationProgress[]
      */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
-    public $errorMsg;
-
-    /**
-     * @var relatedItemSet[]
-     */
-    public $relatedItemSet;
-
-    /**
-     * @var string
-     */
-    public $operationStatus;
+    public $operationProgress;
     protected $_name = [
-        'errorCode'       => 'ErrorCode',
-        'errorMsg'        => 'ErrorMsg',
-        'relatedItemSet'  => 'RelatedItemSet',
-        'operationStatus' => 'OperationStatus',
+        'operationProgress' => 'OperationProgress',
     ];
 
     public function validate()
@@ -42,23 +24,14 @@ class operationProgressSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMsg) {
-            $res['ErrorMsg'] = $this->errorMsg;
-        }
-        if (null !== $this->relatedItemSet) {
-            $res['RelatedItemSet'] = [];
-            if (null !== $this->relatedItemSet && \is_array($this->relatedItemSet)) {
+        if (null !== $this->operationProgress) {
+            $res['OperationProgress'] = [];
+            if (null !== $this->operationProgress && \is_array($this->operationProgress)) {
                 $n = 0;
-                foreach ($this->relatedItemSet as $item) {
-                    $res['RelatedItemSet'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->operationProgress as $item) {
+                    $res['OperationProgress'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->operationStatus) {
-            $res['OperationStatus'] = $this->operationStatus;
         }
 
         return $res;
@@ -72,23 +45,14 @@ class operationProgressSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorMsg'])) {
-            $model->errorMsg = $map['ErrorMsg'];
-        }
-        if (isset($map['RelatedItemSet'])) {
-            if (!empty($map['RelatedItemSet'])) {
-                $model->relatedItemSet = [];
-                $n                     = 0;
-                foreach ($map['RelatedItemSet'] as $item) {
-                    $model->relatedItemSet[$n++] = null !== $item ? relatedItemSet::fromMap($item) : $item;
+        if (isset($map['OperationProgress'])) {
+            if (!empty($map['OperationProgress'])) {
+                $model->operationProgress = [];
+                $n                        = 0;
+                foreach ($map['OperationProgress'] as $item) {
+                    $model->operationProgress[$n++] = null !== $item ? operationProgress::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['OperationStatus'])) {
-            $model->operationStatus = $map['OperationStatus'];
         }
 
         return $model;

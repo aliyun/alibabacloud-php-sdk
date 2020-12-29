@@ -15,7 +15,7 @@ class DescribeAccountAttributesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var accountAttributeItems[]
+     * @var accountAttributeItems
      */
     public $accountAttributeItems;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeAccountAttributesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->accountAttributeItems) {
-            $res['AccountAttributeItems'] = [];
-            if (null !== $this->accountAttributeItems && \is_array($this->accountAttributeItems)) {
-                $n = 0;
-                foreach ($this->accountAttributeItems as $item) {
-                    $res['AccountAttributeItems'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['AccountAttributeItems'] = null !== $this->accountAttributeItems ? $this->accountAttributeItems->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeAccountAttributesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['AccountAttributeItems'])) {
-            if (!empty($map['AccountAttributeItems'])) {
-                $model->accountAttributeItems = [];
-                $n                            = 0;
-                foreach ($map['AccountAttributeItems'] as $item) {
-                    $model->accountAttributeItems[$n++] = null !== $item ? accountAttributeItems::fromMap($item) : $item;
-                }
-            }
+            $model->accountAttributeItems = accountAttributeItems::fromMap($map['AccountAttributeItems']);
         }
 
         return $model;

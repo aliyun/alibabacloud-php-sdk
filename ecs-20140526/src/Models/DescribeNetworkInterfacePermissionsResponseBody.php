@@ -30,7 +30,7 @@ class DescribeNetworkInterfacePermissionsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var networkInterfacePermissions[]
+     * @var networkInterfacePermissions
      */
     public $networkInterfacePermissions;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeNetworkInterfacePermissionsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->networkInterfacePermissions) {
-            $res['NetworkInterfacePermissions'] = [];
-            if (null !== $this->networkInterfacePermissions && \is_array($this->networkInterfacePermissions)) {
-                $n = 0;
-                foreach ($this->networkInterfacePermissions as $item) {
-                    $res['NetworkInterfacePermissions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['NetworkInterfacePermissions'] = null !== $this->networkInterfacePermissions ? $this->networkInterfacePermissions->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeNetworkInterfacePermissionsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['NetworkInterfacePermissions'])) {
-            if (!empty($map['NetworkInterfacePermissions'])) {
-                $model->networkInterfacePermissions = [];
-                $n                                  = 0;
-                foreach ($map['NetworkInterfacePermissions'] as $item) {
-                    $model->networkInterfacePermissions[$n++] = null !== $item ? networkInterfacePermissions::fromMap($item) : $item;
-                }
-            }
+            $model->networkInterfacePermissions = networkInterfacePermissions::fromMap($map['NetworkInterfacePermissions']);
         }
 
         return $model;

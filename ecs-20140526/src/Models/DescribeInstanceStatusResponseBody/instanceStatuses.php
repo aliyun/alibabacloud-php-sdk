@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceStatusResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceStatusResponseBody\instanceStatuses\instanceStatus;
 use AlibabaCloud\Tea\Model;
 
 class instanceStatuses extends Model
 {
     /**
-     * @var string
+     * @var instanceStatus[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $instanceStatus;
     protected $_name = [
-        'status'     => 'Status',
-        'instanceId' => 'InstanceId',
+        'instanceStatus' => 'InstanceStatus',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class instanceStatuses extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->instanceStatus) {
+            $res['InstanceStatus'] = [];
+            if (null !== $this->instanceStatus && \is_array($this->instanceStatus)) {
+                $n = 0;
+                foreach ($this->instanceStatus as $item) {
+                    $res['InstanceStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class instanceStatuses extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['InstanceStatus'])) {
+            if (!empty($map['InstanceStatus'])) {
+                $model->instanceStatus = [];
+                $n                     = 0;
+                foreach ($map['InstanceStatus'] as $item) {
+                    $model->instanceStatus[$n++] = null !== $item ? instanceStatus::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

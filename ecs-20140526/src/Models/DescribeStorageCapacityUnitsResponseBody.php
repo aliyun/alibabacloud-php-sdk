@@ -30,7 +30,7 @@ class DescribeStorageCapacityUnitsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var storageCapacityUnits[]
+     * @var storageCapacityUnits
      */
     public $storageCapacityUnits;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeStorageCapacityUnitsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->storageCapacityUnits) {
-            $res['StorageCapacityUnits'] = [];
-            if (null !== $this->storageCapacityUnits && \is_array($this->storageCapacityUnits)) {
-                $n = 0;
-                foreach ($this->storageCapacityUnits as $item) {
-                    $res['StorageCapacityUnits'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['StorageCapacityUnits'] = null !== $this->storageCapacityUnits ? $this->storageCapacityUnits->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeStorageCapacityUnitsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['StorageCapacityUnits'])) {
-            if (!empty($map['StorageCapacityUnits'])) {
-                $model->storageCapacityUnits = [];
-                $n                           = 0;
-                foreach ($map['StorageCapacityUnits'] as $item) {
-                    $model->storageCapacityUnits[$n++] = null !== $item ? storageCapacityUnits::fromMap($item) : $item;
-                }
-            }
+            $model->storageCapacityUnits = storageCapacityUnits::fromMap($map['StorageCapacityUnits']);
         }
 
         return $model;

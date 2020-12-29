@@ -30,7 +30,7 @@ class DescribeAutoProvisioningGroupHistoryResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var autoProvisioningGroupHistories[]
+     * @var autoProvisioningGroupHistories
      */
     public $autoProvisioningGroupHistories;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeAutoProvisioningGroupHistoryResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->autoProvisioningGroupHistories) {
-            $res['AutoProvisioningGroupHistories'] = [];
-            if (null !== $this->autoProvisioningGroupHistories && \is_array($this->autoProvisioningGroupHistories)) {
-                $n = 0;
-                foreach ($this->autoProvisioningGroupHistories as $item) {
-                    $res['AutoProvisioningGroupHistories'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['AutoProvisioningGroupHistories'] = null !== $this->autoProvisioningGroupHistories ? $this->autoProvisioningGroupHistories->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeAutoProvisioningGroupHistoryResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['AutoProvisioningGroupHistories'])) {
-            if (!empty($map['AutoProvisioningGroupHistories'])) {
-                $model->autoProvisioningGroupHistories = [];
-                $n                                     = 0;
-                foreach ($map['AutoProvisioningGroupHistories'] as $item) {
-                    $model->autoProvisioningGroupHistories[$n++] = null !== $item ? autoProvisioningGroupHistories::fromMap($item) : $item;
-                }
-            }
+            $model->autoProvisioningGroupHistories = autoProvisioningGroupHistories::fromMap($map['AutoProvisioningGroupHistories']);
         }
 
         return $model;

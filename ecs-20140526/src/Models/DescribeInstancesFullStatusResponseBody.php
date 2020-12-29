@@ -30,7 +30,7 @@ class DescribeInstancesFullStatusResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var instanceFullStatusSet[]
+     * @var instanceFullStatusSet
      */
     public $instanceFullStatusSet;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeInstancesFullStatusResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->instanceFullStatusSet) {
-            $res['InstanceFullStatusSet'] = [];
-            if (null !== $this->instanceFullStatusSet && \is_array($this->instanceFullStatusSet)) {
-                $n = 0;
-                foreach ($this->instanceFullStatusSet as $item) {
-                    $res['InstanceFullStatusSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InstanceFullStatusSet'] = null !== $this->instanceFullStatusSet ? $this->instanceFullStatusSet->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeInstancesFullStatusResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['InstanceFullStatusSet'])) {
-            if (!empty($map['InstanceFullStatusSet'])) {
-                $model->instanceFullStatusSet = [];
-                $n                            = 0;
-                foreach ($map['InstanceFullStatusSet'] as $item) {
-                    $model->instanceFullStatusSet[$n++] = null !== $item ? instanceFullStatusSet::fromMap($item) : $item;
-                }
-            }
+            $model->instanceFullStatusSet = instanceFullStatusSet::fromMap($map['InstanceFullStatusSet']);
         }
 
         return $model;

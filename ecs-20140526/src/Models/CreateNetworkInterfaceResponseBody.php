@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody\privateIpSets;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody\securityGroupIds;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -66,7 +67,7 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $networkInterfaceId;
 
     /**
-     * @var string[]
+     * @var securityGroupIds
      */
     public $securityGroupIds;
 
@@ -91,12 +92,12 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $ownerId;
 
     /**
-     * @var tags[]
+     * @var tags
      */
     public $tags;
 
     /**
-     * @var privateIpSets[]
+     * @var privateIpSets
      */
     public $privateIpSets;
     protected $_name = [
@@ -161,7 +162,7 @@ class CreateNetworkInterfaceResponseBody extends Model
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
         if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = $this->securityGroupIds;
+            $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
         }
         if (null !== $this->serviceID) {
             $res['ServiceID'] = $this->serviceID;
@@ -176,22 +177,10 @@ class CreateNetworkInterfaceResponseBody extends Model
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->privateIpSets) {
-            $res['PrivateIpSets'] = [];
-            if (null !== $this->privateIpSets && \is_array($this->privateIpSets)) {
-                $n = 0;
-                foreach ($this->privateIpSets as $item) {
-                    $res['PrivateIpSets'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['PrivateIpSets'] = null !== $this->privateIpSets ? $this->privateIpSets->toMap() : null;
         }
 
         return $res;
@@ -239,9 +228,7 @@ class CreateNetworkInterfaceResponseBody extends Model
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
         if (isset($map['SecurityGroupIds'])) {
-            if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = $map['SecurityGroupIds'];
-            }
+            $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
         }
         if (isset($map['ServiceID'])) {
             $model->serviceID = $map['ServiceID'];
@@ -256,22 +243,10 @@ class CreateNetworkInterfaceResponseBody extends Model
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['PrivateIpSets'])) {
-            if (!empty($map['PrivateIpSets'])) {
-                $model->privateIpSets = [];
-                $n                    = 0;
-                foreach ($map['PrivateIpSets'] as $item) {
-                    $model->privateIpSets[$n++] = null !== $item ? privateIpSets::fromMap($item) : $item;
-                }
-            }
+            $model->privateIpSets = privateIpSets::fromMap($map['PrivateIpSets']);
         }
 
         return $model;

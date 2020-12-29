@@ -15,7 +15,7 @@ class DescribeCloudAssistantStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @var instanceCloudAssistantStatusSet[]
+     * @var instanceCloudAssistantStatusSet
      */
     public $instanceCloudAssistantStatusSet;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeCloudAssistantStatusResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->instanceCloudAssistantStatusSet) {
-            $res['InstanceCloudAssistantStatusSet'] = [];
-            if (null !== $this->instanceCloudAssistantStatusSet && \is_array($this->instanceCloudAssistantStatusSet)) {
-                $n = 0;
-                foreach ($this->instanceCloudAssistantStatusSet as $item) {
-                    $res['InstanceCloudAssistantStatusSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InstanceCloudAssistantStatusSet'] = null !== $this->instanceCloudAssistantStatusSet ? $this->instanceCloudAssistantStatusSet->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeCloudAssistantStatusResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['InstanceCloudAssistantStatusSet'])) {
-            if (!empty($map['InstanceCloudAssistantStatusSet'])) {
-                $model->instanceCloudAssistantStatusSet = [];
-                $n                                      = 0;
-                foreach ($map['InstanceCloudAssistantStatusSet'] as $item) {
-                    $model->instanceCloudAssistantStatusSet[$n++] = null !== $item ? instanceCloudAssistantStatusSet::fromMap($item) : $item;
-                }
-            }
+            $model->instanceCloudAssistantStatusSet = instanceCloudAssistantStatusSet::fromMap($map['InstanceCloudAssistantStatusSet']);
         }
 
         return $model;

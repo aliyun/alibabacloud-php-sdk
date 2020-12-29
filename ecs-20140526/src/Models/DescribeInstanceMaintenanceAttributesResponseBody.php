@@ -30,7 +30,7 @@ class DescribeInstanceMaintenanceAttributesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var maintenanceAttributes[]
+     * @var maintenanceAttributes
      */
     public $maintenanceAttributes;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeInstanceMaintenanceAttributesResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->maintenanceAttributes) {
-            $res['MaintenanceAttributes'] = [];
-            if (null !== $this->maintenanceAttributes && \is_array($this->maintenanceAttributes)) {
-                $n = 0;
-                foreach ($this->maintenanceAttributes as $item) {
-                    $res['MaintenanceAttributes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['MaintenanceAttributes'] = null !== $this->maintenanceAttributes ? $this->maintenanceAttributes->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeInstanceMaintenanceAttributesResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['MaintenanceAttributes'])) {
-            if (!empty($map['MaintenanceAttributes'])) {
-                $model->maintenanceAttributes = [];
-                $n                            = 0;
-                foreach ($map['MaintenanceAttributes'] as $item) {
-                    $model->maintenanceAttributes[$n++] = null !== $item ? maintenanceAttributes::fromMap($item) : $item;
-                }
-            }
+            $model->maintenanceAttributes = maintenanceAttributes::fromMap($map['MaintenanceAttributes']);
         }
 
         return $model;

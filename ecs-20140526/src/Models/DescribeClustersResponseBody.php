@@ -15,7 +15,7 @@ class DescribeClustersResponseBody extends Model
     public $requestId;
 
     /**
-     * @var clusters[]
+     * @var clusters
      */
     public $clusters;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeClustersResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->clusters) {
-            $res['Clusters'] = [];
-            if (null !== $this->clusters && \is_array($this->clusters)) {
-                $n = 0;
-                foreach ($this->clusters as $item) {
-                    $res['Clusters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Clusters'] = null !== $this->clusters ? $this->clusters->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeClustersResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Clusters'])) {
-            if (!empty($map['Clusters'])) {
-                $model->clusters = [];
-                $n               = 0;
-                foreach ($map['Clusters'] as $item) {
-                    $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
-                }
-            }
+            $model->clusters = clusters::fromMap($map['Clusters']);
         }
 
         return $model;

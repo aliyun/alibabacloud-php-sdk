@@ -30,7 +30,7 @@ class DescribeInstanceStatusResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var instanceStatuses[]
+     * @var instanceStatuses
      */
     public $instanceStatuses;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeInstanceStatusResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->instanceStatuses) {
-            $res['InstanceStatuses'] = [];
-            if (null !== $this->instanceStatuses && \is_array($this->instanceStatuses)) {
-                $n = 0;
-                foreach ($this->instanceStatuses as $item) {
-                    $res['InstanceStatuses'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InstanceStatuses'] = null !== $this->instanceStatuses ? $this->instanceStatuses->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeInstanceStatusResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['InstanceStatuses'])) {
-            if (!empty($map['InstanceStatuses'])) {
-                $model->instanceStatuses = [];
-                $n                       = 0;
-                foreach ($map['InstanceStatuses'] as $item) {
-                    $model->instanceStatuses[$n++] = null !== $item ? instanceStatuses::fromMap($item) : $item;
-                }
-            }
+            $model->instanceStatuses = instanceStatuses::fromMap($map['InstanceStatuses']);
         }
 
         return $model;

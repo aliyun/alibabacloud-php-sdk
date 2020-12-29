@@ -30,7 +30,7 @@ class DescribeElasticityAssuranceInstancesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @var elasticityAssuranceItem[]
+     * @var elasticityAssuranceItem
      */
     public $elasticityAssuranceItem;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeElasticityAssuranceInstancesResponseBody extends Model
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->elasticityAssuranceItem) {
-            $res['ElasticityAssuranceItem'] = [];
-            if (null !== $this->elasticityAssuranceItem && \is_array($this->elasticityAssuranceItem)) {
-                $n = 0;
-                foreach ($this->elasticityAssuranceItem as $item) {
-                    $res['ElasticityAssuranceItem'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ElasticityAssuranceItem'] = null !== $this->elasticityAssuranceItem ? $this->elasticityAssuranceItem->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeElasticityAssuranceInstancesResponseBody extends Model
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['ElasticityAssuranceItem'])) {
-            if (!empty($map['ElasticityAssuranceItem'])) {
-                $model->elasticityAssuranceItem = [];
-                $n                              = 0;
-                foreach ($map['ElasticityAssuranceItem'] as $item) {
-                    $model->elasticityAssuranceItem[$n++] = null !== $item ? elasticityAssuranceItem::fromMap($item) : $item;
-                }
-            }
+            $model->elasticityAssuranceItem = elasticityAssuranceItem::fromMap($map['ElasticityAssuranceItem']);
         }
 
         return $model;

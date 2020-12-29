@@ -35,7 +35,7 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public $securityGroupId;
 
     /**
-     * @var permissions[]
+     * @var permissions
      */
     public $permissions;
 
@@ -82,13 +82,7 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->permissions) {
-            $res['Permissions'] = [];
-            if (null !== $this->permissions && \is_array($this->permissions)) {
-                $n = 0;
-                foreach ($this->permissions as $item) {
-                    $res['Permissions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Permissions'] = null !== $this->permissions ? $this->permissions->toMap() : null;
         }
         if (null !== $this->innerAccessPolicy) {
             $res['InnerAccessPolicy'] = $this->innerAccessPolicy;
@@ -124,13 +118,7 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
             $model->securityGroupId = $map['SecurityGroupId'];
         }
         if (isset($map['Permissions'])) {
-            if (!empty($map['Permissions'])) {
-                $model->permissions = [];
-                $n                  = 0;
-                foreach ($map['Permissions'] as $item) {
-                    $model->permissions[$n++] = null !== $item ? permissions::fromMap($item) : $item;
-                }
-            }
+            $model->permissions = permissions::fromMap($map['Permissions']);
         }
         if (isset($map['InnerAccessPolicy'])) {
             $model->innerAccessPolicy = $map['InnerAccessPolicy'];

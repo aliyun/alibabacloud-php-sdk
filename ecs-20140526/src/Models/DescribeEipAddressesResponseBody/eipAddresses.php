@@ -4,89 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipAddressesResponseBody;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipAddressesResponseBody\eipAddresses\operationLocks;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress;
 use AlibabaCloud\Tea\Model;
 
 class eipAddresses extends Model
 {
     /**
-     * @var string
+     * @var eipAddress[]
      */
-    public $status;
-
-    /**
-     * @var operationLocks[]
-     */
-    public $operationLocks;
-
-    /**
-     * @var string
-     */
-    public $allocationTime;
-
-    /**
-     * @var string
-     */
-    public $chargeType;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $ipAddress;
-
-    /**
-     * @var string
-     */
-    public $bandwidth;
-
-    /**
-     * @var string
-     */
-    public $expiredTime;
-
-    /**
-     * @var string
-     */
-    public $allocationId;
-
-    /**
-     * @var string
-     */
-    public $internetChargeType;
-
-    /**
-     * @var string
-     */
-    public $eipBandwidth;
+    public $eipAddress;
     protected $_name = [
-        'status'             => 'Status',
-        'operationLocks'     => 'OperationLocks',
-        'allocationTime'     => 'AllocationTime',
-        'chargeType'         => 'ChargeType',
-        'instanceId'         => 'InstanceId',
-        'instanceType'       => 'InstanceType',
-        'regionId'           => 'RegionId',
-        'ipAddress'          => 'IpAddress',
-        'bandwidth'          => 'Bandwidth',
-        'expiredTime'        => 'ExpiredTime',
-        'allocationId'       => 'AllocationId',
-        'internetChargeType' => 'InternetChargeType',
-        'eipBandwidth'       => 'EipBandwidth',
+        'eipAddress' => 'EipAddress',
     ];
 
     public function validate()
@@ -96,50 +24,14 @@ class eipAddresses extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->operationLocks) {
-            $res['OperationLocks'] = [];
-            if (null !== $this->operationLocks && \is_array($this->operationLocks)) {
+        if (null !== $this->eipAddress) {
+            $res['EipAddress'] = [];
+            if (null !== $this->eipAddress && \is_array($this->eipAddress)) {
                 $n = 0;
-                foreach ($this->operationLocks as $item) {
-                    $res['OperationLocks'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->eipAddress as $item) {
+                    $res['EipAddress'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->allocationTime) {
-            $res['AllocationTime'] = $this->allocationTime;
-        }
-        if (null !== $this->chargeType) {
-            $res['ChargeType'] = $this->chargeType;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ipAddress) {
-            $res['IpAddress'] = $this->ipAddress;
-        }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
-        }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
-        }
-        if (null !== $this->allocationId) {
-            $res['AllocationId'] = $this->allocationId;
-        }
-        if (null !== $this->internetChargeType) {
-            $res['InternetChargeType'] = $this->internetChargeType;
-        }
-        if (null !== $this->eipBandwidth) {
-            $res['EipBandwidth'] = $this->eipBandwidth;
         }
 
         return $res;
@@ -153,50 +45,14 @@ class eipAddresses extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['OperationLocks'])) {
-            if (!empty($map['OperationLocks'])) {
-                $model->operationLocks = [];
-                $n                     = 0;
-                foreach ($map['OperationLocks'] as $item) {
-                    $model->operationLocks[$n++] = null !== $item ? operationLocks::fromMap($item) : $item;
+        if (isset($map['EipAddress'])) {
+            if (!empty($map['EipAddress'])) {
+                $model->eipAddress = [];
+                $n                 = 0;
+                foreach ($map['EipAddress'] as $item) {
+                    $model->eipAddress[$n++] = null !== $item ? eipAddress::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['AllocationTime'])) {
-            $model->allocationTime = $map['AllocationTime'];
-        }
-        if (isset($map['ChargeType'])) {
-            $model->chargeType = $map['ChargeType'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['IpAddress'])) {
-            $model->ipAddress = $map['IpAddress'];
-        }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
-        }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
-        }
-        if (isset($map['AllocationId'])) {
-            $model->allocationId = $map['AllocationId'];
-        }
-        if (isset($map['InternetChargeType'])) {
-            $model->internetChargeType = $map['InternetChargeType'];
-        }
-        if (isset($map['EipBandwidth'])) {
-            $model->eipBandwidth = $map['EipBandwidth'];
         }
 
         return $model;

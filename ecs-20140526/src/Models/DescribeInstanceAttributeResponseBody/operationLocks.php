@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\operationLocks\lockReason;
 use AlibabaCloud\Tea\Model;
 
 class operationLocks extends Model
 {
     /**
-     * @var string
+     * @var lockReason[]
      */
     public $lockReason;
     protected $_name = [
@@ -24,7 +25,13 @@ class operationLocks extends Model
     {
         $res = [];
         if (null !== $this->lockReason) {
-            $res['LockReason'] = $this->lockReason;
+            $res['LockReason'] = [];
+            if (null !== $this->lockReason && \is_array($this->lockReason)) {
+                $n = 0;
+                foreach ($this->lockReason as $item) {
+                    $res['LockReason'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -39,7 +46,13 @@ class operationLocks extends Model
     {
         $model = new self();
         if (isset($map['LockReason'])) {
-            $model->lockReason = $map['LockReason'];
+            if (!empty($map['LockReason'])) {
+                $model->lockReason = [];
+                $n                 = 0;
+                foreach ($map['LockReason'] as $item) {
+                    $model->lockReason[$n++] = null !== $item ? lockReason::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

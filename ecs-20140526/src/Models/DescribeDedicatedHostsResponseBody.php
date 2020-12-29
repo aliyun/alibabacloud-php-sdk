@@ -15,7 +15,7 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @var dedicatedHosts[]
+     * @var dedicatedHosts
      */
     public $dedicatedHosts;
 
@@ -52,13 +52,7 @@ class DescribeDedicatedHostsResponseBody extends Model
             $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->dedicatedHosts) {
-            $res['DedicatedHosts'] = [];
-            if (null !== $this->dedicatedHosts && \is_array($this->dedicatedHosts)) {
-                $n = 0;
-                foreach ($this->dedicatedHosts as $item) {
-                    $res['DedicatedHosts'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DedicatedHosts'] = null !== $this->dedicatedHosts ? $this->dedicatedHosts->toMap() : null;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -85,13 +79,7 @@ class DescribeDedicatedHostsResponseBody extends Model
             $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['DedicatedHosts'])) {
-            if (!empty($map['DedicatedHosts'])) {
-                $model->dedicatedHosts = [];
-                $n                     = 0;
-                foreach ($map['DedicatedHosts'] as $item) {
-                    $model->dedicatedHosts[$n++] = null !== $item ? dedicatedHosts::fromMap($item) : $item;
-                }
-            }
+            $model->dedicatedHosts = dedicatedHosts::fromMap($map['DedicatedHosts']);
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

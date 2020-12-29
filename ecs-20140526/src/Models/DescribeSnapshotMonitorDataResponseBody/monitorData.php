@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotMonitorDataResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotMonitorDataResponseBody\monitorData\dataPoint;
 use AlibabaCloud\Tea\Model;
 
 class monitorData extends Model
 {
     /**
-     * @var int
+     * @var dataPoint[]
      */
-    public $size;
-
-    /**
-     * @var string
-     */
-    public $timeStamp;
+    public $dataPoint;
     protected $_name = [
-        'size'      => 'Size',
-        'timeStamp' => 'TimeStamp',
+        'dataPoint' => 'DataPoint',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class monitorData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
-        }
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
+        if (null !== $this->dataPoint) {
+            $res['DataPoint'] = [];
+            if (null !== $this->dataPoint && \is_array($this->dataPoint)) {
+                $n = 0;
+                foreach ($this->dataPoint as $item) {
+                    $res['DataPoint'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class monitorData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
-        }
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
+        if (isset($map['DataPoint'])) {
+            if (!empty($map['DataPoint'])) {
+                $model->dataPoint = [];
+                $n                = 0;
+                foreach ($map['DataPoint'] as $item) {
+                    $model->dataPoint[$n++] = null !== $item ? dataPoint::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

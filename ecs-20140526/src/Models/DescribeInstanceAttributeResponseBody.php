@@ -6,7 +6,10 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\dedicatedHostAttribute;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\eipAddress;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\innerIpAddress;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\operationLocks;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\publicIpAddress;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\securityGroupIds;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\vpcAttributes;
 use AlibabaCloud\Tea\Model;
 
@@ -38,12 +41,12 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $instanceNetworkType;
 
     /**
-     * @var string[]
+     * @var publicIpAddress
      */
     public $publicIpAddress;
 
     /**
-     * @var string[]
+     * @var innerIpAddress
      */
     public $innerIpAddress;
 
@@ -118,7 +121,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $dedicatedHostAttribute;
 
     /**
-     * @var string[]
+     * @var securityGroupIds
      */
     public $securityGroupIds;
 
@@ -128,7 +131,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $vpcAttributes;
 
     /**
-     * @var operationLocks[]
+     * @var operationLocks
      */
     public $operationLocks;
 
@@ -229,10 +232,10 @@ class DescribeInstanceAttributeResponseBody extends Model
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
         if (null !== $this->publicIpAddress) {
-            $res['PublicIpAddress'] = $this->publicIpAddress;
+            $res['PublicIpAddress'] = null !== $this->publicIpAddress ? $this->publicIpAddress->toMap() : null;
         }
         if (null !== $this->innerIpAddress) {
-            $res['InnerIpAddress'] = $this->innerIpAddress;
+            $res['InnerIpAddress'] = null !== $this->innerIpAddress ? $this->innerIpAddress->toMap() : null;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
@@ -277,19 +280,13 @@ class DescribeInstanceAttributeResponseBody extends Model
             $res['DedicatedHostAttribute'] = null !== $this->dedicatedHostAttribute ? $this->dedicatedHostAttribute->toMap() : null;
         }
         if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = $this->securityGroupIds;
+            $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
         }
         if (null !== $this->vpcAttributes) {
             $res['VpcAttributes'] = null !== $this->vpcAttributes ? $this->vpcAttributes->toMap() : null;
         }
         if (null !== $this->operationLocks) {
-            $res['OperationLocks'] = [];
-            if (null !== $this->operationLocks && \is_array($this->operationLocks)) {
-                $n = 0;
-                foreach ($this->operationLocks as $item) {
-                    $res['OperationLocks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toMap() : null;
         }
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
@@ -343,14 +340,10 @@ class DescribeInstanceAttributeResponseBody extends Model
             $model->instanceNetworkType = $map['InstanceNetworkType'];
         }
         if (isset($map['PublicIpAddress'])) {
-            if (!empty($map['PublicIpAddress'])) {
-                $model->publicIpAddress = $map['PublicIpAddress'];
-            }
+            $model->publicIpAddress = publicIpAddress::fromMap($map['PublicIpAddress']);
         }
         if (isset($map['InnerIpAddress'])) {
-            if (!empty($map['InnerIpAddress'])) {
-                $model->innerIpAddress = $map['InnerIpAddress'];
-            }
+            $model->innerIpAddress = innerIpAddress::fromMap($map['InnerIpAddress']);
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
@@ -395,21 +388,13 @@ class DescribeInstanceAttributeResponseBody extends Model
             $model->dedicatedHostAttribute = dedicatedHostAttribute::fromMap($map['DedicatedHostAttribute']);
         }
         if (isset($map['SecurityGroupIds'])) {
-            if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = $map['SecurityGroupIds'];
-            }
+            $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
         }
         if (isset($map['VpcAttributes'])) {
             $model->vpcAttributes = vpcAttributes::fromMap($map['VpcAttributes']);
         }
         if (isset($map['OperationLocks'])) {
-            if (!empty($map['OperationLocks'])) {
-                $model->operationLocks = [];
-                $n                     = 0;
-                foreach ($map['OperationLocks'] as $item) {
-                    $model->operationLocks[$n++] = null !== $item ? operationLocks::fromMap($item) : $item;
-                }
-            }
+            $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
         }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];

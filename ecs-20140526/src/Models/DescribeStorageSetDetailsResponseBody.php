@@ -30,7 +30,7 @@ class DescribeStorageSetDetailsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var disks[]
+     * @var disks
      */
     public $disks;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeStorageSetDetailsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->disks) {
-            $res['Disks'] = [];
-            if (null !== $this->disks && \is_array($this->disks)) {
-                $n = 0;
-                foreach ($this->disks as $item) {
-                    $res['Disks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Disks'] = null !== $this->disks ? $this->disks->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeStorageSetDetailsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['Disks'])) {
-            if (!empty($map['Disks'])) {
-                $model->disks = [];
-                $n            = 0;
-                foreach ($map['Disks'] as $item) {
-                    $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
-                }
-            }
+            $model->disks = disks::fromMap($map['Disks']);
         }
 
         return $model;

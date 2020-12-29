@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\PurchaseReservedInstancesOfferingResponseBody\reservedInstanceIdSets;
 use AlibabaCloud\Tea\Model;
 
 class PurchaseReservedInstancesOfferingResponseBody extends Model
 {
     /**
-     * @var string[]
+     * @var reservedInstanceIdSets
      */
     public $reservedInstanceIdSets;
 
@@ -30,7 +31,7 @@ class PurchaseReservedInstancesOfferingResponseBody extends Model
     {
         $res = [];
         if (null !== $this->reservedInstanceIdSets) {
-            $res['ReservedInstanceIdSets'] = $this->reservedInstanceIdSets;
+            $res['ReservedInstanceIdSets'] = null !== $this->reservedInstanceIdSets ? $this->reservedInstanceIdSets->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -48,9 +49,7 @@ class PurchaseReservedInstancesOfferingResponseBody extends Model
     {
         $model = new self();
         if (isset($map['ReservedInstanceIdSets'])) {
-            if (!empty($map['ReservedInstanceIdSets'])) {
-                $model->reservedInstanceIdSets = $map['ReservedInstanceIdSets'];
-            }
+            $model->reservedInstanceIdSets = reservedInstanceIdSets::fromMap($map['ReservedInstanceIdSets']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -30,7 +30,7 @@ class DescribeRouterInterfacesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var routerInterfaceSet[]
+     * @var routerInterfaceSet
      */
     public $routerInterfaceSet;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeRouterInterfacesResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->routerInterfaceSet) {
-            $res['RouterInterfaceSet'] = [];
-            if (null !== $this->routerInterfaceSet && \is_array($this->routerInterfaceSet)) {
-                $n = 0;
-                foreach ($this->routerInterfaceSet as $item) {
-                    $res['RouterInterfaceSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['RouterInterfaceSet'] = null !== $this->routerInterfaceSet ? $this->routerInterfaceSet->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeRouterInterfacesResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['RouterInterfaceSet'])) {
-            if (!empty($map['RouterInterfaceSet'])) {
-                $model->routerInterfaceSet = [];
-                $n                         = 0;
-                foreach ($map['RouterInterfaceSet'] as $item) {
-                    $model->routerInterfaceSet[$n++] = null !== $item ? routerInterfaceSet::fromMap($item) : $item;
-                }
-            }
+            $model->routerInterfaceSet = routerInterfaceSet::fromMap($map['RouterInterfaceSet']);
         }
 
         return $model;

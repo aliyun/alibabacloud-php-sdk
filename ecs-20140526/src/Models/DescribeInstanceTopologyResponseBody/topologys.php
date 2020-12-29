@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTopologyResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTopologyResponseBody\topologys\topology;
 use AlibabaCloud\Tea\Model;
 
 class topologys extends Model
 {
     /**
-     * @var string
+     * @var topology[]
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $hostId;
+    public $topology;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'hostId'     => 'HostId',
+        'topology' => 'Topology',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class topologys extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->hostId) {
-            $res['HostId'] = $this->hostId;
+        if (null !== $this->topology) {
+            $res['Topology'] = [];
+            if (null !== $this->topology && \is_array($this->topology)) {
+                $n = 0;
+                foreach ($this->topology as $item) {
+                    $res['Topology'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class topologys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['HostId'])) {
-            $model->hostId = $map['HostId'];
+        if (isset($map['Topology'])) {
+            if (!empty($map['Topology'])) {
+                $model->topology = [];
+                $n               = 0;
+                foreach ($map['Topology'] as $item) {
+                    $model->topology[$n++] = null !== $item ? topology::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

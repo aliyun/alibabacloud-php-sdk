@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoProvisioningGroupInstancesResponseBody extends Model
 {
     /**
-     * @var instances[]
+     * @var instances
      */
     public $instances;
 
@@ -49,13 +49,7 @@ class DescribeAutoProvisioningGroupInstancesResponseBody extends Model
     {
         $res = [];
         if (null !== $this->instances) {
-            $res['Instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Instances'] = null !== $this->instances ? $this->instances->toMap() : null;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -82,13 +76,7 @@ class DescribeAutoProvisioningGroupInstancesResponseBody extends Model
     {
         $model = new self();
         if (isset($map['Instances'])) {
-            if (!empty($map['Instances'])) {
-                $model->instances = [];
-                $n                = 0;
-                foreach ($map['Instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
-                }
-            }
+            $model->instances = instances::fromMap($map['Instances']);
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

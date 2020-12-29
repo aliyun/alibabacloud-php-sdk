@@ -4,46 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNewProjectEipMonitorDataResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNewProjectEipMonitorDataResponseBody\eipMonitorDatas\eipMonitorData;
 use AlibabaCloud\Tea\Model;
 
 class eipMonitorDatas extends Model
 {
     /**
-     * @var int
+     * @var eipMonitorData[]
      */
-    public $eipTX;
-
-    /**
-     * @var int
-     */
-    public $eipPackets;
-
-    /**
-     * @var int
-     */
-    public $eipBandwidth;
-
-    /**
-     * @var string
-     */
-    public $timeStamp;
-
-    /**
-     * @var int
-     */
-    public $eipFlow;
-
-    /**
-     * @var int
-     */
-    public $eipRX;
+    public $eipMonitorData;
     protected $_name = [
-        'eipTX'        => 'EipTX',
-        'eipPackets'   => 'EipPackets',
-        'eipBandwidth' => 'EipBandwidth',
-        'timeStamp'    => 'TimeStamp',
-        'eipFlow'      => 'EipFlow',
-        'eipRX'        => 'EipRX',
+        'eipMonitorData' => 'EipMonitorData',
     ];
 
     public function validate()
@@ -53,23 +24,14 @@ class eipMonitorDatas extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eipTX) {
-            $res['EipTX'] = $this->eipTX;
-        }
-        if (null !== $this->eipPackets) {
-            $res['EipPackets'] = $this->eipPackets;
-        }
-        if (null !== $this->eipBandwidth) {
-            $res['EipBandwidth'] = $this->eipBandwidth;
-        }
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
-        if (null !== $this->eipFlow) {
-            $res['EipFlow'] = $this->eipFlow;
-        }
-        if (null !== $this->eipRX) {
-            $res['EipRX'] = $this->eipRX;
+        if (null !== $this->eipMonitorData) {
+            $res['EipMonitorData'] = [];
+            if (null !== $this->eipMonitorData && \is_array($this->eipMonitorData)) {
+                $n = 0;
+                foreach ($this->eipMonitorData as $item) {
+                    $res['EipMonitorData'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -83,23 +45,14 @@ class eipMonitorDatas extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EipTX'])) {
-            $model->eipTX = $map['EipTX'];
-        }
-        if (isset($map['EipPackets'])) {
-            $model->eipPackets = $map['EipPackets'];
-        }
-        if (isset($map['EipBandwidth'])) {
-            $model->eipBandwidth = $map['EipBandwidth'];
-        }
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
-        if (isset($map['EipFlow'])) {
-            $model->eipFlow = $map['EipFlow'];
-        }
-        if (isset($map['EipRX'])) {
-            $model->eipRX = $map['EipRX'];
+        if (isset($map['EipMonitorData'])) {
+            if (!empty($map['EipMonitorData'])) {
+                $model->eipMonitorData = [];
+                $n                     = 0;
+                foreach ($map['EipMonitorData'] as $item) {
+                    $model->eipMonitorData[$n++] = null !== $item ? eipMonitorData::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

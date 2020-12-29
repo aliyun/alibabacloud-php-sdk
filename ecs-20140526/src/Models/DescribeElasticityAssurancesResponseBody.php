@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticityAssurancesResponseBody extends Model
 {
     /**
-     * @var elasticityAssuranceSet[]
+     * @var elasticityAssuranceSet
      */
     public $elasticityAssuranceSet;
 
@@ -49,13 +49,7 @@ class DescribeElasticityAssurancesResponseBody extends Model
     {
         $res = [];
         if (null !== $this->elasticityAssuranceSet) {
-            $res['ElasticityAssuranceSet'] = [];
-            if (null !== $this->elasticityAssuranceSet && \is_array($this->elasticityAssuranceSet)) {
-                $n = 0;
-                foreach ($this->elasticityAssuranceSet as $item) {
-                    $res['ElasticityAssuranceSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ElasticityAssuranceSet'] = null !== $this->elasticityAssuranceSet ? $this->elasticityAssuranceSet->toMap() : null;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -82,13 +76,7 @@ class DescribeElasticityAssurancesResponseBody extends Model
     {
         $model = new self();
         if (isset($map['ElasticityAssuranceSet'])) {
-            if (!empty($map['ElasticityAssuranceSet'])) {
-                $model->elasticityAssuranceSet = [];
-                $n                             = 0;
-                foreach ($map['ElasticityAssuranceSet'] as $item) {
-                    $model->elasticityAssuranceSet[$n++] = null !== $item ? elasticityAssuranceSet::fromMap($item) : $item;
-                }
-            }
+            $model->elasticityAssuranceSet = elasticityAssuranceSet::fromMap($map['ElasticityAssuranceSet']);
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\AssignPrivateIpAddressesResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\AssignPrivateIpAddressesResponseBody\assignedPrivateIpAddressesSet\privateIpSet;
 use AlibabaCloud\Tea\Model;
 
 class assignedPrivateIpAddressesSet extends Model
@@ -14,7 +15,7 @@ class assignedPrivateIpAddressesSet extends Model
     public $networkInterfaceId;
 
     /**
-     * @var string[]
+     * @var privateIpSet
      */
     public $privateIpSet;
     protected $_name = [
@@ -33,7 +34,7 @@ class assignedPrivateIpAddressesSet extends Model
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
         if (null !== $this->privateIpSet) {
-            $res['PrivateIpSet'] = $this->privateIpSet;
+            $res['PrivateIpSet'] = null !== $this->privateIpSet ? $this->privateIpSet->toMap() : null;
         }
 
         return $res;
@@ -51,9 +52,7 @@ class assignedPrivateIpAddressesSet extends Model
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
         if (isset($map['PrivateIpSet'])) {
-            if (!empty($map['PrivateIpSet'])) {
-                $model->privateIpSet = $map['PrivateIpSet'];
-            }
+            $model->privateIpSet = privateIpSet::fromMap($map['PrivateIpSet']);
         }
 
         return $model;

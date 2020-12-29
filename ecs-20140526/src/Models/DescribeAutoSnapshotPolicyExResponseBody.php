@@ -30,7 +30,7 @@ class DescribeAutoSnapshotPolicyExResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var autoSnapshotPolicies[]
+     * @var autoSnapshotPolicies
      */
     public $autoSnapshotPolicies;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeAutoSnapshotPolicyExResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->autoSnapshotPolicies) {
-            $res['AutoSnapshotPolicies'] = [];
-            if (null !== $this->autoSnapshotPolicies && \is_array($this->autoSnapshotPolicies)) {
-                $n = 0;
-                foreach ($this->autoSnapshotPolicies as $item) {
-                    $res['AutoSnapshotPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['AutoSnapshotPolicies'] = null !== $this->autoSnapshotPolicies ? $this->autoSnapshotPolicies->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeAutoSnapshotPolicyExResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['AutoSnapshotPolicies'])) {
-            if (!empty($map['AutoSnapshotPolicies'])) {
-                $model->autoSnapshotPolicies = [];
-                $n                           = 0;
-                foreach ($map['AutoSnapshotPolicies'] as $item) {
-                    $model->autoSnapshotPolicies[$n++] = null !== $item ? autoSnapshotPolicies::fromMap($item) : $item;
-                }
-            }
+            $model->autoSnapshotPolicies = autoSnapshotPolicies::fromMap($map['AutoSnapshotPolicies']);
         }
 
         return $model;

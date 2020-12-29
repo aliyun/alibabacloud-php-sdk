@@ -30,7 +30,7 @@ class DescribeVirtualBorderRoutersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var virtualBorderRouterSet[]
+     * @var virtualBorderRouterSet
      */
     public $virtualBorderRouterSet;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeVirtualBorderRoutersResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->virtualBorderRouterSet) {
-            $res['VirtualBorderRouterSet'] = [];
-            if (null !== $this->virtualBorderRouterSet && \is_array($this->virtualBorderRouterSet)) {
-                $n = 0;
-                foreach ($this->virtualBorderRouterSet as $item) {
-                    $res['VirtualBorderRouterSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['VirtualBorderRouterSet'] = null !== $this->virtualBorderRouterSet ? $this->virtualBorderRouterSet->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeVirtualBorderRoutersResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['VirtualBorderRouterSet'])) {
-            if (!empty($map['VirtualBorderRouterSet'])) {
-                $model->virtualBorderRouterSet = [];
-                $n                             = 0;
-                foreach ($map['VirtualBorderRouterSet'] as $item) {
-                    $model->virtualBorderRouterSet[$n++] = null !== $item ? virtualBorderRouterSet::fromMap($item) : $item;
-                }
-            }
+            $model->virtualBorderRouterSet = virtualBorderRouterSet::fromMap($map['VirtualBorderRouterSet']);
         }
 
         return $model;

@@ -15,7 +15,7 @@ class DescribeDedicatedHostAutoRenewResponseBody extends Model
     public $requestId;
 
     /**
-     * @var dedicatedHostRenewAttributes[]
+     * @var dedicatedHostRenewAttributes
      */
     public $dedicatedHostRenewAttributes;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeDedicatedHostAutoRenewResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->dedicatedHostRenewAttributes) {
-            $res['DedicatedHostRenewAttributes'] = [];
-            if (null !== $this->dedicatedHostRenewAttributes && \is_array($this->dedicatedHostRenewAttributes)) {
-                $n = 0;
-                foreach ($this->dedicatedHostRenewAttributes as $item) {
-                    $res['DedicatedHostRenewAttributes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DedicatedHostRenewAttributes'] = null !== $this->dedicatedHostRenewAttributes ? $this->dedicatedHostRenewAttributes->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeDedicatedHostAutoRenewResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DedicatedHostRenewAttributes'])) {
-            if (!empty($map['DedicatedHostRenewAttributes'])) {
-                $model->dedicatedHostRenewAttributes = [];
-                $n                                   = 0;
-                foreach ($map['DedicatedHostRenewAttributes'] as $item) {
-                    $model->dedicatedHostRenewAttributes[$n++] = null !== $item ? dedicatedHostRenewAttributes::fromMap($item) : $item;
-                }
-            }
+            $model->dedicatedHostRenewAttributes = dedicatedHostRenewAttributes::fromMap($map['DedicatedHostRenewAttributes']);
         }
 
         return $model;

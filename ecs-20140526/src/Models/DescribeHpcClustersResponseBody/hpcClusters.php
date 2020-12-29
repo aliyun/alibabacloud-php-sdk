@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHpcClustersResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHpcClustersResponseBody\hpcClusters\hpcCluster;
 use AlibabaCloud\Tea\Model;
 
 class hpcClusters extends Model
 {
     /**
-     * @var string
+     * @var hpcCluster[]
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $hpcClusterId;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $hpcCluster;
     protected $_name = [
-        'description'  => 'Description',
-        'hpcClusterId' => 'HpcClusterId',
-        'name'         => 'Name',
+        'hpcCluster' => 'HpcCluster',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class hpcClusters extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->hpcClusterId) {
-            $res['HpcClusterId'] = $this->hpcClusterId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->hpcCluster) {
+            $res['HpcCluster'] = [];
+            if (null !== $this->hpcCluster && \is_array($this->hpcCluster)) {
+                $n = 0;
+                foreach ($this->hpcCluster as $item) {
+                    $res['HpcCluster'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class hpcClusters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['HpcClusterId'])) {
-            $model->hpcClusterId = $map['HpcClusterId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['HpcCluster'])) {
+            if (!empty($map['HpcCluster'])) {
+                $model->hpcCluster = [];
+                $n                 = 0;
+                foreach ($map['HpcCluster'] as $item) {
+                    $model->hpcCluster[$n++] = null !== $item ? hpcCluster::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

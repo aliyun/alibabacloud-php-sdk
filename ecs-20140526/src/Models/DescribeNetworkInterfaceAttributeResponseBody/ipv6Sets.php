@@ -4,16 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv6Sets\ipv6Set;
 use AlibabaCloud\Tea\Model;
 
 class ipv6Sets extends Model
 {
     /**
-     * @var string
+     * @var ipv6Set[]
      */
-    public $ipv6Address;
+    public $ipv6Set;
     protected $_name = [
-        'ipv6Address' => 'Ipv6Address',
+        'ipv6Set' => 'Ipv6Set',
     ];
 
     public function validate()
@@ -23,8 +24,14 @@ class ipv6Sets extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ipv6Address) {
-            $res['Ipv6Address'] = $this->ipv6Address;
+        if (null !== $this->ipv6Set) {
+            $res['Ipv6Set'] = [];
+            if (null !== $this->ipv6Set && \is_array($this->ipv6Set)) {
+                $n = 0;
+                foreach ($this->ipv6Set as $item) {
+                    $res['Ipv6Set'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -38,8 +45,14 @@ class ipv6Sets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Ipv6Address'])) {
-            $model->ipv6Address = $map['Ipv6Address'];
+        if (isset($map['Ipv6Set'])) {
+            if (!empty($map['Ipv6Set'])) {
+                $model->ipv6Set = [];
+                $n              = 0;
+                foreach ($map['Ipv6Set'] as $item) {
+                    $model->ipv6Set[$n++] = null !== $item ? ipv6Set::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

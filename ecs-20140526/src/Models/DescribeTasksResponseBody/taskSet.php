@@ -4,46 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTasksResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTasksResponseBody\taskSet\task;
 use AlibabaCloud\Tea\Model;
 
 class taskSet extends Model
 {
     /**
-     * @var string
+     * @var task[]
      */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $taskStatus;
-
-    /**
-     * @var string
-     */
-    public $finishedTime;
-
-    /**
-     * @var string
-     */
-    public $supportCancel;
-
-    /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
-     * @var string
-     */
-    public $taskAction;
+    public $task;
     protected $_name = [
-        'creationTime'  => 'CreationTime',
-        'taskStatus'    => 'TaskStatus',
-        'finishedTime'  => 'FinishedTime',
-        'supportCancel' => 'SupportCancel',
-        'taskId'        => 'TaskId',
-        'taskAction'    => 'TaskAction',
+        'task' => 'Task',
     ];
 
     public function validate()
@@ -53,23 +24,14 @@ class taskSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
-        }
-        if (null !== $this->finishedTime) {
-            $res['FinishedTime'] = $this->finishedTime;
-        }
-        if (null !== $this->supportCancel) {
-            $res['SupportCancel'] = $this->supportCancel;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->taskAction) {
-            $res['TaskAction'] = $this->taskAction;
+        if (null !== $this->task) {
+            $res['Task'] = [];
+            if (null !== $this->task && \is_array($this->task)) {
+                $n = 0;
+                foreach ($this->task as $item) {
+                    $res['Task'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -83,23 +45,14 @@ class taskSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
-        }
-        if (isset($map['FinishedTime'])) {
-            $model->finishedTime = $map['FinishedTime'];
-        }
-        if (isset($map['SupportCancel'])) {
-            $model->supportCancel = $map['SupportCancel'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['TaskAction'])) {
-            $model->taskAction = $map['TaskAction'];
+        if (isset($map['Task'])) {
+            if (!empty($map['Task'])) {
+                $model->task = [];
+                $n           = 0;
+                foreach ($map['Task'] as $item) {
+                    $model->task[$n++] = null !== $item ? task::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

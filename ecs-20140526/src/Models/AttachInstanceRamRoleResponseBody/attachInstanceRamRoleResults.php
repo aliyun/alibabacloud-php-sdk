@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\AttachInstanceRamRoleResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\AttachInstanceRamRoleResponseBody\attachInstanceRamRoleResults\attachInstanceRamRoleResult;
 use AlibabaCloud\Tea\Model;
 
 class attachInstanceRamRoleResults extends Model
 {
     /**
-     * @var bool
+     * @var attachInstanceRamRoleResult[]
      */
-    public $success;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $attachInstanceRamRoleResult;
     protected $_name = [
-        'success'    => 'Success',
-        'code'       => 'Code',
-        'message'    => 'Message',
-        'instanceId' => 'InstanceId',
+        'attachInstanceRamRoleResult' => 'AttachInstanceRamRoleResult',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class attachInstanceRamRoleResults extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->attachInstanceRamRoleResult) {
+            $res['AttachInstanceRamRoleResult'] = [];
+            if (null !== $this->attachInstanceRamRoleResult && \is_array($this->attachInstanceRamRoleResult)) {
+                $n = 0;
+                foreach ($this->attachInstanceRamRoleResult as $item) {
+                    $res['AttachInstanceRamRoleResult'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class attachInstanceRamRoleResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['AttachInstanceRamRoleResult'])) {
+            if (!empty($map['AttachInstanceRamRoleResult'])) {
+                $model->attachInstanceRamRoleResult = [];
+                $n                                  = 0;
+                foreach ($map['AttachInstanceRamRoleResult'] as $item) {
+                    $model->attachInstanceRamRoleResult[$n++] = null !== $item ? attachInstanceRamRoleResult::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

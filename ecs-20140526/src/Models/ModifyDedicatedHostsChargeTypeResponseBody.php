@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostsChargeTypeResponseBody extends Model
 {
     /**
-     * @var feeOfInstances[]
+     * @var feeOfInstances
      */
     public $feeOfInstances;
 
@@ -37,13 +37,7 @@ class ModifyDedicatedHostsChargeTypeResponseBody extends Model
     {
         $res = [];
         if (null !== $this->feeOfInstances) {
-            $res['FeeOfInstances'] = [];
-            if (null !== $this->feeOfInstances && \is_array($this->feeOfInstances)) {
-                $n = 0;
-                foreach ($this->feeOfInstances as $item) {
-                    $res['FeeOfInstances'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['FeeOfInstances'] = null !== $this->feeOfInstances ? $this->feeOfInstances->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -64,13 +58,7 @@ class ModifyDedicatedHostsChargeTypeResponseBody extends Model
     {
         $model = new self();
         if (isset($map['FeeOfInstances'])) {
-            if (!empty($map['FeeOfInstances'])) {
-                $model->feeOfInstances = [];
-                $n                     = 0;
-                foreach ($map['FeeOfInstances'] as $item) {
-                    $model->feeOfInstances[$n++] = null !== $item ? feeOfInstances::fromMap($item) : $item;
-                }
-            }
+            $model->feeOfInstances = feeOfInstances::fromMap($map['FeeOfInstances']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

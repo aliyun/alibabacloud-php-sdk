@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeBandwidthLimitationResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeBandwidthLimitationResponseBody\bandwidths\bandwidth;
 use AlibabaCloud\Tea\Model;
 
 class bandwidths extends Model
 {
     /**
-     * @var int
+     * @var bandwidth[]
      */
-    public $max;
-
-    /**
-     * @var string
-     */
-    public $unit;
-
-    /**
-     * @var string
-     */
-    public $internetChargeType;
-
-    /**
-     * @var int
-     */
-    public $min;
+    public $bandwidth;
     protected $_name = [
-        'max'                => 'Max',
-        'unit'               => 'Unit',
-        'internetChargeType' => 'InternetChargeType',
-        'min'                => 'Min',
+        'bandwidth' => 'Bandwidth',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class bandwidths extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->max) {
-            $res['Max'] = $this->max;
-        }
-        if (null !== $this->unit) {
-            $res['Unit'] = $this->unit;
-        }
-        if (null !== $this->internetChargeType) {
-            $res['InternetChargeType'] = $this->internetChargeType;
-        }
-        if (null !== $this->min) {
-            $res['Min'] = $this->min;
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = [];
+            if (null !== $this->bandwidth && \is_array($this->bandwidth)) {
+                $n = 0;
+                foreach ($this->bandwidth as $item) {
+                    $res['Bandwidth'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class bandwidths extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Max'])) {
-            $model->max = $map['Max'];
-        }
-        if (isset($map['Unit'])) {
-            $model->unit = $map['Unit'];
-        }
-        if (isset($map['InternetChargeType'])) {
-            $model->internetChargeType = $map['InternetChargeType'];
-        }
-        if (isset($map['Min'])) {
-            $model->min = $map['Min'];
+        if (isset($map['Bandwidth'])) {
+            if (!empty($map['Bandwidth'])) {
+                $model->bandwidth = [];
+                $n                = 0;
+                foreach ($map['Bandwidth'] as $item) {
+                    $model->bandwidth[$n++] = null !== $item ? bandwidth::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

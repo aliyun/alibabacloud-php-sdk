@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessPointsResponseBody extends Model
 {
     /**
-     * @var accessPointSet[]
+     * @var accessPointSet
      */
     public $accessPointSet;
 
@@ -49,13 +49,7 @@ class DescribeAccessPointsResponseBody extends Model
     {
         $res = [];
         if (null !== $this->accessPointSet) {
-            $res['AccessPointSet'] = [];
-            if (null !== $this->accessPointSet && \is_array($this->accessPointSet)) {
-                $n = 0;
-                foreach ($this->accessPointSet as $item) {
-                    $res['AccessPointSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['AccessPointSet'] = null !== $this->accessPointSet ? $this->accessPointSet->toMap() : null;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -82,13 +76,7 @@ class DescribeAccessPointsResponseBody extends Model
     {
         $model = new self();
         if (isset($map['AccessPointSet'])) {
-            if (!empty($map['AccessPointSet'])) {
-                $model->accessPointSet = [];
-                $n                     = 0;
-                foreach ($map['AccessPointSet'] as $item) {
-                    $model->accessPointSet[$n++] = null !== $item ? accessPointSet::fromMap($item) : $item;
-                }
-            }
+            $model->accessPointSet = accessPointSet::fromMap($map['AccessPointSet']);
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

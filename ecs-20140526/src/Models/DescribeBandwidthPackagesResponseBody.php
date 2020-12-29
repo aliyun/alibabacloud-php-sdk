@@ -30,7 +30,7 @@ class DescribeBandwidthPackagesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var bandwidthPackages[]
+     * @var bandwidthPackages
      */
     public $bandwidthPackages;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeBandwidthPackagesResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->bandwidthPackages) {
-            $res['BandwidthPackages'] = [];
-            if (null !== $this->bandwidthPackages && \is_array($this->bandwidthPackages)) {
-                $n = 0;
-                foreach ($this->bandwidthPackages as $item) {
-                    $res['BandwidthPackages'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['BandwidthPackages'] = null !== $this->bandwidthPackages ? $this->bandwidthPackages->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeBandwidthPackagesResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['BandwidthPackages'])) {
-            if (!empty($map['BandwidthPackages'])) {
-                $model->bandwidthPackages = [];
-                $n                        = 0;
-                foreach ($map['BandwidthPackages'] as $item) {
-                    $model->bandwidthPackages[$n++] = null !== $item ? bandwidthPackages::fromMap($item) : $item;
-                }
-            }
+            $model->bandwidthPackages = bandwidthPackages::fromMap($map['BandwidthPackages']);
         }
 
         return $model;

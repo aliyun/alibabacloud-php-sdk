@@ -4,16 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSharePermissionResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSharePermissionResponseBody\accounts\account;
 use AlibabaCloud\Tea\Model;
 
 class accounts extends Model
 {
     /**
-     * @var string
+     * @var account[]
      */
-    public $aliyunId;
+    public $account;
     protected $_name = [
-        'aliyunId' => 'AliyunId',
+        'account' => 'Account',
     ];
 
     public function validate()
@@ -23,8 +24,14 @@ class accounts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aliyunId) {
-            $res['AliyunId'] = $this->aliyunId;
+        if (null !== $this->account) {
+            $res['Account'] = [];
+            if (null !== $this->account && \is_array($this->account)) {
+                $n = 0;
+                foreach ($this->account as $item) {
+                    $res['Account'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -38,8 +45,14 @@ class accounts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AliyunId'])) {
-            $model->aliyunId = $map['AliyunId'];
+        if (isset($map['Account'])) {
+            if (!empty($map['Account'])) {
+                $model->account = [];
+                $n              = 0;
+                foreach ($map['Account'] as $item) {
+                    $model->account[$n++] = null !== $item ? account::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

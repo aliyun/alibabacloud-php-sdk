@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeClassicLinkInstancesResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeClassicLinkInstancesResponseBody\links\link;
 use AlibabaCloud\Tea\Model;
 
 class links extends Model
 {
     /**
-     * @var string
+     * @var link[]
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $link;
     protected $_name = [
-        'vpcId'      => 'VpcId',
-        'instanceId' => 'InstanceId',
+        'link' => 'Link',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class links extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->link) {
+            $res['Link'] = [];
+            if (null !== $this->link && \is_array($this->link)) {
+                $n = 0;
+                foreach ($this->link as $item) {
+                    $res['Link'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class links extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Link'])) {
+            if (!empty($map['Link'])) {
+                $model->link = [];
+                $n           = 0;
+                foreach ($map['Link'] as $item) {
+                    $model->link[$n++] = null !== $item ? link::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

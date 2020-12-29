@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNatGatewayResponseBody\bandwidthPackageIds;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNatGatewayResponseBody\forwardTableIds;
 use AlibabaCloud\Tea\Model;
 
 class CreateNatGatewayResponseBody extends Model
@@ -14,12 +16,12 @@ class CreateNatGatewayResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
+     * @var forwardTableIds
      */
     public $forwardTableIds;
 
     /**
-     * @var string[]
+     * @var bandwidthPackageIds
      */
     public $bandwidthPackageIds;
 
@@ -45,10 +47,10 @@ class CreateNatGatewayResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->forwardTableIds) {
-            $res['ForwardTableIds'] = $this->forwardTableIds;
+            $res['ForwardTableIds'] = null !== $this->forwardTableIds ? $this->forwardTableIds->toMap() : null;
         }
         if (null !== $this->bandwidthPackageIds) {
-            $res['BandwidthPackageIds'] = $this->bandwidthPackageIds;
+            $res['BandwidthPackageIds'] = null !== $this->bandwidthPackageIds ? $this->bandwidthPackageIds->toMap() : null;
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
@@ -69,14 +71,10 @@ class CreateNatGatewayResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['ForwardTableIds'])) {
-            if (!empty($map['ForwardTableIds'])) {
-                $model->forwardTableIds = $map['ForwardTableIds'];
-            }
+            $model->forwardTableIds = forwardTableIds::fromMap($map['ForwardTableIds']);
         }
         if (isset($map['BandwidthPackageIds'])) {
-            if (!empty($map['BandwidthPackageIds'])) {
-                $model->bandwidthPackageIds = $map['BandwidthPackageIds'];
-            }
+            $model->bandwidthPackageIds = bandwidthPackageIds::fromMap($map['BandwidthPackageIds']);
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];

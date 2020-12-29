@@ -15,7 +15,7 @@ class DescribeInstanceAutoRenewAttributeResponseBody extends Model
     public $totalCount;
 
     /**
-     * @var instanceRenewAttributes[]
+     * @var instanceRenewAttributes
      */
     public $instanceRenewAttributes;
 
@@ -52,13 +52,7 @@ class DescribeInstanceAutoRenewAttributeResponseBody extends Model
             $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->instanceRenewAttributes) {
-            $res['InstanceRenewAttributes'] = [];
-            if (null !== $this->instanceRenewAttributes && \is_array($this->instanceRenewAttributes)) {
-                $n = 0;
-                foreach ($this->instanceRenewAttributes as $item) {
-                    $res['InstanceRenewAttributes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InstanceRenewAttributes'] = null !== $this->instanceRenewAttributes ? $this->instanceRenewAttributes->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -85,13 +79,7 @@ class DescribeInstanceAutoRenewAttributeResponseBody extends Model
             $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['InstanceRenewAttributes'])) {
-            if (!empty($map['InstanceRenewAttributes'])) {
-                $model->instanceRenewAttributes = [];
-                $n                              = 0;
-                foreach ($map['InstanceRenewAttributes'] as $item) {
-                    $model->instanceRenewAttributes[$n++] = null !== $item ? instanceRenewAttributes::fromMap($item) : $item;
-                }
-            }
+            $model->instanceRenewAttributes = instanceRenewAttributes::fromMap($map['InstanceRenewAttributes']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

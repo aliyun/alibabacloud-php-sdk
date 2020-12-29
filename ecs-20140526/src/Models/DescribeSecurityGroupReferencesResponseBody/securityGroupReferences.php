@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupReferencesResponseBody;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupReferencesResponseBody\securityGroupReferences\referencingSecurityGroups;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupReferencesResponseBody\securityGroupReferences\securityGroupReference;
 use AlibabaCloud\Tea\Model;
 
 class securityGroupReferences extends Model
 {
     /**
-     * @var string
+     * @var securityGroupReference[]
      */
-    public $securityGroupId;
-
-    /**
-     * @var referencingSecurityGroups[]
-     */
-    public $referencingSecurityGroups;
+    public $securityGroupReference;
     protected $_name = [
-        'securityGroupId'           => 'SecurityGroupId',
-        'referencingSecurityGroups' => 'ReferencingSecurityGroups',
+        'securityGroupReference' => 'SecurityGroupReference',
     ];
 
     public function validate()
@@ -30,15 +24,12 @@ class securityGroupReferences extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->referencingSecurityGroups) {
-            $res['ReferencingSecurityGroups'] = [];
-            if (null !== $this->referencingSecurityGroups && \is_array($this->referencingSecurityGroups)) {
+        if (null !== $this->securityGroupReference) {
+            $res['SecurityGroupReference'] = [];
+            if (null !== $this->securityGroupReference && \is_array($this->securityGroupReference)) {
                 $n = 0;
-                foreach ($this->referencingSecurityGroups as $item) {
-                    $res['ReferencingSecurityGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->securityGroupReference as $item) {
+                    $res['SecurityGroupReference'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -54,15 +45,12 @@ class securityGroupReferences extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['ReferencingSecurityGroups'])) {
-            if (!empty($map['ReferencingSecurityGroups'])) {
-                $model->referencingSecurityGroups = [];
-                $n                                = 0;
-                foreach ($map['ReferencingSecurityGroups'] as $item) {
-                    $model->referencingSecurityGroups[$n++] = null !== $item ? referencingSecurityGroups::fromMap($item) : $item;
+        if (isset($map['SecurityGroupReference'])) {
+            if (!empty($map['SecurityGroupReference'])) {
+                $model->securityGroupReference = [];
+                $n                             = 0;
+                foreach ($map['SecurityGroupReference'] as $item) {
+                    $model->securityGroupReference[$n++] = null !== $item ? securityGroupReference::fromMap($item) : $item;
                 }
             }
         }

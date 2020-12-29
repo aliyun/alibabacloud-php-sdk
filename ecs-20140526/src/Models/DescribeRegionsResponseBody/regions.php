@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRegionsResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRegionsResponseBody\regions\region;
 use AlibabaCloud\Tea\Model;
 
 class regions extends Model
 {
     /**
-     * @var string
+     * @var region[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $localName;
-
-    /**
-     * @var string
-     */
-    public $regionEndpoint;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $region;
     protected $_name = [
-        'status'         => 'Status',
-        'localName'      => 'LocalName',
-        'regionEndpoint' => 'RegionEndpoint',
-        'regionId'       => 'RegionId',
+        'region' => 'Region',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class regions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->localName) {
-            $res['LocalName'] = $this->localName;
-        }
-        if (null !== $this->regionEndpoint) {
-            $res['RegionEndpoint'] = $this->regionEndpoint;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->region) {
+            $res['Region'] = [];
+            if (null !== $this->region && \is_array($this->region)) {
+                $n = 0;
+                foreach ($this->region as $item) {
+                    $res['Region'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class regions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['LocalName'])) {
-            $model->localName = $map['LocalName'];
-        }
-        if (isset($map['RegionEndpoint'])) {
-            $model->regionEndpoint = $map['RegionEndpoint'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Region'])) {
+            if (!empty($map['Region'])) {
+                $model->region = [];
+                $n             = 0;
+                foreach ($map['Region'] as $item) {
+                    $model->region[$n++] = null !== $item ? region::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

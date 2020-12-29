@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccountAttributesResponseBody;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccountAttributesResponseBody\accountAttributeItems\attributeValues;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccountAttributesResponseBody\accountAttributeItems\accountAttributeItem;
 use AlibabaCloud\Tea\Model;
 
 class accountAttributeItems extends Model
 {
     /**
-     * @var string
+     * @var accountAttributeItem[]
      */
-    public $attributeName;
-
-    /**
-     * @var attributeValues[]
-     */
-    public $attributeValues;
+    public $accountAttributeItem;
     protected $_name = [
-        'attributeName'   => 'AttributeName',
-        'attributeValues' => 'AttributeValues',
+        'accountAttributeItem' => 'AccountAttributeItem',
     ];
 
     public function validate()
@@ -30,15 +24,12 @@ class accountAttributeItems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->attributeName) {
-            $res['AttributeName'] = $this->attributeName;
-        }
-        if (null !== $this->attributeValues) {
-            $res['AttributeValues'] = [];
-            if (null !== $this->attributeValues && \is_array($this->attributeValues)) {
+        if (null !== $this->accountAttributeItem) {
+            $res['AccountAttributeItem'] = [];
+            if (null !== $this->accountAttributeItem && \is_array($this->accountAttributeItem)) {
                 $n = 0;
-                foreach ($this->attributeValues as $item) {
-                    $res['AttributeValues'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->accountAttributeItem as $item) {
+                    $res['AccountAttributeItem'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -54,15 +45,12 @@ class accountAttributeItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AttributeName'])) {
-            $model->attributeName = $map['AttributeName'];
-        }
-        if (isset($map['AttributeValues'])) {
-            if (!empty($map['AttributeValues'])) {
-                $model->attributeValues = [];
-                $n                      = 0;
-                foreach ($map['AttributeValues'] as $item) {
-                    $model->attributeValues[$n++] = null !== $item ? attributeValues::fromMap($item) : $item;
+        if (isset($map['AccountAttributeItem'])) {
+            if (!empty($map['AccountAttributeItem'])) {
+                $model->accountAttributeItem = [];
+                $n                           = 0;
+                foreach ($map['AccountAttributeItem'] as $item) {
+                    $model->accountAttributeItem[$n++] = null !== $item ? accountAttributeItem::fromMap($item) : $item;
                 }
             }
         }

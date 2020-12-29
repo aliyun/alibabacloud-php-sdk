@@ -30,7 +30,7 @@ class DescribeHpcClustersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var hpcClusters[]
+     * @var hpcClusters
      */
     public $hpcClusters;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeHpcClustersResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->hpcClusters) {
-            $res['HpcClusters'] = [];
-            if (null !== $this->hpcClusters && \is_array($this->hpcClusters)) {
-                $n = 0;
-                foreach ($this->hpcClusters as $item) {
-                    $res['HpcClusters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['HpcClusters'] = null !== $this->hpcClusters ? $this->hpcClusters->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeHpcClustersResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['HpcClusters'])) {
-            if (!empty($map['HpcClusters'])) {
-                $model->hpcClusters = [];
-                $n                  = 0;
-                foreach ($map['HpcClusters'] as $item) {
-                    $model->hpcClusters[$n++] = null !== $item ? hpcClusters::fromMap($item) : $item;
-                }
-            }
+            $model->hpcClusters = hpcClusters::fromMap($map['HpcClusters']);
         }
 
         return $model;

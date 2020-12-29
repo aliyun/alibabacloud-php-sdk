@@ -4,82 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNatGatewaysResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway;
 use AlibabaCloud\Tea\Model;
 
 class natGateways extends Model
 {
     /**
-     * @var string
+     * @var natGateway[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string[]
-     */
-    public $bandwidthPackageIds;
-
-    /**
-     * @var string
-     */
-    public $spec;
-
-    /**
-     * @var string
-     */
-    public $instanceChargeType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $natGatewayId;
-
-    /**
-     * @var string[]
-     */
-    public $forwardTableIds;
-
-    /**
-     * @var string
-     */
-    public $businessStatus;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $natGateway;
     protected $_name = [
-        'status'              => 'Status',
-        'creationTime'        => 'CreationTime',
-        'vpcId'               => 'VpcId',
-        'bandwidthPackageIds' => 'BandwidthPackageIds',
-        'spec'                => 'Spec',
-        'instanceChargeType'  => 'InstanceChargeType',
-        'regionId'            => 'RegionId',
-        'description'         => 'Description',
-        'natGatewayId'        => 'NatGatewayId',
-        'forwardTableIds'     => 'ForwardTableIds',
-        'businessStatus'      => 'BusinessStatus',
-        'name'                => 'Name',
+        'natGateway' => 'NatGateway',
     ];
 
     public function validate()
@@ -89,41 +24,14 @@ class natGateways extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->bandwidthPackageIds) {
-            $res['BandwidthPackageIds'] = $this->bandwidthPackageIds;
-        }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->natGatewayId) {
-            $res['NatGatewayId'] = $this->natGatewayId;
-        }
-        if (null !== $this->forwardTableIds) {
-            $res['ForwardTableIds'] = $this->forwardTableIds;
-        }
-        if (null !== $this->businessStatus) {
-            $res['BusinessStatus'] = $this->businessStatus;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->natGateway) {
+            $res['NatGateway'] = [];
+            if (null !== $this->natGateway && \is_array($this->natGateway)) {
+                $n = 0;
+                foreach ($this->natGateway as $item) {
+                    $res['NatGateway'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -137,45 +45,14 @@ class natGateways extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['BandwidthPackageIds'])) {
-            if (!empty($map['BandwidthPackageIds'])) {
-                $model->bandwidthPackageIds = $map['BandwidthPackageIds'];
+        if (isset($map['NatGateway'])) {
+            if (!empty($map['NatGateway'])) {
+                $model->natGateway = [];
+                $n                 = 0;
+                foreach ($map['NatGateway'] as $item) {
+                    $model->natGateway[$n++] = null !== $item ? natGateway::fromMap($item) : $item;
+                }
             }
-        }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['NatGatewayId'])) {
-            $model->natGatewayId = $map['NatGatewayId'];
-        }
-        if (isset($map['ForwardTableIds'])) {
-            if (!empty($map['ForwardTableIds'])) {
-                $model->forwardTableIds = $map['ForwardTableIds'];
-            }
-        }
-        if (isset($map['BusinessStatus'])) {
-            $model->businessStatus = $map['BusinessStatus'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

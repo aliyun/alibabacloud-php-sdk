@@ -30,7 +30,7 @@ class DescribeCapacityReservationsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @var capacityReservationSet[]
+     * @var capacityReservationSet
      */
     public $capacityReservationSet;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeCapacityReservationsResponseBody extends Model
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->capacityReservationSet) {
-            $res['CapacityReservationSet'] = [];
-            if (null !== $this->capacityReservationSet && \is_array($this->capacityReservationSet)) {
-                $n = 0;
-                foreach ($this->capacityReservationSet as $item) {
-                    $res['CapacityReservationSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['CapacityReservationSet'] = null !== $this->capacityReservationSet ? $this->capacityReservationSet->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeCapacityReservationsResponseBody extends Model
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['CapacityReservationSet'])) {
-            if (!empty($map['CapacityReservationSet'])) {
-                $model->capacityReservationSet = [];
-                $n                             = 0;
-                foreach ($map['CapacityReservationSet'] as $item) {
-                    $model->capacityReservationSet[$n++] = null !== $item ? capacityReservationSet::fromMap($item) : $item;
-                }
-            }
+            $model->capacityReservationSet = capacityReservationSet::fromMap($map['CapacityReservationSet']);
         }
 
         return $model;

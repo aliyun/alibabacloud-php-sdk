@@ -25,7 +25,7 @@ class DescribeImageSupportInstanceTypesResponseBody extends Model
     public $regionId;
 
     /**
-     * @var instanceTypes[]
+     * @var instanceTypes
      */
     public $instanceTypes;
     protected $_name = [
@@ -52,13 +52,7 @@ class DescribeImageSupportInstanceTypesResponseBody extends Model
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = [];
-            if (null !== $this->instanceTypes && \is_array($this->instanceTypes)) {
-                $n = 0;
-                foreach ($this->instanceTypes as $item) {
-                    $res['InstanceTypes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InstanceTypes'] = null !== $this->instanceTypes ? $this->instanceTypes->toMap() : null;
         }
 
         return $res;
@@ -82,13 +76,7 @@ class DescribeImageSupportInstanceTypesResponseBody extends Model
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['InstanceTypes'])) {
-            if (!empty($map['InstanceTypes'])) {
-                $model->instanceTypes = [];
-                $n                    = 0;
-                foreach ($map['InstanceTypes'] as $item) {
-                    $model->instanceTypes[$n++] = null !== $item ? instanceTypes::fromMap($item) : $item;
-                }
-            }
+            $model->instanceTypes = instanceTypes::fromMap($map['InstanceTypes']);
         }
 
         return $model;

@@ -20,7 +20,7 @@ class invocation extends Model
     public $pageNumber;
 
     /**
-     * @var invocationResults[]
+     * @var invocationResults
      */
     public $invocationResults;
 
@@ -49,13 +49,7 @@ class invocation extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->invocationResults) {
-            $res['InvocationResults'] = [];
-            if (null !== $this->invocationResults && \is_array($this->invocationResults)) {
-                $n = 0;
-                foreach ($this->invocationResults as $item) {
-                    $res['InvocationResults'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InvocationResults'] = null !== $this->invocationResults ? $this->invocationResults->toMap() : null;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -79,13 +73,7 @@ class invocation extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['InvocationResults'])) {
-            if (!empty($map['InvocationResults'])) {
-                $model->invocationResults = [];
-                $n                        = 0;
-                foreach ($map['InvocationResults'] as $item) {
-                    $model->invocationResults[$n++] = null !== $item ? invocationResults::fromMap($item) : $item;
-                }
-            }
+            $model->invocationResults = invocationResults::fromMap($map['InvocationResults']);
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

@@ -30,7 +30,7 @@ class DescribeRouteTablesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var routeTables[]
+     * @var routeTables
      */
     public $routeTables;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeRouteTablesResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->routeTables) {
-            $res['RouteTables'] = [];
-            if (null !== $this->routeTables && \is_array($this->routeTables)) {
-                $n = 0;
-                foreach ($this->routeTables as $item) {
-                    $res['RouteTables'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['RouteTables'] = null !== $this->routeTables ? $this->routeTables->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeRouteTablesResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['RouteTables'])) {
-            if (!empty($map['RouteTables'])) {
-                $model->routeTables = [];
-                $n                  = 0;
-                foreach ($map['RouteTables'] as $item) {
-                    $model->routeTables[$n++] = null !== $item ? routeTables::fromMap($item) : $item;
-                }
-            }
+            $model->routeTables = routeTables::fromMap($map['RouteTables']);
         }
 
         return $model;

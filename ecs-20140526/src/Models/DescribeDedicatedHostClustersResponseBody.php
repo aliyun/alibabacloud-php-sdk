@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostClustersResponseBody extends Model
 {
     /**
-     * @var dedicatedHostClusters[]
+     * @var dedicatedHostClusters
      */
     public $dedicatedHostClusters;
 
@@ -49,13 +49,7 @@ class DescribeDedicatedHostClustersResponseBody extends Model
     {
         $res = [];
         if (null !== $this->dedicatedHostClusters) {
-            $res['DedicatedHostClusters'] = [];
-            if (null !== $this->dedicatedHostClusters && \is_array($this->dedicatedHostClusters)) {
-                $n = 0;
-                foreach ($this->dedicatedHostClusters as $item) {
-                    $res['DedicatedHostClusters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DedicatedHostClusters'] = null !== $this->dedicatedHostClusters ? $this->dedicatedHostClusters->toMap() : null;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -82,13 +76,7 @@ class DescribeDedicatedHostClustersResponseBody extends Model
     {
         $model = new self();
         if (isset($map['DedicatedHostClusters'])) {
-            if (!empty($map['DedicatedHostClusters'])) {
-                $model->dedicatedHostClusters = [];
-                $n                            = 0;
-                foreach ($map['DedicatedHostClusters'] as $item) {
-                    $model->dedicatedHostClusters[$n++] = null !== $item ? dedicatedHostClusters::fromMap($item) : $item;
-                }
-            }
+            $model->dedicatedHostClusters = dedicatedHostClusters::fromMap($map['DedicatedHostClusters']);
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

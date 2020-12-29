@@ -30,7 +30,7 @@ class DescribeNatGatewaysResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var natGateways[]
+     * @var natGateways
      */
     public $natGateways;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeNatGatewaysResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->natGateways) {
-            $res['NatGateways'] = [];
-            if (null !== $this->natGateways && \is_array($this->natGateways)) {
-                $n = 0;
-                foreach ($this->natGateways as $item) {
-                    $res['NatGateways'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['NatGateways'] = null !== $this->natGateways ? $this->natGateways->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeNatGatewaysResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['NatGateways'])) {
-            if (!empty($map['NatGateways'])) {
-                $model->natGateways = [];
-                $n                  = 0;
-                foreach ($map['NatGateways'] as $item) {
-                    $model->natGateways[$n++] = null !== $item ? natGateways::fromMap($item) : $item;
-                }
-            }
+            $model->natGateways = natGateways::fromMap($map['NatGateways']);
         }
 
         return $model;

@@ -4,82 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupInstancesResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupInstancesResponseBody\instances\instance;
 use AlibabaCloud\Tea\Model;
 
 class instances extends Model
 {
     /**
-     * @var string
+     * @var instance[]
      */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var bool
-     */
-    public $isSpot;
-
-    /**
-     * @var int
-     */
-    public $CPU;
-
-    /**
-     * @var string
-     */
-    public $networkType;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var bool
-     */
-    public $ioOptimized;
-
-    /**
-     * @var string
-     */
-    public $osType;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var int
-     */
-    public $memory;
+    public $instance;
     protected $_name = [
-        'creationTime' => 'CreationTime',
-        'status'       => 'Status',
-        'isSpot'       => 'IsSpot',
-        'CPU'          => 'CPU',
-        'networkType'  => 'NetworkType',
-        'instanceId'   => 'InstanceId',
-        'instanceType' => 'InstanceType',
-        'regionId'     => 'RegionId',
-        'ioOptimized'  => 'IoOptimized',
-        'osType'       => 'OsType',
-        'zoneId'       => 'ZoneId',
-        'memory'       => 'Memory',
+        'instance' => 'Instance',
     ];
 
     public function validate()
@@ -89,41 +24,14 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->isSpot) {
-            $res['IsSpot'] = $this->isSpot;
-        }
-        if (null !== $this->CPU) {
-            $res['CPU'] = $this->CPU;
-        }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ioOptimized) {
-            $res['IoOptimized'] = $this->ioOptimized;
-        }
-        if (null !== $this->osType) {
-            $res['OsType'] = $this->osType;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->memory) {
-            $res['Memory'] = $this->memory;
+        if (null !== $this->instance) {
+            $res['Instance'] = [];
+            if (null !== $this->instance && \is_array($this->instance)) {
+                $n = 0;
+                foreach ($this->instance as $item) {
+                    $res['Instance'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -137,41 +45,14 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['IsSpot'])) {
-            $model->isSpot = $map['IsSpot'];
-        }
-        if (isset($map['CPU'])) {
-            $model->CPU = $map['CPU'];
-        }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['IoOptimized'])) {
-            $model->ioOptimized = $map['IoOptimized'];
-        }
-        if (isset($map['OsType'])) {
-            $model->osType = $map['OsType'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['Memory'])) {
-            $model->memory = $map['Memory'];
+        if (isset($map['Instance'])) {
+            if (!empty($map['Instance'])) {
+                $model->instance = [];
+                $n               = 0;
+                foreach ($map['Instance'] as $item) {
+                    $model->instance[$n++] = null !== $item ? instance::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

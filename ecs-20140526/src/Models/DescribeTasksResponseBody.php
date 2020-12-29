@@ -30,7 +30,7 @@ class DescribeTasksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var taskSet[]
+     * @var taskSet
      */
     public $taskSet;
 
@@ -67,13 +67,7 @@ class DescribeTasksResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->taskSet) {
-            $res['TaskSet'] = [];
-            if (null !== $this->taskSet && \is_array($this->taskSet)) {
-                $n = 0;
-                foreach ($this->taskSet as $item) {
-                    $res['TaskSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['TaskSet'] = null !== $this->taskSet ? $this->taskSet->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -103,13 +97,7 @@ class DescribeTasksResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['TaskSet'])) {
-            if (!empty($map['TaskSet'])) {
-                $model->taskSet = [];
-                $n              = 0;
-                foreach ($map['TaskSet'] as $item) {
-                    $model->taskSet[$n++] = null !== $item ? taskSet::fromMap($item) : $item;
-                }
-            }
+            $model->taskSet = taskSet::fromMap($map['TaskSet']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

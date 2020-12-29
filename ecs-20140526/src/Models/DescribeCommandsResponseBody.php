@@ -30,7 +30,7 @@ class DescribeCommandsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var commands[]
+     * @var commands
      */
     public $commands;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeCommandsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->commands) {
-            $res['Commands'] = [];
-            if (null !== $this->commands && \is_array($this->commands)) {
-                $n = 0;
-                foreach ($this->commands as $item) {
-                    $res['Commands'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Commands'] = null !== $this->commands ? $this->commands->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeCommandsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['Commands'])) {
-            if (!empty($map['Commands'])) {
-                $model->commands = [];
-                $n               = 0;
-                foreach ($map['Commands'] as $item) {
-                    $model->commands[$n++] = null !== $item ? commands::fromMap($item) : $item;
-                }
-            }
+            $model->commands = commands::fromMap($map['Commands']);
         }
 
         return $model;

@@ -30,7 +30,7 @@ class DescribeForwardTableEntriesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var forwardTableEntries[]
+     * @var forwardTableEntries
      */
     public $forwardTableEntries;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeForwardTableEntriesResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->forwardTableEntries) {
-            $res['ForwardTableEntries'] = [];
-            if (null !== $this->forwardTableEntries && \is_array($this->forwardTableEntries)) {
-                $n = 0;
-                foreach ($this->forwardTableEntries as $item) {
-                    $res['ForwardTableEntries'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ForwardTableEntries'] = null !== $this->forwardTableEntries ? $this->forwardTableEntries->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeForwardTableEntriesResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['ForwardTableEntries'])) {
-            if (!empty($map['ForwardTableEntries'])) {
-                $model->forwardTableEntries = [];
-                $n                          = 0;
-                foreach ($map['ForwardTableEntries'] as $item) {
-                    $model->forwardTableEntries[$n++] = null !== $item ? forwardTableEntries::fromMap($item) : $item;
-                }
-            }
+            $model->forwardTableEntries = forwardTableEntries::fromMap($map['ForwardTableEntries']);
         }
 
         return $model;

@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRenewalPriceResponseBody\priceInfo;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRenewalPriceResponseBody\priceInfo\rules\rule;
 use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
     /**
-     * @var string
+     * @var rule[]
      */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $ruleId;
+    public $rule;
     protected $_name = [
-        'description' => 'Description',
-        'ruleId'      => 'RuleId',
+        'rule' => 'Rule',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+        if (null !== $this->rule) {
+            $res['Rule'] = [];
+            if (null !== $this->rule && \is_array($this->rule)) {
+                $n = 0;
+                foreach ($this->rule as $item) {
+                    $res['Rule'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['Rule'])) {
+            if (!empty($map['Rule'])) {
+                $model->rule = [];
+                $n           = 0;
+                foreach ($map['Rule'] as $item) {
+                    $model->rule[$n++] = null !== $item ? rule::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

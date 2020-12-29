@@ -4,16 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSharePermissionResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSharePermissionResponseBody\shareGroups\shareGroup;
 use AlibabaCloud\Tea\Model;
 
 class shareGroups extends Model
 {
     /**
-     * @var string
+     * @var shareGroup[]
      */
-    public $group;
+    public $shareGroup;
     protected $_name = [
-        'group' => 'Group',
+        'shareGroup' => 'ShareGroup',
     ];
 
     public function validate()
@@ -23,8 +24,14 @@ class shareGroups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->group) {
-            $res['Group'] = $this->group;
+        if (null !== $this->shareGroup) {
+            $res['ShareGroup'] = [];
+            if (null !== $this->shareGroup && \is_array($this->shareGroup)) {
+                $n = 0;
+                foreach ($this->shareGroup as $item) {
+                    $res['ShareGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -38,8 +45,14 @@ class shareGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Group'])) {
-            $model->group = $map['Group'];
+        if (isset($map['ShareGroup'])) {
+            if (!empty($map['ShareGroup'])) {
+                $model->shareGroup = [];
+                $n                 = 0;
+                foreach ($map['ShareGroup'] as $item) {
+                    $model->shareGroup[$n++] = null !== $item ? shareGroup::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

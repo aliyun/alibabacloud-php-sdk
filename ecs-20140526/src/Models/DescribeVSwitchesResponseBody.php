@@ -30,7 +30,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var vSwitches[]
+     * @var vSwitches
      */
     public $vSwitches;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeVSwitchesResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->vSwitches) {
-            $res['VSwitches'] = [];
-            if (null !== $this->vSwitches && \is_array($this->vSwitches)) {
-                $n = 0;
-                foreach ($this->vSwitches as $item) {
-                    $res['VSwitches'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['VSwitches'] = null !== $this->vSwitches ? $this->vSwitches->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeVSwitchesResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['VSwitches'])) {
-            if (!empty($map['VSwitches'])) {
-                $model->vSwitches = [];
-                $n                = 0;
-                foreach ($map['VSwitches'] as $item) {
-                    $model->vSwitches[$n++] = null !== $item ? vSwitches::fromMap($item) : $item;
-                }
-            }
+            $model->vSwitches = vSwitches::fromMap($map['VSwitches']);
         }
 
         return $model;

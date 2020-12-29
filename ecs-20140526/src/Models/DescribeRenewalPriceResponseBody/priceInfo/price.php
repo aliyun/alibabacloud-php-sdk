@@ -25,7 +25,7 @@ class price extends Model
     public $originalPrice;
 
     /**
-     * @var detailInfos[]
+     * @var detailInfos
      */
     public $detailInfos;
 
@@ -58,13 +58,7 @@ class price extends Model
             $res['OriginalPrice'] = $this->originalPrice;
         }
         if (null !== $this->detailInfos) {
-            $res['DetailInfos'] = [];
-            if (null !== $this->detailInfos && \is_array($this->detailInfos)) {
-                $n = 0;
-                foreach ($this->detailInfos as $item) {
-                    $res['DetailInfos'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DetailInfos'] = null !== $this->detailInfos ? $this->detailInfos->toMap() : null;
         }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
@@ -91,13 +85,7 @@ class price extends Model
             $model->originalPrice = $map['OriginalPrice'];
         }
         if (isset($map['DetailInfos'])) {
-            if (!empty($map['DetailInfos'])) {
-                $model->detailInfos = [];
-                $n                  = 0;
-                foreach ($map['DetailInfos'] as $item) {
-                    $model->detailInfos[$n++] = null !== $item ? detailInfos::fromMap($item) : $item;
-                }
-            }
+            $model->detailInfos = detailInfos::fromMap($map['DetailInfos']);
         }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];

@@ -30,7 +30,7 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody extends Mode
     public $pageNumber;
 
     /**
-     * @var virtualBorderRouterForPhysicalConnectionSet[]
+     * @var virtualBorderRouterForPhysicalConnectionSet
      */
     public $virtualBorderRouterForPhysicalConnectionSet;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody extends Mode
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->virtualBorderRouterForPhysicalConnectionSet) {
-            $res['VirtualBorderRouterForPhysicalConnectionSet'] = [];
-            if (null !== $this->virtualBorderRouterForPhysicalConnectionSet && \is_array($this->virtualBorderRouterForPhysicalConnectionSet)) {
-                $n = 0;
-                foreach ($this->virtualBorderRouterForPhysicalConnectionSet as $item) {
-                    $res['VirtualBorderRouterForPhysicalConnectionSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['VirtualBorderRouterForPhysicalConnectionSet'] = null !== $this->virtualBorderRouterForPhysicalConnectionSet ? $this->virtualBorderRouterForPhysicalConnectionSet->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody extends Mode
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['VirtualBorderRouterForPhysicalConnectionSet'])) {
-            if (!empty($map['VirtualBorderRouterForPhysicalConnectionSet'])) {
-                $model->virtualBorderRouterForPhysicalConnectionSet = [];
-                $n                                                  = 0;
-                foreach ($map['VirtualBorderRouterForPhysicalConnectionSet'] as $item) {
-                    $model->virtualBorderRouterForPhysicalConnectionSet[$n++] = null !== $item ? virtualBorderRouterForPhysicalConnectionSet::fromMap($item) : $item;
-                }
-            }
+            $model->virtualBorderRouterForPhysicalConnectionSet = virtualBorderRouterForPhysicalConnectionSet::fromMap($map['VirtualBorderRouterForPhysicalConnectionSet']);
         }
 
         return $model;

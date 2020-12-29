@@ -15,7 +15,7 @@ class DescribeSecurityGroupReferencesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var securityGroupReferences[]
+     * @var securityGroupReferences
      */
     public $securityGroupReferences;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeSecurityGroupReferencesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->securityGroupReferences) {
-            $res['SecurityGroupReferences'] = [];
-            if (null !== $this->securityGroupReferences && \is_array($this->securityGroupReferences)) {
-                $n = 0;
-                foreach ($this->securityGroupReferences as $item) {
-                    $res['SecurityGroupReferences'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['SecurityGroupReferences'] = null !== $this->securityGroupReferences ? $this->securityGroupReferences->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeSecurityGroupReferencesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SecurityGroupReferences'])) {
-            if (!empty($map['SecurityGroupReferences'])) {
-                $model->securityGroupReferences = [];
-                $n                              = 0;
-                foreach ($map['SecurityGroupReferences'] as $item) {
-                    $model->securityGroupReferences[$n++] = null !== $item ? securityGroupReferences::fromMap($item) : $item;
-                }
-            }
+            $model->securityGroupReferences = securityGroupReferences::fromMap($map['SecurityGroupReferences']);
         }
 
         return $model;

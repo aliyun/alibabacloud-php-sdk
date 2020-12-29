@@ -15,7 +15,7 @@ class DescribeSpotAdviceResponseBody extends Model
     public $requestId;
 
     /**
-     * @var availableSpotZones[]
+     * @var availableSpotZones
      */
     public $availableSpotZones;
 
@@ -40,13 +40,7 @@ class DescribeSpotAdviceResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->availableSpotZones) {
-            $res['AvailableSpotZones'] = [];
-            if (null !== $this->availableSpotZones && \is_array($this->availableSpotZones)) {
-                $n = 0;
-                foreach ($this->availableSpotZones as $item) {
-                    $res['AvailableSpotZones'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['AvailableSpotZones'] = null !== $this->availableSpotZones ? $this->availableSpotZones->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -67,13 +61,7 @@ class DescribeSpotAdviceResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['AvailableSpotZones'])) {
-            if (!empty($map['AvailableSpotZones'])) {
-                $model->availableSpotZones = [];
-                $n                         = 0;
-                foreach ($map['AvailableSpotZones'] as $item) {
-                    $model->availableSpotZones[$n++] = null !== $item ? availableSpotZones::fromMap($item) : $item;
-                }
-            }
+            $model->availableSpotZones = availableSpotZones::fromMap($map['AvailableSpotZones']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

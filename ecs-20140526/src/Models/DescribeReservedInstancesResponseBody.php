@@ -30,7 +30,7 @@ class DescribeReservedInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var reservedInstances[]
+     * @var reservedInstances
      */
     public $reservedInstances;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeReservedInstancesResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->reservedInstances) {
-            $res['ReservedInstances'] = [];
-            if (null !== $this->reservedInstances && \is_array($this->reservedInstances)) {
-                $n = 0;
-                foreach ($this->reservedInstances as $item) {
-                    $res['ReservedInstances'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ReservedInstances'] = null !== $this->reservedInstances ? $this->reservedInstances->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeReservedInstancesResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['ReservedInstances'])) {
-            if (!empty($map['ReservedInstances'])) {
-                $model->reservedInstances = [];
-                $n                        = 0;
-                foreach ($map['ReservedInstances'] as $item) {
-                    $model->reservedInstances[$n++] = null !== $item ? reservedInstances::fromMap($item) : $item;
-                }
-            }
+            $model->reservedInstances = reservedInstances::fromMap($map['ReservedInstances']);
         }
 
         return $model;

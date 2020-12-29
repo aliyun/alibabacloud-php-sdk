@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantStatusResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantStatusResponseBody\instanceCloudAssistantStatusSet\instanceCloudAssistantStatus;
 use AlibabaCloud\Tea\Model;
 
 class instanceCloudAssistantStatusSet extends Model
 {
     /**
-     * @var string
+     * @var instanceCloudAssistantStatus[]
      */
-    public $cloudAssistantStatus;
-
-    /**
-     * @var string
-     */
-    public $cloudAssistantVersion;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $instanceCloudAssistantStatus;
     protected $_name = [
-        'cloudAssistantStatus'  => 'CloudAssistantStatus',
-        'cloudAssistantVersion' => 'CloudAssistantVersion',
-        'instanceId'            => 'InstanceId',
+        'instanceCloudAssistantStatus' => 'InstanceCloudAssistantStatus',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class instanceCloudAssistantStatusSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cloudAssistantStatus) {
-            $res['CloudAssistantStatus'] = $this->cloudAssistantStatus;
-        }
-        if (null !== $this->cloudAssistantVersion) {
-            $res['CloudAssistantVersion'] = $this->cloudAssistantVersion;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->instanceCloudAssistantStatus) {
+            $res['InstanceCloudAssistantStatus'] = [];
+            if (null !== $this->instanceCloudAssistantStatus && \is_array($this->instanceCloudAssistantStatus)) {
+                $n = 0;
+                foreach ($this->instanceCloudAssistantStatus as $item) {
+                    $res['InstanceCloudAssistantStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class instanceCloudAssistantStatusSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CloudAssistantStatus'])) {
-            $model->cloudAssistantStatus = $map['CloudAssistantStatus'];
-        }
-        if (isset($map['CloudAssistantVersion'])) {
-            $model->cloudAssistantVersion = $map['CloudAssistantVersion'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['InstanceCloudAssistantStatus'])) {
+            if (!empty($map['InstanceCloudAssistantStatus'])) {
+                $model->instanceCloudAssistantStatus = [];
+                $n                                   = 0;
+                foreach ($map['InstanceCloudAssistantStatus'] as $item) {
+                    $model->instanceCloudAssistantStatus[$n++] = null !== $item ? instanceCloudAssistantStatus::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

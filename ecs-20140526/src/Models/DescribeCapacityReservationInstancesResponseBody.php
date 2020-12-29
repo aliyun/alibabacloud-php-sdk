@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCapacityReservationInstancesResponseBody extends Model
 {
     /**
-     * @var capacityReservationItem[]
+     * @var capacityReservationItem
      */
     public $capacityReservationItem;
 
@@ -49,13 +49,7 @@ class DescribeCapacityReservationInstancesResponseBody extends Model
     {
         $res = [];
         if (null !== $this->capacityReservationItem) {
-            $res['CapacityReservationItem'] = [];
-            if (null !== $this->capacityReservationItem && \is_array($this->capacityReservationItem)) {
-                $n = 0;
-                foreach ($this->capacityReservationItem as $item) {
-                    $res['CapacityReservationItem'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['CapacityReservationItem'] = null !== $this->capacityReservationItem ? $this->capacityReservationItem->toMap() : null;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -82,13 +76,7 @@ class DescribeCapacityReservationInstancesResponseBody extends Model
     {
         $model = new self();
         if (isset($map['CapacityReservationItem'])) {
-            if (!empty($map['CapacityReservationItem'])) {
-                $model->capacityReservationItem = [];
-                $n                              = 0;
-                foreach ($map['CapacityReservationItem'] as $item) {
-                    $model->capacityReservationItem[$n++] = null !== $item ? capacityReservationItem::fromMap($item) : $item;
-                }
-            }
+            $model->capacityReservationItem = capacityReservationItem::fromMap($map['CapacityReservationItem']);
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

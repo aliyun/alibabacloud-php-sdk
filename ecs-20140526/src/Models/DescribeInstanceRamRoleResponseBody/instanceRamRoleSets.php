@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceRamRoleResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceRamRoleResponseBody\instanceRamRoleSets\instanceRamRoleSet;
 use AlibabaCloud\Tea\Model;
 
 class instanceRamRoleSets extends Model
 {
     /**
-     * @var string
+     * @var instanceRamRoleSet[]
      */
-    public $ramRoleName;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $instanceRamRoleSet;
     protected $_name = [
-        'ramRoleName' => 'RamRoleName',
-        'instanceId'  => 'InstanceId',
+        'instanceRamRoleSet' => 'InstanceRamRoleSet',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class instanceRamRoleSets extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ramRoleName) {
-            $res['RamRoleName'] = $this->ramRoleName;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->instanceRamRoleSet) {
+            $res['InstanceRamRoleSet'] = [];
+            if (null !== $this->instanceRamRoleSet && \is_array($this->instanceRamRoleSet)) {
+                $n = 0;
+                foreach ($this->instanceRamRoleSet as $item) {
+                    $res['InstanceRamRoleSet'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class instanceRamRoleSets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RamRoleName'])) {
-            $model->ramRoleName = $map['RamRoleName'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['InstanceRamRoleSet'])) {
+            if (!empty($map['InstanceRamRoleSet'])) {
+                $model->instanceRamRoleSet = [];
+                $n                         = 0;
+                foreach ($map['InstanceRamRoleSet'] as $item) {
+                    $model->instanceRamRoleSet[$n++] = null !== $item ? instanceRamRoleSet::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

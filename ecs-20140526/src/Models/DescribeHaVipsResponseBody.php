@@ -15,7 +15,7 @@ class DescribeHaVipsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @var haVips[]
+     * @var haVips
      */
     public $haVips;
 
@@ -52,13 +52,7 @@ class DescribeHaVipsResponseBody extends Model
             $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->haVips) {
-            $res['HaVips'] = [];
-            if (null !== $this->haVips && \is_array($this->haVips)) {
-                $n = 0;
-                foreach ($this->haVips as $item) {
-                    $res['HaVips'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['HaVips'] = null !== $this->haVips ? $this->haVips->toMap() : null;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -85,13 +79,7 @@ class DescribeHaVipsResponseBody extends Model
             $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['HaVips'])) {
-            if (!empty($map['HaVips'])) {
-                $model->haVips = [];
-                $n             = 0;
-                foreach ($map['HaVips'] as $item) {
-                    $model->haVips[$n++] = null !== $item ? haVips::fromMap($item) : $item;
-                }
-            }
+            $model->haVips = haVips::fromMap($map['HaVips']);
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

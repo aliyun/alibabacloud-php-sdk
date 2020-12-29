@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeRespo
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\attachment;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv6Sets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\privateIpSets;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\securityGroupIds;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -79,7 +80,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $networkInterfaceId;
 
     /**
-     * @var string[]
+     * @var securityGroupIds
      */
     public $securityGroupIds;
 
@@ -99,7 +100,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $queueNumber;
 
     /**
-     * @var ipv6Sets[]
+     * @var ipv6Sets
      */
     public $ipv6Sets;
 
@@ -124,12 +125,12 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $creationTime;
 
     /**
-     * @var tags[]
+     * @var tags
      */
     public $tags;
 
     /**
-     * @var privateIpSets[]
+     * @var privateIpSets
      */
     public $privateIpSets;
     protected $_name = [
@@ -206,7 +207,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
         if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = $this->securityGroupIds;
+            $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
         }
         if (null !== $this->serviceID) {
             $res['ServiceID'] = $this->serviceID;
@@ -218,13 +219,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
             $res['QueueNumber'] = $this->queueNumber;
         }
         if (null !== $this->ipv6Sets) {
-            $res['Ipv6Sets'] = [];
-            if (null !== $this->ipv6Sets && \is_array($this->ipv6Sets)) {
-                $n = 0;
-                foreach ($this->ipv6Sets as $item) {
-                    $res['Ipv6Sets'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Ipv6Sets'] = null !== $this->ipv6Sets ? $this->ipv6Sets->toMap() : null;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -239,22 +234,10 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
             $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->privateIpSets) {
-            $res['PrivateIpSets'] = [];
-            if (null !== $this->privateIpSets && \is_array($this->privateIpSets)) {
-                $n = 0;
-                foreach ($this->privateIpSets as $item) {
-                    $res['PrivateIpSets'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['PrivateIpSets'] = null !== $this->privateIpSets ? $this->privateIpSets->toMap() : null;
         }
 
         return $res;
@@ -308,9 +291,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
         if (isset($map['SecurityGroupIds'])) {
-            if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = $map['SecurityGroupIds'];
-            }
+            $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
         }
         if (isset($map['ServiceID'])) {
             $model->serviceID = $map['ServiceID'];
@@ -322,13 +303,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
             $model->queueNumber = $map['QueueNumber'];
         }
         if (isset($map['Ipv6Sets'])) {
-            if (!empty($map['Ipv6Sets'])) {
-                $model->ipv6Sets = [];
-                $n               = 0;
-                foreach ($map['Ipv6Sets'] as $item) {
-                    $model->ipv6Sets[$n++] = null !== $item ? ipv6Sets::fromMap($item) : $item;
-                }
-            }
+            $model->ipv6Sets = ipv6Sets::fromMap($map['Ipv6Sets']);
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
@@ -343,22 +318,10 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
             $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['PrivateIpSets'])) {
-            if (!empty($map['PrivateIpSets'])) {
-                $model->privateIpSets = [];
-                $n                    = 0;
-                foreach ($map['PrivateIpSets'] as $item) {
-                    $model->privateIpSets[$n++] = null !== $item ? privateIpSets::fromMap($item) : $item;
-                }
-            }
+            $model->privateIpSets = privateIpSets::fromMap($map['PrivateIpSets']);
         }
 
         return $model;

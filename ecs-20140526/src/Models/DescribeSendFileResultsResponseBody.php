@@ -30,7 +30,7 @@ class DescribeSendFileResultsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var invocations[]
+     * @var invocations
      */
     public $invocations;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeSendFileResultsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->invocations) {
-            $res['Invocations'] = [];
-            if (null !== $this->invocations && \is_array($this->invocations)) {
-                $n = 0;
-                foreach ($this->invocations as $item) {
-                    $res['Invocations'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Invocations'] = null !== $this->invocations ? $this->invocations->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeSendFileResultsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['Invocations'])) {
-            if (!empty($map['Invocations'])) {
-                $model->invocations = [];
-                $n                  = 0;
-                foreach ($map['Invocations'] as $item) {
-                    $model->invocations[$n++] = null !== $item ? invocations::fromMap($item) : $item;
-                }
-            }
+            $model->invocations = invocations::fromMap($map['Invocations']);
         }
 
         return $model;

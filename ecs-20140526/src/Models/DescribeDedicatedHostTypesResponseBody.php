@@ -15,7 +15,7 @@ class DescribeDedicatedHostTypesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var dedicatedHostTypes[]
+     * @var dedicatedHostTypes
      */
     public $dedicatedHostTypes;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeDedicatedHostTypesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->dedicatedHostTypes) {
-            $res['DedicatedHostTypes'] = [];
-            if (null !== $this->dedicatedHostTypes && \is_array($this->dedicatedHostTypes)) {
-                $n = 0;
-                foreach ($this->dedicatedHostTypes as $item) {
-                    $res['DedicatedHostTypes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DedicatedHostTypes'] = null !== $this->dedicatedHostTypes ? $this->dedicatedHostTypes->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeDedicatedHostTypesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DedicatedHostTypes'])) {
-            if (!empty($map['DedicatedHostTypes'])) {
-                $model->dedicatedHostTypes = [];
-                $n                         = 0;
-                foreach ($map['DedicatedHostTypes'] as $item) {
-                    $model->dedicatedHostTypes[$n++] = null !== $item ? dedicatedHostTypes::fromMap($item) : $item;
-                }
-            }
+            $model->dedicatedHostTypes = dedicatedHostTypes::fromMap($map['DedicatedHostTypes']);
         }
 
         return $model;

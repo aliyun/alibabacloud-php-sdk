@@ -30,7 +30,7 @@ class DescribeImagesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var images[]
+     * @var images
      */
     public $images;
 
@@ -67,13 +67,7 @@ class DescribeImagesResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->images) {
-            $res['Images'] = [];
-            if (null !== $this->images && \is_array($this->images)) {
-                $n = 0;
-                foreach ($this->images as $item) {
-                    $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Images'] = null !== $this->images ? $this->images->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -103,13 +97,7 @@ class DescribeImagesResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['Images'])) {
-            if (!empty($map['Images'])) {
-                $model->images = [];
-                $n             = 0;
-                foreach ($map['Images'] as $item) {
-                    $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
-                }
-            }
+            $model->images = images::fromMap($map['Images']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

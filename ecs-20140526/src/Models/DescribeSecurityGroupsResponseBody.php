@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsResponseBody extends Model
 {
     /**
-     * @var securityGroups[]
+     * @var securityGroups
      */
     public $securityGroups;
 
@@ -55,13 +55,7 @@ class DescribeSecurityGroupsResponseBody extends Model
     {
         $res = [];
         if (null !== $this->securityGroups) {
-            $res['SecurityGroups'] = [];
-            if (null !== $this->securityGroups && \is_array($this->securityGroups)) {
-                $n = 0;
-                foreach ($this->securityGroups as $item) {
-                    $res['SecurityGroups'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['SecurityGroups'] = null !== $this->securityGroups ? $this->securityGroups->toMap() : null;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -91,13 +85,7 @@ class DescribeSecurityGroupsResponseBody extends Model
     {
         $model = new self();
         if (isset($map['SecurityGroups'])) {
-            if (!empty($map['SecurityGroups'])) {
-                $model->securityGroups = [];
-                $n                     = 0;
-                foreach ($map['SecurityGroups'] as $item) {
-                    $model->securityGroups[$n++] = null !== $item ? securityGroups::fromMap($item) : $item;
-                }
-            }
+            $model->securityGroups = securityGroups::fromMap($map['SecurityGroups']);
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

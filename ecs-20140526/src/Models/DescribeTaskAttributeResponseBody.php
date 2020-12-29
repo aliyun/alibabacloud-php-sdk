@@ -55,7 +55,7 @@ class DescribeTaskAttributeResponseBody extends Model
     public $supportCancel;
 
     /**
-     * @var operationProgressSet[]
+     * @var operationProgressSet
      */
     public $operationProgressSet;
 
@@ -124,13 +124,7 @@ class DescribeTaskAttributeResponseBody extends Model
             $res['SupportCancel'] = $this->supportCancel;
         }
         if (null !== $this->operationProgressSet) {
-            $res['OperationProgressSet'] = [];
-            if (null !== $this->operationProgressSet && \is_array($this->operationProgressSet)) {
-                $n = 0;
-                foreach ($this->operationProgressSet as $item) {
-                    $res['OperationProgressSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['OperationProgressSet'] = null !== $this->operationProgressSet ? $this->operationProgressSet->toMap() : null;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
@@ -181,13 +175,7 @@ class DescribeTaskAttributeResponseBody extends Model
             $model->supportCancel = $map['SupportCancel'];
         }
         if (isset($map['OperationProgressSet'])) {
-            if (!empty($map['OperationProgressSet'])) {
-                $model->operationProgressSet = [];
-                $n                           = 0;
-                foreach ($map['OperationProgressSet'] as $item) {
-                    $model->operationProgressSet[$n++] = null !== $item ? operationProgressSet::fromMap($item) : $item;
-                }
-            }
+            $model->operationProgressSet = operationProgressSet::fromMap($map['OperationProgressSet']);
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];

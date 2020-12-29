@@ -15,7 +15,7 @@ class DescribeZonesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var zones[]
+     * @var zones
      */
     public $zones;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeZonesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->zones) {
-            $res['Zones'] = [];
-            if (null !== $this->zones && \is_array($this->zones)) {
-                $n = 0;
-                foreach ($this->zones as $item) {
-                    $res['Zones'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeZonesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Zones'])) {
-            if (!empty($map['Zones'])) {
-                $model->zones = [];
-                $n            = 0;
-                foreach ($map['Zones'] as $item) {
-                    $model->zones[$n++] = null !== $item ? zones::fromMap($item) : $item;
-                }
-            }
+            $model->zones = zones::fromMap($map['Zones']);
         }
 
         return $model;

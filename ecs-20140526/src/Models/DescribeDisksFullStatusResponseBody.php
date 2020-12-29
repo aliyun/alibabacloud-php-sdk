@@ -30,7 +30,7 @@ class DescribeDisksFullStatusResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var diskFullStatusSet[]
+     * @var diskFullStatusSet
      */
     public $diskFullStatusSet;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeDisksFullStatusResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->diskFullStatusSet) {
-            $res['DiskFullStatusSet'] = [];
-            if (null !== $this->diskFullStatusSet && \is_array($this->diskFullStatusSet)) {
-                $n = 0;
-                foreach ($this->diskFullStatusSet as $item) {
-                    $res['DiskFullStatusSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DiskFullStatusSet'] = null !== $this->diskFullStatusSet ? $this->diskFullStatusSet->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeDisksFullStatusResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['DiskFullStatusSet'])) {
-            if (!empty($map['DiskFullStatusSet'])) {
-                $model->diskFullStatusSet = [];
-                $n                        = 0;
-                foreach ($map['DiskFullStatusSet'] as $item) {
-                    $model->diskFullStatusSet[$n++] = null !== $item ? diskFullStatusSet::fromMap($item) : $item;
-                }
-            }
+            $model->diskFullStatusSet = diskFullStatusSet::fromMap($map['DiskFullStatusSet']);
         }
 
         return $model;

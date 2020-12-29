@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypeFamiliesResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypeFamiliesResponseBody\instanceTypeFamilies\instanceTypeFamily;
 use AlibabaCloud\Tea\Model;
 
 class instanceTypeFamilies extends Model
 {
     /**
-     * @var string
+     * @var instanceTypeFamily[]
      */
-    public $instanceTypeFamilyId;
-
-    /**
-     * @var string
-     */
-    public $generation;
+    public $instanceTypeFamily;
     protected $_name = [
-        'instanceTypeFamilyId' => 'InstanceTypeFamilyId',
-        'generation'           => 'Generation',
+        'instanceTypeFamily' => 'InstanceTypeFamily',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class instanceTypeFamilies extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceTypeFamilyId) {
-            $res['InstanceTypeFamilyId'] = $this->instanceTypeFamilyId;
-        }
-        if (null !== $this->generation) {
-            $res['Generation'] = $this->generation;
+        if (null !== $this->instanceTypeFamily) {
+            $res['InstanceTypeFamily'] = [];
+            if (null !== $this->instanceTypeFamily && \is_array($this->instanceTypeFamily)) {
+                $n = 0;
+                foreach ($this->instanceTypeFamily as $item) {
+                    $res['InstanceTypeFamily'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class instanceTypeFamilies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceTypeFamilyId'])) {
-            $model->instanceTypeFamilyId = $map['InstanceTypeFamilyId'];
-        }
-        if (isset($map['Generation'])) {
-            $model->generation = $map['Generation'];
+        if (isset($map['InstanceTypeFamily'])) {
+            if (!empty($map['InstanceTypeFamily'])) {
+                $model->instanceTypeFamily = [];
+                $n                         = 0;
+                foreach ($map['InstanceTypeFamily'] as $item) {
+                    $model->instanceTypeFamily[$n++] = null !== $item ? instanceTypeFamily::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

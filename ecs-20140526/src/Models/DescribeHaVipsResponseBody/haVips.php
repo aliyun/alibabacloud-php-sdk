@@ -4,76 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHaVipsResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHaVipsResponseBody\haVips\haVip;
 use AlibabaCloud\Tea\Model;
 
 class haVips extends Model
 {
     /**
-     * @var string
+     * @var haVip[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $ipAddress;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $haVipId;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string[]
-     */
-    public $associatedInstances;
-
-    /**
-     * @var string
-     */
-    public $masterInstanceId;
-
-    /**
-     * @var string[]
-     */
-    public $associatedEipAddresses;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $haVip;
     protected $_name = [
-        'status'                 => 'Status',
-        'vpcId'                  => 'VpcId',
-        'vSwitchId'              => 'VSwitchId',
-        'ipAddress'              => 'IpAddress',
-        'description'            => 'Description',
-        'haVipId'                => 'HaVipId',
-        'createTime'             => 'CreateTime',
-        'associatedInstances'    => 'AssociatedInstances',
-        'masterInstanceId'       => 'MasterInstanceId',
-        'associatedEipAddresses' => 'AssociatedEipAddresses',
-        'regionId'               => 'RegionId',
+        'haVip' => 'HaVip',
     ];
 
     public function validate()
@@ -83,38 +24,14 @@ class haVips extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->ipAddress) {
-            $res['IpAddress'] = $this->ipAddress;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->haVipId) {
-            $res['HaVipId'] = $this->haVipId;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->associatedInstances) {
-            $res['AssociatedInstances'] = $this->associatedInstances;
-        }
-        if (null !== $this->masterInstanceId) {
-            $res['MasterInstanceId'] = $this->masterInstanceId;
-        }
-        if (null !== $this->associatedEipAddresses) {
-            $res['AssociatedEipAddresses'] = $this->associatedEipAddresses;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->haVip) {
+            $res['HaVip'] = [];
+            if (null !== $this->haVip && \is_array($this->haVip)) {
+                $n = 0;
+                foreach ($this->haVip as $item) {
+                    $res['HaVip'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -128,42 +45,14 @@ class haVips extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['IpAddress'])) {
-            $model->ipAddress = $map['IpAddress'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['HaVipId'])) {
-            $model->haVipId = $map['HaVipId'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['AssociatedInstances'])) {
-            if (!empty($map['AssociatedInstances'])) {
-                $model->associatedInstances = $map['AssociatedInstances'];
+        if (isset($map['HaVip'])) {
+            if (!empty($map['HaVip'])) {
+                $model->haVip = [];
+                $n            = 0;
+                foreach ($map['HaVip'] as $item) {
+                    $model->haVip[$n++] = null !== $item ? haVip::fromMap($item) : $item;
+                }
             }
-        }
-        if (isset($map['MasterInstanceId'])) {
-            $model->masterInstanceId = $map['MasterInstanceId'];
-        }
-        if (isset($map['AssociatedEipAddresses'])) {
-            if (!empty($map['AssociatedEipAddresses'])) {
-                $model->associatedEipAddresses = $map['AssociatedEipAddresses'];
-            }
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

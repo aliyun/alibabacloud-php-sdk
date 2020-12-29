@@ -30,7 +30,7 @@ class DescribeKeyPairsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var keyPairs[]
+     * @var keyPairs
      */
     public $keyPairs;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeKeyPairsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->keyPairs) {
-            $res['KeyPairs'] = [];
-            if (null !== $this->keyPairs && \is_array($this->keyPairs)) {
-                $n = 0;
-                foreach ($this->keyPairs as $item) {
-                    $res['KeyPairs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['KeyPairs'] = null !== $this->keyPairs ? $this->keyPairs->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeKeyPairsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['KeyPairs'])) {
-            if (!empty($map['KeyPairs'])) {
-                $model->keyPairs = [];
-                $n               = 0;
-                foreach ($map['KeyPairs'] as $item) {
-                    $model->keyPairs[$n++] = null !== $item ? keyPairs::fromMap($item) : $item;
-                }
-            }
+            $model->keyPairs = keyPairs::fromMap($map['KeyPairs']);
         }
 
         return $model;

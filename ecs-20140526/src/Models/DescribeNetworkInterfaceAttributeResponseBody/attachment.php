@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\attachment\memberNetworkInterfaceIds;
 use AlibabaCloud\Tea\Model;
 
 class attachment extends Model
@@ -19,7 +20,7 @@ class attachment extends Model
     public $instanceId;
 
     /**
-     * @var string[]
+     * @var memberNetworkInterfaceIds
      */
     public $memberNetworkInterfaceIds;
 
@@ -48,7 +49,7 @@ class attachment extends Model
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->memberNetworkInterfaceIds) {
-            $res['MemberNetworkInterfaceIds'] = $this->memberNetworkInterfaceIds;
+            $res['MemberNetworkInterfaceIds'] = null !== $this->memberNetworkInterfaceIds ? $this->memberNetworkInterfaceIds->toMap() : null;
         }
         if (null !== $this->trunkNetworkInterfaceId) {
             $res['TrunkNetworkInterfaceId'] = $this->trunkNetworkInterfaceId;
@@ -72,9 +73,7 @@ class attachment extends Model
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['MemberNetworkInterfaceIds'])) {
-            if (!empty($map['MemberNetworkInterfaceIds'])) {
-                $model->memberNetworkInterfaceIds = $map['MemberNetworkInterfaceIds'];
-            }
+            $model->memberNetworkInterfaceIds = memberNetworkInterfaceIds::fromMap($map['MemberNetworkInterfaceIds']);
         }
         if (isset($map['TrunkNetworkInterfaceId'])) {
             $model->trunkNetworkInterfaceId = $map['TrunkNetworkInterfaceId'];

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionsResponseBody extends Model
 {
     /**
-     * @var physicalConnectionSet[]
+     * @var physicalConnectionSet
      */
     public $physicalConnectionSet;
 
@@ -49,13 +49,7 @@ class DescribePhysicalConnectionsResponseBody extends Model
     {
         $res = [];
         if (null !== $this->physicalConnectionSet) {
-            $res['PhysicalConnectionSet'] = [];
-            if (null !== $this->physicalConnectionSet && \is_array($this->physicalConnectionSet)) {
-                $n = 0;
-                foreach ($this->physicalConnectionSet as $item) {
-                    $res['PhysicalConnectionSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['PhysicalConnectionSet'] = null !== $this->physicalConnectionSet ? $this->physicalConnectionSet->toMap() : null;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -82,13 +76,7 @@ class DescribePhysicalConnectionsResponseBody extends Model
     {
         $model = new self();
         if (isset($map['PhysicalConnectionSet'])) {
-            if (!empty($map['PhysicalConnectionSet'])) {
-                $model->physicalConnectionSet = [];
-                $n                            = 0;
-                foreach ($map['PhysicalConnectionSet'] as $item) {
-                    $model->physicalConnectionSet[$n++] = null !== $item ? physicalConnectionSet::fromMap($item) : $item;
-                }
-            }
+            $model->physicalConnectionSet = physicalConnectionSet::fromMap($map['PhysicalConnectionSet']);
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

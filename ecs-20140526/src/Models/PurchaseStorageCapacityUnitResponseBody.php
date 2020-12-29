@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\PurchaseStorageCapacityUnitResponseBody\storageCapacityUnitIds;
 use AlibabaCloud\Tea\Model;
 
 class PurchaseStorageCapacityUnitResponseBody extends Model
 {
     /**
-     * @var string[]
+     * @var storageCapacityUnitIds
      */
     public $storageCapacityUnitIds;
 
@@ -36,7 +37,7 @@ class PurchaseStorageCapacityUnitResponseBody extends Model
     {
         $res = [];
         if (null !== $this->storageCapacityUnitIds) {
-            $res['StorageCapacityUnitIds'] = $this->storageCapacityUnitIds;
+            $res['StorageCapacityUnitIds'] = null !== $this->storageCapacityUnitIds ? $this->storageCapacityUnitIds->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -57,9 +58,7 @@ class PurchaseStorageCapacityUnitResponseBody extends Model
     {
         $model = new self();
         if (isset($map['StorageCapacityUnitIds'])) {
-            if (!empty($map['StorageCapacityUnitIds'])) {
-                $model->storageCapacityUnitIds = $map['StorageCapacityUnitIds'];
-            }
+            $model->storageCapacityUnitIds = storageCapacityUnitIds::fromMap($map['StorageCapacityUnitIds']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

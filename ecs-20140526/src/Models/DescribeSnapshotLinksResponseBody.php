@@ -15,7 +15,7 @@ class DescribeSnapshotLinksResponseBody extends Model
     public $totalCount;
 
     /**
-     * @var snapshotLinks[]
+     * @var snapshotLinks
      */
     public $snapshotLinks;
 
@@ -52,13 +52,7 @@ class DescribeSnapshotLinksResponseBody extends Model
             $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->snapshotLinks) {
-            $res['SnapshotLinks'] = [];
-            if (null !== $this->snapshotLinks && \is_array($this->snapshotLinks)) {
-                $n = 0;
-                foreach ($this->snapshotLinks as $item) {
-                    $res['SnapshotLinks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['SnapshotLinks'] = null !== $this->snapshotLinks ? $this->snapshotLinks->toMap() : null;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -85,13 +79,7 @@ class DescribeSnapshotLinksResponseBody extends Model
             $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['SnapshotLinks'])) {
-            if (!empty($map['SnapshotLinks'])) {
-                $model->snapshotLinks = [];
-                $n                    = 0;
-                foreach ($map['SnapshotLinks'] as $item) {
-                    $model->snapshotLinks[$n++] = null !== $item ? snapshotLinks::fromMap($item) : $item;
-                }
-            }
+            $model->snapshotLinks = snapshotLinks::fromMap($map['SnapshotLinks']);
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

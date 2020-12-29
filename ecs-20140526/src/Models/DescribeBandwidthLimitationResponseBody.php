@@ -15,7 +15,7 @@ class DescribeBandwidthLimitationResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bandwidths[]
+     * @var bandwidths
      */
     public $bandwidths;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeBandwidthLimitationResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->bandwidths) {
-            $res['Bandwidths'] = [];
-            if (null !== $this->bandwidths && \is_array($this->bandwidths)) {
-                $n = 0;
-                foreach ($this->bandwidths as $item) {
-                    $res['Bandwidths'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Bandwidths'] = null !== $this->bandwidths ? $this->bandwidths->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeBandwidthLimitationResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Bandwidths'])) {
-            if (!empty($map['Bandwidths'])) {
-                $model->bandwidths = [];
-                $n                 = 0;
-                foreach ($map['Bandwidths'] as $item) {
-                    $model->bandwidths[$n++] = null !== $item ? bandwidths::fromMap($item) : $item;
-                }
-            }
+            $model->bandwidths = bandwidths::fromMap($map['Bandwidths']);
         }
 
         return $model;

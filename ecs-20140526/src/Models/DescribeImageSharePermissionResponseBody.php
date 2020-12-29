@@ -41,12 +41,12 @@ class DescribeImageSharePermissionResponseBody extends Model
     public $regionId;
 
     /**
-     * @var shareGroups[]
+     * @var shareGroups
      */
     public $shareGroups;
 
     /**
-     * @var accounts[]
+     * @var accounts
      */
     public $accounts;
     protected $_name = [
@@ -86,22 +86,10 @@ class DescribeImageSharePermissionResponseBody extends Model
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->shareGroups) {
-            $res['ShareGroups'] = [];
-            if (null !== $this->shareGroups && \is_array($this->shareGroups)) {
-                $n = 0;
-                foreach ($this->shareGroups as $item) {
-                    $res['ShareGroups'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ShareGroups'] = null !== $this->shareGroups ? $this->shareGroups->toMap() : null;
         }
         if (null !== $this->accounts) {
-            $res['Accounts'] = [];
-            if (null !== $this->accounts && \is_array($this->accounts)) {
-                $n = 0;
-                foreach ($this->accounts as $item) {
-                    $res['Accounts'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
         }
 
         return $res;
@@ -134,22 +122,10 @@ class DescribeImageSharePermissionResponseBody extends Model
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ShareGroups'])) {
-            if (!empty($map['ShareGroups'])) {
-                $model->shareGroups = [];
-                $n                  = 0;
-                foreach ($map['ShareGroups'] as $item) {
-                    $model->shareGroups[$n++] = null !== $item ? shareGroups::fromMap($item) : $item;
-                }
-            }
+            $model->shareGroups = shareGroups::fromMap($map['ShareGroups']);
         }
         if (isset($map['Accounts'])) {
-            if (!empty($map['Accounts'])) {
-                $model->accounts = [];
-                $n               = 0;
-                foreach ($map['Accounts'] as $item) {
-                    $model->accounts[$n++] = null !== $item ? accounts::fromMap($item) : $item;
-                }
-            }
+            $model->accounts = accounts::fromMap($map['Accounts']);
         }
 
         return $model;

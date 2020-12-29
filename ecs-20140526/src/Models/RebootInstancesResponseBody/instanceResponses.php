@@ -4,40 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\RebootInstancesResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RebootInstancesResponseBody\instanceResponses\instanceResponse;
 use AlibabaCloud\Tea\Model;
 
 class instanceResponses extends Model
 {
     /**
-     * @var string
+     * @var instanceResponse[]
      */
-    public $currentStatus;
-
-    /**
-     * @var string
-     */
-    public $previousStatus;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $instanceResponse;
     protected $_name = [
-        'currentStatus'  => 'CurrentStatus',
-        'previousStatus' => 'PreviousStatus',
-        'code'           => 'Code',
-        'message'        => 'Message',
-        'instanceId'     => 'InstanceId',
+        'instanceResponse' => 'InstanceResponse',
     ];
 
     public function validate()
@@ -47,20 +24,14 @@ class instanceResponses extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->currentStatus) {
-            $res['CurrentStatus'] = $this->currentStatus;
-        }
-        if (null !== $this->previousStatus) {
-            $res['PreviousStatus'] = $this->previousStatus;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->instanceResponse) {
+            $res['InstanceResponse'] = [];
+            if (null !== $this->instanceResponse && \is_array($this->instanceResponse)) {
+                $n = 0;
+                foreach ($this->instanceResponse as $item) {
+                    $res['InstanceResponse'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -74,20 +45,14 @@ class instanceResponses extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CurrentStatus'])) {
-            $model->currentStatus = $map['CurrentStatus'];
-        }
-        if (isset($map['PreviousStatus'])) {
-            $model->previousStatus = $map['PreviousStatus'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['InstanceResponse'])) {
+            if (!empty($map['InstanceResponse'])) {
+                $model->instanceResponse = [];
+                $n                       = 0;
+                foreach ($map['InstanceResponse'] as $item) {
+                    $model->instanceResponse[$n++] = null !== $item ? instanceResponse::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

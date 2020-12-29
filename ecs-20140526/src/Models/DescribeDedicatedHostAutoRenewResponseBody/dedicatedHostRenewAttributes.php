@@ -4,40 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostAutoRenewResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostAutoRenewResponseBody\dedicatedHostRenewAttributes\dedicatedHostRenewAttribute;
 use AlibabaCloud\Tea\Model;
 
 class dedicatedHostRenewAttributes extends Model
 {
     /**
-     * @var string
+     * @var dedicatedHostRenewAttribute[]
      */
-    public $periodUnit;
-
-    /**
-     * @var int
-     */
-    public $duration;
-
-    /**
-     * @var string
-     */
-    public $dedicatedHostId;
-
-    /**
-     * @var string
-     */
-    public $renewalStatus;
-
-    /**
-     * @var bool
-     */
-    public $autoRenewEnabled;
+    public $dedicatedHostRenewAttribute;
     protected $_name = [
-        'periodUnit'       => 'PeriodUnit',
-        'duration'         => 'Duration',
-        'dedicatedHostId'  => 'DedicatedHostId',
-        'renewalStatus'    => 'RenewalStatus',
-        'autoRenewEnabled' => 'AutoRenewEnabled',
+        'dedicatedHostRenewAttribute' => 'DedicatedHostRenewAttribute',
     ];
 
     public function validate()
@@ -47,20 +24,14 @@ class dedicatedHostRenewAttributes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->periodUnit) {
-            $res['PeriodUnit'] = $this->periodUnit;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->dedicatedHostId) {
-            $res['DedicatedHostId'] = $this->dedicatedHostId;
-        }
-        if (null !== $this->renewalStatus) {
-            $res['RenewalStatus'] = $this->renewalStatus;
-        }
-        if (null !== $this->autoRenewEnabled) {
-            $res['AutoRenewEnabled'] = $this->autoRenewEnabled;
+        if (null !== $this->dedicatedHostRenewAttribute) {
+            $res['DedicatedHostRenewAttribute'] = [];
+            if (null !== $this->dedicatedHostRenewAttribute && \is_array($this->dedicatedHostRenewAttribute)) {
+                $n = 0;
+                foreach ($this->dedicatedHostRenewAttribute as $item) {
+                    $res['DedicatedHostRenewAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -74,20 +45,14 @@ class dedicatedHostRenewAttributes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PeriodUnit'])) {
-            $model->periodUnit = $map['PeriodUnit'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
-        if (isset($map['DedicatedHostId'])) {
-            $model->dedicatedHostId = $map['DedicatedHostId'];
-        }
-        if (isset($map['RenewalStatus'])) {
-            $model->renewalStatus = $map['RenewalStatus'];
-        }
-        if (isset($map['AutoRenewEnabled'])) {
-            $model->autoRenewEnabled = $map['AutoRenewEnabled'];
+        if (isset($map['DedicatedHostRenewAttribute'])) {
+            if (!empty($map['DedicatedHostRenewAttribute'])) {
+                $model->dedicatedHostRenewAttribute = [];
+                $n                                  = 0;
+                foreach ($map['DedicatedHostRenewAttribute'] as $item) {
+                    $model->dedicatedHostRenewAttribute[$n++] = null !== $item ? dedicatedHostRenewAttribute::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

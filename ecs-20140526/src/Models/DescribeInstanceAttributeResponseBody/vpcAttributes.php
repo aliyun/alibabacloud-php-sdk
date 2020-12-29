@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\vpcAttributes\privateIpAddress;
 use AlibabaCloud\Tea\Model;
 
 class vpcAttributes extends Model
@@ -24,7 +25,7 @@ class vpcAttributes extends Model
     public $vSwitchId;
 
     /**
-     * @var string[]
+     * @var privateIpAddress
      */
     public $privateIpAddress;
     protected $_name = [
@@ -51,7 +52,7 @@ class vpcAttributes extends Model
             $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
+            $res['PrivateIpAddress'] = null !== $this->privateIpAddress ? $this->privateIpAddress->toMap() : null;
         }
 
         return $res;
@@ -75,9 +76,7 @@ class vpcAttributes extends Model
             $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['PrivateIpAddress'])) {
-            if (!empty($map['PrivateIpAddress'])) {
-                $model->privateIpAddress = $map['PrivateIpAddress'];
-            }
+            $model->privateIpAddress = privateIpAddress::fromMap($map['PrivateIpAddress']);
         }
 
         return $model;

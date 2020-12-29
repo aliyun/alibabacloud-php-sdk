@@ -30,7 +30,7 @@ class DescribeLaunchTemplateVersionsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var launchTemplateVersionSets[]
+     * @var launchTemplateVersionSets
      */
     public $launchTemplateVersionSets;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeLaunchTemplateVersionsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->launchTemplateVersionSets) {
-            $res['LaunchTemplateVersionSets'] = [];
-            if (null !== $this->launchTemplateVersionSets && \is_array($this->launchTemplateVersionSets)) {
-                $n = 0;
-                foreach ($this->launchTemplateVersionSets as $item) {
-                    $res['LaunchTemplateVersionSets'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['LaunchTemplateVersionSets'] = null !== $this->launchTemplateVersionSets ? $this->launchTemplateVersionSets->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeLaunchTemplateVersionsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['LaunchTemplateVersionSets'])) {
-            if (!empty($map['LaunchTemplateVersionSets'])) {
-                $model->launchTemplateVersionSets = [];
-                $n                                = 0;
-                foreach ($map['LaunchTemplateVersionSets'] as $item) {
-                    $model->launchTemplateVersionSets[$n++] = null !== $item ? launchTemplateVersionSets::fromMap($item) : $item;
-                }
-            }
+            $model->launchTemplateVersionSets = launchTemplateVersionSets::fromMap($map['LaunchTemplateVersionSets']);
         }
 
         return $model;

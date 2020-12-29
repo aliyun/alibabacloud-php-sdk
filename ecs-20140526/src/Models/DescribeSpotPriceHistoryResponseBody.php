@@ -25,7 +25,7 @@ class DescribeSpotPriceHistoryResponseBody extends Model
     public $nextOffset;
 
     /**
-     * @var spotPrices[]
+     * @var spotPrices
      */
     public $spotPrices;
     protected $_name = [
@@ -52,13 +52,7 @@ class DescribeSpotPriceHistoryResponseBody extends Model
             $res['NextOffset'] = $this->nextOffset;
         }
         if (null !== $this->spotPrices) {
-            $res['SpotPrices'] = [];
-            if (null !== $this->spotPrices && \is_array($this->spotPrices)) {
-                $n = 0;
-                foreach ($this->spotPrices as $item) {
-                    $res['SpotPrices'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['SpotPrices'] = null !== $this->spotPrices ? $this->spotPrices->toMap() : null;
         }
 
         return $res;
@@ -82,13 +76,7 @@ class DescribeSpotPriceHistoryResponseBody extends Model
             $model->nextOffset = $map['NextOffset'];
         }
         if (isset($map['SpotPrices'])) {
-            if (!empty($map['SpotPrices'])) {
-                $model->spotPrices = [];
-                $n                 = 0;
-                foreach ($map['SpotPrices'] as $item) {
-                    $model->spotPrices[$n++] = null !== $item ? spotPrices::fromMap($item) : $item;
-                }
-            }
+            $model->spotPrices = spotPrices::fromMap($map['SpotPrices']);
         }
 
         return $model;

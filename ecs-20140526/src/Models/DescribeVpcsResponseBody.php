@@ -15,7 +15,7 @@ class DescribeVpcsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @var vpcs[]
+     * @var vpcs
      */
     public $vpcs;
 
@@ -52,13 +52,7 @@ class DescribeVpcsResponseBody extends Model
             $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->vpcs) {
-            $res['Vpcs'] = [];
-            if (null !== $this->vpcs && \is_array($this->vpcs)) {
-                $n = 0;
-                foreach ($this->vpcs as $item) {
-                    $res['Vpcs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Vpcs'] = null !== $this->vpcs ? $this->vpcs->toMap() : null;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -85,13 +79,7 @@ class DescribeVpcsResponseBody extends Model
             $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['Vpcs'])) {
-            if (!empty($map['Vpcs'])) {
-                $model->vpcs = [];
-                $n           = 0;
-                foreach ($map['Vpcs'] as $item) {
-                    $model->vpcs[$n++] = null !== $item ? vpcs::fromMap($item) : $item;
-                }
-            }
+            $model->vpcs = vpcs::fromMap($map['Vpcs']);
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

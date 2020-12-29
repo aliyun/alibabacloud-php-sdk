@@ -4,40 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAutoRenewAttributeResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAutoRenewAttributeResponseBody\instanceRenewAttributes\instanceRenewAttribute;
 use AlibabaCloud\Tea\Model;
 
 class instanceRenewAttributes extends Model
 {
     /**
-     * @var string
+     * @var instanceRenewAttribute[]
      */
-    public $periodUnit;
-
-    /**
-     * @var int
-     */
-    public $duration;
-
-    /**
-     * @var string
-     */
-    public $renewalStatus;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var bool
-     */
-    public $autoRenewEnabled;
+    public $instanceRenewAttribute;
     protected $_name = [
-        'periodUnit'       => 'PeriodUnit',
-        'duration'         => 'Duration',
-        'renewalStatus'    => 'RenewalStatus',
-        'instanceId'       => 'InstanceId',
-        'autoRenewEnabled' => 'AutoRenewEnabled',
+        'instanceRenewAttribute' => 'InstanceRenewAttribute',
     ];
 
     public function validate()
@@ -47,20 +24,14 @@ class instanceRenewAttributes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->periodUnit) {
-            $res['PeriodUnit'] = $this->periodUnit;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->renewalStatus) {
-            $res['RenewalStatus'] = $this->renewalStatus;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->autoRenewEnabled) {
-            $res['AutoRenewEnabled'] = $this->autoRenewEnabled;
+        if (null !== $this->instanceRenewAttribute) {
+            $res['InstanceRenewAttribute'] = [];
+            if (null !== $this->instanceRenewAttribute && \is_array($this->instanceRenewAttribute)) {
+                $n = 0;
+                foreach ($this->instanceRenewAttribute as $item) {
+                    $res['InstanceRenewAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -74,20 +45,14 @@ class instanceRenewAttributes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PeriodUnit'])) {
-            $model->periodUnit = $map['PeriodUnit'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
-        if (isset($map['RenewalStatus'])) {
-            $model->renewalStatus = $map['RenewalStatus'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['AutoRenewEnabled'])) {
-            $model->autoRenewEnabled = $map['AutoRenewEnabled'];
+        if (isset($map['InstanceRenewAttribute'])) {
+            if (!empty($map['InstanceRenewAttribute'])) {
+                $model->instanceRenewAttribute = [];
+                $n                             = 0;
+                foreach ($map['InstanceRenewAttribute'] as $item) {
+                    $model->instanceRenewAttribute[$n++] = null !== $item ? instanceRenewAttribute::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

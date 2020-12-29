@@ -25,7 +25,7 @@ class DescribeInstanceRamRoleResponseBody extends Model
     public $regionId;
 
     /**
-     * @var instanceRamRoleSets[]
+     * @var instanceRamRoleSets
      */
     public $instanceRamRoleSets;
     protected $_name = [
@@ -52,13 +52,7 @@ class DescribeInstanceRamRoleResponseBody extends Model
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->instanceRamRoleSets) {
-            $res['InstanceRamRoleSets'] = [];
-            if (null !== $this->instanceRamRoleSets && \is_array($this->instanceRamRoleSets)) {
-                $n = 0;
-                foreach ($this->instanceRamRoleSets as $item) {
-                    $res['InstanceRamRoleSets'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InstanceRamRoleSets'] = null !== $this->instanceRamRoleSets ? $this->instanceRamRoleSets->toMap() : null;
         }
 
         return $res;
@@ -82,13 +76,7 @@ class DescribeInstanceRamRoleResponseBody extends Model
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['InstanceRamRoleSets'])) {
-            if (!empty($map['InstanceRamRoleSets'])) {
-                $model->instanceRamRoleSets = [];
-                $n                          = 0;
-                foreach ($map['InstanceRamRoleSets'] as $item) {
-                    $model->instanceRamRoleSets[$n++] = null !== $item ? instanceRamRoleSets::fromMap($item) : $item;
-                }
-            }
+            $model->instanceRamRoleSets = instanceRamRoleSets::fromMap($map['InstanceRamRoleSets']);
         }
 
         return $model;

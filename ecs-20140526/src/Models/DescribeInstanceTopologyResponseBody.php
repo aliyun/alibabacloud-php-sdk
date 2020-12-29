@@ -15,7 +15,7 @@ class DescribeInstanceTopologyResponseBody extends Model
     public $requestId;
 
     /**
-     * @var topologys[]
+     * @var topologys
      */
     public $topologys;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeInstanceTopologyResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->topologys) {
-            $res['Topologys'] = [];
-            if (null !== $this->topologys && \is_array($this->topologys)) {
-                $n = 0;
-                foreach ($this->topologys as $item) {
-                    $res['Topologys'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Topologys'] = null !== $this->topologys ? $this->topologys->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeInstanceTopologyResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Topologys'])) {
-            if (!empty($map['Topologys'])) {
-                $model->topologys = [];
-                $n                = 0;
-                foreach ($map['Topologys'] as $item) {
-                    $model->topologys[$n++] = null !== $item ? topologys::fromMap($item) : $item;
-                }
-            }
+            $model->topologys = topologys::fromMap($map['Topologys']);
         }
 
         return $model;

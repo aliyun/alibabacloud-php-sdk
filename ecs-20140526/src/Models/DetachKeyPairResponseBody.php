@@ -25,7 +25,7 @@ class DetachKeyPairResponseBody extends Model
     public $requestId;
 
     /**
-     * @var results[]
+     * @var results
      */
     public $results;
 
@@ -58,13 +58,7 @@ class DetachKeyPairResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->results) {
-            $res['Results'] = [];
-            if (null !== $this->results && \is_array($this->results)) {
-                $n = 0;
-                foreach ($this->results as $item) {
-                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Results'] = null !== $this->results ? $this->results->toMap() : null;
         }
         if (null !== $this->failCount) {
             $res['FailCount'] = $this->failCount;
@@ -91,13 +85,7 @@ class DetachKeyPairResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Results'])) {
-            if (!empty($map['Results'])) {
-                $model->results = [];
-                $n              = 0;
-                foreach ($map['Results'] as $item) {
-                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
-                }
-            }
+            $model->results = results::fromMap($map['Results']);
         }
         if (isset($map['FailCount'])) {
             $model->failCount = $map['FailCount'];

@@ -4,41 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DetachInstanceRamRoleResponseBody;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DetachInstanceRamRoleResponseBody\detachInstanceRamRoleResults\instanceRamRoleSets;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DetachInstanceRamRoleResponseBody\detachInstanceRamRoleResults\detachInstanceRamRoleResult;
 use AlibabaCloud\Tea\Model;
 
 class detachInstanceRamRoleResults extends Model
 {
     /**
-     * @var instanceRamRoleSets[]
+     * @var detachInstanceRamRoleResult[]
      */
-    public $instanceRamRoleSets;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $detachInstanceRamRoleResult;
     protected $_name = [
-        'instanceRamRoleSets' => 'InstanceRamRoleSets',
-        'success'             => 'Success',
-        'code'                => 'Code',
-        'message'             => 'Message',
-        'instanceId'          => 'InstanceId',
+        'detachInstanceRamRoleResult' => 'DetachInstanceRamRoleResult',
     ];
 
     public function validate()
@@ -48,26 +24,14 @@ class detachInstanceRamRoleResults extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceRamRoleSets) {
-            $res['InstanceRamRoleSets'] = [];
-            if (null !== $this->instanceRamRoleSets && \is_array($this->instanceRamRoleSets)) {
+        if (null !== $this->detachInstanceRamRoleResult) {
+            $res['DetachInstanceRamRoleResult'] = [];
+            if (null !== $this->detachInstanceRamRoleResult && \is_array($this->detachInstanceRamRoleResult)) {
                 $n = 0;
-                foreach ($this->instanceRamRoleSets as $item) {
-                    $res['InstanceRamRoleSets'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->detachInstanceRamRoleResult as $item) {
+                    $res['DetachInstanceRamRoleResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -81,26 +45,14 @@ class detachInstanceRamRoleResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceRamRoleSets'])) {
-            if (!empty($map['InstanceRamRoleSets'])) {
-                $model->instanceRamRoleSets = [];
-                $n                          = 0;
-                foreach ($map['InstanceRamRoleSets'] as $item) {
-                    $model->instanceRamRoleSets[$n++] = null !== $item ? instanceRamRoleSets::fromMap($item) : $item;
+        if (isset($map['DetachInstanceRamRoleResult'])) {
+            if (!empty($map['DetachInstanceRamRoleResult'])) {
+                $model->detachInstanceRamRoleResult = [];
+                $n                                  = 0;
+                foreach ($map['DetachInstanceRamRoleResult'] as $item) {
+                    $model->detachInstanceRamRoleResult[$n++] = null !== $item ? detachInstanceRamRoleResult::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

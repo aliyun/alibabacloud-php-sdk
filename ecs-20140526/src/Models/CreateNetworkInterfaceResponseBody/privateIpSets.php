@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody\privateIpSets\privateIpSet;
 use AlibabaCloud\Tea\Model;
 
 class privateIpSets extends Model
 {
     /**
-     * @var bool
+     * @var privateIpSet[]
      */
-    public $primary;
-
-    /**
-     * @var string
-     */
-    public $privateIpAddress;
+    public $privateIpSet;
     protected $_name = [
-        'primary'          => 'Primary',
-        'privateIpAddress' => 'PrivateIpAddress',
+        'privateIpSet' => 'PrivateIpSet',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class privateIpSets extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->primary) {
-            $res['Primary'] = $this->primary;
-        }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        if (null !== $this->privateIpSet) {
+            $res['PrivateIpSet'] = [];
+            if (null !== $this->privateIpSet && \is_array($this->privateIpSet)) {
+                $n = 0;
+                foreach ($this->privateIpSet as $item) {
+                    $res['PrivateIpSet'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class privateIpSets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Primary'])) {
-            $model->primary = $map['Primary'];
-        }
-        if (isset($map['PrivateIpAddress'])) {
-            $model->privateIpAddress = $map['PrivateIpAddress'];
+        if (isset($map['PrivateIpSet'])) {
+            if (!empty($map['PrivateIpSet'])) {
+                $model->privateIpSet = [];
+                $n                   = 0;
+                foreach ($map['PrivateIpSet'] as $item) {
+                    $model->privateIpSet[$n++] = null !== $item ? privateIpSet::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

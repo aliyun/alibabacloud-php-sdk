@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSimulatedSystemEventsResponseBody\eventIdSet;
 use AlibabaCloud\Tea\Model;
 
 class CreateSimulatedSystemEventsResponseBody extends Model
@@ -14,7 +15,7 @@ class CreateSimulatedSystemEventsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
+     * @var eventIdSet
      */
     public $eventIdSet;
     protected $_name = [
@@ -33,7 +34,7 @@ class CreateSimulatedSystemEventsResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->eventIdSet) {
-            $res['EventIdSet'] = $this->eventIdSet;
+            $res['EventIdSet'] = null !== $this->eventIdSet ? $this->eventIdSet->toMap() : null;
         }
 
         return $res;
@@ -51,9 +52,7 @@ class CreateSimulatedSystemEventsResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['EventIdSet'])) {
-            if (!empty($map['EventIdSet'])) {
-                $model->eventIdSet = $map['EventIdSet'];
-            }
+            $model->eventIdSet = eventIdSet::fromMap($map['EventIdSet']);
         }
 
         return $model;

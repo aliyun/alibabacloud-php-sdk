@@ -30,7 +30,7 @@ class DescribeDeploymentSetsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var deploymentSets[]
+     * @var deploymentSets
      */
     public $deploymentSets;
 
@@ -67,13 +67,7 @@ class DescribeDeploymentSetsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->deploymentSets) {
-            $res['DeploymentSets'] = [];
-            if (null !== $this->deploymentSets && \is_array($this->deploymentSets)) {
-                $n = 0;
-                foreach ($this->deploymentSets as $item) {
-                    $res['DeploymentSets'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DeploymentSets'] = null !== $this->deploymentSets ? $this->deploymentSets->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -103,13 +97,7 @@ class DescribeDeploymentSetsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['DeploymentSets'])) {
-            if (!empty($map['DeploymentSets'])) {
-                $model->deploymentSets = [];
-                $n                     = 0;
-                foreach ($map['DeploymentSets'] as $item) {
-                    $model->deploymentSets[$n++] = null !== $item ? deploymentSets::fromMap($item) : $item;
-                }
-            }
+            $model->deploymentSets = deploymentSets::fromMap($map['DeploymentSets']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

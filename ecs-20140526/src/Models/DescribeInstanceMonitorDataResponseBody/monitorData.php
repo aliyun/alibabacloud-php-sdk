@@ -4,112 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMonitorDataResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMonitorDataResponseBody\monitorData\instanceMonitorData;
 use AlibabaCloud\Tea\Model;
 
 class monitorData extends Model
 {
     /**
-     * @var float
+     * @var instanceMonitorData[]
      */
-    public $CPUCreditBalance;
-
-    /**
-     * @var int
-     */
-    public $BPSRead;
-
-    /**
-     * @var int
-     */
-    public $internetTX;
-
-    /**
-     * @var int
-     */
-    public $CPU;
-
-    /**
-     * @var float
-     */
-    public $CPUCreditUsage;
-
-    /**
-     * @var int
-     */
-    public $IOPSWrite;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $intranetTX;
-
-    /**
-     * @var int
-     */
-    public $BPSWrite;
-
-    /**
-     * @var float
-     */
-    public $CPUNotpaidSurplusCreditUsage;
-
-    /**
-     * @var int
-     */
-    public $IOPSRead;
-
-    /**
-     * @var float
-     */
-    public $CPUAdvanceCreditBalance;
-
-    /**
-     * @var int
-     */
-    public $internetBandwidth;
-
-    /**
-     * @var int
-     */
-    public $internetRX;
-
-    /**
-     * @var string
-     */
-    public $timeStamp;
-
-    /**
-     * @var int
-     */
-    public $intranetRX;
-
-    /**
-     * @var int
-     */
-    public $intranetBandwidth;
+    public $instanceMonitorData;
     protected $_name = [
-        'CPUCreditBalance'             => 'CPUCreditBalance',
-        'BPSRead'                      => 'BPSRead',
-        'internetTX'                   => 'InternetTX',
-        'CPU'                          => 'CPU',
-        'CPUCreditUsage'               => 'CPUCreditUsage',
-        'IOPSWrite'                    => 'IOPSWrite',
-        'instanceId'                   => 'InstanceId',
-        'intranetTX'                   => 'IntranetTX',
-        'BPSWrite'                     => 'BPSWrite',
-        'CPUNotpaidSurplusCreditUsage' => 'CPUNotpaidSurplusCreditUsage',
-        'IOPSRead'                     => 'IOPSRead',
-        'CPUAdvanceCreditBalance'      => 'CPUAdvanceCreditBalance',
-        'internetBandwidth'            => 'InternetBandwidth',
-        'internetRX'                   => 'InternetRX',
-        'timeStamp'                    => 'TimeStamp',
-        'intranetRX'                   => 'IntranetRX',
-        'intranetBandwidth'            => 'IntranetBandwidth',
+        'instanceMonitorData' => 'InstanceMonitorData',
     ];
 
     public function validate()
@@ -119,56 +24,14 @@ class monitorData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->CPUCreditBalance) {
-            $res['CPUCreditBalance'] = $this->CPUCreditBalance;
-        }
-        if (null !== $this->BPSRead) {
-            $res['BPSRead'] = $this->BPSRead;
-        }
-        if (null !== $this->internetTX) {
-            $res['InternetTX'] = $this->internetTX;
-        }
-        if (null !== $this->CPU) {
-            $res['CPU'] = $this->CPU;
-        }
-        if (null !== $this->CPUCreditUsage) {
-            $res['CPUCreditUsage'] = $this->CPUCreditUsage;
-        }
-        if (null !== $this->IOPSWrite) {
-            $res['IOPSWrite'] = $this->IOPSWrite;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->intranetTX) {
-            $res['IntranetTX'] = $this->intranetTX;
-        }
-        if (null !== $this->BPSWrite) {
-            $res['BPSWrite'] = $this->BPSWrite;
-        }
-        if (null !== $this->CPUNotpaidSurplusCreditUsage) {
-            $res['CPUNotpaidSurplusCreditUsage'] = $this->CPUNotpaidSurplusCreditUsage;
-        }
-        if (null !== $this->IOPSRead) {
-            $res['IOPSRead'] = $this->IOPSRead;
-        }
-        if (null !== $this->CPUAdvanceCreditBalance) {
-            $res['CPUAdvanceCreditBalance'] = $this->CPUAdvanceCreditBalance;
-        }
-        if (null !== $this->internetBandwidth) {
-            $res['InternetBandwidth'] = $this->internetBandwidth;
-        }
-        if (null !== $this->internetRX) {
-            $res['InternetRX'] = $this->internetRX;
-        }
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
-        if (null !== $this->intranetRX) {
-            $res['IntranetRX'] = $this->intranetRX;
-        }
-        if (null !== $this->intranetBandwidth) {
-            $res['IntranetBandwidth'] = $this->intranetBandwidth;
+        if (null !== $this->instanceMonitorData) {
+            $res['InstanceMonitorData'] = [];
+            if (null !== $this->instanceMonitorData && \is_array($this->instanceMonitorData)) {
+                $n = 0;
+                foreach ($this->instanceMonitorData as $item) {
+                    $res['InstanceMonitorData'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -182,56 +45,14 @@ class monitorData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CPUCreditBalance'])) {
-            $model->CPUCreditBalance = $map['CPUCreditBalance'];
-        }
-        if (isset($map['BPSRead'])) {
-            $model->BPSRead = $map['BPSRead'];
-        }
-        if (isset($map['InternetTX'])) {
-            $model->internetTX = $map['InternetTX'];
-        }
-        if (isset($map['CPU'])) {
-            $model->CPU = $map['CPU'];
-        }
-        if (isset($map['CPUCreditUsage'])) {
-            $model->CPUCreditUsage = $map['CPUCreditUsage'];
-        }
-        if (isset($map['IOPSWrite'])) {
-            $model->IOPSWrite = $map['IOPSWrite'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['IntranetTX'])) {
-            $model->intranetTX = $map['IntranetTX'];
-        }
-        if (isset($map['BPSWrite'])) {
-            $model->BPSWrite = $map['BPSWrite'];
-        }
-        if (isset($map['CPUNotpaidSurplusCreditUsage'])) {
-            $model->CPUNotpaidSurplusCreditUsage = $map['CPUNotpaidSurplusCreditUsage'];
-        }
-        if (isset($map['IOPSRead'])) {
-            $model->IOPSRead = $map['IOPSRead'];
-        }
-        if (isset($map['CPUAdvanceCreditBalance'])) {
-            $model->CPUAdvanceCreditBalance = $map['CPUAdvanceCreditBalance'];
-        }
-        if (isset($map['InternetBandwidth'])) {
-            $model->internetBandwidth = $map['InternetBandwidth'];
-        }
-        if (isset($map['InternetRX'])) {
-            $model->internetRX = $map['InternetRX'];
-        }
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
-        if (isset($map['IntranetRX'])) {
-            $model->intranetRX = $map['IntranetRX'];
-        }
-        if (isset($map['IntranetBandwidth'])) {
-            $model->intranetBandwidth = $map['IntranetBandwidth'];
+        if (isset($map['InstanceMonitorData'])) {
+            if (!empty($map['InstanceMonitorData'])) {
+                $model->instanceMonitorData = [];
+                $n                          = 0;
+                foreach ($map['InstanceMonitorData'] as $item) {
+                    $model->instanceMonitorData[$n++] = null !== $item ? instanceMonitorData::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -4,58 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccessPointsResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccessPointsResponseBody\accessPointSet\accessPointType;
 use AlibabaCloud\Tea\Model;
 
 class accessPointSet extends Model
 {
     /**
-     * @var string
+     * @var accessPointType[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $hostOperator;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $attachedRegionNo;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $accessPointId;
-
-    /**
-     * @var string
-     */
-    public $location;
+    public $accessPointType;
     protected $_name = [
-        'status'           => 'Status',
-        'type'             => 'Type',
-        'hostOperator'     => 'HostOperator',
-        'description'      => 'Description',
-        'attachedRegionNo' => 'AttachedRegionNo',
-        'name'             => 'Name',
-        'accessPointId'    => 'AccessPointId',
-        'location'         => 'Location',
+        'accessPointType' => 'AccessPointType',
     ];
 
     public function validate()
@@ -65,29 +24,14 @@ class accessPointSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->hostOperator) {
-            $res['HostOperator'] = $this->hostOperator;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->attachedRegionNo) {
-            $res['AttachedRegionNo'] = $this->attachedRegionNo;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->accessPointId) {
-            $res['AccessPointId'] = $this->accessPointId;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
+        if (null !== $this->accessPointType) {
+            $res['AccessPointType'] = [];
+            if (null !== $this->accessPointType && \is_array($this->accessPointType)) {
+                $n = 0;
+                foreach ($this->accessPointType as $item) {
+                    $res['AccessPointType'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -101,29 +45,14 @@ class accessPointSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['HostOperator'])) {
-            $model->hostOperator = $map['HostOperator'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['AttachedRegionNo'])) {
-            $model->attachedRegionNo = $map['AttachedRegionNo'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['AccessPointId'])) {
-            $model->accessPointId = $map['AccessPointId'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
+        if (isset($map['AccessPointType'])) {
+            if (!empty($map['AccessPointType'])) {
+                $model->accessPointType = [];
+                $n                      = 0;
+                foreach ($map['AccessPointType'] as $item) {
+                    $model->accessPointType[$n++] = null !== $item ? accessPointType::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

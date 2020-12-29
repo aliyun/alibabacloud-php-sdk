@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\AllocateDedicatedHostsResponseBody\dedicatedHostIdSets;
 use AlibabaCloud\Tea\Model;
 
 class AllocateDedicatedHostsResponseBody extends Model
@@ -14,7 +15,7 @@ class AllocateDedicatedHostsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
+     * @var dedicatedHostIdSets
      */
     public $dedicatedHostIdSets;
     protected $_name = [
@@ -33,7 +34,7 @@ class AllocateDedicatedHostsResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->dedicatedHostIdSets) {
-            $res['DedicatedHostIdSets'] = $this->dedicatedHostIdSets;
+            $res['DedicatedHostIdSets'] = null !== $this->dedicatedHostIdSets ? $this->dedicatedHostIdSets->toMap() : null;
         }
 
         return $res;
@@ -51,9 +52,7 @@ class AllocateDedicatedHostsResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DedicatedHostIdSets'])) {
-            if (!empty($map['DedicatedHostIdSets'])) {
-                $model->dedicatedHostIdSets = $map['DedicatedHostIdSets'];
-            }
+            $model->dedicatedHostIdSets = dedicatedHostIdSets::fromMap($map['DedicatedHostIdSets']);
         }
 
         return $model;

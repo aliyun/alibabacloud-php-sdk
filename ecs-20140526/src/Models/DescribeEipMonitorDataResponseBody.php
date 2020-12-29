@@ -15,7 +15,7 @@ class DescribeEipMonitorDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @var eipMonitorDatas[]
+     * @var eipMonitorDatas
      */
     public $eipMonitorDatas;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeEipMonitorDataResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->eipMonitorDatas) {
-            $res['EipMonitorDatas'] = [];
-            if (null !== $this->eipMonitorDatas && \is_array($this->eipMonitorDatas)) {
-                $n = 0;
-                foreach ($this->eipMonitorDatas as $item) {
-                    $res['EipMonitorDatas'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['EipMonitorDatas'] = null !== $this->eipMonitorDatas ? $this->eipMonitorDatas->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeEipMonitorDataResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['EipMonitorDatas'])) {
-            if (!empty($map['EipMonitorDatas'])) {
-                $model->eipMonitorDatas = [];
-                $n                      = 0;
-                foreach ($map['EipMonitorDatas'] as $item) {
-                    $model->eipMonitorDatas[$n++] = null !== $item ? eipMonitorDatas::fromMap($item) : $item;
-                }
-            }
+            $model->eipMonitorDatas = eipMonitorDatas::fromMap($map['EipMonitorDatas']);
         }
 
         return $model;

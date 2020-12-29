@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody\tags\tag;
 use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
     /**
-     * @var string
+     * @var tag[]
      */
-    public $tagValue;
-
-    /**
-     * @var string
-     */
-    public $tagKey;
+    public $tag;
     protected $_name = [
-        'tagValue' => 'TagValue',
-        'tagKey'   => 'TagKey',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class tags extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagValue) {
-            $res['TagValue'] = $this->tagValue;
-        }
-        if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class tags extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagValue'])) {
-            $model->tagValue = $map['TagValue'];
-        }
-        if (isset($map['TagKey'])) {
-            $model->tagKey = $map['TagKey'];
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -4,70 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeStorageCapacityUnitsResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeStorageCapacityUnitsResponseBody\storageCapacityUnits\storageCapacityUnit;
 use AlibabaCloud\Tea\Model;
 
 class storageCapacityUnits extends Model
 {
     /**
-     * @var string
+     * @var storageCapacityUnit[]
      */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $capacity;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $allocationStatus;
-
-    /**
-     * @var string
-     */
-    public $expiredTime;
-
-    /**
-     * @var string
-     */
-    public $storageCapacityUnitId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $storageCapacityUnit;
     protected $_name = [
-        'creationTime'          => 'CreationTime',
-        'status'                => 'Status',
-        'startTime'             => 'StartTime',
-        'capacity'              => 'Capacity',
-        'description'           => 'Description',
-        'allocationStatus'      => 'AllocationStatus',
-        'expiredTime'           => 'ExpiredTime',
-        'storageCapacityUnitId' => 'StorageCapacityUnitId',
-        'name'                  => 'Name',
-        'regionId'              => 'RegionId',
+        'storageCapacityUnit' => 'StorageCapacityUnit',
     ];
 
     public function validate()
@@ -77,35 +24,14 @@ class storageCapacityUnits extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->capacity) {
-            $res['Capacity'] = $this->capacity;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->allocationStatus) {
-            $res['AllocationStatus'] = $this->allocationStatus;
-        }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
-        }
-        if (null !== $this->storageCapacityUnitId) {
-            $res['StorageCapacityUnitId'] = $this->storageCapacityUnitId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->storageCapacityUnit) {
+            $res['StorageCapacityUnit'] = [];
+            if (null !== $this->storageCapacityUnit && \is_array($this->storageCapacityUnit)) {
+                $n = 0;
+                foreach ($this->storageCapacityUnit as $item) {
+                    $res['StorageCapacityUnit'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -119,35 +45,14 @@ class storageCapacityUnits extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Capacity'])) {
-            $model->capacity = $map['Capacity'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['AllocationStatus'])) {
-            $model->allocationStatus = $map['AllocationStatus'];
-        }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
-        }
-        if (isset($map['StorageCapacityUnitId'])) {
-            $model->storageCapacityUnitId = $map['StorageCapacityUnitId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['StorageCapacityUnit'])) {
+            if (!empty($map['StorageCapacityUnit'])) {
+                $model->storageCapacityUnit = [];
+                $n                          = 0;
+                foreach ($map['StorageCapacityUnit'] as $item) {
+                    $model->storageCapacityUnit[$n++] = null !== $item ? storageCapacityUnit::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

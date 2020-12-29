@@ -15,7 +15,7 @@ class DescribeInstanceTypesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var instanceTypes[]
+     * @var instanceTypes
      */
     public $instanceTypes;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeInstanceTypesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = [];
-            if (null !== $this->instanceTypes && \is_array($this->instanceTypes)) {
-                $n = 0;
-                foreach ($this->instanceTypes as $item) {
-                    $res['InstanceTypes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InstanceTypes'] = null !== $this->instanceTypes ? $this->instanceTypes->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeInstanceTypesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['InstanceTypes'])) {
-            if (!empty($map['InstanceTypes'])) {
-                $model->instanceTypes = [];
-                $n                    = 0;
-                foreach ($map['InstanceTypes'] as $item) {
-                    $model->instanceTypes[$n++] = null !== $item ? instanceTypes::fromMap($item) : $item;
-                }
-            }
+            $model->instanceTypes = instanceTypes::fromMap($map['InstanceTypes']);
         }
 
         return $model;

@@ -4,16 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeClustersResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeClustersResponseBody\clusters\cluster;
 use AlibabaCloud\Tea\Model;
 
 class clusters extends Model
 {
     /**
-     * @var string
+     * @var cluster[]
      */
-    public $clusterId;
+    public $cluster;
     protected $_name = [
-        'clusterId' => 'ClusterId',
+        'cluster' => 'Cluster',
     ];
 
     public function validate()
@@ -23,8 +24,14 @@ class clusters extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->cluster) {
+            $res['Cluster'] = [];
+            if (null !== $this->cluster && \is_array($this->cluster)) {
+                $n = 0;
+                foreach ($this->cluster as $item) {
+                    $res['Cluster'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -38,8 +45,14 @@ class clusters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['Cluster'])) {
+            if (!empty($map['Cluster'])) {
+                $model->cluster = [];
+                $n              = 0;
+                foreach ($map['Cluster'] as $item) {
+                    $model->cluster[$n++] = null !== $item ? cluster::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

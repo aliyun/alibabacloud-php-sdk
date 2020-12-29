@@ -35,7 +35,7 @@ class DescribeNetworkInterfacesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var networkInterfaceSets[]
+     * @var networkInterfaceSets
      */
     public $networkInterfaceSets;
     protected $_name = [
@@ -70,13 +70,7 @@ class DescribeNetworkInterfacesResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->networkInterfaceSets) {
-            $res['NetworkInterfaceSets'] = [];
-            if (null !== $this->networkInterfaceSets && \is_array($this->networkInterfaceSets)) {
-                $n = 0;
-                foreach ($this->networkInterfaceSets as $item) {
-                    $res['NetworkInterfaceSets'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['NetworkInterfaceSets'] = null !== $this->networkInterfaceSets ? $this->networkInterfaceSets->toMap() : null;
         }
 
         return $res;
@@ -106,13 +100,7 @@ class DescribeNetworkInterfacesResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['NetworkInterfaceSets'])) {
-            if (!empty($map['NetworkInterfaceSets'])) {
-                $model->networkInterfaceSets = [];
-                $n                           = 0;
-                foreach ($map['NetworkInterfaceSets'] as $item) {
-                    $model->networkInterfaceSets[$n++] = null !== $item ? networkInterfaceSets::fromMap($item) : $item;
-                }
-            }
+            $model->networkInterfaceSets = networkInterfaceSets::fromMap($map['NetworkInterfaceSets']);
         }
 
         return $model;

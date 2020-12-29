@@ -30,7 +30,7 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var instanceSystemEventSet[]
+     * @var instanceSystemEventSet
      */
     public $instanceSystemEventSet;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->instanceSystemEventSet) {
-            $res['InstanceSystemEventSet'] = [];
-            if (null !== $this->instanceSystemEventSet && \is_array($this->instanceSystemEventSet)) {
-                $n = 0;
-                foreach ($this->instanceSystemEventSet as $item) {
-                    $res['InstanceSystemEventSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InstanceSystemEventSet'] = null !== $this->instanceSystemEventSet ? $this->instanceSystemEventSet->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['InstanceSystemEventSet'])) {
-            if (!empty($map['InstanceSystemEventSet'])) {
-                $model->instanceSystemEventSet = [];
-                $n                             = 0;
-                foreach ($map['InstanceSystemEventSet'] as $item) {
-                    $model->instanceSystemEventSet[$n++] = null !== $item ? instanceSystemEventSet::fromMap($item) : $item;
-                }
-            }
+            $model->instanceSystemEventSet = instanceSystemEventSet::fromMap($map['InstanceSystemEventSet']);
         }
 
         return $model;

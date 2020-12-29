@@ -15,7 +15,7 @@ class RebootInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var instanceResponses[]
+     * @var instanceResponses
      */
     public $instanceResponses;
     protected $_name = [
@@ -34,13 +34,7 @@ class RebootInstancesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->instanceResponses) {
-            $res['InstanceResponses'] = [];
-            if (null !== $this->instanceResponses && \is_array($this->instanceResponses)) {
-                $n = 0;
-                foreach ($this->instanceResponses as $item) {
-                    $res['InstanceResponses'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InstanceResponses'] = null !== $this->instanceResponses ? $this->instanceResponses->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class RebootInstancesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['InstanceResponses'])) {
-            if (!empty($map['InstanceResponses'])) {
-                $model->instanceResponses = [];
-                $n                        = 0;
-                foreach ($map['InstanceResponses'] as $item) {
-                    $model->instanceResponses[$n++] = null !== $item ? instanceResponses::fromMap($item) : $item;
-                }
-            }
+            $model->instanceResponses = instanceResponses::fromMap($map['InstanceResponses']);
         }
 
         return $model;

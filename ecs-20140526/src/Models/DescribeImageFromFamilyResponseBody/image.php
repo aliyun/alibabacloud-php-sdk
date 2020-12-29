@@ -46,7 +46,7 @@ class image extends Model
     public $isSupportIoOptimized;
 
     /**
-     * @var tags[]
+     * @var tags
      */
     public $tags;
 
@@ -61,7 +61,7 @@ class image extends Model
     public $imageVersion;
 
     /**
-     * @var diskDeviceMappings[]
+     * @var diskDeviceMappings
      */
     public $diskDeviceMappings;
 
@@ -179,13 +179,7 @@ class image extends Model
             $res['IsSupportIoOptimized'] = $this->isSupportIoOptimized;
         }
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->isSupportCloudinit) {
             $res['IsSupportCloudinit'] = $this->isSupportCloudinit;
@@ -194,13 +188,7 @@ class image extends Model
             $res['ImageVersion'] = $this->imageVersion;
         }
         if (null !== $this->diskDeviceMappings) {
-            $res['DiskDeviceMappings'] = [];
-            if (null !== $this->diskDeviceMappings && \is_array($this->diskDeviceMappings)) {
-                $n = 0;
-                foreach ($this->diskDeviceMappings as $item) {
-                    $res['DiskDeviceMappings'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DiskDeviceMappings'] = null !== $this->diskDeviceMappings ? $this->diskDeviceMappings->toMap() : null;
         }
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
@@ -272,13 +260,7 @@ class image extends Model
             $model->isSupportIoOptimized = $map['IsSupportIoOptimized'];
         }
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['IsSupportCloudinit'])) {
             $model->isSupportCloudinit = $map['IsSupportCloudinit'];
@@ -287,13 +269,7 @@ class image extends Model
             $model->imageVersion = $map['ImageVersion'];
         }
         if (isset($map['DiskDeviceMappings'])) {
-            if (!empty($map['DiskDeviceMappings'])) {
-                $model->diskDeviceMappings = [];
-                $n                         = 0;
-                foreach ($map['DiskDeviceMappings'] as $item) {
-                    $model->diskDeviceMappings[$n++] = null !== $item ? diskDeviceMappings::fromMap($item) : $item;
-                }
-            }
+            $model->diskDeviceMappings = diskDeviceMappings::fromMap($map['DiskDeviceMappings']);
         }
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];

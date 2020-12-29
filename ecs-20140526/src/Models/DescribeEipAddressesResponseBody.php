@@ -25,7 +25,7 @@ class DescribeEipAddressesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var eipAddresses[]
+     * @var eipAddresses
      */
     public $eipAddresses;
 
@@ -58,13 +58,7 @@ class DescribeEipAddressesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->eipAddresses) {
-            $res['EipAddresses'] = [];
-            if (null !== $this->eipAddresses && \is_array($this->eipAddresses)) {
-                $n = 0;
-                foreach ($this->eipAddresses as $item) {
-                    $res['EipAddresses'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['EipAddresses'] = null !== $this->eipAddresses ? $this->eipAddresses->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -91,13 +85,7 @@ class DescribeEipAddressesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['EipAddresses'])) {
-            if (!empty($map['EipAddresses'])) {
-                $model->eipAddresses = [];
-                $n                   = 0;
-                foreach ($map['EipAddresses'] as $item) {
-                    $model->eipAddresses[$n++] = null !== $item ? eipAddresses::fromMap($item) : $item;
-                }
-            }
+            $model->eipAddresses = eipAddresses::fromMap($map['EipAddresses']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

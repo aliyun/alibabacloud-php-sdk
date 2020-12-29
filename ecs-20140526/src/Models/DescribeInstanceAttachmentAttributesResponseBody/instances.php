@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttachmentAttributesResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttachmentAttributesResponseBody\instances\instance;
 use AlibabaCloud\Tea\Model;
 
 class instances extends Model
 {
     /**
-     * @var string
+     * @var instance[]
      */
-    public $privatePoolOptionsMatchCriteria;
-
-    /**
-     * @var string
-     */
-    public $privatePoolOptionsId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $instance;
     protected $_name = [
-        'privatePoolOptionsMatchCriteria' => 'PrivatePoolOptionsMatchCriteria',
-        'privatePoolOptionsId'            => 'PrivatePoolOptionsId',
-        'instanceId'                      => 'InstanceId',
+        'instance' => 'Instance',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->privatePoolOptionsMatchCriteria) {
-            $res['PrivatePoolOptionsMatchCriteria'] = $this->privatePoolOptionsMatchCriteria;
-        }
-        if (null !== $this->privatePoolOptionsId) {
-            $res['PrivatePoolOptionsId'] = $this->privatePoolOptionsId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->instance) {
+            $res['Instance'] = [];
+            if (null !== $this->instance && \is_array($this->instance)) {
+                $n = 0;
+                foreach ($this->instance as $item) {
+                    $res['Instance'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrivatePoolOptionsMatchCriteria'])) {
-            $model->privatePoolOptionsMatchCriteria = $map['PrivatePoolOptionsMatchCriteria'];
-        }
-        if (isset($map['PrivatePoolOptionsId'])) {
-            $model->privatePoolOptionsId = $map['PrivatePoolOptionsId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Instance'])) {
+            if (!empty($map['Instance'])) {
+                $model->instance = [];
+                $n               = 0;
+                foreach ($map['Instance'] as $item) {
+                    $model->instance[$n++] = null !== $item ? instance::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

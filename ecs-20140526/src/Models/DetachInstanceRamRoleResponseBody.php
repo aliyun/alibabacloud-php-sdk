@@ -30,7 +30,7 @@ class DetachInstanceRamRoleResponseBody extends Model
     public $failCount;
 
     /**
-     * @var detachInstanceRamRoleResults[]
+     * @var detachInstanceRamRoleResults
      */
     public $detachInstanceRamRoleResults;
     protected $_name = [
@@ -61,13 +61,7 @@ class DetachInstanceRamRoleResponseBody extends Model
             $res['FailCount'] = $this->failCount;
         }
         if (null !== $this->detachInstanceRamRoleResults) {
-            $res['DetachInstanceRamRoleResults'] = [];
-            if (null !== $this->detachInstanceRamRoleResults && \is_array($this->detachInstanceRamRoleResults)) {
-                $n = 0;
-                foreach ($this->detachInstanceRamRoleResults as $item) {
-                    $res['DetachInstanceRamRoleResults'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DetachInstanceRamRoleResults'] = null !== $this->detachInstanceRamRoleResults ? $this->detachInstanceRamRoleResults->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DetachInstanceRamRoleResponseBody extends Model
             $model->failCount = $map['FailCount'];
         }
         if (isset($map['DetachInstanceRamRoleResults'])) {
-            if (!empty($map['DetachInstanceRamRoleResults'])) {
-                $model->detachInstanceRamRoleResults = [];
-                $n                                   = 0;
-                foreach ($map['DetachInstanceRamRoleResults'] as $item) {
-                    $model->detachInstanceRamRoleResults[$n++] = null !== $item ? detachInstanceRamRoleResults::fromMap($item) : $item;
-                }
-            }
+            $model->detachInstanceRamRoleResults = detachInstanceRamRoleResults::fromMap($map['DetachInstanceRamRoleResults']);
         }
 
         return $model;

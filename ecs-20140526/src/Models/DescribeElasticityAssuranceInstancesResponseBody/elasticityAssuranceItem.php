@@ -4,16 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssuranceInstancesResponseBody;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssuranceInstancesResponseBody\elasticityAssuranceItem\instanceIdSet;
 use AlibabaCloud\Tea\Model;
 
 class elasticityAssuranceItem extends Model
 {
     /**
-     * @var string
+     * @var instanceIdSet[]
      */
-    public $instanceId;
+    public $instanceIdSet;
     protected $_name = [
-        'instanceId' => 'InstanceId',
+        'instanceIdSet' => 'InstanceIdSet',
     ];
 
     public function validate()
@@ -23,8 +24,14 @@ class elasticityAssuranceItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->instanceIdSet) {
+            $res['InstanceIdSet'] = [];
+            if (null !== $this->instanceIdSet && \is_array($this->instanceIdSet)) {
+                $n = 0;
+                foreach ($this->instanceIdSet as $item) {
+                    $res['InstanceIdSet'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -38,8 +45,14 @@ class elasticityAssuranceItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['InstanceIdSet'])) {
+            if (!empty($map['InstanceIdSet'])) {
+                $model->instanceIdSet = [];
+                $n                    = 0;
+                foreach ($map['InstanceIdSet'] as $item) {
+                    $model->instanceIdSet[$n++] = null !== $item ? instanceIdSet::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
