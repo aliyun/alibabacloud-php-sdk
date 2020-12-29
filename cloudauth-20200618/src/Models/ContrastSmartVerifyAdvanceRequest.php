@@ -86,12 +86,6 @@ class ContrastSmartVerifyAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('facePicFileObject', $this->facePicFileObject, true);
-        Model::validateRequired('sceneId', $this->sceneId, true);
-        Model::validateRequired('outerOrderNo', $this->outerOrderNo, true);
-        Model::validateRequired('mode', $this->mode, true);
-        Model::validateRequired('certType', $this->certType, true);
-        Model::validateRequired('certName', $this->certName, true);
-        Model::validateRequired('certNo', $this->certNo, true);
     }
 
     public function toMap()
