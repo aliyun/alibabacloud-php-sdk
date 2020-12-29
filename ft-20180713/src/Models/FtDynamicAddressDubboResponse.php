@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class FtDynamicAddressDubboResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var FtDynamicAddressDubboResponseBody
+     * @var string
      */
-    public $body;
+    public $stringValue;
+
+    /**
+     * @var int
+     */
+    public $intValue;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'   => 'RequestId',
+        'stringValue' => 'StringValue',
+        'intValue'    => 'IntValue',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('stringValue', $this->stringValue, true);
+        Model::validateRequired('intValue', $this->intValue, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->stringValue) {
+            $res['StringValue'] = $this->stringValue;
+        }
+        if (null !== $this->intValue) {
+            $res['IntValue'] = $this->intValue;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class FtDynamicAddressDubboResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = FtDynamicAddressDubboResponseBody::fromMap($map['body']);
+        if (isset($map['StringValue'])) {
+            $model->stringValue = $map['StringValue'];
+        }
+        if (isset($map['IntValue'])) {
+            $model->intValue = $map['IntValue'];
         }
 
         return $model;

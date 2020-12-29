@@ -2,12 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01ResponseBody;
+namespace AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response\demo01;
 
-use AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01ResponseBody\demo01\demo011;
+use AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response\demo01\demo011\demo011;
 use AlibabaCloud\Tea\Model;
 
-class demo01 extends Model
+class demo011 extends Model
 {
     /**
      * @var demo011[]
@@ -19,6 +19,7 @@ class demo01 extends Model
 
     public function validate()
     {
+        Model::validateRequired('demo011', $this->demo011, true);
     }
 
     public function toMap()
@@ -40,7 +41,7 @@ class demo01 extends Model
     /**
      * @param array $map
      *
-     * @return demo01
+     * @return demo011
      */
     public static function fromMap($map = [])
     {
@@ -50,7 +51,7 @@ class demo01 extends Model
                 $model->demo011 = [];
                 $n              = 0;
                 foreach ($map['Demo011'] as $item) {
-                    $model->demo011[$n++] = null !== $item ? demo011::fromMap($item) : $item;
+                    $model->demo011[$n++] = null !== $item ? self::fromMap($item) : $item;
                 }
             }
         }

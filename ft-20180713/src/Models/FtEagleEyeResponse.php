@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class FtEagleEyeResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var FtEagleEyeResponseBody
+     * @var string
      */
-    public $body;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $eagleEyeTraceId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'       => 'RequestId',
+        'name'            => 'Name',
+        'eagleEyeTraceId' => 'eagleEyeTraceId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('eagleEyeTraceId', $this->eagleEyeTraceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->eagleEyeTraceId) {
+            $res['eagleEyeTraceId'] = $this->eagleEyeTraceId;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class FtEagleEyeResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = FtEagleEyeResponseBody::fromMap($map['body']);
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['eagleEyeTraceId'])) {
+            $model->eagleEyeTraceId = $map['eagleEyeTraceId'];
         }
 
         return $model;
