@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EnhanceVideoQualityAdvanceRequest extends Model
+class InterpolateVideoFrameAdvanceRequest extends Model
 {
     /**
      * @var Stream
@@ -21,27 +21,7 @@ class EnhanceVideoQualityAdvanceRequest extends Model
     /**
      * @var int
      */
-    public $outPutWidth;
-
-    /**
-     * @var int
-     */
-    public $outPutHeight;
-
-    /**
-     * @var int
-     */
     public $frameRate;
-
-    /**
-     * @var string
-     */
-    public $HDRFormat;
-
-    /**
-     * @var int
-     */
-    public $maxIlluminance;
 
     /**
      * @var int
@@ -50,11 +30,7 @@ class EnhanceVideoQualityAdvanceRequest extends Model
     protected $_name = [
         'videoURLObject' => 'VideoURLObject',
         'async'          => 'Async',
-        'outPutWidth'    => 'OutPutWidth',
-        'outPutHeight'   => 'OutPutHeight',
         'frameRate'      => 'FrameRate',
-        'HDRFormat'      => 'HDRFormat',
-        'maxIlluminance' => 'MaxIlluminance',
         'bitrate'        => 'Bitrate',
     ];
 
@@ -72,20 +48,8 @@ class EnhanceVideoQualityAdvanceRequest extends Model
         if (null !== $this->async) {
             $res['Async'] = $this->async;
         }
-        if (null !== $this->outPutWidth) {
-            $res['OutPutWidth'] = $this->outPutWidth;
-        }
-        if (null !== $this->outPutHeight) {
-            $res['OutPutHeight'] = $this->outPutHeight;
-        }
         if (null !== $this->frameRate) {
             $res['FrameRate'] = $this->frameRate;
-        }
-        if (null !== $this->HDRFormat) {
-            $res['HDRFormat'] = $this->HDRFormat;
-        }
-        if (null !== $this->maxIlluminance) {
-            $res['MaxIlluminance'] = $this->maxIlluminance;
         }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
@@ -97,7 +61,7 @@ class EnhanceVideoQualityAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return EnhanceVideoQualityAdvanceRequest
+     * @return InterpolateVideoFrameAdvanceRequest
      */
     public static function fromMap($map = [])
     {
@@ -108,20 +72,8 @@ class EnhanceVideoQualityAdvanceRequest extends Model
         if (isset($map['Async'])) {
             $model->async = $map['Async'];
         }
-        if (isset($map['OutPutWidth'])) {
-            $model->outPutWidth = $map['OutPutWidth'];
-        }
-        if (isset($map['OutPutHeight'])) {
-            $model->outPutHeight = $map['OutPutHeight'];
-        }
         if (isset($map['FrameRate'])) {
             $model->frameRate = $map['FrameRate'];
-        }
-        if (isset($map['HDRFormat'])) {
-            $model->HDRFormat = $map['HDRFormat'];
-        }
-        if (isset($map['MaxIlluminance'])) {
-            $model->maxIlluminance = $map['MaxIlluminance'];
         }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
