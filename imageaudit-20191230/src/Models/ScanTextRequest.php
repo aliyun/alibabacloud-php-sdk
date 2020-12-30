@@ -26,8 +26,6 @@ class ScanTextRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('tasks', $this->tasks, true);
-        Model::validateRequired('labels', $this->labels, true);
     }
 
     public function toMap()

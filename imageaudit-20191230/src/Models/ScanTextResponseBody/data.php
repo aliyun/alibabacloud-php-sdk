@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponse;
+namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponseBody;
 
-use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponse\data\elements;
+use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponseBody\data\elements;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -19,7 +19,6 @@ class data extends Model
 
     public function validate()
     {
-        Model::validateRequired('elements', $this->elements, true);
     }
 
     public function toMap()

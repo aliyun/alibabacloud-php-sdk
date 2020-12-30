@@ -18,7 +18,6 @@ class labels extends Model
 
     public function validate()
     {
-        Model::validateRequired('label', $this->label, true);
     }
 
     public function toMap()

@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponse\data\elements;
+namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponseBody\data\elements;
 
-use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponse\data\elements\results\details;
+use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponseBody\data\elements\results\details;
 use AlibabaCloud\Tea\Model;
 
 class results extends Model
@@ -12,12 +12,12 @@ class results extends Model
     /**
      * @var string
      */
-    public $label;
+    public $suggestion;
 
     /**
      * @var string
      */
-    public $suggestion;
+    public $label;
 
     /**
      * @var float
@@ -29,28 +29,24 @@ class results extends Model
      */
     public $details;
     protected $_name = [
-        'label'      => 'Label',
         'suggestion' => 'Suggestion',
+        'label'      => 'Label',
         'rate'       => 'Rate',
         'details'    => 'Details',
     ];
 
     public function validate()
     {
-        Model::validateRequired('label', $this->label, true);
-        Model::validateRequired('suggestion', $this->suggestion, true);
-        Model::validateRequired('rate', $this->rate, true);
-        Model::validateRequired('details', $this->details, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
-        }
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
@@ -76,11 +72,11 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
-        }
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];

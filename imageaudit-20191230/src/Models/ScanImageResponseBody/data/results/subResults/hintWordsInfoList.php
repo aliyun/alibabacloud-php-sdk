@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponse\data\results\subResults;
+namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponseBody\data\results\subResults;
 
 use AlibabaCloud\Tea\Model;
 
@@ -18,7 +18,6 @@ class hintWordsInfoList extends Model
 
     public function validate()
     {
-        Model::validateRequired('context', $this->context, true);
     }
 
     public function toMap()

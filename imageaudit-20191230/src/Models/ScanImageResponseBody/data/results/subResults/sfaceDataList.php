@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponse\data\results\subResults;
+namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponseBody\data\results\subResults;
 
-use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponse\data\results\subResults\sfaceDataList\faces;
+use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponseBody\data\results\subResults\sfaceDataList\faces;
 use AlibabaCloud\Tea\Model;
 
 class sfaceDataList extends Model
@@ -12,7 +12,17 @@ class sfaceDataList extends Model
     /**
      * @var float
      */
-    public $x;
+    public $width;
+
+    /**
+     * @var faces[]
+     */
+    public $faces;
+
+    /**
+     * @var float
+     */
+    public $height;
 
     /**
      * @var float
@@ -22,48 +32,24 @@ class sfaceDataList extends Model
     /**
      * @var float
      */
-    public $width;
-
-    /**
-     * @var float
-     */
-    public $height;
-
-    /**
-     * @var faces[]
-     */
-    public $faces;
+    public $x;
     protected $_name = [
-        'x'      => 'X',
-        'y'      => 'Y',
         'width'  => 'Width',
-        'height' => 'Height',
         'faces'  => 'Faces',
+        'height' => 'Height',
+        'y'      => 'Y',
+        'x'      => 'X',
     ];
 
     public function validate()
     {
-        Model::validateRequired('x', $this->x, true);
-        Model::validateRequired('y', $this->y, true);
-        Model::validateRequired('width', $this->width, true);
-        Model::validateRequired('height', $this->height, true);
-        Model::validateRequired('faces', $this->faces, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->x) {
-            $res['X'] = $this->x;
-        }
-        if (null !== $this->y) {
-            $res['Y'] = $this->y;
-        }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
         }
         if (null !== $this->faces) {
             $res['Faces'] = [];
@@ -73,6 +59,15 @@ class sfaceDataList extends Model
                     $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
+        if (null !== $this->y) {
+            $res['Y'] = $this->y;
+        }
+        if (null !== $this->x) {
+            $res['X'] = $this->x;
         }
 
         return $res;
@@ -86,17 +81,8 @@ class sfaceDataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['X'])) {
-            $model->x = $map['X'];
-        }
-        if (isset($map['Y'])) {
-            $model->y = $map['Y'];
-        }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
         }
         if (isset($map['Faces'])) {
             if (!empty($map['Faces'])) {
@@ -106,6 +92,15 @@ class sfaceDataList extends Model
                     $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
+        if (isset($map['Y'])) {
+            $model->y = $map['Y'];
+        }
+        if (isset($map['X'])) {
+            $model->x = $map['X'];
         }
 
         return $model;

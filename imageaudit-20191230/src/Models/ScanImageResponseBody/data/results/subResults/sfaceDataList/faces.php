@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponse\data\results\subResults\sfaceDataList;
+namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponseBody\data\results\subResults\sfaceDataList;
 
 use AlibabaCloud\Tea\Model;
 
@@ -14,25 +14,22 @@ class faces extends Model
     public $name;
 
     /**
-     * @var float
-     */
-    public $rate;
-
-    /**
      * @var string
      */
     public $id;
+
+    /**
+     * @var float
+     */
+    public $rate;
     protected $_name = [
         'name' => 'Name',
-        'rate' => 'Rate',
         'id'   => 'Id',
+        'rate' => 'Rate',
     ];
 
     public function validate()
     {
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('rate', $this->rate, true);
-        Model::validateRequired('id', $this->id, true);
     }
 
     public function toMap()
@@ -41,11 +38,11 @@ class faces extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->rate) {
-            $res['Rate'] = $this->rate;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->rate) {
+            $res['Rate'] = $this->rate;
         }
 
         return $res;
@@ -62,11 +59,11 @@ class faces extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Rate'])) {
-            $model->rate = $map['Rate'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Rate'])) {
+            $model->rate = $map['Rate'];
         }
 
         return $model;

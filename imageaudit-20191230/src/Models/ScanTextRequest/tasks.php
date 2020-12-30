@@ -18,7 +18,6 @@ class tasks extends Model
 
     public function validate()
     {
-        Model::validateRequired('content', $this->content, true);
     }
 
     public function toMap()

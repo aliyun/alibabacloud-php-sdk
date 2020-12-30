@@ -9,12 +9,12 @@ use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageRequest;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponse;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextRequest;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponse;
-use AlibabaCloud\Tea\Rpc\Rpc;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\OpenApiClient;
 
-class Imageaudit extends Rpc
+class Imageaudit extends OpenApiClient
 {
     public function __construct($config)
     {
@@ -22,56 +22,6 @@ class Imageaudit extends Rpc
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('imageaudit', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
-    }
-
-    /**
-     * @param ScanTextRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return ScanTextResponse
-     */
-    public function scanTextWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ScanTextResponse::fromMap($this->doRequest('ScanText', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ScanTextRequest $request
-     *
-     * @return ScanTextResponse
-     */
-    public function scanText($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->scanTextWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ScanImageRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ScanImageResponse
-     */
-    public function scanImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ScanImageResponse::fromMap($this->doRequest('ScanImage', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ScanImageRequest $request
-     *
-     * @return ScanImageResponse
-     */
-    public function scanImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->scanImageWithOptions($request, $runtime);
     }
 
     /**
@@ -95,5 +45,61 @@ class Imageaudit extends Rpc
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ScanImageRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ScanImageResponse
+     */
+    public function scanImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ScanImageResponse::fromMap($this->doRPCRequest('ScanImage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ScanImageRequest $request
+     *
+     * @return ScanImageResponse
+     */
+    public function scanImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->scanImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ScanTextRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ScanTextResponse
+     */
+    public function scanTextWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ScanTextResponse::fromMap($this->doRPCRequest('ScanText', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ScanTextRequest $request
+     *
+     * @return ScanTextResponse
+     */
+    public function scanText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->scanTextWithOptions($request, $runtime);
     }
 }

@@ -25,8 +25,6 @@ class ScanImageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('task', $this->task, true);
-        Model::validateRequired('scene', $this->scene, true);
     }
 
     public function toMap()

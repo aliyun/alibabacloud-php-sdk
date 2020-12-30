@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponse\data\elements\results\details;
+namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponseBody\data\elements\results\details;
 
 use AlibabaCloud\Tea\Model;
 
@@ -18,7 +18,6 @@ class contexts extends Model
 
     public function validate()
     {
-        Model::validateRequired('context', $this->context, true);
     }
 
     public function toMap()

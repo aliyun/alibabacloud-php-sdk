@@ -2,29 +2,37 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponse;
+namespace AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponseBody\data;
 
-use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponse\data\results;
+use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponseBody\data\elements\results;
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class elements extends Model
 {
+    /**
+     * @var string
+     */
+    public $taskId;
+
     /**
      * @var results[]
      */
     public $results;
     protected $_name = [
+        'taskId'  => 'TaskId',
         'results' => 'Results',
     ];
 
     public function validate()
     {
-        Model::validateRequired('results', $this->results, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
         if (null !== $this->results) {
             $res['Results'] = [];
             if (null !== $this->results && \is_array($this->results)) {
@@ -41,11 +49,14 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return elements
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
