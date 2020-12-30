@@ -1,0 +1,71 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class DescribeUserVipsByDomainRequest extends Model
+{
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
+     * @var string
+     */
+    public $available;
+    protected $_name = [
+        'ownerId'    => 'OwnerId',
+        'domainName' => 'DomainName',
+        'available'  => 'Available',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->available) {
+            $res['Available'] = $this->available;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return DescribeUserVipsByDomainRequest
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['Available'])) {
+            $model->available = $map['Available'];
+        }
+
+        return $model;
+    }
+}
