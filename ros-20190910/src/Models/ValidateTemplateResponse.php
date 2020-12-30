@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ValidateTemplateResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $description;
+    public $headers;
 
     /**
-     * @var string
+     * @var ValidateTemplateResponseBody
      */
-    public $requestId;
-
-    /**
-     * @var mixed[][]
-     */
-    public $parameters;
+    public $body;
     protected $_name = [
-        'description' => 'Description',
-        'requestId'   => 'RequestId',
-        'parameters'  => 'Parameters',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('description', $this->description, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('parameters', $this->parameters, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,16 +49,11 @@ class ValidateTemplateResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = $map['Parameters'];
-            }
+        if (isset($map['body'])) {
+            $model->body = ValidateTemplateResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -60,11 +60,6 @@ class DeleteStackInstancesShrinkRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('stackGroupName', $this->stackGroupName, true);
-        Model::validateRequired('accountIdsShrink', $this->accountIdsShrink, true);
-        Model::validateRequired('regionIdsShrink', $this->regionIdsShrink, true);
-        Model::validateRequired('retainStacks', $this->retainStacks, true);
     }
 
     public function toMap()

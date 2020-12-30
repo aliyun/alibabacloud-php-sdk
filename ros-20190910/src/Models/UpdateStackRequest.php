@@ -35,14 +35,14 @@ class UpdateStackRequest extends Model
     public $templateBody;
 
     /**
-     * @var parameters[]
+     * @var string
      */
-    public $parameters;
+    public $stackPolicyURL;
 
     /**
      * @var string
      */
-    public $stackPolicyURL;
+    public $updateAllowPolicy;
 
     /**
      * @var string
@@ -70,6 +70,11 @@ class UpdateStackRequest extends Model
     public $disableRollback;
 
     /**
+     * @var bool
+     */
+    public $enableRecover;
+
+    /**
      * @var string
      */
     public $templateURL;
@@ -93,30 +98,35 @@ class UpdateStackRequest extends Model
      * @var string
      */
     public $templateVersion;
+
+    /**
+     * @var parameters[]
+     */
+    public $parameters;
     protected $_name = [
         'stackId'                     => 'StackId',
         'clientToken'                 => 'ClientToken',
         'stackPolicyDuringUpdateBody' => 'StackPolicyDuringUpdateBody',
         'timeoutInMinutes'            => 'TimeoutInMinutes',
         'templateBody'                => 'TemplateBody',
-        'parameters'                  => 'Parameters',
         'stackPolicyURL'              => 'StackPolicyURL',
+        'updateAllowPolicy'           => 'UpdateAllowPolicy',
         'stackPolicyDuringUpdateURL'  => 'StackPolicyDuringUpdateURL',
         'stackPolicyBody'             => 'StackPolicyBody',
         'usePreviousParameters'       => 'UsePreviousParameters',
         'regionId'                    => 'RegionId',
         'disableRollback'             => 'DisableRollback',
+        'enableRecover'               => 'EnableRecover',
         'templateURL'                 => 'TemplateURL',
         'ramRoleName'                 => 'RamRoleName',
         'replacementOption'           => 'ReplacementOption',
         'templateId'                  => 'TemplateId',
         'templateVersion'             => 'TemplateVersion',
+        'parameters'                  => 'Parameters',
     ];
 
     public function validate()
     {
-        Model::validateRequired('stackId', $this->stackId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -137,17 +147,11 @@ class UpdateStackRequest extends Model
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
         }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->stackPolicyURL) {
             $res['StackPolicyURL'] = $this->stackPolicyURL;
+        }
+        if (null !== $this->updateAllowPolicy) {
+            $res['UpdateAllowPolicy'] = $this->updateAllowPolicy;
         }
         if (null !== $this->stackPolicyDuringUpdateURL) {
             $res['StackPolicyDuringUpdateURL'] = $this->stackPolicyDuringUpdateURL;
@@ -164,6 +168,9 @@ class UpdateStackRequest extends Model
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
         }
+        if (null !== $this->enableRecover) {
+            $res['EnableRecover'] = $this->enableRecover;
+        }
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
         }
@@ -178,6 +185,15 @@ class UpdateStackRequest extends Model
         }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = [];
+            if (null !== $this->parameters && \is_array($this->parameters)) {
+                $n = 0;
+                foreach ($this->parameters as $item) {
+                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -206,17 +222,11 @@ class UpdateStackRequest extends Model
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }
-        if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = [];
-                $n                 = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['StackPolicyURL'])) {
             $model->stackPolicyURL = $map['StackPolicyURL'];
+        }
+        if (isset($map['UpdateAllowPolicy'])) {
+            $model->updateAllowPolicy = $map['UpdateAllowPolicy'];
         }
         if (isset($map['StackPolicyDuringUpdateURL'])) {
             $model->stackPolicyDuringUpdateURL = $map['StackPolicyDuringUpdateURL'];
@@ -233,6 +243,9 @@ class UpdateStackRequest extends Model
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];
         }
+        if (isset($map['EnableRecover'])) {
+            $model->enableRecover = $map['EnableRecover'];
+        }
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];
         }
@@ -247,6 +260,15 @@ class UpdateStackRequest extends Model
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
+        }
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                $n                 = 0;
+                foreach ($map['Parameters'] as $item) {
+                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

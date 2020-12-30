@@ -20,11 +20,6 @@ class GetTemplateEstimateCostRequest extends Model
     public $regionId;
 
     /**
-     * @var parameters[]
-     */
-    public $parameters;
-
-    /**
      * @var string
      */
     public $templateBody;
@@ -43,19 +38,23 @@ class GetTemplateEstimateCostRequest extends Model
      * @var string
      */
     public $templateVersion;
+
+    /**
+     * @var parameters[]
+     */
+    public $parameters;
     protected $_name = [
         'templateURL'     => 'TemplateURL',
         'regionId'        => 'RegionId',
-        'parameters'      => 'Parameters',
         'templateBody'    => 'TemplateBody',
         'clientToken'     => 'ClientToken',
         'templateId'      => 'TemplateId',
         'templateVersion' => 'TemplateVersion',
+        'parameters'      => 'Parameters',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -66,15 +65,6 @@ class GetTemplateEstimateCostRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
@@ -87,6 +77,15 @@ class GetTemplateEstimateCostRequest extends Model
         }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = [];
+            if (null !== $this->parameters && \is_array($this->parameters)) {
+                $n = 0;
+                foreach ($this->parameters as $item) {
+                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -106,15 +105,6 @@ class GetTemplateEstimateCostRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = [];
-                $n                 = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }
@@ -126,6 +116,15 @@ class GetTemplateEstimateCostRequest extends Model
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
+        }
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                $n                 = 0;
+                foreach ($map['Parameters'] as $item) {
+                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

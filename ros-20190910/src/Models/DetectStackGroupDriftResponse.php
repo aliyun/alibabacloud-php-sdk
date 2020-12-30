@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DetectStackGroupDriftResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DetectStackGroupDriftResponseBody
      */
-    public $operationId;
+    public $body;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'operationId' => 'OperationId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('operationId', $this->operationId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->operationId) {
-            $res['OperationId'] = $this->operationId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class DetectStackGroupDriftResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['OperationId'])) {
-            $model->operationId = $map['OperationId'];
+        if (isset($map['body'])) {
+            $model->body = DetectStackGroupDriftResponseBody::fromMap($map['body']);
         }
 
         return $model;

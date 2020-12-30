@@ -19,25 +19,23 @@ class DetectStackDriftRequest extends Model
     public $regionId;
 
     /**
-     * @var string[]
-     */
-    public $logicalResourceId;
-
-    /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string[]
+     */
+    public $logicalResourceId;
     protected $_name = [
         'stackId'           => 'StackId',
         'regionId'          => 'RegionId',
-        'logicalResourceId' => 'LogicalResourceId',
         'clientToken'       => 'ClientToken',
+        'logicalResourceId' => 'LogicalResourceId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('stackId', $this->stackId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -49,11 +47,11 @@ class DetectStackDriftRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->logicalResourceId) {
-            $res['LogicalResourceId'] = $this->logicalResourceId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->logicalResourceId) {
+            $res['LogicalResourceId'] = $this->logicalResourceId;
         }
 
         return $res;
@@ -73,13 +71,13 @@ class DetectStackDriftRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['LogicalResourceId'])) {
             if (!empty($map['LogicalResourceId'])) {
                 $model->logicalResourceId = $map['LogicalResourceId'];
             }
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

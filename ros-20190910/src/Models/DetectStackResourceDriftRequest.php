@@ -36,9 +36,6 @@ class DetectStackResourceDriftRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('stackId', $this->stackId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('logicalResourceId', $this->logicalResourceId, true);
     }
 
     public function toMap()
