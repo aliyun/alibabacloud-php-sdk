@@ -1,0 +1,59 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Cityvisual\V20181030\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class DescribeProtocolsResponseBody extends Model
+{
+    /**
+     * @var mixed[]
+     */
+    public $protocols;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+    protected $_name = [
+        'protocols' => 'Protocols',
+        'requestId' => 'RequestId',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->protocols) {
+            $res['Protocols'] = $this->protocols;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return DescribeProtocolsResponseBody
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Protocols'])) {
+            $model->protocols = $map['Protocols'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        return $model;
+    }
+}
