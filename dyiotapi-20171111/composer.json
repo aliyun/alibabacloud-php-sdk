@@ -1,0 +1,32 @@
+{
+  "name": "alibabacloud/dyiotapi-20171111",
+  "description": "Alibaba Cloud Dyiotapi (20171111) SDK Library for PHP",
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Alibaba Cloud SDK",
+      "email": "sdk-team@alibabacloud.com"
+    }
+  ],
+  "require": {
+    "php": ">5.5",
+    "alibabacloud/tea-utils": "^0.2.0",
+    "alibabacloud/darabonba-openapi": "^0.1.0",
+    "alibabacloud/endpoint-util": "^0.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "AlibabaCloud\\SDK\\Dyiotapi\\V20171111\\": "src"
+    }
+  },
+  "scripts": {
+    "fixer": "php-cs-fixer fix ./"
+  },
+  "config": {
+    "sort-packages": true,
+    "preferred-install": "dist",
+    "optimize-autoloader": true
+  },
+  "prefer-stable": true
+}
