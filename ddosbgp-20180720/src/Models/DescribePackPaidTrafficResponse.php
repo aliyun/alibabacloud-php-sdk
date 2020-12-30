@@ -4,55 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribePackPaidTrafficResponse\packPaidTraffics;
 use AlibabaCloud\Tea\Model;
 
 class DescribePackPaidTrafficResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribePackPaidTrafficResponseBody
      */
-    public $totalCount;
-
-    /**
-     * @var packPaidTraffics[]
-     */
-    public $packPaidTraffics;
+    public $body;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
-        'packPaidTraffics' => 'PackPaidTraffics',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('totalCount', $this->totalCount, true);
-        Model::validateRequired('packPaidTraffics', $this->packPaidTraffics, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->packPaidTraffics) {
-            $res['PackPaidTraffics'] = [];
-            if (null !== $this->packPaidTraffics && \is_array($this->packPaidTraffics)) {
-                $n = 0;
-                foreach ($this->packPaidTraffics as $item) {
-                    $res['PackPaidTraffics'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +49,11 @@ class DescribePackPaidTrafficResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PackPaidTraffics'])) {
-            if (!empty($map['PackPaidTraffics'])) {
-                $model->packPaidTraffics = [];
-                $n                       = 0;
-                foreach ($map['PackPaidTraffics'] as $item) {
-                    $model->packPaidTraffics[$n++] = null !== $item ? packPaidTraffics::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribePackPaidTrafficResponseBody::fromMap($map['body']);
         }
 
         return $model;

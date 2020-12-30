@@ -11,6 +11,11 @@ class DeleteSchedruleOnDemandRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -23,6 +28,7 @@ class DeleteSchedruleOnDemandRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'sourceIp'   => 'SourceIp',
         'instanceId' => 'InstanceId',
         'ruleName'   => 'RuleName',
         'regionId'   => 'RegionId',
@@ -30,13 +36,14 @@ class DeleteSchedruleOnDemandRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('ruleName', $this->ruleName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -58,6 +65,9 @@ class DeleteSchedruleOnDemandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeExcpetionCountResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeExcpetionCountResponseBody
      */
-    public $exceptionIpCount;
-
-    /**
-     * @var int
-     */
-    public $expireTimeCount;
+    public $body;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'exceptionIpCount' => 'ExceptionIpCount',
-        'expireTimeCount'  => 'ExpireTimeCount',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('exceptionIpCount', $this->exceptionIpCount, true);
-        Model::validateRequired('expireTimeCount', $this->expireTimeCount, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->exceptionIpCount) {
-            $res['ExceptionIpCount'] = $this->exceptionIpCount;
-        }
-        if (null !== $this->expireTimeCount) {
-            $res['ExpireTimeCount'] = $this->expireTimeCount;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class DescribeExcpetionCountResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ExceptionIpCount'])) {
-            $model->exceptionIpCount = $map['ExceptionIpCount'];
-        }
-        if (isset($map['ExpireTimeCount'])) {
-            $model->expireTimeCount = $map['ExpireTimeCount'];
+        if (isset($map['body'])) {
+            $model->body = DescribeExcpetionCountResponseBody::fromMap($map['body']);
         }
 
         return $model;

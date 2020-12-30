@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnDemandDdosEventRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -48,6 +53,7 @@ class DescribeOnDemandDdosEventRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'sourceIp'        => 'SourceIp',
         'startTime'       => 'StartTime',
         'endTime'         => 'EndTime',
         'pageSize'        => 'PageSize',
@@ -60,16 +66,14 @@ class DescribeOnDemandDdosEventRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('pageNo', $this->pageNo, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -106,6 +110,9 @@ class DescribeOnDemandDdosEventRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

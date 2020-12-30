@@ -11,6 +11,11 @@ class DescribeTrafficRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -48,6 +53,7 @@ class DescribeTrafficRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'sourceIp'        => 'SourceIp',
         'instanceId'      => 'InstanceId',
         'ipnet'           => 'Ipnet',
         'ip'              => 'Ip',
@@ -60,12 +66,14 @@ class DescribeTrafficRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('startTime', $this->startTime, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -102,6 +110,9 @@ class DescribeTrafficRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

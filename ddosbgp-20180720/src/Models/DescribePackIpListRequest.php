@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribePackIpListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
      * @var int
      */
     public $pageNo;
@@ -43,6 +48,7 @@ class DescribePackIpListRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'sourceIp'        => 'SourceIp',
         'pageNo'          => 'PageNo',
         'pageSize'        => 'PageSize',
         'instanceId'      => 'InstanceId',
@@ -54,14 +60,14 @@ class DescribePackIpListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageNo', $this->pageNo, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
@@ -95,6 +101,9 @@ class DescribePackIpListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }

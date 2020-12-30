@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeOpEntitiesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -53,6 +63,8 @@ class DescribeOpEntitiesRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'sourceIp'        => 'SourceIp',
+        'lang'            => 'Lang',
         'currentPage'     => 'CurrentPage',
         'pageSize'        => 'PageSize',
         'startTime'       => 'StartTime',
@@ -66,15 +78,17 @@ class DescribeOpEntitiesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -114,6 +128,12 @@ class DescribeOpEntitiesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }

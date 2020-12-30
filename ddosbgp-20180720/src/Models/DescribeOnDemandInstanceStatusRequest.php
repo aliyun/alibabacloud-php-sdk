@@ -9,32 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnDemandInstanceStatusRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $instanceIdList;
+    public $sourceIp;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string[]
+     */
+    public $instanceIdList;
     protected $_name = [
-        'instanceIdList' => 'InstanceIdList',
+        'sourceIp'       => 'SourceIp',
         'regionId'       => 'RegionId',
+        'instanceIdList' => 'InstanceIdList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceIdList', $this->instanceIdList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceIdList) {
-            $res['InstanceIdList'] = $this->instanceIdList;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->instanceIdList) {
+            $res['InstanceIdList'] = $this->instanceIdList;
         }
 
         return $res;
@@ -48,13 +56,16 @@ class DescribeOnDemandInstanceStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['InstanceIdList'])) {
             if (!empty($map['InstanceIdList'])) {
                 $model->instanceIdList = $map['InstanceIdList'];
             }
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;
