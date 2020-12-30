@@ -9,53 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSlsStatusResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bool
+     * @var DescribeDomainSlsStatusResponseBody
      */
-    public $slsStatus;
-
-    /**
-     * @var string
-     */
-    public $slsLogstore;
-
-    /**
-     * @var string
-     */
-    public $slsProject;
+    public $body;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'slsStatus'   => 'SlsStatus',
-        'slsLogstore' => 'SlsLogstore',
-        'slsProject'  => 'SlsProject',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('slsStatus', $this->slsStatus, true);
-        Model::validateRequired('slsLogstore', $this->slsLogstore, true);
-        Model::validateRequired('slsProject', $this->slsProject, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->slsStatus) {
-            $res['SlsStatus'] = $this->slsStatus;
-        }
-        if (null !== $this->slsLogstore) {
-            $res['SlsLogstore'] = $this->slsLogstore;
-        }
-        if (null !== $this->slsProject) {
-            $res['SlsProject'] = $this->slsProject;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +49,11 @@ class DescribeDomainSlsStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['SlsStatus'])) {
-            $model->slsStatus = $map['SlsStatus'];
-        }
-        if (isset($map['SlsLogstore'])) {
-            $model->slsLogstore = $map['SlsLogstore'];
-        }
-        if (isset($map['SlsProject'])) {
-            $model->slsProject = $map['SlsProject'];
+        if (isset($map['body'])) {
+            $model->body = DescribeDomainSlsStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

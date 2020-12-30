@@ -60,10 +60,6 @@ class DescribeOpEntitiesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
-        Model::validateRequired('pageNo', $this->pageNo, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

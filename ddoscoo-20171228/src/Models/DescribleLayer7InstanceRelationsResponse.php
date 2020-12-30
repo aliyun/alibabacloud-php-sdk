@@ -4,45 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribleLayer7InstanceRelationsResponse\layer7InstanceRelations;
 use AlibabaCloud\Tea\Model;
 
 class DescribleLayer7InstanceRelationsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var layer7InstanceRelations[]
+     * @var DescribleLayer7InstanceRelationsResponseBody
      */
-    public $layer7InstanceRelations;
+    public $body;
     protected $_name = [
-        'requestId'               => 'RequestId',
-        'layer7InstanceRelations' => 'Layer7InstanceRelations',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('layer7InstanceRelations', $this->layer7InstanceRelations, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->layer7InstanceRelations) {
-            $res['Layer7InstanceRelations'] = [];
-            if (null !== $this->layer7InstanceRelations && \is_array($this->layer7InstanceRelations)) {
-                $n = 0;
-                foreach ($this->layer7InstanceRelations as $item) {
-                    $res['Layer7InstanceRelations'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +49,11 @@ class DescribleLayer7InstanceRelationsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Layer7InstanceRelations'])) {
-            if (!empty($map['Layer7InstanceRelations'])) {
-                $model->layer7InstanceRelations = [];
-                $n                              = 0;
-                foreach ($map['Layer7InstanceRelations'] as $item) {
-                    $model->layer7InstanceRelations[$n++] = null !== $item ? layer7InstanceRelations::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribleLayer7InstanceRelationsResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -11,6 +11,11 @@ class CreateLayer7RuleRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -33,6 +38,7 @@ class CreateLayer7RuleRequest extends Model
      */
     public $instanceIds;
     protected $_name = [
+        'sourceIp'        => 'SourceIp',
         'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
         'rsType'          => 'RsType',
@@ -42,14 +48,14 @@ class CreateLayer7RuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
-        Model::validateRequired('rsType', $this->rsType, true);
-        Model::validateRequired('rules', $this->rules, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -77,6 +83,9 @@ class CreateLayer7RuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

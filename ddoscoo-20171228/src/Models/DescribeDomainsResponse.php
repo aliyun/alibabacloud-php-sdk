@@ -4,55 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeDomainsResponse\domains;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDomainsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeDomainsResponseBody
      */
-    public $total;
-
-    /**
-     * @var domains[]
-     */
-    public $domains;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'total'     => 'Total',
-        'domains'   => 'Domains',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('total', $this->total, true);
-        Model::validateRequired('domains', $this->domains, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->domains) {
-            $res['Domains'] = [];
-            if (null !== $this->domains && \is_array($this->domains)) {
-                $n = 0;
-                foreach ($this->domains as $item) {
-                    $res['Domains'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +49,11 @@ class DescribeDomainsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['Domains'])) {
-            if (!empty($map['Domains'])) {
-                $model->domains = [];
-                $n              = 0;
-                foreach ($map['Domains'] as $item) {
-                    $model->domains[$n++] = null !== $item ? domains::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeDomainsResponseBody::fromMap($map['body']);
         }
 
         return $model;

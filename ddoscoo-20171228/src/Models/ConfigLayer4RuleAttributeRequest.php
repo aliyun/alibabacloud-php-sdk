@@ -11,6 +11,11 @@ class ConfigLayer4RuleAttributeRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -28,6 +33,7 @@ class ConfigLayer4RuleAttributeRequest extends Model
      */
     public $config;
     protected $_name = [
+        'sourceIp'        => 'SourceIp',
         'instanceId'      => 'InstanceId',
         'forwardProtocol' => 'ForwardProtocol',
         'frontendPort'    => 'FrontendPort',
@@ -36,15 +42,14 @@ class ConfigLayer4RuleAttributeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('forwardProtocol', $this->forwardProtocol, true);
-        Model::validateRequired('frontendPort', $this->frontendPort, true);
-        Model::validateRequired('config', $this->config, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -69,6 +74,9 @@ class ConfigLayer4RuleAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

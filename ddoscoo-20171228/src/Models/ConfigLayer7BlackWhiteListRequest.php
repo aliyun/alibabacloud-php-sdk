@@ -11,6 +11,11 @@ class ConfigLayer7BlackWhiteListRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -28,6 +33,7 @@ class ConfigLayer7BlackWhiteListRequest extends Model
      */
     public $whiteList;
     protected $_name = [
+        'sourceIp'        => 'SourceIp',
         'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
         'blackList'       => 'BlackList',
@@ -36,12 +42,14 @@ class ConfigLayer7BlackWhiteListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -66,6 +74,9 @@ class ConfigLayer7BlackWhiteListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

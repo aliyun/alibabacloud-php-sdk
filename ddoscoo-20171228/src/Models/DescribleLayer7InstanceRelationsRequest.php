@@ -30,7 +30,6 @@ class DescribleLayer7InstanceRelationsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainList', $this->domainList, true);
     }
 
     public function toMap()

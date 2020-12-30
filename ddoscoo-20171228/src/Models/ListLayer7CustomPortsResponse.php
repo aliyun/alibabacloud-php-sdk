@@ -4,45 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\ListLayer7CustomPortsResponse\layer7CustomPorts;
 use AlibabaCloud\Tea\Model;
 
 class ListLayer7CustomPortsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var layer7CustomPorts[]
+     * @var ListLayer7CustomPortsResponseBody
      */
-    public $layer7CustomPorts;
+    public $body;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'layer7CustomPorts' => 'Layer7CustomPorts',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('layer7CustomPorts', $this->layer7CustomPorts, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->layer7CustomPorts) {
-            $res['Layer7CustomPorts'] = [];
-            if (null !== $this->layer7CustomPorts && \is_array($this->layer7CustomPorts)) {
-                $n = 0;
-                foreach ($this->layer7CustomPorts as $item) {
-                    $res['Layer7CustomPorts'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +49,11 @@ class ListLayer7CustomPortsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Layer7CustomPorts'])) {
-            if (!empty($map['Layer7CustomPorts'])) {
-                $model->layer7CustomPorts = [];
-                $n                        = 0;
-                foreach ($map['Layer7CustomPorts'] as $item) {
-                    $model->layer7CustomPorts[$n++] = null !== $item ? layer7CustomPorts::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = ListLayer7CustomPortsResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -24,7 +24,6 @@ class DescribeHealthCheckListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('listeners', $this->listeners, true);
     }
 
     public function toMap()

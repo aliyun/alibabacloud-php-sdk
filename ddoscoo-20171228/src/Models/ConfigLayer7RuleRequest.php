@@ -11,6 +11,11 @@ class ConfigLayer7RuleRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -24,14 +29,14 @@ class ConfigLayer7RuleRequest extends Model
     public $proxyTypeList;
 
     /**
-     * @var string[]
-     */
-    public $proxyTypes;
-
-    /**
      * @var int
      */
     public $rsType;
+
+    /**
+     * @var string[]
+     */
+    public $proxyTypes;
 
     /**
      * @var string[]
@@ -43,25 +48,26 @@ class ConfigLayer7RuleRequest extends Model
      */
     public $instanceIds;
     protected $_name = [
+        'sourceIp'        => 'SourceIp',
         'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
         'proxyTypeList'   => 'ProxyTypeList',
-        'proxyTypes'      => 'ProxyTypes',
         'rsType'          => 'RsType',
+        'proxyTypes'      => 'ProxyTypes',
         'realServers'     => 'RealServers',
         'instanceIds'     => 'InstanceIds',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
-        Model::validateRequired('rsType', $this->rsType, true);
-        Model::validateRequired('realServers', $this->realServers, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -71,11 +77,11 @@ class ConfigLayer7RuleRequest extends Model
         if (null !== $this->proxyTypeList) {
             $res['ProxyTypeList'] = $this->proxyTypeList;
         }
-        if (null !== $this->proxyTypes) {
-            $res['ProxyTypes'] = $this->proxyTypes;
-        }
         if (null !== $this->rsType) {
             $res['RsType'] = $this->rsType;
+        }
+        if (null !== $this->proxyTypes) {
+            $res['ProxyTypes'] = $this->proxyTypes;
         }
         if (null !== $this->realServers) {
             $res['RealServers'] = $this->realServers;
@@ -95,6 +101,9 @@ class ConfigLayer7RuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
@@ -104,13 +113,13 @@ class ConfigLayer7RuleRequest extends Model
         if (isset($map['ProxyTypeList'])) {
             $model->proxyTypeList = $map['ProxyTypeList'];
         }
+        if (isset($map['RsType'])) {
+            $model->rsType = $map['RsType'];
+        }
         if (isset($map['ProxyTypes'])) {
             if (!empty($map['ProxyTypes'])) {
                 $model->proxyTypes = $map['ProxyTypes'];
             }
-        }
-        if (isset($map['RsType'])) {
-            $model->rsType = $map['RsType'];
         }
         if (isset($map['RealServers'])) {
             if (!empty($map['RealServers'])) {

@@ -4,45 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeHealthCheckStatusListResponse\healthCheckStatusList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeHealthCheckStatusListResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var healthCheckStatusList[]
+     * @var DescribeHealthCheckStatusListResponseBody
      */
-    public $healthCheckStatusList;
+    public $body;
     protected $_name = [
-        'requestId'             => 'RequestId',
-        'healthCheckStatusList' => 'HealthCheckStatusList',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('healthCheckStatusList', $this->healthCheckStatusList, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->healthCheckStatusList) {
-            $res['HealthCheckStatusList'] = [];
-            if (null !== $this->healthCheckStatusList && \is_array($this->healthCheckStatusList)) {
-                $n = 0;
-                foreach ($this->healthCheckStatusList as $item) {
-                    $res['HealthCheckStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +49,11 @@ class DescribeHealthCheckStatusListResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['HealthCheckStatusList'])) {
-            if (!empty($map['HealthCheckStatusList'])) {
-                $model->healthCheckStatusList = [];
-                $n                            = 0;
-                foreach ($map['HealthCheckStatusList'] as $item) {
-                    $model->healthCheckStatusList[$n++] = null !== $item ? healthCheckStatusList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeHealthCheckStatusListResponseBody::fromMap($map['body']);
         }
 
         return $model;

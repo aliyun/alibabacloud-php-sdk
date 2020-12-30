@@ -11,6 +11,16 @@ class CreateAsyncTaskRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -23,6 +33,8 @@ class CreateAsyncTaskRequest extends Model
      */
     public $taskParams;
     protected $_name = [
+        'sourceIp'        => 'SourceIp',
+        'lang'            => 'Lang',
         'resourceGroupId' => 'ResourceGroupId',
         'taskType'        => 'TaskType',
         'taskParams'      => 'TaskParams',
@@ -30,13 +42,17 @@ class CreateAsyncTaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('taskType', $this->taskType, true);
-        Model::validateRequired('taskParams', $this->taskParams, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -58,6 +74,12 @@ class CreateAsyncTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
