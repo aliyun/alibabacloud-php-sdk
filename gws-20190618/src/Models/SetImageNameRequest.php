@@ -24,8 +24,6 @@ class SetImageNameRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageId', $this->imageId, true);
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

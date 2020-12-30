@@ -24,7 +24,6 @@ class DescribeClusterADDomainRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('clusterId', $this->clusterId, true);
     }
 
     public function toMap()

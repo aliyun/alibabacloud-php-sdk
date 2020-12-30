@@ -36,9 +36,6 @@ class DescribeClusterConnectionsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('clusterId', $this->clusterId, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()

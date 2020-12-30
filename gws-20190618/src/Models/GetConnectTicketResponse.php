@@ -9,53 +9,33 @@ use AlibabaCloud\Tea\Model;
 class GetConnectTicketResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var GetConnectTicketResponseBody
      */
-    public $ticket;
-
-    /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
-     * @var bool
-     */
-    public $taskFinished;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'ticket'       => 'Ticket',
-        'taskId'       => 'TaskId',
-        'taskFinished' => 'TaskFinished',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('ticket', $this->ticket, true);
-        Model::validateRequired('taskId', $this->taskId, true);
-        Model::validateRequired('taskFinished', $this->taskFinished, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->ticket) {
-            $res['Ticket'] = $this->ticket;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->taskFinished) {
-            $res['TaskFinished'] = $this->taskFinished;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +49,11 @@ class GetConnectTicketResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Ticket'])) {
-            $model->ticket = $map['Ticket'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['TaskFinished'])) {
-            $model->taskFinished = $map['TaskFinished'];
+        if (isset($map['body'])) {
+            $model->body = GetConnectTicketResponseBody::fromMap($map['body']);
         }
 
         return $model;

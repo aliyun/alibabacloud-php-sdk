@@ -115,12 +115,6 @@ class CreateInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('clusterId', $this->clusterId, true);
-        Model::validateRequired('imageId', $this->imageId, true);
-        Model::validateRequired('systemDiskSize', $this->systemDiskSize, true);
-        Model::validateRequired('systemDiskCategory', $this->systemDiskCategory, true);
-        Model::validateRequired('instanceType', $this->instanceType, true);
-        Model::validateRequired('workMode', $this->workMode, true);
     }
 
     public function toMap()

@@ -30,9 +30,6 @@ class SetInstanceUserRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('userUid', $this->userUid, true);
-        Model::validateRequired('userName', $this->userName, true);
     }
 
     public function toMap()

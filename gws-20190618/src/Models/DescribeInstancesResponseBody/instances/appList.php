@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Gws\V20190618\Models\DescribeInstancesResponse\instances;
+namespace AlibabaCloud\SDK\Gws\V20190618\Models\DescribeInstancesResponseBody\instances;
 
 use AlibabaCloud\Tea\Model;
 
@@ -30,9 +30,6 @@ class appList extends Model
 
     public function validate()
     {
-        Model::validateRequired('appName', $this->appName, true);
-        Model::validateRequired('appPath', $this->appPath, true);
-        Model::validateRequired('appArgs', $this->appArgs, true);
     }
 
     public function toMap()

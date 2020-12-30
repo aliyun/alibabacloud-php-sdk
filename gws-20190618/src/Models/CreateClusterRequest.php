@@ -30,8 +30,6 @@ class CreateClusterRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('vpcId', $this->vpcId, true);
-        Model::validateRequired('clusterType', $this->clusterType, true);
     }
 
     public function toMap()

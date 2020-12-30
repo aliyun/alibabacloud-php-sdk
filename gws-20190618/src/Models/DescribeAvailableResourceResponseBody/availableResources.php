@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Gws\V20190618\Models\DescribeAvailableResourceResponse;
+namespace AlibabaCloud\SDK\Gws\V20190618\Models\DescribeAvailableResourceResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -24,8 +24,6 @@ class availableResources extends Model
 
     public function validate()
     {
-        Model::validateRequired('clusterType', $this->clusterType, true);
-        Model::validateRequired('zone', $this->zone, true);
     }
 
     public function toMap()

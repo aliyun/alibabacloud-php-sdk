@@ -4,45 +4,38 @@
 
 namespace AlibabaCloud\SDK\Gws\V20190618\Models;
 
-use AlibabaCloud\SDK\Gws\V20190618\Models\DescribeAvailableResourceResponse\availableResources;
 use AlibabaCloud\Tea\Model;
 
 class DescribeAvailableResourceResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var availableResources[]
+     * @var DescribeAvailableResourceResponseBody
      */
-    public $availableResources;
+    public $body;
     protected $_name = [
-        'requestId'          => 'RequestId',
-        'availableResources' => 'AvailableResources',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('availableResources', $this->availableResources, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->availableResources) {
-            $res['AvailableResources'] = [];
-            if (null !== $this->availableResources && \is_array($this->availableResources)) {
-                $n = 0;
-                foreach ($this->availableResources as $item) {
-                    $res['AvailableResources'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +49,11 @@ class DescribeAvailableResourceResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['AvailableResources'])) {
-            if (!empty($map['AvailableResources'])) {
-                $model->availableResources = [];
-                $n                         = 0;
-                foreach ($map['AvailableResources'] as $item) {
-                    $model->availableResources[$n++] = null !== $item ? availableResources::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeAvailableResourceResponseBody::fromMap($map['body']);
         }
 
         return $model;

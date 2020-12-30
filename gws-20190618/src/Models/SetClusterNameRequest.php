@@ -24,8 +24,6 @@ class SetClusterNameRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('clusterId', $this->clusterId, true);
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

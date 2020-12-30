@@ -60,11 +60,6 @@ class SetClusterPolicyRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('clusterId', $this->clusterId, true);
-        Model::validateRequired('usbRedirect', $this->usbRedirect, true);
-        Model::validateRequired('watermark', $this->watermark, true);
-        Model::validateRequired('localDrive', $this->localDrive, true);
-        Model::validateRequired('clipboard', $this->clipboard, true);
     }
 
     public function toMap()

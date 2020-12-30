@@ -48,10 +48,6 @@ class SetClusterADDomainRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('clusterId', $this->clusterId, true);
-        Model::validateRequired('domainDnsIp', $this->domainDnsIp, true);
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('domainPassword', $this->domainPassword, true);
     }
 
     public function toMap()

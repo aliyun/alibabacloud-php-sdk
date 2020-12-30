@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class IsUserAdminResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bool
+     * @var IsUserAdminResponseBody
      */
-    public $isAdmin;
-
-    /**
-     * @var bool
-     */
-    public $isAllow;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'isAdmin'   => 'IsAdmin',
-        'isAllow'   => 'IsAllow',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('isAdmin', $this->isAdmin, true);
-        Model::validateRequired('isAllow', $this->isAllow, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->isAdmin) {
-            $res['IsAdmin'] = $this->isAdmin;
-        }
-        if (null !== $this->isAllow) {
-            $res['IsAllow'] = $this->isAllow;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class IsUserAdminResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['IsAdmin'])) {
-            $model->isAdmin = $map['IsAdmin'];
-        }
-        if (isset($map['IsAllow'])) {
-            $model->isAllow = $map['IsAllow'];
+        if (isset($map['body'])) {
+            $model->body = IsUserAdminResponseBody::fromMap($map['body']);
         }
 
         return $model;

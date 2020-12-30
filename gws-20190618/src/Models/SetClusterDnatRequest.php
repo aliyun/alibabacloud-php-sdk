@@ -30,8 +30,6 @@ class SetClusterDnatRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('clusterId', $this->clusterId, true);
-        Model::validateRequired('natId', $this->natId, true);
     }
 
     public function toMap()

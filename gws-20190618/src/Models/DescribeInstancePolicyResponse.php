@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancePolicyResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeInstancePolicyResponseBody
      */
-    public $visualLossless;
-
-    /**
-     * @var string
-     */
-    public $optimizeFor3d;
-
-    /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
-     * @var bool
-     */
-    public $taskFinished;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'visualLossless' => 'VisualLossless',
-        'optimizeFor3d'  => 'OptimizeFor3d',
-        'taskId'         => 'TaskId',
-        'taskFinished'   => 'TaskFinished',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('visualLossless', $this->visualLossless, true);
-        Model::validateRequired('optimizeFor3d', $this->optimizeFor3d, true);
-        Model::validateRequired('taskId', $this->taskId, true);
-        Model::validateRequired('taskFinished', $this->taskFinished, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->visualLossless) {
-            $res['VisualLossless'] = $this->visualLossless;
-        }
-        if (null !== $this->optimizeFor3d) {
-            $res['OptimizeFor3d'] = $this->optimizeFor3d;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->taskFinished) {
-            $res['TaskFinished'] = $this->taskFinished;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,20 +49,11 @@ class DescribeInstancePolicyResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['VisualLossless'])) {
-            $model->visualLossless = $map['VisualLossless'];
-        }
-        if (isset($map['OptimizeFor3d'])) {
-            $model->optimizeFor3d = $map['OptimizeFor3d'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['TaskFinished'])) {
-            $model->taskFinished = $map['TaskFinished'];
+        if (isset($map['body'])) {
+            $model->body = DescribeInstancePolicyResponseBody::fromMap($map['body']);
         }
 
         return $model;

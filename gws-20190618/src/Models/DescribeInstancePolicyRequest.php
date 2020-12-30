@@ -30,7 +30,6 @@ class DescribeInstancePolicyRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
