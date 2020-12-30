@@ -30,7 +30,7 @@ class DescribeAccessControlListsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var acls[]
+     * @var acls
      */
     public $acls;
 
@@ -67,13 +67,7 @@ class DescribeAccessControlListsResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->acls) {
-            $res['Acls'] = [];
-            if (null !== $this->acls && \is_array($this->acls)) {
-                $n = 0;
-                foreach ($this->acls as $item) {
-                    $res['Acls'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Acls'] = null !== $this->acls ? $this->acls->toMap() : null;
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
@@ -103,13 +97,7 @@ class DescribeAccessControlListsResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['Acls'])) {
-            if (!empty($map['Acls'])) {
-                $model->acls = [];
-                $n           = 0;
-                foreach ($map['Acls'] as $item) {
-                    $model->acls[$n++] = null !== $item ? acls::fromMap($item) : $item;
-                }
-            }
+            $model->acls = acls::fromMap($map['Acls']);
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];

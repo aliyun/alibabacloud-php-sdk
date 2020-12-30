@@ -4,29 +4,17 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAvailableResourceResponseBody;
 
-use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAvailableResourceResponseBody\availableResources\supportResources;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAvailableResourceResponseBody\availableResources\availableResource;
 use AlibabaCloud\Tea\Model;
 
 class availableResources extends Model
 {
     /**
-     * @var string
+     * @var availableResource[]
      */
-    public $slaveZoneId;
-
-    /**
-     * @var supportResources[]
-     */
-    public $supportResources;
-
-    /**
-     * @var string
-     */
-    public $masterZoneId;
+    public $availableResource;
     protected $_name = [
-        'slaveZoneId'      => 'SlaveZoneId',
-        'supportResources' => 'SupportResources',
-        'masterZoneId'     => 'MasterZoneId',
+        'availableResource' => 'AvailableResource',
     ];
 
     public function validate()
@@ -36,20 +24,14 @@ class availableResources extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->slaveZoneId) {
-            $res['SlaveZoneId'] = $this->slaveZoneId;
-        }
-        if (null !== $this->supportResources) {
-            $res['SupportResources'] = [];
-            if (null !== $this->supportResources && \is_array($this->supportResources)) {
+        if (null !== $this->availableResource) {
+            $res['AvailableResource'] = [];
+            if (null !== $this->availableResource && \is_array($this->availableResource)) {
                 $n = 0;
-                foreach ($this->supportResources as $item) {
-                    $res['SupportResources'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->availableResource as $item) {
+                    $res['AvailableResource'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->masterZoneId) {
-            $res['MasterZoneId'] = $this->masterZoneId;
         }
 
         return $res;
@@ -63,20 +45,14 @@ class availableResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SlaveZoneId'])) {
-            $model->slaveZoneId = $map['SlaveZoneId'];
-        }
-        if (isset($map['SupportResources'])) {
-            if (!empty($map['SupportResources'])) {
-                $model->supportResources = [];
-                $n                       = 0;
-                foreach ($map['SupportResources'] as $item) {
-                    $model->supportResources[$n++] = null !== $item ? supportResources::fromMap($item) : $item;
+        if (isset($map['AvailableResource'])) {
+            if (!empty($map['AvailableResource'])) {
+                $model->availableResource = [];
+                $n                        = 0;
+                foreach ($map['AvailableResource'] as $item) {
+                    $model->availableResource[$n++] = null !== $item ? availableResource::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['MasterZoneId'])) {
-            $model->masterZoneId = $map['MasterZoneId'];
         }
 
         return $model;

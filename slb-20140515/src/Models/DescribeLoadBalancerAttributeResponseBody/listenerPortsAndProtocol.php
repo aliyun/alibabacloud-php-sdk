@@ -4,40 +4,17 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody\listenerPortsAndProtocol\listenerPortAndProtocol;
 use AlibabaCloud\Tea\Model;
 
 class listenerPortsAndProtocol extends Model
 {
     /**
-     * @var string
+     * @var listenerPortAndProtocol[]
      */
-    public $listenerProtocol;
-
-    /**
-     * @var string
-     */
-    public $listenerForward;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $listenerPort;
-
-    /**
-     * @var int
-     */
-    public $forwardPort;
+    public $listenerPortAndProtocol;
     protected $_name = [
-        'listenerProtocol' => 'ListenerProtocol',
-        'listenerForward'  => 'ListenerForward',
-        'description'      => 'Description',
-        'listenerPort'     => 'ListenerPort',
-        'forwardPort'      => 'ForwardPort',
+        'listenerPortAndProtocol' => 'ListenerPortAndProtocol',
     ];
 
     public function validate()
@@ -47,20 +24,14 @@ class listenerPortsAndProtocol extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->listenerProtocol) {
-            $res['ListenerProtocol'] = $this->listenerProtocol;
-        }
-        if (null !== $this->listenerForward) {
-            $res['ListenerForward'] = $this->listenerForward;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->listenerPort) {
-            $res['ListenerPort'] = $this->listenerPort;
-        }
-        if (null !== $this->forwardPort) {
-            $res['ForwardPort'] = $this->forwardPort;
+        if (null !== $this->listenerPortAndProtocol) {
+            $res['ListenerPortAndProtocol'] = [];
+            if (null !== $this->listenerPortAndProtocol && \is_array($this->listenerPortAndProtocol)) {
+                $n = 0;
+                foreach ($this->listenerPortAndProtocol as $item) {
+                    $res['ListenerPortAndProtocol'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -74,20 +45,14 @@ class listenerPortsAndProtocol extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ListenerProtocol'])) {
-            $model->listenerProtocol = $map['ListenerProtocol'];
-        }
-        if (isset($map['ListenerForward'])) {
-            $model->listenerForward = $map['ListenerForward'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['ListenerPort'])) {
-            $model->listenerPort = $map['ListenerPort'];
-        }
-        if (isset($map['ForwardPort'])) {
-            $model->forwardPort = $map['ForwardPort'];
+        if (isset($map['ListenerPortAndProtocol'])) {
+            if (!empty($map['ListenerPortAndProtocol'])) {
+                $model->listenerPortAndProtocol = [];
+                $n                              = 0;
+                foreach ($map['ListenerPortAndProtocol'] as $item) {
+                    $model->listenerPortAndProtocol[$n++] = null !== $item ? listenerPortAndProtocol::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -4,58 +4,17 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeHealthStatusResponseBody;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeHealthStatusResponseBody\backendServers\backendServer;
 use AlibabaCloud\Tea\Model;
 
 class backendServers extends Model
 {
     /**
-     * @var string
+     * @var backendServer[]
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $eniHost;
-
-    /**
-     * @var string
-     */
-    public $protocol;
-
-    /**
-     * @var string
-     */
-    public $serverHealthStatus;
-
-    /**
-     * @var int
-     */
-    public $listenerPort;
-
-    /**
-     * @var string
-     */
-    public $serverIp;
-
-    /**
-     * @var int
-     */
-    public $port;
-
-    /**
-     * @var string
-     */
-    public $serverId;
+    public $backendServer;
     protected $_name = [
-        'type'               => 'Type',
-        'eniHost'            => 'EniHost',
-        'protocol'           => 'Protocol',
-        'serverHealthStatus' => 'ServerHealthStatus',
-        'listenerPort'       => 'ListenerPort',
-        'serverIp'           => 'ServerIp',
-        'port'               => 'Port',
-        'serverId'           => 'ServerId',
+        'backendServer' => 'BackendServer',
     ];
 
     public function validate()
@@ -65,29 +24,14 @@ class backendServers extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->eniHost) {
-            $res['EniHost'] = $this->eniHost;
-        }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
-        if (null !== $this->serverHealthStatus) {
-            $res['ServerHealthStatus'] = $this->serverHealthStatus;
-        }
-        if (null !== $this->listenerPort) {
-            $res['ListenerPort'] = $this->listenerPort;
-        }
-        if (null !== $this->serverIp) {
-            $res['ServerIp'] = $this->serverIp;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
-        if (null !== $this->serverId) {
-            $res['ServerId'] = $this->serverId;
+        if (null !== $this->backendServer) {
+            $res['BackendServer'] = [];
+            if (null !== $this->backendServer && \is_array($this->backendServer)) {
+                $n = 0;
+                foreach ($this->backendServer as $item) {
+                    $res['BackendServer'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -101,29 +45,14 @@ class backendServers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['EniHost'])) {
-            $model->eniHost = $map['EniHost'];
-        }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
-        if (isset($map['ServerHealthStatus'])) {
-            $model->serverHealthStatus = $map['ServerHealthStatus'];
-        }
-        if (isset($map['ListenerPort'])) {
-            $model->listenerPort = $map['ListenerPort'];
-        }
-        if (isset($map['ServerIp'])) {
-            $model->serverIp = $map['ServerIp'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
-        if (isset($map['ServerId'])) {
-            $model->serverId = $map['ServerId'];
+        if (isset($map['BackendServer'])) {
+            if (!empty($map['BackendServer'])) {
+                $model->backendServer = [];
+                $n                    = 0;
+                foreach ($map['BackendServer'] as $item) {
+                    $model->backendServer[$n++] = null !== $item ? backendServer::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

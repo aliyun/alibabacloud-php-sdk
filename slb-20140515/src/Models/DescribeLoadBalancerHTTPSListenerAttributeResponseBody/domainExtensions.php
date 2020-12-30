@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerHTTPSListenerAttributeResponseBody;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerHTTPSListenerAttributeResponseBody\domainExtensions\domainExtension;
 use AlibabaCloud\Tea\Model;
 
 class domainExtensions extends Model
 {
     /**
-     * @var string
+     * @var domainExtension[]
      */
-    public $domain;
-
-    /**
-     * @var string
-     */
-    public $serverCertificateId;
-
-    /**
-     * @var string
-     */
-    public $domainExtensionId;
+    public $domainExtension;
     protected $_name = [
-        'domain'              => 'Domain',
-        'serverCertificateId' => 'ServerCertificateId',
-        'domainExtensionId'   => 'DomainExtensionId',
+        'domainExtension' => 'DomainExtension',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class domainExtensions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
-        if (null !== $this->serverCertificateId) {
-            $res['ServerCertificateId'] = $this->serverCertificateId;
-        }
-        if (null !== $this->domainExtensionId) {
-            $res['DomainExtensionId'] = $this->domainExtensionId;
+        if (null !== $this->domainExtension) {
+            $res['DomainExtension'] = [];
+            if (null !== $this->domainExtension && \is_array($this->domainExtension)) {
+                $n = 0;
+                foreach ($this->domainExtension as $item) {
+                    $res['DomainExtension'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class domainExtensions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
-        if (isset($map['ServerCertificateId'])) {
-            $model->serverCertificateId = $map['ServerCertificateId'];
-        }
-        if (isset($map['DomainExtensionId'])) {
-            $model->domainExtensionId = $map['DomainExtensionId'];
+        if (isset($map['DomainExtension'])) {
+            if (!empty($map['DomainExtension'])) {
+                $model->domainExtension = [];
+                $n                      = 0;
+                foreach ($map['DomainExtension'] as $item) {
+                    $model->domainExtension[$n++] = null !== $item ? domainExtension::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

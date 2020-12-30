@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAvailableResourceResponseBody\availableResources;
+namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAvailableResourceResponseBody\availableResources\availableResource\supportResources;
 
 use AlibabaCloud\Tea\Model;
 
-class supportResources extends Model
+class supportResource extends Model
 {
     /**
      * @var string
@@ -42,7 +42,7 @@ class supportResources extends Model
     /**
      * @param array $map
      *
-     * @return supportResources
+     * @return supportResource
      */
     public static function fromMap($map = [])
     {

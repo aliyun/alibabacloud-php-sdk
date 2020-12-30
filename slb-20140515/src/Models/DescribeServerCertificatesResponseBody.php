@@ -15,7 +15,7 @@ class DescribeServerCertificatesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var serverCertificates[]
+     * @var serverCertificates
      */
     public $serverCertificates;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeServerCertificatesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->serverCertificates) {
-            $res['ServerCertificates'] = [];
-            if (null !== $this->serverCertificates && \is_array($this->serverCertificates)) {
-                $n = 0;
-                foreach ($this->serverCertificates as $item) {
-                    $res['ServerCertificates'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ServerCertificates'] = null !== $this->serverCertificates ? $this->serverCertificates->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeServerCertificatesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['ServerCertificates'])) {
-            if (!empty($map['ServerCertificates'])) {
-                $model->serverCertificates = [];
-                $n                         = 0;
-                foreach ($map['ServerCertificates'] as $item) {
-                    $model->serverCertificates[$n++] = null !== $item ? serverCertificates::fromMap($item) : $item;
-                }
-            }
+            $model->serverCertificates = serverCertificates::fromMap($map['ServerCertificates']);
         }
 
         return $model;

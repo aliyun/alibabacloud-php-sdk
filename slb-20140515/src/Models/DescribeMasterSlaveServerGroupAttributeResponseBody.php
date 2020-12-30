@@ -30,7 +30,7 @@ class DescribeMasterSlaveServerGroupAttributeResponseBody extends Model
     public $masterSlaveServerGroupName;
 
     /**
-     * @var masterSlaveBackendServers[]
+     * @var masterSlaveBackendServers
      */
     public $masterSlaveBackendServers;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeMasterSlaveServerGroupAttributeResponseBody extends Model
             $res['MasterSlaveServerGroupName'] = $this->masterSlaveServerGroupName;
         }
         if (null !== $this->masterSlaveBackendServers) {
-            $res['MasterSlaveBackendServers'] = [];
-            if (null !== $this->masterSlaveBackendServers && \is_array($this->masterSlaveBackendServers)) {
-                $n = 0;
-                foreach ($this->masterSlaveBackendServers as $item) {
-                    $res['MasterSlaveBackendServers'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['MasterSlaveBackendServers'] = null !== $this->masterSlaveBackendServers ? $this->masterSlaveBackendServers->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeMasterSlaveServerGroupAttributeResponseBody extends Model
             $model->masterSlaveServerGroupName = $map['MasterSlaveServerGroupName'];
         }
         if (isset($map['MasterSlaveBackendServers'])) {
-            if (!empty($map['MasterSlaveBackendServers'])) {
-                $model->masterSlaveBackendServers = [];
-                $n                                = 0;
-                foreach ($map['MasterSlaveBackendServers'] as $item) {
-                    $model->masterSlaveBackendServers[$n++] = null !== $item ? masterSlaveBackendServers::fromMap($item) : $item;
-                }
-            }
+            $model->masterSlaveBackendServers = masterSlaveBackendServers::fromMap($map['MasterSlaveBackendServers']);
         }
 
         return $model;

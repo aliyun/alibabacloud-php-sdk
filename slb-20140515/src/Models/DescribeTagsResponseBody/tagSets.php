@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeTagsResponseBody;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeTagsResponseBody\tagSets\tagSet;
 use AlibabaCloud\Tea\Model;
 
 class tagSets extends Model
 {
     /**
-     * @var int
+     * @var tagSet[]
      */
-    public $instanceCount;
-
-    /**
-     * @var string
-     */
-    public $tagValue;
-
-    /**
-     * @var string
-     */
-    public $tagKey;
+    public $tagSet;
     protected $_name = [
-        'instanceCount' => 'InstanceCount',
-        'tagValue'      => 'TagValue',
-        'tagKey'        => 'TagKey',
+        'tagSet' => 'TagSet',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class tagSets extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceCount) {
-            $res['InstanceCount'] = $this->instanceCount;
-        }
-        if (null !== $this->tagValue) {
-            $res['TagValue'] = $this->tagValue;
-        }
-        if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+        if (null !== $this->tagSet) {
+            $res['TagSet'] = [];
+            if (null !== $this->tagSet && \is_array($this->tagSet)) {
+                $n = 0;
+                foreach ($this->tagSet as $item) {
+                    $res['TagSet'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class tagSets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceCount'])) {
-            $model->instanceCount = $map['InstanceCount'];
-        }
-        if (isset($map['TagValue'])) {
-            $model->tagValue = $map['TagValue'];
-        }
-        if (isset($map['TagKey'])) {
-            $model->tagKey = $map['TagKey'];
+        if (isset($map['TagSet'])) {
+            if (!empty($map['TagSet'])) {
+                $model->tagSet = [];
+                $n             = 0;
+                foreach ($map['TagSet'] as $item) {
+                    $model->tagSet[$n++] = null !== $item ? tagSet::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

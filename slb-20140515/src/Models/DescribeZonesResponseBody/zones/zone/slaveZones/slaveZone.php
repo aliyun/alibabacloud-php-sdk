@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeZonesResponseBody\zones;
+namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeZonesResponseBody\zones\zone\slaveZones;
 
 use AlibabaCloud\Tea\Model;
 
-class slaveZones extends Model
+class slaveZone extends Model
 {
     /**
      * @var string
@@ -42,7 +42,7 @@ class slaveZones extends Model
     /**
      * @param array $map
      *
-     * @return slaveZones
+     * @return slaveZone
      */
     public static function fromMap($map = [])
     {

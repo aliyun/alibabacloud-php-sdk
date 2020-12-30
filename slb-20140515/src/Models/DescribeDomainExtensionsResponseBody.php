@@ -15,7 +15,7 @@ class DescribeDomainExtensionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var domainExtensions[]
+     * @var domainExtensions
      */
     public $domainExtensions;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeDomainExtensionsResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->domainExtensions) {
-            $res['DomainExtensions'] = [];
-            if (null !== $this->domainExtensions && \is_array($this->domainExtensions)) {
-                $n = 0;
-                foreach ($this->domainExtensions as $item) {
-                    $res['DomainExtensions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DomainExtensions'] = null !== $this->domainExtensions ? $this->domainExtensions->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeDomainExtensionsResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DomainExtensions'])) {
-            if (!empty($map['DomainExtensions'])) {
-                $model->domainExtensions = [];
-                $n                       = 0;
-                foreach ($map['DomainExtensions'] as $item) {
-                    $model->domainExtensions[$n++] = null !== $item ? domainExtensions::fromMap($item) : $item;
-                }
-            }
+            $model->domainExtensions = domainExtensions::fromMap($map['DomainExtensions']);
         }
 
         return $model;

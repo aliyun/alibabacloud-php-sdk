@@ -30,7 +30,7 @@ class DescribeVServerGroupAttributeResponseBody extends Model
     public $loadBalancerId;
 
     /**
-     * @var backendServers[]
+     * @var backendServers
      */
     public $backendServers;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeVServerGroupAttributeResponseBody extends Model
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
         if (null !== $this->backendServers) {
-            $res['BackendServers'] = [];
-            if (null !== $this->backendServers && \is_array($this->backendServers)) {
-                $n = 0;
-                foreach ($this->backendServers as $item) {
-                    $res['BackendServers'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeVServerGroupAttributeResponseBody extends Model
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
         if (isset($map['BackendServers'])) {
-            if (!empty($map['BackendServers'])) {
-                $model->backendServers = [];
-                $n                     = 0;
-                foreach ($map['BackendServers'] as $item) {
-                    $model->backendServers[$n++] = null !== $item ? backendServers::fromMap($item) : $item;
-                }
-            }
+            $model->backendServers = backendServers::fromMap($map['BackendServers']);
         }
 
         return $model;

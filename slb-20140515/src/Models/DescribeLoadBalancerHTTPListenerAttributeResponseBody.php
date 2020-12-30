@@ -135,7 +135,7 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public $healthCheckTimeout;
 
     /**
-     * @var rules[]
+     * @var rules
      */
     public $rules;
 
@@ -304,13 +304,7 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
             $res['HealthCheckTimeout'] = $this->healthCheckTimeout;
         }
         if (null !== $this->rules) {
-            $res['Rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
         }
         if (null !== $this->listenerForward) {
             $res['ListenerForward'] = $this->listenerForward;
@@ -427,13 +421,7 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
             $model->healthCheckTimeout = $map['HealthCheckTimeout'];
         }
         if (isset($map['Rules'])) {
-            if (!empty($map['Rules'])) {
-                $model->rules = [];
-                $n            = 0;
-                foreach ($map['Rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
-                }
-            }
+            $model->rules = rules::fromMap($map['Rules']);
         }
         if (isset($map['ListenerForward'])) {
             $model->listenerForward = $map['ListenerForward'];

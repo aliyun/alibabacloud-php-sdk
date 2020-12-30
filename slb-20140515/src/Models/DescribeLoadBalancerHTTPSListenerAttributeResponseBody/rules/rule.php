@@ -2,12 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeVServerGroupsResponseBody\VServerGroups\associatedObjects;
+namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerHTTPSListenerAttributeResponseBody\rules;
 
 use AlibabaCloud\Tea\Model;
 
-class rules extends Model
+class rule extends Model
 {
+    /**
+     * @var string
+     */
+    public $VServerGroupId;
+
     /**
      * @var string
      */
@@ -28,10 +33,11 @@ class rules extends Model
      */
     public $ruleId;
     protected $_name = [
-        'domain'   => 'Domain',
-        'url'      => 'Url',
-        'ruleName' => 'RuleName',
-        'ruleId'   => 'RuleId',
+        'VServerGroupId' => 'VServerGroupId',
+        'domain'         => 'Domain',
+        'url'            => 'Url',
+        'ruleName'       => 'RuleName',
+        'ruleId'         => 'RuleId',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->VServerGroupId) {
+            $res['VServerGroupId'] = $this->VServerGroupId;
+        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -60,11 +69,14 @@ class rules extends Model
     /**
      * @param array $map
      *
-     * @return rules
+     * @return rule
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['VServerGroupId'])) {
+            $model->VServerGroupId = $map['VServerGroupId'];
+        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }

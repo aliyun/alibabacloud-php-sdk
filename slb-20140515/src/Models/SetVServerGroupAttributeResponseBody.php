@@ -25,7 +25,7 @@ class SetVServerGroupAttributeResponseBody extends Model
     public $VServerGroupName;
 
     /**
-     * @var backendServers[]
+     * @var backendServers
      */
     public $backendServers;
     protected $_name = [
@@ -52,13 +52,7 @@ class SetVServerGroupAttributeResponseBody extends Model
             $res['VServerGroupName'] = $this->VServerGroupName;
         }
         if (null !== $this->backendServers) {
-            $res['BackendServers'] = [];
-            if (null !== $this->backendServers && \is_array($this->backendServers)) {
-                $n = 0;
-                foreach ($this->backendServers as $item) {
-                    $res['BackendServers'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
         }
 
         return $res;
@@ -82,13 +76,7 @@ class SetVServerGroupAttributeResponseBody extends Model
             $model->VServerGroupName = $map['VServerGroupName'];
         }
         if (isset($map['BackendServers'])) {
-            if (!empty($map['BackendServers'])) {
-                $model->backendServers = [];
-                $n                     = 0;
-                foreach ($map['BackendServers'] as $item) {
-                    $model->backendServers[$n++] = null !== $item ? backendServers::fromMap($item) : $item;
-                }
-            }
+            $model->backendServers = backendServers::fromMap($map['BackendServers']);
         }
 
         return $model;

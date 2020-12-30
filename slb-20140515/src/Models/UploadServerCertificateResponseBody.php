@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\UploadServerCertificateResponseBody\subjectAlternativeNames;
 use AlibabaCloud\Tea\Model;
 
 class UploadServerCertificateResponseBody extends Model
@@ -34,7 +35,7 @@ class UploadServerCertificateResponseBody extends Model
     public $createTime;
 
     /**
-     * @var string[]
+     * @var subjectAlternativeNames
      */
     public $subjectAlternativeNames;
 
@@ -123,7 +124,7 @@ class UploadServerCertificateResponseBody extends Model
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->subjectAlternativeNames) {
-            $res['SubjectAlternativeNames'] = $this->subjectAlternativeNames;
+            $res['SubjectAlternativeNames'] = null !== $this->subjectAlternativeNames ? $this->subjectAlternativeNames->toMap() : null;
         }
         if (null !== $this->aliCloudCertificateId) {
             $res['AliCloudCertificateId'] = $this->aliCloudCertificateId;
@@ -180,9 +181,7 @@ class UploadServerCertificateResponseBody extends Model
             $model->createTime = $map['CreateTime'];
         }
         if (isset($map['SubjectAlternativeNames'])) {
-            if (!empty($map['SubjectAlternativeNames'])) {
-                $model->subjectAlternativeNames = $map['SubjectAlternativeNames'];
-            }
+            $model->subjectAlternativeNames = subjectAlternativeNames::fromMap($map['SubjectAlternativeNames']);
         }
         if (isset($map['AliCloudCertificateId'])) {
             $model->aliCloudCertificateId = $map['AliCloudCertificateId'];

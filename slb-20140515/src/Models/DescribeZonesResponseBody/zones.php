@@ -4,29 +4,17 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeZonesResponseBody;
 
-use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeZonesResponseBody\zones\slaveZones;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeZonesResponseBody\zones\zone;
 use AlibabaCloud\Tea\Model;
 
 class zones extends Model
 {
     /**
-     * @var string
+     * @var zone[]
      */
-    public $localName;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var slaveZones[]
-     */
-    public $slaveZones;
+    public $zone;
     protected $_name = [
-        'localName'  => 'LocalName',
-        'zoneId'     => 'ZoneId',
-        'slaveZones' => 'SlaveZones',
+        'zone' => 'Zone',
     ];
 
     public function validate()
@@ -36,18 +24,12 @@ class zones extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->localName) {
-            $res['LocalName'] = $this->localName;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->slaveZones) {
-            $res['SlaveZones'] = [];
-            if (null !== $this->slaveZones && \is_array($this->slaveZones)) {
+        if (null !== $this->zone) {
+            $res['Zone'] = [];
+            if (null !== $this->zone && \is_array($this->zone)) {
                 $n = 0;
-                foreach ($this->slaveZones as $item) {
-                    $res['SlaveZones'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->zone as $item) {
+                    $res['Zone'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -63,18 +45,12 @@ class zones extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LocalName'])) {
-            $model->localName = $map['LocalName'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['SlaveZones'])) {
-            if (!empty($map['SlaveZones'])) {
-                $model->slaveZones = [];
-                $n                 = 0;
-                foreach ($map['SlaveZones'] as $item) {
-                    $model->slaveZones[$n++] = null !== $item ? slaveZones::fromMap($item) : $item;
+        if (isset($map['Zone'])) {
+            if (!empty($map['Zone'])) {
+                $model->zone = [];
+                $n           = 0;
+                foreach ($map['Zone'] as $item) {
+                    $model->zone[$n++] = null !== $item ? zone::fromMap($item) : $item;
                 }
             }
         }

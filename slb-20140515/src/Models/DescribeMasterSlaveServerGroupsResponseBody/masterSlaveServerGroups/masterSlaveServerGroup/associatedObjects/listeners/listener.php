@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeVServerGroupsResponseBody\VServerGroups\associatedObjects;
+namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeMasterSlaveServerGroupsResponseBody\masterSlaveServerGroups\masterSlaveServerGroup\associatedObjects\listeners;
 
 use AlibabaCloud\Tea\Model;
 
-class listeners extends Model
+class listener extends Model
 {
     /**
      * @var string
@@ -42,7 +42,7 @@ class listeners extends Model
     /**
      * @param array $map
      *
-     * @return listeners
+     * @return listener
      */
     public static function fromMap($map = [])
     {

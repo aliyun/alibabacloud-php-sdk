@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListAttributeResponseBody;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListAttributeResponseBody\relatedListeners\relatedListener;
 use AlibabaCloud\Tea\Model;
 
 class relatedListeners extends Model
 {
     /**
-     * @var string
+     * @var relatedListener[]
      */
-    public $aclType;
-
-    /**
-     * @var string
-     */
-    public $protocol;
-
-    /**
-     * @var string
-     */
-    public $loadBalancerId;
-
-    /**
-     * @var int
-     */
-    public $listenerPort;
+    public $relatedListener;
     protected $_name = [
-        'aclType'        => 'AclType',
-        'protocol'       => 'Protocol',
-        'loadBalancerId' => 'LoadBalancerId',
-        'listenerPort'   => 'ListenerPort',
+        'relatedListener' => 'RelatedListener',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class relatedListeners extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclType) {
-            $res['AclType'] = $this->aclType;
-        }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
-        if (null !== $this->loadBalancerId) {
-            $res['LoadBalancerId'] = $this->loadBalancerId;
-        }
-        if (null !== $this->listenerPort) {
-            $res['ListenerPort'] = $this->listenerPort;
+        if (null !== $this->relatedListener) {
+            $res['RelatedListener'] = [];
+            if (null !== $this->relatedListener && \is_array($this->relatedListener)) {
+                $n = 0;
+                foreach ($this->relatedListener as $item) {
+                    $res['RelatedListener'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class relatedListeners extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclType'])) {
-            $model->aclType = $map['AclType'];
-        }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
-        if (isset($map['LoadBalancerId'])) {
-            $model->loadBalancerId = $map['LoadBalancerId'];
-        }
-        if (isset($map['ListenerPort'])) {
-            $model->listenerPort = $map['ListenerPort'];
+        if (isset($map['RelatedListener'])) {
+            if (!empty($map['RelatedListener'])) {
+                $model->relatedListener = [];
+                $n                      = 0;
+                foreach ($map['RelatedListener'] as $item) {
+                    $model->relatedListener[$n++] = null !== $item ? relatedListener::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

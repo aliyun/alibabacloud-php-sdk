@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListAttributeResponseBody;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListAttributeResponseBody\aclEntrys\aclEntry;
 use AlibabaCloud\Tea\Model;
 
 class aclEntrys extends Model
 {
     /**
-     * @var string
+     * @var aclEntry[]
      */
-    public $aclEntryComment;
-
-    /**
-     * @var string
-     */
-    public $aclEntryIP;
+    public $aclEntry;
     protected $_name = [
-        'aclEntryComment' => 'AclEntryComment',
-        'aclEntryIP'      => 'AclEntryIP',
+        'aclEntry' => 'AclEntry',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class aclEntrys extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclEntryComment) {
-            $res['AclEntryComment'] = $this->aclEntryComment;
-        }
-        if (null !== $this->aclEntryIP) {
-            $res['AclEntryIP'] = $this->aclEntryIP;
+        if (null !== $this->aclEntry) {
+            $res['AclEntry'] = [];
+            if (null !== $this->aclEntry && \is_array($this->aclEntry)) {
+                $n = 0;
+                foreach ($this->aclEntry as $item) {
+                    $res['AclEntry'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class aclEntrys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclEntryComment'])) {
-            $model->aclEntryComment = $map['AclEntryComment'];
-        }
-        if (isset($map['AclEntryIP'])) {
-            $model->aclEntryIP = $map['AclEntryIP'];
+        if (isset($map['AclEntry'])) {
+            if (!empty($map['AclEntry'])) {
+                $model->aclEntry = [];
+                $n               = 0;
+                foreach ($map['AclEntry'] as $item) {
+                    $model->aclEntry[$n++] = null !== $item ? aclEntry::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

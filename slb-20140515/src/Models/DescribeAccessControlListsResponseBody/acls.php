@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListsResponseBody;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeAccessControlListsResponseBody\acls\acl;
 use AlibabaCloud\Tea\Model;
 
 class acls extends Model
 {
     /**
-     * @var string
+     * @var acl[]
      */
-    public $aclId;
-
-    /**
-     * @var string
-     */
-    public $addressIPVersion;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $aclName;
+    public $acl;
     protected $_name = [
-        'aclId'            => 'AclId',
-        'addressIPVersion' => 'AddressIPVersion',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'aclName'          => 'AclName',
+        'acl' => 'Acl',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class acls extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclId) {
-            $res['AclId'] = $this->aclId;
-        }
-        if (null !== $this->addressIPVersion) {
-            $res['AddressIPVersion'] = $this->addressIPVersion;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->aclName) {
-            $res['AclName'] = $this->aclName;
+        if (null !== $this->acl) {
+            $res['Acl'] = [];
+            if (null !== $this->acl && \is_array($this->acl)) {
+                $n = 0;
+                foreach ($this->acl as $item) {
+                    $res['Acl'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class acls extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclId'])) {
-            $model->aclId = $map['AclId'];
-        }
-        if (isset($map['AddressIPVersion'])) {
-            $model->addressIPVersion = $map['AddressIPVersion'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['AclName'])) {
-            $model->aclName = $map['AclName'];
+        if (isset($map['Acl'])) {
+            if (!empty($map['Acl'])) {
+                $model->acl = [];
+                $n          = 0;
+                foreach ($map['Acl'] as $item) {
+                    $model->acl[$n++] = null !== $item ? acl::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

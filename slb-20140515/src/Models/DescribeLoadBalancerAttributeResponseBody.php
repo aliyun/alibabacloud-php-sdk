@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody\backendServers;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody\listenerPorts;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody\listenerPortsAndProtocal;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerAttributeResponseBody\listenerPortsAndProtocol;
 use AlibabaCloud\Tea\Model;
@@ -22,12 +23,12 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @var listenerPortsAndProtocal[]
+     * @var listenerPortsAndProtocal
      */
     public $listenerPortsAndProtocal;
 
     /**
-     * @var backendServers[]
+     * @var backendServers
      */
     public $backendServers;
 
@@ -42,7 +43,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $modificationProtectionReason;
 
     /**
-     * @var int[]
+     * @var listenerPorts
      */
     public $listenerPorts;
 
@@ -117,7 +118,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $loadBalancerId;
 
     /**
-     * @var listenerPortsAndProtocol[]
+     * @var listenerPortsAndProtocol
      */
     public $listenerPortsAndProtocol;
 
@@ -231,22 +232,10 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->listenerPortsAndProtocal) {
-            $res['ListenerPortsAndProtocal'] = [];
-            if (null !== $this->listenerPortsAndProtocal && \is_array($this->listenerPortsAndProtocal)) {
-                $n = 0;
-                foreach ($this->listenerPortsAndProtocal as $item) {
-                    $res['ListenerPortsAndProtocal'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ListenerPortsAndProtocal'] = null !== $this->listenerPortsAndProtocal ? $this->listenerPortsAndProtocal->toMap() : null;
         }
         if (null !== $this->backendServers) {
-            $res['BackendServers'] = [];
-            if (null !== $this->backendServers && \is_array($this->backendServers)) {
-                $n = 0;
-                foreach ($this->backendServers as $item) {
-                    $res['BackendServers'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
         }
         if (null !== $this->loadBalancerSpec) {
             $res['LoadBalancerSpec'] = $this->loadBalancerSpec;
@@ -255,7 +244,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
             $res['ModificationProtectionReason'] = $this->modificationProtectionReason;
         }
         if (null !== $this->listenerPorts) {
-            $res['ListenerPorts'] = $this->listenerPorts;
+            $res['ListenerPorts'] = null !== $this->listenerPorts ? $this->listenerPorts->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -300,13 +289,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
         if (null !== $this->listenerPortsAndProtocol) {
-            $res['ListenerPortsAndProtocol'] = [];
-            if (null !== $this->listenerPortsAndProtocol && \is_array($this->listenerPortsAndProtocol)) {
-                $n = 0;
-                foreach ($this->listenerPortsAndProtocol as $item) {
-                    $res['ListenerPortsAndProtocol'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ListenerPortsAndProtocol'] = null !== $this->listenerPortsAndProtocol ? $this->listenerPortsAndProtocol->toMap() : null;
         }
         if (null !== $this->modificationProtectionStatus) {
             $res['ModificationProtectionStatus'] = $this->modificationProtectionStatus;
@@ -363,22 +346,10 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ListenerPortsAndProtocal'])) {
-            if (!empty($map['ListenerPortsAndProtocal'])) {
-                $model->listenerPortsAndProtocal = [];
-                $n                               = 0;
-                foreach ($map['ListenerPortsAndProtocal'] as $item) {
-                    $model->listenerPortsAndProtocal[$n++] = null !== $item ? listenerPortsAndProtocal::fromMap($item) : $item;
-                }
-            }
+            $model->listenerPortsAndProtocal = listenerPortsAndProtocal::fromMap($map['ListenerPortsAndProtocal']);
         }
         if (isset($map['BackendServers'])) {
-            if (!empty($map['BackendServers'])) {
-                $model->backendServers = [];
-                $n                     = 0;
-                foreach ($map['BackendServers'] as $item) {
-                    $model->backendServers[$n++] = null !== $item ? backendServers::fromMap($item) : $item;
-                }
-            }
+            $model->backendServers = backendServers::fromMap($map['BackendServers']);
         }
         if (isset($map['LoadBalancerSpec'])) {
             $model->loadBalancerSpec = $map['LoadBalancerSpec'];
@@ -387,9 +358,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
             $model->modificationProtectionReason = $map['ModificationProtectionReason'];
         }
         if (isset($map['ListenerPorts'])) {
-            if (!empty($map['ListenerPorts'])) {
-                $model->listenerPorts = $map['ListenerPorts'];
-            }
+            $model->listenerPorts = listenerPorts::fromMap($map['ListenerPorts']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -434,13 +403,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
         if (isset($map['ListenerPortsAndProtocol'])) {
-            if (!empty($map['ListenerPortsAndProtocol'])) {
-                $model->listenerPortsAndProtocol = [];
-                $n                               = 0;
-                foreach ($map['ListenerPortsAndProtocol'] as $item) {
-                    $model->listenerPortsAndProtocol[$n++] = null !== $item ? listenerPortsAndProtocol::fromMap($item) : $item;
-                }
-            }
+            $model->listenerPortsAndProtocol = listenerPortsAndProtocol::fromMap($map['ListenerPortsAndProtocol']);
         }
         if (isset($map['ModificationProtectionStatus'])) {
             $model->modificationProtectionStatus = $map['ModificationProtectionStatus'];

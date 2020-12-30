@@ -15,7 +15,7 @@ class DescribeCACertificatesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var CACertificates[]
+     * @var CACertificates
      */
     public $CACertificates;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeCACertificatesResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->CACertificates) {
-            $res['CACertificates'] = [];
-            if (null !== $this->CACertificates && \is_array($this->CACertificates)) {
-                $n = 0;
-                foreach ($this->CACertificates as $item) {
-                    $res['CACertificates'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['CACertificates'] = null !== $this->CACertificates ? $this->CACertificates->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeCACertificatesResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['CACertificates'])) {
-            if (!empty($map['CACertificates'])) {
-                $model->CACertificates = [];
-                $n                     = 0;
-                foreach ($map['CACertificates'] as $item) {
-                    $model->CACertificates[$n++] = null !== $item ? CACertificates::fromMap($item) : $item;
-                }
-            }
+            $model->CACertificates = CACertificates::fromMap($map['CACertificates']);
         }
 
         return $model;

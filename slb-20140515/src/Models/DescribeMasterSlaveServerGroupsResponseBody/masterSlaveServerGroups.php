@@ -4,29 +4,17 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models\DescribeMasterSlaveServerGroupsResponseBody;
 
-use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeMasterSlaveServerGroupsResponseBody\masterSlaveServerGroups\associatedObjects;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeMasterSlaveServerGroupsResponseBody\masterSlaveServerGroups\masterSlaveServerGroup;
 use AlibabaCloud\Tea\Model;
 
 class masterSlaveServerGroups extends Model
 {
     /**
-     * @var string
+     * @var masterSlaveServerGroup[]
      */
-    public $masterSlaveServerGroupId;
-
-    /**
-     * @var associatedObjects
-     */
-    public $associatedObjects;
-
-    /**
-     * @var string
-     */
-    public $masterSlaveServerGroupName;
+    public $masterSlaveServerGroup;
     protected $_name = [
-        'masterSlaveServerGroupId'   => 'MasterSlaveServerGroupId',
-        'associatedObjects'          => 'AssociatedObjects',
-        'masterSlaveServerGroupName' => 'MasterSlaveServerGroupName',
+        'masterSlaveServerGroup' => 'MasterSlaveServerGroup',
     ];
 
     public function validate()
@@ -36,14 +24,14 @@ class masterSlaveServerGroups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->masterSlaveServerGroupId) {
-            $res['MasterSlaveServerGroupId'] = $this->masterSlaveServerGroupId;
-        }
-        if (null !== $this->associatedObjects) {
-            $res['AssociatedObjects'] = null !== $this->associatedObjects ? $this->associatedObjects->toMap() : null;
-        }
-        if (null !== $this->masterSlaveServerGroupName) {
-            $res['MasterSlaveServerGroupName'] = $this->masterSlaveServerGroupName;
+        if (null !== $this->masterSlaveServerGroup) {
+            $res['MasterSlaveServerGroup'] = [];
+            if (null !== $this->masterSlaveServerGroup && \is_array($this->masterSlaveServerGroup)) {
+                $n = 0;
+                foreach ($this->masterSlaveServerGroup as $item) {
+                    $res['MasterSlaveServerGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -57,14 +45,14 @@ class masterSlaveServerGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MasterSlaveServerGroupId'])) {
-            $model->masterSlaveServerGroupId = $map['MasterSlaveServerGroupId'];
-        }
-        if (isset($map['AssociatedObjects'])) {
-            $model->associatedObjects = associatedObjects::fromMap($map['AssociatedObjects']);
-        }
-        if (isset($map['MasterSlaveServerGroupName'])) {
-            $model->masterSlaveServerGroupName = $map['MasterSlaveServerGroupName'];
+        if (isset($map['MasterSlaveServerGroup'])) {
+            if (!empty($map['MasterSlaveServerGroup'])) {
+                $model->masterSlaveServerGroup = [];
+                $n                             = 0;
+                foreach ($map['MasterSlaveServerGroup'] as $item) {
+                    $model->masterSlaveServerGroup[$n++] = null !== $item ? masterSlaveServerGroup::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

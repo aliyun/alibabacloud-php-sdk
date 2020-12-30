@@ -30,7 +30,7 @@ class DescribeLoadBalancersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var loadBalancers[]
+     * @var loadBalancers
      */
     public $loadBalancers;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeLoadBalancersResponseBody extends Model
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->loadBalancers) {
-            $res['LoadBalancers'] = [];
-            if (null !== $this->loadBalancers && \is_array($this->loadBalancers)) {
-                $n = 0;
-                foreach ($this->loadBalancers as $item) {
-                    $res['LoadBalancers'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['LoadBalancers'] = null !== $this->loadBalancers ? $this->loadBalancers->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeLoadBalancersResponseBody extends Model
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['LoadBalancers'])) {
-            if (!empty($map['LoadBalancers'])) {
-                $model->loadBalancers = [];
-                $n                    = 0;
-                foreach ($map['LoadBalancers'] as $item) {
-                    $model->loadBalancers[$n++] = null !== $item ? loadBalancers::fromMap($item) : $item;
-                }
-            }
+            $model->loadBalancers = loadBalancers::fromMap($map['LoadBalancers']);
         }
 
         return $model;

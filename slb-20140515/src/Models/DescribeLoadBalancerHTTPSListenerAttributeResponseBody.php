@@ -26,7 +26,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
     public $healthCheck;
 
     /**
-     * @var domainExtensions[]
+     * @var domainExtensions
      */
     public $domainExtensions;
 
@@ -196,7 +196,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
     public $aclId;
 
     /**
-     * @var rules[]
+     * @var rules
      */
     public $rules;
 
@@ -293,13 +293,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
             $res['HealthCheck'] = $this->healthCheck;
         }
         if (null !== $this->domainExtensions) {
-            $res['DomainExtensions'] = [];
-            if (null !== $this->domainExtensions && \is_array($this->domainExtensions)) {
-                $n = 0;
-                foreach ($this->domainExtensions as $item) {
-                    $res['DomainExtensions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DomainExtensions'] = null !== $this->domainExtensions ? $this->domainExtensions->toMap() : null;
         }
         if (null !== $this->backendServerPort) {
             $res['BackendServerPort'] = $this->backendServerPort;
@@ -401,13 +395,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
             $res['AclId'] = $this->aclId;
         }
         if (null !== $this->rules) {
-            $res['Rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
         }
         if (null !== $this->XForwardedFor_ClientCertIssuerDN) {
             $res['XForwardedFor_ClientCertIssuerDN'] = $this->XForwardedFor_ClientCertIssuerDN;
@@ -449,13 +437,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
             $model->healthCheck = $map['HealthCheck'];
         }
         if (isset($map['DomainExtensions'])) {
-            if (!empty($map['DomainExtensions'])) {
-                $model->domainExtensions = [];
-                $n                       = 0;
-                foreach ($map['DomainExtensions'] as $item) {
-                    $model->domainExtensions[$n++] = null !== $item ? domainExtensions::fromMap($item) : $item;
-                }
-            }
+            $model->domainExtensions = domainExtensions::fromMap($map['DomainExtensions']);
         }
         if (isset($map['BackendServerPort'])) {
             $model->backendServerPort = $map['BackendServerPort'];
@@ -557,13 +539,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
             $model->aclId = $map['AclId'];
         }
         if (isset($map['Rules'])) {
-            if (!empty($map['Rules'])) {
-                $model->rules = [];
-                $n            = 0;
-                foreach ($map['Rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
-                }
-            }
+            $model->rules = rules::fromMap($map['Rules']);
         }
         if (isset($map['XForwardedFor_ClientCertIssuerDN'])) {
             $model->XForwardedFor_ClientCertIssuerDN = $map['XForwardedFor_ClientCertIssuerDN'];

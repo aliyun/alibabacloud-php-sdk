@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessControlListAttributeResponseBody extends Model
 {
     /**
-     * @var aclEntrys[]
+     * @var aclEntrys
      */
     public $aclEntrys;
 
@@ -36,7 +36,7 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     public $addressIPVersion;
 
     /**
-     * @var relatedListeners[]
+     * @var relatedListeners
      */
     public $relatedListeners;
 
@@ -62,13 +62,7 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     {
         $res = [];
         if (null !== $this->aclEntrys) {
-            $res['AclEntrys'] = [];
-            if (null !== $this->aclEntrys && \is_array($this->aclEntrys)) {
-                $n = 0;
-                foreach ($this->aclEntrys as $item) {
-                    $res['AclEntrys'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['AclEntrys'] = null !== $this->aclEntrys ? $this->aclEntrys->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -83,13 +77,7 @@ class DescribeAccessControlListAttributeResponseBody extends Model
             $res['AddressIPVersion'] = $this->addressIPVersion;
         }
         if (null !== $this->relatedListeners) {
-            $res['RelatedListeners'] = [];
-            if (null !== $this->relatedListeners && \is_array($this->relatedListeners)) {
-                $n = 0;
-                foreach ($this->relatedListeners as $item) {
-                    $res['RelatedListeners'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['RelatedListeners'] = null !== $this->relatedListeners ? $this->relatedListeners->toMap() : null;
         }
         if (null !== $this->aclName) {
             $res['AclName'] = $this->aclName;
@@ -107,13 +95,7 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     {
         $model = new self();
         if (isset($map['AclEntrys'])) {
-            if (!empty($map['AclEntrys'])) {
-                $model->aclEntrys = [];
-                $n                = 0;
-                foreach ($map['AclEntrys'] as $item) {
-                    $model->aclEntrys[$n++] = null !== $item ? aclEntrys::fromMap($item) : $item;
-                }
-            }
+            $model->aclEntrys = aclEntrys::fromMap($map['AclEntrys']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -128,13 +110,7 @@ class DescribeAccessControlListAttributeResponseBody extends Model
             $model->addressIPVersion = $map['AddressIPVersion'];
         }
         if (isset($map['RelatedListeners'])) {
-            if (!empty($map['RelatedListeners'])) {
-                $model->relatedListeners = [];
-                $n                       = 0;
-                foreach ($map['RelatedListeners'] as $item) {
-                    $model->relatedListeners[$n++] = null !== $item ? relatedListeners::fromMap($item) : $item;
-                }
-            }
+            $model->relatedListeners = relatedListeners::fromMap($map['RelatedListeners']);
         }
         if (isset($map['AclName'])) {
             $model->aclName = $map['AclName'];

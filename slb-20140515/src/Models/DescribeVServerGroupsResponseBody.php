@@ -15,7 +15,7 @@ class DescribeVServerGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var VServerGroups[]
+     * @var VServerGroups
      */
     public $VServerGroups;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeVServerGroupsResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->VServerGroups) {
-            $res['VServerGroups'] = [];
-            if (null !== $this->VServerGroups && \is_array($this->VServerGroups)) {
-                $n = 0;
-                foreach ($this->VServerGroups as $item) {
-                    $res['VServerGroups'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['VServerGroups'] = null !== $this->VServerGroups ? $this->VServerGroups->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeVServerGroupsResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['VServerGroups'])) {
-            if (!empty($map['VServerGroups'])) {
-                $model->VServerGroups = [];
-                $n                    = 0;
-                foreach ($map['VServerGroups'] as $item) {
-                    $model->VServerGroups[$n++] = null !== $item ? VServerGroups::fromMap($item) : $item;
-                }
-            }
+            $model->VServerGroups = VServerGroups::fromMap($map['VServerGroups']);
         }
 
         return $model;

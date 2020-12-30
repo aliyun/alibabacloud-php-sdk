@@ -15,7 +15,7 @@ class DescribeAvailableResourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @var availableResources[]
+     * @var availableResources
      */
     public $availableResources;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeAvailableResourceResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->availableResources) {
-            $res['AvailableResources'] = [];
-            if (null !== $this->availableResources && \is_array($this->availableResources)) {
-                $n = 0;
-                foreach ($this->availableResources as $item) {
-                    $res['AvailableResources'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['AvailableResources'] = null !== $this->availableResources ? $this->availableResources->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeAvailableResourceResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['AvailableResources'])) {
-            if (!empty($map['AvailableResources'])) {
-                $model->availableResources = [];
-                $n                         = 0;
-                foreach ($map['AvailableResources'] as $item) {
-                    $model->availableResources[$n++] = null !== $item ? availableResources::fromMap($item) : $item;
-                }
-            }
+            $model->availableResources = availableResources::fromMap($map['AvailableResources']);
         }
 
         return $model;
