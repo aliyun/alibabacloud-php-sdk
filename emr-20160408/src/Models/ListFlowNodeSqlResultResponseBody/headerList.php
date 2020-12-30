@@ -1,0 +1,49 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowNodeSqlResultResponseBody;
+
+use AlibabaCloud\Tea\Model;
+
+class headerList extends Model
+{
+    /**
+     * @var string[]
+     */
+    public $header;
+    protected $_name = [
+        'header' => 'Header',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->header) {
+            $res['Header'] = $this->header;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return headerList
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Header'])) {
+            if (!empty($map['Header'])) {
+                $model->header = $map['Header'];
+            }
+        }
+
+        return $model;
+    }
+}
