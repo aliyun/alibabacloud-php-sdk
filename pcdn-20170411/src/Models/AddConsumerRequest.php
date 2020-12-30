@@ -78,12 +78,6 @@ class AddConsumerRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('businessType', $this->businessType, true);
-        Model::validateRequired('company', $this->company, true);
-        Model::validateRequired('site', $this->site, true);
-        Model::validateRequired('requirement', $this->requirement, true);
-        Model::validateRequired('mobile', $this->mobile, true);
     }
 
     public function toMap()

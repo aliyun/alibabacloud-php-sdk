@@ -66,13 +66,6 @@ class GetShareRateDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('region', $this->region, true);
-        Model::validateRequired('ispName', $this->ispName, true);
-        Model::validateRequired('platformType', $this->platformType, true);
-        Model::validateRequired('businessType', $this->businessType, true);
-        Model::validateRequired('startDate', $this->startDate, true);
-        Model::validateRequired('endDate', $this->endDate, true);
     }
 
     public function toMap()

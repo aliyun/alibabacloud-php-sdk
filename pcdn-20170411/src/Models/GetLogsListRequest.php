@@ -48,7 +48,6 @@ class GetLogsListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
     }
 
     public function toMap()

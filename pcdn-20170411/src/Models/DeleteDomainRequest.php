@@ -30,8 +30,6 @@ class DeleteDomainRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('domain', $this->domain, true);
     }
 
     public function toMap()

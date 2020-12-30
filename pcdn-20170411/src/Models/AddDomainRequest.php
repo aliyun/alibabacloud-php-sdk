@@ -60,9 +60,6 @@ class AddDomainRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('businessType', $this->businessType, true);
-        Model::validateRequired('domain', $this->domain, true);
     }
 
     public function toMap()

@@ -66,14 +66,6 @@ class AddPcdnControlRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('region', $this->region, true);
-        Model::validateRequired('ispName', $this->ispName, true);
-        Model::validateRequired('platformType', $this->platformType, true);
-        Model::validateRequired('businessType', $this->businessType, true);
-        Model::validateRequired('market', $this->market, true);
-        Model::validateRequired('appVersion', $this->appVersion, true);
     }
 
     public function toMap()

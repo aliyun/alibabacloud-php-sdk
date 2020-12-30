@@ -36,8 +36,6 @@ class GetBalanceBandwidthDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
     }
 
     public function toMap()
