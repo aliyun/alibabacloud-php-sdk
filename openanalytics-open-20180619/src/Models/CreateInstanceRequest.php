@@ -36,9 +36,6 @@ class CreateInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('chargeType', $this->chargeType, true);
-        Model::validateRequired('instanceType', $this->instanceType, true);
-        Model::validateRequired('component', $this->component, true);
     }
 
     public function toMap()

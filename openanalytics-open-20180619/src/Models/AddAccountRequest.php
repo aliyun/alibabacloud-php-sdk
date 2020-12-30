@@ -60,8 +60,6 @@ class AddAccountRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('accountName', $this->accountName, true);
     }
 
     public function toMap()

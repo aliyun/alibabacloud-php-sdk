@@ -24,8 +24,6 @@ class SubmitSparkJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('vcName', $this->vcName, true);
-        Model::validateRequired('configJson', $this->configJson, true);
     }
 
     public function toMap()

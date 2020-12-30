@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class GetAllowIPResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var GetAllowIPResponseBody
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $allowIP;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'regionId'  => 'RegionId',
-        'allowIP'   => 'AllowIP',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('allowIP', $this->allowIP, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->allowIP) {
-            $res['AllowIP'] = $this->allowIP;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class GetAllowIPResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['AllowIP'])) {
-            $model->allowIP = $map['AllowIP'];
+        if (isset($map['body'])) {
+            $model->body = GetAllowIPResponseBody::fromMap($map['body']);
         }
 
         return $model;

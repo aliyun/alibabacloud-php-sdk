@@ -54,8 +54,6 @@ class ResetMainPasswordRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('useRandomPassword', $this->useRandomPassword, true);
     }
 
     public function toMap()

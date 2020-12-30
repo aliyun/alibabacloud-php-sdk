@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceResponse extends Model
 {
     /**
-     * @var bool
+     * @var string[]
      */
-    public $success;
+    public $headers;
 
     /**
-     * @var string
+     * @var ReleaseInstanceResponseBody
      */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
-    public $errorInfo;
-
-    /**
-     * @var string
-     */
-    public $result;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $body;
     protected $_name = [
-        'success'   => 'Success',
-        'errorCode' => 'ErrorCode',
-        'errorInfo' => 'ErrorInfo',
-        'result'    => 'Result',
-        'requestId' => 'RequestId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('success', $this->success, true);
-        Model::validateRequired('errorCode', $this->errorCode, true);
-        Model::validateRequired('errorInfo', $this->errorInfo, true);
-        Model::validateRequired('result', $this->result, true);
-        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorInfo) {
-            $res['ErrorInfo'] = $this->errorInfo;
-        }
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,20 +49,11 @@ class ReleaseInstanceResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorInfo'])) {
-            $model->errorInfo = $map['ErrorInfo'];
-        }
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['body'])) {
+            $model->body = ReleaseInstanceResponseBody::fromMap($map['body']);
         }
 
         return $model;

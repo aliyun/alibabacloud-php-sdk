@@ -24,8 +24,6 @@ class RemoveEndPointRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('endPointID', $this->endPointID, true);
     }
 
     public function toMap()

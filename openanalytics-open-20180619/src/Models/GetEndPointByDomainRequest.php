@@ -30,8 +30,6 @@ class GetEndPointByDomainRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('domainURL', $this->domainURL, true);
     }
 
     public function toMap()

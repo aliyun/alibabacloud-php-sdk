@@ -24,8 +24,6 @@ class GetJobDetailRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('jobId', $this->jobId, true);
-        Model::validateRequired('vcName', $this->vcName, true);
     }
 
     public function toMap()

@@ -30,9 +30,6 @@ class QueryAccountListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
     }
 
     public function toMap()

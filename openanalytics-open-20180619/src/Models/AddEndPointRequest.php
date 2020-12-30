@@ -48,11 +48,6 @@ class AddEndPointRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('networkType', $this->networkType, true);
-        Model::validateRequired('vpcID', $this->vpcID, true);
-        Model::validateRequired('vswitch', $this->vswitch, true);
-        Model::validateRequired('zone', $this->zone, true);
     }
 
     public function toMap()

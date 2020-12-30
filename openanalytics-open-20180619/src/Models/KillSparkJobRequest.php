@@ -24,8 +24,6 @@ class KillSparkJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('vcName', $this->vcName, true);
-        Model::validateRequired('jobId', $this->jobId, true);
     }
 
     public function toMap()

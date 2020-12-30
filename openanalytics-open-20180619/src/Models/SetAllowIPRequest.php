@@ -42,9 +42,6 @@ class SetAllowIPRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('networkType', $this->networkType, true);
-        Model::validateRequired('allowIP', $this->allowIP, true);
     }
 
     public function toMap()
