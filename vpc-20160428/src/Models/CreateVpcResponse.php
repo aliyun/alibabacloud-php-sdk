@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateVpcResponseBody
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $VRouterId;
-
-    /**
-     * @var string
-     */
-    public $routeTableId;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
+    public $body;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'vpcId'           => 'VpcId',
-        'VRouterId'       => 'VRouterId',
-        'routeTableId'    => 'RouteTableId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('vpcId', $this->vpcId, true);
-        Model::validateRequired('VRouterId', $this->VRouterId, true);
-        Model::validateRequired('routeTableId', $this->routeTableId, true);
-        Model::validateRequired('resourceGroupId', $this->resourceGroupId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->VRouterId) {
-            $res['VRouterId'] = $this->VRouterId;
-        }
-        if (null !== $this->routeTableId) {
-            $res['RouteTableId'] = $this->routeTableId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,20 +49,11 @@ class CreateVpcResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VRouterId'])) {
-            $model->VRouterId = $map['VRouterId'];
-        }
-        if (isset($map['RouteTableId'])) {
-            $model->routeTableId = $map['RouteTableId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['body'])) {
+            $model->body = CreateVpcResponseBody::fromMap($map['body']);
         }
 
         return $model;

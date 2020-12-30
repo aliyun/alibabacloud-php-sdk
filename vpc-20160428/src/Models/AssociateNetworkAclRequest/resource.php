@@ -24,8 +24,6 @@ class resource extends Model
 
     public function validate()
     {
-        Model::validateRequired('resourceType', $this->resourceType, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
     }
 
     public function toMap()

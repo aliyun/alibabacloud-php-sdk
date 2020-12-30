@@ -11,6 +11,26 @@ class ModifyVpnConnectionAttributeRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -77,32 +97,52 @@ class ModifyVpnConnectionAttributeRequest extends Model
      * @var string
      */
     public $bgpConfig;
+
+    /**
+     * @var string
+     */
+    public $remoteCaCertificate;
     protected $_name = [
-        'regionId'           => 'RegionId',
-        'clientToken'        => 'ClientToken',
-        'vpnConnectionId'    => 'VpnConnectionId',
-        'name'               => 'Name',
-        'localSubnet'        => 'LocalSubnet',
-        'remoteSubnet'       => 'RemoteSubnet',
-        'effectImmediately'  => 'EffectImmediately',
-        'ikeConfig'          => 'IkeConfig',
-        'ipsecConfig'        => 'IpsecConfig',
-        'healthCheckConfig'  => 'HealthCheckConfig',
-        'autoConfigRoute'    => 'AutoConfigRoute',
-        'enableDpd'          => 'EnableDpd',
-        'enableNatTraversal' => 'EnableNatTraversal',
-        'bgpConfig'          => 'BgpConfig',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'regionId'             => 'RegionId',
+        'clientToken'          => 'ClientToken',
+        'vpnConnectionId'      => 'VpnConnectionId',
+        'name'                 => 'Name',
+        'localSubnet'          => 'LocalSubnet',
+        'remoteSubnet'         => 'RemoteSubnet',
+        'effectImmediately'    => 'EffectImmediately',
+        'ikeConfig'            => 'IkeConfig',
+        'ipsecConfig'          => 'IpsecConfig',
+        'healthCheckConfig'    => 'HealthCheckConfig',
+        'autoConfigRoute'      => 'AutoConfigRoute',
+        'enableDpd'            => 'EnableDpd',
+        'enableNatTraversal'   => 'EnableNatTraversal',
+        'bgpConfig'            => 'BgpConfig',
+        'remoteCaCertificate'  => 'RemoteCaCertificate',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('vpnConnectionId', $this->vpnConnectionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -145,6 +185,9 @@ class ModifyVpnConnectionAttributeRequest extends Model
         if (null !== $this->bgpConfig) {
             $res['BgpConfig'] = $this->bgpConfig;
         }
+        if (null !== $this->remoteCaCertificate) {
+            $res['RemoteCaCertificate'] = $this->remoteCaCertificate;
+        }
 
         return $res;
     }
@@ -157,6 +200,18 @@ class ModifyVpnConnectionAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -198,6 +253,9 @@ class ModifyVpnConnectionAttributeRequest extends Model
         }
         if (isset($map['BgpConfig'])) {
             $model->bgpConfig = $map['BgpConfig'];
+        }
+        if (isset($map['RemoteCaCertificate'])) {
+            $model->remoteCaCertificate = $map['RemoteCaCertificate'];
         }
 
         return $model;

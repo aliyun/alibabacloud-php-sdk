@@ -66,9 +66,6 @@ class ListNatGatewayEcsMetricRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('natGatewayId', $this->natGatewayId, true);
-        Model::validateRequired('timePoint', $this->timePoint, true);
     }
 
     public function toMap()

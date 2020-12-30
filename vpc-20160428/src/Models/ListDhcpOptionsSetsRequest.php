@@ -29,26 +29,49 @@ class ListDhcpOptionsSetsRequest extends Model
     public $domainName;
 
     /**
+     * @var string
+     */
+    public $dhcpOptionsSetName;
+
+    /**
      * @var string[]
      */
     public $dhcpOptionsSetId;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
-    public $dhcpOptionsSetName;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
     protected $_name = [
-        'regionId'           => 'RegionId',
-        'nextToken'          => 'NextToken',
-        'maxResults'         => 'MaxResults',
-        'domainName'         => 'DomainName',
-        'dhcpOptionsSetId'   => 'DhcpOptionsSetId',
-        'dhcpOptionsSetName' => 'DhcpOptionsSetName',
+        'regionId'             => 'RegionId',
+        'nextToken'            => 'NextToken',
+        'maxResults'           => 'MaxResults',
+        'domainName'           => 'DomainName',
+        'dhcpOptionsSetName'   => 'DhcpOptionsSetName',
+        'dhcpOptionsSetId'     => 'DhcpOptionsSetId',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -66,11 +89,23 @@ class ListDhcpOptionsSetsRequest extends Model
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->dhcpOptionsSetName) {
+            $res['DhcpOptionsSetName'] = $this->dhcpOptionsSetName;
+        }
         if (null !== $this->dhcpOptionsSetId) {
             $res['DhcpOptionsSetId'] = $this->dhcpOptionsSetId;
         }
-        if (null !== $this->dhcpOptionsSetName) {
-            $res['DhcpOptionsSetName'] = $this->dhcpOptionsSetName;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -96,13 +131,25 @@ class ListDhcpOptionsSetsRequest extends Model
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['DhcpOptionsSetName'])) {
+            $model->dhcpOptionsSetName = $map['DhcpOptionsSetName'];
+        }
         if (isset($map['DhcpOptionsSetId'])) {
             if (!empty($map['DhcpOptionsSetId'])) {
                 $model->dhcpOptionsSetId = $map['DhcpOptionsSetId'];
             }
         }
-        if (isset($map['DhcpOptionsSetName'])) {
-            $model->dhcpOptionsSetName = $map['DhcpOptionsSetName'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipSegmentAddressResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var AllocateEipSegmentAddressResponseBody
      */
-    public $eipSegmentInstanceId;
-
-    /**
-     * @var int
-     */
-    public $orderId;
+    public $body;
     protected $_name = [
-        'requestId'            => 'RequestId',
-        'eipSegmentInstanceId' => 'EipSegmentInstanceId',
-        'orderId'              => 'OrderId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('eipSegmentInstanceId', $this->eipSegmentInstanceId, true);
-        Model::validateRequired('orderId', $this->orderId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->eipSegmentInstanceId) {
-            $res['EipSegmentInstanceId'] = $this->eipSegmentInstanceId;
-        }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class AllocateEipSegmentAddressResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['EipSegmentInstanceId'])) {
-            $model->eipSegmentInstanceId = $map['EipSegmentInstanceId'];
-        }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
+        if (isset($map['body'])) {
+            $model->body = AllocateEipSegmentAddressResponseBody::fromMap($map['body']);
         }
 
         return $model;

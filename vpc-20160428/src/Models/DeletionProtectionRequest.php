@@ -26,6 +26,21 @@ class DeletionProtectionRequest extends Model
     /**
      * @var string
      */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -33,19 +48,18 @@ class DeletionProtectionRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'protectionEnable' => 'ProtectionEnable',
-        'type'             => 'Type',
-        'instanceId'       => 'InstanceId',
-        'clientToken'      => 'ClientToken',
-        'regionId'         => 'RegionId',
+        'protectionEnable'     => 'ProtectionEnable',
+        'type'                 => 'Type',
+        'instanceId'           => 'InstanceId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerId'              => 'OwnerId',
+        'clientToken'          => 'ClientToken',
+        'regionId'             => 'RegionId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('protectionEnable', $this->protectionEnable, true);
-        Model::validateRequired('type', $this->type, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -59,6 +73,15 @@ class DeletionProtectionRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -86,6 +109,15 @@ class DeletionProtectionRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

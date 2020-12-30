@@ -9,53 +9,59 @@ use AlibabaCloud\Tea\Model;
 class CreatePhysicalConnectionOccupancyOrderRequest extends Model
 {
     /**
-     * @description description: The ID of the region where the leased line is deployed.;
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description description: The instance ID of the physical connection interface.;
-     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
-     * @description description: Optional. The validity period of a Subscription.;
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description description: Optional. The billing method of the instance. Valid values:* PrePaid: Subscription. If you select this value, you must make sure that your account has enough available funds.* PostPaid (default value): Pay-As-You-Go;
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description description: Optional. Indicates whether to pay automatically. Valid values:* true (default value): Pay automatically. If you select this value, you must ensure that your account has enough available funds. Otherwise, the order that is generated is invalid.* false: Generates the order only. No fee is deducted from your account.;
-     *
      * @var bool
      */
     public $autoPay;
 
     /**
-     * @description description: Optional. The Subscription cycle. Valid values:* Month* Year;
-     *
      * @var string
      */
     public $pricingCycle;
 
     /**
-     * @description description: Optional. The token used for client authentication.;
-     *
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
     protected $_name = [
         'regionId'             => 'RegionId',
         'physicalConnectionId' => 'PhysicalConnectionId',
@@ -63,13 +69,15 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
         'instanceChargeType'   => 'InstanceChargeType',
         'autoPay'              => 'AutoPay',
         'pricingCycle'         => 'PricingCycle',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('physicalConnectionId', $this->physicalConnectionId, true);
     }
 
     public function toMap()
@@ -93,8 +101,20 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -126,8 +146,20 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

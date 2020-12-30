@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class UnassociateNetworkAclRequest extends Model
 {
     /**
-     * @var resource[]
-     */
-    public $resource;
-
-    /**
      * @var string
      */
     public $networkAclId;
@@ -25,25 +20,52 @@ class UnassociateNetworkAclRequest extends Model
     public $regionId;
 
     /**
+     * @var resource[]
+     */
+    public $resource;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'resource'     => 'Resource',
-        'networkAclId' => 'NetworkAclId',
-        'regionId'     => 'RegionId',
-        'clientToken'  => 'ClientToken',
+        'networkAclId'         => 'NetworkAclId',
+        'regionId'             => 'RegionId',
+        'resource'             => 'Resource',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerId'              => 'OwnerId',
+        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
     {
-        Model::validateRequired('networkAclId', $this->networkAclId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->networkAclId) {
+            $res['NetworkAclId'] = $this->networkAclId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resource) {
             $res['Resource'] = [];
             if (null !== $this->resource && \is_array($this->resource)) {
@@ -53,11 +75,14 @@ class UnassociateNetworkAclRequest extends Model
                 }
             }
         }
-        if (null !== $this->networkAclId) {
-            $res['NetworkAclId'] = $this->networkAclId;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -74,6 +99,12 @@ class UnassociateNetworkAclRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NetworkAclId'])) {
+            $model->networkAclId = $map['NetworkAclId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Resource'])) {
             if (!empty($map['Resource'])) {
                 $model->resource = [];
@@ -83,11 +114,14 @@ class UnassociateNetworkAclRequest extends Model
                 }
             }
         }
-        if (isset($map['NetworkAclId'])) {
-            $model->networkAclId = $map['NetworkAclId'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

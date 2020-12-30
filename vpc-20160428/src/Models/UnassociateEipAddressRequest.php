@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UnassociateEipAddressRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var bool
      */
     public $force;
@@ -31,6 +46,11 @@ class UnassociateEipAddressRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $instanceType;
 
     /**
@@ -43,23 +63,35 @@ class UnassociateEipAddressRequest extends Model
      */
     public $clientToken;
     protected $_name = [
-        'force'            => 'Force',
-        'regionId'         => 'RegionId',
-        'allocationId'     => 'AllocationId',
-        'instanceId'       => 'InstanceId',
-        'instanceType'     => 'InstanceType',
-        'privateIpAddress' => 'PrivateIpAddress',
-        'clientToken'      => 'ClientToken',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'force'                => 'Force',
+        'regionId'             => 'RegionId',
+        'allocationId'         => 'AllocationId',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
+        'instanceType'         => 'InstanceType',
+        'privateIpAddress'     => 'PrivateIpAddress',
+        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
     {
-        Model::validateRequired('allocationId', $this->allocationId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
@@ -71,6 +103,9 @@ class UnassociateEipAddressRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -93,6 +128,15 @@ class UnassociateEipAddressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }
@@ -104,6 +148,9 @@ class UnassociateEipAddressRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];

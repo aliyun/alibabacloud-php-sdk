@@ -4,55 +4,38 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ListDhcpOptionsSetsResponse\dhcpOptionsSets;
 use AlibabaCloud\Tea\Model;
 
 class ListDhcpOptionsSetsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var ListDhcpOptionsSetsResponseBody
      */
-    public $nextToken;
-
-    /**
-     * @var dhcpOptionsSets[]
-     */
-    public $dhcpOptionsSets;
+    public $body;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'nextToken'       => 'NextToken',
-        'dhcpOptionsSets' => 'DhcpOptionsSets',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('dhcpOptionsSets', $this->dhcpOptionsSets, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->dhcpOptionsSets) {
-            $res['DhcpOptionsSets'] = [];
-            if (null !== $this->dhcpOptionsSets && \is_array($this->dhcpOptionsSets)) {
-                $n = 0;
-                foreach ($this->dhcpOptionsSets as $item) {
-                    $res['DhcpOptionsSets'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +49,11 @@ class ListDhcpOptionsSetsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['DhcpOptionsSets'])) {
-            if (!empty($map['DhcpOptionsSets'])) {
-                $model->dhcpOptionsSets = [];
-                $n                      = 0;
-                foreach ($map['DhcpOptionsSets'] as $item) {
-                    $model->dhcpOptionsSets[$n++] = null !== $item ? dhcpOptionsSets::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = ListDhcpOptionsSetsResponseBody::fromMap($map['body']);
         }
 
         return $model;

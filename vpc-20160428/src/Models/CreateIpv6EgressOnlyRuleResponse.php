@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateIpv6EgressOnlyRuleResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateIpv6EgressOnlyRuleResponseBody
      */
-    public $ipv6EgressRuleId;
+    public $body;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'ipv6EgressRuleId' => 'Ipv6EgressRuleId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('ipv6EgressRuleId', $this->ipv6EgressRuleId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->ipv6EgressRuleId) {
-            $res['Ipv6EgressRuleId'] = $this->ipv6EgressRuleId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class CreateIpv6EgressOnlyRuleResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Ipv6EgressRuleId'])) {
-            $model->ipv6EgressRuleId = $map['Ipv6EgressRuleId'];
+        if (isset($map['body'])) {
+            $model->body = CreateIpv6EgressOnlyRuleResponseBody::fromMap($map['body']);
         }
 
         return $model;

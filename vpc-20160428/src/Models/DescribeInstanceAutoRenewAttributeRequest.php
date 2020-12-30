@@ -31,6 +31,21 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
     public $pageSize;
 
     /**
@@ -38,18 +53,19 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
      */
     public $pageNumber;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'instanceId'    => 'InstanceId',
-        'instanceType'  => 'InstanceType',
-        'renewalStatus' => 'RenewalStatus',
-        'pageSize'      => 'PageSize',
-        'pageNumber'    => 'PageNumber',
+        'regionId'             => 'RegionId',
+        'instanceId'           => 'InstanceId',
+        'instanceType'         => 'InstanceType',
+        'renewalStatus'        => 'RenewalStatus',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'pageSize'             => 'PageSize',
+        'pageNumber'           => 'PageNumber',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('instanceType', $this->instanceType, true);
     }
 
     public function toMap()
@@ -66,6 +82,15 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
         }
         if (null !== $this->renewalStatus) {
             $res['RenewalStatus'] = $this->renewalStatus;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -96,6 +121,15 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
         }
         if (isset($map['RenewalStatus'])) {
             $model->renewalStatus = $map['RenewalStatus'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

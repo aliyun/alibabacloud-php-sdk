@@ -15,6 +15,31 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string[]
      */
     public $resourceId;
@@ -23,24 +48,19 @@ class TagResourcesRequest extends Model
      * @var tag[]
      */
     public $tag;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
-        'resourceType' => 'ResourceType',
-        'resourceId'   => 'ResourceId',
-        'tag'          => 'Tag',
-        'regionId'     => 'RegionId',
+        'resourceType'         => 'ResourceType',
+        'regionId'             => 'RegionId',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'resourceId'           => 'ResourceId',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('resourceType', $this->resourceType, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
-        Model::validateRequired('tag', $this->tag, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -48,6 +68,21 @@ class TagResourcesRequest extends Model
         $res = [];
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -60,9 +95,6 @@ class TagResourcesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -79,6 +111,21 @@ class TagResourcesRequest extends Model
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
@@ -92,9 +139,6 @@ class TagResourcesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

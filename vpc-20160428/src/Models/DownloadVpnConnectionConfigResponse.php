@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponse\vpnConnectionConfig;
 use AlibabaCloud\Tea\Model;
 
 class DownloadVpnConnectionConfigResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var vpnConnectionConfig
+     * @var DownloadVpnConnectionConfigResponseBody
      */
-    public $vpnConnectionConfig;
+    public $body;
     protected $_name = [
-        'requestId'           => 'RequestId',
-        'vpnConnectionConfig' => 'VpnConnectionConfig',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('vpnConnectionConfig', $this->vpnConnectionConfig, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->vpnConnectionConfig) {
-            $res['VpnConnectionConfig'] = null !== $this->vpnConnectionConfig ? $this->vpnConnectionConfig->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DownloadVpnConnectionConfigResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['VpnConnectionConfig'])) {
-            $model->vpnConnectionConfig = vpnConnectionConfig::fromMap($map['VpnConnectionConfig']);
+        if (isset($map['body'])) {
+            $model->body = DownloadVpnConnectionConfigResponseBody::fromMap($map['body']);
         }
 
         return $model;

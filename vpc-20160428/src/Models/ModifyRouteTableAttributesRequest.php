@@ -24,20 +24,66 @@ class ModifyRouteTableAttributesRequest extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $bandwidth;
+
+    /**
+     * @var string
+     */
+    public $kbpsBandwidth;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
+    public $resourceBid;
+
+    /**
+     * @var int
+     */
+    public $resourceUid;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'routeTableId'   => 'RouteTableId',
-        'routeTableName' => 'RouteTableName',
-        'description'    => 'Description',
-        'regionId'       => 'RegionId',
+        'routeTableId'         => 'RouteTableId',
+        'routeTableName'       => 'RouteTableName',
+        'description'          => 'Description',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'bandwidth'            => 'Bandwidth',
+        'kbpsBandwidth'        => 'KbpsBandwidth',
+        'ownerAccount'         => 'OwnerAccount',
+        'resourceBid'          => 'ResourceBid',
+        'resourceUid'          => 'ResourceUid',
+        'regionId'             => 'RegionId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('routeTableId', $this->routeTableId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -51,6 +97,30 @@ class ModifyRouteTableAttributesRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->kbpsBandwidth) {
+            $res['KbpsBandwidth'] = $this->kbpsBandwidth;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->resourceBid) {
+            $res['ResourceBid'] = $this->resourceBid;
+        }
+        if (null !== $this->resourceUid) {
+            $res['ResourceUid'] = $this->resourceUid;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -75,6 +145,30 @@ class ModifyRouteTableAttributesRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['KbpsBandwidth'])) {
+            $model->kbpsBandwidth = $map['KbpsBandwidth'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['ResourceBid'])) {
+            $model->resourceBid = $map['ResourceBid'];
+        }
+        if (isset($map['ResourceUid'])) {
+            $model->resourceUid = $map['ResourceUid'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -4,69 +4,38 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeSslVpnClientCertsResponse\sslVpnClientCertKeys;
 use AlibabaCloud\Tea\Model;
 
 class DescribeSslVpnClientCertsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeSslVpnClientCertsResponseBody
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var sslVpnClientCertKeys
-     */
-    public $sslVpnClientCertKeys;
+    public $body;
     protected $_name = [
-        'requestId'            => 'RequestId',
-        'totalCount'           => 'TotalCount',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'sslVpnClientCertKeys' => 'SslVpnClientCertKeys',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('totalCount', $this->totalCount, true);
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('sslVpnClientCertKeys', $this->sslVpnClientCertKeys, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->sslVpnClientCertKeys) {
-            $res['SslVpnClientCertKeys'] = null !== $this->sslVpnClientCertKeys ? $this->sslVpnClientCertKeys->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -80,20 +49,11 @@ class DescribeSslVpnClientCertsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['SslVpnClientCertKeys'])) {
-            $model->sslVpnClientCertKeys = sslVpnClientCertKeys::fromMap($map['SslVpnClientCertKeys']);
+        if (isset($map['body'])) {
+            $model->body = DescribeSslVpnClientCertsResponseBody::fromMap($map['body']);
         }
 
         return $model;

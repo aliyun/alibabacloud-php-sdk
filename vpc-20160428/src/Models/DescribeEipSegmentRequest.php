@@ -11,6 +11,26 @@ class DescribeEipSegmentRequest extends Model
     /**
      * @var string
      */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -33,21 +53,36 @@ class DescribeEipSegmentRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'regionId'          => 'RegionId',
-        'segmentInstanceId' => 'SegmentInstanceId',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerId'              => 'OwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'clientToken'          => 'ClientToken',
+        'regionId'             => 'RegionId',
+        'segmentInstanceId'    => 'SegmentInstanceId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -75,6 +110,18 @@ class DescribeEipSegmentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

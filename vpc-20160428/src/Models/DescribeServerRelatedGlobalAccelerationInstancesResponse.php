@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeServerRelatedGlobalAccelerationInstancesResponse\globalAccelerationInstances;
 use AlibabaCloud\Tea\Model;
 
 class DescribeServerRelatedGlobalAccelerationInstancesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var globalAccelerationInstances
+     * @var DescribeServerRelatedGlobalAccelerationInstancesResponseBody
      */
-    public $globalAccelerationInstances;
+    public $body;
     protected $_name = [
-        'requestId'                   => 'RequestId',
-        'globalAccelerationInstances' => 'GlobalAccelerationInstances',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('globalAccelerationInstances', $this->globalAccelerationInstances, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->globalAccelerationInstances) {
-            $res['GlobalAccelerationInstances'] = null !== $this->globalAccelerationInstances ? $this->globalAccelerationInstances->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeServerRelatedGlobalAccelerationInstancesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['GlobalAccelerationInstances'])) {
-            $model->globalAccelerationInstances = globalAccelerationInstances::fromMap($map['GlobalAccelerationInstances']);
+        if (isset($map['body'])) {
+            $model->body = DescribeServerRelatedGlobalAccelerationInstancesResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -42,23 +42,36 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
      * @var string
      */
     public $renewalStatus;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'instanceId'    => 'InstanceId',
-        'pricingCycle'  => 'PricingCycle',
-        'duration'      => 'Duration',
-        'instanceType'  => 'InstanceType',
-        'clientToken'   => 'ClientToken',
-        'renewalStatus' => 'RenewalStatus',
+        'regionId'             => 'RegionId',
+        'instanceId'           => 'InstanceId',
+        'pricingCycle'         => 'PricingCycle',
+        'duration'             => 'Duration',
+        'instanceType'         => 'InstanceType',
+        'clientToken'          => 'ClientToken',
+        'renewalStatus'        => 'RenewalStatus',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('pricingCycle', $this->pricingCycle, true);
-        Model::validateRequired('duration', $this->duration, true);
-        Model::validateRequired('instanceType', $this->instanceType, true);
     }
 
     public function toMap()
@@ -84,6 +97,15 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
         }
         if (null !== $this->renewalStatus) {
             $res['RenewalStatus'] = $this->renewalStatus;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -117,6 +139,15 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
         }
         if (isset($map['RenewalStatus'])) {
             $model->renewalStatus = $map['RenewalStatus'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

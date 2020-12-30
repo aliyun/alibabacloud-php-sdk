@@ -22,15 +22,38 @@ class DeleteIpv6InternetBandwidthRequest extends Model
      * @var string
      */
     public $ipv6InternetBandwidthId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
     protected $_name = [
         'regionId'                => 'RegionId',
         'ipv6AddressId'           => 'Ipv6AddressId',
         'ipv6InternetBandwidthId' => 'Ipv6InternetBandwidthId',
+        'ownerId'                 => 'OwnerId',
+        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
+        'resourceOwnerId'         => 'ResourceOwnerId',
+        'ownerAccount'            => 'OwnerAccount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -44,6 +67,18 @@ class DeleteIpv6InternetBandwidthRequest extends Model
         }
         if (null !== $this->ipv6InternetBandwidthId) {
             $res['Ipv6InternetBandwidthId'] = $this->ipv6InternetBandwidthId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -65,6 +100,18 @@ class DeleteIpv6InternetBandwidthRequest extends Model
         }
         if (isset($map['Ipv6InternetBandwidthId'])) {
             $model->ipv6InternetBandwidthId = $map['Ipv6InternetBandwidthId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

@@ -9,73 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeHighDefinitionMonitorLogAttributeResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeHighDefinitionMonitorLogAttributeResponseBody
      */
-    public $success;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
-
-    /**
-     * @var string
-     */
-    public $logProject;
-
-    /**
-     * @var string
-     */
-    public $logStore;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
-        'instanceId'   => 'InstanceId',
-        'instanceType' => 'InstanceType',
-        'logProject'   => 'LogProject',
-        'logStore'     => 'LogStore',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('success', $this->success, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('instanceType', $this->instanceType, true);
-        Model::validateRequired('logProject', $this->logProject, true);
-        Model::validateRequired('logStore', $this->logStore, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
-        if (null !== $this->logProject) {
-            $res['LogProject'] = $this->logProject;
-        }
-        if (null !== $this->logStore) {
-            $res['LogStore'] = $this->logStore;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -89,23 +49,11 @@ class DescribeHighDefinitionMonitorLogAttributeResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
-        if (isset($map['LogProject'])) {
-            $model->logProject = $map['LogProject'];
-        }
-        if (isset($map['LogStore'])) {
-            $model->logStore = $map['LogStore'];
+        if (isset($map['body'])) {
+            $model->body = DescribeHighDefinitionMonitorLogAttributeResponseBody::fromMap($map['body']);
         }
 
         return $model;

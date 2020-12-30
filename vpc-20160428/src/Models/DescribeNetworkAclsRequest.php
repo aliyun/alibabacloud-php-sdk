@@ -51,22 +51,39 @@ class DescribeNetworkAclsRequest extends Model
     /**
      * @var string
      */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $clientToken;
     protected $_name = [
-        'networkAclId'   => 'NetworkAclId',
-        'networkAclName' => 'NetworkAclName',
-        'vpcId'          => 'VpcId',
-        'resourceType'   => 'ResourceType',
-        'resourceId'     => 'ResourceId',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
-        'clientToken'    => 'ClientToken',
+        'networkAclId'         => 'NetworkAclId',
+        'networkAclName'       => 'NetworkAclName',
+        'vpcId'                => 'VpcId',
+        'resourceType'         => 'ResourceType',
+        'resourceId'           => 'ResourceId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerId'              => 'OwnerId',
+        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -95,6 +112,15 @@ class DescribeNetworkAclsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -134,6 +160,15 @@ class DescribeNetworkAclsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

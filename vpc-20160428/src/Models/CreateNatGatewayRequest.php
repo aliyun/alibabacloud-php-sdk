@@ -10,6 +10,26 @@ use AlibabaCloud\Tea\Model;
 class CreateNatGatewayRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -38,11 +58,6 @@ class CreateNatGatewayRequest extends Model
      * @var string
      */
     public $spec;
-
-    /**
-     * @var bandwidthPackage[]
-     */
-    public $bandwidthPackage;
 
     /**
      * @var string
@@ -78,32 +93,51 @@ class CreateNatGatewayRequest extends Model
      * @var string
      */
     public $internetChargeType;
+
+    /**
+     * @var bandwidthPackage[]
+     */
+    public $bandwidthPackage;
     protected $_name = [
-        'regionId'           => 'RegionId',
-        'vpcId'              => 'VpcId',
-        'name'               => 'Name',
-        'description'        => 'Description',
-        'clientToken'        => 'ClientToken',
-        'spec'               => 'Spec',
-        'bandwidthPackage'   => 'BandwidthPackage',
-        'instanceChargeType' => 'InstanceChargeType',
-        'pricingCycle'       => 'PricingCycle',
-        'duration'           => 'Duration',
-        'autoPay'            => 'AutoPay',
-        'vSwitchId'          => 'VSwitchId',
-        'natType'            => 'NatType',
-        'internetChargeType' => 'InternetChargeType',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
+        'vpcId'                => 'VpcId',
+        'name'                 => 'Name',
+        'description'          => 'Description',
+        'clientToken'          => 'ClientToken',
+        'spec'                 => 'Spec',
+        'instanceChargeType'   => 'InstanceChargeType',
+        'pricingCycle'         => 'PricingCycle',
+        'duration'             => 'Duration',
+        'autoPay'              => 'AutoPay',
+        'vSwitchId'            => 'VSwitchId',
+        'natType'              => 'NatType',
+        'internetChargeType'   => 'InternetChargeType',
+        'bandwidthPackage'     => 'BandwidthPackage',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('vpcId', $this->vpcId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -121,15 +155,6 @@ class CreateNatGatewayRequest extends Model
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
-        }
-        if (null !== $this->bandwidthPackage) {
-            $res['BandwidthPackage'] = [];
-            if (null !== $this->bandwidthPackage && \is_array($this->bandwidthPackage)) {
-                $n = 0;
-                foreach ($this->bandwidthPackage as $item) {
-                    $res['BandwidthPackage'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
@@ -152,6 +177,15 @@ class CreateNatGatewayRequest extends Model
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
         }
+        if (null !== $this->bandwidthPackage) {
+            $res['BandwidthPackage'] = [];
+            if (null !== $this->bandwidthPackage && \is_array($this->bandwidthPackage)) {
+                $n = 0;
+                foreach ($this->bandwidthPackage as $item) {
+                    $res['BandwidthPackage'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -164,6 +198,18 @@ class CreateNatGatewayRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -181,15 +227,6 @@ class CreateNatGatewayRequest extends Model
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
-        }
-        if (isset($map['BandwidthPackage'])) {
-            if (!empty($map['BandwidthPackage'])) {
-                $model->bandwidthPackage = [];
-                $n                       = 0;
-                foreach ($map['BandwidthPackage'] as $item) {
-                    $model->bandwidthPackage[$n++] = null !== $item ? bandwidthPackage::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
@@ -211,6 +248,15 @@ class CreateNatGatewayRequest extends Model
         }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
+        }
+        if (isset($map['BandwidthPackage'])) {
+            if (!empty($map['BandwidthPackage'])) {
+                $model->bandwidthPackage = [];
+                $n                       = 0;
+                foreach ($map['BandwidthPackage'] as $item) {
+                    $model->bandwidthPackage[$n++] = null !== $item ? bandwidthPackage::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

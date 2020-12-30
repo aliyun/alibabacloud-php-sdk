@@ -24,20 +24,42 @@ class DeleteExpressConnectRequest extends Model
     public $force;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'routerInterfaceId' => 'RouterInterfaceId',
-        'force'             => 'Force',
-        'clientToken'       => 'ClientToken',
+        'regionId'             => 'RegionId',
+        'routerInterfaceId'    => 'RouterInterfaceId',
+        'force'                => 'Force',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('routerInterfaceId', $this->routerInterfaceId, true);
     }
 
     public function toMap()
@@ -52,8 +74,20 @@ class DeleteExpressConnectRequest extends Model
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -76,8 +110,20 @@ class DeleteExpressConnectRequest extends Model
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

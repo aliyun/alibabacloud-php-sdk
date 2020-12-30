@@ -12,6 +12,26 @@ class DescribeVpnGatewaysRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -45,15 +65,19 @@ class DescribeVpnGatewaysRequest extends Model
     public $pageSize;
 
     /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
      * @var bool
      */
     public $includeReservationData;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
+        'ownerAccount'           => 'OwnerAccount',
+        'ownerId'                => 'OwnerId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
         'regionId'               => 'RegionId',
         'vpcId'                  => 'VpcId',
         'vpnGatewayId'           => 'VpnGatewayId',
@@ -61,18 +85,29 @@ class DescribeVpnGatewaysRequest extends Model
         'businessStatus'         => 'BusinessStatus',
         'pageNumber'             => 'PageNumber',
         'pageSize'               => 'PageSize',
-        'tag'                    => 'Tag',
         'includeReservationData' => 'IncludeReservationData',
+        'tag'                    => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -94,6 +129,9 @@ class DescribeVpnGatewaysRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->includeReservationData) {
+            $res['IncludeReservationData'] = $this->includeReservationData;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -102,9 +140,6 @@ class DescribeVpnGatewaysRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->includeReservationData) {
-            $res['IncludeReservationData'] = $this->includeReservationData;
         }
 
         return $res;
@@ -118,6 +153,18 @@ class DescribeVpnGatewaysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -139,6 +186,9 @@ class DescribeVpnGatewaysRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['IncludeReservationData'])) {
+            $model->includeReservationData = $map['IncludeReservationData'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -147,9 +197,6 @@ class DescribeVpnGatewaysRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['IncludeReservationData'])) {
-            $model->includeReservationData = $map['IncludeReservationData'];
         }
 
         return $model;

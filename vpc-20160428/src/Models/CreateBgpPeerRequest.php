@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateBgpPeerRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -36,6 +51,11 @@ class CreateBgpPeerRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $ipVersion;
 
     /**
@@ -43,24 +63,35 @@ class CreateBgpPeerRequest extends Model
      */
     public $bfdMultiHop;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'bgpGroupId'    => 'BgpGroupId',
-        'peerIpAddress' => 'PeerIpAddress',
-        'enableBfd'     => 'EnableBfd',
-        'clientToken'   => 'ClientToken',
-        'ipVersion'     => 'IpVersion',
-        'bfdMultiHop'   => 'BfdMultiHop',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'regionId'             => 'RegionId',
+        'bgpGroupId'           => 'BgpGroupId',
+        'peerIpAddress'        => 'PeerIpAddress',
+        'enableBfd'            => 'EnableBfd',
+        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
+        'ipVersion'            => 'IpVersion',
+        'bfdMultiHop'          => 'BfdMultiHop',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('bgpGroupId', $this->bgpGroupId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -75,6 +106,9 @@ class CreateBgpPeerRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
@@ -94,6 +128,15 @@ class CreateBgpPeerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -108,6 +151,9 @@ class CreateBgpPeerRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];

@@ -49,9 +49,29 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $peeringSubnetMask;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var string
@@ -81,7 +101,11 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
         'localGatewayIp'        => 'LocalGatewayIp',
         'peerGatewayIp'         => 'PeerGatewayIp',
         'peeringSubnetMask'     => 'PeeringSubnetMask',
+        'ownerId'               => 'OwnerId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
         'clientToken'           => 'ClientToken',
+        'ownerAccount'          => 'OwnerAccount',
         'localIpv6GatewayIp'    => 'LocalIpv6GatewayIp',
         'peerIpv6GatewayIp'     => 'PeerIpv6GatewayIp',
         'peeringIpv6SubnetMask' => 'PeeringIpv6SubnetMask',
@@ -90,10 +114,6 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('vbrId', $this->vbrId, true);
-        Model::validateRequired('physicalConnectionId', $this->physicalConnectionId, true);
-        Model::validateRequired('vlanId', $this->vlanId, true);
     }
 
     public function toMap()
@@ -123,8 +143,20 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
         if (null !== $this->peeringSubnetMask) {
             $res['PeeringSubnetMask'] = $this->peeringSubnetMask;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->localIpv6GatewayIp) {
             $res['LocalIpv6GatewayIp'] = $this->localIpv6GatewayIp;
@@ -174,8 +206,20 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
         if (isset($map['PeeringSubnetMask'])) {
             $model->peeringSubnetMask = $map['PeeringSubnetMask'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['LocalIpv6GatewayIp'])) {
             $model->localIpv6GatewayIp = $map['LocalIpv6GatewayIp'];

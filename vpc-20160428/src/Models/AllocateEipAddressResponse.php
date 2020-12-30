@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipAddressResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var AllocateEipAddressResponseBody
      */
-    public $allocationId;
-
-    /**
-     * @var string
-     */
-    public $eipAddress;
-
-    /**
-     * @var int
-     */
-    public $orderId;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
+    public $body;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'allocationId'    => 'AllocationId',
-        'eipAddress'      => 'EipAddress',
-        'orderId'         => 'OrderId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('allocationId', $this->allocationId, true);
-        Model::validateRequired('eipAddress', $this->eipAddress, true);
-        Model::validateRequired('orderId', $this->orderId, true);
-        Model::validateRequired('resourceGroupId', $this->resourceGroupId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->allocationId) {
-            $res['AllocationId'] = $this->allocationId;
-        }
-        if (null !== $this->eipAddress) {
-            $res['EipAddress'] = $this->eipAddress;
-        }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,20 +49,11 @@ class AllocateEipAddressResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['AllocationId'])) {
-            $model->allocationId = $map['AllocationId'];
-        }
-        if (isset($map['EipAddress'])) {
-            $model->eipAddress = $map['EipAddress'];
-        }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['body'])) {
+            $model->body = AllocateEipAddressResponseBody::fromMap($map['body']);
         }
 
         return $model;

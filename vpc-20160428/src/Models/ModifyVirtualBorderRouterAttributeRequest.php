@@ -74,9 +74,29 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $associatedPhysicalConnections;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var string
@@ -97,6 +117,11 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
      * @var bool
      */
     public $enableIpv6;
+
+    /**
+     * @var int
+     */
+    public $bandwidth;
     protected $_name = [
         'regionId'                      => 'RegionId',
         'vbrId'                         => 'VbrId',
@@ -111,17 +136,20 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
         'description'                   => 'Description',
         'name'                          => 'Name',
         'associatedPhysicalConnections' => 'AssociatedPhysicalConnections',
+        'ownerId'                       => 'OwnerId',
+        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
+        'resourceOwnerId'               => 'ResourceOwnerId',
         'clientToken'                   => 'ClientToken',
+        'ownerAccount'                  => 'OwnerAccount',
         'localIpv6GatewayIp'            => 'LocalIpv6GatewayIp',
         'peerIpv6GatewayIp'             => 'PeerIpv6GatewayIp',
         'peeringIpv6SubnetMask'         => 'PeeringIpv6SubnetMask',
         'enableIpv6'                    => 'EnableIpv6',
+        'bandwidth'                     => 'Bandwidth',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('vbrId', $this->vbrId, true);
     }
 
     public function toMap()
@@ -166,8 +194,20 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
         if (null !== $this->associatedPhysicalConnections) {
             $res['AssociatedPhysicalConnections'] = $this->associatedPhysicalConnections;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->localIpv6GatewayIp) {
             $res['LocalIpv6GatewayIp'] = $this->localIpv6GatewayIp;
@@ -180,6 +220,9 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
         }
         if (null !== $this->enableIpv6) {
             $res['EnableIpv6'] = $this->enableIpv6;
+        }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
         }
 
         return $res;
@@ -232,8 +275,20 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
         if (isset($map['AssociatedPhysicalConnections'])) {
             $model->associatedPhysicalConnections = $map['AssociatedPhysicalConnections'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['LocalIpv6GatewayIp'])) {
             $model->localIpv6GatewayIp = $map['LocalIpv6GatewayIp'];
@@ -246,6 +301,9 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
         }
         if (isset($map['EnableIpv6'])) {
             $model->enableIpv6 = $map['EnableIpv6'];
+        }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
         }
 
         return $model;

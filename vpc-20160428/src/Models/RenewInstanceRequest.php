@@ -32,21 +32,34 @@ class RenewInstanceRequest extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'instanceId'   => 'InstanceId',
-        'pricingCycle' => 'PricingCycle',
-        'duration'     => 'Duration',
-        'instanceType' => 'InstanceType',
+        'regionId'             => 'RegionId',
+        'instanceId'           => 'InstanceId',
+        'pricingCycle'         => 'PricingCycle',
+        'duration'             => 'Duration',
+        'instanceType'         => 'InstanceType',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('pricingCycle', $this->pricingCycle, true);
-        Model::validateRequired('duration', $this->duration, true);
-        Model::validateRequired('instanceType', $this->instanceType, true);
     }
 
     public function toMap()
@@ -66,6 +79,15 @@ class RenewInstanceRequest extends Model
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -93,6 +115,15 @@ class RenewInstanceRequest extends Model
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

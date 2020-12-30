@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RevokeInstanceFromCenRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -37,27 +52,40 @@ class RevokeInstanceFromCenRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'instanceId'   => 'InstanceId',
-        'instanceType' => 'InstanceType',
-        'cenId'        => 'CenId',
-        'cenOwnerId'   => 'CenOwnerId',
-        'clientToken'  => 'ClientToken',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'regionId'             => 'RegionId',
+        'instanceId'           => 'InstanceId',
+        'instanceType'         => 'InstanceType',
+        'cenId'                => 'CenId',
+        'cenOwnerId'           => 'CenOwnerId',
+        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('instanceType', $this->instanceType, true);
-        Model::validateRequired('cenId', $this->cenId, true);
-        Model::validateRequired('cenOwnerId', $this->cenOwnerId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -76,6 +104,9 @@ class RevokeInstanceFromCenRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
 
         return $res;
     }
@@ -88,6 +119,15 @@ class RevokeInstanceFromCenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -105,6 +145,9 @@ class RevokeInstanceFromCenRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

@@ -9,35 +9,51 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionLOARequest extends Model
 {
     /**
-     * @description description: The ID of the region where the leased line is deployed. ;
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description description: Optional. The token used for client authentication. ;
-     *
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description description: The instance ID of the physical connection interface. ;
-     *
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
+        'regionId'             => 'RegionId',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
+        'instanceId'           => 'InstanceId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
@@ -46,8 +62,20 @@ class DescribePhysicalConnectionLOARequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -67,8 +95,20 @@ class DescribePhysicalConnectionLOARequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

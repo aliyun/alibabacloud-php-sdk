@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateSslVpnServerResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateSslVpnServerResponseBody
      */
-    public $sslVpnServerId;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'sslVpnServerId' => 'SslVpnServerId',
-        'name'           => 'Name',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('sslVpnServerId', $this->sslVpnServerId, true);
-        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->sslVpnServerId) {
-            $res['SslVpnServerId'] = $this->sslVpnServerId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class CreateSslVpnServerResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['SslVpnServerId'])) {
-            $model->sslVpnServerId = $map['SslVpnServerId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['body'])) {
+            $model->body = CreateSslVpnServerResponseBody::fromMap($map['body']);
         }
 
         return $model;

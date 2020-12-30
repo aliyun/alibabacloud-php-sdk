@@ -9,53 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnGatewayResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateVpnGatewayResponseBody
      */
-    public $vpnGatewayId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var int
-     */
-    public $orderId;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'vpnGatewayId' => 'VpnGatewayId',
-        'name'         => 'Name',
-        'orderId'      => 'OrderId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('vpnGatewayId', $this->vpnGatewayId, true);
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('orderId', $this->orderId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->vpnGatewayId) {
-            $res['VpnGatewayId'] = $this->vpnGatewayId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +49,11 @@ class CreateVpnGatewayResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['VpnGatewayId'])) {
-            $model->vpnGatewayId = $map['VpnGatewayId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
+        if (isset($map['body'])) {
+            $model->body = CreateVpnGatewayResponseBody::fromMap($map['body']);
         }
 
         return $model;

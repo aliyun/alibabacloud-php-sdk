@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class AllocateIpv6InternetBandwidthResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var AllocateIpv6InternetBandwidthResponseBody
      */
-    public $ipv6AddressId;
-
-    /**
-     * @var string
-     */
-    public $internetBandwidthId;
+    public $body;
     protected $_name = [
-        'requestId'           => 'RequestId',
-        'ipv6AddressId'       => 'Ipv6AddressId',
-        'internetBandwidthId' => 'InternetBandwidthId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('ipv6AddressId', $this->ipv6AddressId, true);
-        Model::validateRequired('internetBandwidthId', $this->internetBandwidthId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->ipv6AddressId) {
-            $res['Ipv6AddressId'] = $this->ipv6AddressId;
-        }
-        if (null !== $this->internetBandwidthId) {
-            $res['InternetBandwidthId'] = $this->internetBandwidthId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class AllocateIpv6InternetBandwidthResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Ipv6AddressId'])) {
-            $model->ipv6AddressId = $map['Ipv6AddressId'];
-        }
-        if (isset($map['InternetBandwidthId'])) {
-            $model->internetBandwidthId = $map['InternetBandwidthId'];
+        if (isset($map['body'])) {
+            $model->body = AllocateIpv6InternetBandwidthResponseBody::fromMap($map['body']);
         }
 
         return $model;

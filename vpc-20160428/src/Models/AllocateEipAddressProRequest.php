@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipAddressProRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -71,31 +86,48 @@ class AllocateEipAddressProRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $clientToken;
     protected $_name = [
-        'regionId'           => 'RegionId',
-        'ipAddress'          => 'IpAddress',
-        'instanceId'         => 'InstanceId',
-        'bandwidth'          => 'Bandwidth',
-        'period'             => 'Period',
-        'ISP'                => 'ISP',
-        'netmode'            => 'Netmode',
-        'autoPay'            => 'AutoPay',
-        'pricingCycle'       => 'PricingCycle',
-        'instanceChargeType' => 'InstanceChargeType',
-        'internetChargeType' => 'InternetChargeType',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'clientToken'        => 'ClientToken',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'regionId'             => 'RegionId',
+        'ipAddress'            => 'IpAddress',
+        'instanceId'           => 'InstanceId',
+        'bandwidth'            => 'Bandwidth',
+        'period'               => 'Period',
+        'ISP'                  => 'ISP',
+        'netmode'              => 'Netmode',
+        'autoPay'              => 'AutoPay',
+        'pricingCycle'         => 'PricingCycle',
+        'instanceChargeType'   => 'InstanceChargeType',
+        'internetChargeType'   => 'InternetChargeType',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'ownerAccount'         => 'OwnerAccount',
+        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -132,6 +164,9 @@ class AllocateEipAddressProRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -147,6 +182,15 @@ class AllocateEipAddressProRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -182,6 +226,9 @@ class AllocateEipAddressProRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

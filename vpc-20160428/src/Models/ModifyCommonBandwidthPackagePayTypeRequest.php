@@ -34,6 +34,21 @@ class ModifyCommonBandwidthPackagePayTypeRequest extends Model
     public $autoPay;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $bandwidth;
@@ -42,6 +57,11 @@ class ModifyCommonBandwidthPackagePayTypeRequest extends Model
      * @var string
      */
     public $kbpsBandwidth;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var string
@@ -58,22 +78,24 @@ class ModifyCommonBandwidthPackagePayTypeRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'bandwidthPackageId' => 'BandwidthPackageId',
-        'payType'            => 'PayType',
-        'pricingCycle'       => 'PricingCycle',
-        'duration'           => 'Duration',
-        'autoPay'            => 'AutoPay',
-        'bandwidth'          => 'Bandwidth',
-        'kbpsBandwidth'      => 'KbpsBandwidth',
-        'resourceBid'        => 'ResourceBid',
-        'resourceUid'        => 'ResourceUid',
-        'regionId'           => 'RegionId',
+        'bandwidthPackageId'   => 'BandwidthPackageId',
+        'payType'              => 'PayType',
+        'pricingCycle'         => 'PricingCycle',
+        'duration'             => 'Duration',
+        'autoPay'              => 'AutoPay',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'bandwidth'            => 'Bandwidth',
+        'kbpsBandwidth'        => 'KbpsBandwidth',
+        'ownerAccount'         => 'OwnerAccount',
+        'resourceBid'          => 'ResourceBid',
+        'resourceUid'          => 'ResourceUid',
+        'regionId'             => 'RegionId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('bandwidthPackageId', $this->bandwidthPackageId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -94,11 +116,23 @@ class ModifyCommonBandwidthPackagePayTypeRequest extends Model
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
         if (null !== $this->kbpsBandwidth) {
             $res['KbpsBandwidth'] = $this->kbpsBandwidth;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->resourceBid) {
             $res['ResourceBid'] = $this->resourceBid;
@@ -136,11 +170,23 @@ class ModifyCommonBandwidthPackagePayTypeRequest extends Model
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
         if (isset($map['KbpsBandwidth'])) {
             $model->kbpsBandwidth = $map['KbpsBandwidth'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['ResourceBid'])) {
             $model->resourceBid = $map['ResourceBid'];

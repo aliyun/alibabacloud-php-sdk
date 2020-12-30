@@ -4,10 +4,26 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeVpcsRequest extends Model
 {
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
     /**
      * @var string
      */
@@ -49,35 +65,64 @@ class DescribeVpcsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $vpcOwnerId;
 
     /**
+     * @var bool
+     */
+    public $advancedFeature;
+
+    /**
      * @var string
      */
     public $dhcpOptionsSetId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'vpcId'            => 'VpcId',
-        'regionId'         => 'RegionId',
-        'vpcName'          => 'VpcName',
-        'isDefault'        => 'IsDefault',
-        'dryRun'           => 'DryRun',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'vpcOwnerId'       => 'VpcOwnerId',
-        'dhcpOptionsSetId' => 'DhcpOptionsSetId',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'vpcId'                => 'VpcId',
+        'regionId'             => 'RegionId',
+        'vpcName'              => 'VpcName',
+        'isDefault'            => 'IsDefault',
+        'dryRun'               => 'DryRun',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
+        'ownerAccount'         => 'OwnerAccount',
+        'vpcOwnerId'           => 'VpcOwnerId',
+        'advancedFeature'      => 'AdvancedFeature',
+        'dhcpOptionsSetId'     => 'DhcpOptionsSetId',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -102,11 +147,26 @@ class DescribeVpcsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->vpcOwnerId) {
             $res['VpcOwnerId'] = $this->vpcOwnerId;
         }
+        if (null !== $this->advancedFeature) {
+            $res['AdvancedFeature'] = $this->advancedFeature;
+        }
         if (null !== $this->dhcpOptionsSetId) {
             $res['DhcpOptionsSetId'] = $this->dhcpOptionsSetId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -120,6 +180,15 @@ class DescribeVpcsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
@@ -144,11 +213,26 @@ class DescribeVpcsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['VpcOwnerId'])) {
             $model->vpcOwnerId = $map['VpcOwnerId'];
         }
+        if (isset($map['AdvancedFeature'])) {
+            $model->advancedFeature = $map['AdvancedFeature'];
+        }
         if (isset($map['DhcpOptionsSetId'])) {
             $model->dhcpOptionsSetId = $map['DhcpOptionsSetId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

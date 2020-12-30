@@ -9,103 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnRouteEntryResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateVpnRouteEntryResponseBody
      */
-    public $vpnInstanceId;
-
-    /**
-     * @var string
-     */
-    public $routeDest;
-
-    /**
-     * @var string
-     */
-    public $nextHop;
-
-    /**
-     * @var int
-     */
-    public $weight;
-
-    /**
-     * @var string
-     */
-    public $overlayMode;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var int
-     */
-    public $createTime;
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'vpnInstanceId' => 'VpnInstanceId',
-        'routeDest'     => 'RouteDest',
-        'nextHop'       => 'NextHop',
-        'weight'        => 'Weight',
-        'overlayMode'   => 'OverlayMode',
-        'description'   => 'Description',
-        'state'         => 'State',
-        'createTime'    => 'CreateTime',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('vpnInstanceId', $this->vpnInstanceId, true);
-        Model::validateRequired('routeDest', $this->routeDest, true);
-        Model::validateRequired('nextHop', $this->nextHop, true);
-        Model::validateRequired('weight', $this->weight, true);
-        Model::validateRequired('overlayMode', $this->overlayMode, true);
-        Model::validateRequired('description', $this->description, true);
-        Model::validateRequired('state', $this->state, true);
-        Model::validateRequired('createTime', $this->createTime, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->vpnInstanceId) {
-            $res['VpnInstanceId'] = $this->vpnInstanceId;
-        }
-        if (null !== $this->routeDest) {
-            $res['RouteDest'] = $this->routeDest;
-        }
-        if (null !== $this->nextHop) {
-            $res['NextHop'] = $this->nextHop;
-        }
-        if (null !== $this->weight) {
-            $res['Weight'] = $this->weight;
-        }
-        if (null !== $this->overlayMode) {
-            $res['OverlayMode'] = $this->overlayMode;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -119,32 +49,11 @@ class CreateVpnRouteEntryResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['VpnInstanceId'])) {
-            $model->vpnInstanceId = $map['VpnInstanceId'];
-        }
-        if (isset($map['RouteDest'])) {
-            $model->routeDest = $map['RouteDest'];
-        }
-        if (isset($map['NextHop'])) {
-            $model->nextHop = $map['NextHop'];
-        }
-        if (isset($map['Weight'])) {
-            $model->weight = $map['Weight'];
-        }
-        if (isset($map['OverlayMode'])) {
-            $model->overlayMode = $map['OverlayMode'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['body'])) {
+            $model->body = CreateVpnRouteEntryResponseBody::fromMap($map['body']);
         }
 
         return $model;

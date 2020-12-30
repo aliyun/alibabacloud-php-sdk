@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateBgpGroupResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateBgpGroupResponseBody
      */
-    public $bgpGroupId;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'bgpGroupId' => 'BgpGroupId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('bgpGroupId', $this->bgpGroupId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->bgpGroupId) {
-            $res['BgpGroupId'] = $this->bgpGroupId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class CreateBgpGroupResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['BgpGroupId'])) {
-            $model->bgpGroupId = $map['BgpGroupId'];
+        if (isset($map['body'])) {
+            $model->body = CreateBgpGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;

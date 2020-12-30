@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcAttributeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -41,25 +56,42 @@ class ModifyVpcAttributeRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var string
+     */
     public $ipv6CidrBlock;
     protected $_name = [
-        'vpcId'         => 'VpcId',
-        'description'   => 'Description',
-        'vpcName'       => 'VpcName',
-        'cidrBlock'     => 'CidrBlock',
-        'regionId'      => 'RegionId',
-        'enableIPv6'    => 'EnableIPv6',
-        'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'vpcId'                => 'VpcId',
+        'description'          => 'Description',
+        'vpcName'              => 'VpcName',
+        'cidrBlock'            => 'CidrBlock',
+        'regionId'             => 'RegionId',
+        'enableIPv6'           => 'EnableIPv6',
+        'ownerAccount'         => 'OwnerAccount',
+        'ipv6CidrBlock'        => 'Ipv6CidrBlock',
     ];
 
     public function validate()
     {
-        Model::validateRequired('vpcId', $this->vpcId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -78,6 +110,9 @@ class ModifyVpcAttributeRequest extends Model
         if (null !== $this->enableIPv6) {
             $res['EnableIPv6'] = $this->enableIPv6;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ipv6CidrBlock) {
             $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
         }
@@ -93,6 +128,15 @@ class ModifyVpcAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
@@ -110,6 +154,9 @@ class ModifyVpcAttributeRequest extends Model
         }
         if (isset($map['EnableIPv6'])) {
             $model->enableIPv6 = $map['EnableIPv6'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['Ipv6CidrBlock'])) {
             $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];

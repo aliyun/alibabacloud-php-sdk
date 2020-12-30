@@ -11,6 +11,26 @@ class CreateExpressCloudConnectionRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -68,31 +88,43 @@ class CreateExpressCloudConnectionRequest extends Model
      */
     public $redundantEccId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'name'           => 'Name',
-        'description'    => 'Description',
-        'peerCity'       => 'PeerCity',
-        'peerLocation'   => 'PeerLocation',
-        'idcSP'          => 'IdcSP',
-        'portType'       => 'PortType',
-        'bandwidth'      => 'Bandwidth',
-        'contactTel'     => 'ContactTel',
-        'contactMail'    => 'ContactMail',
-        'IDCardNo'       => 'IDCardNo',
-        'redundantEccId' => 'RedundantEccId',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'regionId'             => 'RegionId',
+        'name'                 => 'Name',
+        'description'          => 'Description',
+        'peerCity'             => 'PeerCity',
+        'peerLocation'         => 'PeerLocation',
+        'idcSP'                => 'IdcSP',
+        'portType'             => 'PortType',
+        'bandwidth'            => 'Bandwidth',
+        'contactTel'           => 'ContactTel',
+        'contactMail'          => 'ContactMail',
+        'IDCardNo'             => 'IDCardNo',
+        'redundantEccId'       => 'RedundantEccId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('peerLocation', $this->peerLocation, true);
-        Model::validateRequired('idcSP', $this->idcSP, true);
-        Model::validateRequired('bandwidth', $this->bandwidth, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -141,6 +173,18 @@ class CreateExpressCloudConnectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -11,17 +11,27 @@ class egressAclEntries extends Model
     /**
      * @var string
      */
-    public $networkAclEntryName;
-
-    /**
-     * @var string
-     */
     public $networkAclEntryId;
 
     /**
      * @var string
      */
+    public $entryType;
+
+    /**
+     * @var string
+     */
     public $policy;
+
+    /**
+     * @var string
+     */
+    public $networkAclEntryName;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -37,50 +47,38 @@ class egressAclEntries extends Model
      * @var string
      */
     public $port;
-
-    /**
-     * @var string
-     */
-    public $entryType;
-
-    /**
-     * @var string
-     */
-    public $description;
     protected $_name = [
-        'networkAclEntryName' => 'NetworkAclEntryName',
         'networkAclEntryId'   => 'NetworkAclEntryId',
+        'entryType'           => 'EntryType',
         'policy'              => 'Policy',
+        'networkAclEntryName' => 'NetworkAclEntryName',
+        'description'         => 'Description',
         'protocol'            => 'Protocol',
         'destinationCidrIp'   => 'DestinationCidrIp',
         'port'                => 'Port',
-        'entryType'           => 'EntryType',
-        'description'         => 'Description',
     ];
 
     public function validate()
     {
-        Model::validateRequired('networkAclEntryName', $this->networkAclEntryName, true);
-        Model::validateRequired('networkAclEntryId', $this->networkAclEntryId, true);
-        Model::validateRequired('policy', $this->policy, true);
-        Model::validateRequired('protocol', $this->protocol, true);
-        Model::validateRequired('destinationCidrIp', $this->destinationCidrIp, true);
-        Model::validateRequired('port', $this->port, true);
-        Model::validateRequired('entryType', $this->entryType, true);
-        Model::validateRequired('description', $this->description, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->networkAclEntryName) {
-            $res['NetworkAclEntryName'] = $this->networkAclEntryName;
-        }
         if (null !== $this->networkAclEntryId) {
             $res['NetworkAclEntryId'] = $this->networkAclEntryId;
         }
+        if (null !== $this->entryType) {
+            $res['EntryType'] = $this->entryType;
+        }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
+        }
+        if (null !== $this->networkAclEntryName) {
+            $res['NetworkAclEntryName'] = $this->networkAclEntryName;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
@@ -90,12 +88,6 @@ class egressAclEntries extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
-        }
-        if (null !== $this->entryType) {
-            $res['EntryType'] = $this->entryType;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -109,14 +101,20 @@ class egressAclEntries extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NetworkAclEntryName'])) {
-            $model->networkAclEntryName = $map['NetworkAclEntryName'];
-        }
         if (isset($map['NetworkAclEntryId'])) {
             $model->networkAclEntryId = $map['NetworkAclEntryId'];
         }
+        if (isset($map['EntryType'])) {
+            $model->entryType = $map['EntryType'];
+        }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
+        }
+        if (isset($map['NetworkAclEntryName'])) {
+            $model->networkAclEntryName = $map['NetworkAclEntryName'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
@@ -126,12 +124,6 @@ class egressAclEntries extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
-        }
-        if (isset($map['EntryType'])) {
-            $model->entryType = $map['EntryType'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
 
         return $model;

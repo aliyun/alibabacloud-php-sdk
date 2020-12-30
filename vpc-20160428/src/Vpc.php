@@ -9,12 +9,12 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ActivateRouterInterfaceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ActivateRouterInterfaceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ActiveFlowLogRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ActiveFlowLogResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\AddBandwidthPackageIpsRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\AddBandwidthPackageIpsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AddBgpNetworkRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AddBgpNetworkResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AddCommonBandwidthPackageIpRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AddCommonBandwidthPackageIpResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\AddCommonBandwidthPackageIpsRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\AddCommonBandwidthPackageIpsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AddGlobalAccelerationInstanceIpRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AddGlobalAccelerationInstanceIpResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AddIPv6TranslatorAclListEntryRequest;
@@ -27,8 +27,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateEipSegmentAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateEipSegmentAddressResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateIpv6InternetBandwidthRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateIpv6InternetBandwidthResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ApplyPhysicalConnectionLOARequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ApplyPhysicalConnectionLOAResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateEipAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateEipAddressResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateGlobalAccelerationInstanceRequest;
@@ -43,6 +41,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateRouteTableRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateRouteTableResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateVpcCidrBlockRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateVpcCidrBlockResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateVpnGatewayWithCertificateRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateVpnGatewayWithCertificateResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AttachDhcpOptionsSetToVpcRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AttachDhcpOptionsSetToVpcResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CancelCommonBandwidthPackageIpBandwidthRequest;
@@ -51,16 +51,14 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CancelExpressCloudConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CancelExpressCloudConnectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CancelPhysicalConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CancelPhysicalConnectionResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CompletePhysicalConnectionLOARequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CompletePhysicalConnectionLOAResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ConfirmPhysicalConnectionRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ConfirmPhysicalConnectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ConnectRouterInterfaceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ConnectRouterInterfaceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ConvertBandwidthPackageRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ConvertBandwidthPackageResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CopyNetworkAclEntriesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CopyNetworkAclEntriesResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateBandwidthPackageRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateBandwidthPackageResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateBgpGroupRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateBgpGroupResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateBgpPeerRequest;
@@ -81,6 +79,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateGlobalAccelerationInstanceReques
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateGlobalAccelerationInstanceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateHaVipRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateHaVipResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateIpsecServerRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateIpsecServerResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateIpv6EgressOnlyRuleRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateIpv6EgressOnlyRuleResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateIpv6GatewayRequest;
@@ -97,14 +97,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNetworkAclRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNetworkAclResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreatePhysicalConnectionOccupancyOrderRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreatePhysicalConnectionOccupancyOrderResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreatePhysicalConnectionRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreatePhysicalConnectionResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreatePhysicalConnectionSetupOrderRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreatePhysicalConnectionSetupOrderResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouteEntryRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouteEntryResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouterInterfaceRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouterInterfaceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouteTableRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouteTableResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateSnatEntryRequest;
@@ -113,8 +107,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateSslVpnClientCertRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateSslVpnClientCertResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateSslVpnServerRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateSslVpnServerResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVirtualBorderRouterRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVirtualBorderRouterResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpnConnectionRequest;
@@ -131,8 +123,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DeactivateRouterInterfaceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeactivateRouterInterfaceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeactiveFlowLogRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeactiveFlowLogResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteBandwidthPackageRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteBandwidthPackageResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteBgpGroupRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteBgpGroupResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteBgpNetworkRequest;
@@ -157,6 +147,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteGlobalAccelerationInstanceReques
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteGlobalAccelerationInstanceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteHaVipRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteHaVipResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteIpsecServerRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteIpsecServerResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteIpv6EgressOnlyRuleRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteIpv6EgressOnlyRuleResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteIpv6GatewayRequest;
@@ -205,8 +197,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DeletionProtectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeletionProtectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeAccessPointsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeAccessPointsResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBandwidthPackagesRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBandwidthPackagesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBgpGroupsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBgpGroupsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeBgpNetworksRequest;
@@ -269,8 +259,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNewProjectEipMonitorDataReques
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNewProjectEipMonitorDataResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionLOARequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionLOAResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionsRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRouteEntryListRequest;
@@ -329,6 +317,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DisableNatGatewayEcsMetricRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DisableNatGatewayEcsMetricResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DisableVpcClassicLinkRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DisableVpcClassicLinkResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DissociateVpnGatewayWithCertificateRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DissociateVpnGatewayWithCertificateResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\EnableNatGatewayEcsMetricRequest;
@@ -339,26 +329,34 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\EnableVpcClassicLinkRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\EnableVpcClassicLinkResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetDhcpOptionsSetRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetDhcpOptionsSetResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayConvertStatusRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayConvertStatusResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GrantInstanceToCenRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GrantInstanceToCenResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListDhcpOptionsSetsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListDhcpOptionsSetsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListEnhanhcedNatGatewayAvailableZonesRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListEnhanhcedNatGatewayAvailableZonesResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListIpsecServersRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListIpsecServersResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatGatewayEcsMetricRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatGatewayEcsMetricResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPhysicalConnectionFeaturesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPhysicalConnectionFeaturesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTagResourcesResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyBandwidthPackageAttributeRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyBandwidthPackageAttributeResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyBandwidthPackageSpecRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyBandwidthPackageSpecResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpnCertificateAssociationsRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpnCertificateAssociationsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyBgpGroupAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyBgpGroupAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyBgpPeerAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyBgpPeerAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageAttributeResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageInternetChargeTypeRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageInternetChargeTypeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageIpBandwidthRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageIpBandwidthResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackagePayTypeRequest;
@@ -409,8 +407,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatGatewaySpecRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNatGatewaySpecResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNetworkAclAttributesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyNetworkAclAttributesResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyPhysicalConnectionAttributeRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyPhysicalConnectionAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyRouteEntryRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyRouteEntryResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyRouterInterfaceAttributeRequest;
@@ -451,8 +447,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ReleaseEipAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ReleaseEipAddressResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ReleaseEipSegmentAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ReleaseEipSegmentAddressResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\RemoveBandwidthPackageIpsRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\RemoveBandwidthPackageIpsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RemoveCommonBandwidthPackageIpRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RemoveCommonBandwidthPackageIpResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RemoveGlobalAccelerationInstanceIpRequest;
@@ -489,13 +483,20 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\UnTagResourcesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateDhcpOptionsSetAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateDhcpOptionsSetAttributeResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateIpsecServerRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateIpsecServerResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateNatGatewayNatTypeRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateNatGatewayNatTypeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateNetworkAclEntriesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateNetworkAclEntriesResponse;
-use AlibabaCloud\Tea\Rpc\Rpc;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateVirtualBorderBandwidthRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateVirtualBorderBandwidthResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\OpenApiClient;
 
-class Vpc extends Rpc
+class Vpc extends OpenApiClient
 {
     public function __construct($config)
     {
@@ -551,428 +552,278 @@ class Vpc extends Rpc
     }
 
     /**
-     * @param ListPhysicalConnectionFeaturesRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
      *
-     * @return ListPhysicalConnectionFeaturesResponse
+     * @return string
      */
-    public function listPhysicalConnectionFeaturesWithOptions($request, $runtime)
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        Utils::validateModel($request);
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
 
-        return ListPhysicalConnectionFeaturesResponse::fromMap($this->doRequest('ListPhysicalConnectionFeatures', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param ListPhysicalConnectionFeaturesRequest $request
-     *
-     * @return ListPhysicalConnectionFeaturesResponse
-     */
-    public function listPhysicalConnectionFeatures($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPhysicalConnectionFeaturesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListNatGatewayEcsMetricRequest $request
+     * @param ActivateRouterInterfaceRequest $request
      * @param RuntimeOptions                 $runtime
      *
-     * @return ListNatGatewayEcsMetricResponse
+     * @return ActivateRouterInterfaceResponse
      */
-    public function listNatGatewayEcsMetricWithOptions($request, $runtime)
+    public function activateRouterInterfaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListNatGatewayEcsMetricResponse::fromMap($this->doRequest('ListNatGatewayEcsMetric', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ActivateRouterInterfaceResponse::fromMap($this->doRPCRequest('ActivateRouterInterface', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListNatGatewayEcsMetricRequest $request
+     * @param ActivateRouterInterfaceRequest $request
      *
-     * @return ListNatGatewayEcsMetricResponse
+     * @return ActivateRouterInterfaceResponse
      */
-    public function listNatGatewayEcsMetric($request)
+    public function activateRouterInterface($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listNatGatewayEcsMetricWithOptions($request, $runtime);
+        return $this->activateRouterInterfaceWithOptions($request, $runtime);
     }
 
     /**
-     * @param DisableNatGatewayEcsMetricRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DisableNatGatewayEcsMetricResponse
-     */
-    public function disableNatGatewayEcsMetricWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DisableNatGatewayEcsMetricResponse::fromMap($this->doRequest('DisableNatGatewayEcsMetric', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DisableNatGatewayEcsMetricRequest $request
-     *
-     * @return DisableNatGatewayEcsMetricResponse
-     */
-    public function disableNatGatewayEcsMetric($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->disableNatGatewayEcsMetricWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EnableNatGatewayEcsMetricRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return EnableNatGatewayEcsMetricResponse
-     */
-    public function enableNatGatewayEcsMetricWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return EnableNatGatewayEcsMetricResponse::fromMap($this->doRequest('EnableNatGatewayEcsMetric', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param EnableNatGatewayEcsMetricRequest $request
-     *
-     * @return EnableNatGatewayEcsMetricResponse
-     */
-    public function enableNatGatewayEcsMetric($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->enableNatGatewayEcsMetricWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDhcpOptionsSetRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateDhcpOptionsSetResponse
-     */
-    public function createDhcpOptionsSetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateDhcpOptionsSetResponse::fromMap($this->doRequest('CreateDhcpOptionsSet', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateDhcpOptionsSetRequest $request
-     *
-     * @return CreateDhcpOptionsSetResponse
-     */
-    public function createDhcpOptionsSet($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDhcpOptionsSetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ReplaceVpcDhcpOptionsSetRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ReplaceVpcDhcpOptionsSetResponse
-     */
-    public function replaceVpcDhcpOptionsSetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ReplaceVpcDhcpOptionsSetResponse::fromMap($this->doRequest('ReplaceVpcDhcpOptionsSet', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ReplaceVpcDhcpOptionsSetRequest $request
-     *
-     * @return ReplaceVpcDhcpOptionsSetResponse
-     */
-    public function replaceVpcDhcpOptionsSet($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->replaceVpcDhcpOptionsSetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateDhcpOptionsSetAttributeRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return UpdateDhcpOptionsSetAttributeResponse
-     */
-    public function updateDhcpOptionsSetAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateDhcpOptionsSetAttributeResponse::fromMap($this->doRequest('UpdateDhcpOptionsSetAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param UpdateDhcpOptionsSetAttributeRequest $request
-     *
-     * @return UpdateDhcpOptionsSetAttributeResponse
-     */
-    public function updateDhcpOptionsSetAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDhcpOptionsSetAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDhcpOptionsSetRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetDhcpOptionsSetResponse
-     */
-    public function getDhcpOptionsSetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetDhcpOptionsSetResponse::fromMap($this->doRequest('GetDhcpOptionsSet', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param GetDhcpOptionsSetRequest $request
-     *
-     * @return GetDhcpOptionsSetResponse
-     */
-    public function getDhcpOptionsSet($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDhcpOptionsSetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDhcpOptionsSetsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListDhcpOptionsSetsResponse
-     */
-    public function listDhcpOptionsSetsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListDhcpOptionsSetsResponse::fromMap($this->doRequest('ListDhcpOptionsSets', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ListDhcpOptionsSetsRequest $request
-     *
-     * @return ListDhcpOptionsSetsResponse
-     */
-    public function listDhcpOptionsSets($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDhcpOptionsSetsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetachDhcpOptionsSetFromVpcRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DetachDhcpOptionsSetFromVpcResponse
-     */
-    public function detachDhcpOptionsSetFromVpcWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DetachDhcpOptionsSetFromVpcResponse::fromMap($this->doRequest('DetachDhcpOptionsSetFromVpc', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DetachDhcpOptionsSetFromVpcRequest $request
-     *
-     * @return DetachDhcpOptionsSetFromVpcResponse
-     */
-    public function detachDhcpOptionsSetFromVpc($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detachDhcpOptionsSetFromVpcWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AttachDhcpOptionsSetToVpcRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return AttachDhcpOptionsSetToVpcResponse
-     */
-    public function attachDhcpOptionsSetToVpcWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AttachDhcpOptionsSetToVpcResponse::fromMap($this->doRequest('AttachDhcpOptionsSetToVpc', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AttachDhcpOptionsSetToVpcRequest $request
-     *
-     * @return AttachDhcpOptionsSetToVpcResponse
-     */
-    public function attachDhcpOptionsSetToVpc($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->attachDhcpOptionsSetToVpcWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteDhcpOptionsSetRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteDhcpOptionsSetResponse
-     */
-    public function deleteDhcpOptionsSetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteDhcpOptionsSetResponse::fromMap($this->doRequest('DeleteDhcpOptionsSet', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteDhcpOptionsSetRequest $request
-     *
-     * @return DeleteDhcpOptionsSetResponse
-     */
-    public function deleteDhcpOptionsSet($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteDhcpOptionsSetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RenewInstanceRequest $request
+     * @param ActiveFlowLogRequest $request
      * @param RuntimeOptions       $runtime
      *
-     * @return RenewInstanceResponse
+     * @return ActiveFlowLogResponse
      */
-    public function renewInstanceWithOptions($request, $runtime)
+    public function activeFlowLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return RenewInstanceResponse::fromMap($this->doRequest('RenewInstance', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ActiveFlowLogResponse::fromMap($this->doRPCRequest('ActiveFlowLog', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RenewInstanceRequest $request
+     * @param ActiveFlowLogRequest $request
      *
-     * @return RenewInstanceResponse
+     * @return ActiveFlowLogResponse
      */
-    public function renewInstance($request)
+    public function activeFlowLog($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->renewInstanceWithOptions($request, $runtime);
+        return $this->activeFlowLogWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeInstanceAutoRenewAttributeRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param AddBgpNetworkRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return DescribeInstanceAutoRenewAttributeResponse
+     * @return AddBgpNetworkResponse
      */
-    public function describeInstanceAutoRenewAttributeWithOptions($request, $runtime)
+    public function addBgpNetworkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeInstanceAutoRenewAttributeResponse::fromMap($this->doRequest('DescribeInstanceAutoRenewAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return AddBgpNetworkResponse::fromMap($this->doRPCRequest('AddBgpNetwork', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeInstanceAutoRenewAttributeRequest $request
+     * @param AddBgpNetworkRequest $request
      *
-     * @return DescribeInstanceAutoRenewAttributeResponse
+     * @return AddBgpNetworkResponse
      */
-    public function describeInstanceAutoRenewAttribute($request)
+    public function addBgpNetwork($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeInstanceAutoRenewAttributeWithOptions($request, $runtime);
+        return $this->addBgpNetworkWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyInstanceAutoRenewalAttributeRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param AddCommonBandwidthPackageIpRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return ModifyInstanceAutoRenewalAttributeResponse
+     * @return AddCommonBandwidthPackageIpResponse
      */
-    public function modifyInstanceAutoRenewalAttributeWithOptions($request, $runtime)
+    public function addCommonBandwidthPackageIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->doRequest('ModifyInstanceAutoRenewalAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return AddCommonBandwidthPackageIpResponse::fromMap($this->doRPCRequest('AddCommonBandwidthPackageIp', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyInstanceAutoRenewalAttributeRequest $request
+     * @param AddCommonBandwidthPackageIpRequest $request
      *
-     * @return ModifyInstanceAutoRenewalAttributeResponse
+     * @return AddCommonBandwidthPackageIpResponse
      */
-    public function modifyInstanceAutoRenewalAttribute($request)
+    public function addCommonBandwidthPackageIp($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyInstanceAutoRenewalAttributeWithOptions($request, $runtime);
+        return $this->addCommonBandwidthPackageIpWithOptions($request, $runtime);
     }
 
     /**
-     * @param ReleaseEipSegmentAddressRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param AddCommonBandwidthPackageIpsRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return ReleaseEipSegmentAddressResponse
+     * @return AddCommonBandwidthPackageIpsResponse
      */
-    public function releaseEipSegmentAddressWithOptions($request, $runtime)
+    public function addCommonBandwidthPackageIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ReleaseEipSegmentAddressResponse::fromMap($this->doRequest('ReleaseEipSegmentAddress', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return AddCommonBandwidthPackageIpsResponse::fromMap($this->doRPCRequest('AddCommonBandwidthPackageIps', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ReleaseEipSegmentAddressRequest $request
+     * @param AddCommonBandwidthPackageIpsRequest $request
      *
-     * @return ReleaseEipSegmentAddressResponse
+     * @return AddCommonBandwidthPackageIpsResponse
      */
-    public function releaseEipSegmentAddress($request)
+    public function addCommonBandwidthPackageIps($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->releaseEipSegmentAddressWithOptions($request, $runtime);
+        return $this->addCommonBandwidthPackageIpsWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeEipSegmentRequest $request
+     * @param AddGlobalAccelerationInstanceIpRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return AddGlobalAccelerationInstanceIpResponse
+     */
+    public function addGlobalAccelerationInstanceIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddGlobalAccelerationInstanceIpResponse::fromMap($this->doRPCRequest('AddGlobalAccelerationInstanceIp', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddGlobalAccelerationInstanceIpRequest $request
+     *
+     * @return AddGlobalAccelerationInstanceIpResponse
+     */
+    public function addGlobalAccelerationInstanceIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addGlobalAccelerationInstanceIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddIPv6TranslatorAclListEntryRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return AddIPv6TranslatorAclListEntryResponse
+     */
+    public function addIPv6TranslatorAclListEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddIPv6TranslatorAclListEntryResponse::fromMap($this->doRPCRequest('AddIPv6TranslatorAclListEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddIPv6TranslatorAclListEntryRequest $request
+     *
+     * @return AddIPv6TranslatorAclListEntryResponse
+     */
+    public function addIPv6TranslatorAclListEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addIPv6TranslatorAclListEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AllocateEipAddressRequest $request
      * @param RuntimeOptions            $runtime
      *
-     * @return DescribeEipSegmentResponse
+     * @return AllocateEipAddressResponse
      */
-    public function describeEipSegmentWithOptions($request, $runtime)
+    public function allocateEipAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeEipSegmentResponse::fromMap($this->doRequest('DescribeEipSegment', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return AllocateEipAddressResponse::fromMap($this->doRPCRequest('AllocateEipAddress', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeEipSegmentRequest $request
+     * @param AllocateEipAddressRequest $request
      *
-     * @return DescribeEipSegmentResponse
+     * @return AllocateEipAddressResponse
      */
-    public function describeEipSegment($request)
+    public function allocateEipAddress($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeEipSegmentWithOptions($request, $runtime);
+        return $this->allocateEipAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AllocateEipAddressProRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AllocateEipAddressProResponse
+     */
+    public function allocateEipAddressProWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AllocateEipAddressProResponse::fromMap($this->doRPCRequest('AllocateEipAddressPro', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AllocateEipAddressProRequest $request
+     *
+     * @return AllocateEipAddressProResponse
+     */
+    public function allocateEipAddressPro($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->allocateEipAddressProWithOptions($request, $runtime);
     }
 
     /**
@@ -984,8 +835,11 @@ class Vpc extends Rpc
     public function allocateEipSegmentAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return AllocateEipSegmentAddressResponse::fromMap($this->doRequest('AllocateEipSegmentAddress', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return AllocateEipSegmentAddressResponse::fromMap($this->doRPCRequest('AllocateEipSegmentAddress', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1001,528 +855,115 @@ class Vpc extends Rpc
     }
 
     /**
-     * @param UnassociateVpcCidrBlockRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param AllocateIpv6InternetBandwidthRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return UnassociateVpcCidrBlockResponse
+     * @return AllocateIpv6InternetBandwidthResponse
      */
-    public function unassociateVpcCidrBlockWithOptions($request, $runtime)
+    public function allocateIpv6InternetBandwidthWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return UnassociateVpcCidrBlockResponse::fromMap($this->doRequest('UnassociateVpcCidrBlock', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return AllocateIpv6InternetBandwidthResponse::fromMap($this->doRPCRequest('AllocateIpv6InternetBandwidth', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UnassociateVpcCidrBlockRequest $request
+     * @param AllocateIpv6InternetBandwidthRequest $request
      *
-     * @return UnassociateVpcCidrBlockResponse
+     * @return AllocateIpv6InternetBandwidthResponse
      */
-    public function unassociateVpcCidrBlock($request)
+    public function allocateIpv6InternetBandwidth($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->unassociateVpcCidrBlockWithOptions($request, $runtime);
+        return $this->allocateIpv6InternetBandwidthWithOptions($request, $runtime);
     }
 
     /**
-     * @param AssociateVpcCidrBlockRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return AssociateVpcCidrBlockResponse
-     */
-    public function associateVpcCidrBlockWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AssociateVpcCidrBlockResponse::fromMap($this->doRequest('AssociateVpcCidrBlock', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AssociateVpcCidrBlockRequest $request
-     *
-     * @return AssociateVpcCidrBlockResponse
-     */
-    public function associateVpcCidrBlock($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->associateVpcCidrBlockWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRouterInterfaceAttributeRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeRouterInterfaceAttributeResponse
-     */
-    public function describeRouterInterfaceAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeRouterInterfaceAttributeResponse::fromMap($this->doRequest('DescribeRouterInterfaceAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeRouterInterfaceAttributeRequest $request
-     *
-     * @return DescribeRouterInterfaceAttributeResponse
-     */
-    public function describeRouterInterfaceAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRouterInterfaceAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteExpressCloudConnectionRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DeleteExpressCloudConnectionResponse
-     */
-    public function deleteExpressCloudConnectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteExpressCloudConnectionResponse::fromMap($this->doRequest('DeleteExpressCloudConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteExpressCloudConnectionRequest $request
-     *
-     * @return DeleteExpressCloudConnectionResponse
-     */
-    public function deleteExpressCloudConnection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteExpressCloudConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CancelExpressCloudConnectionRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return CancelExpressCloudConnectionResponse
-     */
-    public function cancelExpressCloudConnectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CancelExpressCloudConnectionResponse::fromMap($this->doRequest('CancelExpressCloudConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CancelExpressCloudConnectionRequest $request
-     *
-     * @return CancelExpressCloudConnectionResponse
-     */
-    public function cancelExpressCloudConnection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cancelExpressCloudConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeletionProtectionRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeletionProtectionResponse
-     */
-    public function deletionProtectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeletionProtectionResponse::fromMap($this->doRequest('DeletionProtection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeletionProtectionRequest $request
-     *
-     * @return DeletionProtectionResponse
-     */
-    public function deletionProtection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deletionProtectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeEipGatewayInfoRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeEipGatewayInfoResponse
-     */
-    public function describeEipGatewayInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeEipGatewayInfoResponse::fromMap($this->doRequest('DescribeEipGatewayInfo', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeEipGatewayInfoRequest $request
-     *
-     * @return DescribeEipGatewayInfoResponse
-     */
-    public function describeEipGatewayInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeEipGatewayInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyBgpPeerAttributeRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyBgpPeerAttributeResponse
-     */
-    public function modifyBgpPeerAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyBgpPeerAttributeResponse::fromMap($this->doRequest('ModifyBgpPeerAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyBgpPeerAttributeRequest $request
-     *
-     * @return ModifyBgpPeerAttributeResponse
-     */
-    public function modifyBgpPeerAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyBgpPeerAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVpnSslServerLogsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeVpnSslServerLogsResponse
-     */
-    public function describeVpnSslServerLogsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVpnSslServerLogsResponse::fromMap($this->doRequest('DescribeVpnSslServerLogs', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVpnSslServerLogsRequest $request
-     *
-     * @return DescribeVpnSslServerLogsResponse
-     */
-    public function describeVpnSslServerLogs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVpnSslServerLogsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyExpressCloudConnectionBandwidthRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return ModifyExpressCloudConnectionBandwidthResponse
-     */
-    public function modifyExpressCloudConnectionBandwidthWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyExpressCloudConnectionBandwidthResponse::fromMap($this->doRequest('ModifyExpressCloudConnectionBandwidth', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyExpressCloudConnectionBandwidthRequest $request
-     *
-     * @return ModifyExpressCloudConnectionBandwidthResponse
-     */
-    public function modifyExpressCloudConnectionBandwidth($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyExpressCloudConnectionBandwidthWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyExpressCloudConnectionAttributeRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return ModifyExpressCloudConnectionAttributeResponse
-     */
-    public function modifyExpressCloudConnectionAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyExpressCloudConnectionAttributeResponse::fromMap($this->doRequest('ModifyExpressCloudConnectionAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyExpressCloudConnectionAttributeRequest $request
-     *
-     * @return ModifyExpressCloudConnectionAttributeResponse
-     */
-    public function modifyExpressCloudConnectionAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyExpressCloudConnectionAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeExpressCloudConnectionsRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeExpressCloudConnectionsResponse
-     */
-    public function describeExpressCloudConnectionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeExpressCloudConnectionsResponse::fromMap($this->doRequest('DescribeExpressCloudConnections', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeExpressCloudConnectionsRequest $request
-     *
-     * @return DescribeExpressCloudConnectionsResponse
-     */
-    public function describeExpressCloudConnections($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeExpressCloudConnectionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateExpressCloudConnectionRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return CreateExpressCloudConnectionResponse
-     */
-    public function createExpressCloudConnectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateExpressCloudConnectionResponse::fromMap($this->doRequest('CreateExpressCloudConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateExpressCloudConnectionRequest $request
-     *
-     * @return CreateExpressCloudConnectionResponse
-     */
-    public function createExpressCloudConnection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createExpressCloudConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateNetworkAclEntriesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateNetworkAclEntriesResponse
-     */
-    public function updateNetworkAclEntriesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateNetworkAclEntriesResponse::fromMap($this->doRequest('UpdateNetworkAclEntries', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param UpdateNetworkAclEntriesRequest $request
-     *
-     * @return UpdateNetworkAclEntriesResponse
-     */
-    public function updateNetworkAclEntries($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateNetworkAclEntriesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnassociateNetworkAclRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UnassociateNetworkAclResponse
-     */
-    public function unassociateNetworkAclWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UnassociateNetworkAclResponse::fromMap($this->doRequest('UnassociateNetworkAcl', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param UnassociateNetworkAclRequest $request
-     *
-     * @return UnassociateNetworkAclResponse
-     */
-    public function unassociateNetworkAcl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unassociateNetworkAclWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyNetworkAclAttributesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyNetworkAclAttributesResponse
-     */
-    public function modifyNetworkAclAttributesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyNetworkAclAttributesResponse::fromMap($this->doRequest('ModifyNetworkAclAttributes', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyNetworkAclAttributesRequest $request
-     *
-     * @return ModifyNetworkAclAttributesResponse
-     */
-    public function modifyNetworkAclAttributes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyNetworkAclAttributesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeNetworkAclsRequest $request
+     * @param AssociateEipAddressRequest $request
      * @param RuntimeOptions             $runtime
      *
-     * @return DescribeNetworkAclsResponse
+     * @return AssociateEipAddressResponse
      */
-    public function describeNetworkAclsWithOptions($request, $runtime)
+    public function associateEipAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeNetworkAclsResponse::fromMap($this->doRequest('DescribeNetworkAcls', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return AssociateEipAddressResponse::fromMap($this->doRPCRequest('AssociateEipAddress', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeNetworkAclsRequest $request
+     * @param AssociateEipAddressRequest $request
      *
-     * @return DescribeNetworkAclsResponse
+     * @return AssociateEipAddressResponse
      */
-    public function describeNetworkAcls($request)
+    public function associateEipAddress($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeNetworkAclsWithOptions($request, $runtime);
+        return $this->associateEipAddressWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeNetworkAclAttributesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param AssociateGlobalAccelerationInstanceRequest $request
+     * @param RuntimeOptions                             $runtime
      *
-     * @return DescribeNetworkAclAttributesResponse
+     * @return AssociateGlobalAccelerationInstanceResponse
      */
-    public function describeNetworkAclAttributesWithOptions($request, $runtime)
+    public function associateGlobalAccelerationInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeNetworkAclAttributesResponse::fromMap($this->doRequest('DescribeNetworkAclAttributes', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return AssociateGlobalAccelerationInstanceResponse::fromMap($this->doRPCRequest('AssociateGlobalAccelerationInstance', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeNetworkAclAttributesRequest $request
+     * @param AssociateGlobalAccelerationInstanceRequest $request
      *
-     * @return DescribeNetworkAclAttributesResponse
+     * @return AssociateGlobalAccelerationInstanceResponse
      */
-    public function describeNetworkAclAttributes($request)
+    public function associateGlobalAccelerationInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeNetworkAclAttributesWithOptions($request, $runtime);
+        return $this->associateGlobalAccelerationInstanceWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteNetworkAclRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param AssociateHaVipRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return DeleteNetworkAclResponse
+     * @return AssociateHaVipResponse
      */
-    public function deleteNetworkAclWithOptions($request, $runtime)
+    public function associateHaVipWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteNetworkAclResponse::fromMap($this->doRequest('DeleteNetworkAcl', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return AssociateHaVipResponse::fromMap($this->doRPCRequest('AssociateHaVip', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteNetworkAclRequest $request
+     * @param AssociateHaVipRequest $request
      *
-     * @return DeleteNetworkAclResponse
+     * @return AssociateHaVipResponse
      */
-    public function deleteNetworkAcl($request)
+    public function associateHaVip($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteNetworkAclWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateNetworkAclRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateNetworkAclResponse
-     */
-    public function createNetworkAclWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateNetworkAclResponse::fromMap($this->doRequest('CreateNetworkAcl', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateNetworkAclRequest $request
-     *
-     * @return CreateNetworkAclResponse
-     */
-    public function createNetworkAcl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createNetworkAclWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CopyNetworkAclEntriesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CopyNetworkAclEntriesResponse
-     */
-    public function copyNetworkAclEntriesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CopyNetworkAclEntriesResponse::fromMap($this->doRequest('CopyNetworkAclEntries', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CopyNetworkAclEntriesRequest $request
-     *
-     * @return CopyNetworkAclEntriesResponse
-     */
-    public function copyNetworkAclEntries($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->copyNetworkAclEntriesWithOptions($request, $runtime);
+        return $this->associateHaVipWithOptions($request, $runtime);
     }
 
     /**
@@ -1534,8 +975,11 @@ class Vpc extends Rpc
     public function associateNetworkAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return AssociateNetworkAclResponse::fromMap($this->doRequest('AssociateNetworkAcl', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return AssociateNetworkAclResponse::fromMap($this->doRPCRequest('AssociateNetworkAcl', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1551,28 +995,143 @@ class Vpc extends Rpc
     }
 
     /**
-     * @param ModifyCommonBandwidthPackageIpBandwidthRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @param AssociatePhysicalConnectionToVirtualBorderRouterRequest $request
+     * @param RuntimeOptions                                          $runtime
      *
-     * @return ModifyCommonBandwidthPackageIpBandwidthResponse
+     * @return AssociatePhysicalConnectionToVirtualBorderRouterResponse
      */
-    public function modifyCommonBandwidthPackageIpBandwidthWithOptions($request, $runtime)
+    public function associatePhysicalConnectionToVirtualBorderRouterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyCommonBandwidthPackageIpBandwidthResponse::fromMap($this->doRequest('ModifyCommonBandwidthPackageIpBandwidth', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return AssociatePhysicalConnectionToVirtualBorderRouterResponse::fromMap($this->doRPCRequest('AssociatePhysicalConnectionToVirtualBorderRouter', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyCommonBandwidthPackageIpBandwidthRequest $request
+     * @param AssociatePhysicalConnectionToVirtualBorderRouterRequest $request
      *
-     * @return ModifyCommonBandwidthPackageIpBandwidthResponse
+     * @return AssociatePhysicalConnectionToVirtualBorderRouterResponse
      */
-    public function modifyCommonBandwidthPackageIpBandwidth($request)
+    public function associatePhysicalConnectionToVirtualBorderRouter($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyCommonBandwidthPackageIpBandwidthWithOptions($request, $runtime);
+        return $this->associatePhysicalConnectionToVirtualBorderRouterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AssociateRouteTableRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AssociateRouteTableResponse
+     */
+    public function associateRouteTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AssociateRouteTableResponse::fromMap($this->doRPCRequest('AssociateRouteTable', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AssociateRouteTableRequest $request
+     *
+     * @return AssociateRouteTableResponse
+     */
+    public function associateRouteTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateRouteTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AssociateVpcCidrBlockRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AssociateVpcCidrBlockResponse
+     */
+    public function associateVpcCidrBlockWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AssociateVpcCidrBlockResponse::fromMap($this->doRPCRequest('AssociateVpcCidrBlock', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AssociateVpcCidrBlockRequest $request
+     *
+     * @return AssociateVpcCidrBlockResponse
+     */
+    public function associateVpcCidrBlock($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateVpcCidrBlockWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AssociateVpnGatewayWithCertificateRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return AssociateVpnGatewayWithCertificateResponse
+     */
+    public function associateVpnGatewayWithCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AssociateVpnGatewayWithCertificateResponse::fromMap($this->doRPCRequest('AssociateVpnGatewayWithCertificate', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AssociateVpnGatewayWithCertificateRequest $request
+     *
+     * @return AssociateVpnGatewayWithCertificateResponse
+     */
+    public function associateVpnGatewayWithCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateVpnGatewayWithCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AttachDhcpOptionsSetToVpcRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AttachDhcpOptionsSetToVpcResponse
+     */
+    public function attachDhcpOptionsSetToVpcWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AttachDhcpOptionsSetToVpcResponse::fromMap($this->doRPCRequest('AttachDhcpOptionsSetToVpc', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AttachDhcpOptionsSetToVpcRequest $request
+     *
+     * @return AttachDhcpOptionsSetToVpcResponse
+     */
+    public function attachDhcpOptionsSetToVpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachDhcpOptionsSetToVpcWithOptions($request, $runtime);
     }
 
     /**
@@ -1584,8 +1143,11 @@ class Vpc extends Rpc
     public function cancelCommonBandwidthPackageIpBandwidthWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CancelCommonBandwidthPackageIpBandwidthResponse::fromMap($this->doRequest('CancelCommonBandwidthPackageIpBandwidth', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return CancelCommonBandwidthPackageIpBandwidthResponse::fromMap($this->doRPCRequest('CancelCommonBandwidthPackageIpBandwidth', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1601,6 +1163,930 @@ class Vpc extends Rpc
     }
 
     /**
+     * @param CancelExpressCloudConnectionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CancelExpressCloudConnectionResponse
+     */
+    public function cancelExpressCloudConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelExpressCloudConnectionResponse::fromMap($this->doRPCRequest('CancelExpressCloudConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelExpressCloudConnectionRequest $request
+     *
+     * @return CancelExpressCloudConnectionResponse
+     */
+    public function cancelExpressCloudConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelExpressCloudConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelPhysicalConnectionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CancelPhysicalConnectionResponse
+     */
+    public function cancelPhysicalConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelPhysicalConnectionResponse::fromMap($this->doRPCRequest('CancelPhysicalConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelPhysicalConnectionRequest $request
+     *
+     * @return CancelPhysicalConnectionResponse
+     */
+    public function cancelPhysicalConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelPhysicalConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfirmPhysicalConnectionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ConfirmPhysicalConnectionResponse
+     */
+    public function confirmPhysicalConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ConfirmPhysicalConnectionResponse::fromMap($this->doRPCRequest('ConfirmPhysicalConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ConfirmPhysicalConnectionRequest $request
+     *
+     * @return ConfirmPhysicalConnectionResponse
+     */
+    public function confirmPhysicalConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmPhysicalConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConnectRouterInterfaceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ConnectRouterInterfaceResponse
+     */
+    public function connectRouterInterfaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ConnectRouterInterfaceResponse::fromMap($this->doRPCRequest('ConnectRouterInterface', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ConnectRouterInterfaceRequest $request
+     *
+     * @return ConnectRouterInterfaceResponse
+     */
+    public function connectRouterInterface($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->connectRouterInterfaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConvertBandwidthPackageRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ConvertBandwidthPackageResponse
+     */
+    public function convertBandwidthPackageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ConvertBandwidthPackageResponse::fromMap($this->doRPCRequest('ConvertBandwidthPackage', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ConvertBandwidthPackageRequest $request
+     *
+     * @return ConvertBandwidthPackageResponse
+     */
+    public function convertBandwidthPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->convertBandwidthPackageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CopyNetworkAclEntriesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CopyNetworkAclEntriesResponse
+     */
+    public function copyNetworkAclEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CopyNetworkAclEntriesResponse::fromMap($this->doRPCRequest('CopyNetworkAclEntries', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CopyNetworkAclEntriesRequest $request
+     *
+     * @return CopyNetworkAclEntriesResponse
+     */
+    public function copyNetworkAclEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->copyNetworkAclEntriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBgpGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateBgpGroupResponse
+     */
+    public function createBgpGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateBgpGroupResponse::fromMap($this->doRPCRequest('CreateBgpGroup', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateBgpGroupRequest $request
+     *
+     * @return CreateBgpGroupResponse
+     */
+    public function createBgpGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBgpGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBgpPeerRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateBgpPeerResponse
+     */
+    public function createBgpPeerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateBgpPeerResponse::fromMap($this->doRPCRequest('CreateBgpPeer', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateBgpPeerRequest $request
+     *
+     * @return CreateBgpPeerResponse
+     */
+    public function createBgpPeer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBgpPeerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCommonBandwidthPackageRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateCommonBandwidthPackageResponse
+     */
+    public function createCommonBandwidthPackageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateCommonBandwidthPackageResponse::fromMap($this->doRPCRequest('CreateCommonBandwidthPackage', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateCommonBandwidthPackageRequest $request
+     *
+     * @return CreateCommonBandwidthPackageResponse
+     */
+    public function createCommonBandwidthPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCommonBandwidthPackageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomerGatewayRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateCustomerGatewayResponse
+     */
+    public function createCustomerGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateCustomerGatewayResponse::fromMap($this->doRPCRequest('CreateCustomerGateway', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomerGatewayRequest $request
+     *
+     * @return CreateCustomerGatewayResponse
+     */
+    public function createCustomerGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomerGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDhcpOptionsSetRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDhcpOptionsSetResponse
+     */
+    public function createDhcpOptionsSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDhcpOptionsSetResponse::fromMap($this->doRPCRequest('CreateDhcpOptionsSet', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDhcpOptionsSetRequest $request
+     *
+     * @return CreateDhcpOptionsSetResponse
+     */
+    public function createDhcpOptionsSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDhcpOptionsSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateExpressCloudConnectionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateExpressCloudConnectionResponse
+     */
+    public function createExpressCloudConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateExpressCloudConnectionResponse::fromMap($this->doRPCRequest('CreateExpressCloudConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateExpressCloudConnectionRequest $request
+     *
+     * @return CreateExpressCloudConnectionResponse
+     */
+    public function createExpressCloudConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExpressCloudConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFlowLogRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateFlowLogResponse
+     */
+    public function createFlowLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateFlowLogResponse::fromMap($this->doRPCRequest('CreateFlowLog', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateFlowLogRequest $request
+     *
+     * @return CreateFlowLogResponse
+     */
+    public function createFlowLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFlowLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateForwardEntryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateForwardEntryResponse
+     */
+    public function createForwardEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateForwardEntryResponse::fromMap($this->doRPCRequest('CreateForwardEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateForwardEntryRequest $request
+     *
+     * @return CreateForwardEntryResponse
+     */
+    public function createForwardEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createForwardEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateGlobalAccelerationInstanceRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateGlobalAccelerationInstanceResponse
+     */
+    public function createGlobalAccelerationInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateGlobalAccelerationInstanceResponse::fromMap($this->doRPCRequest('CreateGlobalAccelerationInstance', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateGlobalAccelerationInstanceRequest $request
+     *
+     * @return CreateGlobalAccelerationInstanceResponse
+     */
+    public function createGlobalAccelerationInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGlobalAccelerationInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateHaVipRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateHaVipResponse
+     */
+    public function createHaVipWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateHaVipResponse::fromMap($this->doRPCRequest('CreateHaVip', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateHaVipRequest $request
+     *
+     * @return CreateHaVipResponse
+     */
+    public function createHaVip($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHaVipWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateIpsecServerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateIpsecServerResponse
+     */
+    public function createIpsecServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateIpsecServerResponse::fromMap($this->doRPCRequest('CreateIpsecServer', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateIpsecServerRequest $request
+     *
+     * @return CreateIpsecServerResponse
+     */
+    public function createIpsecServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIpsecServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateIpv6EgressOnlyRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateIpv6EgressOnlyRuleResponse
+     */
+    public function createIpv6EgressOnlyRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateIpv6EgressOnlyRuleResponse::fromMap($this->doRPCRequest('CreateIpv6EgressOnlyRule', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateIpv6EgressOnlyRuleRequest $request
+     *
+     * @return CreateIpv6EgressOnlyRuleResponse
+     */
+    public function createIpv6EgressOnlyRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIpv6EgressOnlyRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateIpv6GatewayRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateIpv6GatewayResponse
+     */
+    public function createIpv6GatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateIpv6GatewayResponse::fromMap($this->doRPCRequest('CreateIpv6Gateway', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateIpv6GatewayRequest $request
+     *
+     * @return CreateIpv6GatewayResponse
+     */
+    public function createIpv6Gateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIpv6GatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateIPv6TranslatorRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateIPv6TranslatorResponse
+     */
+    public function createIPv6TranslatorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateIPv6TranslatorResponse::fromMap($this->doRPCRequest('CreateIPv6Translator', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateIPv6TranslatorRequest $request
+     *
+     * @return CreateIPv6TranslatorResponse
+     */
+    public function createIPv6Translator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIPv6TranslatorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateIPv6TranslatorAclListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateIPv6TranslatorAclListResponse
+     */
+    public function createIPv6TranslatorAclListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateIPv6TranslatorAclListResponse::fromMap($this->doRPCRequest('CreateIPv6TranslatorAclList', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateIPv6TranslatorAclListRequest $request
+     *
+     * @return CreateIPv6TranslatorAclListResponse
+     */
+    public function createIPv6TranslatorAclList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIPv6TranslatorAclListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateIPv6TranslatorEntryRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateIPv6TranslatorEntryResponse
+     */
+    public function createIPv6TranslatorEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateIPv6TranslatorEntryResponse::fromMap($this->doRPCRequest('CreateIPv6TranslatorEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateIPv6TranslatorEntryRequest $request
+     *
+     * @return CreateIPv6TranslatorEntryResponse
+     */
+    public function createIPv6TranslatorEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIPv6TranslatorEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateNatGatewayRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateNatGatewayResponse
+     */
+    public function createNatGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateNatGatewayResponse::fromMap($this->doRPCRequest('CreateNatGateway', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateNatGatewayRequest $request
+     *
+     * @return CreateNatGatewayResponse
+     */
+    public function createNatGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNatGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateNetworkAclRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateNetworkAclResponse
+     */
+    public function createNetworkAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateNetworkAclResponse::fromMap($this->doRPCRequest('CreateNetworkAcl', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateNetworkAclRequest $request
+     *
+     * @return CreateNetworkAclResponse
+     */
+    public function createNetworkAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNetworkAclWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePhysicalConnectionOccupancyOrderRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return CreatePhysicalConnectionOccupancyOrderResponse
+     */
+    public function createPhysicalConnectionOccupancyOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreatePhysicalConnectionOccupancyOrderResponse::fromMap($this->doRPCRequest('CreatePhysicalConnectionOccupancyOrder', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreatePhysicalConnectionOccupancyOrderRequest $request
+     *
+     * @return CreatePhysicalConnectionOccupancyOrderResponse
+     */
+    public function createPhysicalConnectionOccupancyOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPhysicalConnectionOccupancyOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRouteEntryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateRouteEntryResponse
+     */
+    public function createRouteEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateRouteEntryResponse::fromMap($this->doRPCRequest('CreateRouteEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRouteEntryRequest $request
+     *
+     * @return CreateRouteEntryResponse
+     */
+    public function createRouteEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRouteEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRouteTableRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateRouteTableResponse
+     */
+    public function createRouteTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateRouteTableResponse::fromMap($this->doRPCRequest('CreateRouteTable', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRouteTableRequest $request
+     *
+     * @return CreateRouteTableResponse
+     */
+    public function createRouteTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRouteTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSnatEntryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateSnatEntryResponse
+     */
+    public function createSnatEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateSnatEntryResponse::fromMap($this->doRPCRequest('CreateSnatEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateSnatEntryRequest $request
+     *
+     * @return CreateSnatEntryResponse
+     */
+    public function createSnatEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSnatEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSslVpnClientCertRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateSslVpnClientCertResponse
+     */
+    public function createSslVpnClientCertWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateSslVpnClientCertResponse::fromMap($this->doRPCRequest('CreateSslVpnClientCert', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateSslVpnClientCertRequest $request
+     *
+     * @return CreateSslVpnClientCertResponse
+     */
+    public function createSslVpnClientCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSslVpnClientCertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSslVpnServerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateSslVpnServerResponse
+     */
+    public function createSslVpnServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateSslVpnServerResponse::fromMap($this->doRPCRequest('CreateSslVpnServer', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateSslVpnServerRequest $request
+     *
+     * @return CreateSslVpnServerResponse
+     */
+    public function createSslVpnServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSslVpnServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateVpcRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateVpcResponse
+     */
+    public function createVpcWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateVpcResponse::fromMap($this->doRPCRequest('CreateVpc', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateVpcRequest $request
+     *
+     * @return CreateVpcResponse
+     */
+    public function createVpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVpcWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateVpnConnectionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVpnConnectionResponse
+     */
+    public function createVpnConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateVpnConnectionResponse::fromMap($this->doRPCRequest('CreateVpnConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateVpnConnectionRequest $request
+     *
+     * @return CreateVpnConnectionResponse
+     */
+    public function createVpnConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVpnConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateVpnGatewayRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateVpnGatewayResponse
+     */
+    public function createVpnGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateVpnGatewayResponse::fromMap($this->doRPCRequest('CreateVpnGateway', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateVpnGatewayRequest $request
+     *
+     * @return CreateVpnGatewayResponse
+     */
+    public function createVpnGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVpnGatewayWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateVpnPbrRouteEntryRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1609,8 +2095,11 @@ class Vpc extends Rpc
     public function createVpnPbrRouteEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateVpnPbrRouteEntryResponse::fromMap($this->doRequest('CreateVpnPbrRouteEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return CreateVpnPbrRouteEntryResponse::fromMap($this->doRPCRequest('CreateVpnPbrRouteEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1634,8 +2123,11 @@ class Vpc extends Rpc
     public function createVpnRouteEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateVpnRouteEntryResponse::fromMap($this->doRequest('CreateVpnRouteEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return CreateVpnRouteEntryResponse::fromMap($this->doRPCRequest('CreateVpnRouteEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1651,6 +2143,986 @@ class Vpc extends Rpc
     }
 
     /**
+     * @param CreateVSwitchRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateVSwitchResponse
+     */
+    public function createVSwitchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateVSwitchResponse::fromMap($this->doRPCRequest('CreateVSwitch', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateVSwitchRequest $request
+     *
+     * @return CreateVSwitchResponse
+     */
+    public function createVSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeactivateRouterInterfaceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeactivateRouterInterfaceResponse
+     */
+    public function deactivateRouterInterfaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeactivateRouterInterfaceResponse::fromMap($this->doRPCRequest('DeactivateRouterInterface', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeactivateRouterInterfaceRequest $request
+     *
+     * @return DeactivateRouterInterfaceResponse
+     */
+    public function deactivateRouterInterface($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deactivateRouterInterfaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeactiveFlowLogRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeactiveFlowLogResponse
+     */
+    public function deactiveFlowLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeactiveFlowLogResponse::fromMap($this->doRPCRequest('DeactiveFlowLog', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeactiveFlowLogRequest $request
+     *
+     * @return DeactiveFlowLogResponse
+     */
+    public function deactiveFlowLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deactiveFlowLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBgpGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteBgpGroupResponse
+     */
+    public function deleteBgpGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteBgpGroupResponse::fromMap($this->doRPCRequest('DeleteBgpGroup', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBgpGroupRequest $request
+     *
+     * @return DeleteBgpGroupResponse
+     */
+    public function deleteBgpGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBgpGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBgpNetworkRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteBgpNetworkResponse
+     */
+    public function deleteBgpNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteBgpNetworkResponse::fromMap($this->doRPCRequest('DeleteBgpNetwork', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBgpNetworkRequest $request
+     *
+     * @return DeleteBgpNetworkResponse
+     */
+    public function deleteBgpNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBgpNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBgpPeerRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteBgpPeerResponse
+     */
+    public function deleteBgpPeerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteBgpPeerResponse::fromMap($this->doRPCRequest('DeleteBgpPeer', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBgpPeerRequest $request
+     *
+     * @return DeleteBgpPeerResponse
+     */
+    public function deleteBgpPeer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBgpPeerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCommonBandwidthPackageRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteCommonBandwidthPackageResponse
+     */
+    public function deleteCommonBandwidthPackageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteCommonBandwidthPackageResponse::fromMap($this->doRPCRequest('DeleteCommonBandwidthPackage', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCommonBandwidthPackageRequest $request
+     *
+     * @return DeleteCommonBandwidthPackageResponse
+     */
+    public function deleteCommonBandwidthPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCommonBandwidthPackageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomerGatewayRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteCustomerGatewayResponse
+     */
+    public function deleteCustomerGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteCustomerGatewayResponse::fromMap($this->doRPCRequest('DeleteCustomerGateway', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomerGatewayRequest $request
+     *
+     * @return DeleteCustomerGatewayResponse
+     */
+    public function deleteCustomerGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomerGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDhcpOptionsSetRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDhcpOptionsSetResponse
+     */
+    public function deleteDhcpOptionsSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDhcpOptionsSetResponse::fromMap($this->doRPCRequest('DeleteDhcpOptionsSet', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDhcpOptionsSetRequest $request
+     *
+     * @return DeleteDhcpOptionsSetResponse
+     */
+    public function deleteDhcpOptionsSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDhcpOptionsSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteExpressCloudConnectionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteExpressCloudConnectionResponse
+     */
+    public function deleteExpressCloudConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteExpressCloudConnectionResponse::fromMap($this->doRPCRequest('DeleteExpressCloudConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteExpressCloudConnectionRequest $request
+     *
+     * @return DeleteExpressCloudConnectionResponse
+     */
+    public function deleteExpressCloudConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExpressCloudConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteExpressConnectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteExpressConnectResponse
+     */
+    public function deleteExpressConnectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteExpressConnectResponse::fromMap($this->doRPCRequest('DeleteExpressConnect', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteExpressConnectRequest $request
+     *
+     * @return DeleteExpressConnectResponse
+     */
+    public function deleteExpressConnect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExpressConnectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteFlowLogRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteFlowLogResponse
+     */
+    public function deleteFlowLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteFlowLogResponse::fromMap($this->doRPCRequest('DeleteFlowLog', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteFlowLogRequest $request
+     *
+     * @return DeleteFlowLogResponse
+     */
+    public function deleteFlowLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFlowLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteForwardEntryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteForwardEntryResponse
+     */
+    public function deleteForwardEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteForwardEntryResponse::fromMap($this->doRPCRequest('DeleteForwardEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteForwardEntryRequest $request
+     *
+     * @return DeleteForwardEntryResponse
+     */
+    public function deleteForwardEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteForwardEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGlobalAccelerationInstanceRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DeleteGlobalAccelerationInstanceResponse
+     */
+    public function deleteGlobalAccelerationInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteGlobalAccelerationInstanceResponse::fromMap($this->doRPCRequest('DeleteGlobalAccelerationInstance', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGlobalAccelerationInstanceRequest $request
+     *
+     * @return DeleteGlobalAccelerationInstanceResponse
+     */
+    public function deleteGlobalAccelerationInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGlobalAccelerationInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteHaVipRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteHaVipResponse
+     */
+    public function deleteHaVipWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteHaVipResponse::fromMap($this->doRPCRequest('DeleteHaVip', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteHaVipRequest $request
+     *
+     * @return DeleteHaVipResponse
+     */
+    public function deleteHaVip($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHaVipWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteIpsecServerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteIpsecServerResponse
+     */
+    public function deleteIpsecServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteIpsecServerResponse::fromMap($this->doRPCRequest('DeleteIpsecServer', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIpsecServerRequest $request
+     *
+     * @return DeleteIpsecServerResponse
+     */
+    public function deleteIpsecServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIpsecServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteIpv6EgressOnlyRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteIpv6EgressOnlyRuleResponse
+     */
+    public function deleteIpv6EgressOnlyRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteIpv6EgressOnlyRuleResponse::fromMap($this->doRPCRequest('DeleteIpv6EgressOnlyRule', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIpv6EgressOnlyRuleRequest $request
+     *
+     * @return DeleteIpv6EgressOnlyRuleResponse
+     */
+    public function deleteIpv6EgressOnlyRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIpv6EgressOnlyRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteIpv6GatewayRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteIpv6GatewayResponse
+     */
+    public function deleteIpv6GatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteIpv6GatewayResponse::fromMap($this->doRPCRequest('DeleteIpv6Gateway', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIpv6GatewayRequest $request
+     *
+     * @return DeleteIpv6GatewayResponse
+     */
+    public function deleteIpv6Gateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIpv6GatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteIpv6InternetBandwidthRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteIpv6InternetBandwidthResponse
+     */
+    public function deleteIpv6InternetBandwidthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteIpv6InternetBandwidthResponse::fromMap($this->doRPCRequest('DeleteIpv6InternetBandwidth', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIpv6InternetBandwidthRequest $request
+     *
+     * @return DeleteIpv6InternetBandwidthResponse
+     */
+    public function deleteIpv6InternetBandwidth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIpv6InternetBandwidthWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteIPv6TranslatorRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteIPv6TranslatorResponse
+     */
+    public function deleteIPv6TranslatorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteIPv6TranslatorResponse::fromMap($this->doRPCRequest('DeleteIPv6Translator', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIPv6TranslatorRequest $request
+     *
+     * @return DeleteIPv6TranslatorResponse
+     */
+    public function deleteIPv6Translator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIPv6TranslatorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteIPv6TranslatorAclListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteIPv6TranslatorAclListResponse
+     */
+    public function deleteIPv6TranslatorAclListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteIPv6TranslatorAclListResponse::fromMap($this->doRPCRequest('DeleteIPv6TranslatorAclList', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIPv6TranslatorAclListRequest $request
+     *
+     * @return DeleteIPv6TranslatorAclListResponse
+     */
+    public function deleteIPv6TranslatorAclList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIPv6TranslatorAclListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteIPv6TranslatorEntryRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteIPv6TranslatorEntryResponse
+     */
+    public function deleteIPv6TranslatorEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteIPv6TranslatorEntryResponse::fromMap($this->doRPCRequest('DeleteIPv6TranslatorEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIPv6TranslatorEntryRequest $request
+     *
+     * @return DeleteIPv6TranslatorEntryResponse
+     */
+    public function deleteIPv6TranslatorEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIPv6TranslatorEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteNatGatewayRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteNatGatewayResponse
+     */
+    public function deleteNatGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteNatGatewayResponse::fromMap($this->doRPCRequest('DeleteNatGateway', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteNatGatewayRequest $request
+     *
+     * @return DeleteNatGatewayResponse
+     */
+    public function deleteNatGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNatGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteNetworkAclRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteNetworkAclResponse
+     */
+    public function deleteNetworkAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteNetworkAclResponse::fromMap($this->doRPCRequest('DeleteNetworkAcl', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteNetworkAclRequest $request
+     *
+     * @return DeleteNetworkAclResponse
+     */
+    public function deleteNetworkAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNetworkAclWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePhysicalConnectionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeletePhysicalConnectionResponse
+     */
+    public function deletePhysicalConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeletePhysicalConnectionResponse::fromMap($this->doRPCRequest('DeletePhysicalConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeletePhysicalConnectionRequest $request
+     *
+     * @return DeletePhysicalConnectionResponse
+     */
+    public function deletePhysicalConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePhysicalConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRouteEntryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteRouteEntryResponse
+     */
+    public function deleteRouteEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteRouteEntryResponse::fromMap($this->doRPCRequest('DeleteRouteEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRouteEntryRequest $request
+     *
+     * @return DeleteRouteEntryResponse
+     */
+    public function deleteRouteEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRouteEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRouterInterfaceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteRouterInterfaceResponse
+     */
+    public function deleteRouterInterfaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteRouterInterfaceResponse::fromMap($this->doRPCRequest('DeleteRouterInterface', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRouterInterfaceRequest $request
+     *
+     * @return DeleteRouterInterfaceResponse
+     */
+    public function deleteRouterInterface($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRouterInterfaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRouteTableRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteRouteTableResponse
+     */
+    public function deleteRouteTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteRouteTableResponse::fromMap($this->doRPCRequest('DeleteRouteTable', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRouteTableRequest $request
+     *
+     * @return DeleteRouteTableResponse
+     */
+    public function deleteRouteTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRouteTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSnatEntryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteSnatEntryResponse
+     */
+    public function deleteSnatEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteSnatEntryResponse::fromMap($this->doRPCRequest('DeleteSnatEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSnatEntryRequest $request
+     *
+     * @return DeleteSnatEntryResponse
+     */
+    public function deleteSnatEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSnatEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSslVpnClientCertRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteSslVpnClientCertResponse
+     */
+    public function deleteSslVpnClientCertWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteSslVpnClientCertResponse::fromMap($this->doRPCRequest('DeleteSslVpnClientCert', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSslVpnClientCertRequest $request
+     *
+     * @return DeleteSslVpnClientCertResponse
+     */
+    public function deleteSslVpnClientCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSslVpnClientCertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSslVpnServerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteSslVpnServerResponse
+     */
+    public function deleteSslVpnServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteSslVpnServerResponse::fromMap($this->doRPCRequest('DeleteSslVpnServer', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSslVpnServerRequest $request
+     *
+     * @return DeleteSslVpnServerResponse
+     */
+    public function deleteSslVpnServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSslVpnServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteVirtualBorderRouterRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteVirtualBorderRouterResponse
+     */
+    public function deleteVirtualBorderRouterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteVirtualBorderRouterResponse::fromMap($this->doRPCRequest('DeleteVirtualBorderRouter', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVirtualBorderRouterRequest $request
+     *
+     * @return DeleteVirtualBorderRouterResponse
+     */
+    public function deleteVirtualBorderRouter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVirtualBorderRouterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteVpcRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteVpcResponse
+     */
+    public function deleteVpcWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteVpcResponse::fromMap($this->doRPCRequest('DeleteVpc', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVpcRequest $request
+     *
+     * @return DeleteVpcResponse
+     */
+    public function deleteVpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVpcWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteVpnConnectionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteVpnConnectionResponse
+     */
+    public function deleteVpnConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteVpnConnectionResponse::fromMap($this->doRPCRequest('DeleteVpnConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVpnConnectionRequest $request
+     *
+     * @return DeleteVpnConnectionResponse
+     */
+    public function deleteVpnConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVpnConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteVpnGatewayRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteVpnGatewayResponse
+     */
+    public function deleteVpnGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteVpnGatewayResponse::fromMap($this->doRPCRequest('DeleteVpnGateway', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVpnGatewayRequest $request
+     *
+     * @return DeleteVpnGatewayResponse
+     */
+    public function deleteVpnGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVpnGatewayWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteVpnPbrRouteEntryRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1659,8 +3131,11 @@ class Vpc extends Rpc
     public function deleteVpnPbrRouteEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteVpnPbrRouteEntryResponse::fromMap($this->doRequest('DeleteVpnPbrRouteEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DeleteVpnPbrRouteEntryResponse::fromMap($this->doRPCRequest('DeleteVpnPbrRouteEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1684,8 +3159,11 @@ class Vpc extends Rpc
     public function deleteVpnRouteEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteVpnRouteEntryResponse::fromMap($this->doRequest('DeleteVpnRouteEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DeleteVpnRouteEntryResponse::fromMap($this->doRPCRequest('DeleteVpnRouteEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1701,854 +3179,591 @@ class Vpc extends Rpc
     }
 
     /**
-     * @param DescribeVpnRouteEntriesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DeleteVSwitchRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return DescribeVpnRouteEntriesResponse
+     * @return DeleteVSwitchResponse
      */
-    public function describeVpnRouteEntriesWithOptions($request, $runtime)
+    public function deleteVSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeVpnRouteEntriesResponse::fromMap($this->doRequest('DescribeVpnRouteEntries', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DeleteVSwitchResponse::fromMap($this->doRPCRequest('DeleteVSwitch', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeVpnRouteEntriesRequest $request
+     * @param DeleteVSwitchRequest $request
      *
-     * @return DescribeVpnRouteEntriesResponse
+     * @return DeleteVSwitchResponse
      */
-    public function describeVpnRouteEntries($request)
+    public function deleteVSwitch($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVpnRouteEntriesWithOptions($request, $runtime);
+        return $this->deleteVSwitchWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeVpnPbrRouteEntriesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DeletionProtectionRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return DescribeVpnPbrRouteEntriesResponse
+     * @return DeletionProtectionResponse
      */
-    public function describeVpnPbrRouteEntriesWithOptions($request, $runtime)
+    public function deletionProtectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeVpnPbrRouteEntriesResponse::fromMap($this->doRequest('DescribeVpnPbrRouteEntries', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DeletionProtectionResponse::fromMap($this->doRPCRequest('DeletionProtection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeVpnPbrRouteEntriesRequest $request
+     * @param DeletionProtectionRequest $request
      *
-     * @return DescribeVpnPbrRouteEntriesResponse
+     * @return DeletionProtectionResponse
      */
-    public function describeVpnPbrRouteEntries($request)
+    public function deletionProtection($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVpnPbrRouteEntriesWithOptions($request, $runtime);
+        return $this->deletionProtectionWithOptions($request, $runtime);
     }
 
     /**
-     * @param PublishVpnRouteEntryRequest $request
+     * @param DescribeAccessPointsRequest $request
      * @param RuntimeOptions              $runtime
      *
-     * @return PublishVpnRouteEntryResponse
+     * @return DescribeAccessPointsResponse
      */
-    public function publishVpnRouteEntryWithOptions($request, $runtime)
+    public function describeAccessPointsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return PublishVpnRouteEntryResponse::fromMap($this->doRequest('PublishVpnRouteEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeAccessPointsResponse::fromMap($this->doRPCRequest('DescribeAccessPoints', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param PublishVpnRouteEntryRequest $request
+     * @param DescribeAccessPointsRequest $request
      *
-     * @return PublishVpnRouteEntryResponse
+     * @return DescribeAccessPointsResponse
      */
-    public function publishVpnRouteEntry($request)
+    public function describeAccessPoints($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->publishVpnRouteEntryWithOptions($request, $runtime);
+        return $this->describeAccessPointsWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyVpnRouteEntryWeightRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeBgpGroupsRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return ModifyVpnRouteEntryWeightResponse
+     * @return DescribeBgpGroupsResponse
      */
-    public function modifyVpnRouteEntryWeightWithOptions($request, $runtime)
+    public function describeBgpGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyVpnRouteEntryWeightResponse::fromMap($this->doRequest('ModifyVpnRouteEntryWeight', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeBgpGroupsResponse::fromMap($this->doRPCRequest('DescribeBgpGroups', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyVpnRouteEntryWeightRequest $request
+     * @param DescribeBgpGroupsRequest $request
      *
-     * @return ModifyVpnRouteEntryWeightResponse
+     * @return DescribeBgpGroupsResponse
      */
-    public function modifyVpnRouteEntryWeight($request)
+    public function describeBgpGroups($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyVpnRouteEntryWeightWithOptions($request, $runtime);
+        return $this->describeBgpGroupsWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyVpnPbrRouteEntryWeightRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeBgpNetworksRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return ModifyVpnPbrRouteEntryWeightResponse
+     * @return DescribeBgpNetworksResponse
      */
-    public function modifyVpnPbrRouteEntryWeightWithOptions($request, $runtime)
+    public function describeBgpNetworksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyVpnPbrRouteEntryWeightResponse::fromMap($this->doRequest('ModifyVpnPbrRouteEntryWeight', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeBgpNetworksResponse::fromMap($this->doRPCRequest('DescribeBgpNetworks', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyVpnPbrRouteEntryWeightRequest $request
+     * @param DescribeBgpNetworksRequest $request
      *
-     * @return ModifyVpnPbrRouteEntryWeightResponse
+     * @return DescribeBgpNetworksResponse
      */
-    public function modifyVpnPbrRouteEntryWeight($request)
+    public function describeBgpNetworks($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyVpnPbrRouteEntryWeightWithOptions($request, $runtime);
+        return $this->describeBgpNetworksWithOptions($request, $runtime);
     }
 
     /**
-     * DescribePhysicalConnectionLOA Query LOA information about the physical connection.
-     *   * request demo:   * http(s)://[Endpoint]/?InstanceId=pc-bp1ca4wca27exxxxxxxx
-     *   * &RegionId=cn-hangzhou
-     *   * &<CommonParameters>
-     *   * description:.
-     *
-     * @param DescribePhysicalConnectionLOARequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribePhysicalConnectionLOAResponse
-     */
-    public function describePhysicalConnectionLOAWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribePhysicalConnectionLOAResponse::fromMap($this->doRequest('DescribePhysicalConnectionLOA', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * DescribePhysicalConnectionLOA Query LOA information about the physical connection.
-     *   * request demo:   * http(s)://[Endpoint]/?InstanceId=pc-bp1ca4wca27exxxxxxxx
-     *   * &RegionId=cn-hangzhou
-     *   * &<CommonParameters>
-     *   * description:.
-     *
-     * @param DescribePhysicalConnectionLOARequest $request
-     *
-     * @return DescribePhysicalConnectionLOAResponse
-     */
-    public function describePhysicalConnectionLOA($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePhysicalConnectionLOAWithOptions($request, $runtime);
-    }
-
-    /**
-     * CreatePhysicalConnectionSetupOrder Create an order for the resource fee.
-     *   * request demo:   * http(s)://[Endpoint]/?AccessPointId=ap-cn-beijing-ft-A
-     *   * &LineOperator=CT
-     *   * &RegionId=cn-shanghai
-     *   * &<CommonParameters>
-     *   * description:.
-     *
-     * @param CreatePhysicalConnectionSetupOrderRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return CreatePhysicalConnectionSetupOrderResponse
-     */
-    public function createPhysicalConnectionSetupOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreatePhysicalConnectionSetupOrderResponse::fromMap($this->doRequest('CreatePhysicalConnectionSetupOrder', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * CreatePhysicalConnectionSetupOrder Create an order for the resource fee.
-     *   * request demo:   * http(s)://[Endpoint]/?AccessPointId=ap-cn-beijing-ft-A
-     *   * &LineOperator=CT
-     *   * &RegionId=cn-shanghai
-     *   * &<CommonParameters>
-     *   * description:.
-     *
-     * @param CreatePhysicalConnectionSetupOrderRequest $request
-     *
-     * @return CreatePhysicalConnectionSetupOrderResponse
-     */
-    public function createPhysicalConnectionSetupOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createPhysicalConnectionSetupOrderWithOptions($request, $runtime);
-    }
-
-    /**
-     * CreatePhysicalConnectionOccupancyOrder Create an order for the initial installation fee.
-     *   * request demo:   * http(s)://[Endpoint]/?PhysicalConnectionId=pc-bp1hp0wr072f6ambni141
-     *   * &RegionId=cn-hangzhou
-     *   * &<CommonParameters>
-     *   * description:.
-     *
-     * @param CreatePhysicalConnectionOccupancyOrderRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return CreatePhysicalConnectionOccupancyOrderResponse
-     */
-    public function createPhysicalConnectionOccupancyOrderWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreatePhysicalConnectionOccupancyOrderResponse::fromMap($this->doRequest('CreatePhysicalConnectionOccupancyOrder', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * CreatePhysicalConnectionOccupancyOrder Create an order for the initial installation fee.
-     *   * request demo:   * http(s)://[Endpoint]/?PhysicalConnectionId=pc-bp1hp0wr072f6ambni141
-     *   * &RegionId=cn-hangzhou
-     *   * &<CommonParameters>
-     *   * description:.
-     *
-     * @param CreatePhysicalConnectionOccupancyOrderRequest $request
-     *
-     * @return CreatePhysicalConnectionOccupancyOrderResponse
-     */
-    public function createPhysicalConnectionOccupancyOrder($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createPhysicalConnectionOccupancyOrderWithOptions($request, $runtime);
-    }
-
-    /**
-     * CompletePhysicalConnectionLOA Report information about the completed installation of the leased line.
-     *   * request demo:   * http(s)://[Endpoint]/?InstanceId=pc-bp10tvlhnwkwxxxxxxxxxx
-     *   * &LineCode=aaa111
-     *   * &LineLabel=bbb222
-     *   * &RegionId=cn-hangzhou
-     *   * &<CommonParameters>
-     *   * description:.
-     *
-     * @param CompletePhysicalConnectionLOARequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CompletePhysicalConnectionLOAResponse
-     */
-    public function completePhysicalConnectionLOAWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CompletePhysicalConnectionLOAResponse::fromMap($this->doRequest('CompletePhysicalConnectionLOA', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * CompletePhysicalConnectionLOA Report information about the completed installation of the leased line.
-     *   * request demo:   * http(s)://[Endpoint]/?InstanceId=pc-bp10tvlhnwkwxxxxxxxxxx
-     *   * &LineCode=aaa111
-     *   * &LineLabel=bbb222
-     *   * &RegionId=cn-hangzhou
-     *   * &<CommonParameters>
-     *   * description:.
-     *
-     * @param CompletePhysicalConnectionLOARequest $request
-     *
-     * @return CompletePhysicalConnectionLOAResponse
-     */
-    public function completePhysicalConnectionLOA($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->completePhysicalConnectionLOAWithOptions($request, $runtime);
-    }
-
-    /**
-     * ApplyPhysicalConnectionLOA Apply for the LOA.
-     *   * request demo:   * http(s)://[Endpoint]/?CompanyName=company
-     *   * &ConstructionTime=2019-02-28T16:00:00.000Z
-     *   * &InstanceId=pc-bp1qrb3044eqixxxxxxxx
-     *   * &LineType=SDH
-     *   * &PeerLocation=Hangzhou
-     *   * &RegionId=cn-hangzhou
-     *   * &Si=Alibaba Cloud
-     *   * &<CommonParameters>
-     *   * description:.
-     *
-     * @param ApplyPhysicalConnectionLOARequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ApplyPhysicalConnectionLOAResponse
-     */
-    public function applyPhysicalConnectionLOAWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ApplyPhysicalConnectionLOAResponse::fromMap($this->doRequest('ApplyPhysicalConnectionLOA', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * ApplyPhysicalConnectionLOA Apply for the LOA.
-     *   * request demo:   * http(s)://[Endpoint]/?CompanyName=company
-     *   * &ConstructionTime=2019-02-28T16:00:00.000Z
-     *   * &InstanceId=pc-bp1qrb3044eqixxxxxxxx
-     *   * &LineType=SDH
-     *   * &PeerLocation=Hangzhou
-     *   * &RegionId=cn-hangzhou
-     *   * &Si=Alibaba Cloud
-     *   * &<CommonParameters>
-     *   * description:.
-     *
-     * @param ApplyPhysicalConnectionLOARequest $request
-     *
-     * @return ApplyPhysicalConnectionLOAResponse
-     */
-    public function applyPhysicalConnectionLOA($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->applyPhysicalConnectionLOAWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ConvertBandwidthPackageRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ConvertBandwidthPackageResponse
-     */
-    public function convertBandwidthPackageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ConvertBandwidthPackageResponse::fromMap($this->doRequest('ConvertBandwidthPackage', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ConvertBandwidthPackageRequest $request
-     *
-     * @return ConvertBandwidthPackageResponse
-     */
-    public function convertBandwidthPackage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->convertBandwidthPackageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyRouteEntryRequest $request
+     * @param DescribeBgpPeersRequest $request
      * @param RuntimeOptions          $runtime
      *
-     * @return ModifyRouteEntryResponse
+     * @return DescribeBgpPeersResponse
      */
-    public function modifyRouteEntryWithOptions($request, $runtime)
+    public function describeBgpPeersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyRouteEntryResponse::fromMap($this->doRequest('ModifyRouteEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeBgpPeersResponse::fromMap($this->doRPCRequest('DescribeBgpPeers', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyRouteEntryRequest $request
+     * @param DescribeBgpPeersRequest $request
      *
-     * @return ModifyRouteEntryResponse
+     * @return DescribeBgpPeersResponse
      */
-    public function modifyRouteEntry($request)
+    public function describeBgpPeers($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyRouteEntryWithOptions($request, $runtime);
+        return $this->describeBgpPeersWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeRouteEntryListRequest $request
+     * @param DescribeCommonBandwidthPackagesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeCommonBandwidthPackagesResponse
+     */
+    public function describeCommonBandwidthPackagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCommonBandwidthPackagesResponse::fromMap($this->doRPCRequest('DescribeCommonBandwidthPackages', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCommonBandwidthPackagesRequest $request
+     *
+     * @return DescribeCommonBandwidthPackagesResponse
+     */
+    public function describeCommonBandwidthPackages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCommonBandwidthPackagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustomerGatewayRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeCustomerGatewayResponse
+     */
+    public function describeCustomerGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCustomerGatewayResponse::fromMap($this->doRPCRequest('DescribeCustomerGateway', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustomerGatewayRequest $request
+     *
+     * @return DescribeCustomerGatewayResponse
+     */
+    public function describeCustomerGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomerGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustomerGatewaysRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeCustomerGatewaysResponse
+     */
+    public function describeCustomerGatewaysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCustomerGatewaysResponse::fromMap($this->doRPCRequest('DescribeCustomerGateways', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustomerGatewaysRequest $request
+     *
+     * @return DescribeCustomerGatewaysResponse
+     */
+    public function describeCustomerGateways($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomerGatewaysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEipAddressesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeEipAddressesResponse
+     */
+    public function describeEipAddressesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeEipAddressesResponse::fromMap($this->doRPCRequest('DescribeEipAddresses', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEipAddressesRequest $request
+     *
+     * @return DescribeEipAddressesResponse
+     */
+    public function describeEipAddresses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEipAddressesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEipGatewayInfoRequest $request
      * @param RuntimeOptions                $runtime
      *
-     * @return DescribeRouteEntryListResponse
+     * @return DescribeEipGatewayInfoResponse
      */
-    public function describeRouteEntryListWithOptions($request, $runtime)
+    public function describeEipGatewayInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeRouteEntryListResponse::fromMap($this->doRequest('DescribeRouteEntryList', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeEipGatewayInfoResponse::fromMap($this->doRPCRequest('DescribeEipGatewayInfo', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeRouteEntryListRequest $request
+     * @param DescribeEipGatewayInfoRequest $request
      *
-     * @return DescribeRouteEntryListResponse
+     * @return DescribeEipGatewayInfoResponse
      */
-    public function describeRouteEntryList($request)
+    public function describeEipGatewayInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRouteEntryListWithOptions($request, $runtime);
+        return $this->describeEipGatewayInfoWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateIPv6TranslatorAclListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeEipMonitorDataRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return CreateIPv6TranslatorAclListResponse
+     * @return DescribeEipMonitorDataResponse
      */
-    public function createIPv6TranslatorAclListWithOptions($request, $runtime)
+    public function describeEipMonitorDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateIPv6TranslatorAclListResponse::fromMap($this->doRequest('CreateIPv6TranslatorAclList', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeEipMonitorDataResponse::fromMap($this->doRPCRequest('DescribeEipMonitorData', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateIPv6TranslatorAclListRequest $request
+     * @param DescribeEipMonitorDataRequest $request
      *
-     * @return CreateIPv6TranslatorAclListResponse
+     * @return DescribeEipMonitorDataResponse
      */
-    public function createIPv6TranslatorAclList($request)
+    public function describeEipMonitorData($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createIPv6TranslatorAclListWithOptions($request, $runtime);
+        return $this->describeEipMonitorDataWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteIPv6TranslatorAclListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeEipSegmentRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return DeleteIPv6TranslatorAclListResponse
+     * @return DescribeEipSegmentResponse
      */
-    public function deleteIPv6TranslatorAclListWithOptions($request, $runtime)
+    public function describeEipSegmentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteIPv6TranslatorAclListResponse::fromMap($this->doRequest('DeleteIPv6TranslatorAclList', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeEipSegmentResponse::fromMap($this->doRPCRequest('DescribeEipSegment', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteIPv6TranslatorAclListRequest $request
+     * @param DescribeEipSegmentRequest $request
      *
-     * @return DeleteIPv6TranslatorAclListResponse
+     * @return DescribeEipSegmentResponse
      */
-    public function deleteIPv6TranslatorAclList($request)
+    public function describeEipSegment($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteIPv6TranslatorAclListWithOptions($request, $runtime);
+        return $this->describeEipSegmentWithOptions($request, $runtime);
     }
 
     /**
-     * @param AddIPv6TranslatorAclListEntryRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeExpressCloudConnectionsRequest $request
+     * @param RuntimeOptions                         $runtime
      *
-     * @return AddIPv6TranslatorAclListEntryResponse
+     * @return DescribeExpressCloudConnectionsResponse
      */
-    public function addIPv6TranslatorAclListEntryWithOptions($request, $runtime)
+    public function describeExpressCloudConnectionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return AddIPv6TranslatorAclListEntryResponse::fromMap($this->doRequest('AddIPv6TranslatorAclListEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeExpressCloudConnectionsResponse::fromMap($this->doRPCRequest('DescribeExpressCloudConnections', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param AddIPv6TranslatorAclListEntryRequest $request
+     * @param DescribeExpressCloudConnectionsRequest $request
      *
-     * @return AddIPv6TranslatorAclListEntryResponse
+     * @return DescribeExpressCloudConnectionsResponse
      */
-    public function addIPv6TranslatorAclListEntry($request)
+    public function describeExpressCloudConnections($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->addIPv6TranslatorAclListEntryWithOptions($request, $runtime);
+        return $this->describeExpressCloudConnectionsWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeIPv6TranslatorAclListsRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeIPv6TranslatorAclListsResponse
-     */
-    public function describeIPv6TranslatorAclListsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeIPv6TranslatorAclListsResponse::fromMap($this->doRequest('DescribeIPv6TranslatorAclLists', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeIPv6TranslatorAclListsRequest $request
-     *
-     * @return DescribeIPv6TranslatorAclListsResponse
-     */
-    public function describeIPv6TranslatorAclLists($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeIPv6TranslatorAclListsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyIPv6TranslatorAclAttributeRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ModifyIPv6TranslatorAclAttributeResponse
-     */
-    public function modifyIPv6TranslatorAclAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyIPv6TranslatorAclAttributeResponse::fromMap($this->doRequest('ModifyIPv6TranslatorAclAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyIPv6TranslatorAclAttributeRequest $request
-     *
-     * @return ModifyIPv6TranslatorAclAttributeResponse
-     */
-    public function modifyIPv6TranslatorAclAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyIPv6TranslatorAclAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveIPv6TranslatorAclListEntryRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return RemoveIPv6TranslatorAclListEntryResponse
-     */
-    public function removeIPv6TranslatorAclListEntryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RemoveIPv6TranslatorAclListEntryResponse::fromMap($this->doRequest('RemoveIPv6TranslatorAclListEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param RemoveIPv6TranslatorAclListEntryRequest $request
-     *
-     * @return RemoveIPv6TranslatorAclListEntryResponse
-     */
-    public function removeIPv6TranslatorAclListEntry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeIPv6TranslatorAclListEntryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeIPv6TranslatorAclListAttributesRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return DescribeIPv6TranslatorAclListAttributesResponse
-     */
-    public function describeIPv6TranslatorAclListAttributesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeIPv6TranslatorAclListAttributesResponse::fromMap($this->doRequest('DescribeIPv6TranslatorAclListAttributes', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeIPv6TranslatorAclListAttributesRequest $request
-     *
-     * @return DescribeIPv6TranslatorAclListAttributesResponse
-     */
-    public function describeIPv6TranslatorAclListAttributes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeIPv6TranslatorAclListAttributesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyIPv6TranslatorAclListEntryRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ModifyIPv6TranslatorAclListEntryResponse
-     */
-    public function modifyIPv6TranslatorAclListEntryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyIPv6TranslatorAclListEntryResponse::fromMap($this->doRequest('ModifyIPv6TranslatorAclListEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyIPv6TranslatorAclListEntryRequest $request
-     *
-     * @return ModifyIPv6TranslatorAclListEntryResponse
-     */
-    public function modifyIPv6TranslatorAclListEntry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyIPv6TranslatorAclListEntryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnTagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UnTagResourcesResponse
-     */
-    public function unTagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UnTagResourcesResponse::fromMap($this->doRequest('UnTagResources', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param UnTagResourcesRequest $request
-     *
-     * @return UnTagResourcesResponse
-     */
-    public function unTagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unTagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
-     */
-    public function tagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return TagResourcesResponse::fromMap($this->doRequest('TagResources', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
-     */
-    public function tagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->tagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListTagResourcesRequest $request
+     * @param DescribeFlowLogsRequest $request
      * @param RuntimeOptions          $runtime
      *
-     * @return ListTagResourcesResponse
+     * @return DescribeFlowLogsResponse
      */
-    public function listTagResourcesWithOptions($request, $runtime)
+    public function describeFlowLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRequest('ListTagResources', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeFlowLogsResponse::fromMap($this->doRPCRequest('DescribeFlowLogs', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @param DescribeFlowLogsRequest $request
      *
-     * @return ListTagResourcesResponse
+     * @return DescribeFlowLogsResponse
      */
-    public function listTagResources($request)
+    public function describeFlowLogs($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listTagResourcesWithOptions($request, $runtime);
+        return $this->describeFlowLogsWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyIpv6InternetBandwidthRequest $request
+     * @param DescribeForwardTableEntriesRequest $request
      * @param RuntimeOptions                     $runtime
      *
-     * @return ModifyIpv6InternetBandwidthResponse
+     * @return DescribeForwardTableEntriesResponse
      */
-    public function modifyIpv6InternetBandwidthWithOptions($request, $runtime)
+    public function describeForwardTableEntriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyIpv6InternetBandwidthResponse::fromMap($this->doRequest('ModifyIpv6InternetBandwidth', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeForwardTableEntriesResponse::fromMap($this->doRPCRequest('DescribeForwardTableEntries', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyIpv6InternetBandwidthRequest $request
+     * @param DescribeForwardTableEntriesRequest $request
      *
-     * @return ModifyIpv6InternetBandwidthResponse
+     * @return DescribeForwardTableEntriesResponse
      */
-    public function modifyIpv6InternetBandwidth($request)
+    public function describeForwardTableEntries($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyIpv6InternetBandwidthWithOptions($request, $runtime);
+        return $this->describeForwardTableEntriesWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyIpv6GatewaySpecRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeGlobalAccelerationInstancesRequest $request
+     * @param RuntimeOptions                             $runtime
      *
-     * @return ModifyIpv6GatewaySpecResponse
+     * @return DescribeGlobalAccelerationInstancesResponse
      */
-    public function modifyIpv6GatewaySpecWithOptions($request, $runtime)
+    public function describeGlobalAccelerationInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyIpv6GatewaySpecResponse::fromMap($this->doRequest('ModifyIpv6GatewaySpec', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeGlobalAccelerationInstancesResponse::fromMap($this->doRPCRequest('DescribeGlobalAccelerationInstances', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyIpv6GatewaySpecRequest $request
+     * @param DescribeGlobalAccelerationInstancesRequest $request
      *
-     * @return ModifyIpv6GatewaySpecResponse
+     * @return DescribeGlobalAccelerationInstancesResponse
      */
-    public function modifyIpv6GatewaySpec($request)
+    public function describeGlobalAccelerationInstances($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyIpv6GatewaySpecWithOptions($request, $runtime);
+        return $this->describeGlobalAccelerationInstancesWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyIpv6GatewayAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeGrantRulesToCenRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return ModifyIpv6GatewayAttributeResponse
+     * @return DescribeGrantRulesToCenResponse
      */
-    public function modifyIpv6GatewayAttributeWithOptions($request, $runtime)
+    public function describeGrantRulesToCenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyIpv6GatewayAttributeResponse::fromMap($this->doRequest('ModifyIpv6GatewayAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeGrantRulesToCenResponse::fromMap($this->doRPCRequest('DescribeGrantRulesToCen', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyIpv6GatewayAttributeRequest $request
+     * @param DescribeGrantRulesToCenRequest $request
      *
-     * @return ModifyIpv6GatewayAttributeResponse
+     * @return DescribeGrantRulesToCenResponse
      */
-    public function modifyIpv6GatewayAttribute($request)
+    public function describeGrantRulesToCen($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyIpv6GatewayAttributeWithOptions($request, $runtime);
+        return $this->describeGrantRulesToCenWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyIpv6AddressAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeHaVipsRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return ModifyIpv6AddressAttributeResponse
+     * @return DescribeHaVipsResponse
      */
-    public function modifyIpv6AddressAttributeWithOptions($request, $runtime)
+    public function describeHaVipsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyIpv6AddressAttributeResponse::fromMap($this->doRequest('ModifyIpv6AddressAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeHaVipsResponse::fromMap($this->doRPCRequest('DescribeHaVips', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyIpv6AddressAttributeRequest $request
+     * @param DescribeHaVipsRequest $request
      *
-     * @return ModifyIpv6AddressAttributeResponse
+     * @return DescribeHaVipsResponse
      */
-    public function modifyIpv6AddressAttribute($request)
+    public function describeHaVips($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyIpv6AddressAttributeWithOptions($request, $runtime);
+        return $this->describeHaVipsWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeIpv6GatewaysRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeHighDefinitionMonitorLogAttributeRequest $request
+     * @param RuntimeOptions                                   $runtime
      *
-     * @return DescribeIpv6GatewaysResponse
+     * @return DescribeHighDefinitionMonitorLogAttributeResponse
      */
-    public function describeIpv6GatewaysWithOptions($request, $runtime)
+    public function describeHighDefinitionMonitorLogAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeIpv6GatewaysResponse::fromMap($this->doRequest('DescribeIpv6Gateways', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeHighDefinitionMonitorLogAttributeResponse::fromMap($this->doRPCRequest('DescribeHighDefinitionMonitorLogAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeIpv6GatewaysRequest $request
+     * @param DescribeHighDefinitionMonitorLogAttributeRequest $request
      *
-     * @return DescribeIpv6GatewaysResponse
+     * @return DescribeHighDefinitionMonitorLogAttributeResponse
      */
-    public function describeIpv6Gateways($request)
+    public function describeHighDefinitionMonitorLogAttribute($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeIpv6GatewaysWithOptions($request, $runtime);
+        return $this->describeHighDefinitionMonitorLogAttributeWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeIpv6GatewayAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeInstanceAutoRenewAttributeRequest $request
+     * @param RuntimeOptions                            $runtime
      *
-     * @return DescribeIpv6GatewayAttributeResponse
+     * @return DescribeInstanceAutoRenewAttributeResponse
      */
-    public function describeIpv6GatewayAttributeWithOptions($request, $runtime)
+    public function describeInstanceAutoRenewAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeIpv6GatewayAttributeResponse::fromMap($this->doRequest('DescribeIpv6GatewayAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeInstanceAutoRenewAttributeResponse::fromMap($this->doRPCRequest('DescribeInstanceAutoRenewAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeIpv6GatewayAttributeRequest $request
+     * @param DescribeInstanceAutoRenewAttributeRequest $request
      *
-     * @return DescribeIpv6GatewayAttributeResponse
+     * @return DescribeInstanceAutoRenewAttributeResponse
      */
-    public function describeIpv6GatewayAttribute($request)
+    public function describeInstanceAutoRenewAttribute($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeIpv6GatewayAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeIpv6EgressOnlyRulesRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeIpv6EgressOnlyRulesResponse
-     */
-    public function describeIpv6EgressOnlyRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeIpv6EgressOnlyRulesResponse::fromMap($this->doRequest('DescribeIpv6EgressOnlyRules', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeIpv6EgressOnlyRulesRequest $request
-     *
-     * @return DescribeIpv6EgressOnlyRulesResponse
-     */
-    public function describeIpv6EgressOnlyRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeIpv6EgressOnlyRulesWithOptions($request, $runtime);
+        return $this->describeInstanceAutoRenewAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -2560,8 +3775,11 @@ class Vpc extends Rpc
     public function describeIpv6AddressesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeIpv6AddressesResponse::fromMap($this->doRequest('DescribeIpv6Addresses', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeIpv6AddressesResponse::fromMap($this->doRPCRequest('DescribeIpv6Addresses', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2577,203 +3795,171 @@ class Vpc extends Rpc
     }
 
     /**
-     * @param DeleteIpv6InternetBandwidthRequest $request
+     * @param DescribeIpv6EgressOnlyRulesRequest $request
      * @param RuntimeOptions                     $runtime
      *
-     * @return DeleteIpv6InternetBandwidthResponse
+     * @return DescribeIpv6EgressOnlyRulesResponse
      */
-    public function deleteIpv6InternetBandwidthWithOptions($request, $runtime)
+    public function describeIpv6EgressOnlyRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteIpv6InternetBandwidthResponse::fromMap($this->doRequest('DeleteIpv6InternetBandwidth', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeIpv6EgressOnlyRulesResponse::fromMap($this->doRPCRequest('DescribeIpv6EgressOnlyRules', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteIpv6InternetBandwidthRequest $request
+     * @param DescribeIpv6EgressOnlyRulesRequest $request
      *
-     * @return DeleteIpv6InternetBandwidthResponse
+     * @return DescribeIpv6EgressOnlyRulesResponse
      */
-    public function deleteIpv6InternetBandwidth($request)
+    public function describeIpv6EgressOnlyRules($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteIpv6InternetBandwidthWithOptions($request, $runtime);
+        return $this->describeIpv6EgressOnlyRulesWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteIpv6GatewayRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeIpv6GatewayAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return DeleteIpv6GatewayResponse
+     * @return DescribeIpv6GatewayAttributeResponse
      */
-    public function deleteIpv6GatewayWithOptions($request, $runtime)
+    public function describeIpv6GatewayAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteIpv6GatewayResponse::fromMap($this->doRequest('DeleteIpv6Gateway', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeIpv6GatewayAttributeResponse::fromMap($this->doRPCRequest('DescribeIpv6GatewayAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteIpv6GatewayRequest $request
+     * @param DescribeIpv6GatewayAttributeRequest $request
      *
-     * @return DeleteIpv6GatewayResponse
+     * @return DescribeIpv6GatewayAttributeResponse
      */
-    public function deleteIpv6Gateway($request)
+    public function describeIpv6GatewayAttribute($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteIpv6GatewayWithOptions($request, $runtime);
+        return $this->describeIpv6GatewayAttributeWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteIpv6EgressOnlyRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeIpv6GatewaysRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return DeleteIpv6EgressOnlyRuleResponse
+     * @return DescribeIpv6GatewaysResponse
      */
-    public function deleteIpv6EgressOnlyRuleWithOptions($request, $runtime)
+    public function describeIpv6GatewaysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteIpv6EgressOnlyRuleResponse::fromMap($this->doRequest('DeleteIpv6EgressOnlyRule', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeIpv6GatewaysResponse::fromMap($this->doRPCRequest('DescribeIpv6Gateways', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteIpv6EgressOnlyRuleRequest $request
+     * @param DescribeIpv6GatewaysRequest $request
      *
-     * @return DeleteIpv6EgressOnlyRuleResponse
+     * @return DescribeIpv6GatewaysResponse
      */
-    public function deleteIpv6EgressOnlyRule($request)
+    public function describeIpv6Gateways($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteIpv6EgressOnlyRuleWithOptions($request, $runtime);
+        return $this->describeIpv6GatewaysWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateIpv6GatewayRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeIPv6TranslatorAclListAttributesRequest $request
+     * @param RuntimeOptions                                 $runtime
      *
-     * @return CreateIpv6GatewayResponse
+     * @return DescribeIPv6TranslatorAclListAttributesResponse
      */
-    public function createIpv6GatewayWithOptions($request, $runtime)
+    public function describeIPv6TranslatorAclListAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateIpv6GatewayResponse::fromMap($this->doRequest('CreateIpv6Gateway', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeIPv6TranslatorAclListAttributesResponse::fromMap($this->doRPCRequest('DescribeIPv6TranslatorAclListAttributes', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateIpv6GatewayRequest $request
+     * @param DescribeIPv6TranslatorAclListAttributesRequest $request
      *
-     * @return CreateIpv6GatewayResponse
+     * @return DescribeIPv6TranslatorAclListAttributesResponse
      */
-    public function createIpv6Gateway($request)
+    public function describeIPv6TranslatorAclListAttributes($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createIpv6GatewayWithOptions($request, $runtime);
+        return $this->describeIPv6TranslatorAclListAttributesWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateIpv6EgressOnlyRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeIPv6TranslatorAclListsRequest $request
+     * @param RuntimeOptions                        $runtime
      *
-     * @return CreateIpv6EgressOnlyRuleResponse
+     * @return DescribeIPv6TranslatorAclListsResponse
      */
-    public function createIpv6EgressOnlyRuleWithOptions($request, $runtime)
+    public function describeIPv6TranslatorAclListsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateIpv6EgressOnlyRuleResponse::fromMap($this->doRequest('CreateIpv6EgressOnlyRule', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeIPv6TranslatorAclListsResponse::fromMap($this->doRPCRequest('DescribeIPv6TranslatorAclLists', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateIpv6EgressOnlyRuleRequest $request
+     * @param DescribeIPv6TranslatorAclListsRequest $request
      *
-     * @return CreateIpv6EgressOnlyRuleResponse
+     * @return DescribeIPv6TranslatorAclListsResponse
      */
-    public function createIpv6EgressOnlyRule($request)
+    public function describeIPv6TranslatorAclLists($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createIpv6EgressOnlyRuleWithOptions($request, $runtime);
+        return $this->describeIPv6TranslatorAclListsWithOptions($request, $runtime);
     }
 
     /**
-     * @param AllocateIpv6InternetBandwidthRequest $request
+     * @param DescribeIPv6TranslatorEntriesRequest $request
      * @param RuntimeOptions                       $runtime
      *
-     * @return AllocateIpv6InternetBandwidthResponse
+     * @return DescribeIPv6TranslatorEntriesResponse
      */
-    public function allocateIpv6InternetBandwidthWithOptions($request, $runtime)
+    public function describeIPv6TranslatorEntriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return AllocateIpv6InternetBandwidthResponse::fromMap($this->doRequest('AllocateIpv6InternetBandwidth', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeIPv6TranslatorEntriesResponse::fromMap($this->doRPCRequest('DescribeIPv6TranslatorEntries', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param AllocateIpv6InternetBandwidthRequest $request
+     * @param DescribeIPv6TranslatorEntriesRequest $request
      *
-     * @return AllocateIpv6InternetBandwidthResponse
+     * @return DescribeIPv6TranslatorEntriesResponse
      */
-    public function allocateIpv6InternetBandwidth($request)
+    public function describeIPv6TranslatorEntries($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->allocateIpv6InternetBandwidthWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteExpressConnectRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteExpressConnectResponse
-     */
-    public function deleteExpressConnectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteExpressConnectResponse::fromMap($this->doRequest('DeleteExpressConnect', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteExpressConnectRequest $request
-     *
-     * @return DeleteExpressConnectResponse
-     */
-    public function deleteExpressConnect($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteExpressConnectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateIPv6TranslatorRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateIPv6TranslatorResponse
-     */
-    public function createIPv6TranslatorWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateIPv6TranslatorResponse::fromMap($this->doRequest('CreateIPv6Translator', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateIPv6TranslatorRequest $request
-     *
-     * @return CreateIPv6TranslatorResponse
-     */
-    public function createIPv6Translator($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createIPv6TranslatorWithOptions($request, $runtime);
+        return $this->describeIPv6TranslatorEntriesWithOptions($request, $runtime);
     }
 
     /**
@@ -2785,8 +3971,11 @@ class Vpc extends Rpc
     public function describeIPv6TranslatorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeIPv6TranslatorsResponse::fromMap($this->doRequest('DescribeIPv6Translators', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return DescribeIPv6TranslatorsResponse::fromMap($this->doRPCRequest('DescribeIPv6Translators', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2802,6 +3991,2050 @@ class Vpc extends Rpc
     }
 
     /**
+     * @param DescribeNatGatewaysRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeNatGatewaysResponse
+     */
+    public function describeNatGatewaysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeNatGatewaysResponse::fromMap($this->doRPCRequest('DescribeNatGateways', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNatGatewaysRequest $request
+     *
+     * @return DescribeNatGatewaysResponse
+     */
+    public function describeNatGateways($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNatGatewaysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeNetworkAclAttributesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeNetworkAclAttributesResponse
+     */
+    public function describeNetworkAclAttributesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeNetworkAclAttributesResponse::fromMap($this->doRPCRequest('DescribeNetworkAclAttributes', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNetworkAclAttributesRequest $request
+     *
+     * @return DescribeNetworkAclAttributesResponse
+     */
+    public function describeNetworkAclAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNetworkAclAttributesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeNetworkAclsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeNetworkAclsResponse
+     */
+    public function describeNetworkAclsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeNetworkAclsResponse::fromMap($this->doRPCRequest('DescribeNetworkAcls', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNetworkAclsRequest $request
+     *
+     * @return DescribeNetworkAclsResponse
+     */
+    public function describeNetworkAcls($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNetworkAclsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeNewProjectEipMonitorDataRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeNewProjectEipMonitorDataResponse
+     */
+    public function describeNewProjectEipMonitorDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeNewProjectEipMonitorDataResponse::fromMap($this->doRPCRequest('DescribeNewProjectEipMonitorData', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNewProjectEipMonitorDataRequest $request
+     *
+     * @return DescribeNewProjectEipMonitorDataResponse
+     */
+    public function describeNewProjectEipMonitorData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNewProjectEipMonitorDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePhysicalConnectionLOARequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribePhysicalConnectionLOAResponse
+     */
+    public function describePhysicalConnectionLOAWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePhysicalConnectionLOAResponse::fromMap($this->doRPCRequest('DescribePhysicalConnectionLOA', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePhysicalConnectionLOARequest $request
+     *
+     * @return DescribePhysicalConnectionLOAResponse
+     */
+    public function describePhysicalConnectionLOA($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePhysicalConnectionLOAWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRouteEntryListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeRouteEntryListResponse
+     */
+    public function describeRouteEntryListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRouteEntryListResponse::fromMap($this->doRPCRequest('DescribeRouteEntryList', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRouteEntryListRequest $request
+     *
+     * @return DescribeRouteEntryListResponse
+     */
+    public function describeRouteEntryList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRouteEntryListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRouterInterfaceAttributeRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeRouterInterfaceAttributeResponse
+     */
+    public function describeRouterInterfaceAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRouterInterfaceAttributeResponse::fromMap($this->doRPCRequest('DescribeRouterInterfaceAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRouterInterfaceAttributeRequest $request
+     *
+     * @return DescribeRouterInterfaceAttributeResponse
+     */
+    public function describeRouterInterfaceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRouterInterfaceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRouterInterfacesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeRouterInterfacesResponse
+     */
+    public function describeRouterInterfacesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRouterInterfacesResponse::fromMap($this->doRPCRequest('DescribeRouterInterfaces', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRouterInterfacesRequest $request
+     *
+     * @return DescribeRouterInterfacesResponse
+     */
+    public function describeRouterInterfaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRouterInterfacesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRouteTableListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeRouteTableListResponse
+     */
+    public function describeRouteTableListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRouteTableListResponse::fromMap($this->doRPCRequest('DescribeRouteTableList', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRouteTableListRequest $request
+     *
+     * @return DescribeRouteTableListResponse
+     */
+    public function describeRouteTableList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRouteTableListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRouteTablesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeRouteTablesResponse
+     */
+    public function describeRouteTablesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRouteTablesResponse::fromMap($this->doRPCRequest('DescribeRouteTables', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRouteTablesRequest $request
+     *
+     * @return DescribeRouteTablesResponse
+     */
+    public function describeRouteTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRouteTablesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeServerRelatedGlobalAccelerationInstancesRequest $request
+     * @param RuntimeOptions                                          $runtime
+     *
+     * @return DescribeServerRelatedGlobalAccelerationInstancesResponse
+     */
+    public function describeServerRelatedGlobalAccelerationInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeServerRelatedGlobalAccelerationInstancesResponse::fromMap($this->doRPCRequest('DescribeServerRelatedGlobalAccelerationInstances', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeServerRelatedGlobalAccelerationInstancesRequest $request
+     *
+     * @return DescribeServerRelatedGlobalAccelerationInstancesResponse
+     */
+    public function describeServerRelatedGlobalAccelerationInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeServerRelatedGlobalAccelerationInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSnatTableEntriesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeSnatTableEntriesResponse
+     */
+    public function describeSnatTableEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSnatTableEntriesResponse::fromMap($this->doRPCRequest('DescribeSnatTableEntries', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSnatTableEntriesRequest $request
+     *
+     * @return DescribeSnatTableEntriesResponse
+     */
+    public function describeSnatTableEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSnatTableEntriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSslVpnClientCertRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeSslVpnClientCertResponse
+     */
+    public function describeSslVpnClientCertWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSslVpnClientCertResponse::fromMap($this->doRPCRequest('DescribeSslVpnClientCert', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSslVpnClientCertRequest $request
+     *
+     * @return DescribeSslVpnClientCertResponse
+     */
+    public function describeSslVpnClientCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSslVpnClientCertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSslVpnClientCertsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeSslVpnClientCertsResponse
+     */
+    public function describeSslVpnClientCertsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSslVpnClientCertsResponse::fromMap($this->doRPCRequest('DescribeSslVpnClientCerts', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSslVpnClientCertsRequest $request
+     *
+     * @return DescribeSslVpnClientCertsResponse
+     */
+    public function describeSslVpnClientCerts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSslVpnClientCertsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSslVpnServersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSslVpnServersResponse
+     */
+    public function describeSslVpnServersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSslVpnServersResponse::fromMap($this->doRPCRequest('DescribeSslVpnServers', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSslVpnServersRequest $request
+     *
+     * @return DescribeSslVpnServersResponse
+     */
+    public function describeSslVpnServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSslVpnServersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVirtualBorderRoutersRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeVirtualBorderRoutersResponse
+     */
+    public function describeVirtualBorderRoutersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVirtualBorderRoutersResponse::fromMap($this->doRPCRequest('DescribeVirtualBorderRouters', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVirtualBorderRoutersRequest $request
+     *
+     * @return DescribeVirtualBorderRoutersResponse
+     */
+    public function describeVirtualBorderRouters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVirtualBorderRoutersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVirtualBorderRoutersForPhysicalConnectionRequest $request
+     * @param RuntimeOptions                                           $runtime
+     *
+     * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse
+     */
+    public function describeVirtualBorderRoutersForPhysicalConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVirtualBorderRoutersForPhysicalConnectionResponse::fromMap($this->doRPCRequest('DescribeVirtualBorderRoutersForPhysicalConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVirtualBorderRoutersForPhysicalConnectionRequest $request
+     *
+     * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse
+     */
+    public function describeVirtualBorderRoutersForPhysicalConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVirtualBorderRoutersForPhysicalConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpcAttributeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeVpcAttributeResponse
+     */
+    public function describeVpcAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVpcAttributeResponse::fromMap($this->doRPCRequest('DescribeVpcAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpcAttributeRequest $request
+     *
+     * @return DescribeVpcAttributeResponse
+     */
+    public function describeVpcAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpcsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeVpcsResponse
+     */
+    public function describeVpcsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVpcsResponse::fromMap($this->doRPCRequest('DescribeVpcs', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpcsRequest $request
+     *
+     * @return DescribeVpcsResponse
+     */
+    public function describeVpcs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpnConnectionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeVpnConnectionResponse
+     */
+    public function describeVpnConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVpnConnectionResponse::fromMap($this->doRPCRequest('DescribeVpnConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpnConnectionRequest $request
+     *
+     * @return DescribeVpnConnectionResponse
+     */
+    public function describeVpnConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpnConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpnConnectionsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeVpnConnectionsResponse
+     */
+    public function describeVpnConnectionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVpnConnectionsResponse::fromMap($this->doRPCRequest('DescribeVpnConnections', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpnConnectionsRequest $request
+     *
+     * @return DescribeVpnConnectionsResponse
+     */
+    public function describeVpnConnections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpnConnectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpnGatewayRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeVpnGatewayResponse
+     */
+    public function describeVpnGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVpnGatewayResponse::fromMap($this->doRPCRequest('DescribeVpnGateway', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpnGatewayRequest $request
+     *
+     * @return DescribeVpnGatewayResponse
+     */
+    public function describeVpnGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpnGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpnGatewaysRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeVpnGatewaysResponse
+     */
+    public function describeVpnGatewaysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVpnGatewaysResponse::fromMap($this->doRPCRequest('DescribeVpnGateways', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpnGatewaysRequest $request
+     *
+     * @return DescribeVpnGatewaysResponse
+     */
+    public function describeVpnGateways($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpnGatewaysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpnPbrRouteEntriesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeVpnPbrRouteEntriesResponse
+     */
+    public function describeVpnPbrRouteEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVpnPbrRouteEntriesResponse::fromMap($this->doRPCRequest('DescribeVpnPbrRouteEntries', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpnPbrRouteEntriesRequest $request
+     *
+     * @return DescribeVpnPbrRouteEntriesResponse
+     */
+    public function describeVpnPbrRouteEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpnPbrRouteEntriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpnRouteEntriesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeVpnRouteEntriesResponse
+     */
+    public function describeVpnRouteEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVpnRouteEntriesResponse::fromMap($this->doRPCRequest('DescribeVpnRouteEntries', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpnRouteEntriesRequest $request
+     *
+     * @return DescribeVpnRouteEntriesResponse
+     */
+    public function describeVpnRouteEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpnRouteEntriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpnSslServerLogsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeVpnSslServerLogsResponse
+     */
+    public function describeVpnSslServerLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVpnSslServerLogsResponse::fromMap($this->doRPCRequest('DescribeVpnSslServerLogs', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpnSslServerLogsRequest $request
+     *
+     * @return DescribeVpnSslServerLogsResponse
+     */
+    public function describeVpnSslServerLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpnSslServerLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVRoutersRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeVRoutersResponse
+     */
+    public function describeVRoutersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVRoutersResponse::fromMap($this->doRPCRequest('DescribeVRouters', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVRoutersRequest $request
+     *
+     * @return DescribeVRoutersResponse
+     */
+    public function describeVRouters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVRoutersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVSwitchAttributesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeVSwitchAttributesResponse
+     */
+    public function describeVSwitchAttributesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVSwitchAttributesResponse::fromMap($this->doRPCRequest('DescribeVSwitchAttributes', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVSwitchAttributesRequest $request
+     *
+     * @return DescribeVSwitchAttributesResponse
+     */
+    public function describeVSwitchAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVSwitchAttributesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVSwitchesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitchesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVSwitchesResponse::fromMap($this->doRPCRequest('DescribeVSwitches', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVSwitchesRequest $request
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVSwitchesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeZonesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeZonesResponse
+     */
+    public function describeZonesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeZonesResponse::fromMap($this->doRPCRequest('DescribeZones', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeZonesRequest $request
+     *
+     * @return DescribeZonesResponse
+     */
+    public function describeZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeZonesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachDhcpOptionsSetFromVpcRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DetachDhcpOptionsSetFromVpcResponse
+     */
+    public function detachDhcpOptionsSetFromVpcWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetachDhcpOptionsSetFromVpcResponse::fromMap($this->doRPCRequest('DetachDhcpOptionsSetFromVpc', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetachDhcpOptionsSetFromVpcRequest $request
+     *
+     * @return DetachDhcpOptionsSetFromVpcResponse
+     */
+    public function detachDhcpOptionsSetFromVpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachDhcpOptionsSetFromVpcWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DisableNatGatewayEcsMetricRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DisableNatGatewayEcsMetricResponse
+     */
+    public function disableNatGatewayEcsMetricWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DisableNatGatewayEcsMetricResponse::fromMap($this->doRPCRequest('DisableNatGatewayEcsMetric', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DisableNatGatewayEcsMetricRequest $request
+     *
+     * @return DisableNatGatewayEcsMetricResponse
+     */
+    public function disableNatGatewayEcsMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableNatGatewayEcsMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DisableVpcClassicLinkRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DisableVpcClassicLinkResponse
+     */
+    public function disableVpcClassicLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DisableVpcClassicLinkResponse::fromMap($this->doRPCRequest('DisableVpcClassicLink', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DisableVpcClassicLinkRequest $request
+     *
+     * @return DisableVpcClassicLinkResponse
+     */
+    public function disableVpcClassicLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableVpcClassicLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DissociateVpnGatewayWithCertificateRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DissociateVpnGatewayWithCertificateResponse
+     */
+    public function dissociateVpnGatewayWithCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DissociateVpnGatewayWithCertificateResponse::fromMap($this->doRPCRequest('DissociateVpnGatewayWithCertificate', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DissociateVpnGatewayWithCertificateRequest $request
+     *
+     * @return DissociateVpnGatewayWithCertificateResponse
+     */
+    public function dissociateVpnGatewayWithCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dissociateVpnGatewayWithCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DownloadVpnConnectionConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DownloadVpnConnectionConfigResponse
+     */
+    public function downloadVpnConnectionConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DownloadVpnConnectionConfigResponse::fromMap($this->doRPCRequest('DownloadVpnConnectionConfig', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DownloadVpnConnectionConfigRequest $request
+     *
+     * @return DownloadVpnConnectionConfigResponse
+     */
+    public function downloadVpnConnectionConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadVpnConnectionConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableNatGatewayEcsMetricRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableNatGatewayEcsMetricResponse
+     */
+    public function enableNatGatewayEcsMetricWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EnableNatGatewayEcsMetricResponse::fromMap($this->doRPCRequest('EnableNatGatewayEcsMetric', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EnableNatGatewayEcsMetricRequest $request
+     *
+     * @return EnableNatGatewayEcsMetricResponse
+     */
+    public function enableNatGatewayEcsMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableNatGatewayEcsMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnablePhysicalConnectionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return EnablePhysicalConnectionResponse
+     */
+    public function enablePhysicalConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EnablePhysicalConnectionResponse::fromMap($this->doRPCRequest('EnablePhysicalConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EnablePhysicalConnectionRequest $request
+     *
+     * @return EnablePhysicalConnectionResponse
+     */
+    public function enablePhysicalConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enablePhysicalConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableVpcClassicLinkRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return EnableVpcClassicLinkResponse
+     */
+    public function enableVpcClassicLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EnableVpcClassicLinkResponse::fromMap($this->doRPCRequest('EnableVpcClassicLink', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EnableVpcClassicLinkRequest $request
+     *
+     * @return EnableVpcClassicLinkResponse
+     */
+    public function enableVpcClassicLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableVpcClassicLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDhcpOptionsSetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetDhcpOptionsSetResponse
+     */
+    public function getDhcpOptionsSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDhcpOptionsSetResponse::fromMap($this->doRPCRequest('GetDhcpOptionsSet', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDhcpOptionsSetRequest $request
+     *
+     * @return GetDhcpOptionsSetResponse
+     */
+    public function getDhcpOptionsSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDhcpOptionsSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetNatGatewayAttributeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetNatGatewayAttributeResponse
+     */
+    public function getNatGatewayAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetNatGatewayAttributeResponse::fromMap($this->doRPCRequest('GetNatGatewayAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetNatGatewayAttributeRequest $request
+     *
+     * @return GetNatGatewayAttributeResponse
+     */
+    public function getNatGatewayAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNatGatewayAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetNatGatewayConvertStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetNatGatewayConvertStatusResponse
+     */
+    public function getNatGatewayConvertStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetNatGatewayConvertStatusResponse::fromMap($this->doRPCRequest('GetNatGatewayConvertStatus', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetNatGatewayConvertStatusRequest $request
+     *
+     * @return GetNatGatewayConvertStatusResponse
+     */
+    public function getNatGatewayConvertStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNatGatewayConvertStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GrantInstanceToCenRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GrantInstanceToCenResponse
+     */
+    public function grantInstanceToCenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GrantInstanceToCenResponse::fromMap($this->doRPCRequest('GrantInstanceToCen', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GrantInstanceToCenRequest $request
+     *
+     * @return GrantInstanceToCenResponse
+     */
+    public function grantInstanceToCen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantInstanceToCenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDhcpOptionsSetsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDhcpOptionsSetsResponse
+     */
+    public function listDhcpOptionsSetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDhcpOptionsSetsResponse::fromMap($this->doRPCRequest('ListDhcpOptionsSets', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDhcpOptionsSetsRequest $request
+     *
+     * @return ListDhcpOptionsSetsResponse
+     */
+    public function listDhcpOptionsSets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDhcpOptionsSetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListEnhanhcedNatGatewayAvailableZonesRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListEnhanhcedNatGatewayAvailableZonesResponse
+     */
+    public function listEnhanhcedNatGatewayAvailableZonesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListEnhanhcedNatGatewayAvailableZonesResponse::fromMap($this->doRPCRequest('ListEnhanhcedNatGatewayAvailableZones', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListEnhanhcedNatGatewayAvailableZonesRequest $request
+     *
+     * @return ListEnhanhcedNatGatewayAvailableZonesResponse
+     */
+    public function listEnhanhcedNatGatewayAvailableZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnhanhcedNatGatewayAvailableZonesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListIpsecServersRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListIpsecServersResponse
+     */
+    public function listIpsecServersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListIpsecServersResponse::fromMap($this->doRPCRequest('ListIpsecServers', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListIpsecServersRequest $request
+     *
+     * @return ListIpsecServersResponse
+     */
+    public function listIpsecServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIpsecServersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListNatGatewayEcsMetricRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListNatGatewayEcsMetricResponse
+     */
+    public function listNatGatewayEcsMetricWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListNatGatewayEcsMetricResponse::fromMap($this->doRPCRequest('ListNatGatewayEcsMetric', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListNatGatewayEcsMetricRequest $request
+     *
+     * @return ListNatGatewayEcsMetricResponse
+     */
+    public function listNatGatewayEcsMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNatGatewayEcsMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPhysicalConnectionFeaturesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListPhysicalConnectionFeaturesResponse
+     */
+    public function listPhysicalConnectionFeaturesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListPhysicalConnectionFeaturesResponse::fromMap($this->doRPCRequest('ListPhysicalConnectionFeatures', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListPhysicalConnectionFeaturesRequest $request
+     *
+     * @return ListPhysicalConnectionFeaturesResponse
+     */
+    public function listPhysicalConnectionFeatures($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPhysicalConnectionFeaturesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListVpnCertificateAssociationsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListVpnCertificateAssociationsResponse
+     */
+    public function listVpnCertificateAssociationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListVpnCertificateAssociationsResponse::fromMap($this->doRPCRequest('ListVpnCertificateAssociations', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListVpnCertificateAssociationsRequest $request
+     *
+     * @return ListVpnCertificateAssociationsResponse
+     */
+    public function listVpnCertificateAssociations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVpnCertificateAssociationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyBgpGroupAttributeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyBgpGroupAttributeResponse
+     */
+    public function modifyBgpGroupAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyBgpGroupAttributeResponse::fromMap($this->doRPCRequest('ModifyBgpGroupAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyBgpGroupAttributeRequest $request
+     *
+     * @return ModifyBgpGroupAttributeResponse
+     */
+    public function modifyBgpGroupAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBgpGroupAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyBgpPeerAttributeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyBgpPeerAttributeResponse
+     */
+    public function modifyBgpPeerAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyBgpPeerAttributeResponse::fromMap($this->doRPCRequest('ModifyBgpPeerAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyBgpPeerAttributeRequest $request
+     *
+     * @return ModifyBgpPeerAttributeResponse
+     */
+    public function modifyBgpPeerAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBgpPeerAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyCommonBandwidthPackageAttributeRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ModifyCommonBandwidthPackageAttributeResponse
+     */
+    public function modifyCommonBandwidthPackageAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyCommonBandwidthPackageAttributeResponse::fromMap($this->doRPCRequest('ModifyCommonBandwidthPackageAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCommonBandwidthPackageAttributeRequest $request
+     *
+     * @return ModifyCommonBandwidthPackageAttributeResponse
+     */
+    public function modifyCommonBandwidthPackageAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCommonBandwidthPackageAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyCommonBandwidthPackageInternetChargeTypeRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return ModifyCommonBandwidthPackageInternetChargeTypeResponse
+     */
+    public function modifyCommonBandwidthPackageInternetChargeTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyCommonBandwidthPackageInternetChargeTypeResponse::fromMap($this->doRPCRequest('ModifyCommonBandwidthPackageInternetChargeType', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCommonBandwidthPackageInternetChargeTypeRequest $request
+     *
+     * @return ModifyCommonBandwidthPackageInternetChargeTypeResponse
+     */
+    public function modifyCommonBandwidthPackageInternetChargeType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCommonBandwidthPackageInternetChargeTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyCommonBandwidthPackageIpBandwidthRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return ModifyCommonBandwidthPackageIpBandwidthResponse
+     */
+    public function modifyCommonBandwidthPackageIpBandwidthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyCommonBandwidthPackageIpBandwidthResponse::fromMap($this->doRPCRequest('ModifyCommonBandwidthPackageIpBandwidth', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCommonBandwidthPackageIpBandwidthRequest $request
+     *
+     * @return ModifyCommonBandwidthPackageIpBandwidthResponse
+     */
+    public function modifyCommonBandwidthPackageIpBandwidth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCommonBandwidthPackageIpBandwidthWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyCommonBandwidthPackagePayTypeRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModifyCommonBandwidthPackagePayTypeResponse
+     */
+    public function modifyCommonBandwidthPackagePayTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyCommonBandwidthPackagePayTypeResponse::fromMap($this->doRPCRequest('ModifyCommonBandwidthPackagePayType', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCommonBandwidthPackagePayTypeRequest $request
+     *
+     * @return ModifyCommonBandwidthPackagePayTypeResponse
+     */
+    public function modifyCommonBandwidthPackagePayType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCommonBandwidthPackagePayTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyCommonBandwidthPackageSpecRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyCommonBandwidthPackageSpecResponse
+     */
+    public function modifyCommonBandwidthPackageSpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyCommonBandwidthPackageSpecResponse::fromMap($this->doRPCRequest('ModifyCommonBandwidthPackageSpec', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCommonBandwidthPackageSpecRequest $request
+     *
+     * @return ModifyCommonBandwidthPackageSpecResponse
+     */
+    public function modifyCommonBandwidthPackageSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCommonBandwidthPackageSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyCustomerGatewayAttributeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyCustomerGatewayAttributeResponse
+     */
+    public function modifyCustomerGatewayAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyCustomerGatewayAttributeResponse::fromMap($this->doRPCRequest('ModifyCustomerGatewayAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCustomerGatewayAttributeRequest $request
+     *
+     * @return ModifyCustomerGatewayAttributeResponse
+     */
+    public function modifyCustomerGatewayAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCustomerGatewayAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyEipAddressAttributeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyEipAddressAttributeResponse
+     */
+    public function modifyEipAddressAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyEipAddressAttributeResponse::fromMap($this->doRPCRequest('ModifyEipAddressAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyEipAddressAttributeRequest $request
+     *
+     * @return ModifyEipAddressAttributeResponse
+     */
+    public function modifyEipAddressAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyEipAddressAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyExpressCloudConnectionAttributeRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ModifyExpressCloudConnectionAttributeResponse
+     */
+    public function modifyExpressCloudConnectionAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyExpressCloudConnectionAttributeResponse::fromMap($this->doRPCRequest('ModifyExpressCloudConnectionAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyExpressCloudConnectionAttributeRequest $request
+     *
+     * @return ModifyExpressCloudConnectionAttributeResponse
+     */
+    public function modifyExpressCloudConnectionAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyExpressCloudConnectionAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyExpressCloudConnectionBandwidthRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ModifyExpressCloudConnectionBandwidthResponse
+     */
+    public function modifyExpressCloudConnectionBandwidthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyExpressCloudConnectionBandwidthResponse::fromMap($this->doRPCRequest('ModifyExpressCloudConnectionBandwidth', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyExpressCloudConnectionBandwidthRequest $request
+     *
+     * @return ModifyExpressCloudConnectionBandwidthResponse
+     */
+    public function modifyExpressCloudConnectionBandwidth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyExpressCloudConnectionBandwidthWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyFlowLogAttributeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyFlowLogAttributeResponse
+     */
+    public function modifyFlowLogAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyFlowLogAttributeResponse::fromMap($this->doRPCRequest('ModifyFlowLogAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyFlowLogAttributeRequest $request
+     *
+     * @return ModifyFlowLogAttributeResponse
+     */
+    public function modifyFlowLogAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyFlowLogAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyForwardEntryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyForwardEntryResponse
+     */
+    public function modifyForwardEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyForwardEntryResponse::fromMap($this->doRPCRequest('ModifyForwardEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyForwardEntryRequest $request
+     *
+     * @return ModifyForwardEntryResponse
+     */
+    public function modifyForwardEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyForwardEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyGlobalAccelerationInstanceAttributesRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return ModifyGlobalAccelerationInstanceAttributesResponse
+     */
+    public function modifyGlobalAccelerationInstanceAttributesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyGlobalAccelerationInstanceAttributesResponse::fromMap($this->doRPCRequest('ModifyGlobalAccelerationInstanceAttributes', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyGlobalAccelerationInstanceAttributesRequest $request
+     *
+     * @return ModifyGlobalAccelerationInstanceAttributesResponse
+     */
+    public function modifyGlobalAccelerationInstanceAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGlobalAccelerationInstanceAttributesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyGlobalAccelerationInstanceSpecRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ModifyGlobalAccelerationInstanceSpecResponse
+     */
+    public function modifyGlobalAccelerationInstanceSpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyGlobalAccelerationInstanceSpecResponse::fromMap($this->doRPCRequest('ModifyGlobalAccelerationInstanceSpec', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyGlobalAccelerationInstanceSpecRequest $request
+     *
+     * @return ModifyGlobalAccelerationInstanceSpecResponse
+     */
+    public function modifyGlobalAccelerationInstanceSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGlobalAccelerationInstanceSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyHaVipAttributeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyHaVipAttributeResponse
+     */
+    public function modifyHaVipAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyHaVipAttributeResponse::fromMap($this->doRPCRequest('ModifyHaVipAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyHaVipAttributeRequest $request
+     *
+     * @return ModifyHaVipAttributeResponse
+     */
+    public function modifyHaVipAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHaVipAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyInstanceAutoRenewalAttributeRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModifyInstanceAutoRenewalAttributeResponse
+     */
+    public function modifyInstanceAutoRenewalAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->doRPCRequest('ModifyInstanceAutoRenewalAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceAutoRenewalAttributeRequest $request
+     *
+     * @return ModifyInstanceAutoRenewalAttributeResponse
+     */
+    public function modifyInstanceAutoRenewalAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceAutoRenewalAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyIpv6AddressAttributeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyIpv6AddressAttributeResponse
+     */
+    public function modifyIpv6AddressAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyIpv6AddressAttributeResponse::fromMap($this->doRPCRequest('ModifyIpv6AddressAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyIpv6AddressAttributeRequest $request
+     *
+     * @return ModifyIpv6AddressAttributeResponse
+     */
+    public function modifyIpv6AddressAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyIpv6AddressAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyIpv6GatewayAttributeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyIpv6GatewayAttributeResponse
+     */
+    public function modifyIpv6GatewayAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyIpv6GatewayAttributeResponse::fromMap($this->doRPCRequest('ModifyIpv6GatewayAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyIpv6GatewayAttributeRequest $request
+     *
+     * @return ModifyIpv6GatewayAttributeResponse
+     */
+    public function modifyIpv6GatewayAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyIpv6GatewayAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyIpv6GatewaySpecRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyIpv6GatewaySpecResponse
+     */
+    public function modifyIpv6GatewaySpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyIpv6GatewaySpecResponse::fromMap($this->doRPCRequest('ModifyIpv6GatewaySpec', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyIpv6GatewaySpecRequest $request
+     *
+     * @return ModifyIpv6GatewaySpecResponse
+     */
+    public function modifyIpv6GatewaySpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyIpv6GatewaySpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyIpv6InternetBandwidthRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyIpv6InternetBandwidthResponse
+     */
+    public function modifyIpv6InternetBandwidthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyIpv6InternetBandwidthResponse::fromMap($this->doRPCRequest('ModifyIpv6InternetBandwidth', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyIpv6InternetBandwidthRequest $request
+     *
+     * @return ModifyIpv6InternetBandwidthResponse
+     */
+    public function modifyIpv6InternetBandwidth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyIpv6InternetBandwidthWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyIPv6TranslatorAclAttributeRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyIPv6TranslatorAclAttributeResponse
+     */
+    public function modifyIPv6TranslatorAclAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyIPv6TranslatorAclAttributeResponse::fromMap($this->doRPCRequest('ModifyIPv6TranslatorAclAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyIPv6TranslatorAclAttributeRequest $request
+     *
+     * @return ModifyIPv6TranslatorAclAttributeResponse
+     */
+    public function modifyIPv6TranslatorAclAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyIPv6TranslatorAclAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyIPv6TranslatorAclListEntryRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyIPv6TranslatorAclListEntryResponse
+     */
+    public function modifyIPv6TranslatorAclListEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyIPv6TranslatorAclListEntryResponse::fromMap($this->doRPCRequest('ModifyIPv6TranslatorAclListEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyIPv6TranslatorAclListEntryRequest $request
+     *
+     * @return ModifyIPv6TranslatorAclListEntryResponse
+     */
+    public function modifyIPv6TranslatorAclListEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyIPv6TranslatorAclListEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyIPv6TranslatorAttributeRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2810,8 +6043,11 @@ class Vpc extends Rpc
     public function modifyIPv6TranslatorAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyIPv6TranslatorAttributeResponse::fromMap($this->doRequest('ModifyIPv6TranslatorAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifyIPv6TranslatorAttributeResponse::fromMap($this->doRPCRequest('ModifyIPv6TranslatorAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2835,8 +6071,11 @@ class Vpc extends Rpc
     public function modifyIPv6TranslatorBandwidthWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyIPv6TranslatorBandwidthResponse::fromMap($this->doRequest('ModifyIPv6TranslatorBandwidth', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifyIPv6TranslatorBandwidthResponse::fromMap($this->doRPCRequest('ModifyIPv6TranslatorBandwidth', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2852,56 +6091,6 @@ class Vpc extends Rpc
     }
 
     /**
-     * @param CreateIPv6TranslatorEntryRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateIPv6TranslatorEntryResponse
-     */
-    public function createIPv6TranslatorEntryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateIPv6TranslatorEntryResponse::fromMap($this->doRequest('CreateIPv6TranslatorEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateIPv6TranslatorEntryRequest $request
-     *
-     * @return CreateIPv6TranslatorEntryResponse
-     */
-    public function createIPv6TranslatorEntry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createIPv6TranslatorEntryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteIPv6TranslatorEntryRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DeleteIPv6TranslatorEntryResponse
-     */
-    public function deleteIPv6TranslatorEntryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteIPv6TranslatorEntryResponse::fromMap($this->doRequest('DeleteIPv6TranslatorEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteIPv6TranslatorEntryRequest $request
-     *
-     * @return DeleteIPv6TranslatorEntryResponse
-     */
-    public function deleteIPv6TranslatorEntry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteIPv6TranslatorEntryWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyIPv6TranslatorEntryRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2910,8 +6099,11 @@ class Vpc extends Rpc
     public function modifyIPv6TranslatorEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyIPv6TranslatorEntryResponse::fromMap($this->doRequest('ModifyIPv6TranslatorEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifyIPv6TranslatorEntryResponse::fromMap($this->doRPCRequest('ModifyIPv6TranslatorEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2927,2031 +6119,6 @@ class Vpc extends Rpc
     }
 
     /**
-     * @param DescribeIPv6TranslatorEntriesRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeIPv6TranslatorEntriesResponse
-     */
-    public function describeIPv6TranslatorEntriesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeIPv6TranslatorEntriesResponse::fromMap($this->doRequest('DescribeIPv6TranslatorEntries', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeIPv6TranslatorEntriesRequest $request
-     *
-     * @return DescribeIPv6TranslatorEntriesResponse
-     */
-    public function describeIPv6TranslatorEntries($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeIPv6TranslatorEntriesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteIPv6TranslatorRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteIPv6TranslatorResponse
-     */
-    public function deleteIPv6TranslatorWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteIPv6TranslatorResponse::fromMap($this->doRequest('DeleteIPv6Translator', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteIPv6TranslatorRequest $request
-     *
-     * @return DeleteIPv6TranslatorResponse
-     */
-    public function deleteIPv6Translator($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteIPv6TranslatorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AllocateEipAddressProRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return AllocateEipAddressProResponse
-     */
-    public function allocateEipAddressProWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AllocateEipAddressProResponse::fromMap($this->doRequest('AllocateEipAddressPro', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AllocateEipAddressProRequest $request
-     *
-     * @return AllocateEipAddressProResponse
-     */
-    public function allocateEipAddressPro($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->allocateEipAddressProWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeHighDefinitionMonitorLogAttributeRequest $request
-     * @param RuntimeOptions                                   $runtime
-     *
-     * @return DescribeHighDefinitionMonitorLogAttributeResponse
-     */
-    public function describeHighDefinitionMonitorLogAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeHighDefinitionMonitorLogAttributeResponse::fromMap($this->doRequest('DescribeHighDefinitionMonitorLogAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeHighDefinitionMonitorLogAttributeRequest $request
-     *
-     * @return DescribeHighDefinitionMonitorLogAttributeResponse
-     */
-    public function describeHighDefinitionMonitorLogAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeHighDefinitionMonitorLogAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyFlowLogAttributeRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyFlowLogAttributeResponse
-     */
-    public function modifyFlowLogAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyFlowLogAttributeResponse::fromMap($this->doRequest('ModifyFlowLogAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyFlowLogAttributeRequest $request
-     *
-     * @return ModifyFlowLogAttributeResponse
-     */
-    public function modifyFlowLogAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyFlowLogAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeFlowLogsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeFlowLogsResponse
-     */
-    public function describeFlowLogsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeFlowLogsResponse::fromMap($this->doRequest('DescribeFlowLogs', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeFlowLogsRequest $request
-     *
-     * @return DescribeFlowLogsResponse
-     */
-    public function describeFlowLogs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeFlowLogsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteFlowLogRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteFlowLogResponse
-     */
-    public function deleteFlowLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteFlowLogResponse::fromMap($this->doRequest('DeleteFlowLog', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteFlowLogRequest $request
-     *
-     * @return DeleteFlowLogResponse
-     */
-    public function deleteFlowLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteFlowLogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeactiveFlowLogRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeactiveFlowLogResponse
-     */
-    public function deactiveFlowLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeactiveFlowLogResponse::fromMap($this->doRequest('DeactiveFlowLog', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeactiveFlowLogRequest $request
-     *
-     * @return DeactiveFlowLogResponse
-     */
-    public function deactiveFlowLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deactiveFlowLogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateFlowLogRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateFlowLogResponse
-     */
-    public function createFlowLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateFlowLogResponse::fromMap($this->doRequest('CreateFlowLog', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateFlowLogRequest $request
-     *
-     * @return CreateFlowLogResponse
-     */
-    public function createFlowLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createFlowLogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ActiveFlowLogRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ActiveFlowLogResponse
-     */
-    public function activeFlowLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ActiveFlowLogResponse::fromMap($this->doRequest('ActiveFlowLog', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ActiveFlowLogRequest $request
-     *
-     * @return ActiveFlowLogResponse
-     */
-    public function activeFlowLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->activeFlowLogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnassociateRouteTableRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UnassociateRouteTableResponse
-     */
-    public function unassociateRouteTableWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UnassociateRouteTableResponse::fromMap($this->doRequest('UnassociateRouteTable', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param UnassociateRouteTableRequest $request
-     *
-     * @return UnassociateRouteTableResponse
-     */
-    public function unassociateRouteTable($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unassociateRouteTableWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteRouteTableRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteRouteTableResponse
-     */
-    public function deleteRouteTableWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteRouteTableResponse::fromMap($this->doRequest('DeleteRouteTable', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteRouteTableRequest $request
-     *
-     * @return DeleteRouteTableResponse
-     */
-    public function deleteRouteTable($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteRouteTableWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateRouteTableRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateRouteTableResponse
-     */
-    public function createRouteTableWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateRouteTableResponse::fromMap($this->doRequest('CreateRouteTable', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateRouteTableRequest $request
-     *
-     * @return CreateRouteTableResponse
-     */
-    public function createRouteTable($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRouteTableWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssociateRouteTableRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return AssociateRouteTableResponse
-     */
-    public function associateRouteTableWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AssociateRouteTableResponse::fromMap($this->doRequest('AssociateRouteTable', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AssociateRouteTableRequest $request
-     *
-     * @return AssociateRouteTableResponse
-     */
-    public function associateRouteTable($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->associateRouteTableWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateVpnGatewayRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateVpnGatewayResponse
-     */
-    public function createVpnGatewayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateVpnGatewayResponse::fromMap($this->doRequest('CreateVpnGateway', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateVpnGatewayRequest $request
-     *
-     * @return CreateVpnGatewayResponse
-     */
-    public function createVpnGateway($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVpnGatewayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param MoveResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return MoveResourceGroupResponse
-     */
-    public function moveResourceGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return MoveResourceGroupResponse::fromMap($this->doRequest('MoveResourceGroup', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param MoveResourceGroupRequest $request
-     *
-     * @return MoveResourceGroupResponse
-     */
-    public function moveResourceGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->moveResourceGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RevokeInstanceFromCenRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RevokeInstanceFromCenResponse
-     */
-    public function revokeInstanceFromCenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RevokeInstanceFromCenResponse::fromMap($this->doRequest('RevokeInstanceFromCen', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param RevokeInstanceFromCenRequest $request
-     *
-     * @return RevokeInstanceFromCenResponse
-     */
-    public function revokeInstanceFromCen($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->revokeInstanceFromCenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GrantInstanceToCenRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GrantInstanceToCenResponse
-     */
-    public function grantInstanceToCenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GrantInstanceToCenResponse::fromMap($this->doRequest('GrantInstanceToCen', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param GrantInstanceToCenRequest $request
-     *
-     * @return GrantInstanceToCenResponse
-     */
-    public function grantInstanceToCen($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->grantInstanceToCenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeGrantRulesToCenRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeGrantRulesToCenResponse
-     */
-    public function describeGrantRulesToCenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeGrantRulesToCenResponse::fromMap($this->doRequest('DescribeGrantRulesToCen', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeGrantRulesToCenRequest $request
-     *
-     * @return DescribeGrantRulesToCenResponse
-     */
-    public function describeGrantRulesToCen($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeGrantRulesToCenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifySslVpnServerRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifySslVpnServerResponse
-     */
-    public function modifySslVpnServerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifySslVpnServerResponse::fromMap($this->doRequest('ModifySslVpnServer', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifySslVpnServerRequest $request
-     *
-     * @return ModifySslVpnServerResponse
-     */
-    public function modifySslVpnServer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifySslVpnServerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifySslVpnClientCertRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifySslVpnClientCertResponse
-     */
-    public function modifySslVpnClientCertWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifySslVpnClientCertResponse::fromMap($this->doRequest('ModifySslVpnClientCert', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifySslVpnClientCertRequest $request
-     *
-     * @return ModifySslVpnClientCertResponse
-     */
-    public function modifySslVpnClientCert($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifySslVpnClientCertWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSslVpnServersRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeSslVpnServersResponse
-     */
-    public function describeSslVpnServersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeSslVpnServersResponse::fromMap($this->doRequest('DescribeSslVpnServers', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeSslVpnServersRequest $request
-     *
-     * @return DescribeSslVpnServersResponse
-     */
-    public function describeSslVpnServers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSslVpnServersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSslVpnClientCertsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeSslVpnClientCertsResponse
-     */
-    public function describeSslVpnClientCertsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeSslVpnClientCertsResponse::fromMap($this->doRequest('DescribeSslVpnClientCerts', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeSslVpnClientCertsRequest $request
-     *
-     * @return DescribeSslVpnClientCertsResponse
-     */
-    public function describeSslVpnClientCerts($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSslVpnClientCertsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSslVpnClientCertRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeSslVpnClientCertResponse
-     */
-    public function describeSslVpnClientCertWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeSslVpnClientCertResponse::fromMap($this->doRequest('DescribeSslVpnClientCert', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeSslVpnClientCertRequest $request
-     *
-     * @return DescribeSslVpnClientCertResponse
-     */
-    public function describeSslVpnClientCert($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSslVpnClientCertWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteSslVpnServerRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteSslVpnServerResponse
-     */
-    public function deleteSslVpnServerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteSslVpnServerResponse::fromMap($this->doRequest('DeleteSslVpnServer', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteSslVpnServerRequest $request
-     *
-     * @return DeleteSslVpnServerResponse
-     */
-    public function deleteSslVpnServer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSslVpnServerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteSslVpnClientCertRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteSslVpnClientCertResponse
-     */
-    public function deleteSslVpnClientCertWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteSslVpnClientCertResponse::fromMap($this->doRequest('DeleteSslVpnClientCert', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteSslVpnClientCertRequest $request
-     *
-     * @return DeleteSslVpnClientCertResponse
-     */
-    public function deleteSslVpnClientCert($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSslVpnClientCertWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSslVpnServerRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateSslVpnServerResponse
-     */
-    public function createSslVpnServerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateSslVpnServerResponse::fromMap($this->doRequest('CreateSslVpnServer', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateSslVpnServerRequest $request
-     *
-     * @return CreateSslVpnServerResponse
-     */
-    public function createSslVpnServer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSslVpnServerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSslVpnClientCertRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateSslVpnClientCertResponse
-     */
-    public function createSslVpnClientCertWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateSslVpnClientCertResponse::fromMap($this->doRequest('CreateSslVpnClientCert', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateSslVpnClientCertRequest $request
-     *
-     * @return CreateSslVpnClientCertResponse
-     */
-    public function createSslVpnClientCert($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSslVpnClientCertWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveGlobalAccelerationInstanceIpRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return RemoveGlobalAccelerationInstanceIpResponse
-     */
-    public function removeGlobalAccelerationInstanceIpWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RemoveGlobalAccelerationInstanceIpResponse::fromMap($this->doRequest('RemoveGlobalAccelerationInstanceIp', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param RemoveGlobalAccelerationInstanceIpRequest $request
-     *
-     * @return RemoveGlobalAccelerationInstanceIpResponse
-     */
-    public function removeGlobalAccelerationInstanceIp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeGlobalAccelerationInstanceIpWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddGlobalAccelerationInstanceIpRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return AddGlobalAccelerationInstanceIpResponse
-     */
-    public function addGlobalAccelerationInstanceIpWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AddGlobalAccelerationInstanceIpResponse::fromMap($this->doRequest('AddGlobalAccelerationInstanceIp', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AddGlobalAccelerationInstanceIpRequest $request
-     *
-     * @return AddGlobalAccelerationInstanceIpResponse
-     */
-    public function addGlobalAccelerationInstanceIp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addGlobalAccelerationInstanceIpWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRouteTableListRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeRouteTableListResponse
-     */
-    public function describeRouteTableListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeRouteTableListResponse::fromMap($this->doRequest('DescribeRouteTableList', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeRouteTableListRequest $request
-     *
-     * @return DescribeRouteTableListResponse
-     */
-    public function describeRouteTableList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRouteTableListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyRouteTableAttributesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyRouteTableAttributesResponse
-     */
-    public function modifyRouteTableAttributesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyRouteTableAttributesResponse::fromMap($this->doRequest('ModifyRouteTableAttributes', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyRouteTableAttributesRequest $request
-     *
-     * @return ModifyRouteTableAttributesResponse
-     */
-    public function modifyRouteTableAttributes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyRouteTableAttributesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeBgpNetworksRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeBgpNetworksResponse
-     */
-    public function describeBgpNetworksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeBgpNetworksResponse::fromMap($this->doRequest('DescribeBgpNetworks', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeBgpNetworksRequest $request
-     *
-     * @return DescribeBgpNetworksResponse
-     */
-    public function describeBgpNetworks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBgpNetworksWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyCommonBandwidthPackagePayTypeRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return ModifyCommonBandwidthPackagePayTypeResponse
-     */
-    public function modifyCommonBandwidthPackagePayTypeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyCommonBandwidthPackagePayTypeResponse::fromMap($this->doRequest('ModifyCommonBandwidthPackagePayType', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyCommonBandwidthPackagePayTypeRequest $request
-     *
-     * @return ModifyCommonBandwidthPackagePayTypeResponse
-     */
-    public function modifyCommonBandwidthPackagePayType($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyCommonBandwidthPackagePayTypeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnassociateGlobalAccelerationInstanceRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return UnassociateGlobalAccelerationInstanceResponse
-     */
-    public function unassociateGlobalAccelerationInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UnassociateGlobalAccelerationInstanceResponse::fromMap($this->doRequest('UnassociateGlobalAccelerationInstance', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param UnassociateGlobalAccelerationInstanceRequest $request
-     *
-     * @return UnassociateGlobalAccelerationInstanceResponse
-     */
-    public function unassociateGlobalAccelerationInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unassociateGlobalAccelerationInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyGlobalAccelerationInstanceSpecRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return ModifyGlobalAccelerationInstanceSpecResponse
-     */
-    public function modifyGlobalAccelerationInstanceSpecWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyGlobalAccelerationInstanceSpecResponse::fromMap($this->doRequest('ModifyGlobalAccelerationInstanceSpec', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyGlobalAccelerationInstanceSpecRequest $request
-     *
-     * @return ModifyGlobalAccelerationInstanceSpecResponse
-     */
-    public function modifyGlobalAccelerationInstanceSpec($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyGlobalAccelerationInstanceSpecWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyGlobalAccelerationInstanceAttributesRequest $request
-     * @param RuntimeOptions                                    $runtime
-     *
-     * @return ModifyGlobalAccelerationInstanceAttributesResponse
-     */
-    public function modifyGlobalAccelerationInstanceAttributesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyGlobalAccelerationInstanceAttributesResponse::fromMap($this->doRequest('ModifyGlobalAccelerationInstanceAttributes', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyGlobalAccelerationInstanceAttributesRequest $request
-     *
-     * @return ModifyGlobalAccelerationInstanceAttributesResponse
-     */
-    public function modifyGlobalAccelerationInstanceAttributes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyGlobalAccelerationInstanceAttributesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeServerRelatedGlobalAccelerationInstancesRequest $request
-     * @param RuntimeOptions                                          $runtime
-     *
-     * @return DescribeServerRelatedGlobalAccelerationInstancesResponse
-     */
-    public function describeServerRelatedGlobalAccelerationInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeServerRelatedGlobalAccelerationInstancesResponse::fromMap($this->doRequest('DescribeServerRelatedGlobalAccelerationInstances', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeServerRelatedGlobalAccelerationInstancesRequest $request
-     *
-     * @return DescribeServerRelatedGlobalAccelerationInstancesResponse
-     */
-    public function describeServerRelatedGlobalAccelerationInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeServerRelatedGlobalAccelerationInstancesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeGlobalAccelerationInstancesRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeGlobalAccelerationInstancesResponse
-     */
-    public function describeGlobalAccelerationInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeGlobalAccelerationInstancesResponse::fromMap($this->doRequest('DescribeGlobalAccelerationInstances', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeGlobalAccelerationInstancesRequest $request
-     *
-     * @return DescribeGlobalAccelerationInstancesResponse
-     */
-    public function describeGlobalAccelerationInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeGlobalAccelerationInstancesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteGlobalAccelerationInstanceRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DeleteGlobalAccelerationInstanceResponse
-     */
-    public function deleteGlobalAccelerationInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteGlobalAccelerationInstanceResponse::fromMap($this->doRequest('DeleteGlobalAccelerationInstance', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteGlobalAccelerationInstanceRequest $request
-     *
-     * @return DeleteGlobalAccelerationInstanceResponse
-     */
-    public function deleteGlobalAccelerationInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteGlobalAccelerationInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateGlobalAccelerationInstanceRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return CreateGlobalAccelerationInstanceResponse
-     */
-    public function createGlobalAccelerationInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateGlobalAccelerationInstanceResponse::fromMap($this->doRequest('CreateGlobalAccelerationInstance', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateGlobalAccelerationInstanceRequest $request
-     *
-     * @return CreateGlobalAccelerationInstanceResponse
-     */
-    public function createGlobalAccelerationInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createGlobalAccelerationInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssociateGlobalAccelerationInstanceRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return AssociateGlobalAccelerationInstanceResponse
-     */
-    public function associateGlobalAccelerationInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AssociateGlobalAccelerationInstanceResponse::fromMap($this->doRequest('AssociateGlobalAccelerationInstance', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AssociateGlobalAccelerationInstanceRequest $request
-     *
-     * @return AssociateGlobalAccelerationInstanceResponse
-     */
-    public function associateGlobalAccelerationInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->associateGlobalAccelerationInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVSwitchAttributesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeVSwitchAttributesResponse
-     */
-    public function describeVSwitchAttributesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVSwitchAttributesResponse::fromMap($this->doRequest('DescribeVSwitchAttributes', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVSwitchAttributesRequest $request
-     *
-     * @return DescribeVSwitchAttributesResponse
-     */
-    public function describeVSwitchAttributes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVSwitchAttributesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveCommonBandwidthPackageIpRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return RemoveCommonBandwidthPackageIpResponse
-     */
-    public function removeCommonBandwidthPackageIpWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RemoveCommonBandwidthPackageIpResponse::fromMap($this->doRequest('RemoveCommonBandwidthPackageIp', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param RemoveCommonBandwidthPackageIpRequest $request
-     *
-     * @return RemoveCommonBandwidthPackageIpResponse
-     */
-    public function removeCommonBandwidthPackageIp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeCommonBandwidthPackageIpWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyCommonBandwidthPackageSpecRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ModifyCommonBandwidthPackageSpecResponse
-     */
-    public function modifyCommonBandwidthPackageSpecWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyCommonBandwidthPackageSpecResponse::fromMap($this->doRequest('ModifyCommonBandwidthPackageSpec', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyCommonBandwidthPackageSpecRequest $request
-     *
-     * @return ModifyCommonBandwidthPackageSpecResponse
-     */
-    public function modifyCommonBandwidthPackageSpec($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyCommonBandwidthPackageSpecWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyCommonBandwidthPackageAttributeRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return ModifyCommonBandwidthPackageAttributeResponse
-     */
-    public function modifyCommonBandwidthPackageAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyCommonBandwidthPackageAttributeResponse::fromMap($this->doRequest('ModifyCommonBandwidthPackageAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyCommonBandwidthPackageAttributeRequest $request
-     *
-     * @return ModifyCommonBandwidthPackageAttributeResponse
-     */
-    public function modifyCommonBandwidthPackageAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyCommonBandwidthPackageAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeCommonBandwidthPackagesRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeCommonBandwidthPackagesResponse
-     */
-    public function describeCommonBandwidthPackagesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeCommonBandwidthPackagesResponse::fromMap($this->doRequest('DescribeCommonBandwidthPackages', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeCommonBandwidthPackagesRequest $request
-     *
-     * @return DescribeCommonBandwidthPackagesResponse
-     */
-    public function describeCommonBandwidthPackages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCommonBandwidthPackagesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteCommonBandwidthPackageRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DeleteCommonBandwidthPackageResponse
-     */
-    public function deleteCommonBandwidthPackageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteCommonBandwidthPackageResponse::fromMap($this->doRequest('DeleteCommonBandwidthPackage', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteCommonBandwidthPackageRequest $request
-     *
-     * @return DeleteCommonBandwidthPackageResponse
-     */
-    public function deleteCommonBandwidthPackage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteCommonBandwidthPackageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateCommonBandwidthPackageRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return CreateCommonBandwidthPackageResponse
-     */
-    public function createCommonBandwidthPackageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateCommonBandwidthPackageResponse::fromMap($this->doRequest('CreateCommonBandwidthPackage', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateCommonBandwidthPackageRequest $request
-     *
-     * @return CreateCommonBandwidthPackageResponse
-     */
-    public function createCommonBandwidthPackage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createCommonBandwidthPackageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddCommonBandwidthPackageIpRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return AddCommonBandwidthPackageIpResponse
-     */
-    public function addCommonBandwidthPackageIpWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AddCommonBandwidthPackageIpResponse::fromMap($this->doRequest('AddCommonBandwidthPackageIp', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AddCommonBandwidthPackageIpRequest $request
-     *
-     * @return AddCommonBandwidthPackageIpResponse
-     */
-    public function addCommonBandwidthPackageIp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addCommonBandwidthPackageIpWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyVpnGatewayAttributeRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyVpnGatewayAttributeResponse
-     */
-    public function modifyVpnGatewayAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyVpnGatewayAttributeResponse::fromMap($this->doRequest('ModifyVpnGatewayAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyVpnGatewayAttributeRequest $request
-     *
-     * @return ModifyVpnGatewayAttributeResponse
-     */
-    public function modifyVpnGatewayAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyVpnGatewayAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyVpnConnectionAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ModifyVpnConnectionAttributeResponse
-     */
-    public function modifyVpnConnectionAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyVpnConnectionAttributeResponse::fromMap($this->doRequest('ModifyVpnConnectionAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyVpnConnectionAttributeRequest $request
-     *
-     * @return ModifyVpnConnectionAttributeResponse
-     */
-    public function modifyVpnConnectionAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyVpnConnectionAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyCustomerGatewayAttributeRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return ModifyCustomerGatewayAttributeResponse
-     */
-    public function modifyCustomerGatewayAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyCustomerGatewayAttributeResponse::fromMap($this->doRequest('ModifyCustomerGatewayAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyCustomerGatewayAttributeRequest $request
-     *
-     * @return ModifyCustomerGatewayAttributeResponse
-     */
-    public function modifyCustomerGatewayAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyCustomerGatewayAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DownloadVpnConnectionConfigRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DownloadVpnConnectionConfigResponse
-     */
-    public function downloadVpnConnectionConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DownloadVpnConnectionConfigResponse::fromMap($this->doRequest('DownloadVpnConnectionConfig', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DownloadVpnConnectionConfigRequest $request
-     *
-     * @return DownloadVpnConnectionConfigResponse
-     */
-    public function downloadVpnConnectionConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->downloadVpnConnectionConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVpnGatewaysRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeVpnGatewaysResponse
-     */
-    public function describeVpnGatewaysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVpnGatewaysResponse::fromMap($this->doRequest('DescribeVpnGateways', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVpnGatewaysRequest $request
-     *
-     * @return DescribeVpnGatewaysResponse
-     */
-    public function describeVpnGateways($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVpnGatewaysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVpnGatewayRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeVpnGatewayResponse
-     */
-    public function describeVpnGatewayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVpnGatewayResponse::fromMap($this->doRequest('DescribeVpnGateway', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVpnGatewayRequest $request
-     *
-     * @return DescribeVpnGatewayResponse
-     */
-    public function describeVpnGateway($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVpnGatewayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVpnConnectionsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeVpnConnectionsResponse
-     */
-    public function describeVpnConnectionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVpnConnectionsResponse::fromMap($this->doRequest('DescribeVpnConnections', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVpnConnectionsRequest $request
-     *
-     * @return DescribeVpnConnectionsResponse
-     */
-    public function describeVpnConnections($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVpnConnectionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVpnConnectionRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeVpnConnectionResponse
-     */
-    public function describeVpnConnectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVpnConnectionResponse::fromMap($this->doRequest('DescribeVpnConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVpnConnectionRequest $request
-     *
-     * @return DescribeVpnConnectionResponse
-     */
-    public function describeVpnConnection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVpnConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeCustomerGatewaysRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeCustomerGatewaysResponse
-     */
-    public function describeCustomerGatewaysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeCustomerGatewaysResponse::fromMap($this->doRequest('DescribeCustomerGateways', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeCustomerGatewaysRequest $request
-     *
-     * @return DescribeCustomerGatewaysResponse
-     */
-    public function describeCustomerGateways($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCustomerGatewaysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeCustomerGatewayRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeCustomerGatewayResponse
-     */
-    public function describeCustomerGatewayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeCustomerGatewayResponse::fromMap($this->doRequest('DescribeCustomerGateway', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeCustomerGatewayRequest $request
-     *
-     * @return DescribeCustomerGatewayResponse
-     */
-    public function describeCustomerGateway($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCustomerGatewayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteVpnGatewayRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteVpnGatewayResponse
-     */
-    public function deleteVpnGatewayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteVpnGatewayResponse::fromMap($this->doRequest('DeleteVpnGateway', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteVpnGatewayRequest $request
-     *
-     * @return DeleteVpnGatewayResponse
-     */
-    public function deleteVpnGateway($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteVpnGatewayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteVpnConnectionRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteVpnConnectionResponse
-     */
-    public function deleteVpnConnectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteVpnConnectionResponse::fromMap($this->doRequest('DeleteVpnConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteVpnConnectionRequest $request
-     *
-     * @return DeleteVpnConnectionResponse
-     */
-    public function deleteVpnConnection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteVpnConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteCustomerGatewayRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteCustomerGatewayResponse
-     */
-    public function deleteCustomerGatewayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteCustomerGatewayResponse::fromMap($this->doRequest('DeleteCustomerGateway', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteCustomerGatewayRequest $request
-     *
-     * @return DeleteCustomerGatewayResponse
-     */
-    public function deleteCustomerGateway($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteCustomerGatewayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateVpnConnectionRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateVpnConnectionResponse
-     */
-    public function createVpnConnectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateVpnConnectionResponse::fromMap($this->doRequest('CreateVpnConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateVpnConnectionRequest $request
-     *
-     * @return CreateVpnConnectionResponse
-     */
-    public function createVpnConnection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVpnConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateCustomerGatewayRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateCustomerGatewayResponse
-     */
-    public function createCustomerGatewayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateCustomerGatewayResponse::fromMap($this->doRequest('CreateCustomerGateway', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateCustomerGatewayRequest $request
-     *
-     * @return CreateCustomerGatewayResponse
-     */
-    public function createCustomerGateway($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createCustomerGatewayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyBgpGroupAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyBgpGroupAttributeResponse
-     */
-    public function modifyBgpGroupAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyBgpGroupAttributeResponse::fromMap($this->doRequest('ModifyBgpGroupAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyBgpGroupAttributeRequest $request
-     *
-     * @return ModifyBgpGroupAttributeResponse
-     */
-    public function modifyBgpGroupAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyBgpGroupAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeBgpPeersRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeBgpPeersResponse
-     */
-    public function describeBgpPeersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeBgpPeersResponse::fromMap($this->doRequest('DescribeBgpPeers', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeBgpPeersRequest $request
-     *
-     * @return DescribeBgpPeersResponse
-     */
-    public function describeBgpPeers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBgpPeersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeBgpGroupsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeBgpGroupsResponse
-     */
-    public function describeBgpGroupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeBgpGroupsResponse::fromMap($this->doRequest('DescribeBgpGroups', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeBgpGroupsRequest $request
-     *
-     * @return DescribeBgpGroupsResponse
-     */
-    public function describeBgpGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBgpGroupsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteBgpPeerRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteBgpPeerResponse
-     */
-    public function deleteBgpPeerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteBgpPeerResponse::fromMap($this->doRequest('DeleteBgpPeer', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteBgpPeerRequest $request
-     *
-     * @return DeleteBgpPeerResponse
-     */
-    public function deleteBgpPeer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteBgpPeerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteBgpNetworkRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteBgpNetworkResponse
-     */
-    public function deleteBgpNetworkWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteBgpNetworkResponse::fromMap($this->doRequest('DeleteBgpNetwork', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteBgpNetworkRequest $request
-     *
-     * @return DeleteBgpNetworkResponse
-     */
-    public function deleteBgpNetwork($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteBgpNetworkWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteBgpGroupRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteBgpGroupResponse
-     */
-    public function deleteBgpGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteBgpGroupResponse::fromMap($this->doRequest('DeleteBgpGroup', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteBgpGroupRequest $request
-     *
-     * @return DeleteBgpGroupResponse
-     */
-    public function deleteBgpGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteBgpGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateBgpPeerRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateBgpPeerResponse
-     */
-    public function createBgpPeerWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateBgpPeerResponse::fromMap($this->doRequest('CreateBgpPeer', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateBgpPeerRequest $request
-     *
-     * @return CreateBgpPeerResponse
-     */
-    public function createBgpPeer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createBgpPeerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateBgpGroupRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateBgpGroupResponse
-     */
-    public function createBgpGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateBgpGroupResponse::fromMap($this->doRequest('CreateBgpGroup', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateBgpGroupRequest $request
-     *
-     * @return CreateBgpGroupResponse
-     */
-    public function createBgpGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createBgpGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddBgpNetworkRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return AddBgpNetworkResponse
-     */
-    public function addBgpNetworkWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AddBgpNetworkResponse::fromMap($this->doRequest('AddBgpNetwork', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AddBgpNetworkRequest $request
-     *
-     * @return AddBgpNetworkResponse
-     */
-    public function addBgpNetwork($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addBgpNetworkWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EnableVpcClassicLinkRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return EnableVpcClassicLinkResponse
-     */
-    public function enableVpcClassicLinkWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return EnableVpcClassicLinkResponse::fromMap($this->doRequest('EnableVpcClassicLink', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param EnableVpcClassicLinkRequest $request
-     *
-     * @return EnableVpcClassicLinkResponse
-     */
-    public function enableVpcClassicLink($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->enableVpcClassicLinkWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DisableVpcClassicLinkRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DisableVpcClassicLinkResponse
-     */
-    public function disableVpcClassicLinkWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DisableVpcClassicLinkResponse::fromMap($this->doRequest('DisableVpcClassicLink', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DisableVpcClassicLinkRequest $request
-     *
-     * @return DisableVpcClassicLinkResponse
-     */
-    public function disableVpcClassicLink($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->disableVpcClassicLinkWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVpcAttributeRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeVpcAttributeResponse
-     */
-    public function describeVpcAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVpcAttributeResponse::fromMap($this->doRequest('DescribeVpcAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVpcAttributeRequest $request
-     *
-     * @return DescribeVpcAttributeResponse
-     */
-    public function describeVpcAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVpcAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnassociatePhysicalConnectionFromVirtualBorderRouterRequest $request
-     * @param RuntimeOptions                                              $runtime
-     *
-     * @return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
-     */
-    public function unassociatePhysicalConnectionFromVirtualBorderRouterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse::fromMap($this->doRequest('UnassociatePhysicalConnectionFromVirtualBorderRouter', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param UnassociatePhysicalConnectionFromVirtualBorderRouterRequest $request
-     *
-     * @return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
-     */
-    public function unassociatePhysicalConnectionFromVirtualBorderRouter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unassociatePhysicalConnectionFromVirtualBorderRouterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssociatePhysicalConnectionToVirtualBorderRouterRequest $request
-     * @param RuntimeOptions                                          $runtime
-     *
-     * @return AssociatePhysicalConnectionToVirtualBorderRouterResponse
-     */
-    public function associatePhysicalConnectionToVirtualBorderRouterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AssociatePhysicalConnectionToVirtualBorderRouterResponse::fromMap($this->doRequest('AssociatePhysicalConnectionToVirtualBorderRouter', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AssociatePhysicalConnectionToVirtualBorderRouterRequest $request
-     *
-     * @return AssociatePhysicalConnectionToVirtualBorderRouterResponse
-     */
-    public function associatePhysicalConnectionToVirtualBorderRouter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->associatePhysicalConnectionToVirtualBorderRouterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifySnatEntryRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ModifySnatEntryResponse
-     */
-    public function modifySnatEntryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifySnatEntryResponse::fromMap($this->doRequest('ModifySnatEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifySnatEntryRequest $request
-     *
-     * @return ModifySnatEntryResponse
-     */
-    public function modifySnatEntry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifySnatEntryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyNatGatewaySpecRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyNatGatewaySpecResponse
-     */
-    public function modifyNatGatewaySpecWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyNatGatewaySpecResponse::fromMap($this->doRequest('ModifyNatGatewaySpec', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyNatGatewaySpecRequest $request
-     *
-     * @return ModifyNatGatewaySpecResponse
-     */
-    public function modifyNatGatewaySpec($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyNatGatewaySpecWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyNatGatewayAttributeRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -4960,8 +6127,11 @@ class Vpc extends Rpc
     public function modifyNatGatewayAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyNatGatewayAttributeResponse::fromMap($this->doRequest('ModifyNatGatewayAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifyNatGatewayAttributeResponse::fromMap($this->doRPCRequest('ModifyNatGatewayAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4977,428 +6147,87 @@ class Vpc extends Rpc
     }
 
     /**
-     * @param ModifyBandwidthPackageAttributeRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param ModifyNatGatewaySpecRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return ModifyBandwidthPackageAttributeResponse
+     * @return ModifyNatGatewaySpecResponse
      */
-    public function modifyBandwidthPackageAttributeWithOptions($request, $runtime)
+    public function modifyNatGatewaySpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyBandwidthPackageAttributeResponse::fromMap($this->doRequest('ModifyBandwidthPackageAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifyNatGatewaySpecResponse::fromMap($this->doRPCRequest('ModifyNatGatewaySpec', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyBandwidthPackageAttributeRequest $request
+     * @param ModifyNatGatewaySpecRequest $request
      *
-     * @return ModifyBandwidthPackageAttributeResponse
+     * @return ModifyNatGatewaySpecResponse
      */
-    public function modifyBandwidthPackageAttribute($request)
+    public function modifyNatGatewaySpec($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyBandwidthPackageAttributeWithOptions($request, $runtime);
+        return $this->modifyNatGatewaySpecWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeSnatTableEntriesRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeSnatTableEntriesResponse
-     */
-    public function describeSnatTableEntriesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeSnatTableEntriesResponse::fromMap($this->doRequest('DescribeSnatTableEntries', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeSnatTableEntriesRequest $request
-     *
-     * @return DescribeSnatTableEntriesResponse
-     */
-    public function describeSnatTableEntries($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSnatTableEntriesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteSnatEntryRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteSnatEntryResponse
-     */
-    public function deleteSnatEntryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteSnatEntryResponse::fromMap($this->doRequest('DeleteSnatEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteSnatEntryRequest $request
-     *
-     * @return DeleteSnatEntryResponse
-     */
-    public function deleteSnatEntry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSnatEntryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSnatEntryRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateSnatEntryResponse
-     */
-    public function createSnatEntryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateSnatEntryResponse::fromMap($this->doRequest('CreateSnatEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateSnatEntryRequest $request
-     *
-     * @return CreateSnatEntryResponse
-     */
-    public function createSnatEntry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSnatEntryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateBandwidthPackageRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateBandwidthPackageResponse
-     */
-    public function createBandwidthPackageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateBandwidthPackageResponse::fromMap($this->doRequest('CreateBandwidthPackage', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateBandwidthPackageRequest $request
-     *
-     * @return CreateBandwidthPackageResponse
-     */
-    public function createBandwidthPackage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createBandwidthPackageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnassociateHaVipRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UnassociateHaVipResponse
-     */
-    public function unassociateHaVipWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UnassociateHaVipResponse::fromMap($this->doRequest('UnassociateHaVip', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param UnassociateHaVipRequest $request
-     *
-     * @return UnassociateHaVipResponse
-     */
-    public function unassociateHaVip($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unassociateHaVipWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnassociateEipAddressRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UnassociateEipAddressResponse
-     */
-    public function unassociateEipAddressWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UnassociateEipAddressResponse::fromMap($this->doRequest('UnassociateEipAddress', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param UnassociateEipAddressRequest $request
-     *
-     * @return UnassociateEipAddressResponse
-     */
-    public function unassociateEipAddress($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unassociateEipAddressWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TerminateVirtualBorderRouterRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return TerminateVirtualBorderRouterResponse
-     */
-    public function terminateVirtualBorderRouterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return TerminateVirtualBorderRouterResponse::fromMap($this->doRequest('TerminateVirtualBorderRouter', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param TerminateVirtualBorderRouterRequest $request
-     *
-     * @return TerminateVirtualBorderRouterResponse
-     */
-    public function terminateVirtualBorderRouter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->terminateVirtualBorderRouterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TerminatePhysicalConnectionRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return TerminatePhysicalConnectionResponse
-     */
-    public function terminatePhysicalConnectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return TerminatePhysicalConnectionResponse::fromMap($this->doRequest('TerminatePhysicalConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param TerminatePhysicalConnectionRequest $request
-     *
-     * @return TerminatePhysicalConnectionResponse
-     */
-    public function terminatePhysicalConnection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->terminatePhysicalConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveBandwidthPackageIpsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return RemoveBandwidthPackageIpsResponse
-     */
-    public function removeBandwidthPackageIpsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RemoveBandwidthPackageIpsResponse::fromMap($this->doRequest('RemoveBandwidthPackageIps', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param RemoveBandwidthPackageIpsRequest $request
-     *
-     * @return RemoveBandwidthPackageIpsResponse
-     */
-    public function removeBandwidthPackageIps($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeBandwidthPackageIpsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ReleaseEipAddressRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ReleaseEipAddressResponse
-     */
-    public function releaseEipAddressWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ReleaseEipAddressResponse::fromMap($this->doRequest('ReleaseEipAddress', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ReleaseEipAddressRequest $request
-     *
-     * @return ReleaseEipAddressResponse
-     */
-    public function releaseEipAddress($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->releaseEipAddressWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecoverVirtualBorderRouterRequest $request
+     * @param ModifyNetworkAclAttributesRequest $request
      * @param RuntimeOptions                    $runtime
      *
-     * @return RecoverVirtualBorderRouterResponse
+     * @return ModifyNetworkAclAttributesResponse
      */
-    public function recoverVirtualBorderRouterWithOptions($request, $runtime)
+    public function modifyNetworkAclAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return RecoverVirtualBorderRouterResponse::fromMap($this->doRequest('RecoverVirtualBorderRouter', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifyNetworkAclAttributesResponse::fromMap($this->doRPCRequest('ModifyNetworkAclAttributes', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RecoverVirtualBorderRouterRequest $request
+     * @param ModifyNetworkAclAttributesRequest $request
      *
-     * @return RecoverVirtualBorderRouterResponse
+     * @return ModifyNetworkAclAttributesResponse
      */
-    public function recoverVirtualBorderRouter($request)
+    public function modifyNetworkAclAttributes($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->recoverVirtualBorderRouterWithOptions($request, $runtime);
+        return $this->modifyNetworkAclAttributesWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyVSwitchAttributeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ModifyRouteEntryRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return ModifyVSwitchAttributeResponse
+     * @return ModifyRouteEntryResponse
      */
-    public function modifyVSwitchAttributeWithOptions($request, $runtime)
+    public function modifyRouteEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyVSwitchAttributeResponse::fromMap($this->doRequest('ModifyVSwitchAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifyRouteEntryResponse::fromMap($this->doRPCRequest('ModifyRouteEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyVSwitchAttributeRequest $request
+     * @param ModifyRouteEntryRequest $request
      *
-     * @return ModifyVSwitchAttributeResponse
+     * @return ModifyRouteEntryResponse
      */
-    public function modifyVSwitchAttribute($request)
+    public function modifyRouteEntry($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyVSwitchAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyVRouterAttributeRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyVRouterAttributeResponse
-     */
-    public function modifyVRouterAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyVRouterAttributeResponse::fromMap($this->doRequest('ModifyVRouterAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyVRouterAttributeRequest $request
-     *
-     * @return ModifyVRouterAttributeResponse
-     */
-    public function modifyVRouterAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyVRouterAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyVpcAttributeRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyVpcAttributeResponse
-     */
-    public function modifyVpcAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyVpcAttributeResponse::fromMap($this->doRequest('ModifyVpcAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyVpcAttributeRequest $request
-     *
-     * @return ModifyVpcAttributeResponse
-     */
-    public function modifyVpcAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyVpcAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyVirtualBorderRouterAttributeRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return ModifyVirtualBorderRouterAttributeResponse
-     */
-    public function modifyVirtualBorderRouterAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyVirtualBorderRouterAttributeResponse::fromMap($this->doRequest('ModifyVirtualBorderRouterAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyVirtualBorderRouterAttributeRequest $request
-     *
-     * @return ModifyVirtualBorderRouterAttributeResponse
-     */
-    public function modifyVirtualBorderRouterAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyVirtualBorderRouterAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyRouterInterfaceSpecRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyRouterInterfaceSpecResponse
-     */
-    public function modifyRouterInterfaceSpecWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyRouterInterfaceSpecResponse::fromMap($this->doRequest('ModifyRouterInterfaceSpec', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyRouterInterfaceSpecRequest $request
-     *
-     * @return ModifyRouterInterfaceSpecResponse
-     */
-    public function modifyRouterInterfaceSpec($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyRouterInterfaceSpecWithOptions($request, $runtime);
+        return $this->modifyRouteEntryWithOptions($request, $runtime);
     }
 
     /**
@@ -5410,8 +6239,11 @@ class Vpc extends Rpc
     public function modifyRouterInterfaceAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyRouterInterfaceAttributeResponse::fromMap($this->doRequest('ModifyRouterInterfaceAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifyRouterInterfaceAttributeResponse::fromMap($this->doRPCRequest('ModifyRouterInterfaceAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5427,1312 +6259,1122 @@ class Vpc extends Rpc
     }
 
     /**
-     * @param ModifyPhysicalConnectionAttributeRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ModifyPhysicalConnectionAttributeResponse
-     */
-    public function modifyPhysicalConnectionAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyPhysicalConnectionAttributeResponse::fromMap($this->doRequest('ModifyPhysicalConnectionAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyPhysicalConnectionAttributeRequest $request
-     *
-     * @return ModifyPhysicalConnectionAttributeResponse
-     */
-    public function modifyPhysicalConnectionAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyPhysicalConnectionAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyHaVipAttributeRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyHaVipAttributeResponse
-     */
-    public function modifyHaVipAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyHaVipAttributeResponse::fromMap($this->doRequest('ModifyHaVipAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyHaVipAttributeRequest $request
-     *
-     * @return ModifyHaVipAttributeResponse
-     */
-    public function modifyHaVipAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyHaVipAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyForwardEntryRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyForwardEntryResponse
-     */
-    public function modifyForwardEntryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ModifyForwardEntryResponse::fromMap($this->doRequest('ModifyForwardEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ModifyForwardEntryRequest $request
-     *
-     * @return ModifyForwardEntryResponse
-     */
-    public function modifyForwardEntry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyForwardEntryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyEipAddressAttributeRequest $request
+     * @param ModifyRouterInterfaceSpecRequest $request
      * @param RuntimeOptions                   $runtime
      *
-     * @return ModifyEipAddressAttributeResponse
+     * @return ModifyRouterInterfaceSpecResponse
      */
-    public function modifyEipAddressAttributeWithOptions($request, $runtime)
+    public function modifyRouterInterfaceSpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyEipAddressAttributeResponse::fromMap($this->doRequest('ModifyEipAddressAttribute', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifyRouterInterfaceSpecResponse::fromMap($this->doRPCRequest('ModifyRouterInterfaceSpec', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyEipAddressAttributeRequest $request
+     * @param ModifyRouterInterfaceSpecRequest $request
      *
-     * @return ModifyEipAddressAttributeResponse
+     * @return ModifyRouterInterfaceSpecResponse
      */
-    public function modifyEipAddressAttribute($request)
+    public function modifyRouterInterfaceSpec($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyEipAddressAttributeWithOptions($request, $runtime);
+        return $this->modifyRouterInterfaceSpecWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyBandwidthPackageSpecRequest $request
+     * @param ModifyRouteTableAttributesRequest $request
      * @param RuntimeOptions                    $runtime
      *
-     * @return ModifyBandwidthPackageSpecResponse
+     * @return ModifyRouteTableAttributesResponse
      */
-    public function modifyBandwidthPackageSpecWithOptions($request, $runtime)
+    public function modifyRouteTableAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ModifyBandwidthPackageSpecResponse::fromMap($this->doRequest('ModifyBandwidthPackageSpec', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifyRouteTableAttributesResponse::fromMap($this->doRPCRequest('ModifyRouteTableAttributes', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyBandwidthPackageSpecRequest $request
+     * @param ModifyRouteTableAttributesRequest $request
      *
-     * @return ModifyBandwidthPackageSpecResponse
+     * @return ModifyRouteTableAttributesResponse
      */
-    public function modifyBandwidthPackageSpec($request)
+    public function modifyRouteTableAttributes($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyBandwidthPackageSpecWithOptions($request, $runtime);
+        return $this->modifyRouteTableAttributesWithOptions($request, $runtime);
     }
 
     /**
-     * @param EnablePhysicalConnectionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return EnablePhysicalConnectionResponse
-     */
-    public function enablePhysicalConnectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return EnablePhysicalConnectionResponse::fromMap($this->doRequest('EnablePhysicalConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param EnablePhysicalConnectionRequest $request
-     *
-     * @return EnablePhysicalConnectionResponse
-     */
-    public function enablePhysicalConnection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->enablePhysicalConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeZonesResponse
-     */
-    public function describeZonesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeZonesResponse::fromMap($this->doRequest('DescribeZones', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeZonesRequest $request
-     *
-     * @return DescribeZonesResponse
-     */
-    public function describeZones($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeZonesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVSwitchesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeVSwitchesResponse
-     */
-    public function describeVSwitchesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVSwitchesResponse::fromMap($this->doRequest('DescribeVSwitches', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVSwitchesRequest $request
-     *
-     * @return DescribeVSwitchesResponse
-     */
-    public function describeVSwitches($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVSwitchesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVRoutersRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeVRoutersResponse
-     */
-    public function describeVRoutersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVRoutersResponse::fromMap($this->doRequest('DescribeVRouters', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVRoutersRequest $request
-     *
-     * @return DescribeVRoutersResponse
-     */
-    public function describeVRouters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVRoutersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVpcsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeVpcsResponse
-     */
-    public function describeVpcsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVpcsResponse::fromMap($this->doRequest('DescribeVpcs', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVpcsRequest $request
-     *
-     * @return DescribeVpcsResponse
-     */
-    public function describeVpcs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVpcsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVirtualBorderRoutersForPhysicalConnectionRequest $request
-     * @param RuntimeOptions                                           $runtime
-     *
-     * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse
-     */
-    public function describeVirtualBorderRoutersForPhysicalConnectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVirtualBorderRoutersForPhysicalConnectionResponse::fromMap($this->doRequest('DescribeVirtualBorderRoutersForPhysicalConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVirtualBorderRoutersForPhysicalConnectionRequest $request
-     *
-     * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse
-     */
-    public function describeVirtualBorderRoutersForPhysicalConnection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVirtualBorderRoutersForPhysicalConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVirtualBorderRoutersRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeVirtualBorderRoutersResponse
-     */
-    public function describeVirtualBorderRoutersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeVirtualBorderRoutersResponse::fromMap($this->doRequest('DescribeVirtualBorderRouters', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeVirtualBorderRoutersRequest $request
-     *
-     * @return DescribeVirtualBorderRoutersResponse
-     */
-    public function describeVirtualBorderRouters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVirtualBorderRoutersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRouteTablesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeRouteTablesResponse
-     */
-    public function describeRouteTablesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeRouteTablesResponse::fromMap($this->doRequest('DescribeRouteTables', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeRouteTablesRequest $request
-     *
-     * @return DescribeRouteTablesResponse
-     */
-    public function describeRouteTables($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRouteTablesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRouterInterfacesRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeRouterInterfacesResponse
-     */
-    public function describeRouterInterfacesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeRouterInterfacesResponse::fromMap($this->doRequest('DescribeRouterInterfaces', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeRouterInterfacesRequest $request
-     *
-     * @return DescribeRouterInterfacesResponse
-     */
-    public function describeRouterInterfaces($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRouterInterfacesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRegionsRequest $request
+     * @param ModifySnatEntryRequest $request
      * @param RuntimeOptions         $runtime
      *
-     * @return DescribeRegionsResponse
+     * @return ModifySnatEntryResponse
      */
-    public function describeRegionsWithOptions($request, $runtime)
+    public function modifySnatEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRequest('DescribeRegions', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifySnatEntryResponse::fromMap($this->doRPCRequest('ModifySnatEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @param ModifySnatEntryRequest $request
      *
-     * @return DescribeRegionsResponse
+     * @return ModifySnatEntryResponse
      */
-    public function describeRegions($request)
+    public function modifySnatEntry($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRegionsWithOptions($request, $runtime);
+        return $this->modifySnatEntryWithOptions($request, $runtime);
     }
 
     /**
-     * DescribePhysicalConnections Query physical connections in a region.
-     *   * request demo:   * https://vpc.aliyuncs.com/?Action=DescribePhysicalConnections
-     *   * &RegionId=cn-hangzhou
-     *   * &<CommonParameters>
-     *   * description:.
+     * @param ModifySslVpnClientCertRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @param DescribePhysicalConnectionsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribePhysicalConnectionsResponse
+     * @return ModifySslVpnClientCertResponse
      */
-    public function describePhysicalConnectionsWithOptions($request, $runtime)
+    public function modifySslVpnClientCertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribePhysicalConnectionsResponse::fromMap($this->doRequest('DescribePhysicalConnections', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ModifySslVpnClientCertResponse::fromMap($this->doRPCRequest('ModifySslVpnClientCert', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * DescribePhysicalConnections Query physical connections in a region.
-     *   * request demo:   * https://vpc.aliyuncs.com/?Action=DescribePhysicalConnections
-     *   * &RegionId=cn-hangzhou
-     *   * &<CommonParameters>
-     *   * description:.
+     * @param ModifySslVpnClientCertRequest $request
      *
-     * @param DescribePhysicalConnectionsRequest $request
-     *
-     * @return DescribePhysicalConnectionsResponse
+     * @return ModifySslVpnClientCertResponse
      */
-    public function describePhysicalConnections($request)
+    public function modifySslVpnClientCert($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describePhysicalConnectionsWithOptions($request, $runtime);
+        return $this->modifySslVpnClientCertWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeNewProjectEipMonitorDataRequest $request
+     * @param ModifySslVpnServerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifySslVpnServerResponse
+     */
+    public function modifySslVpnServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifySslVpnServerResponse::fromMap($this->doRPCRequest('ModifySslVpnServer', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifySslVpnServerRequest $request
+     *
+     * @return ModifySslVpnServerResponse
+     */
+    public function modifySslVpnServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySslVpnServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVirtualBorderRouterAttributeRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModifyVirtualBorderRouterAttributeResponse
+     */
+    public function modifyVirtualBorderRouterAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyVirtualBorderRouterAttributeResponse::fromMap($this->doRPCRequest('ModifyVirtualBorderRouterAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVirtualBorderRouterAttributeRequest $request
+     *
+     * @return ModifyVirtualBorderRouterAttributeResponse
+     */
+    public function modifyVirtualBorderRouterAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVirtualBorderRouterAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVpcAttributeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyVpcAttributeResponse
+     */
+    public function modifyVpcAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyVpcAttributeResponse::fromMap($this->doRPCRequest('ModifyVpcAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpcAttributeRequest $request
+     *
+     * @return ModifyVpcAttributeResponse
+     */
+    public function modifyVpcAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpcAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVpnConnectionAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyVpnConnectionAttributeResponse
+     */
+    public function modifyVpnConnectionAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyVpnConnectionAttributeResponse::fromMap($this->doRPCRequest('ModifyVpnConnectionAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpnConnectionAttributeRequest $request
+     *
+     * @return ModifyVpnConnectionAttributeResponse
+     */
+    public function modifyVpnConnectionAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpnConnectionAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVpnGatewayAttributeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyVpnGatewayAttributeResponse
+     */
+    public function modifyVpnGatewayAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyVpnGatewayAttributeResponse::fromMap($this->doRPCRequest('ModifyVpnGatewayAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpnGatewayAttributeRequest $request
+     *
+     * @return ModifyVpnGatewayAttributeResponse
+     */
+    public function modifyVpnGatewayAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpnGatewayAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVpnPbrRouteEntryWeightRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyVpnPbrRouteEntryWeightResponse
+     */
+    public function modifyVpnPbrRouteEntryWeightWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyVpnPbrRouteEntryWeightResponse::fromMap($this->doRPCRequest('ModifyVpnPbrRouteEntryWeight', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpnPbrRouteEntryWeightRequest $request
+     *
+     * @return ModifyVpnPbrRouteEntryWeightResponse
+     */
+    public function modifyVpnPbrRouteEntryWeight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpnPbrRouteEntryWeightWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVpnRouteEntryWeightRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyVpnRouteEntryWeightResponse
+     */
+    public function modifyVpnRouteEntryWeightWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyVpnRouteEntryWeightResponse::fromMap($this->doRPCRequest('ModifyVpnRouteEntryWeight', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpnRouteEntryWeightRequest $request
+     *
+     * @return ModifyVpnRouteEntryWeightResponse
+     */
+    public function modifyVpnRouteEntryWeight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpnRouteEntryWeightWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVRouterAttributeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyVRouterAttributeResponse
+     */
+    public function modifyVRouterAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyVRouterAttributeResponse::fromMap($this->doRPCRequest('ModifyVRouterAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVRouterAttributeRequest $request
+     *
+     * @return ModifyVRouterAttributeResponse
+     */
+    public function modifyVRouterAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVRouterAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVSwitchAttributeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyVSwitchAttributeResponse
+     */
+    public function modifyVSwitchAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyVSwitchAttributeResponse::fromMap($this->doRPCRequest('ModifyVSwitchAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVSwitchAttributeRequest $request
+     *
+     * @return ModifyVSwitchAttributeResponse
+     */
+    public function modifyVSwitchAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVSwitchAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return MoveResourceGroupResponse::fromMap($this->doRPCRequest('MoveResourceGroup', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublishVpnRouteEntryRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PublishVpnRouteEntryResponse
+     */
+    public function publishVpnRouteEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PublishVpnRouteEntryResponse::fromMap($this->doRPCRequest('PublishVpnRouteEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PublishVpnRouteEntryRequest $request
+     *
+     * @return PublishVpnRouteEntryResponse
+     */
+    public function publishVpnRouteEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishVpnRouteEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecoverVirtualBorderRouterRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RecoverVirtualBorderRouterResponse
+     */
+    public function recoverVirtualBorderRouterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecoverVirtualBorderRouterResponse::fromMap($this->doRPCRequest('RecoverVirtualBorderRouter', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecoverVirtualBorderRouterRequest $request
+     *
+     * @return RecoverVirtualBorderRouterResponse
+     */
+    public function recoverVirtualBorderRouter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recoverVirtualBorderRouterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReleaseEipAddressRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ReleaseEipAddressResponse
+     */
+    public function releaseEipAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ReleaseEipAddressResponse::fromMap($this->doRPCRequest('ReleaseEipAddress', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseEipAddressRequest $request
+     *
+     * @return ReleaseEipAddressResponse
+     */
+    public function releaseEipAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseEipAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReleaseEipSegmentAddressRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ReleaseEipSegmentAddressResponse
+     */
+    public function releaseEipSegmentAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ReleaseEipSegmentAddressResponse::fromMap($this->doRPCRequest('ReleaseEipSegmentAddress', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseEipSegmentAddressRequest $request
+     *
+     * @return ReleaseEipSegmentAddressResponse
+     */
+    public function releaseEipSegmentAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseEipSegmentAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveCommonBandwidthPackageIpRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RemoveCommonBandwidthPackageIpResponse
+     */
+    public function removeCommonBandwidthPackageIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveCommonBandwidthPackageIpResponse::fromMap($this->doRPCRequest('RemoveCommonBandwidthPackageIp', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveCommonBandwidthPackageIpRequest $request
+     *
+     * @return RemoveCommonBandwidthPackageIpResponse
+     */
+    public function removeCommonBandwidthPackageIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeCommonBandwidthPackageIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveGlobalAccelerationInstanceIpRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return RemoveGlobalAccelerationInstanceIpResponse
+     */
+    public function removeGlobalAccelerationInstanceIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveGlobalAccelerationInstanceIpResponse::fromMap($this->doRPCRequest('RemoveGlobalAccelerationInstanceIp', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveGlobalAccelerationInstanceIpRequest $request
+     *
+     * @return RemoveGlobalAccelerationInstanceIpResponse
+     */
+    public function removeGlobalAccelerationInstanceIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeGlobalAccelerationInstanceIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveIPv6TranslatorAclListEntryRequest $request
      * @param RuntimeOptions                          $runtime
      *
-     * @return DescribeNewProjectEipMonitorDataResponse
+     * @return RemoveIPv6TranslatorAclListEntryResponse
      */
-    public function describeNewProjectEipMonitorDataWithOptions($request, $runtime)
+    public function removeIPv6TranslatorAclListEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeNewProjectEipMonitorDataResponse::fromMap($this->doRequest('DescribeNewProjectEipMonitorData', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return RemoveIPv6TranslatorAclListEntryResponse::fromMap($this->doRPCRequest('RemoveIPv6TranslatorAclListEntry', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeNewProjectEipMonitorDataRequest $request
+     * @param RemoveIPv6TranslatorAclListEntryRequest $request
      *
-     * @return DescribeNewProjectEipMonitorDataResponse
+     * @return RemoveIPv6TranslatorAclListEntryResponse
      */
-    public function describeNewProjectEipMonitorData($request)
+    public function removeIPv6TranslatorAclListEntry($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeNewProjectEipMonitorDataWithOptions($request, $runtime);
+        return $this->removeIPv6TranslatorAclListEntryWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeNatGatewaysRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param RenewInstanceRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return DescribeNatGatewaysResponse
+     * @return RenewInstanceResponse
      */
-    public function describeNatGatewaysWithOptions($request, $runtime)
+    public function renewInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeNatGatewaysResponse::fromMap($this->doRequest('DescribeNatGateways', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return RenewInstanceResponse::fromMap($this->doRPCRequest('RenewInstance', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeNatGatewaysRequest $request
+     * @param RenewInstanceRequest $request
      *
-     * @return DescribeNatGatewaysResponse
+     * @return RenewInstanceResponse
      */
-    public function describeNatGateways($request)
+    public function renewInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeNatGatewaysWithOptions($request, $runtime);
+        return $this->renewInstanceWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeHaVipsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ReplaceVpcDhcpOptionsSetRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return DescribeHaVipsResponse
+     * @return ReplaceVpcDhcpOptionsSetResponse
      */
-    public function describeHaVipsWithOptions($request, $runtime)
+    public function replaceVpcDhcpOptionsSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeHaVipsResponse::fromMap($this->doRequest('DescribeHaVips', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return ReplaceVpcDhcpOptionsSetResponse::fromMap($this->doRPCRequest('ReplaceVpcDhcpOptionsSet', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeHaVipsRequest $request
+     * @param ReplaceVpcDhcpOptionsSetRequest $request
      *
-     * @return DescribeHaVipsResponse
+     * @return ReplaceVpcDhcpOptionsSetResponse
      */
-    public function describeHaVips($request)
+    public function replaceVpcDhcpOptionsSet($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeHaVipsWithOptions($request, $runtime);
+        return $this->replaceVpcDhcpOptionsSetWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeForwardTableEntriesRequest $request
+     * @param RevokeInstanceFromCenRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RevokeInstanceFromCenResponse
+     */
+    public function revokeInstanceFromCenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RevokeInstanceFromCenResponse::fromMap($this->doRPCRequest('RevokeInstanceFromCen', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RevokeInstanceFromCenRequest $request
+     *
+     * @return RevokeInstanceFromCenResponse
+     */
+    public function revokeInstanceFromCen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeInstanceFromCenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TerminatePhysicalConnectionRequest $request
      * @param RuntimeOptions                     $runtime
      *
-     * @return DescribeForwardTableEntriesResponse
+     * @return TerminatePhysicalConnectionResponse
      */
-    public function describeForwardTableEntriesWithOptions($request, $runtime)
+    public function terminatePhysicalConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeForwardTableEntriesResponse::fromMap($this->doRequest('DescribeForwardTableEntries', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return TerminatePhysicalConnectionResponse::fromMap($this->doRPCRequest('TerminatePhysicalConnection', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeForwardTableEntriesRequest $request
+     * @param TerminatePhysicalConnectionRequest $request
      *
-     * @return DescribeForwardTableEntriesResponse
+     * @return TerminatePhysicalConnectionResponse
      */
-    public function describeForwardTableEntries($request)
+    public function terminatePhysicalConnection($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeForwardTableEntriesWithOptions($request, $runtime);
+        return $this->terminatePhysicalConnectionWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeEipMonitorDataRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param TerminateVirtualBorderRouterRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return DescribeEipMonitorDataResponse
+     * @return TerminateVirtualBorderRouterResponse
      */
-    public function describeEipMonitorDataWithOptions($request, $runtime)
+    public function terminateVirtualBorderRouterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DescribeEipMonitorDataResponse::fromMap($this->doRequest('DescribeEipMonitorData', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return TerminateVirtualBorderRouterResponse::fromMap($this->doRPCRequest('TerminateVirtualBorderRouter', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeEipMonitorDataRequest $request
+     * @param TerminateVirtualBorderRouterRequest $request
      *
-     * @return DescribeEipMonitorDataResponse
+     * @return TerminateVirtualBorderRouterResponse
      */
-    public function describeEipMonitorData($request)
+    public function terminateVirtualBorderRouter($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeEipMonitorDataWithOptions($request, $runtime);
+        return $this->terminateVirtualBorderRouterWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeEipAddressesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeEipAddressesResponse
-     */
-    public function describeEipAddressesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeEipAddressesResponse::fromMap($this->doRequest('DescribeEipAddresses', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeEipAddressesRequest $request
-     *
-     * @return DescribeEipAddressesResponse
-     */
-    public function describeEipAddresses($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeEipAddressesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeBandwidthPackagesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeBandwidthPackagesResponse
-     */
-    public function describeBandwidthPackagesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeBandwidthPackagesResponse::fromMap($this->doRequest('DescribeBandwidthPackages', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeBandwidthPackagesRequest $request
-     *
-     * @return DescribeBandwidthPackagesResponse
-     */
-    public function describeBandwidthPackages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBandwidthPackagesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAccessPointsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeAccessPointsResponse
-     */
-    public function describeAccessPointsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DescribeAccessPointsResponse::fromMap($this->doRequest('DescribeAccessPoints', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DescribeAccessPointsRequest $request
-     *
-     * @return DescribeAccessPointsResponse
-     */
-    public function describeAccessPoints($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAccessPointsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteVSwitchRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteVSwitchResponse
-     */
-    public function deleteVSwitchWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteVSwitchResponse::fromMap($this->doRequest('DeleteVSwitch', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteVSwitchRequest $request
-     *
-     * @return DeleteVSwitchResponse
-     */
-    public function deleteVSwitch($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteVSwitchWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteVpcRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return DeleteVpcResponse
-     */
-    public function deleteVpcWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteVpcResponse::fromMap($this->doRequest('DeleteVpc', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteVpcRequest $request
-     *
-     * @return DeleteVpcResponse
-     */
-    public function deleteVpc($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteVpcWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteVirtualBorderRouterRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DeleteVirtualBorderRouterResponse
-     */
-    public function deleteVirtualBorderRouterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteVirtualBorderRouterResponse::fromMap($this->doRequest('DeleteVirtualBorderRouter', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteVirtualBorderRouterRequest $request
-     *
-     * @return DeleteVirtualBorderRouterResponse
-     */
-    public function deleteVirtualBorderRouter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteVirtualBorderRouterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteRouterInterfaceRequest $request
+     * @param UnassociateEipAddressRequest $request
      * @param RuntimeOptions               $runtime
      *
-     * @return DeleteRouterInterfaceResponse
+     * @return UnassociateEipAddressResponse
      */
-    public function deleteRouterInterfaceWithOptions($request, $runtime)
+    public function unassociateEipAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteRouterInterfaceResponse::fromMap($this->doRequest('DeleteRouterInterface', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return UnassociateEipAddressResponse::fromMap($this->doRPCRequest('UnassociateEipAddress', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteRouterInterfaceRequest $request
+     * @param UnassociateEipAddressRequest $request
      *
-     * @return DeleteRouterInterfaceResponse
+     * @return UnassociateEipAddressResponse
      */
-    public function deleteRouterInterface($request)
+    public function unassociateEipAddress($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteRouterInterfaceWithOptions($request, $runtime);
+        return $this->unassociateEipAddressWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteRouteEntryRequest $request
+     * @param UnassociateGlobalAccelerationInstanceRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return UnassociateGlobalAccelerationInstanceResponse
+     */
+    public function unassociateGlobalAccelerationInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UnassociateGlobalAccelerationInstanceResponse::fromMap($this->doRPCRequest('UnassociateGlobalAccelerationInstance', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UnassociateGlobalAccelerationInstanceRequest $request
+     *
+     * @return UnassociateGlobalAccelerationInstanceResponse
+     */
+    public function unassociateGlobalAccelerationInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unassociateGlobalAccelerationInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnassociateHaVipRequest $request
      * @param RuntimeOptions          $runtime
      *
-     * @return DeleteRouteEntryResponse
+     * @return UnassociateHaVipResponse
      */
-    public function deleteRouteEntryWithOptions($request, $runtime)
+    public function unassociateHaVipWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteRouteEntryResponse::fromMap($this->doRequest('DeleteRouteEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return UnassociateHaVipResponse::fromMap($this->doRPCRequest('UnassociateHaVip', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteRouteEntryRequest $request
+     * @param UnassociateHaVipRequest $request
      *
-     * @return DeleteRouteEntryResponse
+     * @return UnassociateHaVipResponse
      */
-    public function deleteRouteEntry($request)
+    public function unassociateHaVip($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteRouteEntryWithOptions($request, $runtime);
+        return $this->unassociateHaVipWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeletePhysicalConnectionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DeletePhysicalConnectionResponse
-     */
-    public function deletePhysicalConnectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeletePhysicalConnectionResponse::fromMap($this->doRequest('DeletePhysicalConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeletePhysicalConnectionRequest $request
-     *
-     * @return DeletePhysicalConnectionResponse
-     */
-    public function deletePhysicalConnection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deletePhysicalConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteNatGatewayRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteNatGatewayResponse
-     */
-    public function deleteNatGatewayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteNatGatewayResponse::fromMap($this->doRequest('DeleteNatGateway', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteNatGatewayRequest $request
-     *
-     * @return DeleteNatGatewayResponse
-     */
-    public function deleteNatGateway($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteNatGatewayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteHaVipRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteHaVipResponse
-     */
-    public function deleteHaVipWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteHaVipResponse::fromMap($this->doRequest('DeleteHaVip', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteHaVipRequest $request
-     *
-     * @return DeleteHaVipResponse
-     */
-    public function deleteHaVip($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteHaVipWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteForwardEntryRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteForwardEntryResponse
-     */
-    public function deleteForwardEntryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteForwardEntryResponse::fromMap($this->doRequest('DeleteForwardEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteForwardEntryRequest $request
-     *
-     * @return DeleteForwardEntryResponse
-     */
-    public function deleteForwardEntry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteForwardEntryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteBandwidthPackageRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteBandwidthPackageResponse
-     */
-    public function deleteBandwidthPackageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteBandwidthPackageResponse::fromMap($this->doRequest('DeleteBandwidthPackage', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeleteBandwidthPackageRequest $request
-     *
-     * @return DeleteBandwidthPackageResponse
-     */
-    public function deleteBandwidthPackage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteBandwidthPackageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeactivateRouterInterfaceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DeactivateRouterInterfaceResponse
-     */
-    public function deactivateRouterInterfaceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeactivateRouterInterfaceResponse::fromMap($this->doRequest('DeactivateRouterInterface', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param DeactivateRouterInterfaceRequest $request
-     *
-     * @return DeactivateRouterInterfaceResponse
-     */
-    public function deactivateRouterInterface($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deactivateRouterInterfaceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateVSwitchRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateVSwitchResponse
-     */
-    public function createVSwitchWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateVSwitchResponse::fromMap($this->doRequest('CreateVSwitch', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateVSwitchRequest $request
-     *
-     * @return CreateVSwitchResponse
-     */
-    public function createVSwitch($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVSwitchWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateVpcRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return CreateVpcResponse
-     */
-    public function createVpcWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateVpcResponse::fromMap($this->doRequest('CreateVpc', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateVpcRequest $request
-     *
-     * @return CreateVpcResponse
-     */
-    public function createVpc($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVpcWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateVirtualBorderRouterRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateVirtualBorderRouterResponse
-     */
-    public function createVirtualBorderRouterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateVirtualBorderRouterResponse::fromMap($this->doRequest('CreateVirtualBorderRouter', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateVirtualBorderRouterRequest $request
-     *
-     * @return CreateVirtualBorderRouterResponse
-     */
-    public function createVirtualBorderRouter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVirtualBorderRouterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateRouterInterfaceRequest $request
+     * @param UnassociateNetworkAclRequest $request
      * @param RuntimeOptions               $runtime
      *
-     * @return CreateRouterInterfaceResponse
+     * @return UnassociateNetworkAclResponse
      */
-    public function createRouterInterfaceWithOptions($request, $runtime)
+    public function unassociateNetworkAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateRouterInterfaceResponse::fromMap($this->doRequest('CreateRouterInterface', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return UnassociateNetworkAclResponse::fromMap($this->doRPCRequest('UnassociateNetworkAcl', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateRouterInterfaceRequest $request
+     * @param UnassociateNetworkAclRequest $request
      *
-     * @return CreateRouterInterfaceResponse
+     * @return UnassociateNetworkAclResponse
      */
-    public function createRouterInterface($request)
+    public function unassociateNetworkAcl($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createRouterInterfaceWithOptions($request, $runtime);
+        return $this->unassociateNetworkAclWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateRouteEntryRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param UnassociatePhysicalConnectionFromVirtualBorderRouterRequest $request
+     * @param RuntimeOptions                                              $runtime
      *
-     * @return CreateRouteEntryResponse
+     * @return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
      */
-    public function createRouteEntryWithOptions($request, $runtime)
+    public function unassociatePhysicalConnectionFromVirtualBorderRouterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateRouteEntryResponse::fromMap($this->doRequest('CreateRouteEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse::fromMap($this->doRPCRequest('UnassociatePhysicalConnectionFromVirtualBorderRouter', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateRouteEntryRequest $request
+     * @param UnassociatePhysicalConnectionFromVirtualBorderRouterRequest $request
      *
-     * @return CreateRouteEntryResponse
+     * @return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
      */
-    public function createRouteEntry($request)
+    public function unassociatePhysicalConnectionFromVirtualBorderRouter($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createRouteEntryWithOptions($request, $runtime);
+        return $this->unassociatePhysicalConnectionFromVirtualBorderRouterWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreatePhysicalConnectionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param UnassociateRouteTableRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return CreatePhysicalConnectionResponse
+     * @return UnassociateRouteTableResponse
      */
-    public function createPhysicalConnectionWithOptions($request, $runtime)
+    public function unassociateRouteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreatePhysicalConnectionResponse::fromMap($this->doRequest('CreatePhysicalConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return UnassociateRouteTableResponse::fromMap($this->doRPCRequest('UnassociateRouteTable', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreatePhysicalConnectionRequest $request
+     * @param UnassociateRouteTableRequest $request
      *
-     * @return CreatePhysicalConnectionResponse
+     * @return UnassociateRouteTableResponse
      */
-    public function createPhysicalConnection($request)
+    public function unassociateRouteTable($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createPhysicalConnectionWithOptions($request, $runtime);
+        return $this->unassociateRouteTableWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateNatGatewayRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateNatGatewayResponse
-     */
-    public function createNatGatewayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateNatGatewayResponse::fromMap($this->doRequest('CreateNatGateway', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateNatGatewayRequest $request
-     *
-     * @return CreateNatGatewayResponse
-     */
-    public function createNatGateway($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createNatGatewayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateHaVipRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateHaVipResponse
-     */
-    public function createHaVipWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateHaVipResponse::fromMap($this->doRequest('CreateHaVip', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateHaVipRequest $request
-     *
-     * @return CreateHaVipResponse
-     */
-    public function createHaVip($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createHaVipWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateForwardEntryRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateForwardEntryResponse
-     */
-    public function createForwardEntryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateForwardEntryResponse::fromMap($this->doRequest('CreateForwardEntry', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CreateForwardEntryRequest $request
-     *
-     * @return CreateForwardEntryResponse
-     */
-    public function createForwardEntry($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createForwardEntryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ConnectRouterInterfaceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ConnectRouterInterfaceResponse
-     */
-    public function connectRouterInterfaceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ConnectRouterInterfaceResponse::fromMap($this->doRequest('ConnectRouterInterface', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ConnectRouterInterfaceRequest $request
-     *
-     * @return ConnectRouterInterfaceResponse
-     */
-    public function connectRouterInterface($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->connectRouterInterfaceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CancelPhysicalConnectionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CancelPhysicalConnectionResponse
-     */
-    public function cancelPhysicalConnectionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CancelPhysicalConnectionResponse::fromMap($this->doRequest('CancelPhysicalConnection', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param CancelPhysicalConnectionRequest $request
-     *
-     * @return CancelPhysicalConnectionResponse
-     */
-    public function cancelPhysicalConnection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cancelPhysicalConnectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssociateHaVipRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return AssociateHaVipResponse
-     */
-    public function associateHaVipWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AssociateHaVipResponse::fromMap($this->doRequest('AssociateHaVip', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AssociateHaVipRequest $request
-     *
-     * @return AssociateHaVipResponse
-     */
-    public function associateHaVip($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->associateHaVipWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssociateEipAddressRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return AssociateEipAddressResponse
-     */
-    public function associateEipAddressWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AssociateEipAddressResponse::fromMap($this->doRequest('AssociateEipAddress', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AssociateEipAddressRequest $request
-     *
-     * @return AssociateEipAddressResponse
-     */
-    public function associateEipAddress($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->associateEipAddressWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AllocateEipAddressRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return AllocateEipAddressResponse
-     */
-    public function allocateEipAddressWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AllocateEipAddressResponse::fromMap($this->doRequest('AllocateEipAddress', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AllocateEipAddressRequest $request
-     *
-     * @return AllocateEipAddressResponse
-     */
-    public function allocateEipAddress($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->allocateEipAddressWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddBandwidthPackageIpsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return AddBandwidthPackageIpsResponse
-     */
-    public function addBandwidthPackageIpsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AddBandwidthPackageIpsResponse::fromMap($this->doRequest('AddBandwidthPackageIps', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param AddBandwidthPackageIpsRequest $request
-     *
-     * @return AddBandwidthPackageIpsResponse
-     */
-    public function addBandwidthPackageIps($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addBandwidthPackageIpsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ActivateRouterInterfaceRequest $request
+     * @param UnassociateVpcCidrBlockRequest $request
      * @param RuntimeOptions                 $runtime
      *
-     * @return ActivateRouterInterfaceResponse
+     * @return UnassociateVpcCidrBlockResponse
      */
-    public function activateRouterInterfaceWithOptions($request, $runtime)
+    public function unassociateVpcCidrBlockWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ActivateRouterInterfaceResponse::fromMap($this->doRequest('ActivateRouterInterface', 'HTTPS', 'POST', '2016-04-28', 'AK', null, $request, $runtime));
+        return UnassociateVpcCidrBlockResponse::fromMap($this->doRPCRequest('UnassociateVpcCidrBlock', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ActivateRouterInterfaceRequest $request
+     * @param UnassociateVpcCidrBlockRequest $request
      *
-     * @return ActivateRouterInterfaceResponse
+     * @return UnassociateVpcCidrBlockResponse
      */
-    public function activateRouterInterface($request)
+    public function unassociateVpcCidrBlock($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->activateRouterInterfaceWithOptions($request, $runtime);
+        return $this->unassociateVpcCidrBlockWithOptions($request, $runtime);
     }
 
     /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
+     * @param UnTagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return string
+     * @return UnTagResourcesResponse
      */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    public function unTagResourcesWithOptions($request, $runtime)
     {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_($endpointMap['regionId'])) {
-            return $endpointMap['regionId'];
-        }
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return UnTagResourcesResponse::fromMap($this->doRPCRequest('UnTagResources', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UnTagResourcesRequest $request
+     *
+     * @return UnTagResourcesResponse
+     */
+    public function unTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDhcpOptionsSetAttributeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateDhcpOptionsSetAttributeResponse
+     */
+    public function updateDhcpOptionsSetAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDhcpOptionsSetAttributeResponse::fromMap($this->doRPCRequest('UpdateDhcpOptionsSetAttribute', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDhcpOptionsSetAttributeRequest $request
+     *
+     * @return UpdateDhcpOptionsSetAttributeResponse
+     */
+    public function updateDhcpOptionsSetAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDhcpOptionsSetAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateIpsecServerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateIpsecServerResponse
+     */
+    public function updateIpsecServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateIpsecServerResponse::fromMap($this->doRPCRequest('UpdateIpsecServer', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateIpsecServerRequest $request
+     *
+     * @return UpdateIpsecServerResponse
+     */
+    public function updateIpsecServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIpsecServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateNatGatewayNatTypeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateNatGatewayNatTypeResponse
+     */
+    public function updateNatGatewayNatTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateNatGatewayNatTypeResponse::fromMap($this->doRPCRequest('UpdateNatGatewayNatType', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateNatGatewayNatTypeRequest $request
+     *
+     * @return UpdateNatGatewayNatTypeResponse
+     */
+    public function updateNatGatewayNatType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNatGatewayNatTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateNetworkAclEntriesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateNetworkAclEntriesResponse
+     */
+    public function updateNetworkAclEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateNetworkAclEntriesResponse::fromMap($this->doRPCRequest('UpdateNetworkAclEntries', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateNetworkAclEntriesRequest $request
+     *
+     * @return UpdateNetworkAclEntriesResponse
+     */
+    public function updateNetworkAclEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNetworkAclEntriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateVirtualBorderBandwidthRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateVirtualBorderBandwidthResponse
+     */
+    public function updateVirtualBorderBandwidthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateVirtualBorderBandwidthResponse::fromMap($this->doRPCRequest('UpdateVirtualBorderBandwidth', '2016-04-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateVirtualBorderBandwidthRequest $request
+     *
+     * @return UpdateVirtualBorderBandwidthResponse
+     */
+    public function updateVirtualBorderBandwidth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVirtualBorderBandwidthWithOptions($request, $runtime);
     }
 }

@@ -4,69 +4,38 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIPv6TranslatorEntriesResponse\ipv6TranslatorEntries;
 use AlibabaCloud\Tea\Model;
 
 class DescribeIPv6TranslatorEntriesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeIPv6TranslatorEntriesResponseBody
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var ipv6TranslatorEntries
-     */
-    public $ipv6TranslatorEntries;
+    public $body;
     protected $_name = [
-        'requestId'             => 'RequestId',
-        'totalCount'            => 'TotalCount',
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
-        'ipv6TranslatorEntries' => 'Ipv6TranslatorEntries',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('totalCount', $this->totalCount, true);
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('ipv6TranslatorEntries', $this->ipv6TranslatorEntries, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->ipv6TranslatorEntries) {
-            $res['Ipv6TranslatorEntries'] = null !== $this->ipv6TranslatorEntries ? $this->ipv6TranslatorEntries->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -80,20 +49,11 @@ class DescribeIPv6TranslatorEntriesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Ipv6TranslatorEntries'])) {
-            $model->ipv6TranslatorEntries = ipv6TranslatorEntries::fromMap($map['Ipv6TranslatorEntries']);
+        if (isset($map['body'])) {
+            $model->body = DescribeIPv6TranslatorEntriesResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -11,31 +11,29 @@ class nextHopList extends Model
     /**
      * @var string
      */
-    public $nextHopType;
+    public $nextHopId;
 
     /**
      * @var string
      */
-    public $nextHopId;
+    public $nextHopType;
     protected $_name = [
-        'nextHopType' => 'NextHopType',
         'nextHopId'   => 'NextHopId',
+        'nextHopType' => 'NextHopType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('nextHopType', $this->nextHopType, true);
-        Model::validateRequired('nextHopId', $this->nextHopId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextHopType) {
-            $res['NextHopType'] = $this->nextHopType;
-        }
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
+        }
+        if (null !== $this->nextHopType) {
+            $res['NextHopType'] = $this->nextHopType;
         }
 
         return $res;
@@ -49,11 +47,11 @@ class nextHopList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextHopType'])) {
-            $model->nextHopType = $map['NextHopType'];
-        }
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
+        }
+        if (isset($map['NextHopType'])) {
+            $model->nextHopType = $map['NextHopType'];
         }
 
         return $model;

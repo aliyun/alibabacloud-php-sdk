@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyGlobalAccelerationInstanceSpecRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -22,22 +37,37 @@ class ModifyGlobalAccelerationInstanceSpecRequest extends Model
      * @var string
      */
     public $bandwidth;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
     protected $_name = [
+        'ownerId'                      => 'OwnerId',
+        'resourceOwnerAccount'         => 'ResourceOwnerAccount',
+        'resourceOwnerId'              => 'ResourceOwnerId',
         'regionId'                     => 'RegionId',
         'globalAccelerationInstanceId' => 'GlobalAccelerationInstanceId',
         'bandwidth'                    => 'Bandwidth',
+        'ownerAccount'                 => 'OwnerAccount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('globalAccelerationInstanceId', $this->globalAccelerationInstanceId, true);
-        Model::validateRequired('bandwidth', $this->bandwidth, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -46,6 +76,9 @@ class ModifyGlobalAccelerationInstanceSpecRequest extends Model
         }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -59,6 +92,15 @@ class ModifyGlobalAccelerationInstanceSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -67,6 +109,9 @@ class ModifyGlobalAccelerationInstanceSpecRequest extends Model
         }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

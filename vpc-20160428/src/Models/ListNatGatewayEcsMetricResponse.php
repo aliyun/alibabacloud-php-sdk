@@ -4,65 +4,38 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ListNatGatewayEcsMetricResponse\metricDataList;
 use AlibabaCloud\Tea\Model;
 
 class ListNatGatewayEcsMetricResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var ListNatGatewayEcsMetricResponseBody
      */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var metricDataList[]
-     */
-    public $metricDataList;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'nextToken'      => 'NextToken',
-        'maxResults'     => 'MaxResults',
-        'metricDataList' => 'MetricDataList',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('maxResults', $this->maxResults, true);
-        Model::validateRequired('metricDataList', $this->metricDataList, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->metricDataList) {
-            $res['MetricDataList'] = [];
-            if (null !== $this->metricDataList && \is_array($this->metricDataList)) {
-                $n = 0;
-                foreach ($this->metricDataList as $item) {
-                    $res['MetricDataList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -76,23 +49,11 @@ class ListNatGatewayEcsMetricResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['MetricDataList'])) {
-            if (!empty($map['MetricDataList'])) {
-                $model->metricDataList = [];
-                $n                     = 0;
-                foreach ($map['MetricDataList'] as $item) {
-                    $model->metricDataList[$n++] = null !== $item ? metricDataList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = ListNatGatewayEcsMetricResponseBody::fromMap($map['body']);
         }
 
         return $model;

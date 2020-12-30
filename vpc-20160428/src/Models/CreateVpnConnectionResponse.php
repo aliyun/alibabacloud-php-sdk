@@ -9,53 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnConnectionResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateVpnConnectionResponseBody
      */
-    public $vpnConnectionId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var int
-     */
-    public $createTime;
+    public $body;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'vpnConnectionId' => 'VpnConnectionId',
-        'name'            => 'Name',
-        'createTime'      => 'CreateTime',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('vpnConnectionId', $this->vpnConnectionId, true);
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('createTime', $this->createTime, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->vpnConnectionId) {
-            $res['VpnConnectionId'] = $this->vpnConnectionId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +49,11 @@ class CreateVpnConnectionResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['VpnConnectionId'])) {
-            $model->vpnConnectionId = $map['VpnConnectionId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['body'])) {
+            $model->body = CreateVpnConnectionResponseBody::fromMap($map['body']);
         }
 
         return $model;

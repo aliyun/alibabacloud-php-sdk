@@ -30,8 +30,6 @@ class DisableNatGatewayEcsMetricRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('natGatewayId', $this->natGatewayId, true);
     }
 
     public function toMap()
