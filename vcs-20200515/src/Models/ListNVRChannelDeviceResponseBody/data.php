@@ -52,6 +52,16 @@ class data extends Model
      * @var string
      */
     public $sampleName;
+
+    /**
+     * @var string
+     */
+    public $regionName;
+
+    /**
+     * @var string
+     */
+    public $corpId;
     protected $_name = [
         'deviceCode'     => 'DeviceCode',
         'deviceName'     => 'DeviceName',
@@ -62,6 +72,8 @@ class data extends Model
         'comptureStatus' => 'ComptureStatus',
         'deviceSn'       => 'DeviceSn',
         'sampleName'     => 'SampleName',
+        'regionName'     => 'RegionName',
+        'corpId'         => 'CorpId',
     ];
 
     public function validate()
@@ -97,6 +109,12 @@ class data extends Model
         }
         if (null !== $this->sampleName) {
             $res['SampleName'] = $this->sampleName;
+        }
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
+        }
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
         }
 
         return $res;
@@ -136,6 +154,12 @@ class data extends Model
         }
         if (isset($map['SampleName'])) {
             $model->sampleName = $map['SampleName'];
+        }
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
+        }
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
         }
 
         return $model;

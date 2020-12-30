@@ -32,12 +32,18 @@ class DeleteDeviceForInstanceShrinkRequest extends Model
      * @var bool
      */
     public $deleteInstanceFlag;
+
+    /**
+     * @var string
+     */
+    public $deviceCount;
     protected $_name = [
         'instanceId'         => 'InstanceId',
         'devicesShrink'      => 'Devices',
         'projectId'          => 'ProjectId',
         'algorithmId'        => 'AlgorithmId',
         'deleteInstanceFlag' => 'DeleteInstanceFlag',
+        'deviceCount'        => 'DeviceCount',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class DeleteDeviceForInstanceShrinkRequest extends Model
         }
         if (null !== $this->deleteInstanceFlag) {
             $res['DeleteInstanceFlag'] = $this->deleteInstanceFlag;
+        }
+        if (null !== $this->deviceCount) {
+            $res['DeviceCount'] = $this->deviceCount;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class DeleteDeviceForInstanceShrinkRequest extends Model
         }
         if (isset($map['DeleteInstanceFlag'])) {
             $model->deleteInstanceFlag = $map['DeleteInstanceFlag'];
+        }
+        if (isset($map['DeviceCount'])) {
+            $model->deviceCount = $map['DeviceCount'];
         }
 
         return $model;

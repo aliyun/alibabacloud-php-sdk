@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Vcs\V20200515\Models\ListNVRDeviceResponseBody;
 
-use AlibabaCloud\SDK\Vcs\V20200515\Models\ListNVRDeviceResponseBody\data\channelList;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -75,14 +74,14 @@ class data extends Model
     public $deviceSn;
 
     /**
-     * @var channelList[]
+     * @var string
      */
-    public $channelList;
+    public $type;
 
     /**
      * @var string
      */
-    public $type;
+    public $corpId;
     protected $_name = [
         'deviceCode'       => 'DeviceCode',
         'deviceName'       => 'DeviceName',
@@ -97,8 +96,8 @@ class data extends Model
         'accessQuota'      => 'AccessQuota',
         'channel'          => 'Channel',
         'deviceSn'         => 'DeviceSn',
-        'channelList'      => 'ChannelList',
         'type'             => 'Type',
+        'corpId'           => 'CorpId',
     ];
 
     public function validate()
@@ -147,17 +146,11 @@ class data extends Model
         if (null !== $this->deviceSn) {
             $res['DeviceSn'] = $this->deviceSn;
         }
-        if (null !== $this->channelList) {
-            $res['ChannelList'] = [];
-            if (null !== $this->channelList && \is_array($this->channelList)) {
-                $n = 0;
-                foreach ($this->channelList as $item) {
-                    $res['ChannelList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->corpId) {
+            $res['CorpId'] = $this->corpId;
         }
 
         return $res;
@@ -210,17 +203,11 @@ class data extends Model
         if (isset($map['DeviceSn'])) {
             $model->deviceSn = $map['DeviceSn'];
         }
-        if (isset($map['ChannelList'])) {
-            if (!empty($map['ChannelList'])) {
-                $model->channelList = [];
-                $n                  = 0;
-                foreach ($map['ChannelList'] as $item) {
-                    $model->channelList[$n++] = null !== $item ? channelList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['CorpId'])) {
+            $model->corpId = $map['CorpId'];
         }
 
         return $model;
