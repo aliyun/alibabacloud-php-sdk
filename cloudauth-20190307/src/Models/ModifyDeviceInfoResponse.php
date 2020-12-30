@@ -9,73 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyDeviceInfoResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var ModifyDeviceInfoResponseBody
      */
-    public $deviceId;
-
-    /**
-     * @var string
-     */
-    public $userDeviceId;
-
-    /**
-     * @var string
-     */
-    public $bizType;
-
-    /**
-     * @var string
-     */
-    public $beginDay;
-
-    /**
-     * @var string
-     */
-    public $expiredDay;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'deviceId'     => 'DeviceId',
-        'userDeviceId' => 'UserDeviceId',
-        'bizType'      => 'BizType',
-        'beginDay'     => 'BeginDay',
-        'expiredDay'   => 'ExpiredDay',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('deviceId', $this->deviceId, true);
-        Model::validateRequired('userDeviceId', $this->userDeviceId, true);
-        Model::validateRequired('bizType', $this->bizType, true);
-        Model::validateRequired('beginDay', $this->beginDay, true);
-        Model::validateRequired('expiredDay', $this->expiredDay, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
-        }
-        if (null !== $this->userDeviceId) {
-            $res['UserDeviceId'] = $this->userDeviceId;
-        }
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
-        }
-        if (null !== $this->beginDay) {
-            $res['BeginDay'] = $this->beginDay;
-        }
-        if (null !== $this->expiredDay) {
-            $res['ExpiredDay'] = $this->expiredDay;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -89,23 +49,11 @@ class ModifyDeviceInfoResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
-        }
-        if (isset($map['UserDeviceId'])) {
-            $model->userDeviceId = $map['UserDeviceId'];
-        }
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
-        }
-        if (isset($map['BeginDay'])) {
-            $model->beginDay = $map['BeginDay'];
-        }
-        if (isset($map['ExpiredDay'])) {
-            $model->expiredDay = $map['ExpiredDay'];
+        if (isset($map['body'])) {
+            $model->body = ModifyDeviceInfoResponseBody::fromMap($map['body']);
         }
 
         return $model;

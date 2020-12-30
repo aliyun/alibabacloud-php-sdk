@@ -11,6 +11,11 @@ class DescribeFaceUsageRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
     public $startDate;
 
     /**
@@ -18,19 +23,21 @@ class DescribeFaceUsageRequest extends Model
      */
     public $endDate;
     protected $_name = [
+        'sourceIp'  => 'SourceIp',
         'startDate' => 'StartDate',
         'endDate'   => 'EndDate',
     ];
 
     public function validate()
     {
-        Model::validateRequired('startDate', $this->startDate, true);
-        Model::validateRequired('endDate', $this->endDate, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
@@ -49,6 +56,9 @@ class DescribeFaceUsageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSdkUrlRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
      * @var int
      */
     public $id;
@@ -18,18 +23,21 @@ class DescribeSdkUrlRequest extends Model
      */
     public $debug;
     protected $_name = [
-        'id'    => 'Id',
-        'debug' => 'Debug',
+        'sourceIp' => 'SourceIp',
+        'id'       => 'Id',
+        'debug'    => 'Debug',
     ];
 
     public function validate()
     {
-        Model::validateRequired('id', $this->id, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -48,6 +56,9 @@ class DescribeSdkUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

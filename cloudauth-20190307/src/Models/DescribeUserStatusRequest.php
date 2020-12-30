@@ -8,13 +8,26 @@ use AlibabaCloud\Tea\Model;
 
 class DescribeUserStatusRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $sourceIp;
+    protected $_name = [
+        'sourceIp' => 'SourceIp',
+    ];
+
     public function validate()
     {
     }
 
     public function toMap()
     {
-        return [];
+        $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+
+        return $res;
     }
 
     /**
@@ -24,6 +37,11 @@ class DescribeUserStatusRequest extends Model
      */
     public static function fromMap($map = [])
     {
-        return new self();
+        $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+
+        return $model;
     }
 }

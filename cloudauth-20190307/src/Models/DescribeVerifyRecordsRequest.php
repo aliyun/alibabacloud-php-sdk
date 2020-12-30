@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifyRecordsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
      * @var int
      */
     public $totalCount;
@@ -58,6 +63,7 @@ class DescribeVerifyRecordsRequest extends Model
      */
     public $queryId;
     protected $_name = [
+        'sourceIp'    => 'SourceIp',
         'totalCount'  => 'TotalCount',
         'pageSize'    => 'PageSize',
         'currentPage' => 'CurrentPage',
@@ -72,13 +78,14 @@ class DescribeVerifyRecordsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('currentPage', $this->currentPage, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -121,6 +128,9 @@ class DescribeVerifyRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

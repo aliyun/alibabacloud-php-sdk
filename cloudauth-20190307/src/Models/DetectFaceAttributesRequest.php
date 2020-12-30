@@ -24,7 +24,6 @@ class DetectFaceAttributesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('materialValue', $this->materialValue, true);
     }
 
     public function toMap()

@@ -11,19 +11,27 @@ class DescribeUpdatePackageResultRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
-        'taskId' => 'TaskId',
+        'sourceIp' => 'SourceIp',
+        'taskId'   => 'TaskId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('taskId', $this->taskId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -39,6 +47,9 @@ class DescribeUpdatePackageResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

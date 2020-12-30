@@ -11,19 +11,36 @@ class DescribeVerifySDKRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
-        'taskId' => 'TaskId',
+        'sourceIp' => 'SourceIp',
+        'lang'     => 'Lang',
+        'taskId'   => 'TaskId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('taskId', $this->taskId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -39,6 +56,12 @@ class DescribeVerifySDKRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

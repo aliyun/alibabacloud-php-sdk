@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppPackageRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
      * @var int
      */
     public $id;
@@ -28,6 +33,7 @@ class UpdateAppPackageRequest extends Model
      */
     public $debug;
     protected $_name = [
+        'sourceIp'   => 'SourceIp',
         'id'         => 'Id',
         'packageUrl' => 'PackageUrl',
         'platform'   => 'Platform',
@@ -36,12 +42,14 @@ class UpdateAppPackageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('packageUrl', $this->packageUrl, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -66,6 +74,9 @@ class UpdateAppPackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

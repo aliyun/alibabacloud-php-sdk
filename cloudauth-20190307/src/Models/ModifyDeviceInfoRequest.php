@@ -11,6 +11,16 @@ class ModifyDeviceInfoRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $deviceId;
 
     /**
@@ -33,6 +43,8 @@ class ModifyDeviceInfoRequest extends Model
      */
     public $expiredDay;
     protected $_name = [
+        'sourceIp'     => 'SourceIp',
+        'lang'         => 'Lang',
         'deviceId'     => 'DeviceId',
         'userDeviceId' => 'UserDeviceId',
         'bizType'      => 'BizType',
@@ -42,12 +54,17 @@ class ModifyDeviceInfoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceId', $this->deviceId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
@@ -75,6 +92,12 @@ class ModifyDeviceInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }

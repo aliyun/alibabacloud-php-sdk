@@ -11,6 +11,16 @@ class CreateVerifySDKRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $appUrl;
 
     /**
@@ -18,18 +28,25 @@ class CreateVerifySDKRequest extends Model
      */
     public $platform;
     protected $_name = [
+        'sourceIp' => 'SourceIp',
+        'lang'     => 'Lang',
         'appUrl'   => 'AppUrl',
         'platform' => 'Platform',
     ];
 
     public function validate()
     {
-        Model::validateRequired('appUrl', $this->appUrl, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->appUrl) {
             $res['AppUrl'] = $this->appUrl;
         }
@@ -48,6 +65,12 @@ class CreateVerifySDKRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['AppUrl'])) {
             $model->appUrl = $map['AppUrl'];
         }

@@ -11,6 +11,11 @@ class UpdateVerifySettingRequest extends Model
     /**
      * @var string
      */
+    public $sourceIp;
+
+    /**
+     * @var string
+     */
     public $bizType;
 
     /**
@@ -38,6 +43,7 @@ class UpdateVerifySettingRequest extends Model
      */
     public $resultStep;
     protected $_name = [
+        'sourceIp'    => 'SourceIp',
         'bizType'     => 'BizType',
         'bizName'     => 'BizName',
         'solution'    => 'Solution',
@@ -48,12 +54,14 @@ class UpdateVerifySettingRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('bizType', $this->bizType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
@@ -84,6 +92,9 @@ class UpdateVerifySettingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
