@@ -357,6 +357,13 @@ class CreateClusterRequest extends Model
     public $numOfNodes;
 
     /**
+     * @description 集群节点所在虚拟交换机。
+     *
+     * @var string[]
+     */
+    public $vswitchIds;
+
+    /**
      * @description 集群Worker节点所在虚拟交换机
      *
      * @var string[]
@@ -553,6 +560,7 @@ class CreateClusterRequest extends Model
         'masterAutoRenew'                  => 'master_auto_renew',
         'masterAutoRenewPeriod'            => 'master_auto_renew_period',
         'numOfNodes'                       => 'num_of_nodes',
+        'vswitchIds'                       => 'vswitch_ids',
         'workerVswitchIds'                 => 'worker_vswitch_ids',
         'workerInstanceTypes'              => 'worker_instance_types',
         'workerSystemDiskCategory'         => 'worker_system_disk_category',
@@ -750,6 +758,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->numOfNodes) {
             $res['num_of_nodes'] = $this->numOfNodes;
+        }
+        if (null !== $this->vswitchIds) {
+            $res['vswitch_ids'] = $this->vswitchIds;
         }
         if (null !== $this->workerVswitchIds) {
             $res['worker_vswitch_ids'] = $this->workerVswitchIds;
@@ -1007,6 +1018,11 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['num_of_nodes'])) {
             $model->numOfNodes = $map['num_of_nodes'];
+        }
+        if (isset($map['vswitch_ids'])) {
+            if (!empty($map['vswitch_ids'])) {
+                $model->vswitchIds = $map['vswitch_ids'];
+            }
         }
         if (isset($map['worker_vswitch_ids'])) {
             if (!empty($map['worker_vswitch_ids'])) {

@@ -9,7 +9,6 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelClusterUpgradeResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\CancelComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
@@ -74,8 +73,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterTagsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterTagsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\PauseClusterUpgradeResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\PauseComponentUpgradeResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\ResumeComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeUpgradeClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolResponse;
@@ -461,37 +458,6 @@ class CS extends OpenApiClient
         ]);
 
         return DescribeClusterDetailResponse::fromMap($this->doROARequest('DescribeClusterDetail', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param string $clusterid
-     * @param string $componentid
-     *
-     * @return PauseComponentUpgradeResponse
-     */
-    public function pauseComponentUpgrade($clusterid, $componentid)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->pauseComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $clusterid
-     * @param string         $componentid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return PauseComponentUpgradeResponse
-     */
-    public function pauseComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-
-        return PauseComponentUpgradeResponse::fromMap($this->doROARequest('PauseComponentUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterid . '/components/{componentid}/pause', 'none', $req, $runtime));
     }
 
     /**
@@ -1114,6 +1080,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->numOfNodes)) {
             @$body['num_of_nodes'] = $request->numOfNodes;
         }
+        if (!Utils::isUnset($request->vswitchIds)) {
+            @$body['vswitch_ids'] = $request->vswitchIds;
+        }
         if (!Utils::isUnset($request->workerVswitchIds)) {
             @$body['worker_vswitch_ids'] = $request->workerVswitchIds;
         }
@@ -1579,37 +1548,6 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterId
-     * @param string $componentId
-     *
-     * @return CancelComponentUpgradeResponse
-     */
-    public function cancelComponentUpgrade($clusterId, $componentId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->cancelComponentUpgradeWithOptions($clusterId, $componentId, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $clusterId
-     * @param string         $componentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return CancelComponentUpgradeResponse
-     */
-    public function cancelComponentUpgradeWithOptions($clusterId, $componentId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-
-        return CancelComponentUpgradeResponse::fromMap($this->doROARequest('CancelComponentUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterId . '/components/{componentId}/cancel', 'none', $req, $runtime));
-    }
-
-    /**
      * @param string $ClusterId
      *
      * @return DescribeClusterAddonsVersionResponse
@@ -1706,37 +1644,6 @@ class CS extends OpenApiClient
         ]);
 
         return UnInstallClusterAddonsResponse::fromMap($this->doROARequest('UnInstallClusterAddons', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/components/uninstall', 'none', $req, $runtime));
-    }
-
-    /**
-     * @param string $clusterid
-     * @param string $componentid
-     *
-     * @return ResumeComponentUpgradeResponse
-     */
-    public function resumeComponentUpgrade($clusterid, $componentid)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->resumeComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $clusterid
-     * @param string         $componentid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return ResumeComponentUpgradeResponse
-     */
-    public function resumeComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-
-        return ResumeComponentUpgradeResponse::fromMap($this->doROARequest('ResumeComponentUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterid . '/components/{componentid}/resume', 'none', $req, $runtime));
     }
 
     /**
