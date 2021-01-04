@@ -30,7 +30,7 @@ class QuerySendDetailsResponseBody extends Model
     public $code;
 
     /**
-     * @var smsSendDetailDTOs[]
+     * @var smsSendDetailDTOs
      */
     public $smsSendDetailDTOs;
     protected $_name = [
@@ -61,13 +61,7 @@ class QuerySendDetailsResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->smsSendDetailDTOs) {
-            $res['SmsSendDetailDTOs'] = [];
-            if (null !== $this->smsSendDetailDTOs && \is_array($this->smsSendDetailDTOs)) {
-                $n = 0;
-                foreach ($this->smsSendDetailDTOs as $item) {
-                    $res['SmsSendDetailDTOs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['SmsSendDetailDTOs'] = null !== $this->smsSendDetailDTOs ? $this->smsSendDetailDTOs->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class QuerySendDetailsResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['SmsSendDetailDTOs'])) {
-            if (!empty($map['SmsSendDetailDTOs'])) {
-                $model->smsSendDetailDTOs = [];
-                $n                        = 0;
-                foreach ($map['SmsSendDetailDTOs'] as $item) {
-                    $model->smsSendDetailDTOs[$n++] = null !== $item ? smsSendDetailDTOs::fromMap($item) : $item;
-                }
-            }
+            $model->smsSendDetailDTOs = smsSendDetailDTOs::fromMap($map['SmsSendDetailDTOs']);
         }
 
         return $model;

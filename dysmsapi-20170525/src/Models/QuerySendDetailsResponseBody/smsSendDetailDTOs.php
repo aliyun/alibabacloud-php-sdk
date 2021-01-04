@@ -4,58 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsResponseBody;
 
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsResponseBody\smsSendDetailDTOs\smsSendDetailDTO;
 use AlibabaCloud\Tea\Model;
 
 class smsSendDetailDTOs extends Model
 {
     /**
-     * @var string
+     * @var smsSendDetailDTO[]
      */
-    public $errCode;
-
-    /**
-     * @var string
-     */
-    public $templateCode;
-
-    /**
-     * @var string
-     */
-    public $outId;
-
-    /**
-     * @var string
-     */
-    public $receiveDate;
-
-    /**
-     * @var string
-     */
-    public $sendDate;
-
-    /**
-     * @var string
-     */
-    public $phoneNum;
-
-    /**
-     * @var string
-     */
-    public $content;
-
-    /**
-     * @var int
-     */
-    public $sendStatus;
+    public $smsSendDetailDTO;
     protected $_name = [
-        'errCode'      => 'ErrCode',
-        'templateCode' => 'TemplateCode',
-        'outId'        => 'OutId',
-        'receiveDate'  => 'ReceiveDate',
-        'sendDate'     => 'SendDate',
-        'phoneNum'     => 'PhoneNum',
-        'content'      => 'Content',
-        'sendStatus'   => 'SendStatus',
+        'smsSendDetailDTO' => 'SmsSendDetailDTO',
     ];
 
     public function validate()
@@ -65,29 +24,14 @@ class smsSendDetailDTOs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->errCode) {
-            $res['ErrCode'] = $this->errCode;
-        }
-        if (null !== $this->templateCode) {
-            $res['TemplateCode'] = $this->templateCode;
-        }
-        if (null !== $this->outId) {
-            $res['OutId'] = $this->outId;
-        }
-        if (null !== $this->receiveDate) {
-            $res['ReceiveDate'] = $this->receiveDate;
-        }
-        if (null !== $this->sendDate) {
-            $res['SendDate'] = $this->sendDate;
-        }
-        if (null !== $this->phoneNum) {
-            $res['PhoneNum'] = $this->phoneNum;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
-        if (null !== $this->sendStatus) {
-            $res['SendStatus'] = $this->sendStatus;
+        if (null !== $this->smsSendDetailDTO) {
+            $res['SmsSendDetailDTO'] = [];
+            if (null !== $this->smsSendDetailDTO && \is_array($this->smsSendDetailDTO)) {
+                $n = 0;
+                foreach ($this->smsSendDetailDTO as $item) {
+                    $res['SmsSendDetailDTO'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -101,29 +45,14 @@ class smsSendDetailDTOs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrCode'])) {
-            $model->errCode = $map['ErrCode'];
-        }
-        if (isset($map['TemplateCode'])) {
-            $model->templateCode = $map['TemplateCode'];
-        }
-        if (isset($map['OutId'])) {
-            $model->outId = $map['OutId'];
-        }
-        if (isset($map['ReceiveDate'])) {
-            $model->receiveDate = $map['ReceiveDate'];
-        }
-        if (isset($map['SendDate'])) {
-            $model->sendDate = $map['SendDate'];
-        }
-        if (isset($map['PhoneNum'])) {
-            $model->phoneNum = $map['PhoneNum'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
-        if (isset($map['SendStatus'])) {
-            $model->sendStatus = $map['SendStatus'];
+        if (isset($map['SmsSendDetailDTO'])) {
+            if (!empty($map['SmsSendDetailDTO'])) {
+                $model->smsSendDetailDTO = [];
+                $n                       = 0;
+                foreach ($map['SmsSendDetailDTO'] as $item) {
+                    $model->smsSendDetailDTO[$n++] = null !== $item ? smsSendDetailDTO::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
