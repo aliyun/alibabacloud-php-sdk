@@ -11,27 +11,17 @@ class policyAttachment extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $policyType;
 
     /**
      * @var string
      */
-    public $policyName;
+    public $description;
 
     /**
      * @var string
      */
-    public $principalType;
-
-    /**
-     * @var string
-     */
-    public $principalName;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -41,51 +31,61 @@ class policyAttachment extends Model
     /**
      * @var string
      */
-    public $description;
+    public $policyName;
+
+    /**
+     * @var string
+     */
+    public $principalName;
+
+    /**
+     * @var string
+     */
+    public $principalType;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
         'policyType'      => 'PolicyType',
-        'policyName'      => 'PolicyName',
-        'principalType'   => 'PrincipalType',
-        'principalName'   => 'PrincipalName',
-        'attachDate'      => 'AttachDate',
         'description'     => 'Description',
+        'resourceGroupId' => 'ResourceGroupId',
+        'attachDate'      => 'AttachDate',
+        'policyName'      => 'PolicyName',
+        'principalName'   => 'PrincipalName',
+        'principalType'   => 'PrincipalType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('resourceGroupId', $this->resourceGroupId, true);
         Model::validateRequired('policyType', $this->policyType, true);
-        Model::validateRequired('policyName', $this->policyName, true);
-        Model::validateRequired('principalType', $this->principalType, true);
-        Model::validateRequired('principalName', $this->principalName, true);
-        Model::validateRequired('attachDate', $this->attachDate, true);
         Model::validateRequired('description', $this->description, true);
+        Model::validateRequired('resourceGroupId', $this->resourceGroupId, true);
+        Model::validateRequired('attachDate', $this->attachDate, true);
+        Model::validateRequired('policyName', $this->policyName, true);
+        Model::validateRequired('principalName', $this->principalName, true);
+        Model::validateRequired('principalType', $this->principalType, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
-        if (null !== $this->policyName) {
-            $res['PolicyName'] = $this->policyName;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
-        if (null !== $this->principalType) {
-            $res['PrincipalType'] = $this->principalType;
-        }
-        if (null !== $this->principalName) {
-            $res['PrincipalName'] = $this->principalName;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->attachDate) {
             $res['AttachDate'] = $this->attachDate;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
+        }
+        if (null !== $this->principalName) {
+            $res['PrincipalName'] = $this->principalName;
+        }
+        if (null !== $this->principalType) {
+            $res['PrincipalType'] = $this->principalType;
         }
 
         return $res;
@@ -99,26 +99,26 @@ class policyAttachment extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }
-        if (isset($map['PolicyName'])) {
-            $model->policyName = $map['PolicyName'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
-        if (isset($map['PrincipalType'])) {
-            $model->principalType = $map['PrincipalType'];
-        }
-        if (isset($map['PrincipalName'])) {
-            $model->principalName = $map['PrincipalName'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['AttachDate'])) {
             $model->attachDate = $map['AttachDate'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
+        }
+        if (isset($map['PrincipalName'])) {
+            $model->principalName = $map['PrincipalName'];
+        }
+        if (isset($map['PrincipalType'])) {
+            $model->principalType = $map['PrincipalType'];
         }
 
         return $model;

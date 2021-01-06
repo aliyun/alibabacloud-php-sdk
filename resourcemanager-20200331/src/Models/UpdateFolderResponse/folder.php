@@ -11,12 +11,12 @@ class folder extends Model
     /**
      * @var string
      */
-    public $folderId;
+    public $createTime;
 
     /**
      * @var string
      */
-    public $parentFolderId;
+    public $folderId;
 
     /**
      * @var string
@@ -26,36 +26,36 @@ class folder extends Model
     /**
      * @var string
      */
-    public $createTime;
+    public $parentFolderId;
     protected $_name = [
-        'folderId'       => 'FolderId',
-        'parentFolderId' => 'ParentFolderId',
-        'folderName'     => 'FolderName',
         'createTime'     => 'CreateTime',
+        'folderId'       => 'FolderId',
+        'folderName'     => 'FolderName',
+        'parentFolderId' => 'ParentFolderId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('folderId', $this->folderId, true);
-        Model::validateRequired('parentFolderId', $this->parentFolderId, true);
-        Model::validateRequired('folderName', $this->folderName, true);
         Model::validateRequired('createTime', $this->createTime, true);
+        Model::validateRequired('folderId', $this->folderId, true);
+        Model::validateRequired('folderName', $this->folderName, true);
+        Model::validateRequired('parentFolderId', $this->parentFolderId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
-        }
-        if (null !== $this->parentFolderId) {
-            $res['ParentFolderId'] = $this->parentFolderId;
         }
         if (null !== $this->folderName) {
             $res['FolderName'] = $this->folderName;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->parentFolderId) {
+            $res['ParentFolderId'] = $this->parentFolderId;
         }
 
         return $res;
@@ -69,17 +69,17 @@ class folder extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
-        }
-        if (isset($map['ParentFolderId'])) {
-            $model->parentFolderId = $map['ParentFolderId'];
         }
         if (isset($map['FolderName'])) {
             $model->folderName = $map['FolderName'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['ParentFolderId'])) {
+            $model->parentFolderId = $map['ParentFolderId'];
         }
 
         return $model;

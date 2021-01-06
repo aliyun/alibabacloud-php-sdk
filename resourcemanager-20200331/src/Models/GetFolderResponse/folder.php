@@ -11,6 +11,11 @@ class folder extends Model
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var string
+     */
     public $folderId;
 
     /**
@@ -22,29 +27,27 @@ class folder extends Model
      * @var string
      */
     public $parentFolderId;
-
-    /**
-     * @var string
-     */
-    public $createTime;
     protected $_name = [
+        'createTime'     => 'CreateTime',
         'folderId'       => 'FolderId',
         'folderName'     => 'FolderName',
         'parentFolderId' => 'ParentFolderId',
-        'createTime'     => 'CreateTime',
     ];
 
     public function validate()
     {
+        Model::validateRequired('createTime', $this->createTime, true);
         Model::validateRequired('folderId', $this->folderId, true);
         Model::validateRequired('folderName', $this->folderName, true);
         Model::validateRequired('parentFolderId', $this->parentFolderId, true);
-        Model::validateRequired('createTime', $this->createTime, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
         }
@@ -53,9 +56,6 @@ class folder extends Model
         }
         if (null !== $this->parentFolderId) {
             $res['ParentFolderId'] = $this->parentFolderId;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
         }
 
         return $res;
@@ -69,6 +69,9 @@ class folder extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
         }
@@ -77,9 +80,6 @@ class folder extends Model
         }
         if (isset($map['ParentFolderId'])) {
             $model->parentFolderId = $map['ParentFolderId'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
         }
 
         return $model;

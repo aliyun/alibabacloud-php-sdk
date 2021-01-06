@@ -22,10 +22,16 @@ class CreateResourceAccountRequest extends Model
      * @var string
      */
     public $payerAccountId;
+
+    /**
+     * @var string
+     */
+    public $accountNamePrefix;
     protected $_name = [
-        'displayName'    => 'DisplayName',
-        'parentFolderId' => 'ParentFolderId',
-        'payerAccountId' => 'PayerAccountId',
+        'displayName'       => 'DisplayName',
+        'parentFolderId'    => 'ParentFolderId',
+        'payerAccountId'    => 'PayerAccountId',
+        'accountNamePrefix' => 'AccountNamePrefix',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class CreateResourceAccountRequest extends Model
         }
         if (null !== $this->payerAccountId) {
             $res['PayerAccountId'] = $this->payerAccountId;
+        }
+        if (null !== $this->accountNamePrefix) {
+            $res['AccountNamePrefix'] = $this->accountNamePrefix;
         }
 
         return $res;
@@ -65,6 +74,9 @@ class CreateResourceAccountRequest extends Model
         }
         if (isset($map['PayerAccountId'])) {
             $model->payerAccountId = $map['PayerAccountId'];
+        }
+        if (isset($map['AccountNamePrefix'])) {
+            $model->accountNamePrefix = $map['AccountNamePrefix'];
         }
 
         return $model;

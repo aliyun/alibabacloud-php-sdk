@@ -11,31 +11,31 @@ class regionStatus extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $status;
 
     /**
      * @var string
      */
-    public $status;
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
         'status'   => 'Status',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
         Model::validateRequired('status', $this->status, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class regionStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

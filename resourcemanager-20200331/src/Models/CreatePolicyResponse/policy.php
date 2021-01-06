@@ -11,17 +11,17 @@ class policy extends Model
     /**
      * @var string
      */
-    public $policyName;
-
-    /**
-     * @var string
-     */
     public $policyType;
 
     /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $policyName;
 
     /**
      * @var string
@@ -33,18 +33,18 @@ class policy extends Model
      */
     public $createDate;
     protected $_name = [
-        'policyName'     => 'PolicyName',
         'policyType'     => 'PolicyType',
         'description'    => 'Description',
+        'policyName'     => 'PolicyName',
         'defaultVersion' => 'DefaultVersion',
         'createDate'     => 'CreateDate',
     ];
 
     public function validate()
     {
-        Model::validateRequired('policyName', $this->policyName, true);
         Model::validateRequired('policyType', $this->policyType, true);
         Model::validateRequired('description', $this->description, true);
+        Model::validateRequired('policyName', $this->policyName, true);
         Model::validateRequired('defaultVersion', $this->defaultVersion, true);
         Model::validateRequired('createDate', $this->createDate, true);
     }
@@ -52,14 +52,14 @@ class policy extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyName) {
-            $res['PolicyName'] = $this->policyName;
-        }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
         }
         if (null !== $this->defaultVersion) {
             $res['DefaultVersion'] = $this->defaultVersion;
@@ -79,14 +79,14 @@ class policy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyName'])) {
-            $model->policyName = $map['PolicyName'];
-        }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
         }
         if (isset($map['DefaultVersion'])) {
             $model->defaultVersion = $map['DefaultVersion'];

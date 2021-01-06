@@ -11,41 +11,41 @@ class GetPayerForAccountResponse extends Model
     /**
      * @var string
      */
+    public $payerAccountName;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var string
      */
     public $payerAccountId;
-
-    /**
-     * @var string
-     */
-    public $payerAccountName;
     protected $_name = [
+        'payerAccountName' => 'PayerAccountName',
         'requestId'        => 'RequestId',
         'payerAccountId'   => 'PayerAccountId',
-        'payerAccountName' => 'PayerAccountName',
     ];
 
     public function validate()
     {
+        Model::validateRequired('payerAccountName', $this->payerAccountName, true);
         Model::validateRequired('requestId', $this->requestId, true);
         Model::validateRequired('payerAccountId', $this->payerAccountId, true);
-        Model::validateRequired('payerAccountName', $this->payerAccountName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->payerAccountName) {
+            $res['PayerAccountName'] = $this->payerAccountName;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->payerAccountId) {
             $res['PayerAccountId'] = $this->payerAccountId;
-        }
-        if (null !== $this->payerAccountName) {
-            $res['PayerAccountName'] = $this->payerAccountName;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class GetPayerForAccountResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PayerAccountName'])) {
+            $model->payerAccountName = $map['PayerAccountName'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['PayerAccountId'])) {
             $model->payerAccountId = $map['PayerAccountId'];
-        }
-        if (isset($map['PayerAccountName'])) {
-            $model->payerAccountName = $map['PayerAccountName'];
         }
 
         return $model;
