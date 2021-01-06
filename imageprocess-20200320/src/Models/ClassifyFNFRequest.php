@@ -42,10 +42,6 @@ class ClassifyFNFRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageUrl', $this->imageUrl, true);
-        Model::validateRequired('dataFormat', $this->dataFormat, true);
-        Model::validateRequired('orgId', $this->orgId, true);
-        Model::validateRequired('orgName', $this->orgName, true);
     }
 
     public function toMap()

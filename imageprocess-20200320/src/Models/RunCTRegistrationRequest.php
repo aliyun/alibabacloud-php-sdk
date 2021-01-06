@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class RunCTRegistrationRequest extends Model
 {
     /**
-     * @var referenceList[]
+     * @var bool
      */
-    public $referenceList;
+    public $async;
 
     /**
      * @var string
@@ -36,39 +36,33 @@ class RunCTRegistrationRequest extends Model
     public $dataSourceType;
 
     /**
+     * @var referenceList[]
+     */
+    public $referenceList;
+
+    /**
      * @var floatingList[]
      */
     public $floatingList;
     protected $_name = [
-        'referenceList'  => 'ReferenceList',
+        'async'          => 'Async',
         'dataFormat'     => 'DataFormat',
         'orgName'        => 'OrgName',
         'orgId'          => 'OrgId',
         'dataSourceType' => 'DataSourceType',
+        'referenceList'  => 'ReferenceList',
         'floatingList'   => 'FloatingList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('referenceList', $this->referenceList, true);
-        Model::validateRequired('dataFormat', $this->dataFormat, true);
-        Model::validateRequired('orgName', $this->orgName, true);
-        Model::validateRequired('orgId', $this->orgId, true);
-        Model::validateRequired('dataSourceType', $this->dataSourceType, true);
-        Model::validateRequired('floatingList', $this->floatingList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->referenceList) {
-            $res['ReferenceList'] = [];
-            if (null !== $this->referenceList && \is_array($this->referenceList)) {
-                $n = 0;
-                foreach ($this->referenceList as $item) {
-                    $res['ReferenceList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
@@ -81,6 +75,15 @@ class RunCTRegistrationRequest extends Model
         }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
+        }
+        if (null !== $this->referenceList) {
+            $res['ReferenceList'] = [];
+            if (null !== $this->referenceList && \is_array($this->referenceList)) {
+                $n = 0;
+                foreach ($this->referenceList as $item) {
+                    $res['ReferenceList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->floatingList) {
             $res['FloatingList'] = [];
@@ -103,14 +106,8 @@ class RunCTRegistrationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReferenceList'])) {
-            if (!empty($map['ReferenceList'])) {
-                $model->referenceList = [];
-                $n                    = 0;
-                foreach ($map['ReferenceList'] as $item) {
-                    $model->referenceList[$n++] = null !== $item ? referenceList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
@@ -123,6 +120,15 @@ class RunCTRegistrationRequest extends Model
         }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
+        }
+        if (isset($map['ReferenceList'])) {
+            if (!empty($map['ReferenceList'])) {
+                $model->referenceList = [];
+                $n                    = 0;
+                foreach ($map['ReferenceList'] as $item) {
+                    $model->referenceList[$n++] = null !== $item ? referenceList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['FloatingList'])) {
             if (!empty($map['FloatingList'])) {

@@ -18,7 +18,6 @@ class floatingList extends Model
 
     public function validate()
     {
-        Model::validateRequired('floatingURL', $this->floatingURL, true);
     }
 
     public function toMap()

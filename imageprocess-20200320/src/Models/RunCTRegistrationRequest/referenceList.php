@@ -18,7 +18,6 @@ class referenceList extends Model
 
     public function validate()
     {
-        Model::validateRequired('referenceURL', $this->referenceURL, true);
     }
 
     public function toMap()

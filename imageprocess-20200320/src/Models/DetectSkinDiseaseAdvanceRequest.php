@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
-use GuzzleHttp\Psr7\Stream;
 
 class DetectSkinDiseaseAdvanceRequest extends Model
 {
@@ -32,8 +31,6 @@ class DetectSkinDiseaseAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('urlObject', $this->urlObject, true);
-        Model::validateRequired('orgId', $this->orgId, true);
-        Model::validateRequired('orgName', $this->orgName, true);
     }
 
     public function toMap()

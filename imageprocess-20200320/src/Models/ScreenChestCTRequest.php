@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ScreenChestCTRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
      * @var string
      */
     public $dataFormat;
@@ -29,6 +34,7 @@ class ScreenChestCTRequest extends Model
      */
     public $URLList;
     protected $_name = [
+        'async'      => 'Async',
         'dataFormat' => 'DataFormat',
         'orgName'    => 'OrgName',
         'orgId'      => 'OrgId',
@@ -37,15 +43,14 @@ class ScreenChestCTRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dataFormat', $this->dataFormat, true);
-        Model::validateRequired('orgName', $this->orgName, true);
-        Model::validateRequired('orgId', $this->orgId, true);
-        Model::validateRequired('URLList', $this->URLList, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
+        }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
@@ -76,6 +81,9 @@ class ScreenChestCTRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
+        }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DetectLungNoduleRequest extends Model
 {
     /**
-     * @var URLList[]
+     * @var bool
      */
-    public $URLList;
+    public $async;
 
     /**
      * @var string
@@ -28,32 +28,34 @@ class DetectLungNoduleRequest extends Model
      * @var string
      */
     public $orgId;
+
+    /**
+     * @var URLList[]
+     */
+    public $URLList;
+
+    /**
+     * @var float
+     */
+    public $threshold;
     protected $_name = [
-        'URLList'    => 'URLList',
+        'async'      => 'Async',
         'dataFormat' => 'DataFormat',
         'orgName'    => 'OrgName',
         'orgId'      => 'OrgId',
+        'URLList'    => 'URLList',
+        'threshold'  => 'Threshold',
     ];
 
     public function validate()
     {
-        Model::validateRequired('URLList', $this->URLList, true);
-        Model::validateRequired('dataFormat', $this->dataFormat, true);
-        Model::validateRequired('orgName', $this->orgName, true);
-        Model::validateRequired('orgId', $this->orgId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->URLList) {
-            $res['URLList'] = [];
-            if (null !== $this->URLList && \is_array($this->URLList)) {
-                $n = 0;
-                foreach ($this->URLList as $item) {
-                    $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
@@ -63,6 +65,18 @@ class DetectLungNoduleRequest extends Model
         }
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
+        }
+        if (null !== $this->URLList) {
+            $res['URLList'] = [];
+            if (null !== $this->URLList && \is_array($this->URLList)) {
+                $n = 0;
+                foreach ($this->URLList as $item) {
+                    $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->threshold) {
+            $res['Threshold'] = $this->threshold;
         }
 
         return $res;
@@ -76,14 +90,8 @@ class DetectLungNoduleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['URLList'])) {
-            if (!empty($map['URLList'])) {
-                $model->URLList = [];
-                $n              = 0;
-                foreach ($map['URLList'] as $item) {
-                    $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
@@ -93,6 +101,18 @@ class DetectLungNoduleRequest extends Model
         }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
+        }
+        if (isset($map['URLList'])) {
+            if (!empty($map['URLList'])) {
+                $model->URLList = [];
+                $n              = 0;
+                foreach ($map['URLList'] as $item) {
+                    $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Threshold'])) {
+            $model->threshold = $map['Threshold'];
         }
 
         return $model;

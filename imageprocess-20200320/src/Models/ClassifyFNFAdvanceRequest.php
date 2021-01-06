@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class ClassifyFNFAdvanceRequest extends Model
 {
@@ -43,9 +44,6 @@ class ClassifyFNFAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('imageUrlObject', $this->imageUrlObject, true);
-        Model::validateRequired('dataFormat', $this->dataFormat, true);
-        Model::validateRequired('orgId', $this->orgId, true);
-        Model::validateRequired('orgName', $this->orgName, true);
     }
 
     public function toMap()

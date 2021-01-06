@@ -37,9 +37,6 @@ class DetectKneeXRayAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('urlObject', $this->urlObject, true);
-        Model::validateRequired('dataFormat', $this->dataFormat, true);
-        Model::validateRequired('orgName', $this->orgName, true);
-        Model::validateRequired('orgId', $this->orgId, true);
     }
 
     public function toMap()

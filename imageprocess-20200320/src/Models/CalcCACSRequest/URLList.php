@@ -18,7 +18,6 @@ class URLList extends Model
 
     public function validate()
     {
-        Model::validateRequired('URL', $this->URL, true);
     }
 
     public function toMap()

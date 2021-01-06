@@ -30,9 +30,6 @@ class TranslateMedRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('fromLanguage', $this->fromLanguage, true);
-        Model::validateRequired('toLanguage', $this->toLanguage, true);
-        Model::validateRequired('text', $this->text, true);
     }
 
     public function toMap()

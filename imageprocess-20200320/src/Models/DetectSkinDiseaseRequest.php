@@ -30,9 +30,6 @@ class DetectSkinDiseaseRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('url', $this->url, true);
-        Model::validateRequired('orgId', $this->orgId, true);
-        Model::validateRequired('orgName', $this->orgName, true);
     }
 
     public function toMap()

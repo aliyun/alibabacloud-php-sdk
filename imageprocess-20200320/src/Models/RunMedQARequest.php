@@ -30,9 +30,6 @@ class RunMedQARequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('question', $this->question, true);
-        Model::validateRequired('orgId', $this->orgId, true);
-        Model::validateRequired('orgName', $this->orgName, true);
     }
 
     public function toMap()
