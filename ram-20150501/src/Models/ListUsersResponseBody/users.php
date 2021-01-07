@@ -4,58 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListUsersResponseBody;
 
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListUsersResponseBody\users\user;
 use AlibabaCloud\Tea\Model;
 
 class users extends Model
 {
     /**
-     * @var string
+     * @var user[]
      */
-    public $displayName;
-
-    /**
-     * @var string
-     */
-    public $email;
-
-    /**
-     * @var string
-     */
-    public $updateDate;
-
-    /**
-     * @var string
-     */
-    public $mobilePhone;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $comments;
-
-    /**
-     * @var string
-     */
-    public $createDate;
-
-    /**
-     * @var string
-     */
-    public $userName;
+    public $user;
     protected $_name = [
-        'displayName' => 'DisplayName',
-        'email'       => 'Email',
-        'updateDate'  => 'UpdateDate',
-        'mobilePhone' => 'MobilePhone',
-        'userId'      => 'UserId',
-        'comments'    => 'Comments',
-        'createDate'  => 'CreateDate',
-        'userName'    => 'UserName',
+        'user' => 'User',
     ];
 
     public function validate()
@@ -65,29 +24,14 @@ class users extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
-        }
-        if (null !== $this->updateDate) {
-            $res['UpdateDate'] = $this->updateDate;
-        }
-        if (null !== $this->mobilePhone) {
-            $res['MobilePhone'] = $this->mobilePhone;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->comments) {
-            $res['Comments'] = $this->comments;
-        }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
-        }
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
+        if (null !== $this->user) {
+            $res['User'] = [];
+            if (null !== $this->user && \is_array($this->user)) {
+                $n = 0;
+                foreach ($this->user as $item) {
+                    $res['User'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -101,29 +45,14 @@ class users extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
-        }
-        if (isset($map['UpdateDate'])) {
-            $model->updateDate = $map['UpdateDate'];
-        }
-        if (isset($map['MobilePhone'])) {
-            $model->mobilePhone = $map['MobilePhone'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['Comments'])) {
-            $model->comments = $map['Comments'];
-        }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
-        }
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
+        if (isset($map['User'])) {
+            if (!empty($map['User'])) {
+                $model->user = [];
+                $n           = 0;
+                foreach ($map['User'] as $item) {
+                    $model->user[$n++] = null !== $item ? user::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

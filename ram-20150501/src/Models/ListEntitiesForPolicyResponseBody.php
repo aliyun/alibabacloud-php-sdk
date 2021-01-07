@@ -17,17 +17,17 @@ class ListEntitiesForPolicyResponseBody extends Model
     public $requestId;
 
     /**
-     * @var groups[]
+     * @var groups
      */
     public $groups;
 
     /**
-     * @var roles[]
+     * @var roles
      */
     public $roles;
 
     /**
-     * @var users[]
+     * @var users
      */
     public $users;
     protected $_name = [
@@ -48,31 +48,13 @@ class ListEntitiesForPolicyResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->groups) {
-            $res['Groups'] = [];
-            if (null !== $this->groups && \is_array($this->groups)) {
-                $n = 0;
-                foreach ($this->groups as $item) {
-                    $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Groups'] = null !== $this->groups ? $this->groups->toMap() : null;
         }
         if (null !== $this->roles) {
-            $res['Roles'] = [];
-            if (null !== $this->roles && \is_array($this->roles)) {
-                $n = 0;
-                foreach ($this->roles as $item) {
-                    $res['Roles'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Roles'] = null !== $this->roles ? $this->roles->toMap() : null;
         }
         if (null !== $this->users) {
-            $res['Users'] = [];
-            if (null !== $this->users && \is_array($this->users)) {
-                $n = 0;
-                foreach ($this->users as $item) {
-                    $res['Users'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Users'] = null !== $this->users ? $this->users->toMap() : null;
         }
 
         return $res;
@@ -90,31 +72,13 @@ class ListEntitiesForPolicyResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Groups'])) {
-            if (!empty($map['Groups'])) {
-                $model->groups = [];
-                $n             = 0;
-                foreach ($map['Groups'] as $item) {
-                    $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
-                }
-            }
+            $model->groups = groups::fromMap($map['Groups']);
         }
         if (isset($map['Roles'])) {
-            if (!empty($map['Roles'])) {
-                $model->roles = [];
-                $n            = 0;
-                foreach ($map['Roles'] as $item) {
-                    $model->roles[$n++] = null !== $item ? roles::fromMap($item) : $item;
-                }
-            }
+            $model->roles = roles::fromMap($map['Roles']);
         }
         if (isset($map['Users'])) {
-            if (!empty($map['Users'])) {
-                $model->users = [];
-                $n            = 0;
-                foreach ($map['Users'] as $item) {
-                    $model->users[$n++] = null !== $item ? users::fromMap($item) : $item;
-                }
-            }
+            $model->users = users::fromMap($map['Users']);
         }
 
         return $model;

@@ -25,7 +25,7 @@ class ListUsersForGroupResponseBody extends Model
     public $marker;
 
     /**
-     * @var users[]
+     * @var users
      */
     public $users;
     protected $_name = [
@@ -52,13 +52,7 @@ class ListUsersForGroupResponseBody extends Model
             $res['Marker'] = $this->marker;
         }
         if (null !== $this->users) {
-            $res['Users'] = [];
-            if (null !== $this->users && \is_array($this->users)) {
-                $n = 0;
-                foreach ($this->users as $item) {
-                    $res['Users'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Users'] = null !== $this->users ? $this->users->toMap() : null;
         }
 
         return $res;
@@ -82,13 +76,7 @@ class ListUsersForGroupResponseBody extends Model
             $model->marker = $map['Marker'];
         }
         if (isset($map['Users'])) {
-            if (!empty($map['Users'])) {
-                $model->users = [];
-                $n            = 0;
-                foreach ($map['Users'] as $item) {
-                    $model->users[$n++] = null !== $item ? users::fromMap($item) : $item;
-                }
-            }
+            $model->users = users::fromMap($map['Users']);
         }
 
         return $model;

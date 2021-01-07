@@ -4,40 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListEntitiesForPolicyResponseBody;
 
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListEntitiesForPolicyResponseBody\roles\role;
 use AlibabaCloud\Tea\Model;
 
 class roles extends Model
 {
     /**
-     * @var string
+     * @var role[]
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $roleName;
-
-    /**
-     * @var string
-     */
-    public $attachDate;
-
-    /**
-     * @var string
-     */
-    public $arn;
-
-    /**
-     * @var string
-     */
-    public $roleId;
+    public $role;
     protected $_name = [
-        'description' => 'Description',
-        'roleName'    => 'RoleName',
-        'attachDate'  => 'AttachDate',
-        'arn'         => 'Arn',
-        'roleId'      => 'RoleId',
+        'role' => 'Role',
     ];
 
     public function validate()
@@ -47,20 +24,14 @@ class roles extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
-        }
-        if (null !== $this->attachDate) {
-            $res['AttachDate'] = $this->attachDate;
-        }
-        if (null !== $this->arn) {
-            $res['Arn'] = $this->arn;
-        }
-        if (null !== $this->roleId) {
-            $res['RoleId'] = $this->roleId;
+        if (null !== $this->role) {
+            $res['Role'] = [];
+            if (null !== $this->role && \is_array($this->role)) {
+                $n = 0;
+                foreach ($this->role as $item) {
+                    $res['Role'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -74,20 +45,14 @@ class roles extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
-        }
-        if (isset($map['AttachDate'])) {
-            $model->attachDate = $map['AttachDate'];
-        }
-        if (isset($map['Arn'])) {
-            $model->arn = $map['Arn'];
-        }
-        if (isset($map['RoleId'])) {
-            $model->roleId = $map['RoleId'];
+        if (isset($map['Role'])) {
+            if (!empty($map['Role'])) {
+                $model->role = [];
+                $n           = 0;
+                foreach ($map['Role'] as $item) {
+                    $model->role[$n++] = null !== $item ? role::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

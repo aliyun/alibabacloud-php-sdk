@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListVirtualMFADevicesResponseBody\virtualMFADevices;
+namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListEntitiesForPolicyResponseBody\users;
 
 use AlibabaCloud\Tea\Model;
 
@@ -22,10 +22,16 @@ class user extends Model
      * @var string
      */
     public $userName;
+
+    /**
+     * @var string
+     */
+    public $attachDate;
     protected $_name = [
         'displayName' => 'DisplayName',
         'userId'      => 'UserId',
         'userName'    => 'UserName',
+        'attachDate'  => 'AttachDate',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class user extends Model
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
+        }
+        if (null !== $this->attachDate) {
+            $res['AttachDate'] = $this->attachDate;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class user extends Model
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
+        }
+        if (isset($map['AttachDate'])) {
+            $model->attachDate = $map['AttachDate'];
         }
 
         return $model;

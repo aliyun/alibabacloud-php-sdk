@@ -4,40 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListPoliciesForRoleResponseBody;
 
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListPoliciesForRoleResponseBody\policies\policy;
 use AlibabaCloud\Tea\Model;
 
 class policies extends Model
 {
     /**
-     * @var string
+     * @var policy[]
      */
-    public $defaultVersion;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $policyName;
-
-    /**
-     * @var string
-     */
-    public $attachDate;
-
-    /**
-     * @var string
-     */
-    public $policyType;
+    public $policy;
     protected $_name = [
-        'defaultVersion' => 'DefaultVersion',
-        'description'    => 'Description',
-        'policyName'     => 'PolicyName',
-        'attachDate'     => 'AttachDate',
-        'policyType'     => 'PolicyType',
+        'policy' => 'Policy',
     ];
 
     public function validate()
@@ -47,20 +24,14 @@ class policies extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->defaultVersion) {
-            $res['DefaultVersion'] = $this->defaultVersion;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->policyName) {
-            $res['PolicyName'] = $this->policyName;
-        }
-        if (null !== $this->attachDate) {
-            $res['AttachDate'] = $this->attachDate;
-        }
-        if (null !== $this->policyType) {
-            $res['PolicyType'] = $this->policyType;
+        if (null !== $this->policy) {
+            $res['Policy'] = [];
+            if (null !== $this->policy && \is_array($this->policy)) {
+                $n = 0;
+                foreach ($this->policy as $item) {
+                    $res['Policy'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -74,20 +45,14 @@ class policies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DefaultVersion'])) {
-            $model->defaultVersion = $map['DefaultVersion'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['PolicyName'])) {
-            $model->policyName = $map['PolicyName'];
-        }
-        if (isset($map['AttachDate'])) {
-            $model->attachDate = $map['AttachDate'];
-        }
-        if (isset($map['PolicyType'])) {
-            $model->policyType = $map['PolicyType'];
+        if (isset($map['Policy'])) {
+            if (!empty($map['Policy'])) {
+                $model->policy = [];
+                $n             = 0;
+                foreach ($map['Policy'] as $item) {
+                    $model->policy[$n++] = null !== $item ? policy::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListPolicyVersionsResponseBody;
 
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListPolicyVersionsResponseBody\policyVersions\policyVersion;
 use AlibabaCloud\Tea\Model;
 
 class policyVersions extends Model
 {
     /**
-     * @var bool
+     * @var policyVersion[]
      */
-    public $isDefaultVersion;
-
-    /**
-     * @var string
-     */
-    public $policyDocument;
-
-    /**
-     * @var string
-     */
-    public $versionId;
-
-    /**
-     * @var string
-     */
-    public $createDate;
+    public $policyVersion;
     protected $_name = [
-        'isDefaultVersion' => 'IsDefaultVersion',
-        'policyDocument'   => 'PolicyDocument',
-        'versionId'        => 'VersionId',
-        'createDate'       => 'CreateDate',
+        'policyVersion' => 'PolicyVersion',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class policyVersions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isDefaultVersion) {
-            $res['IsDefaultVersion'] = $this->isDefaultVersion;
-        }
-        if (null !== $this->policyDocument) {
-            $res['PolicyDocument'] = $this->policyDocument;
-        }
-        if (null !== $this->versionId) {
-            $res['VersionId'] = $this->versionId;
-        }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
+        if (null !== $this->policyVersion) {
+            $res['PolicyVersion'] = [];
+            if (null !== $this->policyVersion && \is_array($this->policyVersion)) {
+                $n = 0;
+                foreach ($this->policyVersion as $item) {
+                    $res['PolicyVersion'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class policyVersions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsDefaultVersion'])) {
-            $model->isDefaultVersion = $map['IsDefaultVersion'];
-        }
-        if (isset($map['PolicyDocument'])) {
-            $model->policyDocument = $map['PolicyDocument'];
-        }
-        if (isset($map['VersionId'])) {
-            $model->versionId = $map['VersionId'];
-        }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
+        if (isset($map['PolicyVersion'])) {
+            if (!empty($map['PolicyVersion'])) {
+                $model->policyVersion = [];
+                $n                    = 0;
+                foreach ($map['PolicyVersion'] as $item) {
+                    $model->policyVersion[$n++] = null !== $item ? policyVersion::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

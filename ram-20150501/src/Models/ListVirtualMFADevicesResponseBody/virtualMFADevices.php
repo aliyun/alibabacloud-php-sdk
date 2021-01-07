@@ -4,29 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListVirtualMFADevicesResponseBody;
 
-use AlibabaCloud\SDK\Ram\V20150501\Models\ListVirtualMFADevicesResponseBody\virtualMFADevices\user;
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListVirtualMFADevicesResponseBody\virtualMFADevices\virtualMFADevice;
 use AlibabaCloud\Tea\Model;
 
 class virtualMFADevices extends Model
 {
     /**
-     * @var string
+     * @var virtualMFADevice[]
      */
-    public $serialNumber;
-
-    /**
-     * @var user
-     */
-    public $user;
-
-    /**
-     * @var string
-     */
-    public $activateDate;
+    public $virtualMFADevice;
     protected $_name = [
-        'serialNumber' => 'SerialNumber',
-        'user'         => 'User',
-        'activateDate' => 'ActivateDate',
+        'virtualMFADevice' => 'VirtualMFADevice',
     ];
 
     public function validate()
@@ -36,14 +24,14 @@ class virtualMFADevices extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serialNumber) {
-            $res['SerialNumber'] = $this->serialNumber;
-        }
-        if (null !== $this->user) {
-            $res['User'] = null !== $this->user ? $this->user->toMap() : null;
-        }
-        if (null !== $this->activateDate) {
-            $res['ActivateDate'] = $this->activateDate;
+        if (null !== $this->virtualMFADevice) {
+            $res['VirtualMFADevice'] = [];
+            if (null !== $this->virtualMFADevice && \is_array($this->virtualMFADevice)) {
+                $n = 0;
+                foreach ($this->virtualMFADevice as $item) {
+                    $res['VirtualMFADevice'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -57,14 +45,14 @@ class virtualMFADevices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SerialNumber'])) {
-            $model->serialNumber = $map['SerialNumber'];
-        }
-        if (isset($map['User'])) {
-            $model->user = user::fromMap($map['User']);
-        }
-        if (isset($map['ActivateDate'])) {
-            $model->activateDate = $map['ActivateDate'];
+        if (isset($map['VirtualMFADevice'])) {
+            if (!empty($map['VirtualMFADevice'])) {
+                $model->virtualMFADevice = [];
+                $n                       = 0;
+                foreach ($map['VirtualMFADevice'] as $item) {
+                    $model->virtualMFADevice[$n++] = null !== $item ? virtualMFADevice::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

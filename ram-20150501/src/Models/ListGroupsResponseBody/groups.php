@@ -4,40 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListGroupsResponseBody;
 
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListGroupsResponseBody\groups\group;
 use AlibabaCloud\Tea\Model;
 
 class groups extends Model
 {
     /**
-     * @var string
+     * @var group[]
      */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $updateDate;
-
-    /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
-     * @var string
-     */
-    public $comments;
-
-    /**
-     * @var string
-     */
-    public $createDate;
+    public $group;
     protected $_name = [
-        'groupId'    => 'GroupId',
-        'updateDate' => 'UpdateDate',
-        'groupName'  => 'GroupName',
-        'comments'   => 'Comments',
-        'createDate' => 'CreateDate',
+        'group' => 'Group',
     ];
 
     public function validate()
@@ -47,20 +24,14 @@ class groups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->updateDate) {
-            $res['UpdateDate'] = $this->updateDate;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->comments) {
-            $res['Comments'] = $this->comments;
-        }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
+        if (null !== $this->group) {
+            $res['Group'] = [];
+            if (null !== $this->group && \is_array($this->group)) {
+                $n = 0;
+                foreach ($this->group as $item) {
+                    $res['Group'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -74,20 +45,14 @@ class groups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['UpdateDate'])) {
-            $model->updateDate = $map['UpdateDate'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['Comments'])) {
-            $model->comments = $map['Comments'];
-        }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
+        if (isset($map['Group'])) {
+            if (!empty($map['Group'])) {
+                $model->group = [];
+                $n            = 0;
+                foreach ($map['Group'] as $item) {
+                    $model->group[$n++] = null !== $item ? group::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

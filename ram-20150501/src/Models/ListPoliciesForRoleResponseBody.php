@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesForRoleResponseBody extends Model
 {
     /**
-     * @var policies[]
+     * @var policies
      */
     public $policies;
 
@@ -31,13 +31,7 @@ class ListPoliciesForRoleResponseBody extends Model
     {
         $res = [];
         if (null !== $this->policies) {
-            $res['Policies'] = [];
-            if (null !== $this->policies && \is_array($this->policies)) {
-                $n = 0;
-                foreach ($this->policies as $item) {
-                    $res['Policies'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Policies'] = null !== $this->policies ? $this->policies->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -55,13 +49,7 @@ class ListPoliciesForRoleResponseBody extends Model
     {
         $model = new self();
         if (isset($map['Policies'])) {
-            if (!empty($map['Policies'])) {
-                $model->policies = [];
-                $n               = 0;
-                foreach ($map['Policies'] as $item) {
-                    $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
-                }
-            }
+            $model->policies = policies::fromMap($map['Policies']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -20,7 +20,7 @@ class ListRolesResponseBody extends Model
     public $isTruncated;
 
     /**
-     * @var roles[]
+     * @var roles
      */
     public $roles;
 
@@ -49,13 +49,7 @@ class ListRolesResponseBody extends Model
             $res['IsTruncated'] = $this->isTruncated;
         }
         if (null !== $this->roles) {
-            $res['Roles'] = [];
-            if (null !== $this->roles && \is_array($this->roles)) {
-                $n = 0;
-                foreach ($this->roles as $item) {
-                    $res['Roles'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Roles'] = null !== $this->roles ? $this->roles->toMap() : null;
         }
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
@@ -79,13 +73,7 @@ class ListRolesResponseBody extends Model
             $model->isTruncated = $map['IsTruncated'];
         }
         if (isset($map['Roles'])) {
-            if (!empty($map['Roles'])) {
-                $model->roles = [];
-                $n            = 0;
-                foreach ($map['Roles'] as $item) {
-                    $model->roles[$n++] = null !== $item ? roles::fromMap($item) : $item;
-                }
-            }
+            $model->roles = roles::fromMap($map['Roles']);
         }
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];

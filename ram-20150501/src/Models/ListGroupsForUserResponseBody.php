@@ -15,7 +15,7 @@ class ListGroupsForUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @var groups[]
+     * @var groups
      */
     public $groups;
     protected $_name = [
@@ -34,13 +34,7 @@ class ListGroupsForUserResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->groups) {
-            $res['Groups'] = [];
-            if (null !== $this->groups && \is_array($this->groups)) {
-                $n = 0;
-                foreach ($this->groups as $item) {
-                    $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Groups'] = null !== $this->groups ? $this->groups->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class ListGroupsForUserResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Groups'])) {
-            if (!empty($map['Groups'])) {
-                $model->groups = [];
-                $n             = 0;
-                foreach ($map['Groups'] as $item) {
-                    $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
-                }
-            }
+            $model->groups = groups::fromMap($map['Groups']);
         }
 
         return $model;

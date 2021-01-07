@@ -15,7 +15,7 @@ class ListPolicyVersionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var policyVersions[]
+     * @var policyVersions
      */
     public $policyVersions;
     protected $_name = [
@@ -34,13 +34,7 @@ class ListPolicyVersionsResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->policyVersions) {
-            $res['PolicyVersions'] = [];
-            if (null !== $this->policyVersions && \is_array($this->policyVersions)) {
-                $n = 0;
-                foreach ($this->policyVersions as $item) {
-                    $res['PolicyVersions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['PolicyVersions'] = null !== $this->policyVersions ? $this->policyVersions->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class ListPolicyVersionsResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['PolicyVersions'])) {
-            if (!empty($map['PolicyVersions'])) {
-                $model->policyVersions = [];
-                $n                     = 0;
-                foreach ($map['PolicyVersions'] as $item) {
-                    $model->policyVersions[$n++] = null !== $item ? policyVersions::fromMap($item) : $item;
-                }
-            }
+            $model->policyVersions = policyVersions::fromMap($map['PolicyVersions']);
         }
 
         return $model;

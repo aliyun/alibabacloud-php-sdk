@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListVirtualMFADevicesResponseBody extends Model
 {
     /**
-     * @var virtualMFADevices[]
+     * @var virtualMFADevices
      */
     public $virtualMFADevices;
 
@@ -31,13 +31,7 @@ class ListVirtualMFADevicesResponseBody extends Model
     {
         $res = [];
         if (null !== $this->virtualMFADevices) {
-            $res['VirtualMFADevices'] = [];
-            if (null !== $this->virtualMFADevices && \is_array($this->virtualMFADevices)) {
-                $n = 0;
-                foreach ($this->virtualMFADevices as $item) {
-                    $res['VirtualMFADevices'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['VirtualMFADevices'] = null !== $this->virtualMFADevices ? $this->virtualMFADevices->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -55,13 +49,7 @@ class ListVirtualMFADevicesResponseBody extends Model
     {
         $model = new self();
         if (isset($map['VirtualMFADevices'])) {
-            if (!empty($map['VirtualMFADevices'])) {
-                $model->virtualMFADevices = [];
-                $n                        = 0;
-                foreach ($map['VirtualMFADevices'] as $item) {
-                    $model->virtualMFADevices[$n++] = null !== $item ? virtualMFADevices::fromMap($item) : $item;
-                }
-            }
+            $model->virtualMFADevices = virtualMFADevices::fromMap($map['VirtualMFADevices']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

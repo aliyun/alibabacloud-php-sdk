@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListUsersForGroupResponseBody;
 
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListUsersForGroupResponseBody\users\user;
 use AlibabaCloud\Tea\Model;
 
 class users extends Model
 {
     /**
-     * @var string
+     * @var user[]
      */
-    public $displayName;
-
-    /**
-     * @var string
-     */
-    public $joinDate;
-
-    /**
-     * @var string
-     */
-    public $userName;
+    public $user;
     protected $_name = [
-        'displayName' => 'DisplayName',
-        'joinDate'    => 'JoinDate',
-        'userName'    => 'UserName',
+        'user' => 'User',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class users extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
-        if (null !== $this->joinDate) {
-            $res['JoinDate'] = $this->joinDate;
-        }
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
+        if (null !== $this->user) {
+            $res['User'] = [];
+            if (null !== $this->user && \is_array($this->user)) {
+                $n = 0;
+                foreach ($this->user as $item) {
+                    $res['User'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class users extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
-        if (isset($map['JoinDate'])) {
-            $model->joinDate = $map['JoinDate'];
-        }
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
+        if (isset($map['User'])) {
+            if (!empty($map['User'])) {
+                $model->user = [];
+                $n           = 0;
+                foreach ($map['User'] as $item) {
+                    $model->user[$n++] = null !== $item ? user::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

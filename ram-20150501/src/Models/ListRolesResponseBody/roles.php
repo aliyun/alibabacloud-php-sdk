@@ -4,52 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListRolesResponseBody;
 
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListRolesResponseBody\roles\role;
 use AlibabaCloud\Tea\Model;
 
 class roles extends Model
 {
     /**
-     * @var string
+     * @var role[]
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $updateDate;
-
-    /**
-     * @var int
-     */
-    public $maxSessionDuration;
-
-    /**
-     * @var string
-     */
-    public $roleName;
-
-    /**
-     * @var string
-     */
-    public $createDate;
-
-    /**
-     * @var string
-     */
-    public $roleId;
-
-    /**
-     * @var string
-     */
-    public $arn;
+    public $role;
     protected $_name = [
-        'description'        => 'Description',
-        'updateDate'         => 'UpdateDate',
-        'maxSessionDuration' => 'MaxSessionDuration',
-        'roleName'           => 'RoleName',
-        'createDate'         => 'CreateDate',
-        'roleId'             => 'RoleId',
-        'arn'                => 'Arn',
+        'role' => 'Role',
     ];
 
     public function validate()
@@ -59,26 +24,14 @@ class roles extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->updateDate) {
-            $res['UpdateDate'] = $this->updateDate;
-        }
-        if (null !== $this->maxSessionDuration) {
-            $res['MaxSessionDuration'] = $this->maxSessionDuration;
-        }
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
-        }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
-        }
-        if (null !== $this->roleId) {
-            $res['RoleId'] = $this->roleId;
-        }
-        if (null !== $this->arn) {
-            $res['Arn'] = $this->arn;
+        if (null !== $this->role) {
+            $res['Role'] = [];
+            if (null !== $this->role && \is_array($this->role)) {
+                $n = 0;
+                foreach ($this->role as $item) {
+                    $res['Role'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -92,26 +45,14 @@ class roles extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['UpdateDate'])) {
-            $model->updateDate = $map['UpdateDate'];
-        }
-        if (isset($map['MaxSessionDuration'])) {
-            $model->maxSessionDuration = $map['MaxSessionDuration'];
-        }
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
-        }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
-        }
-        if (isset($map['RoleId'])) {
-            $model->roleId = $map['RoleId'];
-        }
-        if (isset($map['Arn'])) {
-            $model->arn = $map['Arn'];
+        if (isset($map['Role'])) {
+            if (!empty($map['Role'])) {
+                $model->role = [];
+                $n           = 0;
+                foreach ($map['Role'] as $item) {
+                    $model->role[$n++] = null !== $item ? role::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

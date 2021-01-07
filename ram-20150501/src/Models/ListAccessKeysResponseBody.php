@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAccessKeysResponseBody extends Model
 {
     /**
-     * @var accessKeys[]
+     * @var accessKeys
      */
     public $accessKeys;
 
@@ -31,13 +31,7 @@ class ListAccessKeysResponseBody extends Model
     {
         $res = [];
         if (null !== $this->accessKeys) {
-            $res['AccessKeys'] = [];
-            if (null !== $this->accessKeys && \is_array($this->accessKeys)) {
-                $n = 0;
-                foreach ($this->accessKeys as $item) {
-                    $res['AccessKeys'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['AccessKeys'] = null !== $this->accessKeys ? $this->accessKeys->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -55,13 +49,7 @@ class ListAccessKeysResponseBody extends Model
     {
         $model = new self();
         if (isset($map['AccessKeys'])) {
-            if (!empty($map['AccessKeys'])) {
-                $model->accessKeys = [];
-                $n                 = 0;
-                foreach ($map['AccessKeys'] as $item) {
-                    $model->accessKeys[$n++] = null !== $item ? accessKeys::fromMap($item) : $item;
-                }
-            }
+            $model->accessKeys = accessKeys::fromMap($map['AccessKeys']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

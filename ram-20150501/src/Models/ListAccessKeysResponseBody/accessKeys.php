@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ram\V20150501\Models\ListAccessKeysResponseBody;
 
+use AlibabaCloud\SDK\Ram\V20150501\Models\ListAccessKeysResponseBody\accessKeys\accessKey;
 use AlibabaCloud\Tea\Model;
 
 class accessKeys extends Model
 {
     /**
-     * @var string
+     * @var accessKey[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $createDate;
+    public $accessKey;
     protected $_name = [
-        'status'      => 'Status',
-        'accessKeyId' => 'AccessKeyId',
-        'createDate'  => 'CreateDate',
+        'accessKey' => 'AccessKey',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class accessKeys extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['AccessKeyId'] = $this->accessKeyId;
-        }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
+        if (null !== $this->accessKey) {
+            $res['AccessKey'] = [];
+            if (null !== $this->accessKey && \is_array($this->accessKey)) {
+                $n = 0;
+                foreach ($this->accessKey as $item) {
+                    $res['AccessKey'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class accessKeys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['AccessKeyId'])) {
-            $model->accessKeyId = $map['AccessKeyId'];
-        }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
+        if (isset($map['AccessKey'])) {
+            if (!empty($map['AccessKey'])) {
+                $model->accessKey = [];
+                $n                = 0;
+                foreach ($map['AccessKey'] as $item) {
+                    $model->accessKey[$n++] = null !== $item ? accessKey::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
