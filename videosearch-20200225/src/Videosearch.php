@@ -11,11 +11,24 @@ use AlibabaCloud\SDK\Videosearch\V20200225\Models\AddSearchVideoTaskRequest;
 use AlibabaCloud\SDK\Videosearch\V20200225\Models\AddSearchVideoTaskResponse;
 use AlibabaCloud\SDK\Videosearch\V20200225\Models\AddStorageVideoTaskRequest;
 use AlibabaCloud\SDK\Videosearch\V20200225\Models\AddStorageVideoTaskResponse;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\CreateBatchTaskRequest;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\CreateBatchTaskResponse;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\GetInstanceRequest;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Videosearch\V20200225\Models\GetStorageHistoryRequest;
 use AlibabaCloud\SDK\Videosearch\V20200225\Models\GetStorageHistoryResponse;
 use AlibabaCloud\SDK\Videosearch\V20200225\Models\GetTaskStatusRequest;
 use AlibabaCloud\SDK\Videosearch\V20200225\Models\GetTaskStatusResponse;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\ListBatchTaskRequest;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\ListBatchTaskResponse;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\ListInstancesRequest;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\ListSearchVideoTasksRequest;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\ListSearchVideoTasksResponse;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\ListStorageVideoTasksRequest;
+use AlibabaCloud\SDK\Videosearch\V20200225\Models\ListStorageVideoTasksResponse;
 use AlibabaCloud\Tea\Rpc\Rpc;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 
@@ -34,6 +47,31 @@ class Videosearch extends Rpc
     }
 
     /**
+     * @param CreateBatchTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateBatchTaskResponse
+     */
+    public function createBatchTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateBatchTaskResponse::fromMap($this->doRequest('CreateBatchTask', 'HTTPS', 'POST', '2020-02-25', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateBatchTaskRequest $request
+     *
+     * @return CreateBatchTaskResponse
+     */
+    public function createBatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetStorageHistoryRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -43,7 +81,7 @@ class Videosearch extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetStorageHistoryResponse::fromMap($this->doRequest('GetStorageHistory', 'HTTPS', 'POST', '2020-02-25', 'AK', null, $request->toMap(), $runtime));
+        return GetStorageHistoryResponse::fromMap($this->doRequest('GetStorageHistory', 'HTTPS', 'POST', '2020-02-25', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -59,6 +97,106 @@ class Videosearch extends Rpc
     }
 
     /**
+     * @param ListBatchTaskRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListBatchTaskResponse
+     */
+    public function listBatchTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ListBatchTaskResponse::fromMap($this->doRequest('ListBatchTask', 'HTTPS', 'POST', '2020-02-25', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ListBatchTaskRequest $request
+     *
+     * @return ListBatchTaskResponse
+     */
+    public function listBatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ListInstancesResponse::fromMap($this->doRequest('ListInstances', 'HTTPS', 'POST', '2020-02-25', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListStorageVideoTasksRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListStorageVideoTasksResponse
+     */
+    public function listStorageVideoTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ListStorageVideoTasksResponse::fromMap($this->doRequest('ListStorageVideoTasks', 'HTTPS', 'POST', '2020-02-25', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ListStorageVideoTasksRequest $request
+     *
+     * @return ListStorageVideoTasksResponse
+     */
+    public function listStorageVideoTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStorageVideoTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSearchVideoTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSearchVideoTasksResponse
+     */
+    public function listSearchVideoTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ListSearchVideoTasksResponse::fromMap($this->doRequest('ListSearchVideoTasks', 'HTTPS', 'POST', '2020-02-25', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ListSearchVideoTasksRequest $request
+     *
+     * @return ListSearchVideoTasksResponse
+     */
+    public function listSearchVideoTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSearchVideoTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AddStorageVideoTaskRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -68,7 +206,7 @@ class Videosearch extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddStorageVideoTaskResponse::fromMap($this->doRequest('AddStorageVideoTask', 'HTTPS', 'POST', '2020-02-25', 'AK', null, $request->toMap(), $runtime));
+        return AddStorageVideoTaskResponse::fromMap($this->doRequest('AddStorageVideoTask', 'HTTPS', 'POST', '2020-02-25', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -84,6 +222,31 @@ class Videosearch extends Rpc
     }
 
     /**
+     * @param GetInstanceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetInstanceResponse
+     */
+    public function getInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return GetInstanceResponse::fromMap($this->doRequest('GetInstance', 'HTTPS', 'POST', '2020-02-25', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param GetInstanceRequest $request
+     *
+     * @return GetInstanceResponse
+     */
+    public function getInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AddDeletionVideoTaskRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -93,7 +256,7 @@ class Videosearch extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddDeletionVideoTaskResponse::fromMap($this->doRequest('AddDeletionVideoTask', 'HTTPS', 'POST', '2020-02-25', 'AK', null, $request->toMap(), $runtime));
+        return AddDeletionVideoTaskResponse::fromMap($this->doRequest('AddDeletionVideoTask', 'HTTPS', 'POST', '2020-02-25', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -118,7 +281,7 @@ class Videosearch extends Rpc
     {
         Utils::validateModel($request);
 
-        return GetTaskStatusResponse::fromMap($this->doRequest('GetTaskStatus', 'HTTPS', 'POST', '2020-02-25', 'AK', null, $request->toMap(), $runtime));
+        return GetTaskStatusResponse::fromMap($this->doRequest('GetTaskStatus', 'HTTPS', 'POST', '2020-02-25', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -143,7 +306,7 @@ class Videosearch extends Rpc
     {
         Utils::validateModel($request);
 
-        return AddSearchVideoTaskResponse::fromMap($this->doRequest('AddSearchVideoTask', 'HTTPS', 'POST', '2020-02-25', 'AK', null, $request->toMap(), $runtime));
+        return AddSearchVideoTaskResponse::fromMap($this->doRequest('AddSearchVideoTask', 'HTTPS', 'POST', '2020-02-25', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -174,8 +337,8 @@ class Videosearch extends Rpc
         if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap['regionId'])) {
-            return @$endpointMap['regionId'];
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
