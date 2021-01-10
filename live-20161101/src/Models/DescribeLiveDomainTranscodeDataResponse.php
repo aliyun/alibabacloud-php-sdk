@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainTranscodeDataResponse\transcodeDataInfos;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveDomainTranscodeDataResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var transcodeDataInfos
+     * @var DescribeLiveDomainTranscodeDataResponseBody
      */
-    public $transcodeDataInfos;
+    public $body;
     protected $_name = [
-        'requestId'          => 'RequestId',
-        'transcodeDataInfos' => 'TranscodeDataInfos',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('transcodeDataInfos', $this->transcodeDataInfos, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->transcodeDataInfos) {
-            $res['TranscodeDataInfos'] = null !== $this->transcodeDataInfos ? $this->transcodeDataInfos->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeLiveDomainTranscodeDataResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['TranscodeDataInfos'])) {
-            $model->transcodeDataInfos = transcodeDataInfos::fromMap($map['TranscodeDataInfos']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveDomainTranscodeDataResponseBody::fromMap($map['body']);
         }
 
         return $model;

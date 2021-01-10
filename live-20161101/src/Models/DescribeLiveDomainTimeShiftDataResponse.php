@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainTimeShiftDataResponse\timeShiftData;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveDomainTimeShiftDataResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var timeShiftData
+     * @var DescribeLiveDomainTimeShiftDataResponseBody
      */
-    public $timeShiftData;
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'timeShiftData' => 'TimeShiftData',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('timeShiftData', $this->timeShiftData, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->timeShiftData) {
-            $res['TimeShiftData'] = null !== $this->timeShiftData ? $this->timeShiftData->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeLiveDomainTimeShiftDataResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['TimeShiftData'])) {
-            $model->timeShiftData = timeShiftData::fromMap($map['TimeShiftData']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveDomainTimeShiftDataResponseBody::fromMap($map['body']);
         }
 
         return $model;

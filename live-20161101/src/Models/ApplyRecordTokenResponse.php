@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ApplyRecordTokenResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var ApplyRecordTokenResponseBody
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $accessKeySecret;
-
-    /**
-     * @var string
-     */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $expiration;
+    public $body;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'securityToken'   => 'SecurityToken',
-        'accessKeySecret' => 'AccessKeySecret',
-        'accessKeyId'     => 'AccessKeyId',
-        'expiration'      => 'Expiration',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('securityToken', $this->securityToken, true);
-        Model::validateRequired('accessKeySecret', $this->accessKeySecret, true);
-        Model::validateRequired('accessKeyId', $this->accessKeyId, true);
-        Model::validateRequired('expiration', $this->expiration, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->accessKeySecret) {
-            $res['AccessKeySecret'] = $this->accessKeySecret;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['AccessKeyId'] = $this->accessKeyId;
-        }
-        if (null !== $this->expiration) {
-            $res['Expiration'] = $this->expiration;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,20 +49,11 @@ class ApplyRecordTokenResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['AccessKeySecret'])) {
-            $model->accessKeySecret = $map['AccessKeySecret'];
-        }
-        if (isset($map['AccessKeyId'])) {
-            $model->accessKeyId = $map['AccessKeyId'];
-        }
-        if (isset($map['Expiration'])) {
-            $model->expiration = $map['Expiration'];
+        if (isset($map['body'])) {
+            $model->body = ApplyRecordTokenResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveCertificateDetailRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -18,18 +23,21 @@ class DescribeLiveCertificateDetailRequest extends Model
      */
     public $certName;
     protected $_name = [
+        'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
         'certName'      => 'CertName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('certName', $this->certName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -48,6 +56,9 @@ class DescribeLiveCertificateDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

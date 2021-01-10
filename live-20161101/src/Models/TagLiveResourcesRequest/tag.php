@@ -24,7 +24,6 @@ class tag extends Model
 
     public function validate()
     {
-        Model::validateRequired('key', $this->key, true);
     }
 
     public function toMap()

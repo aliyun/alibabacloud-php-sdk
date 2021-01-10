@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveTopDomainsByFlowRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -23,6 +28,7 @@ class DescribeLiveTopDomainsByFlowRequest extends Model
      */
     public $limit;
     protected $_name = [
+        'ownerId'   => 'OwnerId',
         'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
         'limit'     => 'Limit',
@@ -35,6 +41,9 @@ class DescribeLiveTopDomainsByFlowRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -56,6 +65,9 @@ class DescribeLiveTopDomainsByFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

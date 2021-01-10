@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveTagResourcesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string[]
      */
     public $resourceId;
@@ -23,21 +28,29 @@ class DescribeLiveTagResourcesRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $scope;
     protected $_name = [
+        'ownerId'      => 'OwnerId',
         'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
+        'scope'        => 'Scope',
     ];
 
     public function validate()
     {
-        Model::validateRequired('resourceId', $this->resourceId, true);
-        Model::validateRequired('resourceType', $this->resourceType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -53,6 +66,9 @@ class DescribeLiveTagResourcesRequest extends Model
                 }
             }
         }
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
+        }
 
         return $res;
     }
@@ -65,6 +81,9 @@ class DescribeLiveTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
@@ -81,6 +100,9 @@ class DescribeLiveTagResourcesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
         }
 
         return $model;

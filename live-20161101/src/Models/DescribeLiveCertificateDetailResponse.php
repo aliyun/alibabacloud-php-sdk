@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveCertificateDetailResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeLiveCertificateDetailResponseBody
      */
-    public $cert;
-
-    /**
-     * @var string
-     */
-    public $key;
-
-    /**
-     * @var int
-     */
-    public $certId;
-
-    /**
-     * @var string
-     */
-    public $certName;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'cert'      => 'Cert',
-        'key'       => 'Key',
-        'certId'    => 'CertId',
-        'certName'  => 'CertName',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('cert', $this->cert, true);
-        Model::validateRequired('key', $this->key, true);
-        Model::validateRequired('certId', $this->certId, true);
-        Model::validateRequired('certName', $this->certName, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->cert) {
-            $res['Cert'] = $this->cert;
-        }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
-        if (null !== $this->certId) {
-            $res['CertId'] = $this->certId;
-        }
-        if (null !== $this->certName) {
-            $res['CertName'] = $this->certName;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,20 +49,11 @@ class DescribeLiveCertificateDetailResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Cert'])) {
-            $model->cert = $map['Cert'];
-        }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
-        if (isset($map['CertId'])) {
-            $model->certId = $map['CertId'];
-        }
-        if (isset($map['CertName'])) {
-            $model->certName = $map['CertName'];
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveCertificateDetailResponseBody::fromMap($map['body']);
         }
 
         return $model;

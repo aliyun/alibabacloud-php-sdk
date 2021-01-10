@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveCertificateListResponse\certificateListModel;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveCertificateListResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var certificateListModel
+     * @var DescribeLiveCertificateListResponseBody
      */
-    public $certificateListModel;
+    public $body;
     protected $_name = [
-        'requestId'            => 'RequestId',
-        'certificateListModel' => 'CertificateListModel',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('certificateListModel', $this->certificateListModel, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->certificateListModel) {
-            $res['CertificateListModel'] = null !== $this->certificateListModel ? $this->certificateListModel->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeLiveCertificateListResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['CertificateListModel'])) {
-            $model->certificateListModel = certificateListModel::fromMap($map['CertificateListModel']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveCertificateListResponseBody::fromMap($map['body']);
         }
 
         return $model;

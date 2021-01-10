@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyCasterEpisodeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $casterId;
@@ -29,11 +34,6 @@ class ModifyCasterEpisodeRequest extends Model
     public $resourceId;
 
     /**
-     * @var string[]
-     */
-    public $componentId;
-
-    /**
      * @var string
      */
     public $startTime;
@@ -47,26 +47,33 @@ class ModifyCasterEpisodeRequest extends Model
      * @var string
      */
     public $switchType;
+
+    /**
+     * @var string[]
+     */
+    public $componentId;
     protected $_name = [
+        'ownerId'     => 'OwnerId',
         'casterId'    => 'CasterId',
         'episodeId'   => 'EpisodeId',
         'episodeName' => 'EpisodeName',
         'resourceId'  => 'ResourceId',
-        'componentId' => 'ComponentId',
         'startTime'   => 'StartTime',
         'endTime'     => 'EndTime',
         'switchType'  => 'SwitchType',
+        'componentId' => 'ComponentId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('casterId', $this->casterId, true);
-        Model::validateRequired('episodeId', $this->episodeId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
@@ -79,9 +86,6 @@ class ModifyCasterEpisodeRequest extends Model
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-        if (null !== $this->componentId) {
-            $res['ComponentId'] = $this->componentId;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -90,6 +94,9 @@ class ModifyCasterEpisodeRequest extends Model
         }
         if (null !== $this->switchType) {
             $res['SwitchType'] = $this->switchType;
+        }
+        if (null !== $this->componentId) {
+            $res['ComponentId'] = $this->componentId;
         }
 
         return $res;
@@ -103,6 +110,9 @@ class ModifyCasterEpisodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
@@ -115,11 +125,6 @@ class ModifyCasterEpisodeRequest extends Model
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-        if (isset($map['ComponentId'])) {
-            if (!empty($map['ComponentId'])) {
-                $model->componentId = $map['ComponentId'];
-            }
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
@@ -128,6 +133,11 @@ class ModifyCasterEpisodeRequest extends Model
         }
         if (isset($map['SwitchType'])) {
             $model->switchType = $map['SwitchType'];
+        }
+        if (isset($map['ComponentId'])) {
+            if (!empty($map['ComponentId'])) {
+                $model->componentId = $map['ComponentId'];
+            }
         }
 
         return $model;

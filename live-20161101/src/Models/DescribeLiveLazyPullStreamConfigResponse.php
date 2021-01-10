@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveLazyPullStreamConfigResponse\liveLazyPullConfigList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveLazyPullStreamConfigResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var liveLazyPullConfigList
+     * @var DescribeLiveLazyPullStreamConfigResponseBody
      */
-    public $liveLazyPullConfigList;
+    public $body;
     protected $_name = [
-        'requestId'              => 'RequestId',
-        'liveLazyPullConfigList' => 'LiveLazyPullConfigList',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('liveLazyPullConfigList', $this->liveLazyPullConfigList, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->liveLazyPullConfigList) {
-            $res['LiveLazyPullConfigList'] = null !== $this->liveLazyPullConfigList ? $this->liveLazyPullConfigList->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeLiveLazyPullStreamConfigResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['LiveLazyPullConfigList'])) {
-            $model->liveLazyPullConfigList = liveLazyPullConfigList::fromMap($map['LiveLazyPullConfigList']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveLazyPullStreamConfigResponseBody::fromMap($map['body']);
         }
 
         return $model;

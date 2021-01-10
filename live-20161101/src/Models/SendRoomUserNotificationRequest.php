@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SendRoomUserNotificationRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $appId;
@@ -38,6 +43,7 @@ class SendRoomUserNotificationRequest extends Model
      */
     public $priority;
     protected $_name = [
+        'ownerId'  => 'OwnerId',
         'appId'    => 'AppId',
         'roomId'   => 'RoomId',
         'appUid'   => 'AppUid',
@@ -48,16 +54,14 @@ class SendRoomUserNotificationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('roomId', $this->roomId, true);
-        Model::validateRequired('appUid', $this->appUid, true);
-        Model::validateRequired('toAppUid', $this->toAppUid, true);
-        Model::validateRequired('data', $this->data, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -88,6 +92,9 @@ class SendRoomUserNotificationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

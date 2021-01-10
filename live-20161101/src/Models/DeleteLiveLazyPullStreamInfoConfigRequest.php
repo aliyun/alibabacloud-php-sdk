@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveLazyPullStreamInfoConfigRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -18,19 +23,21 @@ class DeleteLiveLazyPullStreamInfoConfigRequest extends Model
      */
     public $appName;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
         'appName'    => 'AppName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('appName', $this->appName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -49,6 +56,9 @@ class DeleteLiveLazyPullStreamInfoConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

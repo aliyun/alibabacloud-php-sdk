@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ControlHtmlResourceResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var ControlHtmlResourceResponseBody
      */
-    public $streamId;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'streamId'  => 'StreamId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('streamId', $this->streamId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->streamId) {
-            $res['StreamId'] = $this->streamId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class ControlHtmlResourceResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['StreamId'])) {
-            $model->streamId = $map['StreamId'];
+        if (isset($map['body'])) {
+            $model->body = ControlHtmlResourceResponseBody::fromMap($map['body']);
         }
 
         return $model;

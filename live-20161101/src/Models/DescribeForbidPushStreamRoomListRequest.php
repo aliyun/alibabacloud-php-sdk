@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeForbidPushStreamRoomListRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $appId;
@@ -28,6 +33,7 @@ class DescribeForbidPushStreamRoomListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'ownerId'  => 'OwnerId',
         'appId'    => 'AppId',
         'order'    => 'Order',
         'pageNum'  => 'PageNum',
@@ -36,12 +42,14 @@ class DescribeForbidPushStreamRoomListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -66,6 +74,9 @@ class DescribeForbidPushStreamRoomListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

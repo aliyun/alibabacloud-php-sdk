@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoomRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $appId;
@@ -18,19 +23,21 @@ class DeleteRoomRequest extends Model
      */
     public $roomId;
     protected $_name = [
-        'appId'  => 'AppId',
-        'roomId' => 'RoomId',
+        'ownerId' => 'OwnerId',
+        'appId'   => 'AppId',
+        'roomId'  => 'RoomId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('roomId', $this->roomId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -49,6 +56,9 @@ class DeleteRoomRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

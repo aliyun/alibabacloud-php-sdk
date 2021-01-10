@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetLiveStreamOptimizedFeatureConfigRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -28,6 +33,7 @@ class SetLiveStreamOptimizedFeatureConfigRequest extends Model
      */
     public $configValue;
     protected $_name = [
+        'ownerId'      => 'OwnerId',
         'domainName'   => 'DomainName',
         'configName'   => 'ConfigName',
         'configStatus' => 'ConfigStatus',
@@ -36,14 +42,14 @@ class SetLiveStreamOptimizedFeatureConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('configName', $this->configName, true);
-        Model::validateRequired('configStatus', $this->configStatus, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -68,6 +74,9 @@ class SetLiveStreamOptimizedFeatureConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

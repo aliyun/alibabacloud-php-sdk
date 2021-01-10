@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainRealTimeBpsDataRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -33,6 +38,7 @@ class DescribeLiveDomainRealTimeBpsDataRequest extends Model
      */
     public $endTime;
     protected $_name = [
+        'ownerId'        => 'OwnerId',
         'domainName'     => 'DomainName',
         'ispNameEn'      => 'IspNameEn',
         'locationNameEn' => 'LocationNameEn',
@@ -42,12 +48,14 @@ class DescribeLiveDomainRealTimeBpsDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -75,6 +83,9 @@ class DescribeLiveDomainRealTimeBpsDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

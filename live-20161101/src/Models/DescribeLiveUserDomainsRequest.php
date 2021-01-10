@@ -15,6 +15,11 @@ class DescribeLiveUserDomainsRequest extends Model
     public $securityToken;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $liveDomainType;
@@ -55,6 +60,7 @@ class DescribeLiveUserDomainsRequest extends Model
     public $tag;
     protected $_name = [
         'securityToken'    => 'SecurityToken',
+        'ownerId'          => 'OwnerId',
         'liveDomainType'   => 'LiveDomainType',
         'pageSize'         => 'PageSize',
         'pageNumber'       => 'PageNumber',
@@ -74,6 +80,9 @@ class DescribeLiveUserDomainsRequest extends Model
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->liveDomainType) {
             $res['LiveDomainType'] = $this->liveDomainType;
@@ -119,6 +128,9 @@ class DescribeLiveUserDomainsRequest extends Model
         $model = new self();
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['LiveDomainType'])) {
             $model->liveDomainType = $map['LiveDomainType'];

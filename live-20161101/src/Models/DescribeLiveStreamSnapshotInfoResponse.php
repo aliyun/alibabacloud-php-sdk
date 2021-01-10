@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamSnapshotInfoResponse\liveStreamSnapshotInfoList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveStreamSnapshotInfoResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeLiveStreamSnapshotInfoResponseBody
      */
-    public $nextStartTime;
-
-    /**
-     * @var liveStreamSnapshotInfoList
-     */
-    public $liveStreamSnapshotInfoList;
+    public $body;
     protected $_name = [
-        'requestId'                  => 'RequestId',
-        'nextStartTime'              => 'NextStartTime',
-        'liveStreamSnapshotInfoList' => 'LiveStreamSnapshotInfoList',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('nextStartTime', $this->nextStartTime, true);
-        Model::validateRequired('liveStreamSnapshotInfoList', $this->liveStreamSnapshotInfoList, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->nextStartTime) {
-            $res['NextStartTime'] = $this->nextStartTime;
-        }
-        if (null !== $this->liveStreamSnapshotInfoList) {
-            $res['LiveStreamSnapshotInfoList'] = null !== $this->liveStreamSnapshotInfoList ? $this->liveStreamSnapshotInfoList->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class DescribeLiveStreamSnapshotInfoResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['NextStartTime'])) {
-            $model->nextStartTime = $map['NextStartTime'];
-        }
-        if (isset($map['LiveStreamSnapshotInfoList'])) {
-            $model->liveStreamSnapshotInfoList = liveStreamSnapshotInfoList::fromMap($map['LiveStreamSnapshotInfoList']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveStreamSnapshotInfoResponseBody::fromMap($map['body']);
         }
 
         return $model;

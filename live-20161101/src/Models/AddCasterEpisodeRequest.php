@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddCasterEpisodeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $casterId;
@@ -29,11 +34,6 @@ class AddCasterEpisodeRequest extends Model
     public $resourceId;
 
     /**
-     * @var string[]
-     */
-    public $componentId;
-
-    /**
      * @var string
      */
     public $startTime;
@@ -47,29 +47,33 @@ class AddCasterEpisodeRequest extends Model
      * @var string
      */
     public $switchType;
+
+    /**
+     * @var string[]
+     */
+    public $componentId;
     protected $_name = [
+        'ownerId'     => 'OwnerId',
         'casterId'    => 'CasterId',
         'episodeType' => 'EpisodeType',
         'episodeName' => 'EpisodeName',
         'resourceId'  => 'ResourceId',
-        'componentId' => 'ComponentId',
         'startTime'   => 'StartTime',
         'endTime'     => 'EndTime',
         'switchType'  => 'SwitchType',
+        'componentId' => 'ComponentId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('casterId', $this->casterId, true);
-        Model::validateRequired('episodeType', $this->episodeType, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
-        Model::validateRequired('switchType', $this->switchType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
@@ -82,9 +86,6 @@ class AddCasterEpisodeRequest extends Model
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-        if (null !== $this->componentId) {
-            $res['ComponentId'] = $this->componentId;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -93,6 +94,9 @@ class AddCasterEpisodeRequest extends Model
         }
         if (null !== $this->switchType) {
             $res['SwitchType'] = $this->switchType;
+        }
+        if (null !== $this->componentId) {
+            $res['ComponentId'] = $this->componentId;
         }
 
         return $res;
@@ -106,6 +110,9 @@ class AddCasterEpisodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
@@ -118,11 +125,6 @@ class AddCasterEpisodeRequest extends Model
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-        if (isset($map['ComponentId'])) {
-            if (!empty($map['ComponentId'])) {
-                $model->componentId = $map['ComponentId'];
-            }
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
@@ -131,6 +133,11 @@ class AddCasterEpisodeRequest extends Model
         }
         if (isset($map['SwitchType'])) {
             $model->switchType = $map['SwitchType'];
+        }
+        if (isset($map['ComponentId'])) {
+            if (!empty($map['ComponentId'])) {
+                $model->componentId = $map['ComponentId'];
+            }
         }
 
         return $model;

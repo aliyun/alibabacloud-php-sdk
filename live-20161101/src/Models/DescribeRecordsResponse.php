@@ -4,45 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRecordsResponse\records;
 use AlibabaCloud\Tea\Model;
 
 class DescribeRecordsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var records[]
+     * @var DescribeRecordsResponseBody
      */
-    public $records;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'records'   => 'Records',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('records', $this->records, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->records) {
-            $res['Records'] = [];
-            if (null !== $this->records && \is_array($this->records)) {
-                $n = 0;
-                foreach ($this->records as $item) {
-                    $res['Records'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +49,11 @@ class DescribeRecordsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Records'])) {
-            if (!empty($map['Records'])) {
-                $model->records = [];
-                $n              = 0;
-                foreach ($map['Records'] as $item) {
-                    $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeRecordsResponseBody::fromMap($map['body']);
         }
 
         return $model;

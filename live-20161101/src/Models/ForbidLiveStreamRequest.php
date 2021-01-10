@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ForbidLiveStreamRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -36,27 +41,33 @@ class ForbidLiveStreamRequest extends Model
     /**
      * @var string
      */
+    public $controlStreamAction;
+
+    /**
+     * @var string
+     */
     public $resumeTime;
     protected $_name = [
-        'domainName'     => 'DomainName',
-        'appName'        => 'AppName',
-        'streamName'     => 'StreamName',
-        'liveStreamType' => 'LiveStreamType',
-        'oneshot'        => 'Oneshot',
-        'resumeTime'     => 'ResumeTime',
+        'ownerId'             => 'OwnerId',
+        'domainName'          => 'DomainName',
+        'appName'             => 'AppName',
+        'streamName'          => 'StreamName',
+        'liveStreamType'      => 'LiveStreamType',
+        'oneshot'             => 'Oneshot',
+        'controlStreamAction' => 'ControlStreamAction',
+        'resumeTime'          => 'ResumeTime',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('appName', $this->appName, true);
-        Model::validateRequired('streamName', $this->streamName, true);
-        Model::validateRequired('liveStreamType', $this->liveStreamType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -71,6 +82,9 @@ class ForbidLiveStreamRequest extends Model
         }
         if (null !== $this->oneshot) {
             $res['Oneshot'] = $this->oneshot;
+        }
+        if (null !== $this->controlStreamAction) {
+            $res['ControlStreamAction'] = $this->controlStreamAction;
         }
         if (null !== $this->resumeTime) {
             $res['ResumeTime'] = $this->resumeTime;
@@ -87,6 +101,9 @@ class ForbidLiveStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
@@ -101,6 +118,9 @@ class ForbidLiveStreamRequest extends Model
         }
         if (isset($map['Oneshot'])) {
             $model->oneshot = $map['Oneshot'];
+        }
+        if (isset($map['ControlStreamAction'])) {
+            $model->controlStreamAction = $map['ControlStreamAction'];
         }
         if (isset($map['ResumeTime'])) {
             $model->resumeTime = $map['ResumeTime'];

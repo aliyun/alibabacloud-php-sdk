@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeHtmlResourceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $htmlResourceId;
@@ -23,6 +28,7 @@ class DescribeHtmlResourceRequest extends Model
      */
     public $casterId;
     protected $_name = [
+        'ownerId'        => 'OwnerId',
         'htmlResourceId' => 'HtmlResourceId',
         'htmlUrl'        => 'htmlUrl',
         'casterId'       => 'CasterId',
@@ -35,6 +41,9 @@ class DescribeHtmlResourceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->htmlResourceId) {
             $res['HtmlResourceId'] = $this->htmlResourceId;
         }
@@ -56,6 +65,9 @@ class DescribeHtmlResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['HtmlResourceId'])) {
             $model->htmlResourceId = $map['HtmlResourceId'];
         }

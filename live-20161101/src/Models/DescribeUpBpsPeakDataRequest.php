@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpBpsPeakDataRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -28,6 +33,7 @@ class DescribeUpBpsPeakDataRequest extends Model
      */
     public $domainName;
     protected $_name = [
+        'ownerId'      => 'OwnerId',
         'startTime'    => 'StartTime',
         'endTime'      => 'EndTime',
         'domainSwitch' => 'DomainSwitch',
@@ -36,13 +42,14 @@ class DescribeUpBpsPeakDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -67,6 +74,9 @@ class DescribeUpBpsPeakDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

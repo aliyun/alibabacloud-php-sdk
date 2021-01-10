@@ -9,53 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateRoomResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateRoomResponseBody
      */
-    public $appId;
-
-    /**
-     * @var string
-     */
-    public $roomId;
-
-    /**
-     * @var string
-     */
-    public $anchorId;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'appId'     => 'AppId',
-        'roomId'    => 'RoomId',
-        'anchorId'  => 'AnchorId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('roomId', $this->roomId, true);
-        Model::validateRequired('anchorId', $this->anchorId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
-        }
-        if (null !== $this->roomId) {
-            $res['RoomId'] = $this->roomId;
-        }
-        if (null !== $this->anchorId) {
-            $res['AnchorId'] = $this->anchorId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +49,11 @@ class CreateRoomResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
-        }
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
-        }
-        if (isset($map['AnchorId'])) {
-            $model->anchorId = $map['AnchorId'];
+        if (isset($map['body'])) {
+            $model->body = CreateRoomResponseBody::fromMap($map['body']);
         }
 
         return $model;

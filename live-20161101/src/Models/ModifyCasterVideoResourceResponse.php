@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyCasterVideoResourceResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var ModifyCasterVideoResourceResponseBody
      */
-    public $casterId;
-
-    /**
-     * @var string
-     */
-    public $resourceId;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'casterId'   => 'CasterId',
-        'resourceId' => 'ResourceId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('casterId', $this->casterId, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->casterId) {
-            $res['CasterId'] = $this->casterId;
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class ModifyCasterVideoResourceResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['CasterId'])) {
-            $model->casterId = $map['CasterId'];
-        }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
+        if (isset($map['body'])) {
+            $model->body = ModifyCasterVideoResourceResponseBody::fromMap($map['body']);
         }
 
         return $model;

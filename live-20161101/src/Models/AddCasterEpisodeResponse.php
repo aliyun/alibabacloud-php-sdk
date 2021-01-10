@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class AddCasterEpisodeResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var AddCasterEpisodeResponseBody
      */
-    public $episodeId;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'episodeId' => 'EpisodeId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('episodeId', $this->episodeId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->episodeId) {
-            $res['EpisodeId'] = $this->episodeId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class AddCasterEpisodeResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['EpisodeId'])) {
-            $model->episodeId = $map['EpisodeId'];
+        if (isset($map['body'])) {
+            $model->body = AddCasterEpisodeResponseBody::fromMap($map['body']);
         }
 
         return $model;

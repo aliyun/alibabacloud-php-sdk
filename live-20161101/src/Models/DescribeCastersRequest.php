@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCastersRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $casterId;
@@ -43,6 +48,7 @@ class DescribeCastersRequest extends Model
      */
     public $status;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'casterId'   => 'CasterId',
         'casterName' => 'CasterName',
         'startTime'  => 'StartTime',
@@ -59,6 +65,9 @@ class DescribeCastersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
@@ -92,6 +101,9 @@ class DescribeCastersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsControlHistoryRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $securityToken;
+    public $ownerId;
 
     /**
      * @var string
@@ -32,26 +32,35 @@ class DescribeLiveStreamsControlHistoryRequest extends Model
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var int
+     */
+    public $page;
+
+    /**
+     * @var int
+     */
+    public $rows;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'domainName'    => 'DomainName',
-        'appName'       => 'AppName',
-        'startTime'     => 'StartTime',
-        'endTime'       => 'EndTime',
+        'ownerId'    => 'OwnerId',
+        'domainName' => 'DomainName',
+        'appName'    => 'AppName',
+        'startTime'  => 'StartTime',
+        'endTime'    => 'EndTime',
+        'page'       => 'Page',
+        'rows'       => 'Rows',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -65,6 +74,12 @@ class DescribeLiveStreamsControlHistoryRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->page) {
+            $res['Page'] = $this->page;
+        }
+        if (null !== $this->rows) {
+            $res['Rows'] = $this->rows;
+        }
 
         return $res;
     }
@@ -77,8 +92,8 @@ class DescribeLiveStreamsControlHistoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -91,6 +106,12 @@ class DescribeLiveStreamsControlHistoryRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Page'])) {
+            $model->page = $map['Page'];
+        }
+        if (isset($map['Rows'])) {
+            $model->rows = $map['Rows'];
         }
 
         return $model;

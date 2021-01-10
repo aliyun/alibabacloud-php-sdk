@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $appId;
@@ -28,6 +33,7 @@ class DescribeRecordsRequest extends Model
      */
     public $recordState;
     protected $_name = [
+        'ownerId'     => 'OwnerId',
         'appId'       => 'AppId',
         'pageNum'     => 'PageNum',
         'pageSize'    => 'PageSize',
@@ -36,14 +42,14 @@ class DescribeRecordsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('pageNum', $this->pageNum, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -68,6 +74,9 @@ class DescribeRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

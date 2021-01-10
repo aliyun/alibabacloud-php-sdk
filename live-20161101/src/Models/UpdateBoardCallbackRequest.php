@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateBoardCallbackRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $appId;
@@ -38,6 +43,7 @@ class UpdateBoardCallbackRequest extends Model
      */
     public $callbackEvents;
     protected $_name = [
+        'ownerId'        => 'OwnerId',
         'appId'          => 'AppId',
         'authKey'        => 'AuthKey',
         'authSwitch'     => 'AuthSwitch',
@@ -48,13 +54,14 @@ class UpdateBoardCallbackRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('callbackEnable', $this->callbackEnable, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -85,6 +92,9 @@ class UpdateBoardCallbackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

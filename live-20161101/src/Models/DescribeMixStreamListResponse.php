@@ -4,55 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeMixStreamListResponse\mixStreamList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeMixStreamListResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeMixStreamListResponseBody
      */
-    public $total;
-
-    /**
-     * @var mixStreamList[]
-     */
-    public $mixStreamList;
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'total'         => 'Total',
-        'mixStreamList' => 'MixStreamList',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('total', $this->total, true);
-        Model::validateRequired('mixStreamList', $this->mixStreamList, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->mixStreamList) {
-            $res['MixStreamList'] = [];
-            if (null !== $this->mixStreamList && \is_array($this->mixStreamList)) {
-                $n = 0;
-                foreach ($this->mixStreamList as $item) {
-                    $res['MixStreamList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +49,11 @@ class DescribeMixStreamListResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['MixStreamList'])) {
-            if (!empty($map['MixStreamList'])) {
-                $model->mixStreamList = [];
-                $n                    = 0;
-                foreach ($map['MixStreamList'] as $item) {
-                    $model->mixStreamList[$n++] = null !== $item ? mixStreamList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeMixStreamListResponseBody::fromMap($map['body']);
         }
 
         return $model;

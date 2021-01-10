@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoomKickoutUserListRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $appId;
@@ -33,6 +38,7 @@ class DescribeRoomKickoutUserListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'ownerId'  => 'OwnerId',
         'appId'    => 'AppId',
         'roomId'   => 'RoomId',
         'order'    => 'Order',
@@ -42,13 +48,14 @@ class DescribeRoomKickoutUserListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('roomId', $this->roomId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -76,6 +83,9 @@ class DescribeRoomKickoutUserListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

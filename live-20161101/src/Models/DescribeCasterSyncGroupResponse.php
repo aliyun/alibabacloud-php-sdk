@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterSyncGroupResponse\syncGroups;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCasterSyncGroupResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeCasterSyncGroupResponseBody
      */
-    public $casterId;
-
-    /**
-     * @var syncGroups
-     */
-    public $syncGroups;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'casterId'   => 'CasterId',
-        'syncGroups' => 'SyncGroups',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('casterId', $this->casterId, true);
-        Model::validateRequired('syncGroups', $this->syncGroups, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->casterId) {
-            $res['CasterId'] = $this->casterId;
-        }
-        if (null !== $this->syncGroups) {
-            $res['SyncGroups'] = null !== $this->syncGroups ? $this->syncGroups->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class DescribeCasterSyncGroupResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['CasterId'])) {
-            $model->casterId = $map['CasterId'];
-        }
-        if (isset($map['SyncGroups'])) {
-            $model->syncGroups = syncGroups::fromMap($map['SyncGroups']);
+        if (isset($map['body'])) {
+            $model->body = DescribeCasterSyncGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddTrancodeSEIRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -43,6 +48,7 @@ class AddTrancodeSEIRequest extends Model
      */
     public $delay;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
         'appName'    => 'AppName',
         'streamName' => 'StreamName',
@@ -54,18 +60,14 @@ class AddTrancodeSEIRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('appName', $this->appName, true);
-        Model::validateRequired('streamName', $this->streamName, true);
-        Model::validateRequired('text', $this->text, true);
-        Model::validateRequired('pattern', $this->pattern, true);
-        Model::validateRequired('repeat', $this->repeat, true);
-        Model::validateRequired('delay', $this->delay, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -99,6 +101,9 @@ class AddTrancodeSEIRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

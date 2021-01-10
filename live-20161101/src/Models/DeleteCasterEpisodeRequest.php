@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteCasterEpisodeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $casterId;
@@ -18,19 +23,21 @@ class DeleteCasterEpisodeRequest extends Model
      */
     public $episodeId;
     protected $_name = [
+        'ownerId'   => 'OwnerId',
         'casterId'  => 'CasterId',
         'episodeId' => 'EpisodeId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('casterId', $this->casterId, true);
-        Model::validateRequired('episodeId', $this->episodeId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
@@ -49,6 +56,9 @@ class DeleteCasterEpisodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }

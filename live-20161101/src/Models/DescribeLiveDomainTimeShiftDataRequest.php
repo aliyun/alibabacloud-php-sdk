@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainTimeShiftDataRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -28,6 +33,7 @@ class DescribeLiveDomainTimeShiftDataRequest extends Model
      */
     public $interval;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
         'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
@@ -41,6 +47,9 @@ class DescribeLiveDomainTimeShiftDataRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -65,6 +74,9 @@ class DescribeLiveDomainTimeShiftDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

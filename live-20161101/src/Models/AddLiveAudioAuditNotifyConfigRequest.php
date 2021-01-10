@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddLiveAudioAuditNotifyConfigRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -23,6 +28,7 @@ class AddLiveAudioAuditNotifyConfigRequest extends Model
      */
     public $callbackTemplate;
     protected $_name = [
+        'ownerId'          => 'OwnerId',
         'domainName'       => 'DomainName',
         'callback'         => 'Callback',
         'callbackTemplate' => 'CallbackTemplate',
@@ -30,12 +36,14 @@ class AddLiveAudioAuditNotifyConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -57,6 +65,9 @@ class AddLiveAudioAuditNotifyConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

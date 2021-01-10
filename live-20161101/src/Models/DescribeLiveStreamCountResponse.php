@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamCountResponse\streamCountInfos;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveStreamCountResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var streamCountInfos
+     * @var DescribeLiveStreamCountResponseBody
      */
-    public $streamCountInfos;
+    public $body;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'streamCountInfos' => 'StreamCountInfos',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('streamCountInfos', $this->streamCountInfos, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->streamCountInfos) {
-            $res['StreamCountInfos'] = null !== $this->streamCountInfos ? $this->streamCountInfos->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeLiveStreamCountResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['StreamCountInfos'])) {
-            $model->streamCountInfos = streamCountInfos::fromMap($map['StreamCountInfos']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveStreamCountResponseBody::fromMap($map['body']);
         }
 
         return $model;

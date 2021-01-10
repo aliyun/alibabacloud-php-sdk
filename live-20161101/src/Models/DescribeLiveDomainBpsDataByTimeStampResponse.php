@@ -4,59 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainBpsDataByTimeStampResponse\bpsDataList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveDomainBpsDataByTimeStampResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeLiveDomainBpsDataByTimeStampResponseBody
      */
-    public $domainName;
-
-    /**
-     * @var string
-     */
-    public $timeStamp;
-
-    /**
-     * @var bpsDataList
-     */
-    public $bpsDataList;
+    public $body;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'domainName'  => 'DomainName',
-        'timeStamp'   => 'TimeStamp',
-        'bpsDataList' => 'BpsDataList',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('timeStamp', $this->timeStamp, true);
-        Model::validateRequired('bpsDataList', $this->bpsDataList, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
-        if (null !== $this->bpsDataList) {
-            $res['BpsDataList'] = null !== $this->bpsDataList ? $this->bpsDataList->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -70,17 +49,11 @@ class DescribeLiveDomainBpsDataByTimeStampResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
-        if (isset($map['BpsDataList'])) {
-            $model->bpsDataList = bpsDataList::fromMap($map['BpsDataList']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveDomainBpsDataByTimeStampResponseBody::fromMap($map['body']);
         }
 
         return $model;

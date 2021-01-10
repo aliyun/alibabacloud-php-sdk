@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ApplyBoardTokenResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var ApplyBoardTokenResponseBody
      */
-    public $token;
-
-    /**
-     * @var string
-     */
-    public $expired;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'token'     => 'Token',
-        'expired'   => 'Expired',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('token', $this->token, true);
-        Model::validateRequired('expired', $this->expired, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
-        }
-        if (null !== $this->expired) {
-            $res['Expired'] = $this->expired;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class ApplyBoardTokenResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
-        }
-        if (isset($map['Expired'])) {
-            $model->expired = $map['Expired'];
+        if (isset($map['body'])) {
+            $model->body = ApplyBoardTokenResponseBody::fromMap($map['body']);
         }
 
         return $model;

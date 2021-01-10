@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteMixStreamRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -28,6 +33,7 @@ class DeleteMixStreamRequest extends Model
      */
     public $mixStreamId;
     protected $_name = [
+        'ownerId'     => 'OwnerId',
         'domainName'  => 'DomainName',
         'appName'     => 'AppName',
         'streamName'  => 'StreamName',
@@ -36,13 +42,14 @@ class DeleteMixStreamRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('mixStreamId', $this->mixStreamId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -67,6 +74,9 @@ class DeleteMixStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveDomainRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -18,18 +28,25 @@ class DeleteLiveDomainRequest extends Model
      */
     public $domainName;
     protected $_name = [
+        'ownerId'       => 'OwnerId',
+        'ownerAccount'  => 'OwnerAccount',
         'securityToken' => 'SecurityToken',
         'domainName'    => 'DomainName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -48,6 +65,12 @@ class DeleteLiveDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

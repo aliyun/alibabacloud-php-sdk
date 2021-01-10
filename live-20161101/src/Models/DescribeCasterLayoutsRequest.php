@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCasterLayoutsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $casterId;
@@ -18,18 +23,21 @@ class DescribeCasterLayoutsRequest extends Model
      */
     public $layoutId;
     protected $_name = [
+        'ownerId'  => 'OwnerId',
         'casterId' => 'CasterId',
         'layoutId' => 'LayoutId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('casterId', $this->casterId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
@@ -48,6 +56,9 @@ class DescribeCasterLayoutsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }

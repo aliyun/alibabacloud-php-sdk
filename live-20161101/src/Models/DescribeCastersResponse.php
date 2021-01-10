@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCastersResponse\casterList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCastersResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeCastersResponseBody
      */
-    public $total;
-
-    /**
-     * @var casterList
-     */
-    public $casterList;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'total'      => 'Total',
-        'casterList' => 'CasterList',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('total', $this->total, true);
-        Model::validateRequired('casterList', $this->casterList, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->casterList) {
-            $res['CasterList'] = null !== $this->casterList ? $this->casterList->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class DescribeCastersResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['CasterList'])) {
-            $model->casterList = casterList::fromMap($map['CasterList']);
+        if (isset($map['body'])) {
+            $model->body = DescribeCastersResponseBody::fromMap($map['body']);
         }
 
         return $model;

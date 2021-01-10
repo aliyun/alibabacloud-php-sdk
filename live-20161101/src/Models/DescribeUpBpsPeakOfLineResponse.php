@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeUpBpsPeakOfLineResponse\describeUpBpsPeakOfLines;
 use AlibabaCloud\Tea\Model;
 
 class DescribeUpBpsPeakOfLineResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var describeUpBpsPeakOfLines
+     * @var DescribeUpBpsPeakOfLineResponseBody
      */
-    public $describeUpBpsPeakOfLines;
+    public $body;
     protected $_name = [
-        'requestId'                => 'RequestId',
-        'describeUpBpsPeakOfLines' => 'DescribeUpBpsPeakOfLines',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('describeUpBpsPeakOfLines', $this->describeUpBpsPeakOfLines, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->describeUpBpsPeakOfLines) {
-            $res['DescribeUpBpsPeakOfLines'] = null !== $this->describeUpBpsPeakOfLines ? $this->describeUpBpsPeakOfLines->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeUpBpsPeakOfLineResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DescribeUpBpsPeakOfLines'])) {
-            $model->describeUpBpsPeakOfLines = describeUpBpsPeakOfLines::fromMap($map['DescribeUpBpsPeakOfLines']);
+        if (isset($map['body'])) {
+            $model->body = DescribeUpBpsPeakOfLineResponseBody::fromMap($map['body']);
         }
 
         return $model;

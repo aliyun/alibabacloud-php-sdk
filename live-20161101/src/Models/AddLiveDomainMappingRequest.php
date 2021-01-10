@@ -14,6 +14,11 @@ class AddLiveDomainMappingRequest extends Model
     public $securityToken;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $pushDomain;
@@ -24,14 +29,13 @@ class AddLiveDomainMappingRequest extends Model
     public $pullDomain;
     protected $_name = [
         'securityToken' => 'SecurityToken',
+        'ownerId'       => 'OwnerId',
         'pushDomain'    => 'PushDomain',
         'pullDomain'    => 'PullDomain',
     ];
 
     public function validate()
     {
-        Model::validateRequired('pushDomain', $this->pushDomain, true);
-        Model::validateRequired('pullDomain', $this->pullDomain, true);
     }
 
     public function toMap()
@@ -39,6 +43,9 @@ class AddLiveDomainMappingRequest extends Model
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pushDomain) {
             $res['PushDomain'] = $this->pushDomain;
@@ -60,6 +67,9 @@ class AddLiveDomainMappingRequest extends Model
         $model = new self();
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PushDomain'])) {
             $model->pushDomain = $map['PushDomain'];

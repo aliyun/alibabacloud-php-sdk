@@ -4,59 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterStreamUrlResponse\casterStreams;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCasterStreamUrlResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeCasterStreamUrlResponseBody
      */
-    public $casterId;
-
-    /**
-     * @var int
-     */
-    public $total;
-
-    /**
-     * @var casterStreams
-     */
-    public $casterStreams;
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'casterId'      => 'CasterId',
-        'total'         => 'Total',
-        'casterStreams' => 'CasterStreams',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('casterId', $this->casterId, true);
-        Model::validateRequired('total', $this->total, true);
-        Model::validateRequired('casterStreams', $this->casterStreams, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->casterId) {
-            $res['CasterId'] = $this->casterId;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->casterStreams) {
-            $res['CasterStreams'] = null !== $this->casterStreams ? $this->casterStreams->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -70,17 +49,11 @@ class DescribeCasterStreamUrlResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['CasterId'])) {
-            $model->casterId = $map['CasterId'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['CasterStreams'])) {
-            $model->casterStreams = casterStreams::fromMap($map['CasterStreams']);
+        if (isset($map['body'])) {
+            $model->body = DescribeCasterStreamUrlResponseBody::fromMap($map['body']);
         }
 
         return $model;

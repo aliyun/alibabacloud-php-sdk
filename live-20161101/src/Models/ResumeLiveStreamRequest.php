@@ -14,6 +14,11 @@ class ResumeLiveStreamRequest extends Model
     public $securityToken;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -34,6 +39,7 @@ class ResumeLiveStreamRequest extends Model
     public $streamName;
     protected $_name = [
         'securityToken'  => 'SecurityToken',
+        'ownerId'        => 'OwnerId',
         'domainName'     => 'DomainName',
         'liveStreamType' => 'LiveStreamType',
         'appName'        => 'AppName',
@@ -42,10 +48,6 @@ class ResumeLiveStreamRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('liveStreamType', $this->liveStreamType, true);
-        Model::validateRequired('appName', $this->appName, true);
-        Model::validateRequired('streamName', $this->streamName, true);
     }
 
     public function toMap()
@@ -53,6 +55,9 @@ class ResumeLiveStreamRequest extends Model
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -80,6 +85,9 @@ class ResumeLiveStreamRequest extends Model
         $model = new self();
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

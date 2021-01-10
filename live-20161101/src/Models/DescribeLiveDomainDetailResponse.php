@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainDetailResponse\domainDetail;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveDomainDetailResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var domainDetail
+     * @var DescribeLiveDomainDetailResponseBody
      */
-    public $domainDetail;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'domainDetail' => 'DomainDetail',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('domainDetail', $this->domainDetail, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->domainDetail) {
-            $res['DomainDetail'] = null !== $this->domainDetail ? $this->domainDetail->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeLiveDomainDetailResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DomainDetail'])) {
-            $model->domainDetail = domainDetail::fromMap($map['DomainDetail']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveDomainDetailResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveTopLevelDomainRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -23,6 +28,7 @@ class UpdateLiveTopLevelDomainRequest extends Model
      */
     public $topLevelDomain;
     protected $_name = [
+        'ownerId'        => 'OwnerId',
         'securityToken'  => 'SecurityToken',
         'domainName'     => 'DomainName',
         'topLevelDomain' => 'TopLevelDomain',
@@ -30,13 +36,14 @@ class UpdateLiveTopLevelDomainRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('topLevelDomain', $this->topLevelDomain, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -58,6 +65,9 @@ class UpdateLiveTopLevelDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

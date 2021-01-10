@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveRealTimeLogDeliveryRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $project;
@@ -28,6 +33,7 @@ class CreateLiveRealTimeLogDeliveryRequest extends Model
      */
     public $domainName;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'project'    => 'Project',
         'logstore'   => 'Logstore',
         'region'     => 'Region',
@@ -36,15 +42,14 @@ class CreateLiveRealTimeLogDeliveryRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('project', $this->project, true);
-        Model::validateRequired('logstore', $this->logstore, true);
-        Model::validateRequired('region', $this->region, true);
-        Model::validateRequired('domainName', $this->domainName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
@@ -69,6 +74,9 @@ class CreateLiveRealTimeLogDeliveryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }

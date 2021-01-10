@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsOnlineListRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -41,25 +46,46 @@ class DescribeLiveStreamsOnlineListRequest extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
     public $queryType;
+
+    /**
+     * @var string
+     */
+    public $orderBy;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
         'appName'    => 'AppName',
         'streamName' => 'StreamName',
         'pageSize'   => 'PageSize',
         'pageNum'    => 'PageNum',
         'streamType' => 'StreamType',
+        'startTime'  => 'StartTime',
+        'endTime'    => 'EndTime',
         'queryType'  => 'QueryType',
+        'orderBy'    => 'OrderBy',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -78,8 +104,17 @@ class DescribeLiveStreamsOnlineListRequest extends Model
         if (null !== $this->streamType) {
             $res['StreamType'] = $this->streamType;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
+        }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
         }
 
         return $res;
@@ -93,6 +128,9 @@ class DescribeLiveStreamsOnlineListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
@@ -111,8 +149,17 @@ class DescribeLiveStreamsOnlineListRequest extends Model
         if (isset($map['StreamType'])) {
             $model->streamType = $map['StreamType'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
+        }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
         }
 
         return $model;

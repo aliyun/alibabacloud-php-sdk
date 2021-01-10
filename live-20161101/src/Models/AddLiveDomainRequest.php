@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AddLiveDomainRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -43,6 +53,8 @@ class AddLiveDomainRequest extends Model
      */
     public $topLevelDomain;
     protected $_name = [
+        'ownerId'        => 'OwnerId',
+        'ownerAccount'   => 'OwnerAccount',
         'securityToken'  => 'SecurityToken',
         'liveDomainType' => 'LiveDomainType',
         'domainName'     => 'DomainName',
@@ -54,14 +66,17 @@ class AddLiveDomainRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('liveDomainType', $this->liveDomainType, true);
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('region', $this->region, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -95,6 +110,12 @@ class AddLiveDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetLiveDomainCertificateRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -48,6 +53,7 @@ class SetLiveDomainCertificateRequest extends Model
      */
     public $forceSet;
     protected $_name = [
+        'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
         'domainName'    => 'DomainName',
         'certName'      => 'CertName',
@@ -60,13 +66,14 @@ class SetLiveDomainCertificateRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('SSLProtocol', $this->SSLProtocol, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -103,6 +110,9 @@ class SetLiveDomainCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

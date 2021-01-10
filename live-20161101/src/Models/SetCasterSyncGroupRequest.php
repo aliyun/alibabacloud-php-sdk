@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SetCasterSyncGroupRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $casterId;
@@ -19,18 +24,21 @@ class SetCasterSyncGroupRequest extends Model
      */
     public $syncGroup;
     protected $_name = [
+        'ownerId'   => 'OwnerId',
         'casterId'  => 'CasterId',
         'syncGroup' => 'SyncGroup',
     ];
 
     public function validate()
     {
-        Model::validateRequired('casterId', $this->casterId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
@@ -55,6 +63,9 @@ class SetCasterSyncGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }

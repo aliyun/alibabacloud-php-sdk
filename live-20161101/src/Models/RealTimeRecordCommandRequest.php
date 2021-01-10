@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RealTimeRecordCommandRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $command;
@@ -28,6 +33,7 @@ class RealTimeRecordCommandRequest extends Model
      */
     public $streamName;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'command'    => 'Command',
         'domainName' => 'DomainName',
         'appName'    => 'AppName',
@@ -36,15 +42,14 @@ class RealTimeRecordCommandRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('command', $this->command, true);
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('appName', $this->appName, true);
-        Model::validateRequired('streamName', $this->streamName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
@@ -69,6 +74,9 @@ class RealTimeRecordCommandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }

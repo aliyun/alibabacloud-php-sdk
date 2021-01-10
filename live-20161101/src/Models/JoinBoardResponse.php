@@ -9,73 +9,33 @@ use AlibabaCloud\Tea\Model;
 class JoinBoardResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var JoinBoardResponseBody
      */
-    public $token;
-
-    /**
-     * @var string
-     */
-    public $boardId;
-
-    /**
-     * @var string
-     */
-    public $topicId;
-
-    /**
-     * @var string
-     */
-    public $keepaliveTopic;
-
-    /**
-     * @var int
-     */
-    public $keepaliveInterval;
+    public $body;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'token'             => 'Token',
-        'boardId'           => 'BoardId',
-        'topicId'           => 'TopicId',
-        'keepaliveTopic'    => 'KeepaliveTopic',
-        'keepaliveInterval' => 'KeepaliveInterval',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('token', $this->token, true);
-        Model::validateRequired('boardId', $this->boardId, true);
-        Model::validateRequired('topicId', $this->topicId, true);
-        Model::validateRequired('keepaliveTopic', $this->keepaliveTopic, true);
-        Model::validateRequired('keepaliveInterval', $this->keepaliveInterval, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
-        }
-        if (null !== $this->boardId) {
-            $res['BoardId'] = $this->boardId;
-        }
-        if (null !== $this->topicId) {
-            $res['TopicId'] = $this->topicId;
-        }
-        if (null !== $this->keepaliveTopic) {
-            $res['KeepaliveTopic'] = $this->keepaliveTopic;
-        }
-        if (null !== $this->keepaliveInterval) {
-            $res['KeepaliveInterval'] = $this->keepaliveInterval;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -89,23 +49,11 @@ class JoinBoardResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
-        }
-        if (isset($map['BoardId'])) {
-            $model->boardId = $map['BoardId'];
-        }
-        if (isset($map['TopicId'])) {
-            $model->topicId = $map['TopicId'];
-        }
-        if (isset($map['KeepaliveTopic'])) {
-            $model->keepaliveTopic = $map['KeepaliveTopic'];
-        }
-        if (isset($map['KeepaliveInterval'])) {
-            $model->keepaliveInterval = $map['KeepaliveInterval'];
+        if (isset($map['body'])) {
+            $model->body = JoinBoardResponseBody::fromMap($map['body']);
         }
 
         return $model;

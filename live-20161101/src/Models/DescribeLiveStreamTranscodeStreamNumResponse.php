@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamTranscodeStreamNumResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeLiveStreamTranscodeStreamNumResponseBody
      */
-    public $total;
-
-    /**
-     * @var int
-     */
-    public $transcodedNumber;
-
-    /**
-     * @var int
-     */
-    public $untranscodeNumber;
-
-    /**
-     * @var int
-     */
-    public $lazyTranscodedNumber;
+    public $body;
     protected $_name = [
-        'requestId'            => 'RequestId',
-        'total'                => 'Total',
-        'transcodedNumber'     => 'TranscodedNumber',
-        'untranscodeNumber'    => 'UntranscodeNumber',
-        'lazyTranscodedNumber' => 'LazyTranscodedNumber',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('total', $this->total, true);
-        Model::validateRequired('transcodedNumber', $this->transcodedNumber, true);
-        Model::validateRequired('untranscodeNumber', $this->untranscodeNumber, true);
-        Model::validateRequired('lazyTranscodedNumber', $this->lazyTranscodedNumber, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->transcodedNumber) {
-            $res['TranscodedNumber'] = $this->transcodedNumber;
-        }
-        if (null !== $this->untranscodeNumber) {
-            $res['UntranscodeNumber'] = $this->untranscodeNumber;
-        }
-        if (null !== $this->lazyTranscodedNumber) {
-            $res['LazyTranscodedNumber'] = $this->lazyTranscodedNumber;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,20 +49,11 @@ class DescribeLiveStreamTranscodeStreamNumResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['TranscodedNumber'])) {
-            $model->transcodedNumber = $map['TranscodedNumber'];
-        }
-        if (isset($map['UntranscodeNumber'])) {
-            $model->untranscodeNumber = $map['UntranscodeNumber'];
-        }
-        if (isset($map['LazyTranscodedNumber'])) {
-            $model->lazyTranscodedNumber = $map['LazyTranscodedNumber'];
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveStreamTranscodeStreamNumResponseBody::fromMap($map['body']);
         }
 
         return $model;

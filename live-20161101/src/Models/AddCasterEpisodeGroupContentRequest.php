@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddCasterEpisodeGroupContentRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -18,19 +23,21 @@ class AddCasterEpisodeGroupContentRequest extends Model
      */
     public $content;
     protected $_name = [
+        'ownerId'     => 'OwnerId',
         'clientToken' => 'ClientToken',
         'content'     => 'Content',
     ];
 
     public function validate()
     {
-        Model::validateRequired('clientToken', $this->clientToken, true);
-        Model::validateRequired('content', $this->content, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -49,6 +56,9 @@ class AddCasterEpisodeGroupContentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

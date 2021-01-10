@@ -14,6 +14,11 @@ class AddLiveSnapshotDetectPornConfigRequest extends Model
     public $securityToken;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -39,31 +44,28 @@ class AddLiveSnapshotDetectPornConfigRequest extends Model
     public $ossObject;
 
     /**
-     * @var string[]
-     */
-    public $scene;
-
-    /**
      * @var int
      */
     public $interval;
+
+    /**
+     * @var string[]
+     */
+    public $scene;
     protected $_name = [
         'securityToken' => 'SecurityToken',
+        'ownerId'       => 'OwnerId',
         'domainName'    => 'DomainName',
         'appName'       => 'AppName',
         'ossEndpoint'   => 'OssEndpoint',
         'ossBucket'     => 'OssBucket',
         'ossObject'     => 'OssObject',
-        'scene'         => 'Scene',
         'interval'      => 'Interval',
+        'scene'         => 'Scene',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('appName', $this->appName, true);
-        Model::validateRequired('ossEndpoint', $this->ossEndpoint, true);
-        Model::validateRequired('ossBucket', $this->ossBucket, true);
     }
 
     public function toMap()
@@ -71,6 +73,9 @@ class AddLiveSnapshotDetectPornConfigRequest extends Model
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -87,11 +92,11 @@ class AddLiveSnapshotDetectPornConfigRequest extends Model
         if (null !== $this->ossObject) {
             $res['OssObject'] = $this->ossObject;
         }
-        if (null !== $this->scene) {
-            $res['Scene'] = $this->scene;
-        }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
         }
 
         return $res;
@@ -108,6 +113,9 @@ class AddLiveSnapshotDetectPornConfigRequest extends Model
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
@@ -123,13 +131,13 @@ class AddLiveSnapshotDetectPornConfigRequest extends Model
         if (isset($map['OssObject'])) {
             $model->ossObject = $map['OssObject'];
         }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
         if (isset($map['Scene'])) {
             if (!empty($map['Scene'])) {
                 $model->scene = $map['Scene'];
             }
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
         }
 
         return $model;

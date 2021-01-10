@@ -4,55 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeHlsLiveStreamRealTimeBpsDataResponse\usageData;
 use AlibabaCloud\Tea\Model;
 
 class DescribeHlsLiveStreamRealTimeBpsDataResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $time;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeHlsLiveStreamRealTimeBpsDataResponseBody
      */
-    public $requestId;
-
-    /**
-     * @var usageData[]
-     */
-    public $usageData;
+    public $body;
     protected $_name = [
-        'time'      => 'Time',
-        'requestId' => 'RequestId',
-        'usageData' => 'UsageData',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('time', $this->time, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('usageData', $this->usageData, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->usageData) {
-            $res['UsageData'] = [];
-            if (null !== $this->usageData && \is_array($this->usageData)) {
-                $n = 0;
-                foreach ($this->usageData as $item) {
-                    $res['UsageData'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +49,11 @@ class DescribeHlsLiveStreamRealTimeBpsDataResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['UsageData'])) {
-            if (!empty($map['UsageData'])) {
-                $model->usageData = [];
-                $n                = 0;
-                foreach ($map['UsageData'] as $item) {
-                    $model->usageData[$n++] = null !== $item ? usageData::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeHlsLiveStreamRealTimeBpsDataResponseBody::fromMap($map['body']);
         }
 
         return $model;

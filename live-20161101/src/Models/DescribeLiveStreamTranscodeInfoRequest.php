@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamTranscodeInfoRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainTranscodeName;
     protected $_name = [
+        'ownerId'             => 'OwnerId',
         'domainTranscodeName' => 'DomainTranscodeName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainTranscodeName', $this->domainTranscodeName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainTranscodeName) {
             $res['DomainTranscodeName'] = $this->domainTranscodeName;
         }
@@ -39,6 +47,9 @@ class DescribeLiveStreamTranscodeInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainTranscodeName'])) {
             $model->domainTranscodeName = $map['DomainTranscodeName'];
         }

@@ -15,6 +15,11 @@ class AddLiveAppRecordConfigRequest extends Model
     public $securityToken;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -35,11 +40,6 @@ class AddLiveAppRecordConfigRequest extends Model
     public $ossBucket;
 
     /**
-     * @var recordFormat[]
-     */
-    public $recordFormat;
-
-    /**
      * @var string
      */
     public $streamName;
@@ -58,26 +58,27 @@ class AddLiveAppRecordConfigRequest extends Model
      * @var int
      */
     public $onDemand;
+
+    /**
+     * @var recordFormat[]
+     */
+    public $recordFormat;
     protected $_name = [
         'securityToken' => 'SecurityToken',
+        'ownerId'       => 'OwnerId',
         'domainName'    => 'DomainName',
         'appName'       => 'AppName',
         'ossEndpoint'   => 'OssEndpoint',
         'ossBucket'     => 'OssBucket',
-        'recordFormat'  => 'RecordFormat',
         'streamName'    => 'StreamName',
         'startTime'     => 'StartTime',
         'endTime'       => 'EndTime',
         'onDemand'      => 'OnDemand',
+        'recordFormat'  => 'RecordFormat',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('appName', $this->appName, true);
-        Model::validateRequired('ossEndpoint', $this->ossEndpoint, true);
-        Model::validateRequired('ossBucket', $this->ossBucket, true);
-        Model::validateRequired('recordFormat', $this->recordFormat, true);
     }
 
     public function toMap()
@@ -85,6 +86,9 @@ class AddLiveAppRecordConfigRequest extends Model
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -98,15 +102,6 @@ class AddLiveAppRecordConfigRequest extends Model
         if (null !== $this->ossBucket) {
             $res['OssBucket'] = $this->ossBucket;
         }
-        if (null !== $this->recordFormat) {
-            $res['RecordFormat'] = [];
-            if (null !== $this->recordFormat && \is_array($this->recordFormat)) {
-                $n = 0;
-                foreach ($this->recordFormat as $item) {
-                    $res['RecordFormat'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
@@ -118,6 +113,15 @@ class AddLiveAppRecordConfigRequest extends Model
         }
         if (null !== $this->onDemand) {
             $res['OnDemand'] = $this->onDemand;
+        }
+        if (null !== $this->recordFormat) {
+            $res['RecordFormat'] = [];
+            if (null !== $this->recordFormat && \is_array($this->recordFormat)) {
+                $n = 0;
+                foreach ($this->recordFormat as $item) {
+                    $res['RecordFormat'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -134,6 +138,9 @@ class AddLiveAppRecordConfigRequest extends Model
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
@@ -146,15 +153,6 @@ class AddLiveAppRecordConfigRequest extends Model
         if (isset($map['OssBucket'])) {
             $model->ossBucket = $map['OssBucket'];
         }
-        if (isset($map['RecordFormat'])) {
-            if (!empty($map['RecordFormat'])) {
-                $model->recordFormat = [];
-                $n                   = 0;
-                foreach ($map['RecordFormat'] as $item) {
-                    $model->recordFormat[$n++] = null !== $item ? recordFormat::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }
@@ -166,6 +164,15 @@ class AddLiveAppRecordConfigRequest extends Model
         }
         if (isset($map['OnDemand'])) {
             $model->onDemand = $map['OnDemand'];
+        }
+        if (isset($map['RecordFormat'])) {
+            if (!empty($map['RecordFormat'])) {
+                $model->recordFormat = [];
+                $n                   = 0;
+                foreach ($map['RecordFormat'] as $item) {
+                    $model->recordFormat[$n++] = null !== $item ? recordFormat::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -14,6 +14,11 @@ class UpdateLiveRecordNotifyConfigRequest extends Model
     public $securityToken;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -34,6 +39,7 @@ class UpdateLiveRecordNotifyConfigRequest extends Model
     public $needStatusNotify;
     protected $_name = [
         'securityToken'    => 'SecurityToken',
+        'ownerId'          => 'OwnerId',
         'domainName'       => 'DomainName',
         'notifyUrl'        => 'NotifyUrl',
         'onDemandUrl'      => 'OnDemandUrl',
@@ -42,7 +48,6 @@ class UpdateLiveRecordNotifyConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
     }
 
     public function toMap()
@@ -50,6 +55,9 @@ class UpdateLiveRecordNotifyConfigRequest extends Model
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -77,6 +85,9 @@ class UpdateLiveRecordNotifyConfigRequest extends Model
         $model = new self();
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

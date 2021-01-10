@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateCasterSceneConfigRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $casterId;
@@ -28,6 +33,7 @@ class UpdateCasterSceneConfigRequest extends Model
      */
     public $componentId;
     protected $_name = [
+        'ownerId'     => 'OwnerId',
         'casterId'    => 'CasterId',
         'sceneId'     => 'SceneId',
         'layoutId'    => 'LayoutId',
@@ -36,14 +42,14 @@ class UpdateCasterSceneConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('casterId', $this->casterId, true);
-        Model::validateRequired('sceneId', $this->sceneId, true);
-        Model::validateRequired('layoutId', $this->layoutId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
@@ -68,6 +74,9 @@ class UpdateCasterSceneConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }

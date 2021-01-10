@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class SendRoomNotificationResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var SendRoomNotificationResponseBody
      */
-    public $messageId;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'messageId' => 'MessageId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('messageId', $this->messageId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->messageId) {
-            $res['MessageId'] = $this->messageId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class SendRoomNotificationResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['MessageId'])) {
-            $model->messageId = $map['MessageId'];
+        if (isset($map['body'])) {
+            $model->body = SendRoomNotificationResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateMixStreamRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -28,6 +33,7 @@ class UpdateMixStreamRequest extends Model
      */
     public $layoutId;
     protected $_name = [
+        'ownerId'         => 'OwnerId',
         'domainName'      => 'DomainName',
         'mixStreamId'     => 'MixStreamId',
         'inputStreamList' => 'InputStreamList',
@@ -36,14 +42,14 @@ class UpdateMixStreamRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('mixStreamId', $this->mixStreamId, true);
-        Model::validateRequired('inputStreamList', $this->inputStreamList, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -68,6 +74,9 @@ class UpdateMixStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

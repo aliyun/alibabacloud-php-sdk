@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class videoLayer extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $fillMode;
+    public $fixedDelayDuration;
 
     /**
      * @var float
@@ -19,9 +19,9 @@ class videoLayer extends Model
     public $heightNormalized;
 
     /**
-     * @var float
+     * @var string
      */
-    public $widthNormalized;
+    public $fillMode;
 
     /**
      * @var string
@@ -29,21 +29,21 @@ class videoLayer extends Model
     public $positionRefer;
 
     /**
-     * @var float[]
+     * @var int[]
      */
     public $positionNormalized;
 
     /**
-     * @var int
+     * @var float
      */
-    public $fixedDelayDuration;
+    public $widthNormalized;
     protected $_name = [
-        'fillMode'           => 'FillMode',
+        'fixedDelayDuration' => 'FixedDelayDuration',
         'heightNormalized'   => 'HeightNormalized',
-        'widthNormalized'    => 'WidthNormalized',
+        'fillMode'           => 'FillMode',
         'positionRefer'      => 'PositionRefer',
         'positionNormalized' => 'PositionNormalized',
-        'fixedDelayDuration' => 'FixedDelayDuration',
+        'widthNormalized'    => 'WidthNormalized',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class videoLayer extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fillMode) {
-            $res['FillMode'] = $this->fillMode;
+        if (null !== $this->fixedDelayDuration) {
+            $res['FixedDelayDuration'] = $this->fixedDelayDuration;
         }
         if (null !== $this->heightNormalized) {
             $res['HeightNormalized'] = $this->heightNormalized;
         }
-        if (null !== $this->widthNormalized) {
-            $res['WidthNormalized'] = $this->widthNormalized;
+        if (null !== $this->fillMode) {
+            $res['FillMode'] = $this->fillMode;
         }
         if (null !== $this->positionRefer) {
             $res['PositionRefer'] = $this->positionRefer;
@@ -68,8 +68,8 @@ class videoLayer extends Model
         if (null !== $this->positionNormalized) {
             $res['PositionNormalized'] = $this->positionNormalized;
         }
-        if (null !== $this->fixedDelayDuration) {
-            $res['FixedDelayDuration'] = $this->fixedDelayDuration;
+        if (null !== $this->widthNormalized) {
+            $res['WidthNormalized'] = $this->widthNormalized;
         }
 
         return $res;
@@ -83,14 +83,14 @@ class videoLayer extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FillMode'])) {
-            $model->fillMode = $map['FillMode'];
+        if (isset($map['FixedDelayDuration'])) {
+            $model->fixedDelayDuration = $map['FixedDelayDuration'];
         }
         if (isset($map['HeightNormalized'])) {
             $model->heightNormalized = $map['HeightNormalized'];
         }
-        if (isset($map['WidthNormalized'])) {
-            $model->widthNormalized = $map['WidthNormalized'];
+        if (isset($map['FillMode'])) {
+            $model->fillMode = $map['FillMode'];
         }
         if (isset($map['PositionRefer'])) {
             $model->positionRefer = $map['PositionRefer'];
@@ -100,8 +100,8 @@ class videoLayer extends Model
                 $model->positionNormalized = $map['PositionNormalized'];
             }
         }
-        if (isset($map['FixedDelayDuration'])) {
-            $model->fixedDelayDuration = $map['FixedDelayDuration'];
+        if (isset($map['WidthNormalized'])) {
+            $model->widthNormalized = $map['WidthNormalized'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyCasterLayoutRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $casterId;
@@ -40,6 +45,7 @@ class ModifyCasterLayoutRequest extends Model
      */
     public $mixList;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'casterId'   => 'CasterId',
         'layoutId'   => 'LayoutId',
         'videoLayer' => 'VideoLayer',
@@ -50,17 +56,14 @@ class ModifyCasterLayoutRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('casterId', $this->casterId, true);
-        Model::validateRequired('layoutId', $this->layoutId, true);
-        Model::validateRequired('videoLayer', $this->videoLayer, true);
-        Model::validateRequired('audioLayer', $this->audioLayer, true);
-        Model::validateRequired('blendList', $this->blendList, true);
-        Model::validateRequired('mixList', $this->mixList, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
@@ -103,6 +106,9 @@ class ModifyCasterLayoutRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }

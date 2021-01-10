@@ -14,18 +14,18 @@ class audioLayer extends Model
     public $volumeRate;
 
     /**
-     * @var string
-     */
-    public $validChannel;
-
-    /**
      * @var int
      */
     public $fixedDelayDuration;
+
+    /**
+     * @var string
+     */
+    public $validChannel;
     protected $_name = [
         'volumeRate'         => 'VolumeRate',
-        'validChannel'       => 'ValidChannel',
         'fixedDelayDuration' => 'FixedDelayDuration',
+        'validChannel'       => 'ValidChannel',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class audioLayer extends Model
         if (null !== $this->volumeRate) {
             $res['VolumeRate'] = $this->volumeRate;
         }
-        if (null !== $this->validChannel) {
-            $res['ValidChannel'] = $this->validChannel;
-        }
         if (null !== $this->fixedDelayDuration) {
             $res['FixedDelayDuration'] = $this->fixedDelayDuration;
+        }
+        if (null !== $this->validChannel) {
+            $res['ValidChannel'] = $this->validChannel;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class audioLayer extends Model
         if (isset($map['VolumeRate'])) {
             $model->volumeRate = $map['VolumeRate'];
         }
-        if (isset($map['ValidChannel'])) {
-            $model->validChannel = $map['ValidChannel'];
-        }
         if (isset($map['FixedDelayDuration'])) {
             $model->fixedDelayDuration = $map['FixedDelayDuration'];
+        }
+        if (isset($map['ValidChannel'])) {
+            $model->validChannel = $map['ValidChannel'];
         }
 
         return $model;

@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDetectPornDataResponse\detectPornData;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveDetectPornDataResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var detectPornData
+     * @var DescribeLiveDetectPornDataResponseBody
      */
-    public $detectPornData;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'detectPornData' => 'DetectPornData',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('detectPornData', $this->detectPornData, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->detectPornData) {
-            $res['DetectPornData'] = null !== $this->detectPornData ? $this->detectPornData->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeLiveDetectPornDataResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DetectPornData'])) {
-            $model->detectPornData = detectPornData::fromMap($map['DetectPornData']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveDetectPornDataResponseBody::fromMap($map['body']);
         }
 
         return $model;

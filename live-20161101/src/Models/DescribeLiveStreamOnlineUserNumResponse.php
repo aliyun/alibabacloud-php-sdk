@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamOnlineUserNumResponse\onlineUserInfo;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveStreamOnlineUserNumResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeLiveStreamOnlineUserNumResponseBody
      */
-    public $totalUserNumber;
-
-    /**
-     * @var onlineUserInfo
-     */
-    public $onlineUserInfo;
+    public $body;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'totalUserNumber' => 'TotalUserNumber',
-        'onlineUserInfo'  => 'OnlineUserInfo',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('totalUserNumber', $this->totalUserNumber, true);
-        Model::validateRequired('onlineUserInfo', $this->onlineUserInfo, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->totalUserNumber) {
-            $res['TotalUserNumber'] = $this->totalUserNumber;
-        }
-        if (null !== $this->onlineUserInfo) {
-            $res['OnlineUserInfo'] = null !== $this->onlineUserInfo ? $this->onlineUserInfo->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class DescribeLiveStreamOnlineUserNumResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['TotalUserNumber'])) {
-            $model->totalUserNumber = $map['TotalUserNumber'];
-        }
-        if (isset($map['OnlineUserInfo'])) {
-            $model->onlineUserInfo = onlineUserInfo::fromMap($map['OnlineUserInfo']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveStreamOnlineUserNumResponseBody::fromMap($map['body']);
         }
 
         return $model;

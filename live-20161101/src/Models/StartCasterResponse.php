@@ -4,50 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\StartCasterResponse\pgmSceneInfos;
-use AlibabaCloud\SDK\Live\V20161101\Models\StartCasterResponse\pvwSceneInfos;
 use AlibabaCloud\Tea\Model;
 
 class StartCasterResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var pvwSceneInfos
+     * @var StartCasterResponseBody
      */
-    public $pvwSceneInfos;
-
-    /**
-     * @var pgmSceneInfos
-     */
-    public $pgmSceneInfos;
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'pvwSceneInfos' => 'PvwSceneInfos',
-        'pgmSceneInfos' => 'PgmSceneInfos',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('pvwSceneInfos', $this->pvwSceneInfos, true);
-        Model::validateRequired('pgmSceneInfos', $this->pgmSceneInfos, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->pvwSceneInfos) {
-            $res['PvwSceneInfos'] = null !== $this->pvwSceneInfos ? $this->pvwSceneInfos->toMap() : null;
-        }
-        if (null !== $this->pgmSceneInfos) {
-            $res['PgmSceneInfos'] = null !== $this->pgmSceneInfos ? $this->pgmSceneInfos->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -61,14 +49,11 @@ class StartCasterResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['PvwSceneInfos'])) {
-            $model->pvwSceneInfos = pvwSceneInfos::fromMap($map['PvwSceneInfos']);
-        }
-        if (isset($map['PgmSceneInfos'])) {
-            $model->pgmSceneInfos = pgmSceneInfos::fromMap($map['PgmSceneInfos']);
+        if (isset($map['body'])) {
+            $model->body = StartCasterResponseBody::fromMap($map['body']);
         }
 
         return $model;

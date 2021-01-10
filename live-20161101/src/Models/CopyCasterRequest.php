@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CopyCasterRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $casterName;
@@ -23,6 +28,7 @@ class CopyCasterRequest extends Model
      */
     public $clientToken;
     protected $_name = [
+        'ownerId'     => 'OwnerId',
         'casterName'  => 'CasterName',
         'srcCasterId' => 'SrcCasterId',
         'clientToken' => 'ClientToken',
@@ -30,14 +36,14 @@ class CopyCasterRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('casterName', $this->casterName, true);
-        Model::validateRequired('srcCasterId', $this->srcCasterId, true);
-        Model::validateRequired('clientToken', $this->clientToken, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->casterName) {
             $res['CasterName'] = $this->casterName;
         }
@@ -59,6 +65,9 @@ class CopyCasterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['CasterName'])) {
             $model->casterName = $map['CasterName'];
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddLiveDomainPlayMappingRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $playDomain;
@@ -18,19 +23,21 @@ class AddLiveDomainPlayMappingRequest extends Model
      */
     public $pullDomain;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'playDomain' => 'PlayDomain',
         'pullDomain' => 'PullDomain',
     ];
 
     public function validate()
     {
-        Model::validateRequired('playDomain', $this->playDomain, true);
-        Model::validateRequired('pullDomain', $this->pullDomain, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->playDomain) {
             $res['PlayDomain'] = $this->playDomain;
         }
@@ -49,6 +56,9 @@ class AddLiveDomainPlayMappingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PlayDomain'])) {
             $model->playDomain = $map['PlayDomain'];
         }

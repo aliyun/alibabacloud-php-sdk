@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class AddCasterEpisodeGroupRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -18,11 +23,6 @@ class AddCasterEpisodeGroupRequest extends Model
      * @var string
      */
     public $domainName;
-
-    /**
-     * @var item[]
-     */
-    public $item;
 
     /**
      * @var string
@@ -43,44 +43,37 @@ class AddCasterEpisodeGroupRequest extends Model
      * @var string
      */
     public $callbackUrl;
+
+    /**
+     * @var item[]
+     */
+    public $item;
     protected $_name = [
+        'ownerId'       => 'OwnerId',
         'clientToken'   => 'ClientToken',
         'domainName'    => 'DomainName',
-        'item'          => 'Item',
         'startTime'     => 'StartTime',
         'repeatNum'     => 'RepeatNum',
         'sideOutputUrl' => 'SideOutputUrl',
         'callbackUrl'   => 'CallbackUrl',
+        'item'          => 'Item',
     ];
 
     public function validate()
     {
-        Model::validateRequired('clientToken', $this->clientToken, true);
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('item', $this->item, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('repeatNum', $this->repeatNum, true);
-        Model::validateRequired('sideOutputUrl', $this->sideOutputUrl, true);
-        Model::validateRequired('callbackUrl', $this->callbackUrl, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->item) {
-            $res['Item'] = [];
-            if (null !== $this->item && \is_array($this->item)) {
-                $n = 0;
-                foreach ($this->item as $item) {
-                    $res['Item'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -94,6 +87,15 @@ class AddCasterEpisodeGroupRequest extends Model
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
         }
+        if (null !== $this->item) {
+            $res['Item'] = [];
+            if (null !== $this->item && \is_array($this->item)) {
+                $n = 0;
+                foreach ($this->item as $item) {
+                    $res['Item'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -106,20 +108,14 @@ class AddCasterEpisodeGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['Item'])) {
-            if (!empty($map['Item'])) {
-                $model->item = [];
-                $n           = 0;
-                foreach ($map['Item'] as $item) {
-                    $model->item[$n++] = null !== $item ? item::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
@@ -132,6 +128,15 @@ class AddCasterEpisodeGroupRequest extends Model
         }
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
+        }
+        if (isset($map['Item'])) {
+            if (!empty($map['Item'])) {
+                $model->item = [];
+                $n           = 0;
+                foreach ($map['Item'] as $item) {
+                    $model->item[$n++] = null !== $item ? item::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

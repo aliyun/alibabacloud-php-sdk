@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddCasterVideoResourceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $casterId;
@@ -63,6 +68,7 @@ class AddCasterVideoResourceRequest extends Model
      */
     public $ptsCallbackInterval;
     protected $_name = [
+        'ownerId'             => 'OwnerId',
         'casterId'            => 'CasterId',
         'resourceName'        => 'ResourceName',
         'locationId'          => 'LocationId',
@@ -78,13 +84,14 @@ class AddCasterVideoResourceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('casterId', $this->casterId, true);
-        Model::validateRequired('resourceName', $this->resourceName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
@@ -130,6 +137,9 @@ class AddCasterVideoResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }

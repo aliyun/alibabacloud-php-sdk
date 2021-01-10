@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterVideoResourcesResponse\videoResources;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCasterVideoResourcesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeCasterVideoResourcesResponseBody
      */
-    public $total;
-
-    /**
-     * @var videoResources
-     */
-    public $videoResources;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'total'          => 'Total',
-        'videoResources' => 'VideoResources',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('total', $this->total, true);
-        Model::validateRequired('videoResources', $this->videoResources, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->videoResources) {
-            $res['VideoResources'] = null !== $this->videoResources ? $this->videoResources->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class DescribeCasterVideoResourcesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['VideoResources'])) {
-            $model->videoResources = videoResources::fromMap($map['VideoResources']);
+        if (isset($map['body'])) {
+            $model->body = DescribeCasterVideoResourcesResponseBody::fromMap($map['body']);
         }
 
         return $model;

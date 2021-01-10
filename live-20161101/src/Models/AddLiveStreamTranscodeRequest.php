@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddLiveStreamTranscodeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domain;
@@ -22,6 +27,11 @@ class AddLiveStreamTranscodeRequest extends Model
      * @var string
      */
     public $template;
+
+    /**
+     * @var string
+     */
+    public $encryptParameters;
 
     /**
      * @var string
@@ -48,26 +58,28 @@ class AddLiveStreamTranscodeRequest extends Model
      */
     public $waterPattern;
     protected $_name = [
-        'domain'       => 'Domain',
-        'app'          => 'App',
-        'template'     => 'Template',
-        'lazy'         => 'Lazy',
-        'watermark'    => 'Watermark',
-        'mix'          => 'Mix',
-        'onlyAudio'    => 'OnlyAudio',
-        'waterPattern' => 'WaterPattern',
+        'ownerId'           => 'OwnerId',
+        'domain'            => 'Domain',
+        'app'               => 'App',
+        'template'          => 'Template',
+        'encryptParameters' => 'EncryptParameters',
+        'lazy'              => 'Lazy',
+        'watermark'         => 'Watermark',
+        'mix'               => 'Mix',
+        'onlyAudio'         => 'OnlyAudio',
+        'waterPattern'      => 'WaterPattern',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
-        Model::validateRequired('app', $this->app, true);
-        Model::validateRequired('template', $this->template, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -76,6 +88,9 @@ class AddLiveStreamTranscodeRequest extends Model
         }
         if (null !== $this->template) {
             $res['Template'] = $this->template;
+        }
+        if (null !== $this->encryptParameters) {
+            $res['EncryptParameters'] = $this->encryptParameters;
         }
         if (null !== $this->lazy) {
             $res['Lazy'] = $this->lazy;
@@ -104,6 +119,9 @@ class AddLiveStreamTranscodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
@@ -112,6 +130,9 @@ class AddLiveStreamTranscodeRequest extends Model
         }
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
+        }
+        if (isset($map['EncryptParameters'])) {
+            $model->encryptParameters = $map['EncryptParameters'];
         }
         if (isset($map['Lazy'])) {
             $model->lazy = $map['Lazy'];

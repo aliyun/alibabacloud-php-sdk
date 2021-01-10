@@ -14,6 +14,11 @@ class DeleteLivePullStreamInfoConfigRequest extends Model
     public $securityToken;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -29,6 +34,7 @@ class DeleteLivePullStreamInfoConfigRequest extends Model
     public $streamName;
     protected $_name = [
         'securityToken' => 'SecurityToken',
+        'ownerId'       => 'OwnerId',
         'domainName'    => 'DomainName',
         'appName'       => 'AppName',
         'streamName'    => 'StreamName',
@@ -36,9 +42,6 @@ class DeleteLivePullStreamInfoConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('appName', $this->appName, true);
-        Model::validateRequired('streamName', $this->streamName, true);
     }
 
     public function toMap()
@@ -46,6 +49,9 @@ class DeleteLivePullStreamInfoConfigRequest extends Model
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -70,6 +76,9 @@ class DeleteLivePullStreamInfoConfigRequest extends Model
         $model = new self();
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

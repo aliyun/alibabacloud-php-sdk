@@ -14,6 +14,11 @@ class DeleteLiveStreamTranscodeRequest extends Model
     public $securityToken;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domain;
@@ -29,6 +34,7 @@ class DeleteLiveStreamTranscodeRequest extends Model
     public $template;
     protected $_name = [
         'securityToken' => 'SecurityToken',
+        'ownerId'       => 'OwnerId',
         'domain'        => 'Domain',
         'app'           => 'App',
         'template'      => 'Template',
@@ -36,9 +42,6 @@ class DeleteLiveStreamTranscodeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
-        Model::validateRequired('app', $this->app, true);
-        Model::validateRequired('template', $this->template, true);
     }
 
     public function toMap()
@@ -46,6 +49,9 @@ class DeleteLiveStreamTranscodeRequest extends Model
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
@@ -70,6 +76,9 @@ class DeleteLiveStreamTranscodeRequest extends Model
         $model = new self();
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];

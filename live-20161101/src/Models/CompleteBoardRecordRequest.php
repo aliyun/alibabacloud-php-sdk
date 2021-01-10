@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CompleteBoardRecordRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $appId;
@@ -23,6 +28,7 @@ class CompleteBoardRecordRequest extends Model
      */
     public $endTime;
     protected $_name = [
+        'ownerId'  => 'OwnerId',
         'appId'    => 'AppId',
         'recordId' => 'RecordId',
         'endTime'  => 'EndTime',
@@ -30,14 +36,14 @@ class CompleteBoardRecordRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('recordId', $this->recordId, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -59,6 +65,9 @@ class CompleteBoardRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

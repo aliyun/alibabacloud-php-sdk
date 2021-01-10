@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainRecordDataRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -28,6 +33,7 @@ class DescribeLiveDomainRecordDataRequest extends Model
      */
     public $recordType;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
         'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
@@ -36,13 +42,14 @@ class DescribeLiveDomainRecordDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -67,6 +74,9 @@ class DescribeLiveDomainRecordDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

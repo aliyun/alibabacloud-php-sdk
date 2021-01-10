@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveRealtimeDeliveryAccRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -33,6 +38,7 @@ class DescribeLiveRealtimeDeliveryAccRequest extends Model
      */
     public $logStore;
     protected $_name = [
+        'ownerId'   => 'OwnerId',
         'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
         'interval'  => 'Interval',
@@ -47,6 +53,9 @@ class DescribeLiveRealtimeDeliveryAccRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -74,6 +83,9 @@ class DescribeLiveRealtimeDeliveryAccRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

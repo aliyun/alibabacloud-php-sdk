@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamOptimizedFeatureConfigResponse\liveStreamOptimizedFeatureConfigList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveStreamOptimizedFeatureConfigResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var liveStreamOptimizedFeatureConfigList
+     * @var DescribeLiveStreamOptimizedFeatureConfigResponseBody
      */
-    public $liveStreamOptimizedFeatureConfigList;
+    public $body;
     protected $_name = [
-        'requestId'                            => 'RequestId',
-        'liveStreamOptimizedFeatureConfigList' => 'LiveStreamOptimizedFeatureConfigList',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('liveStreamOptimizedFeatureConfigList', $this->liveStreamOptimizedFeatureConfigList, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->liveStreamOptimizedFeatureConfigList) {
-            $res['LiveStreamOptimizedFeatureConfigList'] = null !== $this->liveStreamOptimizedFeatureConfigList ? $this->liveStreamOptimizedFeatureConfigList->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeLiveStreamOptimizedFeatureConfigResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['LiveStreamOptimizedFeatureConfigList'])) {
-            $model->liveStreamOptimizedFeatureConfigList = liveStreamOptimizedFeatureConfigList::fromMap($map['LiveStreamOptimizedFeatureConfigList']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveStreamOptimizedFeatureConfigResponseBody::fromMap($map['body']);
         }
 
         return $model;

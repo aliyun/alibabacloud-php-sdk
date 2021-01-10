@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveAsrConfigResponse\liveAsrConfig;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLiveAsrConfigResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var liveAsrConfig
+     * @var DescribeLiveAsrConfigResponseBody
      */
-    public $liveAsrConfig;
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'liveAsrConfig' => 'LiveAsrConfig',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('liveAsrConfig', $this->liveAsrConfig, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->liveAsrConfig) {
-            $res['LiveAsrConfig'] = null !== $this->liveAsrConfig ? $this->liveAsrConfig->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeLiveAsrConfigResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['LiveAsrConfig'])) {
-            $model->liveAsrConfig = liveAsrConfig::fromMap($map['LiveAsrConfig']);
+        if (isset($map['body'])) {
+            $model->body = DescribeLiveAsrConfigResponseBody::fromMap($map['body']);
         }
 
         return $model;

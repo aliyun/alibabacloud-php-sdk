@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddCustomLiveStreamTranscodeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domain;
@@ -88,6 +93,7 @@ class AddCustomLiveStreamTranscodeRequest extends Model
      */
     public $lazy;
     protected $_name = [
+        'ownerId'         => 'OwnerId',
         'domain'          => 'Domain',
         'app'             => 'App',
         'template'        => 'Template',
@@ -108,15 +114,14 @@ class AddCustomLiveStreamTranscodeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
-        Model::validateRequired('app', $this->app, true);
-        Model::validateRequired('template', $this->template, true);
-        Model::validateRequired('templateType', $this->templateType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -177,6 +182,9 @@ class AddCustomLiveStreamTranscodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }

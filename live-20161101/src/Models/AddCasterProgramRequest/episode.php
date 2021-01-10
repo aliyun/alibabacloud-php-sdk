@@ -11,12 +11,22 @@ class episode extends Model
     /**
      * @var string
      */
-    public $episodeType;
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $startTime;
 
     /**
      * @var string
      */
     public $episodeName;
+
+    /**
+     * @var string
+     */
+    public $episodeType;
 
     /**
      * @var string
@@ -31,24 +41,14 @@ class episode extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
     public $switchType;
     protected $_name = [
-        'episodeType' => 'EpisodeType',
+        'endTime'     => 'EndTime',
+        'startTime'   => 'StartTime',
         'episodeName' => 'EpisodeName',
+        'episodeType' => 'EpisodeType',
         'resourceId'  => 'ResourceId',
         'componentId' => 'ComponentId',
-        'startTime'   => 'StartTime',
-        'endTime'     => 'EndTime',
         'switchType'  => 'SwitchType',
     ];
 
@@ -59,23 +59,23 @@ class episode extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->episodeType) {
-            $res['EpisodeType'] = $this->episodeType;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->episodeName) {
             $res['EpisodeName'] = $this->episodeName;
+        }
+        if (null !== $this->episodeType) {
+            $res['EpisodeType'] = $this->episodeType;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->componentId) {
             $res['ComponentId'] = $this->componentId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->switchType) {
             $res['SwitchType'] = $this->switchType;
@@ -92,11 +92,17 @@ class episode extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EpisodeType'])) {
-            $model->episodeType = $map['EpisodeType'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['EpisodeName'])) {
             $model->episodeName = $map['EpisodeName'];
+        }
+        if (isset($map['EpisodeType'])) {
+            $model->episodeType = $map['EpisodeType'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
@@ -105,12 +111,6 @@ class episode extends Model
             if (!empty($map['ComponentId'])) {
                 $model->componentId = $map['ComponentId'];
             }
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
         if (isset($map['SwitchType'])) {
             $model->switchType = $map['SwitchType'];

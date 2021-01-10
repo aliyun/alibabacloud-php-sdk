@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddLivePullStreamInfoConfigRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -37,28 +42,32 @@ class AddLivePullStreamInfoConfigRequest extends Model
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $pullAlways;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
         'appName'    => 'AppName',
         'streamName' => 'StreamName',
         'sourceUrl'  => 'SourceUrl',
         'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
+        'pullAlways' => 'PullAlways',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('appName', $this->appName, true);
-        Model::validateRequired('streamName', $this->streamName, true);
-        Model::validateRequired('sourceUrl', $this->sourceUrl, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -77,6 +86,9 @@ class AddLivePullStreamInfoConfigRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->pullAlways) {
+            $res['PullAlways'] = $this->pullAlways;
+        }
 
         return $res;
     }
@@ -89,6 +101,9 @@ class AddLivePullStreamInfoConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
@@ -106,6 +121,9 @@ class AddLivePullStreamInfoConfigRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['PullAlways'])) {
+            $model->pullAlways = $map['PullAlways'];
         }
 
         return $model;
