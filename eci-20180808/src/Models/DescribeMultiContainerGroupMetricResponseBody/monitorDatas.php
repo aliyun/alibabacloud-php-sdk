@@ -19,9 +19,15 @@ class monitorDatas extends Model
      * @var containerInfos[]
      */
     public $containerInfos;
+
+    /**
+     * @var string
+     */
+    public $containerGroupId;
     protected $_name = [
-        'records'        => 'Records',
-        'containerInfos' => 'ContainerInfos',
+        'records'          => 'Records',
+        'containerInfos'   => 'ContainerInfos',
+        'containerGroupId' => 'ContainerGroupId',
     ];
 
     public function validate()
@@ -48,6 +54,9 @@ class monitorDatas extends Model
                     $res['ContainerInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->containerGroupId) {
+            $res['ContainerGroupId'] = $this->containerGroupId;
         }
 
         return $res;
@@ -78,6 +87,9 @@ class monitorDatas extends Model
                     $model->containerInfos[$n++] = null !== $item ? containerInfos::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ContainerGroupId'])) {
+            $model->containerGroupId = $map['ContainerGroupId'];
         }
 
         return $model;

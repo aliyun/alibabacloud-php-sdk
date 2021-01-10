@@ -70,6 +70,11 @@ class UpdateContainerGroupRequest extends Model
     public $memory;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -105,6 +110,7 @@ class UpdateContainerGroupRequest extends Model
         'clientToken'             => 'ClientToken',
         'cpu'                     => 'Cpu',
         'memory'                  => 'Memory',
+        'resourceGroupId'         => 'ResourceGroupId',
         'tag'                     => 'Tag',
         'volume'                  => 'Volume',
         'container'               => 'Container',
@@ -151,6 +157,9 @@ class UpdateContainerGroupRequest extends Model
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -241,6 +250,9 @@ class UpdateContainerGroupRequest extends Model
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

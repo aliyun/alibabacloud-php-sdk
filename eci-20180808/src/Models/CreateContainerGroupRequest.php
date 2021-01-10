@@ -234,6 +234,26 @@ class CreateContainerGroupRequest extends Model
     public $egressBandwidth;
 
     /**
+     * @var int
+     */
+    public $cpuOptionsCore;
+
+    /**
+     * @var int
+     */
+    public $cpuOptionsThreadsPerCore;
+
+    /**
+     * @var string
+     */
+    public $cpuOptionsNuma;
+
+    /**
+     * @var int
+     */
+    public $ephemeralStorage;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -321,6 +341,10 @@ class CreateContainerGroupRequest extends Model
         'hostName'                      => 'HostName',
         'ingressBandwidth'              => 'IngressBandwidth',
         'egressBandwidth'               => 'EgressBandwidth',
+        'cpuOptionsCore'                => 'CpuOptionsCore',
+        'cpuOptionsThreadsPerCore'      => 'CpuOptionsThreadsPerCore',
+        'cpuOptionsNuma'                => 'CpuOptionsNuma',
+        'ephemeralStorage'              => 'EphemeralStorage',
         'tag'                           => 'Tag',
         'imageRegistryCredential'       => 'ImageRegistryCredential',
         'container'                     => 'Container',
@@ -467,6 +491,18 @@ class CreateContainerGroupRequest extends Model
         }
         if (null !== $this->egressBandwidth) {
             $res['EgressBandwidth'] = $this->egressBandwidth;
+        }
+        if (null !== $this->cpuOptionsCore) {
+            $res['CpuOptionsCore'] = $this->cpuOptionsCore;
+        }
+        if (null !== $this->cpuOptionsThreadsPerCore) {
+            $res['CpuOptionsThreadsPerCore'] = $this->cpuOptionsThreadsPerCore;
+        }
+        if (null !== $this->cpuOptionsNuma) {
+            $res['CpuOptionsNuma'] = $this->cpuOptionsNuma;
+        }
+        if (null !== $this->ephemeralStorage) {
+            $res['EphemeralStorage'] = $this->ephemeralStorage;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -683,6 +719,18 @@ class CreateContainerGroupRequest extends Model
         }
         if (isset($map['EgressBandwidth'])) {
             $model->egressBandwidth = $map['EgressBandwidth'];
+        }
+        if (isset($map['CpuOptionsCore'])) {
+            $model->cpuOptionsCore = $map['CpuOptionsCore'];
+        }
+        if (isset($map['CpuOptionsThreadsPerCore'])) {
+            $model->cpuOptionsThreadsPerCore = $map['CpuOptionsThreadsPerCore'];
+        }
+        if (isset($map['CpuOptionsNuma'])) {
+            $model->cpuOptionsNuma = $map['CpuOptionsNuma'];
+        }
+        if (isset($map['EphemeralStorage'])) {
+            $model->ephemeralStorage = $map['EphemeralStorage'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

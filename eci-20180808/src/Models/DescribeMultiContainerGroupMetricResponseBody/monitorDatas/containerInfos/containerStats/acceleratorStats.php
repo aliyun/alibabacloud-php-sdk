@@ -16,6 +16,21 @@ class acceleratorStats extends Model
     /**
      * @var int
      */
+    public $minor;
+
+    /**
+     * @var int
+     */
+    public $temperature;
+
+    /**
+     * @var int
+     */
+    public $powerUsage;
+
+    /**
+     * @var int
+     */
     public $memoryTotal;
 
     /**
@@ -29,21 +44,24 @@ class acceleratorStats extends Model
     public $dutyCycle;
 
     /**
-     * @var string
-     */
-    public $id;
-
-    /**
      * @var int
      */
     public $memoryUsed;
+
+    /**
+     * @var string
+     */
+    public $id;
     protected $_name = [
         'model'       => 'Model',
+        'minor'       => 'Minor',
+        'temperature' => 'Temperature',
+        'powerUsage'  => 'PowerUsage',
         'memoryTotal' => 'MemoryTotal',
         'make'        => 'Make',
         'dutyCycle'   => 'DutyCycle',
-        'id'          => 'Id',
         'memoryUsed'  => 'MemoryUsed',
+        'id'          => 'Id',
     ];
 
     public function validate()
@@ -56,6 +74,15 @@ class acceleratorStats extends Model
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
+        if (null !== $this->minor) {
+            $res['Minor'] = $this->minor;
+        }
+        if (null !== $this->temperature) {
+            $res['Temperature'] = $this->temperature;
+        }
+        if (null !== $this->powerUsage) {
+            $res['PowerUsage'] = $this->powerUsage;
+        }
         if (null !== $this->memoryTotal) {
             $res['MemoryTotal'] = $this->memoryTotal;
         }
@@ -65,11 +92,11 @@ class acceleratorStats extends Model
         if (null !== $this->dutyCycle) {
             $res['DutyCycle'] = $this->dutyCycle;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->memoryUsed) {
             $res['MemoryUsed'] = $this->memoryUsed;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -86,6 +113,15 @@ class acceleratorStats extends Model
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
+        if (isset($map['Minor'])) {
+            $model->minor = $map['Minor'];
+        }
+        if (isset($map['Temperature'])) {
+            $model->temperature = $map['Temperature'];
+        }
+        if (isset($map['PowerUsage'])) {
+            $model->powerUsage = $map['PowerUsage'];
+        }
         if (isset($map['MemoryTotal'])) {
             $model->memoryTotal = $map['MemoryTotal'];
         }
@@ -95,11 +131,11 @@ class acceleratorStats extends Model
         if (isset($map['DutyCycle'])) {
             $model->dutyCycle = $map['DutyCycle'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['MemoryUsed'])) {
             $model->memoryUsed = $map['MemoryUsed'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

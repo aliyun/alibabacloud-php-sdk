@@ -24,10 +24,34 @@ class containerInfos extends Model
      * @var containerStats[]
      */
     public $containerStats;
+
+    /**
+     * @var string
+     */
+    public $labels;
+
+    /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $id;
     protected $_name = [
         'aliases'        => 'Aliases',
         'containerSpec'  => 'ContainerSpec',
         'containerStats' => 'ContainerStats',
+        'labels'         => 'Labels',
+        'namespace'      => 'Namespace',
+        'name'           => 'Name',
+        'id'             => 'Id',
     ];
 
     public function validate()
@@ -51,6 +75,18 @@ class containerInfos extends Model
                     $res['ContainerStats'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -80,6 +116,18 @@ class containerInfos extends Model
                     $model->containerStats[$n++] = null !== $item ? containerStats::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Labels'])) {
+            $model->labels = $map['Labels'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

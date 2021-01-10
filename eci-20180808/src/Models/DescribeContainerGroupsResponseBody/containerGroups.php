@@ -72,6 +72,11 @@ class containerGroups extends Model
     public $spotStrategy;
 
     /**
+     * @var int
+     */
+    public $ephemeralStorage;
+
+    /**
      * @var string
      */
     public $tenantEniInstanceId;
@@ -202,6 +207,7 @@ class containerGroups extends Model
         'events'                => 'Events',
         'succeededTime'         => 'SucceededTime',
         'spotStrategy'          => 'SpotStrategy',
+        'ephemeralStorage'      => 'EphemeralStorage',
         'tenantEniInstanceId'   => 'TenantEniInstanceId',
         'discount'              => 'Discount',
         'restartPolicy'         => 'RestartPolicy',
@@ -285,6 +291,9 @@ class containerGroups extends Model
         }
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
+        }
+        if (null !== $this->ephemeralStorage) {
+            $res['EphemeralStorage'] = $this->ephemeralStorage;
         }
         if (null !== $this->tenantEniInstanceId) {
             $res['TenantEniInstanceId'] = $this->tenantEniInstanceId;
@@ -438,6 +447,9 @@ class containerGroups extends Model
         }
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
+        }
+        if (isset($map['EphemeralStorage'])) {
+            $model->ephemeralStorage = $map['EphemeralStorage'];
         }
         if (isset($map['TenantEniInstanceId'])) {
             $model->tenantEniInstanceId = $map['TenantEniInstanceId'];
