@@ -44,7 +44,7 @@ class list_ extends Model
     public $metaFile;
 
     /**
-     * @var string
+     * @var int
      */
     public $modifiedTime;
 
