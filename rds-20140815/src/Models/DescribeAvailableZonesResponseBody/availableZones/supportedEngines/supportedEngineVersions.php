@@ -1,0 +1,72 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesResponseBody\availableZones\supportedEngines;
+
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesResponseBody\availableZones\supportedEngines\supportedEngineVersions\supportedCategorys;
+use AlibabaCloud\Tea\Model;
+
+class supportedEngineVersions extends Model
+{
+    /**
+     * @var string
+     */
+    public $version;
+
+    /**
+     * @var supportedCategorys[]
+     */
+    public $supportedCategorys;
+    protected $_name = [
+        'version'            => 'Version',
+        'supportedCategorys' => 'SupportedCategorys',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+        if (null !== $this->supportedCategorys) {
+            $res['SupportedCategorys'] = [];
+            if (null !== $this->supportedCategorys && \is_array($this->supportedCategorys)) {
+                $n = 0;
+                foreach ($this->supportedCategorys as $item) {
+                    $res['SupportedCategorys'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return supportedEngineVersions
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
+        }
+        if (isset($map['SupportedCategorys'])) {
+            if (!empty($map['SupportedCategorys'])) {
+                $model->supportedCategorys = [];
+                $n                         = 0;
+                foreach ($map['SupportedCategorys'] as $item) {
+                    $model->supportedCategorys[$n++] = null !== $item ? supportedCategorys::fromMap($item) : $item;
+                }
+            }
+        }
+
+        return $model;
+    }
+}

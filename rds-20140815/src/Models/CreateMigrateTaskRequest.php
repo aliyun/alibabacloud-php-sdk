@@ -1,0 +1,167 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Rds\V20140815\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class CreateMigrateTaskRequest extends Model
+{
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $DBName;
+
+    /**
+     * @var string
+     */
+    public $backupMode;
+
+    /**
+     * @var string
+     */
+    public $isOnlineDB;
+
+    /**
+     * @var string
+     */
+    public $checkDBMode;
+
+    /**
+     * @var string
+     */
+    public $ossObjectPositions;
+
+    /**
+     * @var string
+     */
+    public $OSSUrls;
+
+    /**
+     * @var string
+     */
+    public $migrateTaskId;
+    protected $_name = [
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'DBInstanceId'         => 'DBInstanceId',
+        'DBName'               => 'DBName',
+        'backupMode'           => 'BackupMode',
+        'isOnlineDB'           => 'IsOnlineDB',
+        'checkDBMode'          => 'CheckDBMode',
+        'ossObjectPositions'   => 'OssObjectPositions',
+        'OSSUrls'              => 'OSSUrls',
+        'migrateTaskId'        => 'MigrateTaskId',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
+        }
+        if (null !== $this->backupMode) {
+            $res['BackupMode'] = $this->backupMode;
+        }
+        if (null !== $this->isOnlineDB) {
+            $res['IsOnlineDB'] = $this->isOnlineDB;
+        }
+        if (null !== $this->checkDBMode) {
+            $res['CheckDBMode'] = $this->checkDBMode;
+        }
+        if (null !== $this->ossObjectPositions) {
+            $res['OssObjectPositions'] = $this->ossObjectPositions;
+        }
+        if (null !== $this->OSSUrls) {
+            $res['OSSUrls'] = $this->OSSUrls;
+        }
+        if (null !== $this->migrateTaskId) {
+            $res['MigrateTaskId'] = $this->migrateTaskId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return CreateMigrateTaskRequest
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
+        }
+        if (isset($map['BackupMode'])) {
+            $model->backupMode = $map['BackupMode'];
+        }
+        if (isset($map['IsOnlineDB'])) {
+            $model->isOnlineDB = $map['IsOnlineDB'];
+        }
+        if (isset($map['CheckDBMode'])) {
+            $model->checkDBMode = $map['CheckDBMode'];
+        }
+        if (isset($map['OssObjectPositions'])) {
+            $model->ossObjectPositions = $map['OssObjectPositions'];
+        }
+        if (isset($map['OSSUrls'])) {
+            $model->OSSUrls = $map['OSSUrls'];
+        }
+        if (isset($map['MigrateTaskId'])) {
+            $model->migrateTaskId = $map['MigrateTaskId'];
+        }
+
+        return $model;
+    }
+}
