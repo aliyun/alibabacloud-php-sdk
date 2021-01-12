@@ -10,13 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 搜索引擎实例Id
-     *
-     * @var int
-     */
-    public $instanceId;
-
-    /**
      * @description 数据库ID
      *
      * @var int
@@ -51,7 +44,6 @@ class data extends Model
      */
     public $traceList;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'dbId'       => 'DbId',
         'id'         => 'Id',
         'name'       => 'Name',
@@ -66,9 +58,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
@@ -102,9 +91,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
