@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmMetaResponse\vmMetaInfo;
 use AlibabaCloud\Tea\Model;
 
 class GetVmMetaResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var GetVmMetaResponseBody
+     * @var vmMetaInfo
      */
-    public $body;
+    public $vmMetaInfo;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'  => 'RequestId',
+        'vmMetaInfo' => 'VmMetaInfo',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('vmMetaInfo', $this->vmMetaInfo, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->vmMetaInfo) {
+            $res['VmMetaInfo'] = null !== $this->vmMetaInfo ? $this->vmMetaInfo->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class GetVmMetaResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = GetVmMetaResponseBody::fromMap($map['body']);
+        if (isset($map['VmMetaInfo'])) {
+            $model->vmMetaInfo = vmMetaInfo::fromMap($map['VmMetaInfo']);
         }
 
         return $model;

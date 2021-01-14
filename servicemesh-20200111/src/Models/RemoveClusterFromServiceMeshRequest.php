@@ -24,6 +24,8 @@ class RemoveClusterFromServiceMeshRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('serviceMeshId', $this->serviceMeshId, true);
+        Model::validateRequired('clusterId', $this->clusterId, true);
     }
 
     public function toMap()

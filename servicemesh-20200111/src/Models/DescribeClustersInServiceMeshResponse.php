@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeClustersInServiceMeshResponse\clusters;
 use AlibabaCloud\Tea\Model;
 
 class DescribeClustersInServiceMeshResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeClustersInServiceMeshResponseBody
+     * @var clusters[]
      */
-    public $body;
+    public $clusters;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'clusters'  => 'Clusters',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('clusters', $this->clusters, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->clusters) {
+            $res['Clusters'] = [];
+            if (null !== $this->clusters && \is_array($this->clusters)) {
+                $n = 0;
+                foreach ($this->clusters as $item) {
+                    $res['Clusters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class DescribeClustersInServiceMeshResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeClustersInServiceMeshResponseBody::fromMap($map['body']);
+        if (isset($map['Clusters'])) {
+            if (!empty($map['Clusters'])) {
+                $model->clusters = [];
+                $n               = 0;
+                foreach ($map['Clusters'] as $item) {
+                    $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

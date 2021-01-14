@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponse\serviceMesh;
 use AlibabaCloud\Tea\Model;
 
 class DescribeServiceMeshDetailResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeServiceMeshDetailResponseBody
+     * @var serviceMesh
      */
-    public $body;
+    public $serviceMesh;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'   => 'RequestId',
+        'serviceMesh' => 'ServiceMesh',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('serviceMesh', $this->serviceMesh, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->serviceMesh) {
+            $res['ServiceMesh'] = null !== $this->serviceMesh ? $this->serviceMesh->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class DescribeServiceMeshDetailResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeServiceMeshDetailResponseBody::fromMap($map['body']);
+        if (isset($map['ServiceMesh'])) {
+            $model->serviceMesh = serviceMesh::fromMap($map['ServiceMesh']);
         }
 
         return $model;

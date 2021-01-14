@@ -66,32 +66,12 @@ class UpdateMeshFeatureRequest extends Model
     /**
      * @var bool
      */
-    public $pilotPublicEip;
-
-    /**
-     * @var bool
-     */
     public $enableAudit;
 
     /**
      * @var string
      */
     public $auditProject;
-
-    /**
-     * @var bool
-     */
-    public $CADisableSecretAutoGeneration;
-
-    /**
-     * @var string
-     */
-    public $CAListenedNamespaces;
-
-    /**
-     * @var string
-     */
-    public $appNamespaces;
 
     /**
      * @var string
@@ -187,47 +167,68 @@ class UpdateMeshFeatureRequest extends Model
      * @var bool
      */
     public $http10Enabled;
+
+    /**
+     * @var bool
+     */
+    public $kialiEnabled;
+
+    /**
+     * @var bool
+     */
+    public $customizedPrometheus;
+
+    /**
+     * @var string
+     */
+    public $prometheusUrl;
+
+    /**
+     * @var bool
+     */
+    public $accessLogEnabled;
     protected $_name = [
-        'serviceMeshId'                 => 'ServiceMeshId',
-        'tracing'                       => 'Tracing',
-        'traceSampling'                 => 'TraceSampling',
-        'localityLoadBalancing'         => 'LocalityLoadBalancing',
-        'telemetry'                     => 'Telemetry',
-        'openAgentPolicy'               => 'OpenAgentPolicy',
-        'OPALogLevel'                   => 'OPALogLevel',
-        'OPARequestCPU'                 => 'OPARequestCPU',
-        'OPARequestMemory'              => 'OPARequestMemory',
-        'OPALimitCPU'                   => 'OPALimitCPU',
-        'OPALimitMemory'                => 'OPALimitMemory',
-        'pilotPublicEip'                => 'PilotPublicEip',
-        'enableAudit'                   => 'EnableAudit',
-        'auditProject'                  => 'AuditProject',
-        'CADisableSecretAutoGeneration' => 'CADisableSecretAutoGeneration',
-        'CAListenedNamespaces'          => 'CAListenedNamespaces',
-        'appNamespaces'                 => 'AppNamespaces',
-        'clusterDomain'                 => 'ClusterDomain',
-        'customizedZipkin'              => 'CustomizedZipkin',
-        'outboundTrafficPolicy'         => 'OutboundTrafficPolicy',
-        'proxyRequestCPU'               => 'ProxyRequestCPU',
-        'proxyRequestMemory'            => 'ProxyRequestMemory',
-        'proxyLimitCPU'                 => 'ProxyLimitCPU',
-        'proxyLimitMemory'              => 'ProxyLimitMemory',
-        'includeIPRanges'               => 'IncludeIPRanges',
-        'enableNamespacesByDefault'     => 'EnableNamespacesByDefault',
-        'autoInjectionPolicyEnabled'    => 'AutoInjectionPolicyEnabled',
-        'sidecarInjectorRequestCPU'     => 'SidecarInjectorRequestCPU',
-        'sidecarInjectorRequestMemory'  => 'SidecarInjectorRequestMemory',
-        'sidecarInjectorLimitCPU'       => 'SidecarInjectorLimitCPU',
-        'sidecarInjectorLimitMemory'    => 'SidecarInjectorLimitMemory',
-        'sidecarInjectorWebhookAsYaml'  => 'SidecarInjectorWebhookAsYaml',
-        'cniEnabled'                    => 'CniEnabled',
-        'cniExcludeNamespaces'          => 'CniExcludeNamespaces',
-        'opaEnabled'                    => 'OpaEnabled',
-        'http10Enabled'                 => 'Http10Enabled',
+        'serviceMeshId'                => 'ServiceMeshId',
+        'tracing'                      => 'Tracing',
+        'traceSampling'                => 'TraceSampling',
+        'localityLoadBalancing'        => 'LocalityLoadBalancing',
+        'telemetry'                    => 'Telemetry',
+        'openAgentPolicy'              => 'OpenAgentPolicy',
+        'OPALogLevel'                  => 'OPALogLevel',
+        'OPARequestCPU'                => 'OPARequestCPU',
+        'OPARequestMemory'             => 'OPARequestMemory',
+        'OPALimitCPU'                  => 'OPALimitCPU',
+        'OPALimitMemory'               => 'OPALimitMemory',
+        'enableAudit'                  => 'EnableAudit',
+        'auditProject'                 => 'AuditProject',
+        'clusterDomain'                => 'ClusterDomain',
+        'customizedZipkin'             => 'CustomizedZipkin',
+        'outboundTrafficPolicy'        => 'OutboundTrafficPolicy',
+        'proxyRequestCPU'              => 'ProxyRequestCPU',
+        'proxyRequestMemory'           => 'ProxyRequestMemory',
+        'proxyLimitCPU'                => 'ProxyLimitCPU',
+        'proxyLimitMemory'             => 'ProxyLimitMemory',
+        'includeIPRanges'              => 'IncludeIPRanges',
+        'enableNamespacesByDefault'    => 'EnableNamespacesByDefault',
+        'autoInjectionPolicyEnabled'   => 'AutoInjectionPolicyEnabled',
+        'sidecarInjectorRequestCPU'    => 'SidecarInjectorRequestCPU',
+        'sidecarInjectorRequestMemory' => 'SidecarInjectorRequestMemory',
+        'sidecarInjectorLimitCPU'      => 'SidecarInjectorLimitCPU',
+        'sidecarInjectorLimitMemory'   => 'SidecarInjectorLimitMemory',
+        'sidecarInjectorWebhookAsYaml' => 'SidecarInjectorWebhookAsYaml',
+        'cniEnabled'                   => 'CniEnabled',
+        'cniExcludeNamespaces'         => 'CniExcludeNamespaces',
+        'opaEnabled'                   => 'OpaEnabled',
+        'http10Enabled'                => 'Http10Enabled',
+        'kialiEnabled'                 => 'KialiEnabled',
+        'customizedPrometheus'         => 'CustomizedPrometheus',
+        'prometheusUrl'                => 'PrometheusUrl',
+        'accessLogEnabled'             => 'AccessLogEnabled',
     ];
 
     public function validate()
     {
+        Model::validateRequired('serviceMeshId', $this->serviceMeshId, true);
     }
 
     public function toMap()
@@ -266,23 +267,11 @@ class UpdateMeshFeatureRequest extends Model
         if (null !== $this->OPALimitMemory) {
             $res['OPALimitMemory'] = $this->OPALimitMemory;
         }
-        if (null !== $this->pilotPublicEip) {
-            $res['PilotPublicEip'] = $this->pilotPublicEip;
-        }
         if (null !== $this->enableAudit) {
             $res['EnableAudit'] = $this->enableAudit;
         }
         if (null !== $this->auditProject) {
             $res['AuditProject'] = $this->auditProject;
-        }
-        if (null !== $this->CADisableSecretAutoGeneration) {
-            $res['CADisableSecretAutoGeneration'] = $this->CADisableSecretAutoGeneration;
-        }
-        if (null !== $this->CAListenedNamespaces) {
-            $res['CAListenedNamespaces'] = $this->CAListenedNamespaces;
-        }
-        if (null !== $this->appNamespaces) {
-            $res['AppNamespaces'] = $this->appNamespaces;
         }
         if (null !== $this->clusterDomain) {
             $res['ClusterDomain'] = $this->clusterDomain;
@@ -341,6 +330,18 @@ class UpdateMeshFeatureRequest extends Model
         if (null !== $this->http10Enabled) {
             $res['Http10Enabled'] = $this->http10Enabled;
         }
+        if (null !== $this->kialiEnabled) {
+            $res['KialiEnabled'] = $this->kialiEnabled;
+        }
+        if (null !== $this->customizedPrometheus) {
+            $res['CustomizedPrometheus'] = $this->customizedPrometheus;
+        }
+        if (null !== $this->prometheusUrl) {
+            $res['PrometheusUrl'] = $this->prometheusUrl;
+        }
+        if (null !== $this->accessLogEnabled) {
+            $res['AccessLogEnabled'] = $this->accessLogEnabled;
+        }
 
         return $res;
     }
@@ -386,23 +387,11 @@ class UpdateMeshFeatureRequest extends Model
         if (isset($map['OPALimitMemory'])) {
             $model->OPALimitMemory = $map['OPALimitMemory'];
         }
-        if (isset($map['PilotPublicEip'])) {
-            $model->pilotPublicEip = $map['PilotPublicEip'];
-        }
         if (isset($map['EnableAudit'])) {
             $model->enableAudit = $map['EnableAudit'];
         }
         if (isset($map['AuditProject'])) {
             $model->auditProject = $map['AuditProject'];
-        }
-        if (isset($map['CADisableSecretAutoGeneration'])) {
-            $model->CADisableSecretAutoGeneration = $map['CADisableSecretAutoGeneration'];
-        }
-        if (isset($map['CAListenedNamespaces'])) {
-            $model->CAListenedNamespaces = $map['CAListenedNamespaces'];
-        }
-        if (isset($map['AppNamespaces'])) {
-            $model->appNamespaces = $map['AppNamespaces'];
         }
         if (isset($map['ClusterDomain'])) {
             $model->clusterDomain = $map['ClusterDomain'];
@@ -460,6 +449,18 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['Http10Enabled'])) {
             $model->http10Enabled = $map['Http10Enabled'];
+        }
+        if (isset($map['KialiEnabled'])) {
+            $model->kialiEnabled = $map['KialiEnabled'];
+        }
+        if (isset($map['CustomizedPrometheus'])) {
+            $model->customizedPrometheus = $map['CustomizedPrometheus'];
+        }
+        if (isset($map['PrometheusUrl'])) {
+            $model->prometheusUrl = $map['PrometheusUrl'];
+        }
+        if (isset($map['AccessLogEnabled'])) {
+            $model->accessLogEnabled = $map['AccessLogEnabled'];
         }
 
         return $model;

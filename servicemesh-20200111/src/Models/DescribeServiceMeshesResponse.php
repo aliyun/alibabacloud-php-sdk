@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponse\serviceMeshes;
 use AlibabaCloud\Tea\Model;
 
 class DescribeServiceMeshesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeServiceMeshesResponseBody
+     * @var serviceMeshes[]
      */
-    public $body;
+    public $serviceMeshes;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'     => 'RequestId',
+        'serviceMeshes' => 'ServiceMeshes',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('serviceMeshes', $this->serviceMeshes, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->serviceMeshes) {
+            $res['ServiceMeshes'] = [];
+            if (null !== $this->serviceMeshes && \is_array($this->serviceMeshes)) {
+                $n = 0;
+                foreach ($this->serviceMeshes as $item) {
+                    $res['ServiceMeshes'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class DescribeServiceMeshesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeServiceMeshesResponseBody::fromMap($map['body']);
+        if (isset($map['ServiceMeshes'])) {
+            if (!empty($map['ServiceMeshes'])) {
+                $model->serviceMeshes = [];
+                $n                    = 0;
+                foreach ($map['ServiceMeshes'] as $item) {
+                    $model->serviceMeshes[$n++] = null !== $item ? serviceMeshes::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -30,6 +30,9 @@ class GetRegisteredServiceEndpointsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('serviceMeshId', $this->serviceMeshId, true);
+        Model::validateRequired('namespace', $this->namespace, true);
+        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

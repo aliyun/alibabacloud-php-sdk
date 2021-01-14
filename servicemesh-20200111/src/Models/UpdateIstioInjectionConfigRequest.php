@@ -30,6 +30,9 @@ class UpdateIstioInjectionConfigRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('serviceMeshId', $this->serviceMeshId, true);
+        Model::validateRequired('namespace', $this->namespace, true);
+        Model::validateRequired('enableIstioInjection', $this->enableIstioInjection, true);
     }
 
     public function toMap()

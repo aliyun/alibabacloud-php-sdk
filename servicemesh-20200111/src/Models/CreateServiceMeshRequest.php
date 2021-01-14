@@ -36,16 +36,6 @@ class CreateServiceMeshRequest extends Model
     /**
      * @var bool
      */
-    public $strictMTLS;
-
-    /**
-     * @var string
-     */
-    public $outboundTrafficPolicy;
-
-    /**
-     * @var bool
-     */
     public $tracing;
 
     /**
@@ -114,26 +104,6 @@ class CreateServiceMeshRequest extends Model
     public $auditProject;
 
     /**
-     * @var bool
-     */
-    public $CADisableSecretAutoGeneration;
-
-    /**
-     * @var string
-     */
-    public $CAListenedNamespaces;
-
-    /**
-     * @var string
-     */
-    public $appNamespaces;
-
-    /**
-     * @var string
-     */
-    public $clusterDomain;
-
-    /**
      * @var string
      */
     public $proxyRequestCPU;
@@ -177,45 +147,66 @@ class CreateServiceMeshRequest extends Model
      * @var bool
      */
     public $opaEnabled;
+
+    /**
+     * @var bool
+     */
+    public $kialiEnabled;
+
+    /**
+     * @var bool
+     */
+    public $accessLogEnabled;
+
+    /**
+     * @var bool
+     */
+    public $customizedPrometheus;
+
+    /**
+     * @var string
+     */
+    public $prometheusUrl;
     protected $_name = [
-        'regionId'                      => 'RegionId',
-        'istioVersion'                  => 'IstioVersion',
-        'vpcId'                         => 'VpcId',
-        'apiServerPublicEip'            => 'ApiServerPublicEip',
-        'pilotPublicEip'                => 'PilotPublicEip',
-        'strictMTLS'                    => 'StrictMTLS',
-        'outboundTrafficPolicy'         => 'OutboundTrafficPolicy',
-        'tracing'                       => 'Tracing',
-        'name'                          => 'Name',
-        'vSwitches'                     => 'VSwitches',
-        'traceSampling'                 => 'TraceSampling',
-        'localityLoadBalancing'         => 'LocalityLoadBalancing',
-        'telemetry'                     => 'Telemetry',
-        'openAgentPolicy'               => 'OpenAgentPolicy',
-        'OPALogLevel'                   => 'OPALogLevel',
-        'OPARequestCPU'                 => 'OPARequestCPU',
-        'OPARequestMemory'              => 'OPARequestMemory',
-        'OPALimitCPU'                   => 'OPALimitCPU',
-        'OPALimitMemory'                => 'OPALimitMemory',
-        'enableAudit'                   => 'EnableAudit',
-        'auditProject'                  => 'AuditProject',
-        'CADisableSecretAutoGeneration' => 'CADisableSecretAutoGeneration',
-        'CAListenedNamespaces'          => 'CAListenedNamespaces',
-        'appNamespaces'                 => 'AppNamespaces',
-        'clusterDomain'                 => 'ClusterDomain',
-        'proxyRequestCPU'               => 'ProxyRequestCPU',
-        'proxyRequestMemory'            => 'ProxyRequestMemory',
-        'proxyLimitCPU'                 => 'ProxyLimitCPU',
-        'proxyLimitMemory'              => 'ProxyLimitMemory',
-        'includeIPRanges'               => 'IncludeIPRanges',
-        'excludeIPRanges'               => 'ExcludeIPRanges',
-        'excludeOutboundPorts'          => 'ExcludeOutboundPorts',
-        'excludeInboundPorts'           => 'ExcludeInboundPorts',
-        'opaEnabled'                    => 'OpaEnabled',
+        'regionId'              => 'RegionId',
+        'istioVersion'          => 'IstioVersion',
+        'vpcId'                 => 'VpcId',
+        'apiServerPublicEip'    => 'ApiServerPublicEip',
+        'pilotPublicEip'        => 'PilotPublicEip',
+        'tracing'               => 'Tracing',
+        'name'                  => 'Name',
+        'vSwitches'             => 'VSwitches',
+        'traceSampling'         => 'TraceSampling',
+        'localityLoadBalancing' => 'LocalityLoadBalancing',
+        'telemetry'             => 'Telemetry',
+        'openAgentPolicy'       => 'OpenAgentPolicy',
+        'OPALogLevel'           => 'OPALogLevel',
+        'OPARequestCPU'         => 'OPARequestCPU',
+        'OPARequestMemory'      => 'OPARequestMemory',
+        'OPALimitCPU'           => 'OPALimitCPU',
+        'OPALimitMemory'        => 'OPALimitMemory',
+        'enableAudit'           => 'EnableAudit',
+        'auditProject'          => 'AuditProject',
+        'proxyRequestCPU'       => 'ProxyRequestCPU',
+        'proxyRequestMemory'    => 'ProxyRequestMemory',
+        'proxyLimitCPU'         => 'ProxyLimitCPU',
+        'proxyLimitMemory'      => 'ProxyLimitMemory',
+        'includeIPRanges'       => 'IncludeIPRanges',
+        'excludeIPRanges'       => 'ExcludeIPRanges',
+        'excludeOutboundPorts'  => 'ExcludeOutboundPorts',
+        'excludeInboundPorts'   => 'ExcludeInboundPorts',
+        'opaEnabled'            => 'OpaEnabled',
+        'kialiEnabled'          => 'KialiEnabled',
+        'accessLogEnabled'      => 'AccessLogEnabled',
+        'customizedPrometheus'  => 'CustomizedPrometheus',
+        'prometheusUrl'         => 'PrometheusUrl',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('vpcId', $this->vpcId, true);
+        Model::validateRequired('vSwitches', $this->vSwitches, true);
     }
 
     public function toMap()
@@ -235,12 +226,6 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->pilotPublicEip) {
             $res['PilotPublicEip'] = $this->pilotPublicEip;
-        }
-        if (null !== $this->strictMTLS) {
-            $res['StrictMTLS'] = $this->strictMTLS;
-        }
-        if (null !== $this->outboundTrafficPolicy) {
-            $res['OutboundTrafficPolicy'] = $this->outboundTrafficPolicy;
         }
         if (null !== $this->tracing) {
             $res['Tracing'] = $this->tracing;
@@ -284,18 +269,6 @@ class CreateServiceMeshRequest extends Model
         if (null !== $this->auditProject) {
             $res['AuditProject'] = $this->auditProject;
         }
-        if (null !== $this->CADisableSecretAutoGeneration) {
-            $res['CADisableSecretAutoGeneration'] = $this->CADisableSecretAutoGeneration;
-        }
-        if (null !== $this->CAListenedNamespaces) {
-            $res['CAListenedNamespaces'] = $this->CAListenedNamespaces;
-        }
-        if (null !== $this->appNamespaces) {
-            $res['AppNamespaces'] = $this->appNamespaces;
-        }
-        if (null !== $this->clusterDomain) {
-            $res['ClusterDomain'] = $this->clusterDomain;
-        }
         if (null !== $this->proxyRequestCPU) {
             $res['ProxyRequestCPU'] = $this->proxyRequestCPU;
         }
@@ -323,6 +296,18 @@ class CreateServiceMeshRequest extends Model
         if (null !== $this->opaEnabled) {
             $res['OpaEnabled'] = $this->opaEnabled;
         }
+        if (null !== $this->kialiEnabled) {
+            $res['KialiEnabled'] = $this->kialiEnabled;
+        }
+        if (null !== $this->accessLogEnabled) {
+            $res['AccessLogEnabled'] = $this->accessLogEnabled;
+        }
+        if (null !== $this->customizedPrometheus) {
+            $res['CustomizedPrometheus'] = $this->customizedPrometheus;
+        }
+        if (null !== $this->prometheusUrl) {
+            $res['PrometheusUrl'] = $this->prometheusUrl;
+        }
 
         return $res;
     }
@@ -349,12 +334,6 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['PilotPublicEip'])) {
             $model->pilotPublicEip = $map['PilotPublicEip'];
-        }
-        if (isset($map['StrictMTLS'])) {
-            $model->strictMTLS = $map['StrictMTLS'];
-        }
-        if (isset($map['OutboundTrafficPolicy'])) {
-            $model->outboundTrafficPolicy = $map['OutboundTrafficPolicy'];
         }
         if (isset($map['Tracing'])) {
             $model->tracing = $map['Tracing'];
@@ -398,18 +377,6 @@ class CreateServiceMeshRequest extends Model
         if (isset($map['AuditProject'])) {
             $model->auditProject = $map['AuditProject'];
         }
-        if (isset($map['CADisableSecretAutoGeneration'])) {
-            $model->CADisableSecretAutoGeneration = $map['CADisableSecretAutoGeneration'];
-        }
-        if (isset($map['CAListenedNamespaces'])) {
-            $model->CAListenedNamespaces = $map['CAListenedNamespaces'];
-        }
-        if (isset($map['AppNamespaces'])) {
-            $model->appNamespaces = $map['AppNamespaces'];
-        }
-        if (isset($map['ClusterDomain'])) {
-            $model->clusterDomain = $map['ClusterDomain'];
-        }
         if (isset($map['ProxyRequestCPU'])) {
             $model->proxyRequestCPU = $map['ProxyRequestCPU'];
         }
@@ -436,6 +403,18 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['OpaEnabled'])) {
             $model->opaEnabled = $map['OpaEnabled'];
+        }
+        if (isset($map['KialiEnabled'])) {
+            $model->kialiEnabled = $map['KialiEnabled'];
+        }
+        if (isset($map['AccessLogEnabled'])) {
+            $model->accessLogEnabled = $map['AccessLogEnabled'];
+        }
+        if (isset($map['CustomizedPrometheus'])) {
+            $model->customizedPrometheus = $map['CustomizedPrometheus'];
+        }
+        if (isset($map['PrometheusUrl'])) {
+            $model->prometheusUrl = $map['PrometheusUrl'];
         }
 
         return $model;
