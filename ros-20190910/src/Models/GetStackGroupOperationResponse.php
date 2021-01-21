@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupOperationResponse\stackGroupOperation;
 use AlibabaCloud\Tea\Model;
 
 class GetStackGroupOperationResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var GetStackGroupOperationResponseBody
+     * @var stackGroupOperation
      */
-    public $body;
+    public $stackGroupOperation;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'           => 'RequestId',
+        'stackGroupOperation' => 'StackGroupOperation',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('stackGroupOperation', $this->stackGroupOperation, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->stackGroupOperation) {
+            $res['StackGroupOperation'] = null !== $this->stackGroupOperation ? $this->stackGroupOperation->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class GetStackGroupOperationResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = GetStackGroupOperationResponseBody::fromMap($map['body']);
+        if (isset($map['StackGroupOperation'])) {
+            $model->stackGroupOperation = stackGroupOperation::fromMap($map['StackGroupOperation']);
         }
 
         return $model;

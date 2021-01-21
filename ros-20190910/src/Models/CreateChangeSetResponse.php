@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateChangeSetResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $changeSetId;
 
     /**
-     * @var CreateChangeSetResponseBody
+     * @var string
      */
-    public $body;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $stackId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'changeSetId' => 'ChangeSetId',
+        'requestId'   => 'RequestId',
+        'stackId'     => 'StackId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('changeSetId', $this->changeSetId, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('stackId', $this->stackId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->changeSetId) {
+            $res['ChangeSetId'] = $this->changeSetId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class CreateChangeSetResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['ChangeSetId'])) {
+            $model->changeSetId = $map['ChangeSetId'];
         }
-        if (isset($map['body'])) {
-            $model->body = CreateChangeSetResponseBody::fromMap($map['body']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
 
         return $model;

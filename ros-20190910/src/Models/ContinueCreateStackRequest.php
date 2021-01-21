@@ -15,6 +15,11 @@ class ContinueCreateStackRequest extends Model
     public $stackId;
 
     /**
+     * @var string[]
+     */
+    public $recreatingResources;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -40,6 +45,11 @@ class ContinueCreateStackRequest extends Model
     public $templateURL;
 
     /**
+     * @var parameters[]
+     */
+    public $parameters;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -53,32 +63,24 @@ class ContinueCreateStackRequest extends Model
      * @var string
      */
     public $templateVersion;
-
-    /**
-     * @var string[]
-     */
-    public $recreatingResources;
-
-    /**
-     * @var parameters[]
-     */
-    public $parameters;
     protected $_name = [
         'stackId'             => 'StackId',
+        'recreatingResources' => 'RecreatingResources',
         'regionId'            => 'RegionId',
         'ramRoleName'         => 'RamRoleName',
         'mode'                => 'Mode',
         'templateBody'        => 'TemplateBody',
         'templateURL'         => 'TemplateURL',
+        'parameters'          => 'Parameters',
         'dryRun'              => 'DryRun',
         'templateId'          => 'TemplateId',
         'templateVersion'     => 'TemplateVersion',
-        'recreatingResources' => 'RecreatingResources',
-        'parameters'          => 'Parameters',
     ];
 
     public function validate()
     {
+        Model::validateRequired('stackId', $this->stackId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -86,6 +88,9 @@ class ContinueCreateStackRequest extends Model
         $res = [];
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
+        }
+        if (null !== $this->recreatingResources) {
+            $res['RecreatingResources'] = $this->recreatingResources;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -102,18 +107,6 @@ class ContinueCreateStackRequest extends Model
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
         }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
-        }
-        if (null !== $this->recreatingResources) {
-            $res['RecreatingResources'] = $this->recreatingResources;
-        }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
             if (null !== $this->parameters && \is_array($this->parameters)) {
@@ -122,6 +115,15 @@ class ContinueCreateStackRequest extends Model
                     $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
         }
 
         return $res;
@@ -138,6 +140,11 @@ class ContinueCreateStackRequest extends Model
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }
+        if (isset($map['RecreatingResources'])) {
+            if (!empty($map['RecreatingResources'])) {
+                $model->recreatingResources = $map['RecreatingResources'];
+            }
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -153,20 +160,6 @@ class ContinueCreateStackRequest extends Model
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];
         }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
-        }
-        if (isset($map['RecreatingResources'])) {
-            if (!empty($map['RecreatingResources'])) {
-                $model->recreatingResources = $map['RecreatingResources'];
-            }
-        }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
@@ -175,6 +168,15 @@ class ContinueCreateStackRequest extends Model
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
         }
 
         return $model;

@@ -18,6 +18,7 @@ class DeleteTemplateRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('templateId', $this->templateId, true);
     }
 
     public function toMap()

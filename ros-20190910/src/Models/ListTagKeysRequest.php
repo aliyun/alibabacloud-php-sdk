@@ -30,6 +30,8 @@ class ListTagKeysRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('resourceType', $this->resourceType, true);
     }
 
     public function toMap()

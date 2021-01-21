@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListStacksRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $status;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -25,6 +30,11 @@ class ListStacksRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $stackName;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -35,43 +45,37 @@ class ListStacksRequest extends Model
     public $showNestedStack;
 
     /**
-     * @var string
-     */
-    public $stackId;
-
-    /**
-     * @var string[]
-     */
-    public $status;
-
-    /**
-     * @var string[]
-     */
-    public $stackName;
-
-    /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $stackId;
     protected $_name = [
+        'status'          => 'Status',
         'pageSize'        => 'PageSize',
         'parentStackId'   => 'ParentStackId',
         'regionId'        => 'RegionId',
+        'stackName'       => 'StackName',
         'pageNumber'      => 'PageNumber',
         'showNestedStack' => 'ShowNestedStack',
-        'stackId'         => 'StackId',
-        'status'          => 'Status',
-        'stackName'       => 'StackName',
         'tag'             => 'Tag',
+        'stackId'         => 'StackId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -81,20 +85,14 @@ class ListStacksRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->stackName) {
+            $res['StackName'] = $this->stackName;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->showNestedStack) {
             $res['ShowNestedStack'] = $this->showNestedStack;
-        }
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->stackName) {
-            $res['StackName'] = $this->stackName;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -104,6 +102,9 @@ class ListStacksRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
 
         return $res;
@@ -117,6 +118,11 @@ class ListStacksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Status'])) {
+            if (!empty($map['Status'])) {
+                $model->status = $map['Status'];
+            }
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -126,24 +132,16 @@ class ListStacksRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['StackName'])) {
+            if (!empty($map['StackName'])) {
+                $model->stackName = $map['StackName'];
+            }
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['ShowNestedStack'])) {
             $model->showNestedStack = $map['ShowNestedStack'];
-        }
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
-        }
-        if (isset($map['Status'])) {
-            if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
-            }
-        }
-        if (isset($map['StackName'])) {
-            if (!empty($map['StackName'])) {
-                $model->stackName = $map['StackName'];
-            }
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -153,6 +151,9 @@ class ListStacksRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
 
         return $model;

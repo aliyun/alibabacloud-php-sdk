@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackRequest\parameters;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateStackRequest extends Model
@@ -17,12 +18,12 @@ class CreateStackRequest extends Model
     /**
      * @var string
      */
-    public $channelId;
+    public $templateBody;
 
     /**
-     * @var string
+     * @var parameters[]
      */
-    public $templateBody;
+    public $parameters;
 
     /**
      * @var string
@@ -52,22 +53,17 @@ class CreateStackRequest extends Model
     /**
      * @var string
      */
-    public $activityId;
-
-    /**
-     * @var string
-     */
-    public $orderSource;
-
-    /**
-     * @var string
-     */
     public $clientToken;
 
     /**
      * @var string
      */
     public $templateURL;
+
+    /**
+     * @var string[]
+     */
+    public $notificationURLs;
 
     /**
      * @var string
@@ -95,38 +91,33 @@ class CreateStackRequest extends Model
     public $templateVersion;
 
     /**
-     * @var parameters[]
+     * @var tags[]
      */
-    public $parameters;
-
-    /**
-     * @var string[]
-     */
-    public $notificationURLs;
+    public $tags;
     protected $_name = [
         'disableRollback'    => 'DisableRollback',
-        'channelId'          => 'ChannelId',
         'templateBody'       => 'TemplateBody',
+        'parameters'         => 'Parameters',
         'stackPolicyURL'     => 'StackPolicyURL',
         'timeoutInMinutes'   => 'TimeoutInMinutes',
         'stackPolicyBody'    => 'StackPolicyBody',
         'stackName'          => 'StackName',
         'regionId'           => 'RegionId',
-        'activityId'         => 'ActivityId',
-        'orderSource'        => 'OrderSource',
         'clientToken'        => 'ClientToken',
         'templateURL'        => 'TemplateURL',
+        'notificationURLs'   => 'NotificationURLs',
         'ramRoleName'        => 'RamRoleName',
         'deletionProtection' => 'DeletionProtection',
         'createOption'       => 'CreateOption',
         'templateId'         => 'TemplateId',
         'templateVersion'    => 'TemplateVersion',
-        'parameters'         => 'Parameters',
-        'notificationURLs'   => 'NotificationURLs',
+        'tags'               => 'Tags',
     ];
 
     public function validate()
     {
+        Model::validateRequired('stackName', $this->stackName, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -135,11 +126,17 @@ class CreateStackRequest extends Model
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
         }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
-        }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = [];
+            if (null !== $this->parameters && \is_array($this->parameters)) {
+                $n = 0;
+                foreach ($this->parameters as $item) {
+                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->stackPolicyURL) {
             $res['StackPolicyURL'] = $this->stackPolicyURL;
@@ -156,17 +153,14 @@ class CreateStackRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->activityId) {
-            $res['ActivityId'] = $this->activityId;
-        }
-        if (null !== $this->orderSource) {
-            $res['OrderSource'] = $this->orderSource;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->notificationURLs) {
+            $res['NotificationURLs'] = $this->notificationURLs;
         }
         if (null !== $this->ramRoleName) {
             $res['RamRoleName'] = $this->ramRoleName;
@@ -183,17 +177,14 @@ class CreateStackRequest extends Model
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
                 $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->notificationURLs) {
-            $res['NotificationURLs'] = $this->notificationURLs;
         }
 
         return $res;
@@ -210,11 +201,17 @@ class CreateStackRequest extends Model
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];
         }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
-        }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
+        }
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                $n                 = 0;
+                foreach ($map['Parameters'] as $item) {
+                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['StackPolicyURL'])) {
             $model->stackPolicyURL = $map['StackPolicyURL'];
@@ -231,17 +228,16 @@ class CreateStackRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ActivityId'])) {
-            $model->activityId = $map['ActivityId'];
-        }
-        if (isset($map['OrderSource'])) {
-            $model->orderSource = $map['OrderSource'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['NotificationURLs'])) {
+            if (!empty($map['NotificationURLs'])) {
+                $model->notificationURLs = $map['NotificationURLs'];
+            }
         }
         if (isset($map['RamRoleName'])) {
             $model->ramRoleName = $map['RamRoleName'];
@@ -258,18 +254,13 @@ class CreateStackRequest extends Model
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
         }
-        if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = [];
-                $n                 = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['NotificationURLs'])) {
-            if (!empty($map['NotificationURLs'])) {
-                $model->notificationURLs = $map['NotificationURLs'];
             }
         }
 

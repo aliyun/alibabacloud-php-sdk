@@ -15,34 +15,36 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
         'regionId'     => 'RegionId',
-        'resourceType' => 'ResourceType',
-        'nextToken'    => 'NextToken',
         'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
+        'nextToken'    => 'NextToken',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('resourceType', $this->resourceType, true);
     }
 
     public function toMap()
@@ -51,14 +53,11 @@ class ListTagResourcesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -68,6 +67,9 @@ class ListTagResourcesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -84,16 +86,13 @@ class ListTagResourcesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -103,6 +102,9 @@ class ListTagResourcesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

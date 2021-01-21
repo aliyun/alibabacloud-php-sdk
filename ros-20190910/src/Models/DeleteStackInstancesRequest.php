@@ -60,6 +60,11 @@ class DeleteStackInstancesRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('stackGroupName', $this->stackGroupName, true);
+        Model::validateRequired('accountIds', $this->accountIds, true);
+        Model::validateRequired('regionIds', $this->regionIds, true);
+        Model::validateRequired('retainStacks', $this->retainStacks, true);
     }
 
     public function toMap()

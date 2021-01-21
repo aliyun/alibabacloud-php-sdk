@@ -24,6 +24,8 @@ class GetStackGroupOperationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('operationId', $this->operationId, true);
     }
 
     public function toMap()

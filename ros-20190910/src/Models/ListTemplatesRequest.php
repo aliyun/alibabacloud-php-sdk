@@ -25,20 +25,20 @@ class ListTemplatesRequest extends Model
     public $templateName;
 
     /**
-     * @var string
-     */
-    public $shareType;
-
-    /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $shareType;
     protected $_name = [
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'templateName' => 'TemplateName',
-        'shareType'    => 'ShareType',
         'tag'          => 'Tag',
+        'shareType'    => 'ShareType',
     ];
 
     public function validate()
@@ -57,9 +57,6 @@ class ListTemplatesRequest extends Model
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
-        if (null !== $this->shareType) {
-            $res['ShareType'] = $this->shareType;
-        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -68,6 +65,9 @@ class ListTemplatesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
         }
 
         return $res;
@@ -90,9 +90,6 @@ class ListTemplatesRequest extends Model
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
-        if (isset($map['ShareType'])) {
-            $model->shareType = $map['ShareType'];
-        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -101,6 +98,9 @@ class ListTemplatesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
         }
 
         return $model;

@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackOperationRisksResponse\riskResources;
 use AlibabaCloud\Tea\Model;
 
 class ListStackOperationRisksResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var ListStackOperationRisksResponseBody
+     * @var riskResources[]
      */
-    public $body;
+    public $riskResources;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'     => 'RequestId',
+        'riskResources' => 'RiskResources',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('riskResources', $this->riskResources, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->riskResources) {
+            $res['RiskResources'] = [];
+            if (null !== $this->riskResources && \is_array($this->riskResources)) {
+                $n = 0;
+                foreach ($this->riskResources as $item) {
+                    $res['RiskResources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class ListStackOperationRisksResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = ListStackOperationRisksResponseBody::fromMap($map['body']);
+        if (isset($map['RiskResources'])) {
+            if (!empty($map['RiskResources'])) {
+                $model->riskResources = [];
+                $n                    = 0;
+                foreach ($map['RiskResources'] as $item) {
+                    $model->riskResources[$n++] = null !== $item ? riskResources::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

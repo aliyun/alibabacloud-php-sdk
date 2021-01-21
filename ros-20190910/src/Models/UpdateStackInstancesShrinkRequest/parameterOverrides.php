@@ -11,29 +11,31 @@ class parameterOverrides extends Model
     /**
      * @var string
      */
-    public $parameterKey;
+    public $parameterValue;
 
     /**
      * @var string
      */
-    public $parameterValue;
+    public $parameterKey;
     protected $_name = [
-        'parameterKey'   => 'ParameterKey',
         'parameterValue' => 'ParameterValue',
+        'parameterKey'   => 'ParameterKey',
     ];
 
     public function validate()
     {
+        Model::validateRequired('parameterValue', $this->parameterValue, true);
+        Model::validateRequired('parameterKey', $this->parameterKey, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parameterKey) {
-            $res['ParameterKey'] = $this->parameterKey;
-        }
         if (null !== $this->parameterValue) {
             $res['ParameterValue'] = $this->parameterValue;
+        }
+        if (null !== $this->parameterKey) {
+            $res['ParameterKey'] = $this->parameterKey;
         }
 
         return $res;
@@ -47,11 +49,11 @@ class parameterOverrides extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParameterKey'])) {
-            $model->parameterKey = $map['ParameterKey'];
-        }
         if (isset($map['ParameterValue'])) {
             $model->parameterValue = $map['ParameterValue'];
+        }
+        if (isset($map['ParameterKey'])) {
+            $model->parameterKey = $map['ParameterKey'];
         }
 
         return $model;

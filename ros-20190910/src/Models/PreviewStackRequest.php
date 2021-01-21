@@ -20,6 +20,11 @@ class PreviewStackRequest extends Model
     public $timeoutInMinutes;
 
     /**
+     * @var parameters[]
+     */
+    public $parameters;
+
+    /**
      * @var string
      */
     public $templateBody;
@@ -63,14 +68,10 @@ class PreviewStackRequest extends Model
      * @var string
      */
     public $templateVersion;
-
-    /**
-     * @var parameters[]
-     */
-    public $parameters;
     protected $_name = [
         'disableRollback'  => 'DisableRollback',
         'timeoutInMinutes' => 'TimeoutInMinutes',
+        'parameters'       => 'Parameters',
         'templateBody'     => 'TemplateBody',
         'stackPolicyURL'   => 'StackPolicyURL',
         'regionId'         => 'RegionId',
@@ -80,11 +81,12 @@ class PreviewStackRequest extends Model
         'templateURL'      => 'TemplateURL',
         'templateId'       => 'TemplateId',
         'templateVersion'  => 'TemplateVersion',
-        'parameters'       => 'Parameters',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('stackName', $this->stackName, true);
     }
 
     public function toMap()
@@ -95,6 +97,15 @@ class PreviewStackRequest extends Model
         }
         if (null !== $this->timeoutInMinutes) {
             $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = [];
+            if (null !== $this->parameters && \is_array($this->parameters)) {
+                $n = 0;
+                foreach ($this->parameters as $item) {
+                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
@@ -123,15 +134,6 @@ class PreviewStackRequest extends Model
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
 
         return $res;
     }
@@ -149,6 +151,15 @@ class PreviewStackRequest extends Model
         }
         if (isset($map['TimeoutInMinutes'])) {
             $model->timeoutInMinutes = $map['TimeoutInMinutes'];
+        }
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                $n                 = 0;
+                foreach ($map['Parameters'] as $item) {
+                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
@@ -176,15 +187,6 @@ class PreviewStackRequest extends Model
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
-        }
-        if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = [];
-                $n                 = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

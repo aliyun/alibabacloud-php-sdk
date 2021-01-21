@@ -36,6 +36,7 @@ class CreateTemplateRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('templateName', $this->templateName, true);
     }
 
     public function toMap()

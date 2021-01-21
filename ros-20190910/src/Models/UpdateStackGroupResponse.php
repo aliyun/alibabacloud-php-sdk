@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class UpdateStackGroupResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var UpdateStackGroupResponseBody
+     * @var string
      */
-    public $body;
+    public $operationId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'   => 'RequestId',
+        'operationId' => 'OperationId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('operationId', $this->operationId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->operationId) {
+            $res['OperationId'] = $this->operationId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class UpdateStackGroupResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = UpdateStackGroupResponseBody::fromMap($map['body']);
+        if (isset($map['OperationId'])) {
+            $model->operationId = $map['OperationId'];
         }
 
         return $model;

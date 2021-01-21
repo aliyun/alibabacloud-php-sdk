@@ -25,6 +25,11 @@ class CreateStackGroupRequest extends Model
     public $description;
 
     /**
+     * @var parameters[]
+     */
+    public $parameters;
+
+    /**
      * @var string
      */
     public $templateBody;
@@ -58,15 +63,11 @@ class CreateStackGroupRequest extends Model
      * @var string
      */
     public $templateVersion;
-
-    /**
-     * @var parameters[]
-     */
-    public $parameters;
     protected $_name = [
         'regionId'               => 'RegionId',
         'stackGroupName'         => 'StackGroupName',
         'description'            => 'Description',
+        'parameters'             => 'Parameters',
         'templateBody'           => 'TemplateBody',
         'templateURL'            => 'TemplateURL',
         'clientToken'            => 'ClientToken',
@@ -74,11 +75,12 @@ class CreateStackGroupRequest extends Model
         'executionRoleName'      => 'ExecutionRoleName',
         'templateId'             => 'TemplateId',
         'templateVersion'        => 'TemplateVersion',
-        'parameters'             => 'Parameters',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('stackGroupName', $this->stackGroupName, true);
     }
 
     public function toMap()
@@ -92,6 +94,15 @@ class CreateStackGroupRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = [];
+            if (null !== $this->parameters && \is_array($this->parameters)) {
+                $n = 0;
+                foreach ($this->parameters as $item) {
+                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
@@ -114,15 +125,6 @@ class CreateStackGroupRequest extends Model
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
 
         return $res;
     }
@@ -144,6 +146,15 @@ class CreateStackGroupRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                $n                 = 0;
+                foreach ($map['Parameters'] as $item) {
+                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }
@@ -164,15 +175,6 @@ class CreateStackGroupRequest extends Model
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
-        }
-        if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = [];
-                $n                 = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

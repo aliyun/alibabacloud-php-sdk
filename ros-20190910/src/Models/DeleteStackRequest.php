@@ -24,24 +24,26 @@ class DeleteStackRequest extends Model
     public $regionId;
 
     /**
-     * @var string
-     */
-    public $ramRoleName;
-
-    /**
      * @var string[]
      */
     public $retainResources;
+
+    /**
+     * @var string
+     */
+    public $ramRoleName;
     protected $_name = [
         'stackId'            => 'StackId',
         'retainAllResources' => 'RetainAllResources',
         'regionId'           => 'RegionId',
-        'ramRoleName'        => 'RamRoleName',
         'retainResources'    => 'RetainResources',
+        'ramRoleName'        => 'RamRoleName',
     ];
 
     public function validate()
     {
+        Model::validateRequired('stackId', $this->stackId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -56,11 +58,11 @@ class DeleteStackRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->ramRoleName) {
-            $res['RamRoleName'] = $this->ramRoleName;
-        }
         if (null !== $this->retainResources) {
             $res['RetainResources'] = $this->retainResources;
+        }
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
         }
 
         return $res;
@@ -83,13 +85,13 @@ class DeleteStackRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['RamRoleName'])) {
-            $model->ramRoleName = $map['RamRoleName'];
-        }
         if (isset($map['RetainResources'])) {
             if (!empty($map['RetainResources'])) {
                 $model->retainResources = $map['RetainResources'];
             }
+        }
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
         }
 
         return $model;

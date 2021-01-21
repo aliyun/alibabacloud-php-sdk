@@ -36,6 +36,8 @@ class SetStackPolicyRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('stackId', $this->stackId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()

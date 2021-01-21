@@ -24,6 +24,8 @@ class DeleteStackGroupRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('stackGroupName', $this->stackGroupName, true);
     }
 
     public function toMap()

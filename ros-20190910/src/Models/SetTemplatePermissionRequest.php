@@ -19,6 +19,11 @@ class SetTemplatePermissionRequest extends Model
     public $versionOption;
 
     /**
+     * @var string[]
+     */
+    public $accountIds;
+
+    /**
      * @var string
      */
     public $templateVersion;
@@ -27,21 +32,19 @@ class SetTemplatePermissionRequest extends Model
      * @var string
      */
     public $templateId;
-
-    /**
-     * @var string[]
-     */
-    public $accountIds;
     protected $_name = [
         'shareOption'     => 'ShareOption',
         'versionOption'   => 'VersionOption',
+        'accountIds'      => 'AccountIds',
         'templateVersion' => 'TemplateVersion',
         'templateId'      => 'TemplateId',
-        'accountIds'      => 'AccountIds',
     ];
 
     public function validate()
     {
+        Model::validateRequired('shareOption', $this->shareOption, true);
+        Model::validateRequired('accountIds', $this->accountIds, true);
+        Model::validateRequired('templateId', $this->templateId, true);
     }
 
     public function toMap()
@@ -53,14 +56,14 @@ class SetTemplatePermissionRequest extends Model
         if (null !== $this->versionOption) {
             $res['VersionOption'] = $this->versionOption;
         }
+        if (null !== $this->accountIds) {
+            $res['AccountIds'] = $this->accountIds;
+        }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->accountIds) {
-            $res['AccountIds'] = $this->accountIds;
         }
 
         return $res;
@@ -80,16 +83,16 @@ class SetTemplatePermissionRequest extends Model
         if (isset($map['VersionOption'])) {
             $model->versionOption = $map['VersionOption'];
         }
+        if (isset($map['AccountIds'])) {
+            if (!empty($map['AccountIds'])) {
+                $model->accountIds = $map['AccountIds'];
+            }
+        }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['AccountIds'])) {
-            if (!empty($map['AccountIds'])) {
-                $model->accountIds = $map['AccountIds'];
-            }
         }
 
         return $model;

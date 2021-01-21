@@ -14,9 +14,19 @@ class ListStackEventsRequest extends Model
     public $stackId;
 
     /**
+     * @var string[]
+     */
+    public $status;
+
+    /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string[]
+     */
+    public $resourceType;
 
     /**
      * @var string
@@ -31,29 +41,21 @@ class ListStackEventsRequest extends Model
     /**
      * @var string[]
      */
-    public $status;
-
-    /**
-     * @var string[]
-     */
-    public $resourceType;
-
-    /**
-     * @var string[]
-     */
     public $logicalResourceId;
     protected $_name = [
         'stackId'           => 'StackId',
+        'status'            => 'Status',
         'pageSize'          => 'PageSize',
+        'resourceType'      => 'ResourceType',
         'regionId'          => 'RegionId',
         'pageNumber'        => 'PageNumber',
-        'status'            => 'Status',
-        'resourceType'      => 'ResourceType',
         'logicalResourceId' => 'LogicalResourceId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('stackId', $this->stackId, true);
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -62,20 +64,20 @@ class ListStackEventsRequest extends Model
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->logicalResourceId) {
             $res['LogicalResourceId'] = $this->logicalResourceId;
@@ -95,24 +97,24 @@ class ListStackEventsRequest extends Model
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }
+        if (isset($map['Status'])) {
+            if (!empty($map['Status'])) {
+                $model->status = $map['Status'];
+            }
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceType'])) {
+            if (!empty($map['ResourceType'])) {
+                $model->resourceType = $map['ResourceType'];
+            }
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['Status'])) {
-            if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
-            }
-        }
-        if (isset($map['ResourceType'])) {
-            if (!empty($map['ResourceType'])) {
-                $model->resourceType = $map['ResourceType'];
-            }
         }
         if (isset($map['LogicalResourceId'])) {
             if (!empty($map['LogicalResourceId'])) {

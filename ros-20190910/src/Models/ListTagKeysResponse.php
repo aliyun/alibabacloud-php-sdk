@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var ListTagKeysResponseBody
+     * @var string
      */
-    public $body;
+    public $nextToken;
+
+    /**
+     * @var string[]
+     */
+    public $keys;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'nextToken' => 'NextToken',
+        'keys'      => 'Keys',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('nextToken', $this->nextToken, true);
+        Model::validateRequired('keys', $this->keys, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->keys) {
+            $res['Keys'] = $this->keys;
         }
 
         return $res;
@@ -49,11 +59,16 @@ class ListTagKeysResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = ListTagKeysResponseBody::fromMap($map['body']);
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['Keys'])) {
+            if (!empty($map['Keys'])) {
+                $model->keys = $map['Keys'];
+            }
         }
 
         return $model;

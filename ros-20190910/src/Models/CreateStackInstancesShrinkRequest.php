@@ -20,6 +20,11 @@ class CreateStackInstancesShrinkRequest extends Model
     public $stackGroupName;
 
     /**
+     * @var parameterOverrides[]
+     */
+    public $parameterOverrides;
+
+    /**
      * @var string
      */
     public $accountIdsShrink;
@@ -53,14 +58,10 @@ class CreateStackInstancesShrinkRequest extends Model
      * @var bool
      */
     public $disableRollback;
-
-    /**
-     * @var parameterOverrides[]
-     */
-    public $parameterOverrides;
     protected $_name = [
         'regionId'                   => 'RegionId',
         'stackGroupName'             => 'StackGroupName',
+        'parameterOverrides'         => 'ParameterOverrides',
         'accountIdsShrink'           => 'AccountIds',
         'regionIdsShrink'            => 'RegionIds',
         'clientToken'                => 'ClientToken',
@@ -68,11 +69,14 @@ class CreateStackInstancesShrinkRequest extends Model
         'operationPreferencesShrink' => 'OperationPreferences',
         'timeoutInMinutes'           => 'TimeoutInMinutes',
         'disableRollback'            => 'DisableRollback',
-        'parameterOverrides'         => 'ParameterOverrides',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('stackGroupName', $this->stackGroupName, true);
+        Model::validateRequired('accountIdsShrink', $this->accountIdsShrink, true);
+        Model::validateRequired('regionIdsShrink', $this->regionIdsShrink, true);
     }
 
     public function toMap()
@@ -83,6 +87,15 @@ class CreateStackInstancesShrinkRequest extends Model
         }
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
+        }
+        if (null !== $this->parameterOverrides) {
+            $res['ParameterOverrides'] = [];
+            if (null !== $this->parameterOverrides && \is_array($this->parameterOverrides)) {
+                $n = 0;
+                foreach ($this->parameterOverrides as $item) {
+                    $res['ParameterOverrides'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->accountIdsShrink) {
             $res['AccountIds'] = $this->accountIdsShrink;
@@ -105,15 +118,6 @@ class CreateStackInstancesShrinkRequest extends Model
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
         }
-        if (null !== $this->parameterOverrides) {
-            $res['ParameterOverrides'] = [];
-            if (null !== $this->parameterOverrides && \is_array($this->parameterOverrides)) {
-                $n = 0;
-                foreach ($this->parameterOverrides as $item) {
-                    $res['ParameterOverrides'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
 
         return $res;
     }
@@ -131,6 +135,15 @@ class CreateStackInstancesShrinkRequest extends Model
         }
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
+        }
+        if (isset($map['ParameterOverrides'])) {
+            if (!empty($map['ParameterOverrides'])) {
+                $model->parameterOverrides = [];
+                $n                         = 0;
+                foreach ($map['ParameterOverrides'] as $item) {
+                    $model->parameterOverrides[$n++] = null !== $item ? parameterOverrides::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['AccountIds'])) {
             $model->accountIdsShrink = $map['AccountIds'];
@@ -152,15 +165,6 @@ class CreateStackInstancesShrinkRequest extends Model
         }
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];
-        }
-        if (isset($map['ParameterOverrides'])) {
-            if (!empty($map['ParameterOverrides'])) {
-                $model->parameterOverrides = [];
-                $n                         = 0;
-                foreach ($map['ParameterOverrides'] as $item) {
-                    $model->parameterOverrides[$n++] = null !== $item ? parameterOverrides::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

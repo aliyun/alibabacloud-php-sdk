@@ -36,6 +36,10 @@ class GetStackInstanceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('stackGroupName', $this->stackGroupName, true);
+        Model::validateRequired('stackInstanceAccountId', $this->stackInstanceAccountId, true);
+        Model::validateRequired('stackInstanceRegionId', $this->stackInstanceRegionId, true);
     }
 
     public function toMap()
