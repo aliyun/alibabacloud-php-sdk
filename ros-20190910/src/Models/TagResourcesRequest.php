@@ -15,14 +15,14 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @var string[]
-     */
-    public $resourceId;
-
-    /**
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var string[]
+     */
+    public $resourceId;
 
     /**
      * @var tag[]
@@ -30,17 +30,13 @@ class TagResourcesRequest extends Model
     public $tag;
     protected $_name = [
         'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
+        'resourceId'   => 'ResourceId',
         'tag'          => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
-        Model::validateRequired('resourceType', $this->resourceType, true);
-        Model::validateRequired('tag', $this->tag, true);
     }
 
     public function toMap()
@@ -49,11 +45,11 @@ class TagResourcesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
-        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -79,13 +75,13 @@ class TagResourcesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

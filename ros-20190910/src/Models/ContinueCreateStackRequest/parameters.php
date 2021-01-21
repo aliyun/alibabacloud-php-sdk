@@ -24,8 +24,6 @@ class parameters extends Model
 
     public function validate()
     {
-        Model::validateRequired('parameterKey', $this->parameterKey, true);
-        Model::validateRequired('parameterValue', $this->parameterValue, true);
     }
 
     public function toMap()

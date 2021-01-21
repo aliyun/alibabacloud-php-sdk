@@ -24,8 +24,6 @@ class GetStackDriftDetectionStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('driftDetectionId', $this->driftDetectionId, true);
     }
 
     public function toMap()

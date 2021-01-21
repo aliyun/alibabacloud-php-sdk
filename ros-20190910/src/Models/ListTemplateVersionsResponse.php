@@ -4,55 +4,38 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateVersionsResponse\versions;
 use AlibabaCloud\Tea\Model;
 
 class ListTemplateVersionsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var ListTemplateVersionsResponseBody
      */
-    public $nextToken;
-
-    /**
-     * @var versions[]
-     */
-    public $versions;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'nextToken' => 'NextToken',
-        'versions'  => 'Versions',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('versions', $this->versions, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->versions) {
-            $res['Versions'] = [];
-            if (null !== $this->versions && \is_array($this->versions)) {
-                $n = 0;
-                foreach ($this->versions as $item) {
-                    $res['Versions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +49,11 @@ class ListTemplateVersionsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['Versions'])) {
-            if (!empty($map['Versions'])) {
-                $model->versions = [];
-                $n               = 0;
-                foreach ($map['Versions'] as $item) {
-                    $model->versions[$n++] = null !== $item ? versions::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = ListTemplateVersionsResponseBody::fromMap($map['body']);
         }
 
         return $model;

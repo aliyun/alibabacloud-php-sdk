@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateChangeSetResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $changeSetId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateChangeSetResponseBody
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $stackId;
+    public $body;
     protected $_name = [
-        'changeSetId' => 'ChangeSetId',
-        'requestId'   => 'RequestId',
-        'stackId'     => 'StackId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('changeSetId', $this->changeSetId, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('stackId', $this->stackId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->changeSetId) {
-            $res['ChangeSetId'] = $this->changeSetId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class CreateChangeSetResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ChangeSetId'])) {
-            $model->changeSetId = $map['ChangeSetId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
+        if (isset($map['body'])) {
+            $model->body = CreateChangeSetResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponse\stack;
 use AlibabaCloud\Tea\Model;
 
 class PreviewStackResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var stack
+     * @var PreviewStackResponseBody
      */
-    public $stack;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'stack'     => 'Stack',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('stack', $this->stack, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->stack) {
-            $res['Stack'] = null !== $this->stack ? $this->stack->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class PreviewStackResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Stack'])) {
-            $model->stack = stack::fromMap($map['Stack']);
+        if (isset($map['body'])) {
+            $model->body = PreviewStackResponseBody::fromMap($map['body']);
         }
 
         return $model;

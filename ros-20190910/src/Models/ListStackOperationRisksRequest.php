@@ -54,8 +54,6 @@ class ListStackOperationRisksRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('stackId', $this->stackId, true);
     }
 
     public function toMap()

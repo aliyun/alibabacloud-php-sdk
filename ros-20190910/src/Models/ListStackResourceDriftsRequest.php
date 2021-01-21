@@ -24,26 +24,24 @@ class ListStackResourceDriftsRequest extends Model
     public $maxResults;
 
     /**
-     * @var string[]
-     */
-    public $resourceDriftStatus;
-
-    /**
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string[]
+     */
+    public $resourceDriftStatus;
     protected $_name = [
         'stackId'             => 'StackId',
         'regionId'            => 'RegionId',
         'maxResults'          => 'MaxResults',
-        'resourceDriftStatus' => 'ResourceDriftStatus',
         'nextToken'           => 'NextToken',
+        'resourceDriftStatus' => 'ResourceDriftStatus',
     ];
 
     public function validate()
     {
-        Model::validateRequired('stackId', $this->stackId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -58,11 +56,11 @@ class ListStackResourceDriftsRequest extends Model
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-        if (null !== $this->resourceDriftStatus) {
-            $res['ResourceDriftStatus'] = $this->resourceDriftStatus;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->resourceDriftStatus) {
+            $res['ResourceDriftStatus'] = $this->resourceDriftStatus;
         }
 
         return $res;
@@ -85,13 +83,13 @@ class ListStackResourceDriftsRequest extends Model
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['ResourceDriftStatus'])) {
             if (!empty($map['ResourceDriftStatus'])) {
                 $model->resourceDriftStatus = $map['ResourceDriftStatus'];
             }
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

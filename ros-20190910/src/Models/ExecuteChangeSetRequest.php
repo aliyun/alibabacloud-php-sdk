@@ -30,8 +30,6 @@ class ExecuteChangeSetRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('changeSetId', $this->changeSetId, true);
     }
 
     public function toMap()

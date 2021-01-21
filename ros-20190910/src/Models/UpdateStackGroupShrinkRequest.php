@@ -25,11 +25,6 @@ class UpdateStackGroupShrinkRequest extends Model
     public $description;
 
     /**
-     * @var parameters[]
-     */
-    public $parameters;
-
-    /**
      * @var string
      */
     public $accountIdsShrink;
@@ -83,11 +78,15 @@ class UpdateStackGroupShrinkRequest extends Model
      * @var string
      */
     public $templateVersion;
+
+    /**
+     * @var parameters[]
+     */
+    public $parameters;
     protected $_name = [
         'regionId'                   => 'RegionId',
         'stackGroupName'             => 'StackGroupName',
         'description'                => 'Description',
-        'parameters'                 => 'Parameters',
         'accountIdsShrink'           => 'AccountIds',
         'regionIdsShrink'            => 'RegionIds',
         'templateBody'               => 'TemplateBody',
@@ -99,12 +98,11 @@ class UpdateStackGroupShrinkRequest extends Model
         'executionRoleName'          => 'ExecutionRoleName',
         'templateId'                 => 'TemplateId',
         'templateVersion'            => 'TemplateVersion',
+        'parameters'                 => 'Parameters',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('stackGroupName', $this->stackGroupName, true);
     }
 
     public function toMap()
@@ -118,15 +116,6 @@ class UpdateStackGroupShrinkRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->accountIdsShrink) {
             $res['AccountIds'] = $this->accountIdsShrink;
@@ -161,6 +150,15 @@ class UpdateStackGroupShrinkRequest extends Model
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = [];
+            if (null !== $this->parameters && \is_array($this->parameters)) {
+                $n = 0;
+                foreach ($this->parameters as $item) {
+                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -181,15 +179,6 @@ class UpdateStackGroupShrinkRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = [];
-                $n                 = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['AccountIds'])) {
             $model->accountIdsShrink = $map['AccountIds'];
@@ -223,6 +212,15 @@ class UpdateStackGroupShrinkRequest extends Model
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
+        }
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                $n                 = 0;
+                foreach ($map['Parameters'] as $item) {
+                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

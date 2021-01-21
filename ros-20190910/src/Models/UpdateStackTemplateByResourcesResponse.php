@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class UpdateStackTemplateByResourcesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var UpdateStackTemplateByResourcesResponseBody
      */
-    public $oldTemplateBody;
-
-    /**
-     * @var string
-     */
-    public $newTemplateBody;
+    public $body;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'oldTemplateBody' => 'OldTemplateBody',
-        'newTemplateBody' => 'NewTemplateBody',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('oldTemplateBody', $this->oldTemplateBody, true);
-        Model::validateRequired('newTemplateBody', $this->newTemplateBody, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->oldTemplateBody) {
-            $res['OldTemplateBody'] = $this->oldTemplateBody;
-        }
-        if (null !== $this->newTemplateBody) {
-            $res['NewTemplateBody'] = $this->newTemplateBody;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class UpdateStackTemplateByResourcesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['OldTemplateBody'])) {
-            $model->oldTemplateBody = $map['OldTemplateBody'];
-        }
-        if (isset($map['NewTemplateBody'])) {
-            $model->newTemplateBody = $map['NewTemplateBody'];
+        if (isset($map['body'])) {
+            $model->body = UpdateStackTemplateByResourcesResponseBody::fromMap($map['body']);
         }
 
         return $model;

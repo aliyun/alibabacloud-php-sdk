@@ -4,75 +4,38 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackEventsResponse\events;
 use AlibabaCloud\Tea\Model;
 
 class ListStackEventsResponse extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $pageNumber;
+    public $headers;
 
     /**
-     * @var int
+     * @var ListStackEventsResponseBody
      */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var events[]
-     */
-    public $events;
+    public $body;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
-        'events'     => 'Events',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('totalCount', $this->totalCount, true);
-        Model::validateRequired('events', $this->events, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->events) {
-            $res['Events'] = [];
-            if (null !== $this->events && \is_array($this->events)) {
-                $n = 0;
-                foreach ($this->events as $item) {
-                    $res['Events'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -86,26 +49,11 @@ class ListStackEventsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Events'])) {
-            if (!empty($map['Events'])) {
-                $model->events = [];
-                $n             = 0;
-                foreach ($map['Events'] as $item) {
-                    $model->events[$n++] = null !== $item ? events::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = ListStackEventsResponseBody::fromMap($map['body']);
         }
 
         return $model;

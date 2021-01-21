@@ -11,31 +11,29 @@ class parameters extends Model
     /**
      * @var string
      */
-    public $parameterValue;
+    public $parameterKey;
 
     /**
      * @var string
      */
-    public $parameterKey;
+    public $parameterValue;
     protected $_name = [
-        'parameterValue' => 'ParameterValue',
         'parameterKey'   => 'ParameterKey',
+        'parameterValue' => 'ParameterValue',
     ];
 
     public function validate()
     {
-        Model::validateRequired('parameterValue', $this->parameterValue, true);
-        Model::validateRequired('parameterKey', $this->parameterKey, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parameterValue) {
-            $res['ParameterValue'] = $this->parameterValue;
-        }
         if (null !== $this->parameterKey) {
             $res['ParameterKey'] = $this->parameterKey;
+        }
+        if (null !== $this->parameterValue) {
+            $res['ParameterValue'] = $this->parameterValue;
         }
 
         return $res;
@@ -49,11 +47,11 @@ class parameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParameterValue'])) {
-            $model->parameterValue = $map['ParameterValue'];
-        }
         if (isset($map['ParameterKey'])) {
             $model->parameterKey = $map['ParameterKey'];
+        }
+        if (isset($map['ParameterValue'])) {
+            $model->parameterValue = $map['ParameterValue'];
         }
 
         return $model;
