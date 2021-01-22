@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateStackRequest\parameters;
+use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateStackRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class UpdateStackRequest extends Model
@@ -103,6 +104,11 @@ class UpdateStackRequest extends Model
      * @var parameters[]
      */
     public $parameters;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'stackId'                     => 'StackId',
         'clientToken'                 => 'ClientToken',
@@ -123,6 +129,7 @@ class UpdateStackRequest extends Model
         'templateId'                  => 'TemplateId',
         'templateVersion'             => 'TemplateVersion',
         'parameters'                  => 'Parameters',
+        'tags'                        => 'Tags',
     ];
 
     public function validate()
@@ -192,6 +199,15 @@ class UpdateStackRequest extends Model
                 $n = 0;
                 foreach ($this->parameters as $item) {
                     $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -267,6 +283,15 @@ class UpdateStackRequest extends Model
                 $n                 = 0;
                 foreach ($map['Parameters'] as $item) {
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
         }

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackRequest\parameters;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateStackRequest extends Model
@@ -103,6 +104,11 @@ class CreateStackRequest extends Model
      * @var string[]
      */
     public $notificationURLs;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'disableRollback'    => 'DisableRollback',
         'channelId'          => 'ChannelId',
@@ -123,6 +129,7 @@ class CreateStackRequest extends Model
         'templateVersion'    => 'TemplateVersion',
         'parameters'         => 'Parameters',
         'notificationURLs'   => 'NotificationURLs',
+        'tags'               => 'Tags',
     ];
 
     public function validate()
@@ -194,6 +201,15 @@ class CreateStackRequest extends Model
         }
         if (null !== $this->notificationURLs) {
             $res['NotificationURLs'] = $this->notificationURLs;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -270,6 +286,15 @@ class CreateStackRequest extends Model
         if (isset($map['NotificationURLs'])) {
             if (!empty($map['NotificationURLs'])) {
                 $model->notificationURLs = $map['NotificationURLs'];
+            }
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
             }
         }
 

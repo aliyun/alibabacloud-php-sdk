@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\parameters;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class GetStackResponseBody extends Model
@@ -110,6 +111,11 @@ class GetStackResponseBody extends Model
     public $stackName;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $timeoutInMinutes;
@@ -139,6 +145,7 @@ class GetStackResponseBody extends Model
         'notificationURLs'    => 'NotificationURLs',
         'disableRollback'     => 'DisableRollback',
         'stackName'           => 'StackName',
+        'tags'                => 'Tags',
         'timeoutInMinutes'    => 'TimeoutInMinutes',
         'stackId'             => 'StackId',
     ];
@@ -215,6 +222,15 @@ class GetStackResponseBody extends Model
         }
         if (null !== $this->stackName) {
             $res['StackName'] = $this->stackName;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->timeoutInMinutes) {
             $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
@@ -303,6 +319,15 @@ class GetStackResponseBody extends Model
         }
         if (isset($map['StackName'])) {
             $model->stackName = $map['StackName'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TimeoutInMinutes'])) {
             $model->timeoutInMinutes = $map['TimeoutInMinutes'];

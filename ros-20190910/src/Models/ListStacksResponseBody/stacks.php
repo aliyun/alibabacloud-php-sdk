@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\ListStacksResponseBody;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListStacksResponseBody\stacks\tags;
 use AlibabaCloud\Tea\Model;
 
 class stacks extends Model
@@ -37,6 +38,11 @@ class stacks extends Model
      * @var bool
      */
     public $disableRollback;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -79,6 +85,7 @@ class stacks extends Model
         'statusReason'       => 'StatusReason',
         'createTime'         => 'CreateTime',
         'disableRollback'    => 'DisableRollback',
+        'tags'               => 'Tags',
         'stackName'          => 'StackName',
         'timeoutInMinutes'   => 'TimeoutInMinutes',
         'regionId'           => 'RegionId',
@@ -112,6 +119,15 @@ class stacks extends Model
         }
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->stackName) {
             $res['StackName'] = $this->stackName;
@@ -163,6 +179,15 @@ class stacks extends Model
         }
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['StackName'])) {
             $model->stackName = $map['StackName'];
