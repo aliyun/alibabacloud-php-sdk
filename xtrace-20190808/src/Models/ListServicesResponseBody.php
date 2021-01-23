@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListServicesResponseBody extends Model
 {
     /**
-     * @var services[]
+     * @var services
      */
     public $services;
 
@@ -31,13 +31,7 @@ class ListServicesResponseBody extends Model
     {
         $res = [];
         if (null !== $this->services) {
-            $res['Services'] = [];
-            if (null !== $this->services && \is_array($this->services)) {
-                $n = 0;
-                foreach ($this->services as $item) {
-                    $res['Services'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Services'] = null !== $this->services ? $this->services->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -55,13 +49,7 @@ class ListServicesResponseBody extends Model
     {
         $model = new self();
         if (isset($map['Services'])) {
-            if (!empty($map['Services'])) {
-                $model->services = [];
-                $n               = 0;
-                foreach ($map['Services'] as $item) {
-                    $model->services[$n++] = null !== $item ? services::fromMap($item) : $item;
-                }
-            }
+            $model->services = services::fromMap($map['Services']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

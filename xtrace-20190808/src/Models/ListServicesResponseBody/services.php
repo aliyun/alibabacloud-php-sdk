@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models\ListServicesResponseBody;
 
+use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListServicesResponseBody\services\service;
 use AlibabaCloud\Tea\Model;
 
 class services extends Model
 {
     /**
-     * @var string
+     * @var service[]
      */
-    public $pid;
-
-    /**
-     * @var string
-     */
-    public $serviceName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $service;
     protected $_name = [
-        'pid'         => 'Pid',
-        'serviceName' => 'ServiceName',
-        'regionId'    => 'RegionId',
+        'service' => 'Service',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class services extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pid) {
-            $res['Pid'] = $this->pid;
-        }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->service) {
+            $res['Service'] = [];
+            if (null !== $this->service && \is_array($this->service)) {
+                $n = 0;
+                foreach ($this->service as $item) {
+                    $res['Service'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class services extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Pid'])) {
-            $model->pid = $map['Pid'];
-        }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Service'])) {
+            if (!empty($map['Service'])) {
+                $model->service = [];
+                $n              = 0;
+                foreach ($map['Service'] as $item) {
+                    $model->service[$n++] = null !== $item ? service::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

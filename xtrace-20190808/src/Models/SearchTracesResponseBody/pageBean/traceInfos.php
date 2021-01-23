@@ -4,46 +4,17 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models\SearchTracesResponseBody\pageBean;
 
+use AlibabaCloud\SDK\Xtrace\V20190808\Models\SearchTracesResponseBody\pageBean\traceInfos\traceInfo;
 use AlibabaCloud\Tea\Model;
 
 class traceInfos extends Model
 {
     /**
-     * @var string
+     * @var traceInfo[]
      */
-    public $operationName;
-
-    /**
-     * @var string
-     */
-    public $serviceIp;
-
-    /**
-     * @var int
-     */
-    public $duration;
-
-    /**
-     * @var int
-     */
-    public $timestamp;
-
-    /**
-     * @var string
-     */
-    public $serviceName;
-
-    /**
-     * @var string
-     */
-    public $traceID;
+    public $traceInfo;
     protected $_name = [
-        'operationName' => 'OperationName',
-        'serviceIp'     => 'ServiceIp',
-        'duration'      => 'Duration',
-        'timestamp'     => 'Timestamp',
-        'serviceName'   => 'ServiceName',
-        'traceID'       => 'TraceID',
+        'traceInfo' => 'TraceInfo',
     ];
 
     public function validate()
@@ -53,23 +24,14 @@ class traceInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->operationName) {
-            $res['OperationName'] = $this->operationName;
-        }
-        if (null !== $this->serviceIp) {
-            $res['ServiceIp'] = $this->serviceIp;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->timestamp) {
-            $res['Timestamp'] = $this->timestamp;
-        }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
-        }
-        if (null !== $this->traceID) {
-            $res['TraceID'] = $this->traceID;
+        if (null !== $this->traceInfo) {
+            $res['TraceInfo'] = [];
+            if (null !== $this->traceInfo && \is_array($this->traceInfo)) {
+                $n = 0;
+                foreach ($this->traceInfo as $item) {
+                    $res['TraceInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -83,23 +45,14 @@ class traceInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OperationName'])) {
-            $model->operationName = $map['OperationName'];
-        }
-        if (isset($map['ServiceIp'])) {
-            $model->serviceIp = $map['ServiceIp'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
-        if (isset($map['Timestamp'])) {
-            $model->timestamp = $map['Timestamp'];
-        }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
-        }
-        if (isset($map['TraceID'])) {
-            $model->traceID = $map['TraceID'];
+        if (isset($map['TraceInfo'])) {
+            if (!empty($map['TraceInfo'])) {
+                $model->traceInfo = [];
+                $n                = 0;
+                foreach ($map['TraceInfo'] as $item) {
+                    $model->traceInfo[$n++] = null !== $item ? traceInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

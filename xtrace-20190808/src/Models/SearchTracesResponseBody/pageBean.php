@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
-     * @var traceInfos[]
+     * @var traceInfos
      */
     public $traceInfos;
 
@@ -43,13 +43,7 @@ class pageBean extends Model
     {
         $res = [];
         if (null !== $this->traceInfos) {
-            $res['TraceInfos'] = [];
-            if (null !== $this->traceInfos && \is_array($this->traceInfos)) {
-                $n = 0;
-                foreach ($this->traceInfos as $item) {
-                    $res['TraceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['TraceInfos'] = null !== $this->traceInfos ? $this->traceInfos->toMap() : null;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -73,13 +67,7 @@ class pageBean extends Model
     {
         $model = new self();
         if (isset($map['TraceInfos'])) {
-            if (!empty($map['TraceInfos'])) {
-                $model->traceInfos = [];
-                $n                 = 0;
-                foreach ($map['TraceInfos'] as $item) {
-                    $model->traceInfos[$n++] = null !== $item ? traceInfos::fromMap($item) : $item;
-                }
-            }
+            $model->traceInfos = traceInfos::fromMap($map['TraceInfos']);
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

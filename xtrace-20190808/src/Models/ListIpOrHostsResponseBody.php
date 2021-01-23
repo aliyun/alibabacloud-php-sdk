@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models;
 
+use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListIpOrHostsResponseBody\ipNames;
 use AlibabaCloud\Tea\Model;
 
 class ListIpOrHostsResponseBody extends Model
@@ -14,7 +15,7 @@ class ListIpOrHostsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
+     * @var ipNames
      */
     public $ipNames;
     protected $_name = [
@@ -33,7 +34,7 @@ class ListIpOrHostsResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->ipNames) {
-            $res['IpNames'] = $this->ipNames;
+            $res['IpNames'] = null !== $this->ipNames ? $this->ipNames->toMap() : null;
         }
 
         return $res;
@@ -51,9 +52,7 @@ class ListIpOrHostsResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['IpNames'])) {
-            if (!empty($map['IpNames'])) {
-                $model->ipNames = $map['IpNames'];
-            }
+            $model->ipNames = ipNames::fromMap($map['IpNames']);
         }
 
         return $model;

@@ -5,10 +5,6 @@
 namespace AlibabaCloud\SDK\Xtrace\V20190808;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\SDK\Xtrace\V20190808\Models\CheckServiceLinkedRoleForDeletingRequest;
-use AlibabaCloud\SDK\Xtrace\V20190808\Models\CheckServiceLinkedRoleForDeletingResponse;
-use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetSamplingRequest;
-use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetSamplingResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagKeyRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagKeyResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagValRequest;
@@ -25,13 +21,10 @@ use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListServicesRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListServicesResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListSpanNamesRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListSpanNamesResponse;
-use AlibabaCloud\SDK\Xtrace\V20190808\Models\OpenXtraceServiceResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\QueryMetricRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\QueryMetricResponse;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\SearchTracesRequest;
 use AlibabaCloud\SDK\Xtrace\V20190808\Models\SearchTracesResponse;
-use AlibabaCloud\SDK\Xtrace\V20190808\Models\UpdateSamplingRequest;
-use AlibabaCloud\SDK\Xtrace\V20190808\Models\UpdateSamplingResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -68,62 +61,6 @@ class Xtrace extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * @param CheckServiceLinkedRoleForDeletingRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return CheckServiceLinkedRoleForDeletingResponse
-     */
-    public function checkServiceLinkedRoleForDeletingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CheckServiceLinkedRoleForDeletingResponse::fromMap($this->doRPCRequest('CheckServiceLinkedRoleForDeleting', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CheckServiceLinkedRoleForDeletingRequest $request
-     *
-     * @return CheckServiceLinkedRoleForDeletingResponse
-     */
-    public function checkServiceLinkedRoleForDeleting($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkServiceLinkedRoleForDeletingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSamplingRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetSamplingResponse
-     */
-    public function getSamplingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSamplingResponse::fromMap($this->doRPCRequest('GetSampling', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSamplingRequest $request
-     *
-     * @return GetSamplingResponse
-     */
-    public function getSampling($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSamplingWithOptions($request, $runtime);
     }
 
     /**
@@ -351,28 +288,6 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return OpenXtraceServiceResponse
-     */
-    public function openXtraceServiceWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return OpenXtraceServiceResponse::fromMap($this->doRPCRequest('OpenXtraceService', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return OpenXtraceServiceResponse
-     */
-    public function openXtraceService()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openXtraceServiceWithOptions($runtime);
-    }
-
-    /**
      * @param QueryMetricRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -426,33 +341,5 @@ class Xtrace extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchTracesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateSamplingRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateSamplingResponse
-     */
-    public function updateSamplingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateSamplingResponse::fromMap($this->doRPCRequest('UpdateSampling', '2019-08-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateSamplingRequest $request
-     *
-     * @return UpdateSamplingResponse
-     */
-    public function updateSampling($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateSamplingWithOptions($request, $runtime);
     }
 }

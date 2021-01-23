@@ -15,7 +15,7 @@ class GetTraceResponseBody extends Model
     public $requestId;
 
     /**
-     * @var spans[]
+     * @var spans
      */
     public $spans;
     protected $_name = [
@@ -34,13 +34,7 @@ class GetTraceResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->spans) {
-            $res['Spans'] = [];
-            if (null !== $this->spans && \is_array($this->spans)) {
-                $n = 0;
-                foreach ($this->spans as $item) {
-                    $res['Spans'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Spans'] = null !== $this->spans ? $this->spans->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class GetTraceResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Spans'])) {
-            if (!empty($map['Spans'])) {
-                $model->spans = [];
-                $n            = 0;
-                foreach ($map['Spans'] as $item) {
-                    $model->spans[$n++] = null !== $item ? spans::fromMap($item) : $item;
-                }
-            }
+            $model->spans = spans::fromMap($map['Spans']);
         }
 
         return $model;

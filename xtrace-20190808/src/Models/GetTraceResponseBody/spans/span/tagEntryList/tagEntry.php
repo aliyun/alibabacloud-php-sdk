@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTraceResponseBody\spans;
+namespace AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTraceResponseBody\spans\span\tagEntryList;
 
 use AlibabaCloud\Tea\Model;
 
-class tagEntryList extends Model
+class tagEntry extends Model
 {
     /**
      * @var string
@@ -42,7 +42,7 @@ class tagEntryList extends Model
     /**
      * @param array $map
      *
-     * @return tagEntryList
+     * @return tagEntry
      */
     public static function fromMap($map = [])
     {

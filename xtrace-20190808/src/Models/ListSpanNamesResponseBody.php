@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models;
 
+use AlibabaCloud\SDK\Xtrace\V20190808\Models\ListSpanNamesResponseBody\spanNames;
 use AlibabaCloud\Tea\Model;
 
 class ListSpanNamesResponseBody extends Model
 {
     /**
-     * @var string[]
+     * @var spanNames
      */
     public $spanNames;
 
@@ -30,7 +31,7 @@ class ListSpanNamesResponseBody extends Model
     {
         $res = [];
         if (null !== $this->spanNames) {
-            $res['SpanNames'] = $this->spanNames;
+            $res['SpanNames'] = null !== $this->spanNames ? $this->spanNames->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -48,9 +49,7 @@ class ListSpanNamesResponseBody extends Model
     {
         $model = new self();
         if (isset($map['SpanNames'])) {
-            if (!empty($map['SpanNames'])) {
-                $model->spanNames = $map['SpanNames'];
-            }
+            $model->spanNames = spanNames::fromMap($map['SpanNames']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

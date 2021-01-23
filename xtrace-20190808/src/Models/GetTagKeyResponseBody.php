@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Xtrace\V20190808\Models;
 
+use AlibabaCloud\SDK\Xtrace\V20190808\Models\GetTagKeyResponseBody\tagKeys;
 use AlibabaCloud\Tea\Model;
 
 class GetTagKeyResponseBody extends Model
@@ -14,7 +15,7 @@ class GetTagKeyResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
+     * @var tagKeys
      */
     public $tagKeys;
     protected $_name = [
@@ -33,7 +34,7 @@ class GetTagKeyResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->tagKeys) {
-            $res['TagKeys'] = $this->tagKeys;
+            $res['TagKeys'] = null !== $this->tagKeys ? $this->tagKeys->toMap() : null;
         }
 
         return $res;
@@ -51,9 +52,7 @@ class GetTagKeyResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['TagKeys'])) {
-            if (!empty($map['TagKeys'])) {
-                $model->tagKeys = $map['TagKeys'];
-            }
+            $model->tagKeys = tagKeys::fromMap($map['TagKeys']);
         }
 
         return $model;

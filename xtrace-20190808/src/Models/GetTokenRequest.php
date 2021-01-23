@@ -22,10 +22,16 @@ class GetTokenRequest extends Model
      * @var string
      */
     public $proxyUserId;
+
+    /**
+     * @var bool
+     */
+    public $isForce;
     protected $_name = [
         'regionId'    => 'RegionId',
         'appType'     => 'AppType',
         'proxyUserId' => 'ProxyUserId',
+        'isForce'     => 'IsForce',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class GetTokenRequest extends Model
         }
         if (null !== $this->proxyUserId) {
             $res['ProxyUserId'] = $this->proxyUserId;
+        }
+        if (null !== $this->isForce) {
+            $res['IsForce'] = $this->isForce;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class GetTokenRequest extends Model
         }
         if (isset($map['ProxyUserId'])) {
             $model->proxyUserId = $map['ProxyUserId'];
+        }
+        if (isset($map['IsForce'])) {
+            $model->isForce = $map['IsForce'];
         }
 
         return $model;
