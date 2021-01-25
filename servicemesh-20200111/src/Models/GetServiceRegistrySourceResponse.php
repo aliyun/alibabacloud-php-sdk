@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetDiagnosisResponse extends Model
+class GetServiceRegistrySourceResponse extends Model
 {
     /**
      * @var string
@@ -21,16 +21,10 @@ class GetDiagnosisResponse extends Model
     /**
      * @var string
      */
-    public $runAt;
-
-    /**
-     * @var string
-     */
     public $status;
     protected $_name = [
         'requestId' => 'RequestId',
         'result'    => 'Result',
-        'runAt'     => 'RunAt',
         'status'    => 'Status',
     ];
 
@@ -38,7 +32,6 @@ class GetDiagnosisResponse extends Model
     {
         Model::validateRequired('requestId', $this->requestId, true);
         Model::validateRequired('result', $this->result, true);
-        Model::validateRequired('runAt', $this->runAt, true);
         Model::validateRequired('status', $this->status, true);
     }
 
@@ -51,9 +44,6 @@ class GetDiagnosisResponse extends Model
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
-        if (null !== $this->runAt) {
-            $res['RunAt'] = $this->runAt;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -64,7 +54,7 @@ class GetDiagnosisResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetDiagnosisResponse
+     * @return GetServiceRegistrySourceResponse
      */
     public static function fromMap($map = [])
     {
@@ -74,9 +64,6 @@ class GetDiagnosisResponse extends Model
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
-        }
-        if (isset($map['RunAt'])) {
-            $model->runAt = $map['RunAt'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServicesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServicesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetServiceMeshSlbRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetServiceMeshSlbResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetServiceRegistrySourceRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetServiceRegistrySourceResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmAppMeshInfoRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmAppMeshInfoResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmMetaRequest;
@@ -55,6 +57,9 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVmAppFromMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVmAppFromMeshResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RunDiagnosisRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RunDiagnosisResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\SetServiceRegistrySourceShrinkRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioInjectionConfigRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioInjectionConfigResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateMeshFeatureRequest;
@@ -62,6 +67,7 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateMeshFeatureResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshVersionRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshVersionResponse;
 use AlibabaCloud\Tea\Rpc\Rpc;
+use AlibabaCloud\Tea\RpcUtils\RpcUtils;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -74,6 +80,61 @@ class Servicemesh extends Rpc
         $this->_endpointRule = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('servicemesh', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param GetServiceRegistrySourceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetServiceRegistrySourceResponse
+     */
+    public function getServiceRegistrySourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return GetServiceRegistrySourceResponse::fromMap($this->doRequest('GetServiceRegistrySource', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param GetServiceRegistrySourceRequest $request
+     *
+     * @return GetServiceRegistrySourceResponse
+     */
+    public function getServiceRegistrySource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceRegistrySourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetServiceRegistrySourceRequest $tmp
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SetServiceRegistrySourceResponse
+     */
+    public function setServiceRegistrySourceWithOptions($tmp, $runtime)
+    {
+        Utils::validateModel($tmp);
+        $request = new SetServiceRegistrySourceShrinkRequest([]);
+        RpcUtils::convert($tmp, $request);
+        if (!Utils::isUnset($tmp->config)) {
+            $request->configShrink = Utils::toJSONString($tmp->config);
+        }
+
+        return SetServiceRegistrySourceResponse::fromMap($this->doRequest('SetServiceRegistrySource', 'HTTPS', 'POST', '2020-01-11', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param SetServiceRegistrySourceRequest $request
+     *
+     * @return SetServiceRegistrySourceResponse
+     */
+    public function setServiceRegistrySource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setServiceRegistrySourceWithOptions($request, $runtime);
     }
 
     /**

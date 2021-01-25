@@ -12,13 +12,20 @@ class kiali extends Model
      * @var bool
      */
     public $enabled;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
         'enabled' => 'Enabled',
+        'url'     => 'Url',
     ];
 
     public function validate()
     {
         Model::validateRequired('enabled', $this->enabled, true);
+        Model::validateRequired('url', $this->url, true);
     }
 
     public function toMap()
@@ -26,6 +33,9 @@ class kiali extends Model
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -41,6 +51,9 @@ class kiali extends Model
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;
