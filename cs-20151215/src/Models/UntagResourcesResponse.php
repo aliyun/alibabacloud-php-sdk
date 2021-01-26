@@ -6,27 +6,26 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeClusterV2UserKubeconfigRequest extends Model
+class UntagResourcesResponse extends Model
 {
     /**
-     * @description 是否为内网访问。
-     *
-     * @var bool
+     * @var string[]
      */
-    public $privateIpAddress;
+    public $headers;
     protected $_name = [
-        'privateIpAddress' => 'PrivateIpAddress',
+        'headers' => 'headers',
     ];
 
     public function validate()
     {
+        Model::validateRequired('headers', $this->headers, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
 
         return $res;
@@ -35,13 +34,13 @@ class DescribeClusterV2UserKubeconfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeClusterV2UserKubeconfigRequest
+     * @return UntagResourcesResponse
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrivateIpAddress'])) {
-            $model->privateIpAddress = $map['PrivateIpAddress'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
 
         return $model;

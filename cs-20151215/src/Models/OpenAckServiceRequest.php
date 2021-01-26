@@ -2,20 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterRequest;
+namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class OpenAckServiceRequest extends Model
 {
     /**
-     * @description 标签值。
+     * @description 要开通的服务类型
      *
      * @var string
      */
-    public $key;
+    public $type;
     protected $_name = [
-        'key' => 'key',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class tags extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['key'] = $this->key;
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return OpenAckServiceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['key'])) {
-            $model->key = $map['key'];
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

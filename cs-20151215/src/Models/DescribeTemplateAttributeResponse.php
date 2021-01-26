@@ -15,7 +15,7 @@ class DescribeTemplateAttributeResponse extends Model
     public $headers;
 
     /**
-     * @var body[]
+     * @var body
      */
     public $body;
     protected $_name = [
@@ -36,13 +36,7 @@ class DescribeTemplateAttributeResponse extends Model
             $res['headers'] = $this->headers;
         }
         if (null !== $this->body) {
-            $res['body'] = [];
-            if (null !== $this->body && \is_array($this->body)) {
-                $n = 0;
-                foreach ($this->body as $item) {
-                    $res['body'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,13 +54,7 @@ class DescribeTemplateAttributeResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            if (!empty($map['body'])) {
-                $model->body = [];
-                $n           = 0;
-                foreach ($map['body'] as $item) {
-                    $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
-                }
-            }
+            $model->body = body::fromMap($map['body']);
         }
 
         return $model;

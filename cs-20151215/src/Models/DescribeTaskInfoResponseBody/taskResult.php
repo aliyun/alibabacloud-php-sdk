@@ -4,26 +4,17 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeTaskInfoResponseBody;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTaskInfoResponseBody\taskResult\task;
 use AlibabaCloud\Tea\Model;
 
 class taskResult extends Model
 {
     /**
-     * @description 操作的资源，例如：实例ID。
-     *
-     * @var string
+     * @var task[]
      */
-    public $data;
-
-    /**
-     * @description 资源的状态。
-     *
-     * @var string
-     */
-    public $status;
+    public $task;
     protected $_name = [
-        'data'   => 'data',
-        'status' => 'status',
+        'task' => 'task',
     ];
 
     public function validate()
@@ -33,11 +24,14 @@ class taskResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['data'] = $this->data;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
+        if (null !== $this->task) {
+            $res['task'] = [];
+            if (null !== $this->task && \is_array($this->task)) {
+                $n = 0;
+                foreach ($this->task as $item) {
+                    $res['task'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -51,11 +45,14 @@ class taskResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['data'])) {
-            $model->data = $map['data'];
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
+        if (isset($map['task'])) {
+            if (!empty($map['task'])) {
+                $model->task = [];
+                $n           = 0;
+                foreach ($map['task'] as $item) {
+                    $model->task[$n++] = null !== $item ? task::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

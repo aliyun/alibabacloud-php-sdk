@@ -54,7 +54,7 @@ class DescribeTaskInfoResponseBody extends Model
     /**
      * @description 任务执行详情。
      *
-     * @var taskResult[]
+     * @var taskResult
      */
     public $taskResult;
     protected $_name = [
@@ -93,13 +93,7 @@ class DescribeTaskInfoResponseBody extends Model
             $res['task_type'] = $this->taskType;
         }
         if (null !== $this->taskResult) {
-            $res['task_result'] = [];
-            if (null !== $this->taskResult && \is_array($this->taskResult)) {
-                $n = 0;
-                foreach ($this->taskResult as $item) {
-                    $res['task_result'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['task_result'] = null !== $this->taskResult ? $this->taskResult->toMap() : null;
         }
 
         return $res;
@@ -132,13 +126,7 @@ class DescribeTaskInfoResponseBody extends Model
             $model->taskType = $map['task_type'];
         }
         if (isset($map['task_result'])) {
-            if (!empty($map['task_result'])) {
-                $model->taskResult = [];
-                $n                 = 0;
-                foreach ($map['task_result'] as $item) {
-                    $model->taskResult[$n++] = null !== $item ? taskResult::fromMap($item) : $item;
-                }
-            }
+            $model->taskResult = taskResult::fromMap($map['task_result']);
         }
 
         return $model;

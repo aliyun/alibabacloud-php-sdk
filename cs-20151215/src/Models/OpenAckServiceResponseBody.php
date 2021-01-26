@@ -6,32 +6,24 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ScaleClusterResponseBody extends Model
+class OpenAckServiceResponseBody extends Model
 {
     /**
-     * @description 集群ID。
-     *
-     * @var string
-     */
-    public $clusterId;
-
-    /**
-     * @description 请求ID。
+     * @description 请求ID
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务ID。
+     * @description 开通服务的订单号。
      *
      * @var string
      */
-    public $taskId;
+    public $orderId;
     protected $_name = [
-        'clusterId' => 'cluster_id',
         'requestId' => 'request_id',
-        'taskId'    => 'task_id',
+        'orderId'   => 'order_id',
     ];
 
     public function validate()
@@ -41,14 +33,11 @@ class ScaleClusterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['cluster_id'] = $this->clusterId;
-        }
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
-        if (null !== $this->taskId) {
-            $res['task_id'] = $this->taskId;
+        if (null !== $this->orderId) {
+            $res['order_id'] = $this->orderId;
         }
 
         return $res;
@@ -57,19 +46,16 @@ class ScaleClusterResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ScaleClusterResponseBody
+     * @return OpenAckServiceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['cluster_id'])) {
-            $model->clusterId = $map['cluster_id'];
-        }
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }
-        if (isset($map['task_id'])) {
-            $model->taskId = $map['task_id'];
+        if (isset($map['order_id'])) {
+            $model->orderId = $map['order_id'];
         }
 
         return $model;

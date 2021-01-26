@@ -13,7 +13,7 @@ class DescribeTemplatesResponseBody extends Model
     /**
      * @description 模板列表。
      *
-     * @var templates[]
+     * @var templates
      */
     public $templates;
 
@@ -36,13 +36,7 @@ class DescribeTemplatesResponseBody extends Model
     {
         $res = [];
         if (null !== $this->templates) {
-            $res['templates'] = [];
-            if (null !== $this->templates && \is_array($this->templates)) {
-                $n = 0;
-                foreach ($this->templates as $item) {
-                    $res['templates'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['templates'] = null !== $this->templates ? $this->templates->toMap() : null;
         }
         if (null !== $this->pageInfo) {
             $res['page_info'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
@@ -60,13 +54,7 @@ class DescribeTemplatesResponseBody extends Model
     {
         $model = new self();
         if (isset($map['templates'])) {
-            if (!empty($map['templates'])) {
-                $model->templates = [];
-                $n                = 0;
-                foreach ($map['templates'] as $item) {
-                    $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
-                }
-            }
+            $model->templates = templates::fromMap($map['templates']);
         }
         if (isset($map['page_info'])) {
             $model->pageInfo = pageInfo::fromMap($map['page_info']);
