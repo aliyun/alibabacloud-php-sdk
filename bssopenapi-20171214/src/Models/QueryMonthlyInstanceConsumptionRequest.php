@@ -16,6 +16,11 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -39,6 +44,7 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
     public $subscriptionType;
     protected $_name = [
         'productCode'      => 'ProductCode',
+        'ownerId'          => 'OwnerId',
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
         'billingCycle'     => 'BillingCycle',
@@ -48,7 +54,6 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('billingCycle', $this->billingCycle, true);
     }
 
     public function toMap()
@@ -56,6 +61,9 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
         $res = [];
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -86,6 +94,9 @@ class QueryMonthlyInstanceConsumptionRequest extends Model
         $model = new self();
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

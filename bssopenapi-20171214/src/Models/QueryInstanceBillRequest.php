@@ -29,6 +29,11 @@ class QueryInstanceBillRequest extends Model
     public $subscriptionType;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var bool
      */
     public $isBillingItem;
@@ -67,6 +72,7 @@ class QueryInstanceBillRequest extends Model
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
+        'ownerId'          => 'OwnerId',
         'isBillingItem'    => 'IsBillingItem',
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
@@ -78,7 +84,6 @@ class QueryInstanceBillRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('billingCycle', $this->billingCycle, true);
     }
 
     public function toMap()
@@ -95,6 +100,9 @@ class QueryInstanceBillRequest extends Model
         }
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->isBillingItem) {
             $res['IsBillingItem'] = $this->isBillingItem;
@@ -140,6 +148,9 @@ class QueryInstanceBillRequest extends Model
         }
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['IsBillingItem'])) {
             $model->isBillingItem = $map['IsBillingItem'];

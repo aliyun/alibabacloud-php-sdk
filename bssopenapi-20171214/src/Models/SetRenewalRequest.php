@@ -19,6 +19,11 @@ class SetRenewalRequest extends Model
     public $instanceIDs;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $productCode;
@@ -45,6 +50,7 @@ class SetRenewalRequest extends Model
     protected $_name = [
         'renewalPeriod'     => 'RenewalPeriod',
         'instanceIDs'       => 'InstanceIDs',
+        'ownerId'           => 'OwnerId',
         'productCode'       => 'ProductCode',
         'productType'       => 'ProductType',
         'subscriptionType'  => 'SubscriptionType',
@@ -54,8 +60,6 @@ class SetRenewalRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceIDs', $this->instanceIDs, true);
-        Model::validateRequired('renewalStatus', $this->renewalStatus, true);
     }
 
     public function toMap()
@@ -66,6 +70,9 @@ class SetRenewalRequest extends Model
         }
         if (null !== $this->instanceIDs) {
             $res['InstanceIDs'] = $this->instanceIDs;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -99,6 +106,9 @@ class SetRenewalRequest extends Model
         }
         if (isset($map['InstanceIDs'])) {
             $model->instanceIDs = $map['InstanceIDs'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];

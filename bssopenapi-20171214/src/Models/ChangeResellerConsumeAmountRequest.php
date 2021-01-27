@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ChangeResellerConsumeAmountRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $adjustType;
@@ -43,6 +48,7 @@ class ChangeResellerConsumeAmountRequest extends Model
      */
     public $extendMap;
     protected $_name = [
+        'ownerId'      => 'OwnerId',
         'adjustType'   => 'AdjustType',
         'amount'       => 'Amount',
         'currency'     => 'Currency',
@@ -54,17 +60,14 @@ class ChangeResellerConsumeAmountRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('adjustType', $this->adjustType, true);
-        Model::validateRequired('amount', $this->amount, true);
-        Model::validateRequired('currency', $this->currency, true);
-        Model::validateRequired('businessType', $this->businessType, true);
-        Model::validateRequired('source', $this->source, true);
-        Model::validateRequired('outBizId', $this->outBizId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->adjustType) {
             $res['AdjustType'] = $this->adjustType;
         }
@@ -98,6 +101,9 @@ class ChangeResellerConsumeAmountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['AdjustType'])) {
             $model->adjustType = $map['AdjustType'];
         }

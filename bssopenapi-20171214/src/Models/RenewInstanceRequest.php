@@ -32,19 +32,22 @@ class RenewInstanceRequest extends Model
      * @var string
      */
     public $productType;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
         'productCode' => 'ProductCode',
         'instanceId'  => 'InstanceId',
         'renewPeriod' => 'RenewPeriod',
         'clientToken' => 'ClientToken',
         'productType' => 'ProductType',
+        'ownerId'     => 'OwnerId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('productCode', $this->productCode, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('renewPeriod', $this->renewPeriod, true);
     }
 
     public function toMap()
@@ -64,6 +67,9 @@ class RenewInstanceRequest extends Model
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -91,6 +97,9 @@ class RenewInstanceRequest extends Model
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

@@ -20,6 +20,11 @@ class GetSubscriptionPriceRequest extends Model
     public $subscriptionType;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $productCode;
@@ -50,33 +55,30 @@ class GetSubscriptionPriceRequest extends Model
     public $instanceId;
 
     /**
-     * @var moduleList[]
-     */
-    public $moduleList;
-
-    /**
      * @var int
      */
     public $quantity;
+
+    /**
+     * @var moduleList[]
+     */
+    public $moduleList;
     protected $_name = [
         'servicePeriodUnit'     => 'ServicePeriodUnit',
         'subscriptionType'      => 'SubscriptionType',
+        'ownerId'               => 'OwnerId',
         'productCode'           => 'ProductCode',
         'orderType'             => 'OrderType',
         'servicePeriodQuantity' => 'ServicePeriodQuantity',
         'productType'           => 'ProductType',
         'region'                => 'Region',
         'instanceId'            => 'InstanceId',
-        'moduleList'            => 'ModuleList',
         'quantity'              => 'Quantity',
+        'moduleList'            => 'ModuleList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('subscriptionType', $this->subscriptionType, true);
-        Model::validateRequired('productCode', $this->productCode, true);
-        Model::validateRequired('orderType', $this->orderType, true);
-        Model::validateRequired('moduleList', $this->moduleList, true);
     }
 
     public function toMap()
@@ -87,6 +89,9 @@ class GetSubscriptionPriceRequest extends Model
         }
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -106,6 +111,9 @@ class GetSubscriptionPriceRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->quantity) {
+            $res['Quantity'] = $this->quantity;
+        }
         if (null !== $this->moduleList) {
             $res['ModuleList'] = [];
             if (null !== $this->moduleList && \is_array($this->moduleList)) {
@@ -114,9 +122,6 @@ class GetSubscriptionPriceRequest extends Model
                     $res['ModuleList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->quantity) {
-            $res['Quantity'] = $this->quantity;
         }
 
         return $res;
@@ -136,6 +141,9 @@ class GetSubscriptionPriceRequest extends Model
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
@@ -154,6 +162,9 @@ class GetSubscriptionPriceRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['Quantity'])) {
+            $model->quantity = $map['Quantity'];
+        }
         if (isset($map['ModuleList'])) {
             if (!empty($map['ModuleList'])) {
                 $model->moduleList = [];
@@ -162,9 +173,6 @@ class GetSubscriptionPriceRequest extends Model
                     $model->moduleList[$n++] = null !== $item ? moduleList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Quantity'])) {
-            $model->quantity = $map['Quantity'];
         }
 
         return $model;

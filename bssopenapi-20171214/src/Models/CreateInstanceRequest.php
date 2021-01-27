@@ -15,9 +15,9 @@ class CreateInstanceRequest extends Model
     public $productCode;
 
     /**
-     * @var parameter[]
+     * @var int
      */
-    public $parameter;
+    public $ownerId;
 
     /**
      * @var string
@@ -48,21 +48,25 @@ class CreateInstanceRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var parameter[]
+     */
+    public $parameter;
     protected $_name = [
         'productCode'      => 'ProductCode',
-        'parameter'        => 'Parameter',
+        'ownerId'          => 'OwnerId',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
         'period'           => 'Period',
         'renewalStatus'    => 'RenewalStatus',
         'renewPeriod'      => 'RenewPeriod',
         'clientToken'      => 'ClientToken',
+        'parameter'        => 'Parameter',
     ];
 
     public function validate()
     {
-        Model::validateRequired('productCode', $this->productCode, true);
-        Model::validateRequired('subscriptionType', $this->subscriptionType, true);
     }
 
     public function toMap()
@@ -71,14 +75,8 @@ class CreateInstanceRequest extends Model
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
-        if (null !== $this->parameter) {
-            $res['Parameter'] = [];
-            if (null !== $this->parameter && \is_array($this->parameter)) {
-                $n = 0;
-                foreach ($this->parameter as $item) {
-                    $res['Parameter'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
@@ -98,6 +96,15 @@ class CreateInstanceRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->parameter) {
+            $res['Parameter'] = [];
+            if (null !== $this->parameter && \is_array($this->parameter)) {
+                $n = 0;
+                foreach ($this->parameter as $item) {
+                    $res['Parameter'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -113,14 +120,8 @@ class CreateInstanceRequest extends Model
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
-        if (isset($map['Parameter'])) {
-            if (!empty($map['Parameter'])) {
-                $model->parameter = [];
-                $n                = 0;
-                foreach ($map['Parameter'] as $item) {
-                    $model->parameter[$n++] = null !== $item ? parameter::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
@@ -139,6 +140,15 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Parameter'])) {
+            if (!empty($map['Parameter'])) {
+                $model->parameter = [];
+                $n                = 0;
+                foreach ($map['Parameter'] as $item) {
+                    $model->parameter[$n++] = null !== $item ? parameter::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

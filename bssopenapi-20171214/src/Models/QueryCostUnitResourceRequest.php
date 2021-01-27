@@ -36,8 +36,6 @@ class QueryCostUnitResourceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('ownerUid', $this->ownerUid, true);
-        Model::validateRequired('unitId', $this->unitId, true);
     }
 
     public function toMap()

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetPayAsYouGoPriceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $productCode;
@@ -34,6 +39,7 @@ class GetPayAsYouGoPriceRequest extends Model
      */
     public $moduleList;
     protected $_name = [
+        'ownerId'          => 'OwnerId',
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
@@ -43,14 +49,14 @@ class GetPayAsYouGoPriceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productCode', $this->productCode, true);
-        Model::validateRequired('subscriptionType', $this->subscriptionType, true);
-        Model::validateRequired('moduleList', $this->moduleList, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
@@ -84,6 +90,9 @@ class GetPayAsYouGoPriceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }

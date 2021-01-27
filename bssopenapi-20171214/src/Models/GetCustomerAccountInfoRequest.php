@@ -8,13 +8,26 @@ use AlibabaCloud\Tea\Model;
 
 class GetCustomerAccountInfoRequest extends Model
 {
+    /**
+     * @var int
+     */
+    public $ownerId;
+    protected $_name = [
+        'ownerId' => 'OwnerId',
+    ];
+
     public function validate()
     {
     }
 
     public function toMap()
     {
-        return [];
+        $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        return $res;
     }
 
     /**
@@ -24,6 +37,11 @@ class GetCustomerAccountInfoRequest extends Model
      */
     public static function fromMap($map = [])
     {
-        return new self();
+        $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        return $model;
     }
 }

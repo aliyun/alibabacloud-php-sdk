@@ -30,9 +30,6 @@ class unitEntityList extends Model
 
     public function validate()
     {
-        Model::validateRequired('ownerUid', $this->ownerUid, true);
-        Model::validateRequired('parentUnitId', $this->parentUnitId, true);
-        Model::validateRequired('unitName', $this->unitName, true);
     }
 
     public function toMap()

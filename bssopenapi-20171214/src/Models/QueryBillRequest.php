@@ -46,6 +46,11 @@ class QueryBillRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -65,6 +70,7 @@ class QueryBillRequest extends Model
         'subscriptionType'       => 'SubscriptionType',
         'isHideZeroCharge'       => 'IsHideZeroCharge',
         'isDisplayLocalCurrency' => 'IsDisplayLocalCurrency',
+        'ownerId'                => 'OwnerId',
         'pageNum'                => 'PageNum',
         'pageSize'               => 'PageSize',
         'billOwnerId'            => 'BillOwnerId',
@@ -72,7 +78,6 @@ class QueryBillRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('billingCycle', $this->billingCycle, true);
     }
 
     public function toMap()
@@ -98,6 +103,9 @@ class QueryBillRequest extends Model
         }
         if (null !== $this->isDisplayLocalCurrency) {
             $res['IsDisplayLocalCurrency'] = $this->isDisplayLocalCurrency;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -140,6 +148,9 @@ class QueryBillRequest extends Model
         }
         if (isset($map['IsDisplayLocalCurrency'])) {
             $model->isDisplayLocalCurrency = $map['IsDisplayLocalCurrency'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

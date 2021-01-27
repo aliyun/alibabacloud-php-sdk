@@ -12,13 +12,18 @@ class GetOrderDetailRequest extends Model
      * @var string
      */
     public $orderId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
         'orderId' => 'OrderId',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('orderId', $this->orderId, true);
     }
 
     public function toMap()
@@ -26,6 +31,9 @@ class GetOrderDetailRequest extends Model
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -41,6 +49,9 @@ class GetOrderDetailRequest extends Model
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

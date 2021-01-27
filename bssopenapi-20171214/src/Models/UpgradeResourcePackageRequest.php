@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpgradeResourcePackageRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -23,6 +28,7 @@ class UpgradeResourcePackageRequest extends Model
      */
     public $specification;
     protected $_name = [
+        'ownerId'       => 'OwnerId',
         'instanceId'    => 'InstanceId',
         'effectiveDate' => 'EffectiveDate',
         'specification' => 'Specification',
@@ -35,6 +41,9 @@ class UpgradeResourcePackageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -56,6 +65,9 @@ class UpgradeResourcePackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

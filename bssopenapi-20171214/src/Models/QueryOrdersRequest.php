@@ -52,6 +52,11 @@ class QueryOrdersRequest extends Model
      * @var string
      */
     public $createTimeStart;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
         'createTimeEnd'    => 'CreateTimeEnd',
         'pageNum'          => 'PageNum',
@@ -62,6 +67,7 @@ class QueryOrdersRequest extends Model
         'orderType'        => 'OrderType',
         'paymentStatus'    => 'PaymentStatus',
         'createTimeStart'  => 'CreateTimeStart',
+        'ownerId'          => 'OwnerId',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class QueryOrdersRequest extends Model
         }
         if (null !== $this->createTimeStart) {
             $res['CreateTimeStart'] = $this->createTimeStart;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class QueryOrdersRequest extends Model
         }
         if (isset($map['CreateTimeStart'])) {
             $model->createTimeStart = $map['CreateTimeStart'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

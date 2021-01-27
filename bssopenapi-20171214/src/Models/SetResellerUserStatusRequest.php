@@ -11,6 +11,11 @@ class SetResellerUserStatusRequest extends Model
     /**
      * @var string
      */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -18,19 +23,21 @@ class SetResellerUserStatusRequest extends Model
      */
     public $businessType;
     protected $_name = [
+        'ownerId'      => 'OwnerId',
         'status'       => 'Status',
         'businessType' => 'BusinessType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('status', $this->status, true);
-        Model::validateRequired('businessType', $this->businessType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -49,6 +56,9 @@ class SetResellerUserStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

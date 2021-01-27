@@ -42,7 +42,6 @@ class QueryBillOverviewRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('billingCycle', $this->billingCycle, true);
     }
 
     public function toMap()

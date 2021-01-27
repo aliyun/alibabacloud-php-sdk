@@ -21,6 +21,11 @@ class QueryEvaluateListRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -75,6 +80,7 @@ class QueryEvaluateListRequest extends Model
     protected $_name = [
         'type'            => 'Type',
         'outBizId'        => 'OutBizId',
+        'ownerId'         => 'OwnerId',
         'pageNum'         => 'PageNum',
         'pageSize'        => 'PageSize',
         'startAmount'     => 'StartAmount',
@@ -100,6 +106,9 @@ class QueryEvaluateListRequest extends Model
         }
         if (null !== $this->outBizId) {
             $res['OutBizId'] = $this->outBizId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -151,6 +160,9 @@ class QueryEvaluateListRequest extends Model
         }
         if (isset($map['OutBizId'])) {
             $model->outBizId = $map['OutBizId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

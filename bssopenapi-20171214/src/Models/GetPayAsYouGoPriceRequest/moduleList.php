@@ -11,38 +11,35 @@ class moduleList extends Model
     /**
      * @var string
      */
-    public $moduleCode;
+    public $config;
 
     /**
      * @var string
      */
-    public $config;
+    public $moduleCode;
 
     /**
      * @var string
      */
     public $priceType;
     protected $_name = [
-        'moduleCode' => 'ModuleCode',
         'config'     => 'Config',
+        'moduleCode' => 'ModuleCode',
         'priceType'  => 'PriceType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('moduleCode', $this->moduleCode, true);
-        Model::validateRequired('config', $this->config, true);
-        Model::validateRequired('priceType', $this->priceType, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->moduleCode) {
-            $res['ModuleCode'] = $this->moduleCode;
-        }
         if (null !== $this->config) {
             $res['Config'] = $this->config;
+        }
+        if (null !== $this->moduleCode) {
+            $res['ModuleCode'] = $this->moduleCode;
         }
         if (null !== $this->priceType) {
             $res['PriceType'] = $this->priceType;
@@ -59,11 +56,11 @@ class moduleList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModuleCode'])) {
-            $model->moduleCode = $map['ModuleCode'];
-        }
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
+        }
+        if (isset($map['ModuleCode'])) {
+            $model->moduleCode = $map['ModuleCode'];
         }
         if (isset($map['PriceType'])) {
             $model->priceType = $map['PriceType'];

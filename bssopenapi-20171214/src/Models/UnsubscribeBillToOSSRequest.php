@@ -24,7 +24,6 @@ class UnsubscribeBillToOSSRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('subscribeType', $this->subscribeType, true);
     }
 
     public function toMap()

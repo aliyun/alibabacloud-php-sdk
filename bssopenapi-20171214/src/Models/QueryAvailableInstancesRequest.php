@@ -16,6 +16,11 @@ class QueryAvailableInstancesRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -69,6 +74,7 @@ class QueryAvailableInstancesRequest extends Model
     public $renewStatus;
     protected $_name = [
         'region'           => 'Region',
+        'ownerId'          => 'OwnerId',
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
         'productCode'      => 'ProductCode',
@@ -91,6 +97,9 @@ class QueryAvailableInstancesRequest extends Model
         $res = [];
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -139,6 +148,9 @@ class QueryAvailableInstancesRequest extends Model
         $model = new self();
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

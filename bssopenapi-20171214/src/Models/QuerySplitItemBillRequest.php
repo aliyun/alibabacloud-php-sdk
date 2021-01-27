@@ -31,6 +31,11 @@ class QuerySplitItemBillRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -47,6 +52,7 @@ class QuerySplitItemBillRequest extends Model
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
+        'ownerId'          => 'OwnerId',
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
         'billOwnerId'      => 'BillOwnerId',
@@ -54,7 +60,6 @@ class QuerySplitItemBillRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('billingCycle', $this->billingCycle, true);
     }
 
     public function toMap()
@@ -71,6 +76,9 @@ class QuerySplitItemBillRequest extends Model
         }
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -104,6 +112,9 @@ class QuerySplitItemBillRequest extends Model
         }
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

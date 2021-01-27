@@ -30,7 +30,6 @@ class QueryProductListRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageNum', $this->pageNum, true);
     }
 
     public function toMap()

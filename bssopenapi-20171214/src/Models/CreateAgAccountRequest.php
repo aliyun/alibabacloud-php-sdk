@@ -66,7 +66,6 @@ class CreateAgAccountRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('loginEmail', $this->loginEmail, true);
     }
 
     public function toMap()

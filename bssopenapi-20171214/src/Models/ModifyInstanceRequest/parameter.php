@@ -24,8 +24,6 @@ class parameter extends Model
 
     public function validate()
     {
-        Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('value', $this->value, true);
     }
 
     public function toMap()

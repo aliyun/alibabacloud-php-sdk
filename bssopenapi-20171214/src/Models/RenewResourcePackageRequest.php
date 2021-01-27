@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RenewResourcePackageRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -28,6 +33,7 @@ class RenewResourcePackageRequest extends Model
      */
     public $pricingCycle;
     protected $_name = [
+        'ownerId'       => 'OwnerId',
         'instanceId'    => 'InstanceId',
         'effectiveDate' => 'EffectiveDate',
         'duration'      => 'Duration',
@@ -36,14 +42,14 @@ class RenewResourcePackageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('duration', $this->duration, true);
-        Model::validateRequired('pricingCycle', $this->pricingCycle, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -68,6 +74,9 @@ class RenewResourcePackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryUserOmsDataRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $table;
@@ -38,6 +43,7 @@ class QueryUserOmsDataRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'ownerId'   => 'OwnerId',
         'table'     => 'Table',
         'dataType'  => 'DataType',
         'startTime' => 'StartTime',
@@ -48,15 +54,14 @@ class QueryUserOmsDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('table', $this->table, true);
-        Model::validateRequired('dataType', $this->dataType, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->table) {
             $res['Table'] = $this->table;
         }
@@ -87,6 +92,9 @@ class QueryUserOmsDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Table'])) {
             $model->table = $map['Table'];
         }

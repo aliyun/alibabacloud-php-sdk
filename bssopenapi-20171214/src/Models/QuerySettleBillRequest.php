@@ -44,6 +44,11 @@ class QuerySettleBillRequest extends Model
     public $isDisplayLocalCurrency;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -65,6 +70,7 @@ class QuerySettleBillRequest extends Model
         'subscriptionType'       => 'SubscriptionType',
         'isHideZeroCharge'       => 'IsHideZeroCharge',
         'isDisplayLocalCurrency' => 'IsDisplayLocalCurrency',
+        'ownerId'                => 'OwnerId',
         'nextToken'              => 'NextToken',
         'maxResults'             => 'MaxResults',
         'billOwnerId'            => 'BillOwnerId',
@@ -72,7 +78,6 @@ class QuerySettleBillRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('billingCycle', $this->billingCycle, true);
     }
 
     public function toMap()
@@ -98,6 +103,9 @@ class QuerySettleBillRequest extends Model
         }
         if (null !== $this->isDisplayLocalCurrency) {
             $res['IsDisplayLocalCurrency'] = $this->isDisplayLocalCurrency;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
@@ -140,6 +148,9 @@ class QuerySettleBillRequest extends Model
         }
         if (isset($map['IsDisplayLocalCurrency'])) {
             $model->isDisplayLocalCurrency = $map['IsDisplayLocalCurrency'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];

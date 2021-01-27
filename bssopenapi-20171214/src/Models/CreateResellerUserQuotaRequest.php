@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateResellerUserQuotaRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $amount;
@@ -23,6 +28,7 @@ class CreateResellerUserQuotaRequest extends Model
      */
     public $outBizId;
     protected $_name = [
+        'ownerId'  => 'OwnerId',
         'amount'   => 'Amount',
         'currency' => 'Currency',
         'outBizId' => 'OutBizId',
@@ -30,13 +36,14 @@ class CreateResellerUserQuotaRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('amount', $this->amount, true);
-        Model::validateRequired('currency', $this->currency, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
@@ -58,6 +65,9 @@ class CreateResellerUserQuotaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }

@@ -20,11 +20,6 @@ class AllocateCostUnitResourceRequest extends Model
     public $fromUnitId;
 
     /**
-     * @var resourceInstanceList[]
-     */
-    public $resourceInstanceList;
-
-    /**
      * @var int
      */
     public $toUnitUserId;
@@ -33,21 +28,21 @@ class AllocateCostUnitResourceRequest extends Model
      * @var int
      */
     public $toUnitId;
+
+    /**
+     * @var resourceInstanceList[]
+     */
+    public $resourceInstanceList;
     protected $_name = [
         'fromUnitUserId'       => 'FromUnitUserId',
         'fromUnitId'           => 'FromUnitId',
-        'resourceInstanceList' => 'ResourceInstanceList',
         'toUnitUserId'         => 'ToUnitUserId',
         'toUnitId'             => 'ToUnitId',
+        'resourceInstanceList' => 'ResourceInstanceList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('fromUnitUserId', $this->fromUnitUserId, true);
-        Model::validateRequired('fromUnitId', $this->fromUnitId, true);
-        Model::validateRequired('resourceInstanceList', $this->resourceInstanceList, true);
-        Model::validateRequired('toUnitUserId', $this->toUnitUserId, true);
-        Model::validateRequired('toUnitId', $this->toUnitId, true);
     }
 
     public function toMap()
@@ -59,6 +54,12 @@ class AllocateCostUnitResourceRequest extends Model
         if (null !== $this->fromUnitId) {
             $res['FromUnitId'] = $this->fromUnitId;
         }
+        if (null !== $this->toUnitUserId) {
+            $res['ToUnitUserId'] = $this->toUnitUserId;
+        }
+        if (null !== $this->toUnitId) {
+            $res['ToUnitId'] = $this->toUnitId;
+        }
         if (null !== $this->resourceInstanceList) {
             $res['ResourceInstanceList'] = [];
             if (null !== $this->resourceInstanceList && \is_array($this->resourceInstanceList)) {
@@ -67,12 +68,6 @@ class AllocateCostUnitResourceRequest extends Model
                     $res['ResourceInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->toUnitUserId) {
-            $res['ToUnitUserId'] = $this->toUnitUserId;
-        }
-        if (null !== $this->toUnitId) {
-            $res['ToUnitId'] = $this->toUnitId;
         }
 
         return $res;
@@ -92,6 +87,12 @@ class AllocateCostUnitResourceRequest extends Model
         if (isset($map['FromUnitId'])) {
             $model->fromUnitId = $map['FromUnitId'];
         }
+        if (isset($map['ToUnitUserId'])) {
+            $model->toUnitUserId = $map['ToUnitUserId'];
+        }
+        if (isset($map['ToUnitId'])) {
+            $model->toUnitId = $map['ToUnitId'];
+        }
         if (isset($map['ResourceInstanceList'])) {
             if (!empty($map['ResourceInstanceList'])) {
                 $model->resourceInstanceList = [];
@@ -100,12 +101,6 @@ class AllocateCostUnitResourceRequest extends Model
                     $model->resourceInstanceList[$n++] = null !== $item ? resourceInstanceList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ToUnitUserId'])) {
-            $model->toUnitUserId = $map['ToUnitUserId'];
-        }
-        if (isset($map['ToUnitId'])) {
-            $model->toUnitId = $map['ToUnitId'];
         }
 
         return $model;

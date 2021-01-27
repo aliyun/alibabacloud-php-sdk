@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetResellerUserAlarmThresholdRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $alarmType;
@@ -18,18 +23,21 @@ class SetResellerUserAlarmThresholdRequest extends Model
      */
     public $alarmThresholds;
     protected $_name = [
+        'ownerId'         => 'OwnerId',
         'alarmType'       => 'AlarmType',
         'alarmThresholds' => 'AlarmThresholds',
     ];
 
     public function validate()
     {
-        Model::validateRequired('alarmType', $this->alarmType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->alarmType) {
             $res['AlarmType'] = $this->alarmType;
         }
@@ -48,6 +56,9 @@ class SetResellerUserAlarmThresholdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['AlarmType'])) {
             $model->alarmType = $map['AlarmType'];
         }

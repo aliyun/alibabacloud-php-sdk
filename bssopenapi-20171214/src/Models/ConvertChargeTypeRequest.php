@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ConvertChargeTypeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $productType;
@@ -33,6 +38,7 @@ class ConvertChargeTypeRequest extends Model
      */
     public $instanceId;
     protected $_name = [
+        'ownerId'          => 'OwnerId',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
         'period'           => 'Period',
@@ -42,14 +48,14 @@ class ConvertChargeTypeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('subscriptionType', $this->subscriptionType, true);
-        Model::validateRequired('productCode', $this->productCode, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
@@ -77,6 +83,9 @@ class ConvertChargeTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }

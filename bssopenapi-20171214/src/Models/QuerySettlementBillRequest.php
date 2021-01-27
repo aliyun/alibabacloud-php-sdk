@@ -16,6 +16,11 @@ class QuerySettlementBillRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -59,6 +64,7 @@ class QuerySettlementBillRequest extends Model
     public $isHideZeroCharge;
     protected $_name = [
         'pageSize'         => 'PageSize',
+        'ownerId'          => 'OwnerId',
         'pageNum'          => 'PageNum',
         'billingCycle'     => 'BillingCycle',
         'startTime'        => 'StartTime',
@@ -72,7 +78,6 @@ class QuerySettlementBillRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('billingCycle', $this->billingCycle, true);
     }
 
     public function toMap()
@@ -80,6 +85,9 @@ class QuerySettlementBillRequest extends Model
         $res = [];
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -122,6 +130,9 @@ class QuerySettlementBillRequest extends Model
         $model = new self();
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

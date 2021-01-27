@@ -36,7 +36,6 @@ class SubscribeBillToOSSRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('subscribeBucket', $this->subscribeBucket, true);
     }
 
     public function toMap()
