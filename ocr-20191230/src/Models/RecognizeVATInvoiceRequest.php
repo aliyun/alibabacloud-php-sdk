@@ -24,8 +24,6 @@ class RecognizeVATInvoiceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('fileURL', $this->fileURL, true);
-        Model::validateRequired('fileType', $this->fileType, true);
     }
 
     public function toMap()

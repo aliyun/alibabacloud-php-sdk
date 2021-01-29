@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RecognizeDriverLicenseRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $imageType;
+
+    /**
      * @var string
      */
     public $imageURL;
@@ -18,19 +23,21 @@ class RecognizeDriverLicenseRequest extends Model
      */
     public $side;
     protected $_name = [
-        'imageURL' => 'ImageURL',
-        'side'     => 'Side',
+        'imageType' => 'ImageType',
+        'imageURL'  => 'ImageURL',
+        'side'      => 'Side',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURL', $this->imageURL, true);
-        Model::validateRequired('side', $this->side, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
+        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
@@ -49,6 +56,9 @@ class RecognizeDriverLicenseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
+        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }

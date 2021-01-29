@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class RecognizeTableAdvanceRequest extends Model
 {
@@ -12,6 +13,11 @@ class RecognizeTableAdvanceRequest extends Model
      * @var Stream
      */
     public $imageURLObject;
+
+    /**
+     * @var int
+     */
+    public $imageType;
 
     /**
      * @var string
@@ -39,6 +45,7 @@ class RecognizeTableAdvanceRequest extends Model
     public $skipDetection;
     protected $_name = [
         'imageURLObject'  => 'ImageURLObject',
+        'imageType'       => 'ImageType',
         'outputFormat'    => 'OutputFormat',
         'useFinanceModel' => 'UseFinanceModel',
         'assureDirection' => 'AssureDirection',
@@ -49,11 +56,6 @@ class RecognizeTableAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('imageURLObject', $this->imageURLObject, true);
-        Model::validateRequired('outputFormat', $this->outputFormat, true);
-        Model::validateRequired('useFinanceModel', $this->useFinanceModel, true);
-        Model::validateRequired('assureDirection', $this->assureDirection, true);
-        Model::validateRequired('hasLine', $this->hasLine, true);
-        Model::validateRequired('skipDetection', $this->skipDetection, true);
     }
 
     public function toMap()
@@ -61,6 +63,9 @@ class RecognizeTableAdvanceRequest extends Model
         $res = [];
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
+        }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
         }
         if (null !== $this->outputFormat) {
             $res['OutputFormat'] = $this->outputFormat;
@@ -91,6 +96,9 @@ class RecognizeTableAdvanceRequest extends Model
         $model = new self();
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
+        }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
         }
         if (isset($map['OutputFormat'])) {
             $model->outputFormat = $map['OutputFormat'];

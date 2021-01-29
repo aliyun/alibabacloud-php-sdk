@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class RecognizeCharacterAdvanceRequest extends Model
 {
@@ -12,6 +13,11 @@ class RecognizeCharacterAdvanceRequest extends Model
      * @var Stream
      */
     public $imageURLObject;
+
+    /**
+     * @var int
+     */
+    public $imageType;
 
     /**
      * @var int
@@ -24,6 +30,7 @@ class RecognizeCharacterAdvanceRequest extends Model
     public $outputProbability;
     protected $_name = [
         'imageURLObject'    => 'ImageURLObject',
+        'imageType'         => 'ImageType',
         'minHeight'         => 'MinHeight',
         'outputProbability' => 'OutputProbability',
     ];
@@ -31,8 +38,6 @@ class RecognizeCharacterAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('imageURLObject', $this->imageURLObject, true);
-        Model::validateRequired('minHeight', $this->minHeight, true);
-        Model::validateRequired('outputProbability', $this->outputProbability, true);
     }
 
     public function toMap()
@@ -40,6 +45,9 @@ class RecognizeCharacterAdvanceRequest extends Model
         $res = [];
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
+        }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
         }
         if (null !== $this->minHeight) {
             $res['MinHeight'] = $this->minHeight;
@@ -61,6 +69,9 @@ class RecognizeCharacterAdvanceRequest extends Model
         $model = new self();
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
+        }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
         }
         if (isset($map['MinHeight'])) {
             $model->minHeight = $map['MinHeight'];

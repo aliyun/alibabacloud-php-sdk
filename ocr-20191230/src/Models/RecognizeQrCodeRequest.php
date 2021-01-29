@@ -19,7 +19,6 @@ class RecognizeQrCodeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('tasks', $this->tasks, true);
     }
 
     public function toMap()

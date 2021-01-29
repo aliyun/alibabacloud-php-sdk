@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class RecognizeVATInvoiceAdvanceRequest extends Model
 {
@@ -25,7 +26,6 @@ class RecognizeVATInvoiceAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('fileURLObject', $this->fileURLObject, true);
-        Model::validateRequired('fileType', $this->fileType, true);
     }
 
     public function toMap()

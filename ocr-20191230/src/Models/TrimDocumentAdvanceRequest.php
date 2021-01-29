@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class TrimDocumentAdvanceRequest extends Model
 {
@@ -22,17 +23,21 @@ class TrimDocumentAdvanceRequest extends Model
      * @var string
      */
     public $outputType;
+
+    /**
+     * @var bool
+     */
+    public $async;
     protected $_name = [
         'fileURLObject' => 'FileURLObject',
         'fileType'      => 'FileType',
         'outputType'    => 'OutputType',
+        'async'         => 'Async',
     ];
 
     public function validate()
     {
         Model::validateRequired('fileURLObject', $this->fileURLObject, true);
-        Model::validateRequired('fileType', $this->fileType, true);
-        Model::validateRequired('outputType', $this->outputType, true);
     }
 
     public function toMap()
@@ -46,6 +51,9 @@ class TrimDocumentAdvanceRequest extends Model
         }
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
 
         return $res;
@@ -67,6 +75,9 @@ class TrimDocumentAdvanceRequest extends Model
         }
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
 
         return $model;

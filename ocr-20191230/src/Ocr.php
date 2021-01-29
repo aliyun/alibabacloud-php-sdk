@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ocr\V20191230;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\DetectCardScreenshotAdvanceRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\DetectCardScreenshotRequest;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\DetectCardScreenshotResponse;
@@ -78,17 +79,17 @@ use AlibabaCloud\SDK\Ocr\V20191230\Models\TrimDocumentResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
-use AlibabaCloud\Tea\RpcUtils\RpcUtils;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\OpenApiClient;
 
-class Ocr extends Rpc
+class Ocr extends OpenApiClient
 {
     public function __construct($config)
     {
@@ -99,82 +100,26 @@ class Ocr extends Rpc
     }
 
     /**
-     * @param RecognizePoiNameRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
      *
-     * @return RecognizePoiNameResponse
+     * @return string
      */
-    public function recognizePoiName($request, $runtime)
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        Utils::validateModel($request);
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
 
-        return RecognizePoiNameResponse::fromMap($this->doRequest('RecognizePoiName', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizePoiNameAdvanceRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return RecognizePoiNameResponse
-     */
-    public function recognizePoiNameAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizePoiNamereq = new RecognizePoiNameRequest([]);
-        RpcUtils::convert($request, $recognizePoiNamereq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizePoiNamereq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizePoiName($recognizePoiNamereq, $runtime);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
@@ -183,11 +128,26 @@ class Ocr extends Rpc
      *
      * @return DetectCardScreenshotResponse
      */
-    public function detectCardScreenshot($request, $runtime)
+    public function detectCardScreenshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DetectCardScreenshotResponse::fromMap($this->doRequest('DetectCardScreenshot', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return DetectCardScreenshotResponse::fromMap($this->doRPCRequest('DetectCardScreenshot', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetectCardScreenshotRequest $request
+     *
+     * @return DetectCardScreenshotResponse
+     */
+    public function detectCardScreenshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectCardScreenshotWithOptions($request, $runtime);
     }
 
     /**
@@ -226,13 +186,13 @@ class Ocr extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $detectCardScreenshotreq = new DetectCardScreenshotRequest([]);
-        RpcUtils::convert($request, $detectCardScreenshotreq);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $detectCardScreenshotReq = new DetectCardScreenshotRequest([]);
+        OpenApiUtilClient::convert($request, $detectCardScreenshotReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->imageURLObject,
@@ -251,9 +211,9 @@ class Ocr extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectCardScreenshotreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $detectCardScreenshotReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->detectCardScreenshot($detectCardScreenshotreq, $runtime);
+        return $this->detectCardScreenshotWithOptions($detectCardScreenshotReq, $runtime);
     }
 
     /**
@@ -262,1209 +222,26 @@ class Ocr extends Rpc
      *
      * @return GetAsyncJobResultResponse
      */
-    public function getAsyncJobResult($request, $runtime)
+    public function getAsyncJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetAsyncJobResultResponse::fromMap($this->doRequest('GetAsyncJobResult', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return GetAsyncJobResultResponse::fromMap($this->doRPCRequest('GetAsyncJobResult', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param TrimDocumentRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param GetAsyncJobResultRequest $request
      *
-     * @return TrimDocumentResponse
+     * @return GetAsyncJobResultResponse
      */
-    public function trimDocument($request, $runtime)
+    public function getAsyncJobResult($request)
     {
-        Utils::validateModel($request);
+        $runtime = new RuntimeOptions([]);
 
-        return TrimDocumentResponse::fromMap($this->doRequest('TrimDocument', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param TrimDocumentAdvanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return TrimDocumentResponse
-     */
-    public function trimDocumentAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $trimDocumentreq = new TrimDocumentRequest([]);
-        RpcUtils::convert($request, $trimDocumentreq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->fileURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $trimDocumentreq->fileURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->trimDocument($trimDocumentreq, $runtime);
-    }
-
-    /**
-     * @param RecognizeChinapassportRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return RecognizeChinapassportResponse
-     */
-    public function recognizeChinapassport($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeChinapassportResponse::fromMap($this->doRequest('RecognizeChinapassport', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeChinapassportAdvanceRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return RecognizeChinapassportResponse
-     */
-    public function recognizeChinapassportAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeChinapassportreq = new RecognizeChinapassportRequest([]);
-        RpcUtils::convert($request, $recognizeChinapassportreq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeChinapassportreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeChinapassport($recognizeChinapassportreq, $runtime);
-    }
-
-    /**
-     * @param RecognizeVerificationcodeRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return RecognizeVerificationcodeResponse
-     */
-    public function recognizeVerificationcode($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeVerificationcodeResponse::fromMap($this->doRequest('RecognizeVerificationcode', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeVerificationcodeAdvanceRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return RecognizeVerificationcodeResponse
-     */
-    public function recognizeVerificationcodeAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeVerificationcodereq = new RecognizeVerificationcodeRequest([]);
-        RpcUtils::convert($request, $recognizeVerificationcodereq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeVerificationcodereq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeVerificationcode($recognizeVerificationcodereq, $runtime);
-    }
-
-    /**
-     * @param RecognizePassportMRZRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RecognizePassportMRZResponse
-     */
-    public function recognizePassportMRZ($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizePassportMRZResponse::fromMap($this->doRequest('RecognizePassportMRZ', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizePassportMRZAdvanceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RecognizePassportMRZResponse
-     */
-    public function recognizePassportMRZAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizePassportMRZreq = new RecognizePassportMRZRequest([]);
-        RpcUtils::convert($request, $recognizePassportMRZreq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizePassportMRZreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizePassportMRZ($recognizePassportMRZreq, $runtime);
-    }
-
-    /**
-     * @param RecognizeTakeoutOrderRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RecognizeTakeoutOrderResponse
-     */
-    public function recognizeTakeoutOrder($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeTakeoutOrderResponse::fromMap($this->doRequest('RecognizeTakeoutOrder', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeTakeoutOrderAdvanceRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return RecognizeTakeoutOrderResponse
-     */
-    public function recognizeTakeoutOrderAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeTakeoutOrderreq = new RecognizeTakeoutOrderRequest([]);
-        RpcUtils::convert($request, $recognizeTakeoutOrderreq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeTakeoutOrderreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeTakeoutOrder($recognizeTakeoutOrderreq, $runtime);
-    }
-
-    /**
-     * @param RecognizeQrCodeRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return RecognizeQrCodeResponse
-     */
-    public function recognizeQrCode($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeQrCodeResponse::fromMap($this->doRequest('RecognizeQrCode', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeVATInvoiceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RecognizeVATInvoiceResponse
-     */
-    public function recognizeVATInvoice($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeVATInvoiceResponse::fromMap($this->doRequest('RecognizeVATInvoice', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeVATInvoiceAdvanceRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return RecognizeVATInvoiceResponse
-     */
-    public function recognizeVATInvoiceAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeVATInvoicereq = new RecognizeVATInvoiceRequest([]);
-        RpcUtils::convert($request, $recognizeVATInvoicereq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->fileURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeVATInvoicereq->fileURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeVATInvoice($recognizeVATInvoicereq, $runtime);
-    }
-
-    /**
-     * @param RecognizeCharacterRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return RecognizeCharacterResponse
-     */
-    public function recognizeCharacter($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeCharacterResponse::fromMap($this->doRequest('RecognizeCharacter', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeCharacterAdvanceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return RecognizeCharacterResponse
-     */
-    public function recognizeCharacterAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeCharacterreq = new RecognizeCharacterRequest([]);
-        RpcUtils::convert($request, $recognizeCharacterreq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeCharacterreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeCharacter($recognizeCharacterreq, $runtime);
-    }
-
-    /**
-     * @param RecognizeTaxiInvoiceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RecognizeTaxiInvoiceResponse
-     */
-    public function recognizeTaxiInvoice($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeTaxiInvoiceResponse::fromMap($this->doRequest('RecognizeTaxiInvoice', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeTaxiInvoiceAdvanceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RecognizeTaxiInvoiceResponse
-     */
-    public function recognizeTaxiInvoiceAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeTaxiInvoicereq = new RecognizeTaxiInvoiceRequest([]);
-        RpcUtils::convert($request, $recognizeTaxiInvoicereq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeTaxiInvoicereq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeTaxiInvoice($recognizeTaxiInvoicereq, $runtime);
-    }
-
-    /**
-     * @param RecognizeIdentityCardRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RecognizeIdentityCardResponse
-     */
-    public function recognizeIdentityCard($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeIdentityCardResponse::fromMap($this->doRequest('RecognizeIdentityCard', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeIdentityCardAdvanceRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return RecognizeIdentityCardResponse
-     */
-    public function recognizeIdentityCardAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeIdentityCardreq = new RecognizeIdentityCardRequest([]);
-        RpcUtils::convert($request, $recognizeIdentityCardreq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeIdentityCardreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeIdentityCard($recognizeIdentityCardreq, $runtime);
-    }
-
-    /**
-     * @param RecognizeLicensePlateRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RecognizeLicensePlateResponse
-     */
-    public function recognizeLicensePlate($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeLicensePlateResponse::fromMap($this->doRequest('RecognizeLicensePlate', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeLicensePlateAdvanceRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return RecognizeLicensePlateResponse
-     */
-    public function recognizeLicensePlateAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeLicensePlatereq = new RecognizeLicensePlateRequest([]);
-        RpcUtils::convert($request, $recognizeLicensePlatereq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeLicensePlatereq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeLicensePlate($recognizeLicensePlatereq, $runtime);
-    }
-
-    /**
-     * @param RecognizeTableRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return RecognizeTableResponse
-     */
-    public function recognizeTable($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeTableResponse::fromMap($this->doRequest('RecognizeTable', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeTableAdvanceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RecognizeTableResponse
-     */
-    public function recognizeTableAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeTablereq = new RecognizeTableRequest([]);
-        RpcUtils::convert($request, $recognizeTablereq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeTablereq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeTable($recognizeTablereq, $runtime);
-    }
-
-    /**
-     * @param RecognizeDrivingLicenseRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return RecognizeDrivingLicenseResponse
-     */
-    public function recognizeDrivingLicense($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeDrivingLicenseResponse::fromMap($this->doRequest('RecognizeDrivingLicense', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeDrivingLicenseAdvanceRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return RecognizeDrivingLicenseResponse
-     */
-    public function recognizeDrivingLicenseAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeDrivingLicensereq = new RecognizeDrivingLicenseRequest([]);
-        RpcUtils::convert($request, $recognizeDrivingLicensereq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeDrivingLicensereq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeDrivingLicense($recognizeDrivingLicensereq, $runtime);
-    }
-
-    /**
-     * @param RecognizeBankCardRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RecognizeBankCardResponse
-     */
-    public function recognizeBankCard($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeBankCardResponse::fromMap($this->doRequest('RecognizeBankCard', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeBankCardAdvanceRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return RecognizeBankCardResponse
-     */
-    public function recognizeBankCardAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeBankCardreq = new RecognizeBankCardRequest([]);
-        RpcUtils::convert($request, $recognizeBankCardreq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeBankCardreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeBankCard($recognizeBankCardreq, $runtime);
-    }
-
-    /**
-     * @param RecognizeTrainTicketRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RecognizeTrainTicketResponse
-     */
-    public function recognizeTrainTicket($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeTrainTicketResponse::fromMap($this->doRequest('RecognizeTrainTicket', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeTrainTicketAdvanceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RecognizeTrainTicketResponse
-     */
-    public function recognizeTrainTicketAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeTrainTicketreq = new RecognizeTrainTicketRequest([]);
-        RpcUtils::convert($request, $recognizeTrainTicketreq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeTrainTicketreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeTrainTicket($recognizeTrainTicketreq, $runtime);
-    }
-
-    /**
-     * @param RecognizeDriverLicenseRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return RecognizeDriverLicenseResponse
-     */
-    public function recognizeDriverLicense($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeDriverLicenseResponse::fromMap($this->doRequest('RecognizeDriverLicense', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeDriverLicenseAdvanceRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return RecognizeDriverLicenseResponse
-     */
-    public function recognizeDriverLicenseAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeDriverLicensereq = new RecognizeDriverLicenseRequest([]);
-        RpcUtils::convert($request, $recognizeDriverLicensereq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeDriverLicensereq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeDriverLicense($recognizeDriverLicensereq, $runtime);
+        return $this->getAsyncJobResultWithOptions($request, $runtime);
     }
 
     /**
@@ -1473,11 +250,26 @@ class Ocr extends Rpc
      *
      * @return RecognizeAccountPageResponse
      */
-    public function recognizeAccountPage($request, $runtime)
+    public function recognizeAccountPageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return RecognizeAccountPageResponse::fromMap($this->doRequest('RecognizeAccountPage', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return RecognizeAccountPageResponse::fromMap($this->doRPCRequest('RecognizeAccountPage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeAccountPageRequest $request
+     *
+     * @return RecognizeAccountPageResponse
+     */
+    public function recognizeAccountPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeAccountPageWithOptions($request, $runtime);
     }
 
     /**
@@ -1516,13 +308,13 @@ class Ocr extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeAccountPagereq = new RecognizeAccountPageRequest([]);
-        RpcUtils::convert($request, $recognizeAccountPagereq);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeAccountPageReq = new RecognizeAccountPageRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeAccountPageReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->imageURLObject,
@@ -1541,31 +333,46 @@ class Ocr extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeAccountPagereq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $recognizeAccountPageReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->recognizeAccountPage($recognizeAccountPagereq, $runtime);
+        return $this->recognizeAccountPageWithOptions($recognizeAccountPageReq, $runtime);
     }
 
     /**
-     * @param RecognizeStampRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param RecognizeBankCardRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return RecognizeStampResponse
+     * @return RecognizeBankCardResponse
      */
-    public function recognizeStamp($request, $runtime)
+    public function recognizeBankCardWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return RecognizeStampResponse::fromMap($this->doRequest('RecognizeStamp', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return RecognizeBankCardResponse::fromMap($this->doRPCRequest('RecognizeBankCard', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RecognizeStampAdvanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param RecognizeBankCardRequest $request
      *
-     * @return RecognizeStampResponse
+     * @return RecognizeBankCardResponse
      */
-    public function recognizeStampAdvance($request, $runtime)
+    public function recognizeBankCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeBankCardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeBankCardAdvanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RecognizeBankCardResponse
+     */
+    public function recognizeBankCardAdvance($request, $runtime)
     {
         // Step 0: init client
         $accessKeyId     = $this->_credential->getAccessKeyId();
@@ -1595,13 +402,13 @@ class Ocr extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeStampreq = new RecognizeStampRequest([]);
-        RpcUtils::convert($request, $recognizeStampreq);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeBankCardReq = new RecognizeBankCardRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeBankCardReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->imageURLObject,
@@ -1620,9 +427,9 @@ class Ocr extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeStampreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $recognizeBankCardReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->recognizeStamp($recognizeStampreq, $runtime);
+        return $this->recognizeBankCardWithOptions($recognizeBankCardReq, $runtime);
     }
 
     /**
@@ -1631,11 +438,26 @@ class Ocr extends Rpc
      *
      * @return RecognizeBusinessCardResponse
      */
-    public function recognizeBusinessCard($request, $runtime)
+    public function recognizeBusinessCardWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return RecognizeBusinessCardResponse::fromMap($this->doRequest('RecognizeBusinessCard', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return RecognizeBusinessCardResponse::fromMap($this->doRPCRequest('RecognizeBusinessCard', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeBusinessCardRequest $request
+     *
+     * @return RecognizeBusinessCardResponse
+     */
+    public function recognizeBusinessCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeBusinessCardWithOptions($request, $runtime);
     }
 
     /**
@@ -1674,13 +496,13 @@ class Ocr extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeBusinessCardreq = new RecognizeBusinessCardRequest([]);
-        RpcUtils::convert($request, $recognizeBusinessCardreq);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeBusinessCardReq = new RecognizeBusinessCardRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeBusinessCardReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->imageURLObject,
@@ -1699,88 +521,9 @@ class Ocr extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeBusinessCardreq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $recognizeBusinessCardReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->recognizeBusinessCard($recognizeBusinessCardreq, $runtime);
-    }
-
-    /**
-     * @param RecognizeVINCodeRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RecognizeVINCodeResponse
-     */
-    public function recognizeVINCode($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RecognizeVINCodeResponse::fromMap($this->doRequest('RecognizeVINCode', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RecognizeVINCodeAdvanceRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return RecognizeVINCodeResponse
-     */
-    public function recognizeVINCodeAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ocr',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeVINCodereq = new RecognizeVINCodeRequest([]);
-        RpcUtils::convert($request, $recognizeVINCodereq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeVINCodereq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->recognizeVINCode($recognizeVINCodereq, $runtime);
+        return $this->recognizeBusinessCardWithOptions($recognizeBusinessCardReq, $runtime);
     }
 
     /**
@@ -1789,11 +532,26 @@ class Ocr extends Rpc
      *
      * @return RecognizeBusinessLicenseResponse
      */
-    public function recognizeBusinessLicense($request, $runtime)
+    public function recognizeBusinessLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return RecognizeBusinessLicenseResponse::fromMap($this->doRequest('RecognizeBusinessLicense', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return RecognizeBusinessLicenseResponse::fromMap($this->doRPCRequest('RecognizeBusinessLicense', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeBusinessLicenseRequest $request
+     *
+     * @return RecognizeBusinessLicenseResponse
+     */
+    public function recognizeBusinessLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeBusinessLicenseWithOptions($request, $runtime);
     }
 
     /**
@@ -1832,13 +590,13 @@ class Ocr extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $recognizeBusinessLicensereq = new RecognizeBusinessLicenseRequest([]);
-        RpcUtils::convert($request, $recognizeBusinessLicensereq);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeBusinessLicenseReq = new RecognizeBusinessLicenseRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeBusinessLicenseReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->imageURLObject,
@@ -1857,31 +615,1634 @@ class Ocr extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $recognizeBusinessLicensereq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $recognizeBusinessLicenseReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->recognizeBusinessLicense($recognizeBusinessLicensereq, $runtime);
+        return $this->recognizeBusinessLicenseWithOptions($recognizeBusinessLicenseReq, $runtime);
     }
 
     /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
+     * @param RecognizeCharacterRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return string
+     * @return RecognizeCharacterResponse
      */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    public function recognizeCharacterWithOptions($request, $runtime)
     {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
-            return @$endpointMap[$regionId];
-        }
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return RecognizeCharacterResponse::fromMap($this->doRPCRequest('RecognizeCharacter', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeCharacterRequest $request
+     *
+     * @return RecognizeCharacterResponse
+     */
+    public function recognizeCharacter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeCharacterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeCharacterAdvanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RecognizeCharacterResponse
+     */
+    public function recognizeCharacterAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeCharacterReq = new RecognizeCharacterRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeCharacterReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeCharacterReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeCharacterWithOptions($recognizeCharacterReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeChinapassportRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecognizeChinapassportResponse
+     */
+    public function recognizeChinapassportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeChinapassportResponse::fromMap($this->doRPCRequest('RecognizeChinapassport', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeChinapassportRequest $request
+     *
+     * @return RecognizeChinapassportResponse
+     */
+    public function recognizeChinapassport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeChinapassportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeChinapassportAdvanceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RecognizeChinapassportResponse
+     */
+    public function recognizeChinapassportAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeChinapassportReq = new RecognizeChinapassportRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeChinapassportReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeChinapassportReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeChinapassportWithOptions($recognizeChinapassportReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeDriverLicenseRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecognizeDriverLicenseResponse
+     */
+    public function recognizeDriverLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeDriverLicenseResponse::fromMap($this->doRPCRequest('RecognizeDriverLicense', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeDriverLicenseRequest $request
+     *
+     * @return RecognizeDriverLicenseResponse
+     */
+    public function recognizeDriverLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeDriverLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeDriverLicenseAdvanceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RecognizeDriverLicenseResponse
+     */
+    public function recognizeDriverLicenseAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeDriverLicenseReq = new RecognizeDriverLicenseRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeDriverLicenseReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeDriverLicenseReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeDriverLicenseWithOptions($recognizeDriverLicenseReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeDrivingLicenseRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeDrivingLicenseResponse
+     */
+    public function recognizeDrivingLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeDrivingLicenseResponse::fromMap($this->doRPCRequest('RecognizeDrivingLicense', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeDrivingLicenseRequest $request
+     *
+     * @return RecognizeDrivingLicenseResponse
+     */
+    public function recognizeDrivingLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeDrivingLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeDrivingLicenseAdvanceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RecognizeDrivingLicenseResponse
+     */
+    public function recognizeDrivingLicenseAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeDrivingLicenseReq = new RecognizeDrivingLicenseRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeDrivingLicenseReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeDrivingLicenseReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeDrivingLicenseWithOptions($recognizeDrivingLicenseReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeIdentityCardRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecognizeIdentityCardResponse
+     */
+    public function recognizeIdentityCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeIdentityCardResponse::fromMap($this->doRPCRequest('RecognizeIdentityCard', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeIdentityCardRequest $request
+     *
+     * @return RecognizeIdentityCardResponse
+     */
+    public function recognizeIdentityCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeIdentityCardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeIdentityCardAdvanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeIdentityCardResponse
+     */
+    public function recognizeIdentityCardAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeIdentityCardReq = new RecognizeIdentityCardRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeIdentityCardReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeIdentityCardReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeIdentityCardWithOptions($recognizeIdentityCardReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeLicensePlateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecognizeLicensePlateResponse
+     */
+    public function recognizeLicensePlateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeLicensePlateResponse::fromMap($this->doRPCRequest('RecognizeLicensePlate', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeLicensePlateRequest $request
+     *
+     * @return RecognizeLicensePlateResponse
+     */
+    public function recognizeLicensePlate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeLicensePlateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeLicensePlateAdvanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeLicensePlateResponse
+     */
+    public function recognizeLicensePlateAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeLicensePlateReq = new RecognizeLicensePlateRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeLicensePlateReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeLicensePlateReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeLicensePlateWithOptions($recognizeLicensePlateReq, $runtime);
+    }
+
+    /**
+     * @param RecognizePassportMRZRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizePassportMRZResponse
+     */
+    public function recognizePassportMRZWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizePassportMRZResponse::fromMap($this->doRPCRequest('RecognizePassportMRZ', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizePassportMRZRequest $request
+     *
+     * @return RecognizePassportMRZResponse
+     */
+    public function recognizePassportMRZ($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizePassportMRZWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizePassportMRZAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizePassportMRZResponse
+     */
+    public function recognizePassportMRZAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizePassportMRZReq = new RecognizePassportMRZRequest([]);
+        OpenApiUtilClient::convert($request, $recognizePassportMRZReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizePassportMRZReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizePassportMRZWithOptions($recognizePassportMRZReq, $runtime);
+    }
+
+    /**
+     * @param RecognizePoiNameRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizePoiNameResponse
+     */
+    public function recognizePoiNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizePoiNameResponse::fromMap($this->doRPCRequest('RecognizePoiName', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizePoiNameRequest $request
+     *
+     * @return RecognizePoiNameResponse
+     */
+    public function recognizePoiName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizePoiNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizePoiNameAdvanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizePoiNameResponse
+     */
+    public function recognizePoiNameAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizePoiNameReq = new RecognizePoiNameRequest([]);
+        OpenApiUtilClient::convert($request, $recognizePoiNameReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizePoiNameReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizePoiNameWithOptions($recognizePoiNameReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeQrCodeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RecognizeQrCodeResponse
+     */
+    public function recognizeQrCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeQrCodeResponse::fromMap($this->doRPCRequest('RecognizeQrCode', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeQrCodeRequest $request
+     *
+     * @return RecognizeQrCodeResponse
+     */
+    public function recognizeQrCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeQrCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeStampRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RecognizeStampResponse
+     */
+    public function recognizeStampWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeStampResponse::fromMap($this->doRPCRequest('RecognizeStamp', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeStampRequest $request
+     *
+     * @return RecognizeStampResponse
+     */
+    public function recognizeStamp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeStampWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeStampAdvanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecognizeStampResponse
+     */
+    public function recognizeStampAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeStampReq = new RecognizeStampRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeStampReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeStampReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeStampWithOptions($recognizeStampReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeTableRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RecognizeTableResponse
+     */
+    public function recognizeTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeTableResponse::fromMap($this->doRPCRequest('RecognizeTable', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeTableRequest $request
+     *
+     * @return RecognizeTableResponse
+     */
+    public function recognizeTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeTableAdvanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecognizeTableResponse
+     */
+    public function recognizeTableAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeTableReq = new RecognizeTableRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeTableReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeTableReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeTableWithOptions($recognizeTableReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeTakeoutOrderRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecognizeTakeoutOrderResponse
+     */
+    public function recognizeTakeoutOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeTakeoutOrderResponse::fromMap($this->doRPCRequest('RecognizeTakeoutOrder', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeTakeoutOrderRequest $request
+     *
+     * @return RecognizeTakeoutOrderResponse
+     */
+    public function recognizeTakeoutOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeTakeoutOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeTakeoutOrderAdvanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeTakeoutOrderResponse
+     */
+    public function recognizeTakeoutOrderAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeTakeoutOrderReq = new RecognizeTakeoutOrderRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeTakeoutOrderReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeTakeoutOrderReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeTakeoutOrderWithOptions($recognizeTakeoutOrderReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeTaxiInvoiceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizeTaxiInvoiceResponse
+     */
+    public function recognizeTaxiInvoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeTaxiInvoiceResponse::fromMap($this->doRPCRequest('RecognizeTaxiInvoice', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeTaxiInvoiceRequest $request
+     *
+     * @return RecognizeTaxiInvoiceResponse
+     */
+    public function recognizeTaxiInvoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeTaxiInvoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeTaxiInvoiceAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeTaxiInvoiceResponse
+     */
+    public function recognizeTaxiInvoiceAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeTaxiInvoiceReq = new RecognizeTaxiInvoiceRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeTaxiInvoiceReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeTaxiInvoiceReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeTaxiInvoiceWithOptions($recognizeTaxiInvoiceReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeTrainTicketRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizeTrainTicketResponse
+     */
+    public function recognizeTrainTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeTrainTicketResponse::fromMap($this->doRPCRequest('RecognizeTrainTicket', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeTrainTicketRequest $request
+     *
+     * @return RecognizeTrainTicketResponse
+     */
+    public function recognizeTrainTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeTrainTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeTrainTicketAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeTrainTicketResponse
+     */
+    public function recognizeTrainTicketAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeTrainTicketReq = new RecognizeTrainTicketRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeTrainTicketReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeTrainTicketReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeTrainTicketWithOptions($recognizeTrainTicketReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeVATInvoiceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecognizeVATInvoiceResponse
+     */
+    public function recognizeVATInvoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeVATInvoiceResponse::fromMap($this->doRPCRequest('RecognizeVATInvoice', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeVATInvoiceRequest $request
+     *
+     * @return RecognizeVATInvoiceResponse
+     */
+    public function recognizeVATInvoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeVATInvoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeVATInvoiceAdvanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RecognizeVATInvoiceResponse
+     */
+    public function recognizeVATInvoiceAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeVATInvoiceReq = new RecognizeVATInvoiceRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeVATInvoiceReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->fileURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeVATInvoiceReq->fileURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeVATInvoiceWithOptions($recognizeVATInvoiceReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeVerificationcodeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RecognizeVerificationcodeResponse
+     */
+    public function recognizeVerificationcodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeVerificationcodeResponse::fromMap($this->doRPCRequest('RecognizeVerificationcode', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeVerificationcodeRequest $request
+     *
+     * @return RecognizeVerificationcodeResponse
+     */
+    public function recognizeVerificationcode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeVerificationcodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeVerificationcodeAdvanceRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RecognizeVerificationcodeResponse
+     */
+    public function recognizeVerificationcodeAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeVerificationcodeReq = new RecognizeVerificationcodeRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeVerificationcodeReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeVerificationcodeReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeVerificationcodeWithOptions($recognizeVerificationcodeReq, $runtime);
+    }
+
+    /**
+     * @param RecognizeVINCodeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizeVINCodeResponse
+     */
+    public function recognizeVINCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RecognizeVINCodeResponse::fromMap($this->doRPCRequest('RecognizeVINCode', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeVINCodeRequest $request
+     *
+     * @return RecognizeVINCodeResponse
+     */
+    public function recognizeVINCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeVINCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeVINCodeAdvanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeVINCodeResponse
+     */
+    public function recognizeVINCodeAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $recognizeVINCodeReq = new RecognizeVINCodeRequest([]);
+        OpenApiUtilClient::convert($request, $recognizeVINCodeReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $recognizeVINCodeReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->recognizeVINCodeWithOptions($recognizeVINCodeReq, $runtime);
+    }
+
+    /**
+     * @param TrimDocumentRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TrimDocumentResponse
+     */
+    public function trimDocumentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TrimDocumentResponse::fromMap($this->doRPCRequest('TrimDocument', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TrimDocumentRequest $request
+     *
+     * @return TrimDocumentResponse
+     */
+    public function trimDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->trimDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TrimDocumentAdvanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return TrimDocumentResponse
+     */
+    public function trimDocumentAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'ocr',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $trimDocumentReq = new TrimDocumentRequest([]);
+        OpenApiUtilClient::convert($request, $trimDocumentReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->fileURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $trimDocumentReq->fileURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->trimDocumentWithOptions($trimDocumentReq, $runtime);
     }
 }
