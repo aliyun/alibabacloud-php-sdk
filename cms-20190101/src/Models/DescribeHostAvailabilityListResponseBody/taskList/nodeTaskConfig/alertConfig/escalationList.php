@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListResponseBody\taskList\nodeTaskConfig\alertConfig;
 
-use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListResponseBody\taskList\nodeTaskConfig\alertConfig\escalationList\escalationList;
 use AlibabaCloud\Tea\Model;
 
 class escalationList extends Model
 {
     /**
-     * @var escalationList[]
+     * @var \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListResponseBody\taskList\nodeTaskConfig\alertConfig\escalationList\escalationList[]
      */
     public $escalationList;
     protected $_name = [
@@ -50,7 +49,7 @@ class escalationList extends Model
                 $model->escalationList = [];
                 $n                     = 0;
                 foreach ($map['escalationList'] as $item) {
-                    $model->escalationList[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->escalationList[$n++] = null !== $item ? \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListResponseBody\taskList\nodeTaskConfig\alertConfig\escalationList\escalationList::fromMap($item) : $item;
                 }
             }
         }

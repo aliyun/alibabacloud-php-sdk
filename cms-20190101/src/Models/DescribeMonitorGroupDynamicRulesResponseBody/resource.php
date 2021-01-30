@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupDynamicRulesResponseBody;
 
-use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupDynamicRulesResponseBody\resource\resource;
 use AlibabaCloud\Tea\Model;
 
 class resource extends Model
 {
     /**
-     * @var resource[]
+     * @var \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupDynamicRulesResponseBody\resource\resource[]
      */
     public $resource;
     protected $_name = [
@@ -50,7 +49,7 @@ class resource extends Model
                 $model->resource = [];
                 $n               = 0;
                 foreach ($map['Resource'] as $item) {
-                    $model->resource[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->resource[$n++] = null !== $item ? \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupDynamicRulesResponseBody\resource\resource::fromMap($item) : $item;
                 }
             }
         }

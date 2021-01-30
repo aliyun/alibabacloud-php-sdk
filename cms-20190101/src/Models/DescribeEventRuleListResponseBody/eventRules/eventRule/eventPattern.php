@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody\eventRules\eventRule;
 
-use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody\eventRules\eventRule\eventPattern\eventPattern;
 use AlibabaCloud\Tea\Model;
 
 class eventPattern extends Model
 {
     /**
-     * @var eventPattern[]
+     * @var \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody\eventRules\eventRule\eventPattern\eventPattern[]
      */
     public $eventPattern;
     protected $_name = [
@@ -50,7 +49,7 @@ class eventPattern extends Model
                 $model->eventPattern = [];
                 $n                   = 0;
                 foreach ($map['EventPattern'] as $item) {
-                    $model->eventPattern[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->eventPattern[$n++] = null !== $item ? \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody\eventRules\eventRule\eventPattern\eventPattern::fromMap($item) : $item;
                 }
             }
         }

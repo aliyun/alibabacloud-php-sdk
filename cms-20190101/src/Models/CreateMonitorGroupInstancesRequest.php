@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupInstancesRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $groupId;
 

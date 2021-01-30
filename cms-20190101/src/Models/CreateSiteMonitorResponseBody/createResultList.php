@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\CreateSiteMonitorResponseBody;
 
-use AlibabaCloud\SDK\Cms\V20190101\Models\CreateSiteMonitorResponseBody\createResultList\createResultList;
 use AlibabaCloud\Tea\Model;
 
 class createResultList extends Model
 {
     /**
-     * @var createResultList[]
+     * @var \AlibabaCloud\SDK\Cms\V20190101\Models\CreateSiteMonitorResponseBody\createResultList\createResultList[]
      */
     public $createResultList;
     protected $_name = [
@@ -50,7 +49,7 @@ class createResultList extends Model
                 $model->createResultList = [];
                 $n                       = 0;
                 foreach ($map['CreateResultList'] as $item) {
-                    $model->createResultList[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->createResultList[$n++] = null !== $item ? \AlibabaCloud\SDK\Cms\V20190101\Models\CreateSiteMonitorResponseBody\createResultList\createResultList::fromMap($item) : $item;
                 }
             }
         }

@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessResponseBody\processes\process;
 
-use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessResponseBody\processes\process\alertConfig\alertConfig;
 use AlibabaCloud\Tea\Model;
 
 class alertConfig extends Model
 {
     /**
-     * @var alertConfig[]
+     * @var \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessResponseBody\processes\process\alertConfig\alertConfig[]
      */
     public $alertConfig;
     protected $_name = [
@@ -50,7 +49,7 @@ class alertConfig extends Model
                 $model->alertConfig = [];
                 $n                  = 0;
                 foreach ($map['AlertConfig'] as $item) {
-                    $model->alertConfig[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->alertConfig[$n++] = null !== $item ? \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessResponseBody\processes\process\alertConfig\alertConfig::fromMap($item) : $item;
                 }
             }
         }

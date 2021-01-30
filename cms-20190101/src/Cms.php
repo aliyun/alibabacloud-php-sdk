@@ -88,8 +88,6 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeActiveMetricRuleListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeActiveMetricRuleListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertHistoryListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertHistoryListResponse;
-use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertingMetricRuleResourcesRequest;
-use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertingMetricRuleResourcesResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertLogCountRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertLogCountResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertLogHistogramRequest;
@@ -1461,35 +1459,6 @@ class Cms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAlertHistoryListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAlertingMetricRuleResourcesRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeAlertingMetricRuleResourcesResponse
-     */
-    public function describeAlertingMetricRuleResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return DescribeAlertingMetricRuleResourcesResponse::fromMap($this->doRPCRequest('DescribeAlertingMetricRuleResources', '2019-01-01', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAlertingMetricRuleResourcesRequest $request
-     *
-     * @return DescribeAlertingMetricRuleResourcesResponse
-     */
-    public function describeAlertingMetricRuleResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAlertingMetricRuleResourcesWithOptions($request, $runtime);
     }
 
     /**

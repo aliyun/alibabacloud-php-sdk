@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessResponseBody\processes\process;
 
-use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessResponseBody\processes\process\matchExpress\matchExpress;
 use AlibabaCloud\Tea\Model;
 
 class matchExpress extends Model
 {
     /**
-     * @var matchExpress[]
+     * @var \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessResponseBody\processes\process\matchExpress\matchExpress[]
      */
     public $matchExpress;
     protected $_name = [
@@ -50,7 +49,7 @@ class matchExpress extends Model
                 $model->matchExpress = [];
                 $n                   = 0;
                 foreach ($map['MatchExpress'] as $item) {
-                    $model->matchExpress[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->matchExpress[$n++] = null !== $item ? \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessResponseBody\processes\process\matchExpress\matchExpress::fromMap($item) : $item;
                 }
             }
         }
