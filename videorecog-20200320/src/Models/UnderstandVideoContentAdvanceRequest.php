@@ -7,44 +7,35 @@ namespace AlibabaCloud\SDK\Videorecog\V20200320\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class GenerateVideoCoverAdvanceRequest extends Model
+class UnderstandVideoContentAdvanceRequest extends Model
 {
     /**
      * @var Stream
      */
-    public $videoUrlObject;
+    public $videoURLObject;
 
     /**
      * @var bool
      */
     public $async;
-
-    /**
-     * @var bool
-     */
-    public $isGif;
     protected $_name = [
-        'videoUrlObject' => 'VideoUrlObject',
+        'videoURLObject' => 'VideoURLObject',
         'async'          => 'Async',
-        'isGif'          => 'IsGif',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
+        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrlObject) {
-            $res['VideoUrlObject'] = $this->videoUrlObject;
+        if (null !== $this->videoURLObject) {
+            $res['VideoURLObject'] = $this->videoURLObject;
         }
         if (null !== $this->async) {
             $res['Async'] = $this->async;
-        }
-        if (null !== $this->isGif) {
-            $res['IsGif'] = $this->isGif;
         }
 
         return $res;
@@ -53,19 +44,16 @@ class GenerateVideoCoverAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return GenerateVideoCoverAdvanceRequest
+     * @return UnderstandVideoContentAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrlObject'])) {
-            $model->videoUrlObject = $map['VideoUrlObject'];
+        if (isset($map['VideoURLObject'])) {
+            $model->videoURLObject = $map['VideoURLObject'];
         }
         if (isset($map['Async'])) {
             $model->async = $map['Async'];
-        }
-        if (isset($map['IsGif'])) {
-            $model->isGif = $map['IsGif'];
         }
 
         return $model;
