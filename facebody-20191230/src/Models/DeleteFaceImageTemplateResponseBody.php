@@ -5,28 +5,28 @@
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
-use GuzzleHttp\Psr7\Stream;
 
-class BodyPostureAdvanceRequest extends Model
+class DeleteFaceImageTemplateResponseBody extends Model
 {
     /**
-     * @var Stream
+     * @description Id of the request
+     *
+     * @var string
      */
-    public $imageURLObject;
+    public $requestId;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class BodyPostureAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return BodyPostureAdvanceRequest
+     * @return DeleteFaceImageTemplateResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

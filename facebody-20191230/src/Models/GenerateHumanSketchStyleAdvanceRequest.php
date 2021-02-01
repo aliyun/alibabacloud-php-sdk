@@ -7,7 +7,7 @@ namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class RecognizeExpressionAdvanceRequest extends Model
+class GenerateHumanSketchStyleAdvanceRequest extends Model
 {
     /**
      * @var Stream
@@ -35,7 +35,7 @@ class RecognizeExpressionAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeExpressionAdvanceRequest
+     * @return GenerateHumanSketchStyleAdvanceRequest
      */
     public static function fromMap($map = [])
     {

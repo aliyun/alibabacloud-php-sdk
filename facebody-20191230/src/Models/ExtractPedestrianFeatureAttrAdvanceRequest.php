@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class ExtractPedestrianFeatureAttrAdvanceRequest extends Model
 {
@@ -17,9 +18,15 @@ class ExtractPedestrianFeatureAttrAdvanceRequest extends Model
      * @var string
      */
     public $mode;
+
+    /**
+     * @var string
+     */
+    public $serviceVersion;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
         'mode'           => 'Mode',
+        'serviceVersion' => 'ServiceVersion',
     ];
 
     public function validate()
@@ -35,6 +42,9 @@ class ExtractPedestrianFeatureAttrAdvanceRequest extends Model
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->serviceVersion) {
+            $res['ServiceVersion'] = $this->serviceVersion;
         }
 
         return $res;
@@ -53,6 +63,9 @@ class ExtractPedestrianFeatureAttrAdvanceRequest extends Model
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['ServiceVersion'])) {
+            $model->serviceVersion = $map['ServiceVersion'];
         }
 
         return $model;

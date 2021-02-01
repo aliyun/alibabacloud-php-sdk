@@ -17,9 +17,15 @@ class ExtractPedestrianFeatureAttrRequest extends Model
      * @var string
      */
     public $mode;
+
+    /**
+     * @var string
+     */
+    public $serviceVersion;
     protected $_name = [
-        'imageURL' => 'ImageURL',
-        'mode'     => 'Mode',
+        'imageURL'       => 'ImageURL',
+        'mode'           => 'Mode',
+        'serviceVersion' => 'ServiceVersion',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class ExtractPedestrianFeatureAttrRequest extends Model
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->serviceVersion) {
+            $res['ServiceVersion'] = $this->serviceVersion;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class ExtractPedestrianFeatureAttrRequest extends Model
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['ServiceVersion'])) {
+            $model->serviceVersion = $map['ServiceVersion'];
         }
 
         return $model;
