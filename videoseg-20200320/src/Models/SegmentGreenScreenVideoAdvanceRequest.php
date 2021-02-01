@@ -7,32 +7,32 @@ namespace AlibabaCloud\SDK\Videoseg\V20200320\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class SegmentVideoBodyAdvanceRequest extends Model
+class SegmentGreenScreenVideoAdvanceRequest extends Model
 {
     /**
      * @var Stream
      */
-    public $videoUrlObject;
+    public $videoURLObject;
 
     /**
      * @var bool
      */
     public $async;
     protected $_name = [
-        'videoUrlObject' => 'VideoUrlObject',
+        'videoURLObject' => 'VideoURLObject',
         'async'          => 'Async',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
+        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrlObject) {
-            $res['VideoUrlObject'] = $this->videoUrlObject;
+        if (null !== $this->videoURLObject) {
+            $res['VideoURLObject'] = $this->videoURLObject;
         }
         if (null !== $this->async) {
             $res['Async'] = $this->async;
@@ -44,13 +44,13 @@ class SegmentVideoBodyAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return SegmentVideoBodyAdvanceRequest
+     * @return SegmentGreenScreenVideoAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrlObject'])) {
-            $model->videoUrlObject = $map['VideoUrlObject'];
+        if (isset($map['VideoURLObject'])) {
+            $model->videoURLObject = $map['VideoURLObject'];
         }
         if (isset($map['Async'])) {
             $model->async = $map['Async'];
