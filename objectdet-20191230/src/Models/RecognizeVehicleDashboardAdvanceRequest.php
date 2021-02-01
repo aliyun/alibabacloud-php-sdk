@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class RecognizeVehicleDashboardAdvanceRequest extends Model
 {
