@@ -56,7 +56,7 @@ class records extends Model
     /**
      * @var string
      */
-    public $notifierExtra;
+    public $notifierExtendValues;
 
     /**
      * @var string
@@ -83,21 +83,21 @@ class records extends Model
      */
     public $algorithmVendor;
     protected $_name = [
-        'status'          => 'Status',
-        'ruleExpression'  => 'RuleExpression',
-        'imageMatch'      => 'ImageMatch',
-        'monitorType'     => 'MonitorType',
-        'createDate'      => 'CreateDate',
-        'ruleName'        => 'RuleName',
-        'notifierType'    => 'NotifierType',
-        'description'     => 'Description',
-        'expression'      => 'Expression',
-        'notifierExtra'   => 'NotifierExtra',
-        'attributes'      => 'Attributes',
-        'deviceList'      => 'DeviceList',
-        'taskId'          => 'TaskId',
-        'modifiedDate'    => 'ModifiedDate',
-        'algorithmVendor' => 'AlgorithmVendor',
+        'status'               => 'Status',
+        'ruleExpression'       => 'RuleExpression',
+        'imageMatch'           => 'ImageMatch',
+        'monitorType'          => 'MonitorType',
+        'createDate'           => 'CreateDate',
+        'ruleName'             => 'RuleName',
+        'notifierType'         => 'NotifierType',
+        'description'          => 'Description',
+        'expression'           => 'Expression',
+        'notifierExtendValues' => 'NotifierExtendValues',
+        'attributes'           => 'Attributes',
+        'deviceList'           => 'DeviceList',
+        'taskId'               => 'TaskId',
+        'modifiedDate'         => 'ModifiedDate',
+        'algorithmVendor'      => 'AlgorithmVendor',
     ];
 
     public function validate()
@@ -134,8 +134,8 @@ class records extends Model
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
-        if (null !== $this->notifierExtra) {
-            $res['NotifierExtra'] = $this->notifierExtra;
+        if (null !== $this->notifierExtendValues) {
+            $res['NotifierExtendValues'] = $this->notifierExtendValues;
         }
         if (null !== $this->attributes) {
             $res['Attributes'] = $this->attributes;
@@ -191,8 +191,8 @@ class records extends Model
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
-        if (isset($map['NotifierExtra'])) {
-            $model->notifierExtra = $map['NotifierExtra'];
+        if (isset($map['NotifierExtendValues'])) {
+            $model->notifierExtendValues = $map['NotifierExtendValues'];
         }
         if (isset($map['Attributes'])) {
             $model->attributes = $map['Attributes'];

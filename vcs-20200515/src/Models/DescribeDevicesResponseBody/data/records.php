@@ -62,18 +62,24 @@ class records extends Model
      * @var string
      */
     public $vendor;
+
+    /**
+     * @var string
+     */
+    public $capturedPictureId;
     protected $_name = [
-        'status'        => 'Status',
-        'deviceName'    => 'DeviceName',
-        'deviceType'    => 'DeviceType',
-        'deviceId'      => 'DeviceId',
-        'deviceAddress' => 'DeviceAddress',
-        'createTime'    => 'CreateTime',
-        'corpId'        => 'CorpId',
-        'longitude'     => 'Longitude',
-        'inProtocol'    => 'InProtocol',
-        'latitude'      => 'Latitude',
-        'vendor'        => 'Vendor',
+        'status'            => 'Status',
+        'deviceName'        => 'DeviceName',
+        'deviceType'        => 'DeviceType',
+        'deviceId'          => 'DeviceId',
+        'deviceAddress'     => 'DeviceAddress',
+        'createTime'        => 'CreateTime',
+        'corpId'            => 'CorpId',
+        'longitude'         => 'Longitude',
+        'inProtocol'        => 'InProtocol',
+        'latitude'          => 'Latitude',
+        'vendor'            => 'Vendor',
+        'capturedPictureId' => 'CapturedPictureId',
     ];
 
     public function validate()
@@ -115,6 +121,9 @@ class records extends Model
         }
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
+        }
+        if (null !== $this->capturedPictureId) {
+            $res['CapturedPictureId'] = $this->capturedPictureId;
         }
 
         return $res;
@@ -160,6 +169,9 @@ class records extends Model
         }
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
+        }
+        if (isset($map['CapturedPictureId'])) {
+            $model->capturedPictureId = $map['CapturedPictureId'];
         }
 
         return $model;

@@ -16,16 +16,16 @@ class GetMonitorListRequest extends Model
     /**
      * @var int
      */
-    public $pageNo;
+    public $pageNumber;
 
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'corpId'   => 'CorpId',
-        'pageNo'   => 'PageNo',
-        'pageSize' => 'PageSize',
+        'corpId'     => 'CorpId',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -38,8 +38,8 @@ class GetMonitorListRequest extends Model
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -59,8 +59,8 @@ class GetMonitorListRequest extends Model
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

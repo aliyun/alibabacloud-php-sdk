@@ -17,7 +17,7 @@ class data extends Model
     /**
      * @var int
      */
-    public $pageNo;
+    public $pageNumber;
 
     /**
      * @var int
@@ -35,7 +35,7 @@ class data extends Model
     public $totalCount;
     protected $_name = [
         'records'    => 'Records',
-        'pageNo'     => 'PageNo',
+        'pageNumber' => 'PageNumber',
         'totalPage'  => 'TotalPage',
         'pageSize'   => 'PageSize',
         'totalCount' => 'TotalCount',
@@ -57,8 +57,8 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->totalPage) {
             $res['TotalPage'] = $this->totalPage;
@@ -90,8 +90,8 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['TotalPage'])) {
             $model->totalPage = $map['TotalPage'];
