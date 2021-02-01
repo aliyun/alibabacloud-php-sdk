@@ -18,7 +18,6 @@ class tasks extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageURL', $this->imageURL, true);
     }
 
     public function toMap()

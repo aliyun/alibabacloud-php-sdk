@@ -18,7 +18,6 @@ class DetectImageElementsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('url', $this->url, true);
     }
 
     public function toMap()

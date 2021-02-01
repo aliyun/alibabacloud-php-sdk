@@ -26,7 +26,6 @@ class EvaluateCertificateQualityAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('imageURLObject', $this->imageURLObject, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()
