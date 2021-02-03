@@ -11,17 +11,7 @@ class domainRecordInfo extends Model
     /**
      * @var string
      */
-    public $domain;
-
-    /**
-     * @var string
-     */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $rr;
 
     /**
      * @var string
@@ -34,9 +24,9 @@ class domainRecordInfo extends Model
     public $ttl;
 
     /**
-     * @var int
+     * @var string
      */
-    public $priority;
+    public $domain;
 
     /**
      * @var string
@@ -51,6 +41,16 @@ class domainRecordInfo extends Model
     /**
      * @var string
      */
+    public $rr;
+
+    /**
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @var string
+     */
     public $newType;
 
     /**
@@ -58,34 +58,27 @@ class domainRecordInfo extends Model
      */
     public $newValue;
     protected $_name = [
-        'domain'   => 'Domain',
         'type'     => 'Type',
-        'rr'       => 'Rr',
         'value'    => 'Value',
         'ttl'      => 'Ttl',
-        'priority' => 'Priority',
+        'domain'   => 'Domain',
         'line'     => 'Line',
         'newRr'    => 'NewRr',
+        'rr'       => 'Rr',
+        'priority' => 'Priority',
         'newType'  => 'NewType',
         'newValue' => 'NewValue',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->rr) {
-            $res['Rr'] = $this->rr;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
@@ -93,14 +86,20 @@ class domainRecordInfo extends Model
         if (null !== $this->ttl) {
             $res['Ttl'] = $this->ttl;
         }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->line) {
             $res['Line'] = $this->line;
         }
         if (null !== $this->newRr) {
             $res['NewRr'] = $this->newRr;
+        }
+        if (null !== $this->rr) {
+            $res['Rr'] = $this->rr;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->newType) {
             $res['NewType'] = $this->newType;
@@ -120,14 +119,8 @@ class domainRecordInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Rr'])) {
-            $model->rr = $map['Rr'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
@@ -135,14 +128,20 @@ class domainRecordInfo extends Model
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];
         }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['Line'])) {
             $model->line = $map['Line'];
         }
         if (isset($map['NewRr'])) {
             $model->newRr = $map['NewRr'];
+        }
+        if (isset($map['Rr'])) {
+            $model->rr = $map['Rr'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['NewType'])) {
             $model->newType = $map['NewType'];

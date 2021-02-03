@@ -66,10 +66,6 @@ class AddDomainRecordRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('RR', $this->RR, true);
-        Model::validateRequired('type', $this->type, true);
-        Model::validateRequired('value', $this->value, true);
     }
 
     public function toMap()

@@ -16,6 +16,11 @@ class DescribeGtmAccessStrategiesRequest extends Model
     /**
      * @var string
      */
+    public $userClientIp;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -28,10 +33,11 @@ class DescribeGtmAccessStrategiesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'lang'       => 'Lang',
-        'instanceId' => 'InstanceId',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'lang'         => 'Lang',
+        'userClientIp' => 'UserClientIp',
+        'instanceId'   => 'InstanceId',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DescribeGtmAccessStrategiesRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -67,6 +76,9 @@ class DescribeGtmAccessStrategiesRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

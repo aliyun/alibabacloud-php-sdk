@@ -36,8 +36,6 @@ class SetDomainRecordStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('recordId', $this->recordId, true);
-        Model::validateRequired('status', $this->status, true);
     }
 
     public function toMap()

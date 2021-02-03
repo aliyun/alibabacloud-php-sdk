@@ -4,251 +4,38 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainInfoResponse\availableTtls;
-use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainInfoResponse\dnsServers;
-use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainInfoResponse\recordLines;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDomainInfoResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeDomainInfoResponseBody
      */
-    public $domainId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
-     * @var string
-     */
-    public $punyCode;
-
-    /**
-     * @var bool
-     */
-    public $aliDomain;
-
-    /**
-     * @var string
-     */
-    public $remark;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $versionCode;
-
-    /**
-     * @var string
-     */
-    public $versionName;
-
-    /**
-     * @var int
-     */
-    public $minTtl;
-
-    /**
-     * @var string
-     */
-    public $recordLineTreeJson;
-
-    /**
-     * @var string
-     */
-    public $lineType;
-
-    /**
-     * @var bool
-     */
-    public $regionLines;
-
-    /**
-     * @var bool
-     */
-    public $inBlackHole;
-
-    /**
-     * @var bool
-     */
-    public $inClean;
-
-    /**
-     * @var bool
-     */
-    public $slaveDns;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var recordLines
-     */
-    public $recordLines;
-
-    /**
-     * @var dnsServers
-     */
-    public $dnsServers;
-
-    /**
-     * @var availableTtls
-     */
-    public $availableTtls;
+    public $body;
     protected $_name = [
-        'requestId'          => 'RequestId',
-        'domainId'           => 'DomainId',
-        'domainName'         => 'DomainName',
-        'punyCode'           => 'PunyCode',
-        'aliDomain'          => 'AliDomain',
-        'remark'             => 'Remark',
-        'groupId'            => 'GroupId',
-        'groupName'          => 'GroupName',
-        'instanceId'         => 'InstanceId',
-        'versionCode'        => 'VersionCode',
-        'versionName'        => 'VersionName',
-        'minTtl'             => 'MinTtl',
-        'recordLineTreeJson' => 'RecordLineTreeJson',
-        'lineType'           => 'LineType',
-        'regionLines'        => 'RegionLines',
-        'inBlackHole'        => 'InBlackHole',
-        'inClean'            => 'InClean',
-        'slaveDns'           => 'SlaveDns',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'createTime'         => 'CreateTime',
-        'recordLines'        => 'RecordLines',
-        'dnsServers'         => 'DnsServers',
-        'availableTtls'      => 'AvailableTtls',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('domainId', $this->domainId, true);
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('punyCode', $this->punyCode, true);
-        Model::validateRequired('aliDomain', $this->aliDomain, true);
-        Model::validateRequired('remark', $this->remark, true);
-        Model::validateRequired('groupId', $this->groupId, true);
-        Model::validateRequired('groupName', $this->groupName, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('versionCode', $this->versionCode, true);
-        Model::validateRequired('versionName', $this->versionName, true);
-        Model::validateRequired('minTtl', $this->minTtl, true);
-        Model::validateRequired('recordLineTreeJson', $this->recordLineTreeJson, true);
-        Model::validateRequired('lineType', $this->lineType, true);
-        Model::validateRequired('regionLines', $this->regionLines, true);
-        Model::validateRequired('inBlackHole', $this->inBlackHole, true);
-        Model::validateRequired('inClean', $this->inClean, true);
-        Model::validateRequired('slaveDns', $this->slaveDns, true);
-        Model::validateRequired('resourceGroupId', $this->resourceGroupId, true);
-        Model::validateRequired('createTime', $this->createTime, true);
-        Model::validateRequired('recordLines', $this->recordLines, true);
-        Model::validateRequired('dnsServers', $this->dnsServers, true);
-        Model::validateRequired('availableTtls', $this->availableTtls, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->domainId) {
-            $res['DomainId'] = $this->domainId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->punyCode) {
-            $res['PunyCode'] = $this->punyCode;
-        }
-        if (null !== $this->aliDomain) {
-            $res['AliDomain'] = $this->aliDomain;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->versionCode) {
-            $res['VersionCode'] = $this->versionCode;
-        }
-        if (null !== $this->versionName) {
-            $res['VersionName'] = $this->versionName;
-        }
-        if (null !== $this->minTtl) {
-            $res['MinTtl'] = $this->minTtl;
-        }
-        if (null !== $this->recordLineTreeJson) {
-            $res['RecordLineTreeJson'] = $this->recordLineTreeJson;
-        }
-        if (null !== $this->lineType) {
-            $res['LineType'] = $this->lineType;
-        }
-        if (null !== $this->regionLines) {
-            $res['RegionLines'] = $this->regionLines;
-        }
-        if (null !== $this->inBlackHole) {
-            $res['InBlackHole'] = $this->inBlackHole;
-        }
-        if (null !== $this->inClean) {
-            $res['InClean'] = $this->inClean;
-        }
-        if (null !== $this->slaveDns) {
-            $res['SlaveDns'] = $this->slaveDns;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->recordLines) {
-            $res['RecordLines'] = null !== $this->recordLines ? $this->recordLines->toMap() : null;
-        }
-        if (null !== $this->dnsServers) {
-            $res['DnsServers'] = null !== $this->dnsServers ? $this->dnsServers->toMap() : null;
-        }
-        if (null !== $this->availableTtls) {
-            $res['AvailableTtls'] = null !== $this->availableTtls ? $this->availableTtls->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -262,74 +49,11 @@ class DescribeDomainInfoResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DomainId'])) {
-            $model->domainId = $map['DomainId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['PunyCode'])) {
-            $model->punyCode = $map['PunyCode'];
-        }
-        if (isset($map['AliDomain'])) {
-            $model->aliDomain = $map['AliDomain'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['VersionCode'])) {
-            $model->versionCode = $map['VersionCode'];
-        }
-        if (isset($map['VersionName'])) {
-            $model->versionName = $map['VersionName'];
-        }
-        if (isset($map['MinTtl'])) {
-            $model->minTtl = $map['MinTtl'];
-        }
-        if (isset($map['RecordLineTreeJson'])) {
-            $model->recordLineTreeJson = $map['RecordLineTreeJson'];
-        }
-        if (isset($map['LineType'])) {
-            $model->lineType = $map['LineType'];
-        }
-        if (isset($map['RegionLines'])) {
-            $model->regionLines = $map['RegionLines'];
-        }
-        if (isset($map['InBlackHole'])) {
-            $model->inBlackHole = $map['InBlackHole'];
-        }
-        if (isset($map['InClean'])) {
-            $model->inClean = $map['InClean'];
-        }
-        if (isset($map['SlaveDns'])) {
-            $model->slaveDns = $map['SlaveDns'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['RecordLines'])) {
-            $model->recordLines = recordLines::fromMap($map['RecordLines']);
-        }
-        if (isset($map['DnsServers'])) {
-            $model->dnsServers = dnsServers::fromMap($map['DnsServers']);
-        }
-        if (isset($map['AvailableTtls'])) {
-            $model->availableTtls = availableTtls::fromMap($map['AvailableTtls']);
+        if (isset($map['body'])) {
+            $model->body = DescribeDomainInfoResponseBody::fromMap($map['body']);
         }
 
         return $model;

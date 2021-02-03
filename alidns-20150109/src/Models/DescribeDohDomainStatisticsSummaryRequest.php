@@ -36,6 +36,16 @@ class DescribeDohDomainStatisticsSummaryRequest extends Model
     /**
      * @var string
      */
+    public $orderBy;
+
+    /**
+     * @var string
+     */
+    public $direction;
+
+    /**
+     * @var string
+     */
     public $domainName;
     protected $_name = [
         'lang'       => 'Lang',
@@ -43,6 +53,8 @@ class DescribeDohDomainStatisticsSummaryRequest extends Model
         'pageSize'   => 'PageSize',
         'startDate'  => 'StartDate',
         'endDate'    => 'EndDate',
+        'orderBy'    => 'OrderBy',
+        'direction'  => 'Direction',
         'domainName' => 'DomainName',
     ];
 
@@ -67,6 +79,12 @@ class DescribeDohDomainStatisticsSummaryRequest extends Model
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
+        }
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -97,6 +115,12 @@ class DescribeDohDomainStatisticsSummaryRequest extends Model
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
+        }
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

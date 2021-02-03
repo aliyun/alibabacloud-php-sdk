@@ -22,15 +22,20 @@ class GetTxtRecordForVerifyRequest extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
-        'lang'       => 'Lang',
-        'domainName' => 'DomainName',
-        'type'       => 'Type',
+        'lang'         => 'Lang',
+        'domainName'   => 'DomainName',
+        'type'         => 'Type',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()
@@ -44,6 +49,9 @@ class GetTxtRecordForVerifyRequest extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -65,6 +73,9 @@ class GetTxtRecordForVerifyRequest extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

@@ -16,15 +16,20 @@ class GetMainDomainNameRequest extends Model
     /**
      * @var string
      */
+    public $userClientIp;
+
+    /**
+     * @var string
+     */
     public $inputString;
     protected $_name = [
-        'lang'        => 'Lang',
-        'inputString' => 'InputString',
+        'lang'         => 'Lang',
+        'userClientIp' => 'UserClientIp',
+        'inputString'  => 'InputString',
     ];
 
     public function validate()
     {
-        Model::validateRequired('inputString', $this->inputString, true);
     }
 
     public function toMap()
@@ -32,6 +37,9 @@ class GetMainDomainNameRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->inputString) {
             $res['InputString'] = $this->inputString;
@@ -50,6 +58,9 @@ class GetMainDomainNameRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['InputString'])) {
             $model->inputString = $map['InputString'];

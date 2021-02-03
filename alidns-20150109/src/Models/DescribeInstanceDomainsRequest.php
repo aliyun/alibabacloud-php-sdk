@@ -14,6 +14,11 @@ class DescribeInstanceDomainsRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $userClientIp;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -28,15 +33,15 @@ class DescribeInstanceDomainsRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'lang'       => 'Lang',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'instanceId' => 'InstanceId',
+        'lang'         => 'Lang',
+        'userClientIp' => 'UserClientIp',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
+        'instanceId'   => 'InstanceId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
@@ -44,6 +49,9 @@ class DescribeInstanceDomainsRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -68,6 +76,9 @@ class DescribeInstanceDomainsRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

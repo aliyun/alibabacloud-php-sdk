@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAddressPoolAvailableConfigResponse\attributeInfos;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDnsGtmAddressPoolAvailableConfigResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var attributeInfos
+     * @var DescribeDnsGtmAddressPoolAvailableConfigResponseBody
      */
-    public $attributeInfos;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'attributeInfos' => 'AttributeInfos',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('attributeInfos', $this->attributeInfos, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->attributeInfos) {
-            $res['AttributeInfos'] = null !== $this->attributeInfos ? $this->attributeInfos->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeDnsGtmAddressPoolAvailableConfigResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['AttributeInfos'])) {
-            $model->attributeInfos = attributeInfos::fromMap($map['AttributeInfos']);
+        if (isset($map['body'])) {
+            $model->body = DescribeDnsGtmAddressPoolAvailableConfigResponseBody::fromMap($map['body']);
         }
 
         return $model;

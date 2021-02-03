@@ -16,6 +16,11 @@ class AddGtmRecoveryPlanRequest extends Model
     /**
      * @var string
      */
+    public $userClientIp;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -29,6 +34,7 @@ class AddGtmRecoveryPlanRequest extends Model
     public $faultAddrPool;
     protected $_name = [
         'lang'          => 'Lang',
+        'userClientIp'  => 'UserClientIp',
         'name'          => 'Name',
         'remark'        => 'Remark',
         'faultAddrPool' => 'FaultAddrPool',
@@ -36,8 +42,6 @@ class AddGtmRecoveryPlanRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('faultAddrPool', $this->faultAddrPool, true);
     }
 
     public function toMap()
@@ -45,6 +49,9 @@ class AddGtmRecoveryPlanRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -69,6 +76,9 @@ class AddGtmRecoveryPlanRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainStatisticsResponse\statistics;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDomainStatisticsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var statistics
+     * @var DescribeDomainStatisticsResponseBody
      */
-    public $statistics;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'statistics' => 'Statistics',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('statistics', $this->statistics, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->statistics) {
-            $res['Statistics'] = null !== $this->statistics ? $this->statistics->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeDomainStatisticsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Statistics'])) {
-            $model->statistics = statistics::fromMap($map['Statistics']);
+        if (isset($map['body'])) {
+            $model->body = DescribeDomainStatisticsResponseBody::fromMap($map['body']);
         }
 
         return $model;

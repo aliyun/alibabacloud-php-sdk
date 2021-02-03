@@ -14,6 +14,11 @@ class DescribeBatchResultCountRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $userClientIp;
+
+    /**
      * @var int
      */
     public $taskId;
@@ -23,9 +28,10 @@ class DescribeBatchResultCountRequest extends Model
      */
     public $batchType;
     protected $_name = [
-        'lang'      => 'Lang',
-        'taskId'    => 'TaskId',
-        'batchType' => 'BatchType',
+        'lang'         => 'Lang',
+        'userClientIp' => 'UserClientIp',
+        'taskId'       => 'TaskId',
+        'batchType'    => 'BatchType',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class DescribeBatchResultCountRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -58,6 +67,9 @@ class DescribeBatchResultCountRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

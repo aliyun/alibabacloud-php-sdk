@@ -4,79 +4,38 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmInstancesResponse\gtmInstances;
 use AlibabaCloud\Tea\Model;
 
 class DescribeGtmInstancesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeGtmInstancesResponseBody
      */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $totalItems;
-
-    /**
-     * @var int
-     */
-    public $totalPages;
-
-    /**
-     * @var gtmInstances
-     */
-    public $gtmInstances;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'totalItems'   => 'TotalItems',
-        'totalPages'   => 'TotalPages',
-        'gtmInstances' => 'GtmInstances',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('totalItems', $this->totalItems, true);
-        Model::validateRequired('totalPages', $this->totalPages, true);
-        Model::validateRequired('gtmInstances', $this->gtmInstances, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalItems) {
-            $res['TotalItems'] = $this->totalItems;
-        }
-        if (null !== $this->totalPages) {
-            $res['TotalPages'] = $this->totalPages;
-        }
-        if (null !== $this->gtmInstances) {
-            $res['GtmInstances'] = null !== $this->gtmInstances ? $this->gtmInstances->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -90,23 +49,11 @@ class DescribeGtmInstancesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalItems'])) {
-            $model->totalItems = $map['TotalItems'];
-        }
-        if (isset($map['TotalPages'])) {
-            $model->totalPages = $map['TotalPages'];
-        }
-        if (isset($map['GtmInstances'])) {
-            $model->gtmInstances = gtmInstances::fromMap($map['GtmInstances']);
+        if (isset($map['body'])) {
+            $model->body = DescribeGtmInstancesResponseBody::fromMap($map['body']);
         }
 
         return $model;

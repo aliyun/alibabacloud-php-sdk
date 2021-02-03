@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class UpdateDNSSLBWeightResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var UpdateDNSSLBWeightResponseBody
      */
-    public $recordId;
-
-    /**
-     * @var int
-     */
-    public $weight;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'recordId'  => 'RecordId',
-        'weight'    => 'Weight',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('recordId', $this->recordId, true);
-        Model::validateRequired('weight', $this->weight, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->recordId) {
-            $res['RecordId'] = $this->recordId;
-        }
-        if (null !== $this->weight) {
-            $res['Weight'] = $this->weight;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class UpdateDNSSLBWeightResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RecordId'])) {
-            $model->recordId = $map['RecordId'];
-        }
-        if (isset($map['Weight'])) {
-            $model->weight = $map['Weight'];
+        if (isset($map['body'])) {
+            $model->body = UpdateDNSSLBWeightResponseBody::fromMap($map['body']);
         }
 
         return $model;

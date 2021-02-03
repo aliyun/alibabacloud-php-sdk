@@ -16,6 +16,11 @@ class UntagResourcesRequest extends Model
     /**
      * @var string
      */
+    public $userClientIp;
+
+    /**
+     * @var string
+     */
     public $resourceType;
 
     /**
@@ -34,6 +39,7 @@ class UntagResourcesRequest extends Model
     public $tagKey;
     protected $_name = [
         'lang'         => 'Lang',
+        'userClientIp' => 'UserClientIp',
         'resourceType' => 'ResourceType',
         'all'          => 'All',
         'resourceId'   => 'ResourceId',
@@ -42,8 +48,6 @@ class UntagResourcesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('resourceType', $this->resourceType, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
     }
 
     public function toMap()
@@ -51,6 +55,9 @@ class UntagResourcesRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -78,6 +85,9 @@ class UntagResourcesRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

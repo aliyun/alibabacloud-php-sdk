@@ -12,6 +12,11 @@ class UpdateDnsGtmAddressPoolRequest extends Model
     /**
      * @var string
      */
+    public $userClientIp;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -34,23 +39,24 @@ class UpdateDnsGtmAddressPoolRequest extends Model
      */
     public $addr;
     protected $_name = [
-        'lang'        => 'Lang',
-        'addrPoolId'  => 'AddrPoolId',
-        'name'        => 'Name',
-        'lbaStrategy' => 'LbaStrategy',
-        'addr'        => 'Addr',
+        'userClientIp' => 'UserClientIp',
+        'lang'         => 'Lang',
+        'addrPoolId'   => 'AddrPoolId',
+        'name'         => 'Name',
+        'lbaStrategy'  => 'LbaStrategy',
+        'addr'         => 'Addr',
     ];
 
     public function validate()
     {
-        Model::validateRequired('addrPoolId', $this->addrPoolId, true);
-        Model::validateRequired('lbaStrategy', $this->lbaStrategy, true);
-        Model::validateRequired('addr', $this->addr, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -84,6 +90,9 @@ class UpdateDnsGtmAddressPoolRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

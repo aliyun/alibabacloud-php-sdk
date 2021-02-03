@@ -4,70 +4,38 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
-use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainNsResponse\dnsServers;
-use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDomainNsResponse\expectDnsServers;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDomainNsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bool
+     * @var DescribeDomainNsResponseBody
      */
-    public $allAliDns;
-
-    /**
-     * @var bool
-     */
-    public $includeAliDns;
-
-    /**
-     * @var dnsServers
-     */
-    public $dnsServers;
-
-    /**
-     * @var expectDnsServers
-     */
-    public $expectDnsServers;
+    public $body;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'allAliDns'        => 'AllAliDns',
-        'includeAliDns'    => 'IncludeAliDns',
-        'dnsServers'       => 'DnsServers',
-        'expectDnsServers' => 'ExpectDnsServers',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('allAliDns', $this->allAliDns, true);
-        Model::validateRequired('includeAliDns', $this->includeAliDns, true);
-        Model::validateRequired('dnsServers', $this->dnsServers, true);
-        Model::validateRequired('expectDnsServers', $this->expectDnsServers, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->allAliDns) {
-            $res['AllAliDns'] = $this->allAliDns;
-        }
-        if (null !== $this->includeAliDns) {
-            $res['IncludeAliDns'] = $this->includeAliDns;
-        }
-        if (null !== $this->dnsServers) {
-            $res['DnsServers'] = null !== $this->dnsServers ? $this->dnsServers->toMap() : null;
-        }
-        if (null !== $this->expectDnsServers) {
-            $res['ExpectDnsServers'] = null !== $this->expectDnsServers ? $this->expectDnsServers->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -81,20 +49,11 @@ class DescribeDomainNsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['AllAliDns'])) {
-            $model->allAliDns = $map['AllAliDns'];
-        }
-        if (isset($map['IncludeAliDns'])) {
-            $model->includeAliDns = $map['IncludeAliDns'];
-        }
-        if (isset($map['DnsServers'])) {
-            $model->dnsServers = dnsServers::fromMap($map['DnsServers']);
-        }
-        if (isset($map['ExpectDnsServers'])) {
-            $model->expectDnsServers = expectDnsServers::fromMap($map['ExpectDnsServers']);
+        if (isset($map['body'])) {
+            $model->body = DescribeDomainNsResponseBody::fromMap($map['body']);
         }
 
         return $model;

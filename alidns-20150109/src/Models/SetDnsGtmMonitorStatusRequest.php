@@ -11,6 +11,11 @@ class SetDnsGtmMonitorStatusRequest extends Model
     /**
      * @var string
      */
+    public $userClientIp;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -23,6 +28,7 @@ class SetDnsGtmMonitorStatusRequest extends Model
      */
     public $status;
     protected $_name = [
+        'userClientIp'    => 'UserClientIp',
         'lang'            => 'Lang',
         'monitorConfigId' => 'MonitorConfigId',
         'status'          => 'Status',
@@ -30,13 +36,14 @@ class SetDnsGtmMonitorStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('monitorConfigId', $this->monitorConfigId, true);
-        Model::validateRequired('status', $this->status, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -58,6 +65,9 @@ class SetDnsGtmMonitorStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

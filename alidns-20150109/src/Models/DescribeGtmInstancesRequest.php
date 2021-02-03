@@ -14,6 +14,11 @@ class DescribeGtmInstancesRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $userClientIp;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -39,6 +44,7 @@ class DescribeGtmInstancesRequest extends Model
     public $needDetailAttributes;
     protected $_name = [
         'lang'                 => 'Lang',
+        'userClientIp'         => 'UserClientIp',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'keyword'              => 'Keyword',
@@ -55,6 +61,9 @@ class DescribeGtmInstancesRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -85,6 +94,9 @@ class DescribeGtmInstancesRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

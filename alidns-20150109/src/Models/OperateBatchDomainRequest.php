@@ -17,6 +17,11 @@ class OperateBatchDomainRequest extends Model
     /**
      * @var string
      */
+    public $userClientIp;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -25,14 +30,13 @@ class OperateBatchDomainRequest extends Model
     public $domainRecordInfo;
     protected $_name = [
         'lang'             => 'Lang',
+        'userClientIp'     => 'UserClientIp',
         'type'             => 'Type',
         'domainRecordInfo' => 'DomainRecordInfo',
     ];
 
     public function validate()
     {
-        Model::validateRequired('type', $this->type, true);
-        Model::validateRequired('domainRecordInfo', $this->domainRecordInfo, true);
     }
 
     public function toMap()
@@ -40,6 +44,9 @@ class OperateBatchDomainRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -67,6 +74,9 @@ class OperateBatchDomainRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

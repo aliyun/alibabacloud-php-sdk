@@ -11,6 +11,11 @@ class CopyGtmConfigRequest extends Model
     /**
      * @var string
      */
+    public $userClientIp;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -28,22 +33,23 @@ class CopyGtmConfigRequest extends Model
      */
     public $copyType;
     protected $_name = [
-        'lang'     => 'Lang',
-        'sourceId' => 'SourceId',
-        'targetId' => 'TargetId',
-        'copyType' => 'CopyType',
+        'userClientIp' => 'UserClientIp',
+        'lang'         => 'Lang',
+        'sourceId'     => 'SourceId',
+        'targetId'     => 'TargetId',
+        'copyType'     => 'CopyType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('sourceId', $this->sourceId, true);
-        Model::validateRequired('targetId', $this->targetId, true);
-        Model::validateRequired('copyType', $this->copyType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -68,6 +74,9 @@ class CopyGtmConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

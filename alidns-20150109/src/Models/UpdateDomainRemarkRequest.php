@@ -16,6 +16,11 @@ class UpdateDomainRemarkRequest extends Model
     /**
      * @var string
      */
+    public $userClientIp;
+
+    /**
+     * @var string
+     */
     public $domainName;
 
     /**
@@ -23,14 +28,14 @@ class UpdateDomainRemarkRequest extends Model
      */
     public $remark;
     protected $_name = [
-        'lang'       => 'Lang',
-        'domainName' => 'DomainName',
-        'remark'     => 'Remark',
+        'lang'         => 'Lang',
+        'userClientIp' => 'UserClientIp',
+        'domainName'   => 'DomainName',
+        'remark'       => 'Remark',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainName', $this->domainName, true);
     }
 
     public function toMap()
@@ -38,6 +43,9 @@ class UpdateDomainRemarkRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -59,6 +67,9 @@ class UpdateDomainRemarkRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

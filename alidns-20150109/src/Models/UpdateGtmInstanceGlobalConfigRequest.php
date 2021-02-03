@@ -16,6 +16,11 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     /**
      * @var string
      */
+    public $userClientIp;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -54,6 +59,7 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     public $cnameCustomDomainName;
     protected $_name = [
         'lang'                  => 'Lang',
+        'userClientIp'          => 'UserClientIp',
         'instanceId'            => 'InstanceId',
         'instanceName'          => 'InstanceName',
         'ttl'                   => 'Ttl',
@@ -66,7 +72,6 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
@@ -74,6 +79,9 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -113,6 +121,9 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

@@ -9,93 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeBatchResultCountResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeBatchResultCountResponseBody
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $successCount;
-
-    /**
-     * @var int
-     */
-    public $failedCount;
-
-    /**
-     * @var string
-     */
-    public $reason;
-
-    /**
-     * @var string
-     */
-    public $batchType;
-
-    /**
-     * @var int
-     */
-    public $taskId;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
-        'totalCount'   => 'TotalCount',
-        'successCount' => 'SuccessCount',
-        'failedCount'  => 'FailedCount',
-        'reason'       => 'Reason',
-        'batchType'    => 'BatchType',
-        'taskId'       => 'TaskId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('status', $this->status, true);
-        Model::validateRequired('totalCount', $this->totalCount, true);
-        Model::validateRequired('successCount', $this->successCount, true);
-        Model::validateRequired('failedCount', $this->failedCount, true);
-        Model::validateRequired('reason', $this->reason, true);
-        Model::validateRequired('batchType', $this->batchType, true);
-        Model::validateRequired('taskId', $this->taskId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->successCount) {
-            $res['SuccessCount'] = $this->successCount;
-        }
-        if (null !== $this->failedCount) {
-            $res['FailedCount'] = $this->failedCount;
-        }
-        if (null !== $this->reason) {
-            $res['Reason'] = $this->reason;
-        }
-        if (null !== $this->batchType) {
-            $res['BatchType'] = $this->batchType;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -109,29 +49,11 @@ class DescribeBatchResultCountResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['SuccessCount'])) {
-            $model->successCount = $map['SuccessCount'];
-        }
-        if (isset($map['FailedCount'])) {
-            $model->failedCount = $map['FailedCount'];
-        }
-        if (isset($map['Reason'])) {
-            $model->reason = $map['Reason'];
-        }
-        if (isset($map['BatchType'])) {
-            $model->batchType = $map['BatchType'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['body'])) {
+            $model->body = DescribeBatchResultCountResponseBody::fromMap($map['body']);
         }
 
         return $model;

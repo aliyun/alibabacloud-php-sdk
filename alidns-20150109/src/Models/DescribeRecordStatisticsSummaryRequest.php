@@ -14,6 +14,11 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $userClientIp;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -32,6 +37,16 @@ class DescribeRecordStatisticsSummaryRequest extends Model
      * @var string
      */
     public $endDate;
+
+    /**
+     * @var string
+     */
+    public $orderBy;
+
+    /**
+     * @var string
+     */
+    public $direction;
 
     /**
      * @var string
@@ -58,22 +73,23 @@ class DescribeRecordStatisticsSummaryRequest extends Model
      */
     public $domainType;
     protected $_name = [
-        'lang'       => 'Lang',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startDate'  => 'StartDate',
-        'endDate'    => 'EndDate',
-        'domainName' => 'DomainName',
-        'searchMode' => 'SearchMode',
-        'keyword'    => 'Keyword',
-        'threshold'  => 'Threshold',
-        'domainType' => 'DomainType',
+        'lang'         => 'Lang',
+        'userClientIp' => 'UserClientIp',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
+        'startDate'    => 'StartDate',
+        'endDate'      => 'EndDate',
+        'orderBy'      => 'OrderBy',
+        'direction'    => 'Direction',
+        'domainName'   => 'DomainName',
+        'searchMode'   => 'SearchMode',
+        'keyword'      => 'Keyword',
+        'threshold'    => 'Threshold',
+        'domainType'   => 'DomainType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('startDate', $this->startDate, true);
-        Model::validateRequired('domainName', $this->domainName, true);
     }
 
     public function toMap()
@@ -81,6 +97,9 @@ class DescribeRecordStatisticsSummaryRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -93,6 +112,12 @@ class DescribeRecordStatisticsSummaryRequest extends Model
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
+        }
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -124,6 +149,9 @@ class DescribeRecordStatisticsSummaryRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -135,6 +163,12 @@ class DescribeRecordStatisticsSummaryRequest extends Model
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
+        }
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

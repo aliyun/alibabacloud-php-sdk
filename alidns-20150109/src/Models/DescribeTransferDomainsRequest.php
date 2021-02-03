@@ -14,6 +14,11 @@ class DescribeTransferDomainsRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $userClientIp;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -44,6 +49,7 @@ class DescribeTransferDomainsRequest extends Model
     public $targetUserId;
     protected $_name = [
         'lang'         => 'Lang',
+        'userClientIp' => 'UserClientIp',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'transferType' => 'TransferType',
@@ -54,7 +60,6 @@ class DescribeTransferDomainsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('transferType', $this->transferType, true);
     }
 
     public function toMap()
@@ -62,6 +67,9 @@ class DescribeTransferDomainsRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -95,6 +103,9 @@ class DescribeTransferDomainsRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
