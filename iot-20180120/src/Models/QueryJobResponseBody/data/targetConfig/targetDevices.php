@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryJobResponseBody\data\targetConfig;
 
-use AlibabaCloud\SDK\Iot\V20180120\Models\QueryJobResponseBody\data\targetConfig\targetDevices\targetDevices;
 use AlibabaCloud\Tea\Model;
 
 class targetDevices extends Model
 {
     /**
-     * @var targetDevices[]
+     * @var \AlibabaCloud\SDK\Iot\V20180120\Models\QueryJobResponseBody\data\targetConfig\targetDevices\targetDevices[]
      */
     public $targetDevices;
     protected $_name = [
@@ -50,7 +49,7 @@ class targetDevices extends Model
                 $model->targetDevices = [];
                 $n                    = 0;
                 foreach ($map['targetDevices'] as $item) {
-                    $model->targetDevices[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->targetDevices[$n++] = null !== $item ? \AlibabaCloud\SDK\Iot\V20180120\Models\QueryJobResponseBody\data\targetConfig\targetDevices\targetDevices::fromMap($item) : $item;
                 }
             }
         }

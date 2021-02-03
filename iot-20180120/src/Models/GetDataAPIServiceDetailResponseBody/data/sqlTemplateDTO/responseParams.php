@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponseBody\data\sqlTemplateDTO;
 
-use AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponseBody\data\sqlTemplateDTO\responseParams\responseParams;
 use AlibabaCloud\Tea\Model;
 
 class responseParams extends Model
 {
     /**
-     * @var responseParams[]
+     * @var \AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponseBody\data\sqlTemplateDTO\responseParams\responseParams[]
      */
     public $responseParams;
     protected $_name = [
@@ -50,7 +49,7 @@ class responseParams extends Model
                 $model->responseParams = [];
                 $n                     = 0;
                 foreach ($map['ResponseParams'] as $item) {
-                    $model->responseParams[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->responseParams[$n++] = null !== $item ? \AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponseBody\data\sqlTemplateDTO\responseParams\responseParams::fromMap($item) : $item;
                 }
             }
         }
