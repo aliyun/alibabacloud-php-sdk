@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeSupportLinesResponse\recordLines;
 use AlibabaCloud\Tea\Model;
 
 class DescribeSupportLinesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeSupportLinesResponseBody
+     * @var recordLines
      */
-    public $body;
+    public $recordLines;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'   => 'RequestId',
+        'recordLines' => 'RecordLines',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('recordLines', $this->recordLines, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->recordLines) {
+            $res['RecordLines'] = null !== $this->recordLines ? $this->recordLines->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class DescribeSupportLinesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeSupportLinesResponseBody::fromMap($map['body']);
+        if (isset($map['RecordLines'])) {
+            $model->recordLines = recordLines::fromMap($map['RecordLines']);
         }
 
         return $model;

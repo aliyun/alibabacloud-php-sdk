@@ -4,38 +4,50 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmAccessStrategyAvailableConfigResponse\addrPools;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmAccessStrategyAvailableConfigResponse\lines;
 use AlibabaCloud\Tea\Model;
 
 class DescribeGtmAccessStrategyAvailableConfigResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeGtmAccessStrategyAvailableConfigResponseBody
+     * @var addrPools
      */
-    public $body;
+    public $addrPools;
+
+    /**
+     * @var lines
+     */
+    public $lines;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'addrPools' => 'AddrPools',
+        'lines'     => 'Lines',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('addrPools', $this->addrPools, true);
+        Model::validateRequired('lines', $this->lines, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->addrPools) {
+            $res['AddrPools'] = null !== $this->addrPools ? $this->addrPools->toMap() : null;
+        }
+        if (null !== $this->lines) {
+            $res['Lines'] = null !== $this->lines ? $this->lines->toMap() : null;
         }
 
         return $res;
@@ -49,11 +61,14 @@ class DescribeGtmAccessStrategyAvailableConfigResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeGtmAccessStrategyAvailableConfigResponseBody::fromMap($map['body']);
+        if (isset($map['AddrPools'])) {
+            $model->addrPools = addrPools::fromMap($map['AddrPools']);
+        }
+        if (isset($map['Lines'])) {
+            $model->lines = lines::fromMap($map['Lines']);
         }
 
         return $model;

@@ -11,15 +11,15 @@ class ipSegment extends Model
     /**
      * @var string
      */
-    public $endIp;
+    public $startIp;
 
     /**
      * @var string
      */
-    public $startIp;
+    public $endIp;
     protected $_name = [
-        'endIp'   => 'EndIp',
         'startIp' => 'StartIp',
+        'endIp'   => 'EndIp',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ipSegment extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endIp) {
-            $res['EndIp'] = $this->endIp;
-        }
         if (null !== $this->startIp) {
             $res['StartIp'] = $this->startIp;
+        }
+        if (null !== $this->endIp) {
+            $res['EndIp'] = $this->endIp;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ipSegment extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndIp'])) {
-            $model->endIp = $map['EndIp'];
-        }
         if (isset($map['StartIp'])) {
             $model->startIp = $map['StartIp'];
+        }
+        if (isset($map['EndIp'])) {
+            $model->endIp = $map['EndIp'];
         }
 
         return $model;

@@ -16,11 +16,6 @@ class DescribeDomainStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $domainName;
 
     /**
@@ -38,16 +33,17 @@ class DescribeDomainStatisticsRequest extends Model
      */
     public $domainType;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'domainName'   => 'DomainName',
-        'startDate'    => 'StartDate',
-        'endDate'      => 'EndDate',
-        'domainType'   => 'DomainType',
+        'lang'       => 'Lang',
+        'domainName' => 'DomainName',
+        'startDate'  => 'StartDate',
+        'endDate'    => 'EndDate',
+        'domainType' => 'DomainType',
     ];
 
     public function validate()
     {
+        Model::validateRequired('domainName', $this->domainName, true);
+        Model::validateRequired('startDate', $this->startDate, true);
     }
 
     public function toMap()
@@ -55,9 +51,6 @@ class DescribeDomainStatisticsRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -85,9 +78,6 @@ class DescribeDomainStatisticsRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

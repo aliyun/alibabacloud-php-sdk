@@ -14,11 +14,6 @@ class PreviewGtmRecoveryPlanRequest extends Model
     public $lang;
 
     /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
      * @var int
      */
     public $recoveryPlanId;
@@ -34,7 +29,6 @@ class PreviewGtmRecoveryPlanRequest extends Model
     public $pageSize;
     protected $_name = [
         'lang'           => 'Lang',
-        'userClientIp'   => 'UserClientIp',
         'recoveryPlanId' => 'RecoveryPlanId',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
@@ -42,6 +36,7 @@ class PreviewGtmRecoveryPlanRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('recoveryPlanId', $this->recoveryPlanId, true);
     }
 
     public function toMap()
@@ -49,9 +44,6 @@ class PreviewGtmRecoveryPlanRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->recoveryPlanId) {
             $res['RecoveryPlanId'] = $this->recoveryPlanId;
@@ -76,9 +68,6 @@ class PreviewGtmRecoveryPlanRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['RecoveryPlanId'])) {
             $model->recoveryPlanId = $map['RecoveryPlanId'];

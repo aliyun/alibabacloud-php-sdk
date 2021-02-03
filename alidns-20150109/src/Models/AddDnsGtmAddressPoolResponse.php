@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AddDnsGtmAddressPoolResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var AddDnsGtmAddressPoolResponseBody
+     * @var string
      */
-    public $body;
+    public $addrPoolId;
+
+    /**
+     * @var string
+     */
+    public $monitorConfigId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'       => 'RequestId',
+        'addrPoolId'      => 'AddrPoolId',
+        'monitorConfigId' => 'MonitorConfigId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('addrPoolId', $this->addrPoolId, true);
+        Model::validateRequired('monitorConfigId', $this->monitorConfigId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->addrPoolId) {
+            $res['AddrPoolId'] = $this->addrPoolId;
+        }
+        if (null !== $this->monitorConfigId) {
+            $res['MonitorConfigId'] = $this->monitorConfigId;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class AddDnsGtmAddressPoolResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = AddDnsGtmAddressPoolResponseBody::fromMap($map['body']);
+        if (isset($map['AddrPoolId'])) {
+            $model->addrPoolId = $map['AddrPoolId'];
+        }
+        if (isset($map['MonitorConfigId'])) {
+            $model->monitorConfigId = $map['MonitorConfigId'];
         }
 
         return $model;

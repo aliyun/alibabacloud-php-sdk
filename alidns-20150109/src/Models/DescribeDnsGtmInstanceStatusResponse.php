@@ -9,33 +9,73 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstanceStatusResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeDnsGtmInstanceStatusResponseBody
+     * @var int
      */
-    public $body;
+    public $addrNotAvailableNum;
+
+    /**
+     * @var int
+     */
+    public $addrPoolGroupNotAvailableNum;
+
+    /**
+     * @var int
+     */
+    public $switchToFailoverStrategyNum;
+
+    /**
+     * @var int
+     */
+    public $strategyNotAvailableNum;
+
+    /**
+     * @var int
+     */
+    public $addrAvailableNum;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'                    => 'RequestId',
+        'addrNotAvailableNum'          => 'AddrNotAvailableNum',
+        'addrPoolGroupNotAvailableNum' => 'AddrPoolGroupNotAvailableNum',
+        'switchToFailoverStrategyNum'  => 'SwitchToFailoverStrategyNum',
+        'strategyNotAvailableNum'      => 'StrategyNotAvailableNum',
+        'addrAvailableNum'             => 'AddrAvailableNum',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('addrNotAvailableNum', $this->addrNotAvailableNum, true);
+        Model::validateRequired('addrPoolGroupNotAvailableNum', $this->addrPoolGroupNotAvailableNum, true);
+        Model::validateRequired('switchToFailoverStrategyNum', $this->switchToFailoverStrategyNum, true);
+        Model::validateRequired('strategyNotAvailableNum', $this->strategyNotAvailableNum, true);
+        Model::validateRequired('addrAvailableNum', $this->addrAvailableNum, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->addrNotAvailableNum) {
+            $res['AddrNotAvailableNum'] = $this->addrNotAvailableNum;
+        }
+        if (null !== $this->addrPoolGroupNotAvailableNum) {
+            $res['AddrPoolGroupNotAvailableNum'] = $this->addrPoolGroupNotAvailableNum;
+        }
+        if (null !== $this->switchToFailoverStrategyNum) {
+            $res['SwitchToFailoverStrategyNum'] = $this->switchToFailoverStrategyNum;
+        }
+        if (null !== $this->strategyNotAvailableNum) {
+            $res['StrategyNotAvailableNum'] = $this->strategyNotAvailableNum;
+        }
+        if (null !== $this->addrAvailableNum) {
+            $res['AddrAvailableNum'] = $this->addrAvailableNum;
         }
 
         return $res;
@@ -49,11 +89,23 @@ class DescribeDnsGtmInstanceStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeDnsGtmInstanceStatusResponseBody::fromMap($map['body']);
+        if (isset($map['AddrNotAvailableNum'])) {
+            $model->addrNotAvailableNum = $map['AddrNotAvailableNum'];
+        }
+        if (isset($map['AddrPoolGroupNotAvailableNum'])) {
+            $model->addrPoolGroupNotAvailableNum = $map['AddrPoolGroupNotAvailableNum'];
+        }
+        if (isset($map['SwitchToFailoverStrategyNum'])) {
+            $model->switchToFailoverStrategyNum = $map['SwitchToFailoverStrategyNum'];
+        }
+        if (isset($map['StrategyNotAvailableNum'])) {
+            $model->strategyNotAvailableNum = $map['StrategyNotAvailableNum'];
+        }
+        if (isset($map['AddrAvailableNum'])) {
+            $model->addrAvailableNum = $map['AddrAvailableNum'];
         }
 
         return $model;

@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmMonitorAvailableConfigResponse\ispCityNodes;
 use AlibabaCloud\Tea\Model;
 
 class DescribeGtmMonitorAvailableConfigResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeGtmMonitorAvailableConfigResponseBody
+     * @var ispCityNodes
      */
-    public $body;
+    public $ispCityNodes;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'    => 'RequestId',
+        'ispCityNodes' => 'IspCityNodes',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('ispCityNodes', $this->ispCityNodes, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->ispCityNodes) {
+            $res['IspCityNodes'] = null !== $this->ispCityNodes ? $this->ispCityNodes->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class DescribeGtmMonitorAvailableConfigResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeGtmMonitorAvailableConfigResponseBody::fromMap($map['body']);
+        if (isset($map['IspCityNodes'])) {
+            $model->ispCityNodes = ispCityNodes::fromMap($map['IspCityNodes']);
         }
 
         return $model;

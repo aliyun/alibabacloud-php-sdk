@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DeleteSubDomainRecordsResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DeleteSubDomainRecordsResponseBody
+     * @var string
      */
-    public $body;
+    public $RR;
+
+    /**
+     * @var string
+     */
+    public $totalCount;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'  => 'RequestId',
+        'RR'         => 'RR',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('RR', $this->RR, true);
+        Model::validateRequired('totalCount', $this->totalCount, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->RR) {
+            $res['RR'] = $this->RR;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class DeleteSubDomainRecordsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DeleteSubDomainRecordsResponseBody::fromMap($map['body']);
+        if (isset($map['RR'])) {
+            $model->RR = $map['RR'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

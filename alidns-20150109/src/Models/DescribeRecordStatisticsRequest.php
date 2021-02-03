@@ -16,11 +16,6 @@ class DescribeRecordStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $startDate;
 
     /**
@@ -43,17 +38,19 @@ class DescribeRecordStatisticsRequest extends Model
      */
     public $domainType;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'startDate'    => 'StartDate',
-        'endDate'      => 'EndDate',
-        'domainName'   => 'DomainName',
-        'rr'           => 'Rr',
-        'domainType'   => 'DomainType',
+        'lang'       => 'Lang',
+        'startDate'  => 'StartDate',
+        'endDate'    => 'EndDate',
+        'domainName' => 'DomainName',
+        'rr'         => 'Rr',
+        'domainType' => 'DomainType',
     ];
 
     public function validate()
     {
+        Model::validateRequired('startDate', $this->startDate, true);
+        Model::validateRequired('domainName', $this->domainName, true);
+        Model::validateRequired('rr', $this->rr, true);
     }
 
     public function toMap()
@@ -61,9 +58,6 @@ class DescribeRecordStatisticsRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
@@ -94,9 +88,6 @@ class DescribeRecordStatisticsRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];

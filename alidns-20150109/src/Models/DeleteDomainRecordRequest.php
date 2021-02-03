@@ -30,6 +30,7 @@ class DeleteDomainRecordRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('recordId', $this->recordId, true);
     }
 
     public function toMap()

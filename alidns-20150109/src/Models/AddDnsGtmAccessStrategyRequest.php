@@ -18,11 +18,6 @@ class AddDnsGtmAccessStrategyRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -86,11 +81,6 @@ class AddDnsGtmAccessStrategyRequest extends Model
     public $failoverLatencyOptimization;
 
     /**
-     * @var string
-     */
-    public $strategyMode;
-
-    /**
      * @var defaultAddrPool[]
      */
     public $defaultAddrPool;
@@ -99,9 +89,13 @@ class AddDnsGtmAccessStrategyRequest extends Model
      * @var failoverAddrPool[]
      */
     public $failoverAddrPool;
+
+    /**
+     * @var string
+     */
+    public $strategyMode;
     protected $_name = [
         'lang'                        => 'Lang',
-        'userClientIp'                => 'UserClientIp',
         'instanceId'                  => 'InstanceId',
         'strategyName'                => 'StrategyName',
         'lines'                       => 'Lines',
@@ -115,13 +109,19 @@ class AddDnsGtmAccessStrategyRequest extends Model
         'failoverMinAvailableAddrNum' => 'FailoverMinAvailableAddrNum',
         'failoverMaxReturnAddrNum'    => 'FailoverMaxReturnAddrNum',
         'failoverLatencyOptimization' => 'FailoverLatencyOptimization',
-        'strategyMode'                => 'StrategyMode',
         'defaultAddrPool'             => 'DefaultAddrPool',
         'failoverAddrPool'            => 'FailoverAddrPool',
+        'strategyMode'                => 'StrategyMode',
     ];
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('strategyName', $this->strategyName, true);
+        Model::validateRequired('defaultAddrPoolType', $this->defaultAddrPoolType, true);
+        Model::validateRequired('defaultMinAvailableAddrNum', $this->defaultMinAvailableAddrNum, true);
+        Model::validateRequired('defaultAddrPool', $this->defaultAddrPool, true);
+        Model::validateRequired('strategyMode', $this->strategyMode, true);
     }
 
     public function toMap()
@@ -129,9 +129,6 @@ class AddDnsGtmAccessStrategyRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -172,9 +169,6 @@ class AddDnsGtmAccessStrategyRequest extends Model
         if (null !== $this->failoverLatencyOptimization) {
             $res['FailoverLatencyOptimization'] = $this->failoverLatencyOptimization;
         }
-        if (null !== $this->strategyMode) {
-            $res['StrategyMode'] = $this->strategyMode;
-        }
         if (null !== $this->defaultAddrPool) {
             $res['DefaultAddrPool'] = [];
             if (null !== $this->defaultAddrPool && \is_array($this->defaultAddrPool)) {
@@ -193,6 +187,9 @@ class AddDnsGtmAccessStrategyRequest extends Model
                 }
             }
         }
+        if (null !== $this->strategyMode) {
+            $res['StrategyMode'] = $this->strategyMode;
+        }
 
         return $res;
     }
@@ -207,9 +204,6 @@ class AddDnsGtmAccessStrategyRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -250,9 +244,6 @@ class AddDnsGtmAccessStrategyRequest extends Model
         if (isset($map['FailoverLatencyOptimization'])) {
             $model->failoverLatencyOptimization = $map['FailoverLatencyOptimization'];
         }
-        if (isset($map['StrategyMode'])) {
-            $model->strategyMode = $map['StrategyMode'];
-        }
         if (isset($map['DefaultAddrPool'])) {
             if (!empty($map['DefaultAddrPool'])) {
                 $model->defaultAddrPool = [];
@@ -270,6 +261,9 @@ class AddDnsGtmAccessStrategyRequest extends Model
                     $model->failoverAddrPool[$n++] = null !== $item ? failoverAddrPool::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['StrategyMode'])) {
+            $model->strategyMode = $map['StrategyMode'];
         }
 
         return $model;

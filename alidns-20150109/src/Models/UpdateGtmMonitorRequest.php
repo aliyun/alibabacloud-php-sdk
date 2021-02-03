@@ -12,11 +12,6 @@ class UpdateGtmMonitorRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $lang;
 
     /**
@@ -54,7 +49,6 @@ class UpdateGtmMonitorRequest extends Model
      */
     public $ispCityNode;
     protected $_name = [
-        'userClientIp'      => 'UserClientIp',
         'lang'              => 'Lang',
         'monitorConfigId'   => 'MonitorConfigId',
         'protocolType'      => 'ProtocolType',
@@ -67,14 +61,15 @@ class UpdateGtmMonitorRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('monitorConfigId', $this->monitorConfigId, true);
+        Model::validateRequired('protocolType', $this->protocolType, true);
+        Model::validateRequired('monitorExtendInfo', $this->monitorExtendInfo, true);
+        Model::validateRequired('ispCityNode', $this->ispCityNode, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -117,9 +112,6 @@ class UpdateGtmMonitorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

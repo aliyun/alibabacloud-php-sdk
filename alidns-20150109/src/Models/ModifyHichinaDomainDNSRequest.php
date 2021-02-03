@@ -30,6 +30,7 @@ class ModifyHichinaDomainDNSRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('domainName', $this->domainName, true);
     }
 
     public function toMap()

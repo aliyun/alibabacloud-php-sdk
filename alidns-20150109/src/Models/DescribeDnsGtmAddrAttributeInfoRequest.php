@@ -16,11 +16,6 @@ class DescribeDnsGtmAddrAttributeInfoRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $type;
 
     /**
@@ -28,14 +23,15 @@ class DescribeDnsGtmAddrAttributeInfoRequest extends Model
      */
     public $addrs;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'type'         => 'Type',
-        'addrs'        => 'Addrs',
+        'lang'  => 'Lang',
+        'type'  => 'Type',
+        'addrs' => 'Addrs',
     ];
 
     public function validate()
     {
+        Model::validateRequired('type', $this->type, true);
+        Model::validateRequired('addrs', $this->addrs, true);
     }
 
     public function toMap()
@@ -43,9 +39,6 @@ class DescribeDnsGtmAddrAttributeInfoRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -67,9 +60,6 @@ class DescribeDnsGtmAddrAttributeInfoRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

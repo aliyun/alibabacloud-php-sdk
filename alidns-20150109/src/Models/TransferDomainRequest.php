@@ -27,21 +27,17 @@ class TransferDomainRequest extends Model
      * @var int
      */
     public $targetUserId;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
     protected $_name = [
         'lang'         => 'Lang',
         'domainNames'  => 'DomainNames',
         'remark'       => 'Remark',
         'targetUserId' => 'TargetUserId',
-        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        Model::validateRequired('domainNames', $this->domainNames, true);
+        Model::validateRequired('targetUserId', $this->targetUserId, true);
     }
 
     public function toMap()
@@ -58,9 +54,6 @@ class TransferDomainRequest extends Model
         }
         if (null !== $this->targetUserId) {
             $res['TargetUserId'] = $this->targetUserId;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -85,9 +78,6 @@ class TransferDomainRequest extends Model
         }
         if (isset($map['TargetUserId'])) {
             $model->targetUserId = $map['TargetUserId'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

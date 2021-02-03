@@ -17,15 +17,9 @@ class DescribeCustomLineRequest extends Model
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
     protected $_name = [
-        'lineId'       => 'LineId',
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
+        'lineId' => 'LineId',
+        'lang'   => 'Lang',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class DescribeCustomLineRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class DescribeCustomLineRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

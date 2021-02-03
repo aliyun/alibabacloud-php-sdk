@@ -27,21 +27,16 @@ class AddDomainRequest extends Model
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
     protected $_name = [
         'lang'            => 'Lang',
         'domainName'      => 'DomainName',
         'groupId'         => 'GroupId',
         'resourceGroupId' => 'ResourceGroupId',
-        'userClientIp'    => 'UserClientIp',
     ];
 
     public function validate()
     {
+        Model::validateRequired('domainName', $this->domainName, true);
     }
 
     public function toMap()
@@ -58,9 +53,6 @@ class AddDomainRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -85,9 +77,6 @@ class AddDomainRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class addr extends Model
     /**
      * @var string
      */
-    public $attributeInfo;
-
-    /**
-     * @var string
-     */
-    public $remark;
+    public $addr;
 
     /**
      * @var int
@@ -26,41 +21,48 @@ class addr extends Model
     /**
      * @var string
      */
-    public $addr;
+    public $mode;
 
     /**
      * @var string
      */
-    public $mode;
+    public $remark;
+
+    /**
+     * @var string
+     */
+    public $attributeInfo;
     protected $_name = [
-        'attributeInfo' => 'AttributeInfo',
-        'remark'        => 'Remark',
-        'lbaWeight'     => 'LbaWeight',
         'addr'          => 'Addr',
+        'lbaWeight'     => 'LbaWeight',
         'mode'          => 'Mode',
+        'remark'        => 'Remark',
+        'attributeInfo' => 'AttributeInfo',
     ];
 
     public function validate()
     {
+        Model::validateRequired('addr', $this->addr, true);
+        Model::validateRequired('mode', $this->mode, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->attributeInfo) {
-            $res['AttributeInfo'] = $this->attributeInfo;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
+        if (null !== $this->addr) {
+            $res['Addr'] = $this->addr;
         }
         if (null !== $this->lbaWeight) {
             $res['LbaWeight'] = $this->lbaWeight;
         }
-        if (null !== $this->addr) {
-            $res['Addr'] = $this->addr;
-        }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->attributeInfo) {
+            $res['AttributeInfo'] = $this->attributeInfo;
         }
 
         return $res;
@@ -74,20 +76,20 @@ class addr extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AttributeInfo'])) {
-            $model->attributeInfo = $map['AttributeInfo'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
+        if (isset($map['Addr'])) {
+            $model->addr = $map['Addr'];
         }
         if (isset($map['LbaWeight'])) {
             $model->lbaWeight = $map['LbaWeight'];
         }
-        if (isset($map['Addr'])) {
-            $model->addr = $map['Addr'];
-        }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['AttributeInfo'])) {
+            $model->attributeInfo = $map['AttributeInfo'];
         }
 
         return $model;

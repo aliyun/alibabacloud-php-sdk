@@ -32,16 +32,23 @@ class DescribeDNSSLBSubDomainsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $rr;
     protected $_name = [
         'lang'         => 'Lang',
         'userClientIp' => 'UserClientIp',
         'domainName'   => 'DomainName',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
+        'rr'           => 'Rr',
     ];
 
     public function validate()
     {
+        Model::validateRequired('domainName', $this->domainName, true);
     }
 
     public function toMap()
@@ -61,6 +68,9 @@ class DescribeDNSSLBSubDomainsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->rr) {
+            $res['Rr'] = $this->rr;
         }
 
         return $res;
@@ -88,6 +98,9 @@ class DescribeDNSSLBSubDomainsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Rr'])) {
+            $model->rr = $map['Rr'];
         }
 
         return $model;

@@ -36,6 +36,8 @@ class UpdateDNSSLBWeightRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('recordId', $this->recordId, true);
+        Model::validateRequired('weight', $this->weight, true);
     }
 
     public function toMap()

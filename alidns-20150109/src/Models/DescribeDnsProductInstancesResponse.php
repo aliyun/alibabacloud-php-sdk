@@ -4,38 +4,79 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsProductInstancesResponse\dnsProducts;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDnsProductInstancesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeDnsProductInstancesResponseBody
+     * @var int
      */
-    public $body;
+    public $totalCount;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $domainType;
+
+    /**
+     * @var dnsProducts
+     */
+    public $dnsProducts;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'   => 'RequestId',
+        'totalCount'  => 'TotalCount',
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
+        'domainType'  => 'DomainType',
+        'dnsProducts' => 'DnsProducts',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('totalCount', $this->totalCount, true);
+        Model::validateRequired('pageNumber', $this->pageNumber, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('domainType', $this->domainType, true);
+        Model::validateRequired('dnsProducts', $this->dnsProducts, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->domainType) {
+            $res['DomainType'] = $this->domainType;
+        }
+        if (null !== $this->dnsProducts) {
+            $res['DnsProducts'] = null !== $this->dnsProducts ? $this->dnsProducts->toMap() : null;
         }
 
         return $res;
@@ -49,11 +90,23 @@ class DescribeDnsProductInstancesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeDnsProductInstancesResponseBody::fromMap($map['body']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['DomainType'])) {
+            $model->domainType = $map['DomainType'];
+        }
+        if (isset($map['DnsProducts'])) {
+            $model->dnsProducts = dnsProducts::fromMap($map['DnsProducts']);
         }
 
         return $model;

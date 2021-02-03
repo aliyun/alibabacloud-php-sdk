@@ -9,33 +9,53 @@ use AlibabaCloud\Tea\Model;
 class GetTxtRecordForVerifyResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var GetTxtRecordForVerifyResponseBody
+     * @var string
      */
-    public $body;
+    public $domainName;
+
+    /**
+     * @var string
+     */
+    public $RR;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'  => 'RequestId',
+        'domainName' => 'DomainName',
+        'RR'         => 'RR',
+        'value'      => 'Value',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('domainName', $this->domainName, true);
+        Model::validateRequired('RR', $this->RR, true);
+        Model::validateRequired('value', $this->value, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->RR) {
+            $res['RR'] = $this->RR;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -49,11 +69,17 @@ class GetTxtRecordForVerifyResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = GetTxtRecordForVerifyResponseBody::fromMap($map['body']);
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['RR'])) {
+            $model->RR = $map['RR'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

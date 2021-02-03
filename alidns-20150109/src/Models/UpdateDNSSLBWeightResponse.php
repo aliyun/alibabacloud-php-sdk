@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateDNSSLBWeightResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var UpdateDNSSLBWeightResponseBody
+     * @var string
      */
-    public $body;
+    public $recordId;
+
+    /**
+     * @var int
+     */
+    public $weight;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'recordId'  => 'RecordId',
+        'weight'    => 'Weight',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('recordId', $this->recordId, true);
+        Model::validateRequired('weight', $this->weight, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->recordId) {
+            $res['RecordId'] = $this->recordId;
+        }
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class UpdateDNSSLBWeightResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = UpdateDNSSLBWeightResponseBody::fromMap($map['body']);
+        if (isset($map['RecordId'])) {
+            $model->recordId = $map['RecordId'];
+        }
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;

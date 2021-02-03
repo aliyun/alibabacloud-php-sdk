@@ -17,11 +17,6 @@ class AddCustomLineRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $domainName;
 
     /**
@@ -34,15 +29,17 @@ class AddCustomLineRequest extends Model
      */
     public $ipSegment;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'domainName'   => 'DomainName',
-        'lineName'     => 'LineName',
-        'ipSegment'    => 'IpSegment',
+        'lang'       => 'Lang',
+        'domainName' => 'DomainName',
+        'lineName'   => 'LineName',
+        'ipSegment'  => 'IpSegment',
     ];
 
     public function validate()
     {
+        Model::validateRequired('domainName', $this->domainName, true);
+        Model::validateRequired('lineName', $this->lineName, true);
+        Model::validateRequired('ipSegment', $this->ipSegment, true);
     }
 
     public function toMap()
@@ -50,9 +47,6 @@ class AddCustomLineRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -83,9 +77,6 @@ class AddCustomLineRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

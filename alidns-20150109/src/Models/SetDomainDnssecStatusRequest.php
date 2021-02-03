@@ -11,11 +11,6 @@ class SetDomainDnssecStatusRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $lang;
 
     /**
@@ -28,22 +23,20 @@ class SetDomainDnssecStatusRequest extends Model
      */
     public $status;
     protected $_name = [
-        'userClientIp' => 'UserClientIp',
-        'lang'         => 'Lang',
-        'domainName'   => 'DomainName',
-        'status'       => 'Status',
+        'lang'       => 'Lang',
+        'domainName' => 'DomainName',
+        'status'     => 'Status',
     ];
 
     public function validate()
     {
+        Model::validateRequired('domainName', $this->domainName, true);
+        Model::validateRequired('status', $this->status, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -65,9 +58,6 @@ class SetDomainDnssecStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

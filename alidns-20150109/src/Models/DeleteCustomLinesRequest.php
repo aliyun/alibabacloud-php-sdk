@@ -16,20 +16,15 @@ class DeleteCustomLinesRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $lineIds;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'lineIds'      => 'LineIds',
+        'lang'    => 'Lang',
+        'lineIds' => 'LineIds',
     ];
 
     public function validate()
     {
+        Model::validateRequired('lineIds', $this->lineIds, true);
     }
 
     public function toMap()
@@ -37,9 +32,6 @@ class DeleteCustomLinesRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->lineIds) {
             $res['LineIds'] = $this->lineIds;
@@ -58,9 +50,6 @@ class DeleteCustomLinesRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['LineIds'])) {
             $model->lineIds = $map['LineIds'];

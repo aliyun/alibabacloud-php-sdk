@@ -17,32 +17,27 @@ class UpdateCustomLineRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $lineName;
-
-    /**
-     * @var int
-     */
-    public $lineId;
 
     /**
      * @var ipSegment[]
      */
     public $ipSegment;
+
+    /**
+     * @var int
+     */
+    public $lineId;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'lineName'     => 'LineName',
-        'lineId'       => 'LineId',
-        'ipSegment'    => 'IpSegment',
+        'lang'      => 'Lang',
+        'lineName'  => 'LineName',
+        'ipSegment' => 'IpSegment',
+        'lineId'    => 'LineId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('lineId', $this->lineId, true);
     }
 
     public function toMap()
@@ -51,14 +46,8 @@ class UpdateCustomLineRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->lineName) {
             $res['LineName'] = $this->lineName;
-        }
-        if (null !== $this->lineId) {
-            $res['LineId'] = $this->lineId;
         }
         if (null !== $this->ipSegment) {
             $res['IpSegment'] = [];
@@ -68,6 +57,9 @@ class UpdateCustomLineRequest extends Model
                     $res['IpSegment'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->lineId) {
+            $res['LineId'] = $this->lineId;
         }
 
         return $res;
@@ -84,14 +76,8 @@ class UpdateCustomLineRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['LineName'])) {
             $model->lineName = $map['LineName'];
-        }
-        if (isset($map['LineId'])) {
-            $model->lineId = $map['LineId'];
         }
         if (isset($map['IpSegment'])) {
             if (!empty($map['IpSegment'])) {
@@ -101,6 +87,9 @@ class UpdateCustomLineRequest extends Model
                     $model->ipSegment[$n++] = null !== $item ? ipSegment::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LineId'])) {
+            $model->lineId = $map['LineId'];
         }
 
         return $model;

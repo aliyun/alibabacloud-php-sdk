@@ -36,6 +36,7 @@ class DescribeDohSubDomainStatisticsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('subDomain', $this->subDomain, true);
     }
 
     public function toMap()

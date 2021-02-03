@@ -13,11 +13,6 @@ class AddGtmAddressPoolRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $lang;
 
     /**
@@ -39,6 +34,11 @@ class AddGtmAddressPoolRequest extends Model
      * @var int
      */
     public $minAvailableAddrNum;
+
+    /**
+     * @var addr[]
+     */
+    public $addr;
 
     /**
      * @var string
@@ -71,41 +71,37 @@ class AddGtmAddressPoolRequest extends Model
     public $monitorExtendInfo;
 
     /**
-     * @var addr[]
-     */
-    public $addr;
-
-    /**
      * @var ispCityNode[]
      */
     public $ispCityNode;
     protected $_name = [
-        'userClientIp'        => 'UserClientIp',
         'lang'                => 'Lang',
         'instanceId'          => 'InstanceId',
         'name'                => 'Name',
         'type'                => 'Type',
         'minAvailableAddrNum' => 'MinAvailableAddrNum',
+        'addr'                => 'Addr',
         'monitorStatus'       => 'MonitorStatus',
         'protocolType'        => 'ProtocolType',
         'interval'            => 'Interval',
         'evaluationCount'     => 'EvaluationCount',
         'timeout'             => 'Timeout',
         'monitorExtendInfo'   => 'MonitorExtendInfo',
-        'addr'                => 'Addr',
         'ispCityNode'         => 'IspCityNode',
     ];
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('type', $this->type, true);
+        Model::validateRequired('minAvailableAddrNum', $this->minAvailableAddrNum, true);
+        Model::validateRequired('addr', $this->addr, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -120,6 +116,15 @@ class AddGtmAddressPoolRequest extends Model
         }
         if (null !== $this->minAvailableAddrNum) {
             $res['MinAvailableAddrNum'] = $this->minAvailableAddrNum;
+        }
+        if (null !== $this->addr) {
+            $res['Addr'] = [];
+            if (null !== $this->addr && \is_array($this->addr)) {
+                $n = 0;
+                foreach ($this->addr as $item) {
+                    $res['Addr'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->monitorStatus) {
             $res['MonitorStatus'] = $this->monitorStatus;
@@ -138,15 +143,6 @@ class AddGtmAddressPoolRequest extends Model
         }
         if (null !== $this->monitorExtendInfo) {
             $res['MonitorExtendInfo'] = $this->monitorExtendInfo;
-        }
-        if (null !== $this->addr) {
-            $res['Addr'] = [];
-            if (null !== $this->addr && \is_array($this->addr)) {
-                $n = 0;
-                foreach ($this->addr as $item) {
-                    $res['Addr'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->ispCityNode) {
             $res['IspCityNode'] = [];
@@ -169,9 +165,6 @@ class AddGtmAddressPoolRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
@@ -186,6 +179,15 @@ class AddGtmAddressPoolRequest extends Model
         }
         if (isset($map['MinAvailableAddrNum'])) {
             $model->minAvailableAddrNum = $map['MinAvailableAddrNum'];
+        }
+        if (isset($map['Addr'])) {
+            if (!empty($map['Addr'])) {
+                $model->addr = [];
+                $n           = 0;
+                foreach ($map['Addr'] as $item) {
+                    $model->addr[$n++] = null !== $item ? addr::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['MonitorStatus'])) {
             $model->monitorStatus = $map['MonitorStatus'];
@@ -204,15 +206,6 @@ class AddGtmAddressPoolRequest extends Model
         }
         if (isset($map['MonitorExtendInfo'])) {
             $model->monitorExtendInfo = $map['MonitorExtendInfo'];
-        }
-        if (isset($map['Addr'])) {
-            if (!empty($map['Addr'])) {
-                $model->addr = [];
-                $n           = 0;
-                foreach ($map['Addr'] as $item) {
-                    $model->addr[$n++] = null !== $item ? addr::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['IspCityNode'])) {
             if (!empty($map['IspCityNode'])) {

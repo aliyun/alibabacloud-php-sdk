@@ -66,6 +66,10 @@ class UpdateDomainRecordRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('recordId', $this->recordId, true);
+        Model::validateRequired('RR', $this->RR, true);
+        Model::validateRequired('type', $this->type, true);
+        Model::validateRequired('value', $this->value, true);
     }
 
     public function toMap()

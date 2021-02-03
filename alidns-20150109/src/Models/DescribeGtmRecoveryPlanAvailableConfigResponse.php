@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlanAvailableConfigResponse\instances;
 use AlibabaCloud\Tea\Model;
 
 class DescribeGtmRecoveryPlanAvailableConfigResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeGtmRecoveryPlanAvailableConfigResponseBody
+     * @var instances
      */
-    public $body;
+    public $instances;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'instances' => 'Instances',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('instances', $this->instances, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->instances) {
+            $res['Instances'] = null !== $this->instances ? $this->instances->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class DescribeGtmRecoveryPlanAvailableConfigResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeGtmRecoveryPlanAvailableConfigResponseBody::fromMap($map['body']);
+        if (isset($map['Instances'])) {
+            $model->instances = instances::fromMap($map['Instances']);
         }
 
         return $model;

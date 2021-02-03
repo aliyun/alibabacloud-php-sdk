@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAddrAttributeInfoResponse\addr;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDnsGtmAddrAttributeInfoResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeDnsGtmAddrAttributeInfoResponseBody
+     * @var addr
      */
-    public $body;
+    public $addr;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'addr'      => 'Addr',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('addr', $this->addr, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->addr) {
+            $res['Addr'] = null !== $this->addr ? $this->addr->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class DescribeDnsGtmAddrAttributeInfoResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeDnsGtmAddrAttributeInfoResponseBody::fromMap($map['body']);
+        if (isset($map['Addr'])) {
+            $model->addr = addr::fromMap($map['Addr']);
         }
 
         return $model;

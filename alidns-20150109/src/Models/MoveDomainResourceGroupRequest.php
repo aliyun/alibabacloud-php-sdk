@@ -22,20 +22,16 @@ class MoveDomainResourceGroupRequest extends Model
      * @var string
      */
     public $newResourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
     protected $_name = [
         'lang'               => 'Lang',
         'resourceId'         => 'ResourceId',
         'newResourceGroupId' => 'NewResourceGroupId',
-        'userClientIp'       => 'UserClientIp',
     ];
 
     public function validate()
     {
+        Model::validateRequired('resourceId', $this->resourceId, true);
+        Model::validateRequired('newResourceGroupId', $this->newResourceGroupId, true);
     }
 
     public function toMap()
@@ -49,9 +45,6 @@ class MoveDomainResourceGroupRequest extends Model
         }
         if (null !== $this->newResourceGroupId) {
             $res['NewResourceGroupId'] = $this->newResourceGroupId;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -73,9 +66,6 @@ class MoveDomainResourceGroupRequest extends Model
         }
         if (isset($map['NewResourceGroupId'])) {
             $model->newResourceGroupId = $map['NewResourceGroupId'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

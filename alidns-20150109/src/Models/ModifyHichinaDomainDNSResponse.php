@@ -4,38 +4,50 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ModifyHichinaDomainDNSResponse\newDnsServers;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ModifyHichinaDomainDNSResponse\originalDnsServers;
 use AlibabaCloud\Tea\Model;
 
 class ModifyHichinaDomainDNSResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var ModifyHichinaDomainDNSResponseBody
+     * @var originalDnsServers
      */
-    public $body;
+    public $originalDnsServers;
+
+    /**
+     * @var newDnsServers
+     */
+    public $newDnsServers;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'          => 'RequestId',
+        'originalDnsServers' => 'OriginalDnsServers',
+        'newDnsServers'      => 'NewDnsServers',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('originalDnsServers', $this->originalDnsServers, true);
+        Model::validateRequired('newDnsServers', $this->newDnsServers, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->originalDnsServers) {
+            $res['OriginalDnsServers'] = null !== $this->originalDnsServers ? $this->originalDnsServers->toMap() : null;
+        }
+        if (null !== $this->newDnsServers) {
+            $res['NewDnsServers'] = null !== $this->newDnsServers ? $this->newDnsServers->toMap() : null;
         }
 
         return $res;
@@ -49,11 +61,14 @@ class ModifyHichinaDomainDNSResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = ModifyHichinaDomainDNSResponseBody::fromMap($map['body']);
+        if (isset($map['OriginalDnsServers'])) {
+            $model->originalDnsServers = originalDnsServers::fromMap($map['OriginalDnsServers']);
+        }
+        if (isset($map['NewDnsServers'])) {
+            $model->newDnsServers = newDnsServers::fromMap($map['NewDnsServers']);
         }
 
         return $model;

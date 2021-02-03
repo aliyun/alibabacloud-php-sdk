@@ -37,6 +37,11 @@ class SetDNSSLBStatusRequest extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $line;
     protected $_name = [
         'lang'         => 'Lang',
         'userClientIp' => 'UserClientIp',
@@ -44,10 +49,12 @@ class SetDNSSLBStatusRequest extends Model
         'open'         => 'Open',
         'domainName'   => 'DomainName',
         'type'         => 'Type',
+        'line'         => 'Line',
     ];
 
     public function validate()
     {
+        Model::validateRequired('subDomain', $this->subDomain, true);
     }
 
     public function toMap()
@@ -70,6 +77,9 @@ class SetDNSSLBStatusRequest extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->line) {
+            $res['Line'] = $this->line;
         }
 
         return $res;
@@ -100,6 +110,9 @@ class SetDNSSLBStatusRequest extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['Line'])) {
+            $model->line = $map['Line'];
         }
 
         return $model;

@@ -22,20 +22,16 @@ class AddDomainBackupRequest extends Model
      * @var string
      */
     public $periodType;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
-        'domainName'   => 'DomainName',
-        'periodType'   => 'PeriodType',
-        'userClientIp' => 'UserClientIp',
+        'lang'       => 'Lang',
+        'domainName' => 'DomainName',
+        'periodType' => 'PeriodType',
     ];
 
     public function validate()
     {
+        Model::validateRequired('domainName', $this->domainName, true);
+        Model::validateRequired('periodType', $this->periodType, true);
     }
 
     public function toMap()
@@ -49,9 +45,6 @@ class AddDomainBackupRequest extends Model
         }
         if (null !== $this->periodType) {
             $res['PeriodType'] = $this->periodType;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -73,9 +66,6 @@ class AddDomainBackupRequest extends Model
         }
         if (isset($map['PeriodType'])) {
             $model->periodType = $map['PeriodType'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

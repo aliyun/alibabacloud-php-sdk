@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AddDomainBackupResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var AddDomainBackupResponseBody
+     * @var string
      */
-    public $body;
+    public $domainName;
+
+    /**
+     * @var string
+     */
+    public $periodType;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'  => 'RequestId',
+        'domainName' => 'DomainName',
+        'periodType' => 'PeriodType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('domainName', $this->domainName, true);
+        Model::validateRequired('periodType', $this->periodType, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->periodType) {
+            $res['PeriodType'] = $this->periodType;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class AddDomainBackupResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = AddDomainBackupResponseBody::fromMap($map['body']);
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['PeriodType'])) {
+            $model->periodType = $map['PeriodType'];
         }
 
         return $model;

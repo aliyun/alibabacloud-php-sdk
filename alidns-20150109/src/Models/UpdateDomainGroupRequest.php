@@ -16,11 +16,6 @@ class UpdateDomainGroupRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $groupId;
 
     /**
@@ -28,14 +23,15 @@ class UpdateDomainGroupRequest extends Model
      */
     public $groupName;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'groupId'      => 'GroupId',
-        'groupName'    => 'GroupName',
+        'lang'      => 'Lang',
+        'groupId'   => 'GroupId',
+        'groupName' => 'GroupName',
     ];
 
     public function validate()
     {
+        Model::validateRequired('groupId', $this->groupId, true);
+        Model::validateRequired('groupName', $this->groupName, true);
     }
 
     public function toMap()
@@ -43,9 +39,6 @@ class UpdateDomainGroupRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -67,9 +60,6 @@ class UpdateDomainGroupRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

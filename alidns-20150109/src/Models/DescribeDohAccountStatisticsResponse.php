@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDohAccountStatisticsResponse\statistics;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDohAccountStatisticsResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeDohAccountStatisticsResponseBody
+     * @var statistics[]
      */
-    public $body;
+    public $statistics;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'  => 'RequestId',
+        'statistics' => 'Statistics',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('statistics', $this->statistics, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->statistics) {
+            $res['Statistics'] = [];
+            if (null !== $this->statistics && \is_array($this->statistics)) {
+                $n = 0;
+                foreach ($this->statistics as $item) {
+                    $res['Statistics'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class DescribeDohAccountStatisticsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeDohAccountStatisticsResponseBody::fromMap($map['body']);
+        if (isset($map['Statistics'])) {
+            if (!empty($map['Statistics'])) {
+                $model->statistics = [];
+                $n                 = 0;
+                foreach ($map['Statistics'] as $item) {
+                    $model->statistics[$n++] = null !== $item ? statistics::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

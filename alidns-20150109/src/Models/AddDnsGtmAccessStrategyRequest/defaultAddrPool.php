@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class defaultAddrPool extends Model
 {
     /**
-     * @var int
-     */
-    public $lbaWeight;
-
-    /**
      * @var string
      */
     public $id;
+
+    /**
+     * @var int
+     */
+    public $lbaWeight;
     protected $_name = [
-        'lbaWeight' => 'LbaWeight',
         'id'        => 'Id',
+        'lbaWeight' => 'LbaWeight',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class defaultAddrPool extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lbaWeight) {
-            $res['LbaWeight'] = $this->lbaWeight;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->lbaWeight) {
+            $res['LbaWeight'] = $this->lbaWeight;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class defaultAddrPool extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LbaWeight'])) {
-            $model->lbaWeight = $map['LbaWeight'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['LbaWeight'])) {
+            $model->lbaWeight = $map['LbaWeight'];
         }
 
         return $model;

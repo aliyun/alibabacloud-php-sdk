@@ -36,16 +36,6 @@ class DescribeDohSubDomainStatisticsSummaryRequest extends Model
     /**
      * @var string
      */
-    public $orderBy;
-
-    /**
-     * @var string
-     */
-    public $direction;
-
-    /**
-     * @var string
-     */
     public $subDomain;
 
     /**
@@ -58,8 +48,6 @@ class DescribeDohSubDomainStatisticsSummaryRequest extends Model
         'pageSize'   => 'PageSize',
         'startDate'  => 'StartDate',
         'endDate'    => 'EndDate',
-        'orderBy'    => 'OrderBy',
-        'direction'  => 'Direction',
         'subDomain'  => 'SubDomain',
         'domainName' => 'DomainName',
     ];
@@ -85,12 +73,6 @@ class DescribeDohSubDomainStatisticsSummaryRequest extends Model
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
-        }
-        if (null !== $this->orderBy) {
-            $res['OrderBy'] = $this->orderBy;
-        }
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
         }
         if (null !== $this->subDomain) {
             $res['SubDomain'] = $this->subDomain;
@@ -124,12 +106,6 @@ class DescribeDohSubDomainStatisticsSummaryRequest extends Model
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
-        }
-        if (isset($map['OrderBy'])) {
-            $model->orderBy = $map['OrderBy'];
-        }
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
         }
         if (isset($map['SubDomain'])) {
             $model->subDomain = $map['SubDomain'];

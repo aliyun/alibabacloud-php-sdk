@@ -16,11 +16,6 @@ class DescribeDomainGroupsRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $keyWord;
 
     /**
@@ -33,11 +28,10 @@ class DescribeDomainGroupsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'keyWord'      => 'KeyWord',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'lang'       => 'Lang',
+        'keyWord'    => 'KeyWord',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class DescribeDomainGroupsRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->keyWord) {
             $res['KeyWord'] = $this->keyWord;
@@ -76,9 +67,6 @@ class DescribeDomainGroupsRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['KeyWord'])) {
             $model->keyWord = $map['KeyWord'];

@@ -42,6 +42,8 @@ class DeleteSubDomainRecordsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('domainName', $this->domainName, true);
+        Model::validateRequired('RR', $this->RR, true);
     }
 
     public function toMap()

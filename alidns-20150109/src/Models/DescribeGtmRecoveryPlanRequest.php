@@ -11,11 +11,6 @@ class DescribeGtmRecoveryPlanRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $lang;
 
     /**
@@ -23,21 +18,18 @@ class DescribeGtmRecoveryPlanRequest extends Model
      */
     public $recoveryPlanId;
     protected $_name = [
-        'userClientIp'   => 'UserClientIp',
         'lang'           => 'Lang',
         'recoveryPlanId' => 'RecoveryPlanId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('recoveryPlanId', $this->recoveryPlanId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -56,9 +48,6 @@ class DescribeGtmRecoveryPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

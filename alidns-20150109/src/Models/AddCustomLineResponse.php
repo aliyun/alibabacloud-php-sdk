@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AddCustomLineResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var AddCustomLineResponseBody
+     * @var int
      */
-    public $body;
+    public $lineId;
+
+    /**
+     * @var string
+     */
+    public $lineCode;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'lineId'    => 'LineId',
+        'lineCode'  => 'LineCode',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('lineId', $this->lineId, true);
+        Model::validateRequired('lineCode', $this->lineCode, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->lineId) {
+            $res['LineId'] = $this->lineId;
+        }
+        if (null !== $this->lineCode) {
+            $res['LineCode'] = $this->lineCode;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class AddCustomLineResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = AddCustomLineResponseBody::fromMap($map['body']);
+        if (isset($map['LineId'])) {
+            $model->lineId = $map['LineId'];
+        }
+        if (isset($map['LineCode'])) {
+            $model->lineCode = $map['LineCode'];
         }
 
         return $model;
