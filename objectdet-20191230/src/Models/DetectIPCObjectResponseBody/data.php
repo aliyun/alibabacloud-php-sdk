@@ -13,8 +13,20 @@ class data extends Model
      * @var elements[]
      */
     public $elements;
+
+    /**
+     * @var int
+     */
+    public $width;
+
+    /**
+     * @var int
+     */
+    public $height;
     protected $_name = [
         'elements' => 'Elements',
+        'width'    => 'Width',
+        'height'   => 'Height',
     ];
 
     public function validate()
@@ -32,6 +44,12 @@ class data extends Model
                     $res['Elements'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
         }
 
         return $res;
@@ -53,6 +71,12 @@ class data extends Model
                     $model->elements[$n++] = null !== $item ? elements::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
         }
 
         return $model;
