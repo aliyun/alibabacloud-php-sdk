@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Imagerecog\V20190930\Models\DetectImageElementsResponse;
 use AlibabaCloud\SDK\Imagerecog\V20190930\Models\EvaluateCertificateQualityAdvanceRequest;
 use AlibabaCloud\SDK\Imagerecog\V20190930\Models\EvaluateCertificateQualityRequest;
 use AlibabaCloud\SDK\Imagerecog\V20190930\Models\EvaluateCertificateQualityResponse;
+use AlibabaCloud\SDK\Imagerecog\V20190930\Models\GetAsyncJobResultRequest;
+use AlibabaCloud\SDK\Imagerecog\V20190930\Models\GetAsyncJobResultResponse;
 use AlibabaCloud\SDK\Imagerecog\V20190930\Models\RecognizeFoodAdvanceRequest;
 use AlibabaCloud\SDK\Imagerecog\V20190930\Models\RecognizeFoodRequest;
 use AlibabaCloud\SDK\Imagerecog\V20190930\Models\RecognizeFoodResponse;
@@ -82,6 +84,35 @@ class Imagerecog extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param GetAsyncJobResultRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetAsyncJobResultResponse
+     */
+    public function getAsyncJobResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetAsyncJobResultResponse::fromMap($this->doRPCRequest('GetAsyncJobResult', '2019-09-30', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAsyncJobResultRequest $request
+     *
+     * @return GetAsyncJobResultResponse
+     */
+    public function getAsyncJobResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAsyncJobResultWithOptions($request, $runtime);
     }
 
     /**

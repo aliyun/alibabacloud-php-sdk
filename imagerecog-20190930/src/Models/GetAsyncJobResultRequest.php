@@ -6,26 +6,20 @@ namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TaggingImageRequest extends Model
+class GetAsyncJobResultRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $imageType;
+    public $jobId;
 
     /**
      * @var string
      */
-    public $imageURL;
-
-    /**
-     * @var bool
-     */
     public $async;
     protected $_name = [
-        'imageType' => 'ImageType',
-        'imageURL'  => 'ImageURL',
-        'async'     => 'Async',
+        'jobId' => 'JobId',
+        'async' => 'Async',
     ];
 
     public function validate()
@@ -35,11 +29,8 @@ class TaggingImageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
-        }
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->async) {
             $res['Async'] = $this->async;
@@ -51,16 +42,13 @@ class TaggingImageRequest extends Model
     /**
      * @param array $map
      *
-     * @return TaggingImageRequest
+     * @return GetAsyncJobResultRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
-        }
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['Async'])) {
             $model->async = $map['Async'];

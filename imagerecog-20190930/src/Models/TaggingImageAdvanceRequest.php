@@ -18,9 +18,15 @@ class TaggingImageAdvanceRequest extends Model
      * @var int
      */
     public $imageType;
+
+    /**
+     * @var bool
+     */
+    public $async;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
         'imageType'      => 'ImageType',
+        'async'          => 'Async',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class TaggingImageAdvanceRequest extends Model
         }
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
 
         return $res;
@@ -54,6 +63,9 @@ class TaggingImageAdvanceRequest extends Model
         }
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
 
         return $model;
