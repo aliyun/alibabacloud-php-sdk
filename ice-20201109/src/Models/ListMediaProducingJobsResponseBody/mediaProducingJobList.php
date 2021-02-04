@@ -31,11 +31,6 @@ class mediaProducingJobList extends Model
     /**
      * @var string
      */
-    public $timeline;
-
-    /**
-     * @var string
-     */
     public $templateId;
 
     /**
@@ -82,7 +77,6 @@ class mediaProducingJobList extends Model
         'projectId'    => 'ProjectId',
         'mediaId'      => 'MediaId',
         'mediaURL'     => 'MediaURL',
-        'timeline'     => 'Timeline',
         'templateId'   => 'TemplateId',
         'clipsParam'   => 'ClipsParam',
         'duration'     => 'Duration',
@@ -112,9 +106,6 @@ class mediaProducingJobList extends Model
         }
         if (null !== $this->mediaURL) {
             $res['MediaURL'] = $this->mediaURL;
-        }
-        if (null !== $this->timeline) {
-            $res['Timeline'] = $this->timeline;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -166,9 +157,6 @@ class mediaProducingJobList extends Model
         }
         if (isset($map['MediaURL'])) {
             $model->mediaURL = $map['MediaURL'];
-        }
-        if (isset($map['Timeline'])) {
-            $model->timeline = $map['Timeline'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

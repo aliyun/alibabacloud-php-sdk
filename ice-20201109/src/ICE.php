@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeIceProductStatusResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeRelatedAuthorizationStatusResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectRequest;
@@ -20,6 +22,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaBasicInfosRequest;
@@ -28,16 +32,32 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaProducingJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaProducingJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitIRJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitIRJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitKeyWordCutJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitKeyWordCutJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaProducingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaProducingJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPPTCutJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPPTCutJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSmartJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSmartJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSubtitleProduceJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSubtitleProduceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateSmartJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateSmartJobResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -219,6 +239,34 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param DeleteSmartJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteSmartJobResponse
+     */
+    public function deleteSmartJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteSmartJobResponse::fromMap($this->doRPCRequest('DeleteSmartJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSmartJobRequest $request
+     *
+     * @return DeleteSmartJobResponse
+     */
+    public function deleteSmartJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSmartJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeIceProductStatusResponse
@@ -349,6 +397,35 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetSmartHandleJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetSmartHandleJobResponse
+     */
+    public function getSmartHandleJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetSmartHandleJobResponse::fromMap($this->doRPCRequest('GetSmartHandleJob', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSmartHandleJobRequest $request
+     *
+     * @return GetSmartHandleJobResponse
+     */
+    public function getSmartHandleJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSmartHandleJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAllPublicMediaTagsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -461,6 +538,35 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param ListSmartJobsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSmartJobsResponse
+     */
+    public function listSmartJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListSmartJobsResponse::fromMap($this->doRPCRequest('ListSmartJobs', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListSmartJobsRequest $request
+     *
+     * @return ListSmartJobsResponse
+     */
+    public function listSmartJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSmartJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RegisterMediaInfoRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -517,6 +623,91 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param SubmitASRJobRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SubmitASRJobResponse
+     */
+    public function submitASRJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitASRJobResponse::fromMap($this->doRPCRequest('SubmitASRJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitASRJobRequest $request
+     *
+     * @return SubmitASRJobResponse
+     */
+    public function submitASRJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitASRJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitIRJobRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SubmitIRJobResponse
+     */
+    public function submitIRJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitIRJobResponse::fromMap($this->doRPCRequest('SubmitIRJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitIRJobRequest $request
+     *
+     * @return SubmitIRJobResponse
+     */
+    public function submitIRJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitIRJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitKeyWordCutJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitKeyWordCutJobResponse
+     */
+    public function submitKeyWordCutJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return SubmitKeyWordCutJobResponse::fromMap($this->doRPCRequest('SubmitKeyWordCutJob', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitKeyWordCutJobRequest $request
+     *
+     * @return SubmitKeyWordCutJobResponse
+     */
+    public function submitKeyWordCutJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitKeyWordCutJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitMediaProducingJobRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -542,6 +733,91 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitMediaProducingJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitPPTCutJobRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SubmitPPTCutJobResponse
+     */
+    public function submitPPTCutJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return SubmitPPTCutJobResponse::fromMap($this->doRPCRequest('SubmitPPTCutJob', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitPPTCutJobRequest $request
+     *
+     * @return SubmitPPTCutJobResponse
+     */
+    public function submitPPTCutJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitPPTCutJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitSmartJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitSmartJobResponse
+     */
+    public function submitSmartJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitSmartJobResponse::fromMap($this->doRPCRequest('SubmitSmartJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitSmartJobRequest $request
+     *
+     * @return SubmitSmartJobResponse
+     */
+    public function submitSmartJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSmartJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitSubtitleProduceJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SubmitSubtitleProduceJobResponse
+     */
+    public function submitSubtitleProduceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitSubtitleProduceJobResponse::fromMap($this->doRPCRequest('SubmitSubtitleProduceJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitSubtitleProduceJobRequest $request
+     *
+     * @return SubmitSubtitleProduceJobResponse
+     */
+    public function submitSubtitleProduceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSubtitleProduceJobWithOptions($request, $runtime);
     }
 
     /**
@@ -598,5 +874,33 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSmartJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateSmartJobResponse
+     */
+    public function updateSmartJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateSmartJobResponse::fromMap($this->doRPCRequest('UpdateSmartJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSmartJobRequest $request
+     *
+     * @return UpdateSmartJobResponse
+     */
+    public function updateSmartJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSmartJobWithOptions($request, $runtime);
     }
 }
