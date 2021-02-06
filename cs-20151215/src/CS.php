@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterResourcesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1Request;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1Response;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigRequest;
@@ -51,10 +53,13 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplateAttributeRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplateAttributeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserPermissionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserQuotaResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetUpgradeStatusResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\GrantPermissionsRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\GrantPermissionsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesRequest;
@@ -475,6 +480,39 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string                  $uid
+     * @param GrantPermissionsRequest $request
+     *
+     * @return GrantPermissionsResponse
+     */
+    public function grantPermissions($uid, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->grantPermissionsWithOptions($uid, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $uid
+     * @param GrantPermissionsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GrantPermissionsResponse
+     */
+    public function grantPermissionsWithOptions($uid, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::toArray($request->body),
+        ]);
+
+        return GrantPermissionsResponse::fromMap($this->doROARequest('GrantPermissions', '2015-12-15', 'HTTPS', 'POST', 'AK', '/permissions/users/' . $uid . '', 'none', $req, $runtime));
+    }
+
+    /**
      * @param string $ClusterId
      *
      * @return DescribeClusterDetailResponse
@@ -501,6 +539,73 @@ class CS extends OpenApiClient
         ]);
 
         return DescribeClusterDetailResponse::fromMap($this->doROARequest('DescribeClusterDetail', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClustersRequest $request
+     *
+     * @return DescribeClustersResponse
+     */
+    public function describeClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeClustersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DescribeClustersRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeClustersResponse
+     */
+    public function describeClustersWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            @$query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            @$query['clusterType'] = $request->clusterType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+
+        return DescribeClustersResponse::fromMap($this->doROARequest('DescribeClusters', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters', 'array', $req, $runtime));
+    }
+
+    /**
+     * @param string $uid
+     *
+     * @return DescribeUserPermissionResponse
+     */
+    public function describeUserPermission($uid)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeUserPermissionWithOptions($uid, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $uid
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeUserPermissionResponse
+     */
+    public function describeUserPermissionWithOptions($uid, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return DescribeUserPermissionResponse::fromMap($this->doROARequest('DescribeUserPermission', '2015-12-15', 'HTTPS', 'GET', 'AK', '/permissions/users/' . $uid . '', 'array', $req, $runtime));
     }
 
     /**
