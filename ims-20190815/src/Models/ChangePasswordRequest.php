@@ -17,15 +17,19 @@ class ChangePasswordRequest extends Model
      * @var string
      */
     public $newPassword;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
-        'oldPassword' => 'OldPassword',
-        'newPassword' => 'NewPassword',
+        'oldPassword'   => 'OldPassword',
+        'newPassword'   => 'NewPassword',
+        'akProxySuffix' => 'AkProxySuffix',
     ];
 
     public function validate()
     {
-        Model::validateRequired('oldPassword', $this->oldPassword, true);
-        Model::validateRequired('newPassword', $this->newPassword, true);
     }
 
     public function toMap()
@@ -36,6 +40,9 @@ class ChangePasswordRequest extends Model
         }
         if (null !== $this->newPassword) {
             $res['NewPassword'] = $this->newPassword;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -54,6 +61,9 @@ class ChangePasswordRequest extends Model
         }
         if (isset($map['NewPassword'])) {
             $model->newPassword = $map['NewPassword'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

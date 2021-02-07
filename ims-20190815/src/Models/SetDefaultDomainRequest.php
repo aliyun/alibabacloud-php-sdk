@@ -12,13 +12,18 @@ class SetDefaultDomainRequest extends Model
      * @var string
      */
     public $defaultDomainName;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'defaultDomainName' => 'DefaultDomainName',
+        'akProxySuffix'     => 'AkProxySuffix',
     ];
 
     public function validate()
     {
-        Model::validateRequired('defaultDomainName', $this->defaultDomainName, true);
     }
 
     public function toMap()
@@ -26,6 +31,9 @@ class SetDefaultDomainRequest extends Model
         $res = [];
         if (null !== $this->defaultDomainName) {
             $res['DefaultDomainName'] = $this->defaultDomainName;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -41,6 +49,9 @@ class SetDefaultDomainRequest extends Model
         $model = new self();
         if (isset($map['DefaultDomainName'])) {
             $model->defaultDomainName = $map['DefaultDomainName'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

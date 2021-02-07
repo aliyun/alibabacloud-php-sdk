@@ -22,10 +22,16 @@ class GetUserRequest extends Model
      * @var string
      */
     public $userAccessKeyId;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'userPrincipalName' => 'UserPrincipalName',
         'userId'            => 'UserId',
         'userAccessKeyId'   => 'UserAccessKeyId',
+        'akProxySuffix'     => 'AkProxySuffix',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class GetUserRequest extends Model
         }
         if (null !== $this->userAccessKeyId) {
             $res['UserAccessKeyId'] = $this->userAccessKeyId;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class GetUserRequest extends Model
         }
         if (isset($map['UserAccessKeyId'])) {
             $model->userAccessKeyId = $map['UserAccessKeyId'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

@@ -8,13 +8,26 @@ use AlibabaCloud\Tea\Model;
 
 class GetAccountMFAInfoRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
+    protected $_name = [
+        'akProxySuffix' => 'AkProxySuffix',
+    ];
+
     public function validate()
     {
     }
 
     public function toMap()
     {
-        return [];
+        $res = [];
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
+        }
+
+        return $res;
     }
 
     /**
@@ -24,6 +37,11 @@ class GetAccountMFAInfoRequest extends Model
      */
     public static function fromMap($map = [])
     {
-        return new self();
+        $model = new self();
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
+        }
+
+        return $model;
     }
 }

@@ -12,13 +12,18 @@ class GetApplicationRequest extends Model
      * @var string
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
-        'appId' => 'AppId',
+        'appId'         => 'AppId',
+        'akProxySuffix' => 'AkProxySuffix',
     ];
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
     }
 
     public function toMap()
@@ -26,6 +31,9 @@ class GetApplicationRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -41,6 +49,9 @@ class GetApplicationRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

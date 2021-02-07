@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyLastUsedResponse\accessKeyLastUsed;
 use AlibabaCloud\Tea\Model;
 
 class GetAccessKeyLastUsedResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var accessKeyLastUsed
+     * @var GetAccessKeyLastUsedResponseBody
      */
-    public $accessKeyLastUsed;
+    public $body;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'accessKeyLastUsed' => 'AccessKeyLastUsed',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('accessKeyLastUsed', $this->accessKeyLastUsed, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->accessKeyLastUsed) {
-            $res['AccessKeyLastUsed'] = null !== $this->accessKeyLastUsed ? $this->accessKeyLastUsed->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class GetAccessKeyLastUsedResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['AccessKeyLastUsed'])) {
-            $model->accessKeyLastUsed = accessKeyLastUsed::fromMap($map['AccessKeyLastUsed']);
+        if (isset($map['body'])) {
+            $model->body = GetAccessKeyLastUsedResponseBody::fromMap($map['body']);
         }
 
         return $model;

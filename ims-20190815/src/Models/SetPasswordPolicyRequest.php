@@ -62,6 +62,11 @@ class SetPasswordPolicyRequest extends Model
      * @var bool
      */
     public $passwordNotContainUserName;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'minimumPasswordLength'             => 'MinimumPasswordLength',
         'requireLowercaseCharacters'        => 'RequireLowercaseCharacters',
@@ -74,6 +79,7 @@ class SetPasswordPolicyRequest extends Model
         'maxPasswordAge'                    => 'MaxPasswordAge',
         'minimumPasswordDifferentCharacter' => 'MinimumPasswordDifferentCharacter',
         'passwordNotContainUserName'        => 'PasswordNotContainUserName',
+        'akProxySuffix'                     => 'AkProxySuffix',
     ];
 
     public function validate()
@@ -115,6 +121,9 @@ class SetPasswordPolicyRequest extends Model
         }
         if (null !== $this->passwordNotContainUserName) {
             $res['PasswordNotContainUserName'] = $this->passwordNotContainUserName;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -160,6 +169,9 @@ class SetPasswordPolicyRequest extends Model
         }
         if (isset($map['PasswordNotContainUserName'])) {
             $model->passwordNotContainUserName = $map['PasswordNotContainUserName'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

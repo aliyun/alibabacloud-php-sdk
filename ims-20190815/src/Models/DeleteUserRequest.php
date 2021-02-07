@@ -17,9 +17,15 @@ class DeleteUserRequest extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'userPrincipalName' => 'UserPrincipalName',
         'userId'            => 'UserId',
+        'akProxySuffix'     => 'AkProxySuffix',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DeleteUserRequest extends Model
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DeleteUserRequest extends Model
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

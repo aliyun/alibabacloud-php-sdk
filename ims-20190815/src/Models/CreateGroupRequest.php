@@ -11,6 +11,11 @@ class CreateGroupRequest extends Model
     /**
      * @var string
      */
+    public $groupPrincipalName;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -21,11 +26,18 @@ class CreateGroupRequest extends Model
     /**
      * @var string
      */
+    public $akProxySuffix;
+
+    /**
+     * @var string
+     */
     public $groupName;
     protected $_name = [
-        'displayName' => 'DisplayName',
-        'comments'    => 'Comments',
-        'groupName'   => 'GroupName',
+        'groupPrincipalName' => 'GroupPrincipalName',
+        'displayName'        => 'DisplayName',
+        'comments'           => 'Comments',
+        'akProxySuffix'      => 'AkProxySuffix',
+        'groupName'          => 'GroupName',
     ];
 
     public function validate()
@@ -35,11 +47,17 @@ class CreateGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupPrincipalName) {
+            $res['GroupPrincipalName'] = $this->groupPrincipalName;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -56,11 +74,17 @@ class CreateGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupPrincipalName'])) {
+            $model->groupPrincipalName = $map['GroupPrincipalName'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

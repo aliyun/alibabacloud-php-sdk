@@ -47,6 +47,11 @@ class UpdateApplicationRequest extends Model
      * @var bool
      */
     public $newIsMultiTenant;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'appId'                   => 'AppId',
         'newDisplayName'          => 'NewDisplayName',
@@ -56,11 +61,11 @@ class UpdateApplicationRequest extends Model
         'newAccessTokenValidity'  => 'NewAccessTokenValidity',
         'newRefreshTokenValidity' => 'NewRefreshTokenValidity',
         'newIsMultiTenant'        => 'NewIsMultiTenant',
+        'akProxySuffix'           => 'AkProxySuffix',
     ];
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
     }
 
     public function toMap()
@@ -89,6 +94,9 @@ class UpdateApplicationRequest extends Model
         }
         if (null !== $this->newIsMultiTenant) {
             $res['NewIsMultiTenant'] = $this->newIsMultiTenant;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -125,6 +133,9 @@ class UpdateApplicationRequest extends Model
         }
         if (isset($map['NewIsMultiTenant'])) {
             $model->newIsMultiTenant = $map['NewIsMultiTenant'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

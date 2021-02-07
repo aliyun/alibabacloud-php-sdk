@@ -16,6 +16,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $appPrincipalName;
+
+    /**
+     * @var string
+     */
     public $appType;
 
     /**
@@ -51,9 +56,15 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $akProxySuffix;
+
+    /**
+     * @var string
+     */
     public $appName;
     protected $_name = [
         'displayName'          => 'DisplayName',
+        'appPrincipalName'     => 'AppPrincipalName',
         'appType'              => 'AppType',
         'redirectUris'         => 'RedirectUris',
         'secretRequired'       => 'SecretRequired',
@@ -61,13 +72,12 @@ class CreateApplicationRequest extends Model
         'refreshTokenValidity' => 'RefreshTokenValidity',
         'predefinedScopes'     => 'PredefinedScopes',
         'isMultiTenant'        => 'IsMultiTenant',
+        'akProxySuffix'        => 'AkProxySuffix',
         'appName'              => 'AppName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('displayName', $this->displayName, true);
-        Model::validateRequired('appType', $this->appType, true);
     }
 
     public function toMap()
@@ -75,6 +85,9 @@ class CreateApplicationRequest extends Model
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->appPrincipalName) {
+            $res['AppPrincipalName'] = $this->appPrincipalName;
         }
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
@@ -97,6 +110,9 @@ class CreateApplicationRequest extends Model
         if (null !== $this->isMultiTenant) {
             $res['IsMultiTenant'] = $this->isMultiTenant;
         }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -114,6 +130,9 @@ class CreateApplicationRequest extends Model
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+        if (isset($map['AppPrincipalName'])) {
+            $model->appPrincipalName = $map['AppPrincipalName'];
         }
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
@@ -135,6 +154,9 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['IsMultiTenant'])) {
             $model->isMultiTenant = $map['IsMultiTenant'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];

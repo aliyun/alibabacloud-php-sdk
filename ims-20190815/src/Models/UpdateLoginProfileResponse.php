@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateLoginProfileResponse\loginProfile;
 use AlibabaCloud\Tea\Model;
 
 class UpdateLoginProfileResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var loginProfile
+     * @var UpdateLoginProfileResponseBody
      */
-    public $loginProfile;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'loginProfile' => 'LoginProfile',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('loginProfile', $this->loginProfile, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->loginProfile) {
-            $res['LoginProfile'] = null !== $this->loginProfile ? $this->loginProfile->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class UpdateLoginProfileResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['LoginProfile'])) {
-            $model->loginProfile = loginProfile::fromMap($map['LoginProfile']);
+        if (isset($map['body'])) {
+            $model->body = UpdateLoginProfileResponseBody::fromMap($map['body']);
         }
 
         return $model;

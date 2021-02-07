@@ -22,10 +22,16 @@ class SetUserSsoSettingsRequest extends Model
      * @var string
      */
     public $auxiliaryDomain;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'metadataDocument' => 'MetadataDocument',
         'ssoEnabled'       => 'SsoEnabled',
         'auxiliaryDomain'  => 'AuxiliaryDomain',
+        'akProxySuffix'    => 'AkProxySuffix',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class SetUserSsoSettingsRequest extends Model
         }
         if (null !== $this->auxiliaryDomain) {
             $res['AuxiliaryDomain'] = $this->auxiliaryDomain;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class SetUserSsoSettingsRequest extends Model
         }
         if (isset($map['AuxiliaryDomain'])) {
             $model->auxiliaryDomain = $map['AuxiliaryDomain'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

@@ -12,13 +12,18 @@ class ListGroupsForUserRequest extends Model
      * @var string
      */
     public $userPrincipalName;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'userPrincipalName' => 'UserPrincipalName',
+        'akProxySuffix'     => 'AkProxySuffix',
     ];
 
     public function validate()
     {
-        Model::validateRequired('userPrincipalName', $this->userPrincipalName, true);
     }
 
     public function toMap()
@@ -26,6 +31,9 @@ class ListGroupsForUserRequest extends Model
         $res = [];
         if (null !== $this->userPrincipalName) {
             $res['UserPrincipalName'] = $this->userPrincipalName;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -41,6 +49,9 @@ class ListGroupsForUserRequest extends Model
         $model = new self();
         if (isset($map['UserPrincipalName'])) {
             $model->userPrincipalName = $map['UserPrincipalName'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

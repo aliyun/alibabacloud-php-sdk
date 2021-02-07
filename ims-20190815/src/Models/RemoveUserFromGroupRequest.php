@@ -16,15 +16,26 @@ class RemoveUserFromGroupRequest extends Model
     /**
      * @var string
      */
+    public $groupPrincipalName;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
+
+    /**
+     * @var string
+     */
     public $groupName;
     protected $_name = [
-        'userPrincipalName' => 'UserPrincipalName',
-        'groupName'         => 'GroupName',
+        'userPrincipalName'  => 'UserPrincipalName',
+        'groupPrincipalName' => 'GroupPrincipalName',
+        'akProxySuffix'      => 'AkProxySuffix',
+        'groupName'          => 'GroupName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('userPrincipalName', $this->userPrincipalName, true);
     }
 
     public function toMap()
@@ -32,6 +43,12 @@ class RemoveUserFromGroupRequest extends Model
         $res = [];
         if (null !== $this->userPrincipalName) {
             $res['UserPrincipalName'] = $this->userPrincipalName;
+        }
+        if (null !== $this->groupPrincipalName) {
+            $res['GroupPrincipalName'] = $this->groupPrincipalName;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -50,6 +67,12 @@ class RemoveUserFromGroupRequest extends Model
         $model = new self();
         if (isset($map['UserPrincipalName'])) {
             $model->userPrincipalName = $map['UserPrincipalName'];
+        }
+        if (isset($map['GroupPrincipalName'])) {
+            $model->groupPrincipalName = $map['GroupPrincipalName'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];

@@ -4,59 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\SDK\Ims\V20190815\Models\ListSAMLProvidersResponse\SAMLProviders;
 use AlibabaCloud\Tea\Model;
 
 class ListSAMLProvidersResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bool
+     * @var ListSAMLProvidersResponseBody
      */
-    public $isTruncated;
-
-    /**
-     * @var string
-     */
-    public $marker;
-
-    /**
-     * @var SAMLProviders
-     */
-    public $SAMLProviders;
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'isTruncated'   => 'IsTruncated',
-        'marker'        => 'Marker',
-        'SAMLProviders' => 'SAMLProviders',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('isTruncated', $this->isTruncated, true);
-        Model::validateRequired('marker', $this->marker, true);
-        Model::validateRequired('SAMLProviders', $this->SAMLProviders, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->isTruncated) {
-            $res['IsTruncated'] = $this->isTruncated;
-        }
-        if (null !== $this->marker) {
-            $res['Marker'] = $this->marker;
-        }
-        if (null !== $this->SAMLProviders) {
-            $res['SAMLProviders'] = null !== $this->SAMLProviders ? $this->SAMLProviders->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -70,17 +49,11 @@ class ListSAMLProvidersResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['IsTruncated'])) {
-            $model->isTruncated = $map['IsTruncated'];
-        }
-        if (isset($map['Marker'])) {
-            $model->marker = $map['Marker'];
-        }
-        if (isset($map['SAMLProviders'])) {
-            $model->SAMLProviders = SAMLProviders::fromMap($map['SAMLProviders']);
+        if (isset($map['body'])) {
+            $model->body = ListSAMLProvidersResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -17,15 +17,19 @@ class GetAppSecretRequest extends Model
      * @var string
      */
     public $appSecretId;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
-        'appId'       => 'AppId',
-        'appSecretId' => 'AppSecretId',
+        'appId'         => 'AppId',
+        'appSecretId'   => 'AppSecretId',
+        'akProxySuffix' => 'AkProxySuffix',
     ];
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('appSecretId', $this->appSecretId, true);
     }
 
     public function toMap()
@@ -36,6 +40,9 @@ class GetAppSecretRequest extends Model
         }
         if (null !== $this->appSecretId) {
             $res['AppSecretId'] = $this->appSecretId;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -54,6 +61,9 @@ class GetAppSecretRequest extends Model
         }
         if (isset($map['AppSecretId'])) {
             $model->appSecretId = $map['AppSecretId'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

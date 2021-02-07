@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\SDK\Ims\V20190815\Models\ListGroupsForUserResponse\groups;
 use AlibabaCloud\Tea\Model;
 
 class ListGroupsForUserResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var groups
+     * @var ListGroupsForUserResponseBody
      */
-    public $groups;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'groups'    => 'Groups',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('groups', $this->groups, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->groups) {
-            $res['Groups'] = null !== $this->groups ? $this->groups->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class ListGroupsForUserResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Groups'])) {
-            $model->groups = groups::fromMap($map['Groups']);
+        if (isset($map['body'])) {
+            $model->body = ListGroupsForUserResponseBody::fromMap($map['body']);
         }
 
         return $model;

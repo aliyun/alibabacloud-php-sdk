@@ -42,6 +42,11 @@ class UpdateUserRequest extends Model
      * @var string
      */
     public $newComments;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'userPrincipalName'    => 'UserPrincipalName',
         'userId'               => 'UserId',
@@ -50,6 +55,7 @@ class UpdateUserRequest extends Model
         'newMobilePhone'       => 'NewMobilePhone',
         'newEmail'             => 'NewEmail',
         'newComments'          => 'NewComments',
+        'akProxySuffix'        => 'AkProxySuffix',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class UpdateUserRequest extends Model
         }
         if (null !== $this->newComments) {
             $res['NewComments'] = $this->newComments;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class UpdateUserRequest extends Model
         }
         if (isset($map['NewComments'])) {
             $model->newComments = $map['NewComments'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

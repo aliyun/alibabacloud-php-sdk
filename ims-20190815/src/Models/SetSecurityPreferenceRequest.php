@@ -37,6 +37,11 @@ class SetSecurityPreferenceRequest extends Model
      * @var string
      */
     public $loginNetworkMasks;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'enableSaveMFATicket'         => 'EnableSaveMFATicket',
         'allowUserToChangePassword'   => 'AllowUserToChangePassword',
@@ -44,6 +49,7 @@ class SetSecurityPreferenceRequest extends Model
         'allowUserToManageMFADevices' => 'AllowUserToManageMFADevices',
         'loginSessionDuration'        => 'LoginSessionDuration',
         'loginNetworkMasks'           => 'LoginNetworkMasks',
+        'akProxySuffix'               => 'AkProxySuffix',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class SetSecurityPreferenceRequest extends Model
         }
         if (null !== $this->loginNetworkMasks) {
             $res['LoginNetworkMasks'] = $this->loginNetworkMasks;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class SetSecurityPreferenceRequest extends Model
         }
         if (isset($map['LoginNetworkMasks'])) {
             $model->loginNetworkMasks = $map['LoginNetworkMasks'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

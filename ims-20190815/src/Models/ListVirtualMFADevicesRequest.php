@@ -17,9 +17,15 @@ class ListVirtualMFADevicesRequest extends Model
      * @var int
      */
     public $maxItems;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
-        'marker'   => 'Marker',
-        'maxItems' => 'MaxItems',
+        'marker'        => 'Marker',
+        'maxItems'      => 'MaxItems',
+        'akProxySuffix' => 'AkProxySuffix',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class ListVirtualMFADevicesRequest extends Model
         }
         if (null !== $this->maxItems) {
             $res['MaxItems'] = $this->maxItems;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class ListVirtualMFADevicesRequest extends Model
         }
         if (isset($map['MaxItems'])) {
             $model->maxItems = $map['MaxItems'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

@@ -12,13 +12,18 @@ class CreateVirtualMFADeviceRequest extends Model
      * @var string
      */
     public $virtualMFADeviceName;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'virtualMFADeviceName' => 'VirtualMFADeviceName',
+        'akProxySuffix'        => 'AkProxySuffix',
     ];
 
     public function validate()
     {
-        Model::validateRequired('virtualMFADeviceName', $this->virtualMFADeviceName, true);
     }
 
     public function toMap()
@@ -26,6 +31,9 @@ class CreateVirtualMFADeviceRequest extends Model
         $res = [];
         if (null !== $this->virtualMFADeviceName) {
             $res['VirtualMFADeviceName'] = $this->virtualMFADeviceName;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -41,6 +49,9 @@ class CreateVirtualMFADeviceRequest extends Model
         $model = new self();
         if (isset($map['VirtualMFADeviceName'])) {
             $model->virtualMFADeviceName = $map['VirtualMFADeviceName'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

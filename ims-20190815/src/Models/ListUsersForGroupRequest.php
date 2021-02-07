@@ -11,6 +11,16 @@ class ListUsersForGroupRequest extends Model
     /**
      * @var string
      */
+    public $groupPrincipalName;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
+
+    /**
+     * @var string
+     */
     public $groupName;
 
     /**
@@ -23,9 +33,11 @@ class ListUsersForGroupRequest extends Model
      */
     public $maxItems;
     protected $_name = [
-        'groupName' => 'GroupName',
-        'marker'    => 'Marker',
-        'maxItems'  => 'MaxItems',
+        'groupPrincipalName' => 'GroupPrincipalName',
+        'akProxySuffix'      => 'AkProxySuffix',
+        'groupName'          => 'GroupName',
+        'marker'             => 'Marker',
+        'maxItems'           => 'MaxItems',
     ];
 
     public function validate()
@@ -35,6 +47,12 @@ class ListUsersForGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupPrincipalName) {
+            $res['GroupPrincipalName'] = $this->groupPrincipalName;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
+        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -56,6 +74,12 @@ class ListUsersForGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupPrincipalName'])) {
+            $model->groupPrincipalName = $map['GroupPrincipalName'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
+        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\SDK\Ims\V20190815\Models\SetPasswordPolicyResponse\passwordPolicy;
 use AlibabaCloud\Tea\Model;
 
 class SetPasswordPolicyResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var passwordPolicy
+     * @var SetPasswordPolicyResponseBody
      */
-    public $passwordPolicy;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'passwordPolicy' => 'PasswordPolicy',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('passwordPolicy', $this->passwordPolicy, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->passwordPolicy) {
-            $res['PasswordPolicy'] = null !== $this->passwordPolicy ? $this->passwordPolicy->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class SetPasswordPolicyResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['PasswordPolicy'])) {
-            $model->passwordPolicy = passwordPolicy::fromMap($map['PasswordPolicy']);
+        if (isset($map['body'])) {
+            $model->body = SetPasswordPolicyResponseBody::fromMap($map['body']);
         }
 
         return $model;

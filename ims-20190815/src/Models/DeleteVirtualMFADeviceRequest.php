@@ -12,13 +12,18 @@ class DeleteVirtualMFADeviceRequest extends Model
      * @var string
      */
     public $serialNumber;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
-        'serialNumber' => 'SerialNumber',
+        'serialNumber'  => 'SerialNumber',
+        'akProxySuffix' => 'AkProxySuffix',
     ];
 
     public function validate()
     {
-        Model::validateRequired('serialNumber', $this->serialNumber, true);
     }
 
     public function toMap()
@@ -26,6 +31,9 @@ class DeleteVirtualMFADeviceRequest extends Model
         $res = [];
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -41,6 +49,9 @@ class DeleteVirtualMFADeviceRequest extends Model
         $model = new self();
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

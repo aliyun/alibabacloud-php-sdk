@@ -12,8 +12,14 @@ class ListAccessKeysRequest extends Model
      * @var string
      */
     public $userPrincipalName;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'userPrincipalName' => 'UserPrincipalName',
+        'akProxySuffix'     => 'AkProxySuffix',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class ListAccessKeysRequest extends Model
         $res = [];
         if (null !== $this->userPrincipalName) {
             $res['UserPrincipalName'] = $this->userPrincipalName;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class ListAccessKeysRequest extends Model
         $model = new self();
         if (isset($map['UserPrincipalName'])) {
             $model->userPrincipalName = $map['UserPrincipalName'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

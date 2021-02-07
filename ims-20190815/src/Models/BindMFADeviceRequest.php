@@ -27,19 +27,21 @@ class BindMFADeviceRequest extends Model
      * @var string
      */
     public $authenticationCode2;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
         'serialNumber'        => 'SerialNumber',
         'userPrincipalName'   => 'UserPrincipalName',
         'authenticationCode1' => 'AuthenticationCode1',
         'authenticationCode2' => 'AuthenticationCode2',
+        'akProxySuffix'       => 'AkProxySuffix',
     ];
 
     public function validate()
     {
-        Model::validateRequired('serialNumber', $this->serialNumber, true);
-        Model::validateRequired('userPrincipalName', $this->userPrincipalName, true);
-        Model::validateRequired('authenticationCode1', $this->authenticationCode1, true);
-        Model::validateRequired('authenticationCode2', $this->authenticationCode2, true);
     }
 
     public function toMap()
@@ -56,6 +58,9 @@ class BindMFADeviceRequest extends Model
         }
         if (null !== $this->authenticationCode2) {
             $res['AuthenticationCode2'] = $this->authenticationCode2;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -80,6 +85,9 @@ class BindMFADeviceRequest extends Model
         }
         if (isset($map['AuthenticationCode2'])) {
             $model->authenticationCode2 = $map['AuthenticationCode2'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

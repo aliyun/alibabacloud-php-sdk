@@ -29,20 +29,31 @@ class CreateLoginProfileRequest extends Model
     public $MFABindRequired;
 
     /**
+     * @var bool
+     */
+    public $generateRandomPassword;
+
+    /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $akProxySuffix;
     protected $_name = [
-        'userPrincipalName'     => 'UserPrincipalName',
-        'password'              => 'Password',
-        'passwordResetRequired' => 'PasswordResetRequired',
-        'MFABindRequired'       => 'MFABindRequired',
-        'status'                => 'Status',
+        'userPrincipalName'      => 'UserPrincipalName',
+        'password'               => 'Password',
+        'passwordResetRequired'  => 'PasswordResetRequired',
+        'MFABindRequired'        => 'MFABindRequired',
+        'generateRandomPassword' => 'GenerateRandomPassword',
+        'status'                 => 'Status',
+        'akProxySuffix'          => 'AkProxySuffix',
     ];
 
     public function validate()
     {
-        Model::validateRequired('userPrincipalName', $this->userPrincipalName, true);
     }
 
     public function toMap()
@@ -60,8 +71,14 @@ class CreateLoginProfileRequest extends Model
         if (null !== $this->MFABindRequired) {
             $res['MFABindRequired'] = $this->MFABindRequired;
         }
+        if (null !== $this->generateRandomPassword) {
+            $res['GenerateRandomPassword'] = $this->generateRandomPassword;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->akProxySuffix) {
+            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -87,8 +104,14 @@ class CreateLoginProfileRequest extends Model
         if (isset($map['MFABindRequired'])) {
             $model->MFABindRequired = $map['MFABindRequired'];
         }
+        if (isset($map['GenerateRandomPassword'])) {
+            $model->generateRandomPassword = $map['GenerateRandomPassword'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['AkProxySuffix'])) {
+            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;
