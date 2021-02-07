@@ -12,8 +12,14 @@ class DescribeStorageRequest extends Model
      * @var bool
      */
     public $usingSharedStorage;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'usingSharedStorage' => 'UsingSharedStorage',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DescribeStorageRequest extends Model
         $res = [];
         if (null !== $this->usingSharedStorage) {
             $res['UsingSharedStorage'] = $this->usingSharedStorage;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DescribeStorageRequest extends Model
         $model = new self();
         if (isset($map['UsingSharedStorage'])) {
             $model->usingSharedStorage = $map['UsingSharedStorage'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

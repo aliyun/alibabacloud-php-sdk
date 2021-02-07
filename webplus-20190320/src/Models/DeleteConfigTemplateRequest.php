@@ -12,8 +12,14 @@ class DeleteConfigTemplateRequest extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'templateId' => 'TemplateId',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DeleteConfigTemplateRequest extends Model
         $res = [];
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DeleteConfigTemplateRequest extends Model
         $model = new self();
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

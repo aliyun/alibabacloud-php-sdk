@@ -17,9 +17,15 @@ class DescribeChangeRequest extends Model
      * @var string
      */
     public $changeId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'envId'    => 'EnvId',
         'changeId' => 'ChangeId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DescribeChangeRequest extends Model
         }
         if (null !== $this->changeId) {
             $res['ChangeId'] = $this->changeId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DescribeChangeRequest extends Model
         }
         if (isset($map['ChangeId'])) {
             $model->changeId = $map['ChangeId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

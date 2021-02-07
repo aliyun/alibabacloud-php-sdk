@@ -62,6 +62,11 @@ class CreateAppEnvRequest extends Model
      * @var string
      */
     public $extraProperties;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'envName'         => 'EnvName',
         'envDescription'  => 'EnvDescription',
@@ -74,6 +79,7 @@ class CreateAppEnvRequest extends Model
         'templateId'      => 'TemplateId',
         'dryRun'          => 'DryRun',
         'extraProperties' => 'ExtraProperties',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -115,6 +121,9 @@ class CreateAppEnvRequest extends Model
         }
         if (null !== $this->extraProperties) {
             $res['ExtraProperties'] = $this->extraProperties;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -160,6 +169,9 @@ class CreateAppEnvRequest extends Model
         }
         if (isset($map['ExtraProperties'])) {
             $model->extraProperties = $map['ExtraProperties'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

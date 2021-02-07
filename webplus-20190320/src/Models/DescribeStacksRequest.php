@@ -27,11 +27,17 @@ class DescribeStacksRequest extends Model
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'recommendedOnly' => 'RecommendedOnly',
         'categoryName'    => 'CategoryName',
         'pageSize'        => 'PageSize',
         'pageNumber'      => 'PageNumber',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class DescribeStacksRequest extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class DescribeStacksRequest extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

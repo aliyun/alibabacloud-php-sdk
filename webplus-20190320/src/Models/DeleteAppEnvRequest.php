@@ -12,8 +12,14 @@ class DeleteAppEnvRequest extends Model
      * @var string
      */
     public $envId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'envId' => 'EnvId',
+        'envId'    => 'EnvId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DeleteAppEnvRequest extends Model
         $res = [];
         if (null !== $this->envId) {
             $res['EnvId'] = $this->envId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DeleteAppEnvRequest extends Model
         $model = new self();
         if (isset($map['EnvId'])) {
             $model->envId = $map['EnvId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

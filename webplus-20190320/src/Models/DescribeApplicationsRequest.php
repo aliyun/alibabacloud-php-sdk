@@ -47,6 +47,11 @@ class DescribeApplicationsRequest extends Model
      * @var string
      */
     public $categorySearch;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'appId'          => 'AppId',
         'pageSize'       => 'PageSize',
@@ -56,6 +61,7 @@ class DescribeApplicationsRequest extends Model
         'envSearch'      => 'EnvSearch',
         'stackSearch'    => 'StackSearch',
         'categorySearch' => 'CategorySearch',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class DescribeApplicationsRequest extends Model
         }
         if (null !== $this->categorySearch) {
             $res['CategorySearch'] = $this->categorySearch;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class DescribeApplicationsRequest extends Model
         }
         if (isset($map['CategorySearch'])) {
             $model->categorySearch = $map['CategorySearch'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

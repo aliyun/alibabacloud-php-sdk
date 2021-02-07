@@ -6,19 +6,13 @@ namespace AlibabaCloud\SDK\WebPlus\V20190320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeAppEnvInstanceHealthRequest extends Model
+class DescribeCategoriesRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $envId;
-
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'envId'    => 'EnvId',
         'regionId' => 'RegionId',
     ];
 
@@ -29,9 +23,6 @@ class DescribeAppEnvInstanceHealthRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->envId) {
-            $res['EnvId'] = $this->envId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -42,14 +33,11 @@ class DescribeAppEnvInstanceHealthRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeAppEnvInstanceHealthRequest
+     * @return DescribeCategoriesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EnvId'])) {
-            $model->envId = $map['EnvId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

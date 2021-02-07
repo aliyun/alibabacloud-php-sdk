@@ -62,6 +62,11 @@ class UpdateAppEnvRequest extends Model
      * @var bool
      */
     public $pauseBetweenBatches;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'envDescription'      => 'EnvDescription',
         'envId'               => 'EnvId',
@@ -74,6 +79,7 @@ class UpdateAppEnvRequest extends Model
         'batchPercent'        => 'BatchPercent',
         'batchInterval'       => 'BatchInterval',
         'pauseBetweenBatches' => 'PauseBetweenBatches',
+        'regionId'            => 'RegionId',
     ];
 
     public function validate()
@@ -115,6 +121,9 @@ class UpdateAppEnvRequest extends Model
         }
         if (null !== $this->pauseBetweenBatches) {
             $res['PauseBetweenBatches'] = $this->pauseBetweenBatches;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -160,6 +169,9 @@ class UpdateAppEnvRequest extends Model
         }
         if (isset($map['PauseBetweenBatches'])) {
             $model->pauseBetweenBatches = $map['PauseBetweenBatches'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

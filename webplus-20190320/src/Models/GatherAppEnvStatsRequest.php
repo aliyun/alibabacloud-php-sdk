@@ -17,9 +17,15 @@ class GatherAppEnvStatsRequest extends Model
      * @var string
      */
     public $targetInstances;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'envId'           => 'EnvId',
         'targetInstances' => 'TargetInstances',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class GatherAppEnvStatsRequest extends Model
         }
         if (null !== $this->targetInstances) {
             $res['TargetInstances'] = $this->targetInstances;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class GatherAppEnvStatsRequest extends Model
         }
         if (isset($map['TargetInstances'])) {
             $model->targetInstances = $map['TargetInstances'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

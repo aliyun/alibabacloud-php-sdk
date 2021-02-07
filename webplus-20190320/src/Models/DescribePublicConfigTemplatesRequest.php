@@ -22,10 +22,16 @@ class DescribePublicConfigTemplatesRequest extends Model
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'categoryName' => 'CategoryName',
         'pageSize'     => 'PageSize',
         'pageNumber'   => 'PageNumber',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DescribePublicConfigTemplatesRequest extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class DescribePublicConfigTemplatesRequest extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

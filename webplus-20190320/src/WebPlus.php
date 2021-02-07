@@ -18,6 +18,7 @@ use AlibabaCloud\SDK\WebPlus\V20190320\Models\CreateOrderRequest;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\CreateOrderResponse;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\CreatePkgVersionRequest;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\CreatePkgVersionResponse;
+use AlibabaCloud\SDK\WebPlus\V20190320\Models\CreateStorageRequest;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\CreateStorageResponse;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\DeleteAppEnvRequest;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\DeleteAppEnvResponse;
@@ -39,6 +40,7 @@ use AlibabaCloud\SDK\WebPlus\V20190320\Models\DescribeAppEnvStatusRequest;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\DescribeAppEnvStatusResponse;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\DescribeApplicationsRequest;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\DescribeApplicationsResponse;
+use AlibabaCloud\SDK\WebPlus\V20190320\Models\DescribeCategoriesRequest;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\DescribeCategoriesResponse;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\DescribeChangeRequest;
 use AlibabaCloud\SDK\WebPlus\V20190320\Models\DescribeChangeResponse;
@@ -182,12 +184,17 @@ class WebPlus extends OpenApiClient
     public function abortChangeWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->changeId)) {
             @$body['ChangeId'] = $request->changeId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -217,6 +224,10 @@ class WebPlus extends OpenApiClient
     public function createAppEnvWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->envName)) {
             @$body['EnvName'] = $request->envName;
@@ -253,6 +264,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -282,6 +294,10 @@ class WebPlus extends OpenApiClient
     public function createApplicationWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->appName)) {
             @$body['AppName'] = $request->appName;
@@ -297,6 +313,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -326,6 +343,10 @@ class WebPlus extends OpenApiClient
     public function createConfigTemplateWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->templateName)) {
             @$body['TemplateName'] = $request->templateName;
@@ -356,6 +377,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -385,12 +407,17 @@ class WebPlus extends OpenApiClient
     public function createOrderWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->productName)) {
             @$body['ProductName'] = $request->productName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -420,6 +447,10 @@ class WebPlus extends OpenApiClient
     public function createPkgVersionWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->pkgVersionLabel)) {
             @$body['PkgVersionLabel'] = $request->pkgVersionLabel;
@@ -435,6 +466,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -442,26 +474,35 @@ class WebPlus extends OpenApiClient
     }
 
     /**
+     * @param CreateStorageRequest $request
+     *
      * @return CreateStorageResponse
      */
-    public function createStorage()
+    public function createStorage($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createStorageWithOptions($headers, $runtime);
+        return $this->createStorageWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param CreateStorageRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return CreateStorageResponse
      */
-    public function createStorageWithOptions($headers, $runtime)
+    public function createStorageWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
 
         return CreateStorageResponse::fromMap($this->doROARequest('CreateStorage', '2019-03-20', 'HTTPS', 'POST', 'AK', '/pop/v1/wam/storage', 'json', $req, $runtime));
@@ -493,6 +534,9 @@ class WebPlus extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->envId)) {
             @$query['EnvId'] = $request->envId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -529,6 +573,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             @$query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -563,6 +610,9 @@ class WebPlus extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->changeId)) {
             @$query['ChangeId'] = $request->changeId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -599,6 +649,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->templateId)) {
             @$query['TemplateId'] = $request->templateId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -634,6 +687,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->pkgVersionId)) {
             @$query['PkgVersionId'] = $request->pkgVersionId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -665,6 +721,10 @@ class WebPlus extends OpenApiClient
     public function deployAppEnvWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->envId)) {
             @$body['EnvId'] = $request->envId;
@@ -686,6 +746,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -718,6 +779,9 @@ class WebPlus extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->envId)) {
             @$query['EnvId'] = $request->envId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -778,6 +842,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->stackSearch)) {
             @$query['StackSearch'] = $request->stackSearch;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -812,6 +879,9 @@ class WebPlus extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->envId)) {
             @$query['EnvId'] = $request->envId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -869,6 +939,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->categorySearch)) {
             @$query['CategorySearch'] = $request->categorySearch;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -878,26 +951,35 @@ class WebPlus extends OpenApiClient
     }
 
     /**
+     * @param DescribeCategoriesRequest $request
+     *
      * @return DescribeCategoriesResponse
      */
-    public function describeCategories()
+    public function describeCategories($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeCategoriesWithOptions($headers, $runtime);
+        return $this->describeCategoriesWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param DescribeCategoriesRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return DescribeCategoriesResponse
      */
-    public function describeCategoriesWithOptions($headers, $runtime)
+    public function describeCategoriesWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
 
         return DescribeCategoriesResponse::fromMap($this->doROARequest('DescribeCategories', '2019-03-20', 'HTTPS', 'GET', 'AK', '/pop/v1/wam/category', 'json', $req, $runtime));
@@ -932,6 +1014,9 @@ class WebPlus extends OpenApiClient
         }
         if (!Utils::isUnset($request->changeId)) {
             @$query['ChangeId'] = $request->changeId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -977,6 +1062,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->pageNumber)) {
             @$query['PageNumber'] = $request->pageNumber;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1021,6 +1109,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->templateId)) {
             @$query['TemplateId'] = $request->templateId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1061,6 +1152,9 @@ class WebPlus extends OpenApiClient
         }
         if (!Utils::isUnset($request->profileName)) {
             @$query['ProfileName'] = $request->profileName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1105,6 +1199,9 @@ class WebPlus extends OpenApiClient
         }
         if (!Utils::isUnset($request->optionName)) {
             @$query['OptionName'] = $request->optionName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1153,6 +1250,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->pageNumber)) {
             @$query['PageNumber'] = $request->pageNumber;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1187,6 +1287,9 @@ class WebPlus extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->envId)) {
             @$query['EnvId'] = $request->envId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1244,6 +1347,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->reverseByTimestamp)) {
             @$query['ReverseByTimestamp'] = $request->reverseByTimestamp;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1278,6 +1384,9 @@ class WebPlus extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->changeId)) {
             @$query['ChangeId'] = $request->changeId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1314,6 +1423,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->changeId)) {
             @$query['ChangeId'] = $request->changeId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1348,6 +1460,9 @@ class WebPlus extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1396,6 +1511,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->pkgVersionSearch)) {
             @$query['PkgVersionSearch'] = $request->pkgVersionSearch;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1436,6 +1554,9 @@ class WebPlus extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageNumber)) {
             @$query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1481,6 +1602,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->pageNumber)) {
             @$query['PageNumber'] = $request->pageNumber;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1516,6 +1640,9 @@ class WebPlus extends OpenApiClient
         if (!Utils::isUnset($request->usingSharedStorage)) {
             @$query['UsingSharedStorage'] = $request->usingSharedStorage;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1547,6 +1674,10 @@ class WebPlus extends OpenApiClient
     public function gatherAppEnvLogWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->envId)) {
             @$body['EnvId'] = $request->envId;
@@ -1559,6 +1690,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -1588,6 +1720,10 @@ class WebPlus extends OpenApiClient
     public function gatherAppEnvStatsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->envId)) {
             @$body['EnvId'] = $request->envId;
@@ -1597,6 +1733,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -1626,12 +1763,17 @@ class WebPlus extends OpenApiClient
     public function pauseChangeWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->changeId)) {
             @$body['ChangeId'] = $request->changeId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -1661,6 +1803,10 @@ class WebPlus extends OpenApiClient
     public function rebuildAppEnvWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->envId)) {
             @$body['EnvId'] = $request->envId;
@@ -1670,6 +1816,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -1699,6 +1846,10 @@ class WebPlus extends OpenApiClient
     public function restartAppEnvWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->envId)) {
             @$body['EnvId'] = $request->envId;
@@ -1717,6 +1868,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -1746,12 +1898,17 @@ class WebPlus extends OpenApiClient
     public function resumeChangeWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->changeId)) {
             @$body['ChangeId'] = $request->changeId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -1781,12 +1938,17 @@ class WebPlus extends OpenApiClient
     public function startAppEnvWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->envId)) {
             @$body['EnvId'] = $request->envId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -1816,12 +1978,17 @@ class WebPlus extends OpenApiClient
     public function stopAppEnvWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->envId)) {
             @$body['EnvId'] = $request->envId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -1851,6 +2018,10 @@ class WebPlus extends OpenApiClient
     public function terminateAppEnvWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->envId)) {
             @$body['EnvId'] = $request->envId;
@@ -1860,6 +2031,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -1889,6 +2061,10 @@ class WebPlus extends OpenApiClient
     public function updateAppEnvWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->envDescription)) {
             @$body['EnvDescription'] = $request->envDescription;
@@ -1925,6 +2101,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -1954,6 +2131,10 @@ class WebPlus extends OpenApiClient
     public function updateApplicationWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->appId)) {
             @$body['AppId'] = $request->appId;
@@ -1963,6 +2144,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -1992,6 +2174,10 @@ class WebPlus extends OpenApiClient
     public function updateConfigTemplateWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->templateDescription)) {
             @$body['TemplateDescription'] = $request->templateDescription;
@@ -2004,6 +2190,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
@@ -2033,6 +2220,10 @@ class WebPlus extends OpenApiClient
     public function validateConfigSettingWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            @$query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->envId)) {
             @$body['EnvId'] = $request->envId;
@@ -2048,6 +2239,7 @@ class WebPlus extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 

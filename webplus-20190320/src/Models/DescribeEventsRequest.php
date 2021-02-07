@@ -47,6 +47,11 @@ class DescribeEventsRequest extends Model
      * @var bool
      */
     public $reverseByTimestamp;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'envId'              => 'EnvId',
         'startTime'          => 'StartTime',
@@ -56,6 +61,7 @@ class DescribeEventsRequest extends Model
         'changeId'           => 'ChangeId',
         'lastChangeEvents'   => 'LastChangeEvents',
         'reverseByTimestamp' => 'ReverseByTimestamp',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class DescribeEventsRequest extends Model
         }
         if (null !== $this->reverseByTimestamp) {
             $res['ReverseByTimestamp'] = $this->reverseByTimestamp;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class DescribeEventsRequest extends Model
         }
         if (isset($map['ReverseByTimestamp'])) {
             $model->reverseByTimestamp = $map['ReverseByTimestamp'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

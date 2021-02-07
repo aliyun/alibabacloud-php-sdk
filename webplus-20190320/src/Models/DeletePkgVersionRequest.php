@@ -12,8 +12,14 @@ class DeletePkgVersionRequest extends Model
      * @var string
      */
     public $pkgVersionId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'pkgVersionId' => 'PkgVersionId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DeletePkgVersionRequest extends Model
         $res = [];
         if (null !== $this->pkgVersionId) {
             $res['PkgVersionId'] = $this->pkgVersionId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DeletePkgVersionRequest extends Model
         $model = new self();
         if (isset($map['PkgVersionId'])) {
             $model->pkgVersionId = $map['PkgVersionId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -12,8 +12,14 @@ class DeleteChangeRequest extends Model
      * @var string
      */
     public $changeId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'changeId' => 'ChangeId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DeleteChangeRequest extends Model
         $res = [];
         if (null !== $this->changeId) {
             $res['ChangeId'] = $this->changeId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DeleteChangeRequest extends Model
         $model = new self();
         if (isset($map['ChangeId'])) {
             $model->changeId = $map['ChangeId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

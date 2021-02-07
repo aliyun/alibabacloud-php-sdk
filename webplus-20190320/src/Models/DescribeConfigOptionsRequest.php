@@ -22,10 +22,16 @@ class DescribeConfigOptionsRequest extends Model
      * @var string
      */
     public $profileName;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'stackId'     => 'StackId',
         'envId'       => 'EnvId',
         'profileName' => 'ProfileName',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DescribeConfigOptionsRequest extends Model
         }
         if (null !== $this->profileName) {
             $res['ProfileName'] = $this->profileName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class DescribeConfigOptionsRequest extends Model
         }
         if (isset($map['ProfileName'])) {
             $model->profileName = $map['ProfileName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

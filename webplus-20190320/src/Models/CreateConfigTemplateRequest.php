@@ -52,6 +52,11 @@ class CreateConfigTemplateRequest extends Model
      * @var string
      */
     public $optionSettings;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'templateName'        => 'TemplateName',
         'templateDescription' => 'TemplateDescription',
@@ -62,6 +67,7 @@ class CreateConfigTemplateRequest extends Model
         'profileName'         => 'ProfileName',
         'pkgVersionId'        => 'PkgVersionId',
         'optionSettings'      => 'OptionSettings',
+        'regionId'            => 'RegionId',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class CreateConfigTemplateRequest extends Model
         }
         if (null !== $this->optionSettings) {
             $res['OptionSettings'] = $this->optionSettings;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class CreateConfigTemplateRequest extends Model
         }
         if (isset($map['OptionSettings'])) {
             $model->optionSettings = $map['OptionSettings'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

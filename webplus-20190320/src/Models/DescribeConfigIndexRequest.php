@@ -27,11 +27,17 @@ class DescribeConfigIndexRequest extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'stackId'     => 'StackId',
         'envId'       => 'EnvId',
         'profileName' => 'ProfileName',
         'templateId'  => 'TemplateId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class DescribeConfigIndexRequest extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class DescribeConfigIndexRequest extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

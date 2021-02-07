@@ -37,6 +37,11 @@ class DeployAppEnvRequest extends Model
      * @var string
      */
     public $pkgVersionId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'envId'               => 'EnvId',
         'batchSize'           => 'BatchSize',
@@ -44,6 +49,7 @@ class DeployAppEnvRequest extends Model
         'batchInterval'       => 'BatchInterval',
         'pauseBetweenBatches' => 'PauseBetweenBatches',
         'pkgVersionId'        => 'PkgVersionId',
+        'regionId'            => 'RegionId',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class DeployAppEnvRequest extends Model
         }
         if (null !== $this->pkgVersionId) {
             $res['PkgVersionId'] = $this->pkgVersionId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class DeployAppEnvRequest extends Model
         }
         if (isset($map['PkgVersionId'])) {
             $model->pkgVersionId = $map['PkgVersionId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

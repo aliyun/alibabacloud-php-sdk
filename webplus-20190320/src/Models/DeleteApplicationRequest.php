@@ -12,8 +12,14 @@ class DeleteApplicationRequest extends Model
      * @var string
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'appId' => 'AppId',
+        'appId'    => 'AppId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DeleteApplicationRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DeleteApplicationRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

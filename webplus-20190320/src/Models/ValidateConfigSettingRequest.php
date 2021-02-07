@@ -27,11 +27,17 @@ class ValidateConfigSettingRequest extends Model
      * @var string
      */
     public $optionSettings;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'envId'          => 'EnvId',
         'templateId'     => 'TemplateId',
         'stackId'        => 'StackId',
         'optionSettings' => 'OptionSettings',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class ValidateConfigSettingRequest extends Model
         }
         if (null !== $this->optionSettings) {
             $res['OptionSettings'] = $this->optionSettings;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class ValidateConfigSettingRequest extends Model
         }
         if (isset($map['OptionSettings'])) {
             $model->optionSettings = $map['OptionSettings'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

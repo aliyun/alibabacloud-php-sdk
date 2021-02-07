@@ -27,11 +27,17 @@ class CreatePkgVersionRequest extends Model
      * @var string
      */
     public $packageSource;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'pkgVersionLabel'       => 'PkgVersionLabel',
         'pkgVersionDescription' => 'PkgVersionDescription',
         'appId'                 => 'AppId',
         'packageSource'         => 'PackageSource',
+        'regionId'              => 'RegionId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class CreatePkgVersionRequest extends Model
         }
         if (null !== $this->packageSource) {
             $res['PackageSource'] = $this->packageSource;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class CreatePkgVersionRequest extends Model
         }
         if (isset($map['PackageSource'])) {
             $model->packageSource = $map['PackageSource'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

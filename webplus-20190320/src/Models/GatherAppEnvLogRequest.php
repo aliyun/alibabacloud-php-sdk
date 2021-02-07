@@ -22,10 +22,16 @@ class GatherAppEnvLogRequest extends Model
      * @var string
      */
     public $logPath;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'envId'           => 'EnvId',
         'targetInstances' => 'TargetInstances',
         'logPath'         => 'LogPath',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class GatherAppEnvLogRequest extends Model
         }
         if (null !== $this->logPath) {
             $res['LogPath'] = $this->logPath;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class GatherAppEnvLogRequest extends Model
         }
         if (isset($map['LogPath'])) {
             $model->logPath = $map['LogPath'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

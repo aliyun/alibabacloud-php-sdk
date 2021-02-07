@@ -22,10 +22,16 @@ class UpdateConfigTemplateRequest extends Model
      * @var string
      */
     public $optionSettings;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'templateDescription' => 'TemplateDescription',
         'templateId'          => 'TemplateId',
         'optionSettings'      => 'OptionSettings',
+        'regionId'            => 'RegionId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class UpdateConfigTemplateRequest extends Model
         }
         if (null !== $this->optionSettings) {
             $res['OptionSettings'] = $this->optionSettings;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class UpdateConfigTemplateRequest extends Model
         }
         if (isset($map['OptionSettings'])) {
             $model->optionSettings = $map['OptionSettings'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

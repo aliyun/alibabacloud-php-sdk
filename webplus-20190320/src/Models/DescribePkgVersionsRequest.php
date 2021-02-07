@@ -32,12 +32,18 @@ class DescribePkgVersionsRequest extends Model
      * @var string
      */
     public $pkgVersionSearch;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'appId'            => 'AppId',
         'pageSize'         => 'PageSize',
         'pageNumber'       => 'PageNumber',
         'pkgVersionLabel'  => 'PkgVersionLabel',
         'pkgVersionSearch' => 'PkgVersionSearch',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class DescribePkgVersionsRequest extends Model
         }
         if (null !== $this->pkgVersionSearch) {
             $res['PkgVersionSearch'] = $this->pkgVersionSearch;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class DescribePkgVersionsRequest extends Model
         }
         if (isset($map['PkgVersionSearch'])) {
             $model->pkgVersionSearch = $map['PkgVersionSearch'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -52,6 +52,11 @@ class DescribeAppEnvsRequest extends Model
      * @var string
      */
     public $stackSearch;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'envId'             => 'EnvId',
         'appId'             => 'AppId',
@@ -62,6 +67,7 @@ class DescribeAppEnvsRequest extends Model
         'envSearch'         => 'EnvSearch',
         'recentUpdated'     => 'RecentUpdated',
         'stackSearch'       => 'StackSearch',
+        'regionId'          => 'RegionId',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class DescribeAppEnvsRequest extends Model
         }
         if (null !== $this->stackSearch) {
             $res['StackSearch'] = $this->stackSearch;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class DescribeAppEnvsRequest extends Model
         }
         if (isset($map['StackSearch'])) {
             $model->stackSearch = $map['StackSearch'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

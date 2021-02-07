@@ -27,11 +27,17 @@ class CreateApplicationRequest extends Model
      * @var bool
      */
     public $usingSharedStorage;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'appName'            => 'AppName',
         'appDescription'     => 'AppDescription',
         'categoryName'       => 'CategoryName',
         'usingSharedStorage' => 'UsingSharedStorage',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->usingSharedStorage) {
             $res['UsingSharedStorage'] = $this->usingSharedStorage;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['UsingSharedStorage'])) {
             $model->usingSharedStorage = $map['UsingSharedStorage'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

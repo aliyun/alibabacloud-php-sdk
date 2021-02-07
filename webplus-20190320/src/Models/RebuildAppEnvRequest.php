@@ -17,9 +17,15 @@ class RebuildAppEnvRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'envId'  => 'EnvId',
-        'dryRun' => 'DryRun',
+        'envId'    => 'EnvId',
+        'dryRun'   => 'DryRun',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class RebuildAppEnvRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class RebuildAppEnvRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;
