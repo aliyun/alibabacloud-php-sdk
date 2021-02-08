@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetDNSSLBStatusRequest extends Model
+class UpdateDnsCacheDomainRemarkRequest extends Model
 {
     /**
      * @var string
@@ -21,35 +21,17 @@ class SetDNSSLBStatusRequest extends Model
     /**
      * @var string
      */
-    public $subDomain;
-
-    /**
-     * @var bool
-     */
-    public $open;
-
-    /**
-     * @var string
-     */
     public $domainName;
 
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $line;
+    public $remark;
     protected $_name = [
         'lang'         => 'Lang',
         'userClientIp' => 'UserClientIp',
-        'subDomain'    => 'SubDomain',
-        'open'         => 'Open',
         'domainName'   => 'DomainName',
-        'type'         => 'Type',
-        'line'         => 'Line',
+        'remark'       => 'Remark',
     ];
 
     public function validate()
@@ -65,20 +47,11 @@ class SetDNSSLBStatusRequest extends Model
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
-        if (null !== $this->subDomain) {
-            $res['SubDomain'] = $this->subDomain;
-        }
-        if (null !== $this->open) {
-            $res['Open'] = $this->open;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->line) {
-            $res['Line'] = $this->line;
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         return $res;
@@ -87,7 +60,7 @@ class SetDNSSLBStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return SetDNSSLBStatusRequest
+     * @return UpdateDnsCacheDomainRemarkRequest
      */
     public static function fromMap($map = [])
     {
@@ -98,20 +71,11 @@ class SetDNSSLBStatusRequest extends Model
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }
-        if (isset($map['SubDomain'])) {
-            $model->subDomain = $map['SubDomain'];
-        }
-        if (isset($map['Open'])) {
-            $model->open = $map['Open'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Line'])) {
-            $model->line = $map['Line'];
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         return $model;

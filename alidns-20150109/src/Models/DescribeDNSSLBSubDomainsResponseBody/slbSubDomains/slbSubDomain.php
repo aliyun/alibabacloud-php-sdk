@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDNSSLBSubDomainsResponseBody\slbSubDomains;
 
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDNSSLBSubDomainsResponseBody\slbSubDomains\slbSubDomain\lineAlgorithms;
 use AlibabaCloud\Tea\Model;
 
 class slbSubDomain extends Model
@@ -27,11 +28,17 @@ class slbSubDomain extends Model
      * @var string
      */
     public $subDomain;
+
+    /**
+     * @var lineAlgorithms
+     */
+    public $lineAlgorithms;
     protected $_name = [
-        'type'        => 'Type',
-        'recordCount' => 'RecordCount',
-        'open'        => 'Open',
-        'subDomain'   => 'SubDomain',
+        'type'           => 'Type',
+        'recordCount'    => 'RecordCount',
+        'open'           => 'Open',
+        'subDomain'      => 'SubDomain',
+        'lineAlgorithms' => 'LineAlgorithms',
     ];
 
     public function validate()
@@ -52,6 +59,9 @@ class slbSubDomain extends Model
         }
         if (null !== $this->subDomain) {
             $res['SubDomain'] = $this->subDomain;
+        }
+        if (null !== $this->lineAlgorithms) {
+            $res['LineAlgorithms'] = null !== $this->lineAlgorithms ? $this->lineAlgorithms->toMap() : null;
         }
 
         return $res;
@@ -76,6 +86,9 @@ class slbSubDomain extends Model
         }
         if (isset($map['SubDomain'])) {
             $model->subDomain = $map['SubDomain'];
+        }
+        if (isset($map['LineAlgorithms'])) {
+            $model->lineAlgorithms = lineAlgorithms::fromMap($map['LineAlgorithms']);
         }
 
         return $model;

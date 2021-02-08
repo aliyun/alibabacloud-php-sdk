@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Alidns\V20150109;
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddCustomLineRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddCustomLineResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\AddDnsCacheDomainRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\AddDnsCacheDomainResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddDnsGtmAccessStrategyRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddDnsGtmAccessStrategyResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddDnsGtmAddressPoolRequest;
@@ -39,6 +41,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\CopyGtmConfigRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CopyGtmConfigResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCustomLinesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCustomLinesResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteDnsCacheDomainRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteDnsCacheDomainResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteDnsGtmAccessStrategyRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteDnsGtmAccessStrategyResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteDnsGtmAddressPoolRequest;
@@ -65,6 +69,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLineRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLineResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLinesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLinesResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsCacheDomainsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsCacheDomainsResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategiesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategiesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAccessStrategyAvailableConfigRequest;
@@ -229,6 +235,10 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCustomLineRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCustomLineResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsCacheDomainRemarkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsCacheDomainRemarkResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsCacheDomainRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsCacheDomainResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsGtmAccessStrategyRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsGtmAccessStrategyResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsGtmAddressPoolRequest;
@@ -382,6 +392,34 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addCustomLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddDnsCacheDomainRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AddDnsCacheDomainResponse
+     */
+    public function addDnsCacheDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddDnsCacheDomainResponse::fromMap($this->doRPCRequest('AddDnsCacheDomain', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddDnsCacheDomainRequest $request
+     *
+     * @return AddDnsCacheDomainResponse
+     */
+    public function addDnsCacheDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDnsCacheDomainWithOptions($request, $runtime);
     }
 
     /**
@@ -833,6 +871,34 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param DeleteDnsCacheDomainRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDnsCacheDomainResponse
+     */
+    public function deleteDnsCacheDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDnsCacheDomainResponse::fromMap($this->doRPCRequest('DeleteDnsCacheDomain', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDnsCacheDomainRequest $request
+     *
+     * @return DeleteDnsCacheDomainResponse
+     */
+    public function deleteDnsCacheDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDnsCacheDomainWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDnsGtmAccessStrategyRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1194,6 +1260,34 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCustomLinesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDnsCacheDomainsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDnsCacheDomainsResponse
+     */
+    public function describeDnsCacheDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDnsCacheDomainsResponse::fromMap($this->doRPCRequest('DescribeDnsCacheDomains', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDnsCacheDomainsRequest $request
+     *
+     * @return DescribeDnsCacheDomainsResponse
+     */
+    public function describeDnsCacheDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDnsCacheDomainsWithOptions($request, $runtime);
     }
 
     /**
@@ -3490,6 +3584,62 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCustomLineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDnsCacheDomainRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateDnsCacheDomainResponse
+     */
+    public function updateDnsCacheDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDnsCacheDomainResponse::fromMap($this->doRPCRequest('UpdateDnsCacheDomain', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDnsCacheDomainRequest $request
+     *
+     * @return UpdateDnsCacheDomainResponse
+     */
+    public function updateDnsCacheDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDnsCacheDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDnsCacheDomainRemarkRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateDnsCacheDomainRemarkResponse
+     */
+    public function updateDnsCacheDomainRemarkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDnsCacheDomainRemarkResponse::fromMap($this->doRPCRequest('UpdateDnsCacheDomainRemark', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDnsCacheDomainRemarkRequest $request
+     *
+     * @return UpdateDnsCacheDomainRemarkResponse
+     */
+    public function updateDnsCacheDomainRemark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDnsCacheDomainRemarkWithOptions($request, $runtime);
     }
 
     /**

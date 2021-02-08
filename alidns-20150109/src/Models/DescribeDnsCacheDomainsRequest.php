@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alidns\V20150109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDNSSLBSubDomainsRequest extends Model
+class DescribeDnsCacheDomainsRequest extends Model
 {
     /**
      * @var string
@@ -21,7 +21,7 @@ class DescribeDNSSLBSubDomainsRequest extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $keyword;
 
     /**
      * @var int
@@ -32,18 +32,12 @@ class DescribeDNSSLBSubDomainsRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $rr;
     protected $_name = [
         'lang'         => 'Lang',
         'userClientIp' => 'UserClientIp',
-        'domainName'   => 'DomainName',
+        'keyword'      => 'Keyword',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
-        'rr'           => 'Rr',
     ];
 
     public function validate()
@@ -59,17 +53,14 @@ class DescribeDNSSLBSubDomainsRequest extends Model
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->rr) {
-            $res['Rr'] = $this->rr;
         }
 
         return $res;
@@ -78,7 +69,7 @@ class DescribeDNSSLBSubDomainsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDNSSLBSubDomainsRequest
+     * @return DescribeDnsCacheDomainsRequest
      */
     public static function fromMap($map = [])
     {
@@ -89,17 +80,14 @@ class DescribeDNSSLBSubDomainsRequest extends Model
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Rr'])) {
-            $model->rr = $map['Rr'];
         }
 
         return $model;
