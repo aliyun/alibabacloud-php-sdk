@@ -29,10 +29,12 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsUpgradeStatusRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsUpgradeStatusResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsVersionResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonUpgradeStatusResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAttachScriptsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAttachScriptsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterLogsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNamespacesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodesRequest;
@@ -44,6 +46,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1Request;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1Response;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterV2UserKubeconfigRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterV2UserKubeconfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeExternalAgentRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeExternalAgentResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataRequest;
@@ -64,6 +68,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\MigrateClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterConfigurationRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterConfigurationResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest;
@@ -75,9 +80,13 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterTagsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\OpenAckServiceRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\OpenAckServiceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\PauseClusterUpgradeResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeUpgradeClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\TagResourcesRequest;
@@ -86,6 +95,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterAddonsRequest;
@@ -360,6 +370,49 @@ class CS extends OpenApiClient
         ]);
 
         return DescribeClusterAttachScriptsResponse::fromMap($this->doROARequest('DescribeClusterAttachScripts', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/attachscript', 'string', $req, $runtime));
+    }
+
+    /**
+     * @param string                    $ClusterId
+     * @param RemoveClusterNodesRequest $request
+     *
+     * @return RemoveClusterNodesResponse
+     */
+    public function removeClusterNodes($ClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $ClusterId
+     * @param RemoveClusterNodesRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RemoveClusterNodesResponse
+     */
+    public function removeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->drainNode)) {
+            @$body['drain_node'] = $request->drainNode;
+        }
+        if (!Utils::isUnset($request->nodes)) {
+            @$body['nodes'] = $request->nodes;
+        }
+        if (!Utils::isUnset($request->releaseNode)) {
+            @$body['release_node'] = $request->releaseNode;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return RemoveClusterNodesResponse::fromMap($this->doROARequest('RemoveClusterNodes', '2015-12-15', 'HTTPS', 'POST', 'AK', '/api/v2/clusters/' . $ClusterId . '/nodes/remove', 'none', $req, $runtime));
     }
 
     /**
@@ -889,6 +942,128 @@ class CS extends OpenApiClient
         ]);
 
         return DescribeClusterUserKubeconfigResponse::fromMap($this->doROARequest('DescribeClusterUserKubeconfig', '2015-12-15', 'HTTPS', 'GET', 'AK', '/k8s/' . $ClusterId . '/user_config', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string              $ClusterId
+     * @param ScaleClusterRequest $request
+     *
+     * @return ScaleClusterResponse
+     */
+    public function scaleCluster($ClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->scaleClusterWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $ClusterId
+     * @param ScaleClusterRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ScaleClusterResponse
+     */
+    public function scaleClusterWithOptions($ClusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cloudMonitorFlags)) {
+            @$body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
+        }
+        if (!Utils::isUnset($request->count)) {
+            @$body['count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->cpuPolicy)) {
+            @$body['cpu_policy'] = $request->cpuPolicy;
+        }
+        if (!Utils::isUnset($request->disableRollback)) {
+            @$body['disable_rollback'] = $request->disableRollback;
+        }
+        if (!Utils::isUnset($request->keyPair)) {
+            @$body['key_pair'] = $request->keyPair;
+        }
+        if (!Utils::isUnset($request->loginPassword)) {
+            @$body['login_password'] = $request->loginPassword;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            @$body['tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->taints)) {
+            @$body['taints'] = $request->taints;
+        }
+        if (!Utils::isUnset($request->vswitchIds)) {
+            @$body['vswitch_ids'] = $request->vswitchIds;
+        }
+        if (!Utils::isUnset($request->workerAutoRenew)) {
+            @$body['worker_auto_renew'] = $request->workerAutoRenew;
+        }
+        if (!Utils::isUnset($request->workerAutoRenewPeriod)) {
+            @$body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->workerDataDisk)) {
+            @$body['worker_data_disk'] = $request->workerDataDisk;
+        }
+        if (!Utils::isUnset($request->workerDataDisks)) {
+            @$body['worker_data_disks'] = $request->workerDataDisks;
+        }
+        if (!Utils::isUnset($request->workerInstanceChargeType)) {
+            @$body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
+        }
+        if (!Utils::isUnset($request->workerInstanceTypes)) {
+            @$body['worker_instance_types'] = $request->workerInstanceTypes;
+        }
+        if (!Utils::isUnset($request->workerPeriod)) {
+            @$body['worker_period'] = $request->workerPeriod;
+        }
+        if (!Utils::isUnset($request->workerPeriodUnit)) {
+            @$body['worker_period_unit'] = $request->workerPeriodUnit;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskCategory)) {
+            @$body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
+        }
+        if (!Utils::isUnset($request->workerSystemDiskSize)) {
+            @$body['worker_system_disk_size'] = $request->workerSystemDiskSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return ScaleClusterResponse::fromMap($this->doROARequest('ScaleCluster', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/clusters/' . $ClusterId . '', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $ComponentId
+     *
+     * @return DescribeClusterAddonUpgradeStatusResponse
+     */
+    public function describeClusterAddonUpgradeStatus($ClusterId, $ComponentId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $ComponentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeClusterAddonUpgradeStatusResponse
+     */
+    public function describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return DescribeClusterAddonUpgradeStatusResponse::fromMap($this->doROARequest('DescribeClusterAddonUpgradeStatus', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/components/' . $ComponentId . '/upgradestatus', 'json', $req, $runtime));
     }
 
     /**
@@ -1571,6 +1746,35 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string $clusterId
+     *
+     * @return MigrateClusterResponse
+     */
+    public function migrateCluster($clusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->migrateClusterWithOptions($clusterId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return MigrateClusterResponse
+     */
+    public function migrateClusterWithOptions($clusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return MigrateClusterResponse::fromMap($this->doROARequest('MigrateCluster', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterId . '/migrate', 'none', $req, $runtime));
+    }
+
+    /**
      * @param string $ClusterId
      *
      * @return DescribeClusterAddonsVersionResponse
@@ -1891,6 +2095,35 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string $ClusterId
+     *
+     * @return DescribeClusterNamespacesResponse
+     */
+    public function describeClusterNamespaces($ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeClusterNamespacesWithOptions($ClusterId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeClusterNamespacesResponse
+     */
+    public function describeClusterNamespacesWithOptions($ClusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return DescribeClusterNamespacesResponse::fromMap($this->doROARequest('DescribeClusterNamespaces', '2015-12-15', 'HTTPS', 'GET', 'AK', '/k8s/' . $ClusterId . '/namespaces', 'none', $req, $runtime));
+    }
+
+    /**
      * @param string $Id
      *
      * @return DeleteKubernetesTriggerResponse
@@ -2076,6 +2309,43 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string                                 $ClusterId
+     * @param DescribeClusterV2UserKubeconfigRequest $request
+     *
+     * @return DescribeClusterV2UserKubeconfigResponse
+     */
+    public function describeClusterV2UserKubeconfig($ClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeClusterV2UserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                                 $ClusterId
+     * @param DescribeClusterV2UserKubeconfigRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeClusterV2UserKubeconfigResponse
+     */
+    public function describeClusterV2UserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+
+        return DescribeClusterV2UserKubeconfigResponse::fromMap($this->doROARequest('DescribeClusterV2UserKubeconfig', '2015-12-15', 'HTTPS', 'GET', 'AK', '/api/v2/k8s/' . $ClusterId . '/user_config', 'json', $req, $runtime));
+    }
+
+    /**
      * @param string                 $ClusterId
      * @param ScaleOutClusterRequest $request
      *
@@ -2170,6 +2440,35 @@ class CS extends OpenApiClient
         ]);
 
         return ScaleOutClusterResponse::fromMap($this->doROARequest('ScaleOutCluster', '2015-12-15', 'HTTPS', 'POST', 'AK', '/api/v2/clusters/' . $ClusterId . '', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     *
+     * @return UpdateK8sClusterUserConfigExpireResponse
+     */
+    public function updateK8sClusterUserConfigExpire($ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateK8sClusterUserConfigExpireWithOptions($ClusterId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return UpdateK8sClusterUserConfigExpireResponse
+     */
+    public function updateK8sClusterUserConfigExpireWithOptions($ClusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return UpdateK8sClusterUserConfigExpireResponse::fromMap($this->doROARequest('UpdateK8sClusterUserConfigExpire', '2015-12-15', 'HTTPS', 'POST', 'AK', '/k8s/' . $ClusterId . '/user_config/expire', 'none', $req, $runtime));
     }
 
     /**
