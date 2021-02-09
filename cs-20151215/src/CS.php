@@ -9,6 +9,9 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelClusterUpgradeResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CancelComponentUpgradeResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
@@ -24,6 +27,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteTemplateResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescirbeWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsUpgradeStatusRequest;
@@ -59,6 +63,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserPermissionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserQuotaResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeWorkflowsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetUpgradeStatusResponse;
@@ -80,8 +85,11 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterTagsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\OpenAckServiceRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\OpenAckServiceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\PauseClusterUpgradeResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\PauseComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\RemoveWorkflowResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ResumeComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ResumeUpgradeClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterNodePoolResponse;
@@ -89,6 +97,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsRequest;
@@ -592,6 +602,37 @@ class CS extends OpenApiClient
         ]);
 
         return DescribeClusterDetailResponse::fromMap($this->doROARequest('DescribeClusterDetail', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string $clusterid
+     * @param string $componentid
+     *
+     * @return PauseComponentUpgradeResponse
+     */
+    public function pauseComponentUpgrade($clusterid, $componentid)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->pauseComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterid
+     * @param string         $componentid
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return PauseComponentUpgradeResponse
+     */
+    public function pauseComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return PauseComponentUpgradeResponse::fromMap($this->doROARequest('PauseComponentUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterid . '/components/' . $componentid . '/pause', 'none', $req, $runtime));
     }
 
     /**
@@ -1396,6 +1437,43 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string                $workflowName
+     * @param CancelWorkflowRequest $request
+     *
+     * @return CancelWorkflowResponse
+     */
+    public function cancelWorkflow($workflowName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelWorkflowWithOptions($workflowName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $workflowName
+     * @param CancelWorkflowRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CancelWorkflowResponse
+     */
+    public function cancelWorkflowWithOptions($workflowName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->action)) {
+            @$body['action'] = $request->action;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return CancelWorkflowResponse::fromMap($this->doROARequest('CancelWorkflow', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/gs/workflow/' . $workflowName . '', 'none', $req, $runtime));
+    }
+
+    /**
      * @param string                 $ClusterId
      * @param AttachInstancesRequest $request
      *
@@ -1747,6 +1825,37 @@ class CS extends OpenApiClient
 
     /**
      * @param string $clusterId
+     * @param string $componentId
+     *
+     * @return CancelComponentUpgradeResponse
+     */
+    public function cancelComponentUpgrade($clusterId, $componentId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelComponentUpgradeWithOptions($clusterId, $componentId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterId
+     * @param string         $componentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CancelComponentUpgradeResponse
+     */
+    public function cancelComponentUpgradeWithOptions($clusterId, $componentId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return CancelComponentUpgradeResponse::fromMap($this->doROARequest('CancelComponentUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterId . '/components/' . $componentId . '/cancel', 'none', $req, $runtime));
+    }
+
+    /**
+     * @param string $clusterId
      *
      * @return MigrateClusterResponse
      */
@@ -1874,6 +1983,37 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string $clusterid
+     * @param string $componentid
+     *
+     * @return ResumeComponentUpgradeResponse
+     */
+    public function resumeComponentUpgrade($clusterid, $componentid)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resumeComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterid
+     * @param string         $componentid
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ResumeComponentUpgradeResponse
+     */
+    public function resumeComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return ResumeComponentUpgradeResponse::fromMap($this->doROARequest('ResumeComponentUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterid . '/components/' . $componentid . '/resume', 'none', $req, $runtime));
+    }
+
+    /**
      * @param DescribeClustersV1Request $request
      *
      * @return DescribeClustersV1Response
@@ -1984,6 +2124,35 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string $workflowName
+     *
+     * @return DescirbeWorkflowResponse
+     */
+    public function descirbeWorkflow($workflowName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->descirbeWorkflowWithOptions($workflowName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $workflowName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescirbeWorkflowResponse
+     */
+    public function descirbeWorkflowWithOptions($workflowName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return DescirbeWorkflowResponse::fromMap($this->doROARequest('DescirbeWorkflow', '2015-12-15', 'HTTPS', 'GET', 'AK', '/gs/workflow/' . $workflowName . '', 'json', $req, $runtime));
+    }
+
+    /**
      * @param string $ClusterId
      *
      * @return CancelClusterUpgradeResponse
@@ -2010,6 +2179,35 @@ class CS extends OpenApiClient
         ]);
 
         return CancelClusterUpgradeResponse::fromMap($this->doROARequest('CancelClusterUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/api/v2/clusters/' . $ClusterId . '/upgrade/cancel', 'none', $req, $runtime));
+    }
+
+    /**
+     * @param string $workflowName
+     *
+     * @return RemoveWorkflowResponse
+     */
+    public function removeWorkflow($workflowName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeWorkflowWithOptions($workflowName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $workflowName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RemoveWorkflowResponse
+     */
+    public function removeWorkflowWithOptions($workflowName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return RemoveWorkflowResponse::fromMap($this->doROARequest('RemoveWorkflow', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/gs/workflow/' . $workflowName . '', 'none', $req, $runtime));
     }
 
     /**
@@ -2247,6 +2445,32 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @return DescribeWorkflowsResponse
+     */
+    public function describeWorkflows()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeWorkflowsWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeWorkflowsResponse
+     */
+    public function describeWorkflowsWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return DescribeWorkflowsResponse::fromMap($this->doROARequest('DescribeWorkflows', '2015-12-15', 'HTTPS', 'GET', 'AK', '/gs/workflows', 'json', $req, $runtime));
+    }
+
+    /**
      * @param string                      $ClusterId
      * @param InstallClusterAddonsRequest $request
      *
@@ -2343,6 +2567,95 @@ class CS extends OpenApiClient
         ]);
 
         return DescribeClusterV2UserKubeconfigResponse::fromMap($this->doROARequest('DescribeClusterV2UserKubeconfig', '2015-12-15', 'HTTPS', 'GET', 'AK', '/api/v2/k8s/' . $ClusterId . '/user_config', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartWorkflowRequest $request
+     *
+     * @return StartWorkflowResponse
+     */
+    public function startWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startWorkflowWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param StartWorkflowRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartWorkflowResponse
+     */
+    public function startWorkflowWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->workflowType)) {
+            @$body['workflow_type'] = $request->workflowType;
+        }
+        if (!Utils::isUnset($request->service)) {
+            @$body['service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->mappingOssRegion)) {
+            @$body['mapping_oss_region'] = $request->mappingOssRegion;
+        }
+        if (!Utils::isUnset($request->mappingFastqFirstFilename)) {
+            @$body['mapping_fastq_first_filename'] = $request->mappingFastqFirstFilename;
+        }
+        if (!Utils::isUnset($request->mappingFastqSecondFilename)) {
+            @$body['mapping_fastq_second_filename'] = $request->mappingFastqSecondFilename;
+        }
+        if (!Utils::isUnset($request->mappingBucketName)) {
+            @$body['mapping_bucket_name'] = $request->mappingBucketName;
+        }
+        if (!Utils::isUnset($request->mappingFastqPath)) {
+            @$body['mapping_fastq_path'] = $request->mappingFastqPath;
+        }
+        if (!Utils::isUnset($request->mappingReferencePath)) {
+            @$body['mapping_reference_path'] = $request->mappingReferencePath;
+        }
+        if (!Utils::isUnset($request->mappingIsMarkDup)) {
+            @$body['mapping_is_mark_dup'] = $request->mappingIsMarkDup;
+        }
+        if (!Utils::isUnset($request->mappingBamOutPath)) {
+            @$body['mapping_bam_out_path'] = $request->mappingBamOutPath;
+        }
+        if (!Utils::isUnset($request->mappingBamOutFilename)) {
+            @$body['mapping_bam_out_filename'] = $request->mappingBamOutFilename;
+        }
+        if (!Utils::isUnset($request->wgsOssRegion)) {
+            @$body['wgs_oss_region'] = $request->wgsOssRegion;
+        }
+        if (!Utils::isUnset($request->wgsFastqFirstFilename)) {
+            @$body['wgs_fastq_first_filename'] = $request->wgsFastqFirstFilename;
+        }
+        if (!Utils::isUnset($request->wgsFastqSecondFilename)) {
+            @$body['wgs_fastq_second_filename'] = $request->wgsFastqSecondFilename;
+        }
+        if (!Utils::isUnset($request->wgsBucketName)) {
+            @$body['wgs_bucket_name'] = $request->wgsBucketName;
+        }
+        if (!Utils::isUnset($request->wgsFastqPath)) {
+            @$body['wgs_fastq_path'] = $request->wgsFastqPath;
+        }
+        if (!Utils::isUnset($request->wgsReferencePath)) {
+            @$body['wgs_reference_path'] = $request->wgsReferencePath;
+        }
+        if (!Utils::isUnset($request->wgsVcfOutPath)) {
+            @$body['wgs_vcf_out_path'] = $request->wgsVcfOutPath;
+        }
+        if (!Utils::isUnset($request->wgsVcfOutFilename)) {
+            @$body['wgs_vcf_out_filename'] = $request->wgsVcfOutFilename;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return StartWorkflowResponse::fromMap($this->doROARequest('StartWorkflow', '2015-12-15', 'HTTPS', 'POST', 'AK', '/gs/workflow', 'json', $req, $runtime));
     }
 
     /**
