@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemStatisticsResponseBody\fileSystems;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemStatisticsResponseBody\fileSystemStatistics;
 use AlibabaCloud\Tea\Model;
 
 class DescribeFileSystemStatisticsResponseBody extends Model
 {
+    /**
+     * @var fileSystems
+     */
+    public $fileSystems;
+
     /**
      * @var int
      */
@@ -34,6 +40,7 @@ class DescribeFileSystemStatisticsResponseBody extends Model
      */
     public $fileSystemStatistics;
     protected $_name = [
+        'fileSystems'          => 'FileSystems',
         'totalCount'           => 'TotalCount',
         'requestId'            => 'RequestId',
         'pageSize'             => 'PageSize',
@@ -48,6 +55,9 @@ class DescribeFileSystemStatisticsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileSystems) {
+            $res['FileSystems'] = null !== $this->fileSystems ? $this->fileSystems->toMap() : null;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -75,6 +85,9 @@ class DescribeFileSystemStatisticsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileSystems'])) {
+            $model->fileSystems = fileSystems::fromMap($map['FileSystems']);
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -70,6 +70,11 @@ class DescribeFileSystemsRequest extends Model
     public $sortOrder;
 
     /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -86,6 +91,7 @@ class DescribeFileSystemsRequest extends Model
         'fileSystemIds'  => 'FileSystemIds',
         'orderByField'   => 'OrderByField',
         'sortOrder'      => 'SortOrder',
+        'chargeType'     => 'ChargeType',
         'tag'            => 'Tag',
     ];
 
@@ -131,6 +137,9 @@ class DescribeFileSystemsRequest extends Model
         }
         if (null !== $this->sortOrder) {
             $res['SortOrder'] = $this->sortOrder;
+        }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -188,6 +197,9 @@ class DescribeFileSystemsRequest extends Model
         }
         if (isset($map['SortOrder'])) {
             $model->sortOrder = $map['SortOrder'];
+        }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
