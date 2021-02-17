@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryHistoryOnlineResponseBody\data;
 
+use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryHistoryOnlineResponseBody\data\records\statsDataDo;
 use AlibabaCloud\Tea\Model;
 
 class records extends Model
 {
     /**
-     * @var float
+     * @var statsDataDo[]
      */
-    public $y;
-
-    /**
-     * @var int
-     */
-    public $x;
+    public $statsDataDo;
     protected $_name = [
-        'y' => 'Y',
-        'x' => 'X',
+        'statsDataDo' => 'StatsDataDo',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class records extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->y) {
-            $res['Y'] = $this->y;
-        }
-        if (null !== $this->x) {
-            $res['X'] = $this->x;
+        if (null !== $this->statsDataDo) {
+            $res['StatsDataDo'] = [];
+            if (null !== $this->statsDataDo && \is_array($this->statsDataDo)) {
+                $n = 0;
+                foreach ($this->statsDataDo as $item) {
+                    $res['StatsDataDo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class records extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Y'])) {
-            $model->y = $map['Y'];
-        }
-        if (isset($map['X'])) {
-            $model->x = $map['X'];
+        if (isset($map['StatsDataDo'])) {
+            if (!empty($map['StatsDataDo'])) {
+                $model->statsDataDo = [];
+                $n                  = 0;
+                foreach ($map['StatsDataDo'] as $item) {
+                    $model->statsDataDo[$n++] = null !== $item ? statsDataDo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

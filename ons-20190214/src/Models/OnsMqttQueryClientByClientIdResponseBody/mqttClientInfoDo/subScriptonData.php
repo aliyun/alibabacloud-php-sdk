@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryClientByClientIdResponseBody\mqttClientInfoDo;
 
+use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMqttQueryClientByClientIdResponseBody\mqttClientInfoDo\subScriptonData\subscriptionDo;
 use AlibabaCloud\Tea\Model;
 
 class subScriptonData extends Model
 {
     /**
-     * @var string
+     * @var subscriptionDo[]
      */
-    public $subTopic;
-
-    /**
-     * @var string
-     */
-    public $parentTopic;
-
-    /**
-     * @var int
-     */
-    public $qos;
+    public $subscriptionDo;
     protected $_name = [
-        'subTopic'    => 'SubTopic',
-        'parentTopic' => 'ParentTopic',
-        'qos'         => 'Qos',
+        'subscriptionDo' => 'SubscriptionDo',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class subScriptonData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subTopic) {
-            $res['SubTopic'] = $this->subTopic;
-        }
-        if (null !== $this->parentTopic) {
-            $res['ParentTopic'] = $this->parentTopic;
-        }
-        if (null !== $this->qos) {
-            $res['Qos'] = $this->qos;
+        if (null !== $this->subscriptionDo) {
+            $res['SubscriptionDo'] = [];
+            if (null !== $this->subscriptionDo && \is_array($this->subscriptionDo)) {
+                $n = 0;
+                foreach ($this->subscriptionDo as $item) {
+                    $res['SubscriptionDo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class subScriptonData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubTopic'])) {
-            $model->subTopic = $map['SubTopic'];
-        }
-        if (isset($map['ParentTopic'])) {
-            $model->parentTopic = $map['ParentTopic'];
-        }
-        if (isset($map['Qos'])) {
-            $model->qos = $map['Qos'];
+        if (isset($map['SubscriptionDo'])) {
+            if (!empty($map['SubscriptionDo'])) {
+                $model->subscriptionDo = [];
+                $n                     = 0;
+                foreach ($map['SubscriptionDo'] as $item) {
+                    $model->subscriptionDo[$n++] = null !== $item ? subscriptionDo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

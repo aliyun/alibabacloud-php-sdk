@@ -15,7 +15,7 @@ class OnsRegionListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
     protected $_name = [
@@ -34,13 +34,7 @@ class OnsRegionListResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class OnsRegionListResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

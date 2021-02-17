@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models;
 
+use AlibabaCloud\SDK\Ons\V20190214\Models\OnsDLQMessageResendByIdResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class OnsDLQMessageResendByIdResponseBody extends Model
@@ -14,7 +15,7 @@ class OnsDLQMessageResendByIdResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
+     * @var data
      */
     public $data;
     protected $_name = [
@@ -33,7 +34,7 @@ class OnsDLQMessageResendByIdResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -51,9 +52,7 @@ class OnsDLQMessageResendByIdResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = $map['Data'];
-            }
+            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

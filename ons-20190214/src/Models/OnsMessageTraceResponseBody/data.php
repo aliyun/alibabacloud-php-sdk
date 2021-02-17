@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageTraceResponseBody;
 
+use AlibabaCloud\SDK\Ons\V20190214\Models\OnsMessageTraceResponseBody\data\messageTrack;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @var string
+     * @var messageTrack[]
      */
-    public $trackType;
-
-    /**
-     * @var string
-     */
-    public $consumerGroup;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $messageTrack;
     protected $_name = [
-        'trackType'     => 'TrackType',
-        'consumerGroup' => 'ConsumerGroup',
-        'instanceId'    => 'InstanceId',
+        'messageTrack' => 'MessageTrack',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->trackType) {
-            $res['TrackType'] = $this->trackType;
-        }
-        if (null !== $this->consumerGroup) {
-            $res['ConsumerGroup'] = $this->consumerGroup;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->messageTrack) {
+            $res['MessageTrack'] = [];
+            if (null !== $this->messageTrack && \is_array($this->messageTrack)) {
+                $n = 0;
+                foreach ($this->messageTrack as $item) {
+                    $res['MessageTrack'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TrackType'])) {
-            $model->trackType = $map['TrackType'];
-        }
-        if (isset($map['ConsumerGroup'])) {
-            $model->consumerGroup = $map['ConsumerGroup'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['MessageTrack'])) {
+            if (!empty($map['MessageTrack'])) {
+                $model->messageTrack = [];
+                $n                   = 0;
+                foreach ($map['MessageTrack'] as $item) {
+                    $model->messageTrack[$n++] = null !== $item ? messageTrack::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

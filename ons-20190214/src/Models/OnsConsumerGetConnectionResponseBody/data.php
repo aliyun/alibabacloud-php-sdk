@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var connectionList[]
+     * @var connectionList
      */
     public $connectionList;
     protected $_name = [
@@ -25,13 +25,7 @@ class data extends Model
     {
         $res = [];
         if (null !== $this->connectionList) {
-            $res['ConnectionList'] = [];
-            if (null !== $this->connectionList && \is_array($this->connectionList)) {
-                $n = 0;
-                foreach ($this->connectionList as $item) {
-                    $res['ConnectionList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ConnectionList'] = null !== $this->connectionList ? $this->connectionList->toMap() : null;
         }
 
         return $res;
@@ -46,13 +40,7 @@ class data extends Model
     {
         $model = new self();
         if (isset($map['ConnectionList'])) {
-            if (!empty($map['ConnectionList'])) {
-                $model->connectionList = [];
-                $n                     = 0;
-                foreach ($map['ConnectionList'] as $item) {
-                    $model->connectionList[$n++] = null !== $item ? connectionList::fromMap($item) : $item;
-                }
-            }
+            $model->connectionList = connectionList::fromMap($map['ConnectionList']);
         }
 
         return $model;

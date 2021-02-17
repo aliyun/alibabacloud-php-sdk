@@ -15,7 +15,7 @@ class msgFoundDo extends Model
     public $currentPage;
 
     /**
-     * @var msgFoundList[]
+     * @var msgFoundList
      */
     public $msgFoundList;
 
@@ -46,13 +46,7 @@ class msgFoundDo extends Model
             $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->msgFoundList) {
-            $res['MsgFoundList'] = [];
-            if (null !== $this->msgFoundList && \is_array($this->msgFoundList)) {
-                $n = 0;
-                foreach ($this->msgFoundList as $item) {
-                    $res['MsgFoundList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['MsgFoundList'] = null !== $this->msgFoundList ? $this->msgFoundList->toMap() : null;
         }
         if (null !== $this->maxPageCount) {
             $res['MaxPageCount'] = $this->maxPageCount;
@@ -76,13 +70,7 @@ class msgFoundDo extends Model
             $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['MsgFoundList'])) {
-            if (!empty($map['MsgFoundList'])) {
-                $model->msgFoundList = [];
-                $n                   = 0;
-                foreach ($map['MsgFoundList'] as $item) {
-                    $model->msgFoundList[$n++] = null !== $item ? msgFoundList::fromMap($item) : $item;
-                }
-            }
+            $model->msgFoundList = msgFoundList::fromMap($map['MsgFoundList']);
         }
         if (isset($map['MaxPageCount'])) {
             $model->maxPageCount = $map['MaxPageCount'];

@@ -30,7 +30,7 @@ class mqttClientInfoDo extends Model
     public $clientId;
 
     /**
-     * @var subScriptonData[]
+     * @var subScriptonData
      */
     public $subScriptonData;
     protected $_name = [
@@ -61,13 +61,7 @@ class mqttClientInfoDo extends Model
             $res['ClientId'] = $this->clientId;
         }
         if (null !== $this->subScriptonData) {
-            $res['SubScriptonData'] = [];
-            if (null !== $this->subScriptonData && \is_array($this->subScriptonData)) {
-                $n = 0;
-                foreach ($this->subScriptonData as $item) {
-                    $res['SubScriptonData'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['SubScriptonData'] = null !== $this->subScriptonData ? $this->subScriptonData->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class mqttClientInfoDo extends Model
             $model->clientId = $map['ClientId'];
         }
         if (isset($map['SubScriptonData'])) {
-            if (!empty($map['SubScriptonData'])) {
-                $model->subScriptonData = [];
-                $n                      = 0;
-                foreach ($map['SubScriptonData'] as $item) {
-                    $model->subScriptonData[$n++] = null !== $item ? subScriptonData::fromMap($item) : $item;
-                }
-            }
+            $model->subScriptonData = subScriptonData::fromMap($map['SubScriptonData']);
         }
 
         return $model;

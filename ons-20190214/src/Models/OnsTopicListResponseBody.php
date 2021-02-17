@@ -15,18 +15,12 @@ class OnsTopicListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
-
-    /**
-     * @var string
-     */
-    public $helpUrl;
     protected $_name = [
         'requestId' => 'RequestId',
         'data'      => 'Data',
-        'helpUrl'   => 'HelpUrl',
     ];
 
     public function validate()
@@ -40,16 +34,7 @@ class OnsTopicListResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->helpUrl) {
-            $res['HelpUrl'] = $this->helpUrl;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -67,16 +52,7 @@ class OnsTopicListResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['HelpUrl'])) {
-            $model->helpUrl = $map['HelpUrl'];
+            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

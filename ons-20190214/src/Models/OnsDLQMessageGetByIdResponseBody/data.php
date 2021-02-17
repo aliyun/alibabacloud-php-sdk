@@ -45,7 +45,7 @@ class data extends Model
     public $topic;
 
     /**
-     * @var propertyList[]
+     * @var propertyList
      */
     public $propertyList;
 
@@ -106,13 +106,7 @@ class data extends Model
             $res['Topic'] = $this->topic;
         }
         if (null !== $this->propertyList) {
-            $res['PropertyList'] = [];
-            if (null !== $this->propertyList && \is_array($this->propertyList)) {
-                $n = 0;
-                foreach ($this->propertyList as $item) {
-                    $res['PropertyList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['PropertyList'] = null !== $this->propertyList ? $this->propertyList->toMap() : null;
         }
         if (null !== $this->bornTimestamp) {
             $res['BornTimestamp'] = $this->bornTimestamp;
@@ -157,13 +151,7 @@ class data extends Model
             $model->topic = $map['Topic'];
         }
         if (isset($map['PropertyList'])) {
-            if (!empty($map['PropertyList'])) {
-                $model->propertyList = [];
-                $n                   = 0;
-                foreach ($map['PropertyList'] as $item) {
-                    $model->propertyList[$n++] = null !== $item ? propertyList::fromMap($item) : $item;
-                }
-            }
+            $model->propertyList = propertyList::fromMap($map['PropertyList']);
         }
         if (isset($map['BornTimestamp'])) {
             $model->bornTimestamp = $map['BornTimestamp'];

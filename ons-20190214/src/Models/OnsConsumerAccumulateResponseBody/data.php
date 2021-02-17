@@ -35,7 +35,7 @@ class data extends Model
     public $online;
 
     /**
-     * @var detailInTopicList[]
+     * @var detailInTopicList
      */
     public $detailInTopicList;
     protected $_name = [
@@ -70,13 +70,7 @@ class data extends Model
             $res['Online'] = $this->online;
         }
         if (null !== $this->detailInTopicList) {
-            $res['DetailInTopicList'] = [];
-            if (null !== $this->detailInTopicList && \is_array($this->detailInTopicList)) {
-                $n = 0;
-                foreach ($this->detailInTopicList as $item) {
-                    $res['DetailInTopicList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DetailInTopicList'] = null !== $this->detailInTopicList ? $this->detailInTopicList->toMap() : null;
         }
 
         return $res;
@@ -106,13 +100,7 @@ class data extends Model
             $model->online = $map['Online'];
         }
         if (isset($map['DetailInTopicList'])) {
-            if (!empty($map['DetailInTopicList'])) {
-                $model->detailInTopicList = [];
-                $n                        = 0;
-                foreach ($map['DetailInTopicList'] as $item) {
-                    $model->detailInTopicList[$n++] = null !== $item ? detailInTopicList::fromMap($item) : $item;
-                }
-            }
+            $model->detailInTopicList = detailInTopicList::fromMap($map['DetailInTopicList']);
         }
 
         return $model;

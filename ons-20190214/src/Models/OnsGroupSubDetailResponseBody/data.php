@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var subscriptionDataList[]
+     * @var subscriptionDataList
      */
     public $subscriptionDataList;
 
@@ -43,13 +43,7 @@ class data extends Model
     {
         $res = [];
         if (null !== $this->subscriptionDataList) {
-            $res['SubscriptionDataList'] = [];
-            if (null !== $this->subscriptionDataList && \is_array($this->subscriptionDataList)) {
-                $n = 0;
-                foreach ($this->subscriptionDataList as $item) {
-                    $res['SubscriptionDataList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['SubscriptionDataList'] = null !== $this->subscriptionDataList ? $this->subscriptionDataList->toMap() : null;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -73,13 +67,7 @@ class data extends Model
     {
         $model = new self();
         if (isset($map['SubscriptionDataList'])) {
-            if (!empty($map['SubscriptionDataList'])) {
-                $model->subscriptionDataList = [];
-                $n                           = 0;
-                foreach ($map['SubscriptionDataList'] as $item) {
-                    $model->subscriptionDataList[$n++] = null !== $item ? subscriptionDataList::fromMap($item) : $item;
-                }
-            }
+            $model->subscriptionDataList = subscriptionDataList::fromMap($map['SubscriptionDataList']);
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

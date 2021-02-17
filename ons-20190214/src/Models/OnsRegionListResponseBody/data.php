@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsRegionListResponseBody;
 
+use AlibabaCloud\SDK\Ons\V20190214\Models\OnsRegionListResponseBody\data\regionDo;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @var string
+     * @var regionDo[]
      */
-    public $regionName;
-
-    /**
-     * @var string
-     */
-    public $onsRegionId;
+    public $regionDo;
     protected $_name = [
-        'regionName'  => 'RegionName',
-        'onsRegionId' => 'OnsRegionId',
+        'regionDo' => 'RegionDo',
     ];
 
     public function validate()
@@ -29,11 +24,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionName) {
-            $res['RegionName'] = $this->regionName;
-        }
-        if (null !== $this->onsRegionId) {
-            $res['OnsRegionId'] = $this->onsRegionId;
+        if (null !== $this->regionDo) {
+            $res['RegionDo'] = [];
+            if (null !== $this->regionDo && \is_array($this->regionDo)) {
+                $n = 0;
+                foreach ($this->regionDo as $item) {
+                    $res['RegionDo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +45,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionName'])) {
-            $model->regionName = $map['RegionName'];
-        }
-        if (isset($map['OnsRegionId'])) {
-            $model->onsRegionId = $map['OnsRegionId'];
+        if (isset($map['RegionDo'])) {
+            if (!empty($map['RegionDo'])) {
+                $model->regionDo = [];
+                $n               = 0;
+                foreach ($map['RegionDo'] as $item) {
+                    $model->regionDo[$n++] = null !== $item ? regionDo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

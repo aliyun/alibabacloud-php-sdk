@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var records[]
+     * @var records
      */
     public $records;
 
@@ -43,13 +43,7 @@ class data extends Model
     {
         $res = [];
         if (null !== $this->records) {
-            $res['Records'] = [];
-            if (null !== $this->records && \is_array($this->records)) {
-                $n = 0;
-                foreach ($this->records as $item) {
-                    $res['Records'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Records'] = null !== $this->records ? $this->records->toMap() : null;
         }
         if (null !== $this->XUnit) {
             $res['XUnit'] = $this->XUnit;
@@ -73,13 +67,7 @@ class data extends Model
     {
         $model = new self();
         if (isset($map['Records'])) {
-            if (!empty($map['Records'])) {
-                $model->records = [];
-                $n              = 0;
-                foreach ($map['Records'] as $item) {
-                    $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
-                }
-            }
+            $model->records = records::fromMap($map['Records']);
         }
         if (isset($map['XUnit'])) {
             $model->XUnit = $map['XUnit'];

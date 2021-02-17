@@ -9,23 +9,11 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDataList extends Model
 {
     /**
-     * @var string
+     * @var \AlibabaCloud\SDK\Ons\V20190214\Models\OnsTopicSubDetailResponseBody\data\subscriptionDataList\subscriptionDataList[]
      */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $messageModel;
-
-    /**
-     * @var string
-     */
-    public $subString;
+    public $subscriptionDataList;
     protected $_name = [
-        'groupId'      => 'GroupId',
-        'messageModel' => 'MessageModel',
-        'subString'    => 'SubString',
+        'subscriptionDataList' => 'SubscriptionDataList',
     ];
 
     public function validate()
@@ -35,14 +23,14 @@ class subscriptionDataList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->messageModel) {
-            $res['MessageModel'] = $this->messageModel;
-        }
-        if (null !== $this->subString) {
-            $res['SubString'] = $this->subString;
+        if (null !== $this->subscriptionDataList) {
+            $res['SubscriptionDataList'] = [];
+            if (null !== $this->subscriptionDataList && \is_array($this->subscriptionDataList)) {
+                $n = 0;
+                foreach ($this->subscriptionDataList as $item) {
+                    $res['SubscriptionDataList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +44,14 @@ class subscriptionDataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['MessageModel'])) {
-            $model->messageModel = $map['MessageModel'];
-        }
-        if (isset($map['SubString'])) {
-            $model->subString = $map['SubString'];
+        if (isset($map['SubscriptionDataList'])) {
+            if (!empty($map['SubscriptionDataList'])) {
+                $model->subscriptionDataList = [];
+                $n                           = 0;
+                foreach ($map['SubscriptionDataList'] as $item) {
+                    $model->subscriptionDataList[$n++] = null !== $item ? \AlibabaCloud\SDK\Ons\V20190214\Models\OnsTopicSubDetailResponseBody\data\subscriptionDataList\subscriptionDataList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

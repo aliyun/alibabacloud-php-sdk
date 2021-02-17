@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerAccumulateResponseBody\data;
 
+use AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerAccumulateResponseBody\data\detailInTopicList\detailInTopicDo;
 use AlibabaCloud\Tea\Model;
 
 class detailInTopicList extends Model
 {
     /**
-     * @var int
+     * @var detailInTopicDo[]
      */
-    public $delayTime;
-
-    /**
-     * @var int
-     */
-    public $totalDiff;
-
-    /**
-     * @var int
-     */
-    public $lastTimestamp;
-
-    /**
-     * @var string
-     */
-    public $topic;
+    public $detailInTopicDo;
     protected $_name = [
-        'delayTime'     => 'DelayTime',
-        'totalDiff'     => 'TotalDiff',
-        'lastTimestamp' => 'LastTimestamp',
-        'topic'         => 'Topic',
+        'detailInTopicDo' => 'DetailInTopicDo',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class detailInTopicList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->delayTime) {
-            $res['DelayTime'] = $this->delayTime;
-        }
-        if (null !== $this->totalDiff) {
-            $res['TotalDiff'] = $this->totalDiff;
-        }
-        if (null !== $this->lastTimestamp) {
-            $res['LastTimestamp'] = $this->lastTimestamp;
-        }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
+        if (null !== $this->detailInTopicDo) {
+            $res['DetailInTopicDo'] = [];
+            if (null !== $this->detailInTopicDo && \is_array($this->detailInTopicDo)) {
+                $n = 0;
+                foreach ($this->detailInTopicDo as $item) {
+                    $res['DetailInTopicDo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class detailInTopicList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DelayTime'])) {
-            $model->delayTime = $map['DelayTime'];
-        }
-        if (isset($map['TotalDiff'])) {
-            $model->totalDiff = $map['TotalDiff'];
-        }
-        if (isset($map['LastTimestamp'])) {
-            $model->lastTimestamp = $map['LastTimestamp'];
-        }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
+        if (isset($map['DetailInTopicDo'])) {
+            if (!empty($map['DetailInTopicDo'])) {
+                $model->detailInTopicDo = [];
+                $n                      = 0;
+                foreach ($map['DetailInTopicDo'] as $item) {
+                    $model->detailInTopicDo[$n++] = null !== $item ? detailInTopicDo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

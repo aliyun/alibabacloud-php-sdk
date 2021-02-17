@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerGetConnectionResponseBody\data;
 
+use AlibabaCloud\SDK\Ons\V20190214\Models\OnsConsumerGetConnectionResponseBody\data\connectionList\connectionDo;
 use AlibabaCloud\Tea\Model;
 
 class connectionList extends Model
 {
     /**
-     * @var string
+     * @var connectionDo[]
      */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $clientAddr;
-
-    /**
-     * @var string
-     */
-    public $language;
-
-    /**
-     * @var string
-     */
-    public $clientId;
+    public $connectionDo;
     protected $_name = [
-        'version'    => 'Version',
-        'clientAddr' => 'ClientAddr',
-        'language'   => 'Language',
-        'clientId'   => 'ClientId',
+        'connectionDo' => 'ConnectionDo',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class connectionList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->clientAddr) {
-            $res['ClientAddr'] = $this->clientAddr;
-        }
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
-        }
-        if (null !== $this->clientId) {
-            $res['ClientId'] = $this->clientId;
+        if (null !== $this->connectionDo) {
+            $res['ConnectionDo'] = [];
+            if (null !== $this->connectionDo && \is_array($this->connectionDo)) {
+                $n = 0;
+                foreach ($this->connectionDo as $item) {
+                    $res['ConnectionDo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class connectionList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['ClientAddr'])) {
-            $model->clientAddr = $map['ClientAddr'];
-        }
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
-        }
-        if (isset($map['ClientId'])) {
-            $model->clientId = $map['ClientId'];
+        if (isset($map['ConnectionDo'])) {
+            if (!empty($map['ConnectionDo'])) {
+                $model->connectionDo = [];
+                $n                   = 0;
+                foreach ($map['ConnectionDo'] as $item) {
+                    $model->connectionDo[$n++] = null !== $item ? connectionDo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

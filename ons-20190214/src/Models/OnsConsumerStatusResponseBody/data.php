@@ -22,7 +22,7 @@ class data extends Model
     public $consumeModel;
 
     /**
-     * @var connectionSet[]
+     * @var connectionSet
      */
     public $connectionSet;
 
@@ -32,7 +32,7 @@ class data extends Model
     public $totalDiff;
 
     /**
-     * @var consumerConnectionInfoList[]
+     * @var consumerConnectionInfoList
      */
     public $consumerConnectionInfoList;
 
@@ -42,7 +42,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @var detailInTopicList[]
+     * @var detailInTopicList
      */
     public $detailInTopicList;
 
@@ -99,37 +99,19 @@ class data extends Model
             $res['ConsumeModel'] = $this->consumeModel;
         }
         if (null !== $this->connectionSet) {
-            $res['ConnectionSet'] = [];
-            if (null !== $this->connectionSet && \is_array($this->connectionSet)) {
-                $n = 0;
-                foreach ($this->connectionSet as $item) {
-                    $res['ConnectionSet'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ConnectionSet'] = null !== $this->connectionSet ? $this->connectionSet->toMap() : null;
         }
         if (null !== $this->totalDiff) {
             $res['TotalDiff'] = $this->totalDiff;
         }
         if (null !== $this->consumerConnectionInfoList) {
-            $res['ConsumerConnectionInfoList'] = [];
-            if (null !== $this->consumerConnectionInfoList && \is_array($this->consumerConnectionInfoList)) {
-                $n = 0;
-                foreach ($this->consumerConnectionInfoList as $item) {
-                    $res['ConsumerConnectionInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ConsumerConnectionInfoList'] = null !== $this->consumerConnectionInfoList ? $this->consumerConnectionInfoList->toMap() : null;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->detailInTopicList) {
-            $res['DetailInTopicList'] = [];
-            if (null !== $this->detailInTopicList && \is_array($this->detailInTopicList)) {
-                $n = 0;
-                foreach ($this->detailInTopicList as $item) {
-                    $res['DetailInTopicList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DetailInTopicList'] = null !== $this->detailInTopicList ? $this->detailInTopicList->toMap() : null;
         }
         if (null !== $this->subscriptionSame) {
             $res['SubscriptionSame'] = $this->subscriptionSame;
@@ -165,37 +147,19 @@ class data extends Model
             $model->consumeModel = $map['ConsumeModel'];
         }
         if (isset($map['ConnectionSet'])) {
-            if (!empty($map['ConnectionSet'])) {
-                $model->connectionSet = [];
-                $n                    = 0;
-                foreach ($map['ConnectionSet'] as $item) {
-                    $model->connectionSet[$n++] = null !== $item ? connectionSet::fromMap($item) : $item;
-                }
-            }
+            $model->connectionSet = connectionSet::fromMap($map['ConnectionSet']);
         }
         if (isset($map['TotalDiff'])) {
             $model->totalDiff = $map['TotalDiff'];
         }
         if (isset($map['ConsumerConnectionInfoList'])) {
-            if (!empty($map['ConsumerConnectionInfoList'])) {
-                $model->consumerConnectionInfoList = [];
-                $n                                 = 0;
-                foreach ($map['ConsumerConnectionInfoList'] as $item) {
-                    $model->consumerConnectionInfoList[$n++] = null !== $item ? consumerConnectionInfoList::fromMap($item) : $item;
-                }
-            }
+            $model->consumerConnectionInfoList = consumerConnectionInfoList::fromMap($map['ConsumerConnectionInfoList']);
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['DetailInTopicList'])) {
-            if (!empty($map['DetailInTopicList'])) {
-                $model->detailInTopicList = [];
-                $n                        = 0;
-                foreach ($map['DetailInTopicList'] as $item) {
-                    $model->detailInTopicList[$n++] = null !== $item ? detailInTopicList::fromMap($item) : $item;
-                }
-            }
+            $model->detailInTopicList = detailInTopicList::fromMap($map['DetailInTopicList']);
         }
         if (isset($map['SubscriptionSame'])) {
             $model->subscriptionSame = $map['SubscriptionSame'];

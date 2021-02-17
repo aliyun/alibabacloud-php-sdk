@@ -50,7 +50,7 @@ class traceData extends Model
     public $msgId;
 
     /**
-     * @var traceList[]
+     * @var traceList
      */
     public $traceList;
 
@@ -103,13 +103,7 @@ class traceData extends Model
             $res['MsgId'] = $this->msgId;
         }
         if (null !== $this->traceList) {
-            $res['TraceList'] = [];
-            if (null !== $this->traceList && \is_array($this->traceList)) {
-                $n = 0;
-                foreach ($this->traceList as $item) {
-                    $res['TraceList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['TraceList'] = null !== $this->traceList ? $this->traceList->toMap() : null;
         }
         if (null !== $this->queryId) {
             $res['QueryId'] = $this->queryId;
@@ -151,13 +145,7 @@ class traceData extends Model
             $model->msgId = $map['MsgId'];
         }
         if (isset($map['TraceList'])) {
-            if (!empty($map['TraceList'])) {
-                $model->traceList = [];
-                $n                = 0;
-                foreach ($map['TraceList'] as $item) {
-                    $model->traceList[$n++] = null !== $item ? traceList::fromMap($item) : $item;
-                }
-            }
+            $model->traceList = traceList::fromMap($map['TraceList']);
         }
         if (isset($map['QueryId'])) {
             $model->queryId = $map['QueryId'];

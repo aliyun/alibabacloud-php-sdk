@@ -9,17 +9,11 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDataList extends Model
 {
     /**
-     * @var string
+     * @var \AlibabaCloud\SDK\Ons\V20190214\Models\OnsGroupSubDetailResponseBody\data\subscriptionDataList\subscriptionDataList[]
      */
-    public $subString;
-
-    /**
-     * @var string
-     */
-    public $topic;
+    public $subscriptionDataList;
     protected $_name = [
-        'subString' => 'SubString',
-        'topic'     => 'Topic',
+        'subscriptionDataList' => 'SubscriptionDataList',
     ];
 
     public function validate()
@@ -29,11 +23,14 @@ class subscriptionDataList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subString) {
-            $res['SubString'] = $this->subString;
-        }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
+        if (null !== $this->subscriptionDataList) {
+            $res['SubscriptionDataList'] = [];
+            if (null !== $this->subscriptionDataList && \is_array($this->subscriptionDataList)) {
+                $n = 0;
+                foreach ($this->subscriptionDataList as $item) {
+                    $res['SubscriptionDataList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -47,11 +44,14 @@ class subscriptionDataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubString'])) {
-            $model->subString = $map['SubString'];
-        }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
+        if (isset($map['SubscriptionDataList'])) {
+            if (!empty($map['SubscriptionDataList'])) {
+                $model->subscriptionDataList = [];
+                $n                           = 0;
+                foreach ($map['SubscriptionDataList'] as $item) {
+                    $model->subscriptionDataList[$n++] = null !== $item ? \AlibabaCloud\SDK\Ons\V20190214\Models\OnsGroupSubDetailResponseBody\data\subscriptionDataList\subscriptionDataList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
