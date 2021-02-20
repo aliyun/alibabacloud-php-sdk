@@ -36,8 +36,6 @@ class CreateCloudAccountRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('displayName', $this->displayName, true);
-        Model::validateRequired('email', $this->email, true);
     }
 
     public function toMap()

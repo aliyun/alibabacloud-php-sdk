@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListPolicyVersionsResponse\policyVersions;
 use AlibabaCloud\Tea\Model;
 
 class ListPolicyVersionsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var policyVersions
+     * @var ListPolicyVersionsResponseBody
      */
-    public $policyVersions;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'policyVersions' => 'PolicyVersions',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('policyVersions', $this->policyVersions, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->policyVersions) {
-            $res['PolicyVersions'] = null !== $this->policyVersions ? $this->policyVersions->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class ListPolicyVersionsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['PolicyVersions'])) {
-            $model->policyVersions = policyVersions::fromMap($map['PolicyVersions']);
+        if (isset($map['body'])) {
+            $model->body = ListPolicyVersionsResponseBody::fromMap($map['body']);
         }
 
         return $model;

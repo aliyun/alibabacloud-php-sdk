@@ -24,8 +24,6 @@ class UpdateResourceGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('resourceGroupId', $this->resourceGroupId, true);
-        Model::validateRequired('newDisplayName', $this->newDisplayName, true);
     }
 
     public function toMap()

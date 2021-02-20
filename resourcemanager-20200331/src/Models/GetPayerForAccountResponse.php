@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class GetPayerForAccountResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $payerAccountName;
+    public $headers;
 
     /**
-     * @var string
+     * @var GetPayerForAccountResponseBody
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $payerAccountId;
+    public $body;
     protected $_name = [
-        'payerAccountName' => 'PayerAccountName',
-        'requestId'        => 'RequestId',
-        'payerAccountId'   => 'PayerAccountId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('payerAccountName', $this->payerAccountName, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('payerAccountId', $this->payerAccountId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->payerAccountName) {
-            $res['PayerAccountName'] = $this->payerAccountName;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->payerAccountId) {
-            $res['PayerAccountId'] = $this->payerAccountId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class GetPayerForAccountResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PayerAccountName'])) {
-            $model->payerAccountName = $map['PayerAccountName'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PayerAccountId'])) {
-            $model->payerAccountId = $map['PayerAccountId'];
+        if (isset($map['body'])) {
+            $model->body = GetPayerForAccountResponseBody::fromMap($map['body']);
         }
 
         return $model;

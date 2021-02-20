@@ -24,7 +24,6 @@ class CreateFolderRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('folderName', $this->folderName, true);
     }
 
     public function toMap()

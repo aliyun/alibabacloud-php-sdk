@@ -30,8 +30,6 @@ class UpdateRoleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('roleName', $this->roleName, true);
-        Model::validateRequired('newAssumeRolePolicyDocument', $this->newAssumeRolePolicyDocument, true);
     }
 
     public function toMap()

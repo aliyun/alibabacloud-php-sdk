@@ -24,8 +24,6 @@ class MoveAccountRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('accountId', $this->accountId, true);
-        Model::validateRequired('destinationFolderId', $this->destinationFolderId, true);
     }
 
     public function toMap()

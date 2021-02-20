@@ -18,7 +18,6 @@ class ListAncestorsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('childId', $this->childId, true);
     }
 
     public function toMap()

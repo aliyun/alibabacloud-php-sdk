@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeclineHandshakeResponse\handshake;
 use AlibabaCloud\Tea\Model;
 
 class DeclineHandshakeResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var handshake
+     * @var DeclineHandshakeResponseBody
      */
-    public $handshake;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'handshake' => 'Handshake',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('handshake', $this->handshake, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->handshake) {
-            $res['Handshake'] = null !== $this->handshake ? $this->handshake->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DeclineHandshakeResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Handshake'])) {
-            $model->handshake = handshake::fromMap($map['Handshake']);
+        if (isset($map['body'])) {
+            $model->body = DeclineHandshakeResponseBody::fromMap($map['body']);
         }
 
         return $model;

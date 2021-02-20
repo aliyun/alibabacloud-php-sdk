@@ -24,8 +24,6 @@ class ListPolicyVersionsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('policyType', $this->policyType, true);
-        Model::validateRequired('policyName', $this->policyName, true);
     }
 
     public function toMap()

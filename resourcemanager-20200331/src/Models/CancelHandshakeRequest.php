@@ -18,7 +18,6 @@ class CancelHandshakeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('handshakeId', $this->handshakeId, true);
     }
 
     public function toMap()

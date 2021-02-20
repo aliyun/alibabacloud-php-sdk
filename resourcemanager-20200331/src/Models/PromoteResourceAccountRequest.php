@@ -24,8 +24,6 @@ class PromoteResourceAccountRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('accountId', $this->accountId, true);
-        Model::validateRequired('email', $this->email, true);
     }
 
     public function toMap()

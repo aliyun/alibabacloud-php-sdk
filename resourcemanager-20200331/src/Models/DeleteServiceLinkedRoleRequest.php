@@ -18,7 +18,6 @@ class DeleteServiceLinkedRoleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('roleName', $this->roleName, true);
     }
 
     public function toMap()

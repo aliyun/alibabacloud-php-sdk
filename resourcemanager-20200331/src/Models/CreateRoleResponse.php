@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateRoleResponse\role;
 use AlibabaCloud\Tea\Model;
 
 class CreateRoleResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var role
+     * @var CreateRoleResponseBody
      */
-    public $role;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'role'      => 'Role',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('role', $this->role, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->role) {
-            $res['Role'] = null !== $this->role ? $this->role->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class CreateRoleResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Role'])) {
-            $model->role = role::fromMap($map['Role']);
+        if (isset($map['body'])) {
+            $model->body = CreateRoleResponseBody::fromMap($map['body']);
         }
 
         return $model;

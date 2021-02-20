@@ -18,7 +18,6 @@ class DeletePolicyRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('policyName', $this->policyName, true);
     }
 
     public function toMap()

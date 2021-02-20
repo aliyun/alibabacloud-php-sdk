@@ -36,7 +36,6 @@ class CreateResourceAccountRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('displayName', $this->displayName, true);
     }
 
     public function toMap()

@@ -42,11 +42,6 @@ class AttachPolicyRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('resourceGroupId', $this->resourceGroupId, true);
-        Model::validateRequired('policyType', $this->policyType, true);
-        Model::validateRequired('policyName', $this->policyName, true);
-        Model::validateRequired('principalType', $this->principalType, true);
-        Model::validateRequired('principalName', $this->principalName, true);
     }
 
     public function toMap()

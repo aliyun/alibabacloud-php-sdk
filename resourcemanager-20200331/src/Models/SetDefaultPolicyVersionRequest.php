@@ -24,8 +24,6 @@ class SetDefaultPolicyVersionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('policyName', $this->policyName, true);
-        Model::validateRequired('versionId', $this->versionId, true);
     }
 
     public function toMap()

@@ -24,8 +24,6 @@ class UpdateFolderRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('folderId', $this->folderId, true);
-        Model::validateRequired('newFolderName', $this->newFolderName, true);
     }
 
     public function toMap()

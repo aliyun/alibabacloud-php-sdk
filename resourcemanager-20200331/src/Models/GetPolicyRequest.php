@@ -30,8 +30,6 @@ class GetPolicyRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('policyName', $this->policyName, true);
-        Model::validateRequired('policyType', $this->policyType, true);
     }
 
     public function toMap()

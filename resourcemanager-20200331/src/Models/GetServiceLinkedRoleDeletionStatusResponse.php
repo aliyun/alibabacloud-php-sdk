@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetServiceLinkedRoleDeletionStatusResponse\reason;
 use AlibabaCloud\Tea\Model;
 
 class GetServiceLinkedRoleDeletionStatusResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $status;
+    public $headers;
 
     /**
-     * @var string
+     * @var GetServiceLinkedRoleDeletionStatusResponseBody
      */
-    public $requestId;
-
-    /**
-     * @var reason
-     */
-    public $reason;
+    public $body;
     protected $_name = [
-        'status'    => 'Status',
-        'requestId' => 'RequestId',
-        'reason'    => 'Reason',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('status', $this->status, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('reason', $this->reason, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->reason) {
-            $res['Reason'] = null !== $this->reason ? $this->reason->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class GetServiceLinkedRoleDeletionStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Reason'])) {
-            $model->reason = reason::fromMap($map['Reason']);
+        if (isset($map['body'])) {
+            $model->body = GetServiceLinkedRoleDeletionStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

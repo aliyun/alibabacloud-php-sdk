@@ -30,8 +30,6 @@ class CreatePolicyVersionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('policyName', $this->policyName, true);
-        Model::validateRequired('policyDocument', $this->policyDocument, true);
     }
 
     public function toMap()

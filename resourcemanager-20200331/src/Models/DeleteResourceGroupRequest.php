@@ -18,7 +18,6 @@ class DeleteResourceGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('resourceGroupId', $this->resourceGroupId, true);
     }
 
     public function toMap()

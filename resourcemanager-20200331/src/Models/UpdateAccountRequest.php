@@ -24,8 +24,6 @@ class UpdateAccountRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('newDisplayName', $this->newDisplayName, true);
-        Model::validateRequired('accountId', $this->accountId, true);
     }
 
     public function toMap()

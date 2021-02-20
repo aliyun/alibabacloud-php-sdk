@@ -30,7 +30,6 @@ class CreateServiceLinkedRoleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('serviceName', $this->serviceName, true);
     }
 
     public function toMap()

@@ -4,69 +4,38 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListPoliciesResponse\policies;
 use AlibabaCloud\Tea\Model;
 
 class ListPoliciesResponse extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $totalCount;
+    public $headers;
 
     /**
-     * @var int
+     * @var ListPoliciesResponseBody
      */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var policies
-     */
-    public $policies;
+    public $body;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'pageNumber' => 'PageNumber',
-        'policies'   => 'Policies',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('totalCount', $this->totalCount, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('policies', $this->policies, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->policies) {
-            $res['Policies'] = null !== $this->policies ? $this->policies->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -80,20 +49,11 @@ class ListPoliciesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['Policies'])) {
-            $model->policies = policies::fromMap($map['Policies']);
+        if (isset($map['body'])) {
+            $model->body = ListPoliciesResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -30,8 +30,6 @@ class InviteAccountToResourceDirectoryRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('targetEntity', $this->targetEntity, true);
-        Model::validateRequired('targetType', $this->targetType, true);
     }
 
     public function toMap()

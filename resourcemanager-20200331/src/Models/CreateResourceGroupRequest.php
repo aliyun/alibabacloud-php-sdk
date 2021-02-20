@@ -24,8 +24,6 @@ class CreateResourceGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('displayName', $this->displayName, true);
     }
 
     public function toMap()
