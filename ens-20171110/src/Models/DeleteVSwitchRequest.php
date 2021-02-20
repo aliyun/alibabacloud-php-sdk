@@ -24,8 +24,6 @@ class DeleteVSwitchRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('vSwitchId', $this->vSwitchId, true);
     }
 
     public function toMap()

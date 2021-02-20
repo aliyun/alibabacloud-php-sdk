@@ -36,7 +36,6 @@ class ModifyEpnInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('EPNInstanceId', $this->EPNInstanceId, true);
     }
 
     public function toMap()

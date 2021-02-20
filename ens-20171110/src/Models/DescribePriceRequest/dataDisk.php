@@ -18,7 +18,6 @@ class dataDisk extends Model
 
     public function validate()
     {
-        Model::validateRequired('size', $this->size, true);
     }
 
     public function toMap()

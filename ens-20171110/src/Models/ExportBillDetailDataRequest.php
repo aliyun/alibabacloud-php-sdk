@@ -30,9 +30,6 @@ class ExportBillDetailDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('startDate', $this->startDate, true);
-        Model::validateRequired('endDate', $this->endDate, true);
     }
 
     public function toMap()

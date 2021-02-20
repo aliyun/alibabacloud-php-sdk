@@ -42,11 +42,6 @@ class DescribePrePaidInstanceStockRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('ensRegionId', $this->ensRegionId, true);
-        Model::validateRequired('systemDiskSize', $this->systemDiskSize, true);
-        Model::validateRequired('dataDiskSize', $this->dataDiskSize, true);
-        Model::validateRequired('instanceSpec', $this->instanceSpec, true);
     }
 
     public function toMap()

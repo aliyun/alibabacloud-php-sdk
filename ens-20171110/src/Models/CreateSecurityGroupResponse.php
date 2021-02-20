@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateSecurityGroupResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateSecurityGroupResponseBody
      */
-    public $securityGroupId;
+    public $body;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'securityGroupId' => 'SecurityGroupId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('securityGroupId', $this->securityGroupId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class CreateSecurityGroupResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
+        if (isset($map['body'])) {
+            $model->body = CreateSecurityGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;

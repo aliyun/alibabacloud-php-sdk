@@ -48,9 +48,6 @@ class DescribeEpnBandwitdhByInternetChargeTypeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()

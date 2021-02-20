@@ -30,8 +30,6 @@ class DescribeEnsNetSaleDistrictRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('netLevelCode', $this->netLevelCode, true);
     }
 
     public function toMap()

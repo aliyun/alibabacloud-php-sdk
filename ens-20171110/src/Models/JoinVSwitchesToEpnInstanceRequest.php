@@ -24,8 +24,6 @@ class JoinVSwitchesToEpnInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('EPNInstanceId', $this->EPNInstanceId, true);
-        Model::validateRequired('vSwitchesInfo', $this->vSwitchesInfo, true);
     }
 
     public function toMap()

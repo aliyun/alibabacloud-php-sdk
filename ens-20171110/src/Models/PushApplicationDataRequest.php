@@ -36,8 +36,6 @@ class PushApplicationDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('data', $this->data, true);
-        Model::validateRequired('appId', $this->appId, true);
     }
 
     public function toMap()

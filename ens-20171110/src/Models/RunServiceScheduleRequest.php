@@ -66,10 +66,6 @@ class RunServiceScheduleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('uuid', $this->uuid, true);
-        Model::validateRequired('clientIp', $this->clientIp, true);
-        Model::validateRequired('serviceAction', $this->serviceAction, true);
     }
 
     public function toMap()

@@ -24,8 +24,6 @@ class DescribeExportImageStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('imageId', $this->imageId, true);
     }
 
     public function toMap()

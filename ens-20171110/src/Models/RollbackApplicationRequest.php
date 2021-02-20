@@ -36,8 +36,6 @@ class RollbackApplicationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('fromAppVersion', $this->fromAppVersion, true);
     }
 
     public function toMap()

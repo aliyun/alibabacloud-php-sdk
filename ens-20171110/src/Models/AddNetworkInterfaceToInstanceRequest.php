@@ -24,8 +24,6 @@ class AddNetworkInterfaceToInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('networks', $this->networks, true);
     }
 
     public function toMap()

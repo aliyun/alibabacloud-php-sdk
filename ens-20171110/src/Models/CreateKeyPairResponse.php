@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyPairResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateKeyPairResponseBody
      */
-    public $keyPairId;
-
-    /**
-     * @var string
-     */
-    public $privateKeyBody;
-
-    /**
-     * @var string
-     */
-    public $keyPairName;
-
-    /**
-     * @var string
-     */
-    public $keyPairFingerPrint;
+    public $body;
     protected $_name = [
-        'requestId'          => 'RequestId',
-        'keyPairId'          => 'KeyPairId',
-        'privateKeyBody'     => 'PrivateKeyBody',
-        'keyPairName'        => 'KeyPairName',
-        'keyPairFingerPrint' => 'KeyPairFingerPrint',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('keyPairId', $this->keyPairId, true);
-        Model::validateRequired('privateKeyBody', $this->privateKeyBody, true);
-        Model::validateRequired('keyPairName', $this->keyPairName, true);
-        Model::validateRequired('keyPairFingerPrint', $this->keyPairFingerPrint, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->keyPairId) {
-            $res['KeyPairId'] = $this->keyPairId;
-        }
-        if (null !== $this->privateKeyBody) {
-            $res['PrivateKeyBody'] = $this->privateKeyBody;
-        }
-        if (null !== $this->keyPairName) {
-            $res['KeyPairName'] = $this->keyPairName;
-        }
-        if (null !== $this->keyPairFingerPrint) {
-            $res['KeyPairFingerPrint'] = $this->keyPairFingerPrint;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,20 +49,11 @@ class CreateKeyPairResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['KeyPairId'])) {
-            $model->keyPairId = $map['KeyPairId'];
-        }
-        if (isset($map['PrivateKeyBody'])) {
-            $model->privateKeyBody = $map['PrivateKeyBody'];
-        }
-        if (isset($map['KeyPairName'])) {
-            $model->keyPairName = $map['KeyPairName'];
-        }
-        if (isset($map['KeyPairFingerPrint'])) {
-            $model->keyPairFingerPrint = $map['KeyPairFingerPrint'];
+        if (isset($map['body'])) {
+            $model->body = CreateKeyPairResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -30,9 +30,6 @@ class CreateEnsServiceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('ensServiceId', $this->ensServiceId, true);
-        Model::validateRequired('orderType', $this->orderType, true);
     }
 
     public function toMap()

@@ -24,7 +24,6 @@ class CreateApplicationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('template', $this->template, true);
     }
 
     public function toMap()

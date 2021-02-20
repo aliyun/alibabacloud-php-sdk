@@ -30,8 +30,6 @@ class DescribeServcieScheduleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('uuid', $this->uuid, true);
     }
 
     public function toMap()

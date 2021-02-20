@@ -30,9 +30,6 @@ class ReInitDiskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('diskId', $this->diskId, true);
-        Model::validateRequired('imageId', $this->imageId, true);
     }
 
     public function toMap()

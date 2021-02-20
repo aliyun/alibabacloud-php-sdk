@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupAttributeResponse\permissions;
 use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityGroupAttributeResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeSecurityGroupAttributeResponseBody
      */
-    public $securityGroupId;
-
-    /**
-     * @var permissions
-     */
-    public $permissions;
+    public $body;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'securityGroupId' => 'SecurityGroupId',
-        'permissions'     => 'Permissions',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('securityGroupId', $this->securityGroupId, true);
-        Model::validateRequired('permissions', $this->permissions, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->permissions) {
-            $res['Permissions'] = null !== $this->permissions ? $this->permissions->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class DescribeSecurityGroupAttributeResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['Permissions'])) {
-            $model->permissions = permissions::fromMap($map['Permissions']);
+        if (isset($map['body'])) {
+            $model->body = DescribeSecurityGroupAttributeResponseBody::fromMap($map['body']);
         }
 
         return $model;

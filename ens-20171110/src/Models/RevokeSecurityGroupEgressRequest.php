@@ -60,11 +60,6 @@ class RevokeSecurityGroupEgressRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('ipProtocol', $this->ipProtocol, true);
-        Model::validateRequired('portRange', $this->portRange, true);
-        Model::validateRequired('securityGroupId', $this->securityGroupId, true);
-        Model::validateRequired('destCidrIp', $this->destCidrIp, true);
     }
 
     public function toMap()

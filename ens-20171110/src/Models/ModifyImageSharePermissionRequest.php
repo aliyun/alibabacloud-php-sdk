@@ -30,7 +30,6 @@ class ModifyImageSharePermissionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageId', $this->imageId, true);
     }
 
     public function toMap()

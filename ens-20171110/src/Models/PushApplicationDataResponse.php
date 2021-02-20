@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataResponse\pushResults;
 use AlibabaCloud\Tea\Model;
 
 class PushApplicationDataResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var pushResults
+     * @var PushApplicationDataResponseBody
      */
-    public $pushResults;
+    public $body;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'pushResults' => 'PushResults',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('pushResults', $this->pushResults, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->pushResults) {
-            $res['PushResults'] = null !== $this->pushResults ? $this->pushResults->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class PushApplicationDataResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['PushResults'])) {
-            $model->pushResults = pushResults::fromMap($map['PushResults']);
+        if (isset($map['body'])) {
+            $model->body = PushApplicationDataResponseBody::fromMap($map['body']);
         }
 
         return $model;

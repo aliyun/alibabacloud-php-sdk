@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRegionIdIpv6InfoResponse\supportIpv6Info;
 use AlibabaCloud\Tea\Model;
 
 class DescribeEnsRegionIdIpv6InfoResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var supportIpv6Info
+     * @var DescribeEnsRegionIdIpv6InfoResponseBody
      */
-    public $supportIpv6Info;
+    public $body;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'supportIpv6Info' => 'SupportIpv6Info',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('supportIpv6Info', $this->supportIpv6Info, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->supportIpv6Info) {
-            $res['SupportIpv6Info'] = null !== $this->supportIpv6Info ? $this->supportIpv6Info->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeEnsRegionIdIpv6InfoResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['SupportIpv6Info'])) {
-            $model->supportIpv6Info = supportIpv6Info::fromMap($map['SupportIpv6Info']);
+        if (isset($map['body'])) {
+            $model->body = DescribeEnsRegionIdIpv6InfoResponseBody::fromMap($map['body']);
         }
 
         return $model;

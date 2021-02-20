@@ -2,7 +2,7 @@ English | [简体中文](README-CN.md)
 
 ![](https://aliyunsdk-pages.alicdn.com/icons/AlibabaCloud.svg)
 
-## Alibaba Cloud edge node service (20171110) SDK Library for PHP
+# Alibaba Cloud Ens SDK for PHP
 
 ## Installation
 
@@ -14,7 +14,11 @@ composer require alibabacloud/ens-20171110
 
 ## Issues
 
-[Opening an Issue](https://github.com/aliyun/alibabacloud-sdk/issues/new), Issues not conforming to the guidelines may be closed immediately.
+[Opening an Issue](https://github.com/aliyun/alibabacloud-php-sdk/issues/new), Issues not conforming to the guidelines may be closed immediately.
+
+## Usage
+
+[Quick Examples](https://github.com/aliyun/alibabacloud-php-sdk/blob/master/docs/0-Examples-EN.md#quick-examples)
 
 ## Changelog
 
@@ -22,7 +26,7 @@ Detailed changes for each release are documented in the [release notes](./Change
 
 ## References
 
-* [Latest Release](https://github.com/aliyun/alibabacloud-sdk)
+* [Latest Release](https://github.com/aliyun/alibabacloud-php-sdk/)
 
 ## License
 

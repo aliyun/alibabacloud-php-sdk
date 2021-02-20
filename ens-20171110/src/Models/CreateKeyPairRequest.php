@@ -24,8 +24,6 @@ class CreateKeyPairRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('keyPairName', $this->keyPairName, true);
     }
 
     public function toMap()

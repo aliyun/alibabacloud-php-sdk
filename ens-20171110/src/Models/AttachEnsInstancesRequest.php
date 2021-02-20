@@ -30,9 +30,6 @@ class AttachEnsInstancesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('scripts', $this->scripts, true);
     }
 
     public function toMap()

@@ -36,9 +36,6 @@ class CreateVSwitchRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('ensRegionId', $this->ensRegionId, true);
-        Model::validateRequired('cidrBlock', $this->cidrBlock, true);
     }
 
     public function toMap()

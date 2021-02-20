@@ -30,9 +30,6 @@ class ReleaseEipAddressRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('ensRegionId', $this->ensRegionId, true);
-        Model::validateRequired('eips', $this->eips, true);
     }
 
     public function toMap()

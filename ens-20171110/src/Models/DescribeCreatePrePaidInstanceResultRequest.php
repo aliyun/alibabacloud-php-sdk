@@ -24,8 +24,6 @@ class DescribeCreatePrePaidInstanceResultRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

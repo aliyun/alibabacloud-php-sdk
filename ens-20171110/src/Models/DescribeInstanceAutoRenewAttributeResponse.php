@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceAutoRenewAttributeResponse\instanceRenewAttributes;
 use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceAutoRenewAttributeResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var DescribeInstanceAutoRenewAttributeResponseBody
      */
-    public $code;
-
-    /**
-     * @var instanceRenewAttributes
-     */
-    public $instanceRenewAttributes;
+    public $body;
     protected $_name = [
-        'requestId'               => 'RequestId',
-        'code'                    => 'Code',
-        'instanceRenewAttributes' => 'InstanceRenewAttributes',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('instanceRenewAttributes', $this->instanceRenewAttributes, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->instanceRenewAttributes) {
-            $res['InstanceRenewAttributes'] = null !== $this->instanceRenewAttributes ? $this->instanceRenewAttributes->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class DescribeInstanceAutoRenewAttributeResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['InstanceRenewAttributes'])) {
-            $model->instanceRenewAttributes = instanceRenewAttributes::fromMap($map['InstanceRenewAttributes']);
+        if (isset($map['body'])) {
+            $model->body = DescribeInstanceAutoRenewAttributeResponseBody::fromMap($map['body']);
         }
 
         return $model;

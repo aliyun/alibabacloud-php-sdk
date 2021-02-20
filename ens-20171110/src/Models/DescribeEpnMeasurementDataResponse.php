@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnMeasurementDataResponse\measurementDatas;
 use AlibabaCloud\Tea\Model;
 
 class DescribeEpnMeasurementDataResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var measurementDatas
+     * @var DescribeEpnMeasurementDataResponseBody
      */
-    public $measurementDatas;
+    public $body;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'measurementDatas' => 'MeasurementDatas',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('measurementDatas', $this->measurementDatas, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->measurementDatas) {
-            $res['MeasurementDatas'] = null !== $this->measurementDatas ? $this->measurementDatas->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeEpnMeasurementDataResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['MeasurementDatas'])) {
-            $model->measurementDatas = measurementDatas::fromMap($map['MeasurementDatas']);
+        if (isset($map['body'])) {
+            $model->body = DescribeEpnMeasurementDataResponseBody::fromMap($map['body']);
         }
 
         return $model;

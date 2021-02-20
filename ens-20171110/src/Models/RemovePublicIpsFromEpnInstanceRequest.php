@@ -24,8 +24,6 @@ class RemovePublicIpsFromEpnInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('EPNInstanceId', $this->EPNInstanceId, true);
-        Model::validateRequired('instanceInfos', $this->instanceInfos, true);
     }
 
     public function toMap()

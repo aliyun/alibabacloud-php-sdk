@@ -48,9 +48,6 @@ class RescaleApplicationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('rescaleType', $this->rescaleType, true);
-        Model::validateRequired('resourceSelector', $this->resourceSelector, true);
     }
 
     public function toMap()

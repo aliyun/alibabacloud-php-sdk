@@ -42,10 +42,6 @@ class CreateEpnInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('EPNInstanceType', $this->EPNInstanceType, true);
-        Model::validateRequired('internetChargeType', $this->internetChargeType, true);
-        Model::validateRequired('networkingModel', $this->networkingModel, true);
-        Model::validateRequired('internetMaxBandwidthOut', $this->internetMaxBandwidthOut, true);
     }
 
     public function toMap()

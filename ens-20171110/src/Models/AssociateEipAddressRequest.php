@@ -36,10 +36,6 @@ class AssociateEipAddressRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('ensRegionId', $this->ensRegionId, true);
-        Model::validateRequired('eip', $this->eip, true);
-        Model::validateRequired('instanceIdInternetIp', $this->instanceIdInternetIp, true);
     }
 
     public function toMap()

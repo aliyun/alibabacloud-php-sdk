@@ -11,6 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceRequest extends Model
 {
     /**
+     * @var systemDisk
+     */
+    public $systemDisk;
+
+    /**
+     * @var dataDisk[]
+     */
+    public $dataDisk;
+
+    /**
      * @var string
      */
     public $version;
@@ -31,48 +41,44 @@ class DescribePriceRequest extends Model
     public $period;
 
     /**
-     * @var systemDisk
-     */
-    public $systemDisk;
-
-    /**
      * @var int
      */
     public $quantity;
-
-    /**
-     * @var dataDisk[]
-     */
-    public $dataDisk;
 
     /**
      * @var string
      */
     public $internetChargeType;
     protected $_name = [
+        'systemDisk'         => 'SystemDisk',
+        'dataDisk'           => 'DataDisk',
         'version'            => 'Version',
         'instanceType'       => 'InstanceType',
         'ensRegionId'        => 'EnsRegionId',
         'period'             => 'Period',
-        'systemDisk'         => 'SystemDisk',
         'quantity'           => 'Quantity',
-        'dataDisk'           => 'DataDisk',
         'internetChargeType' => 'InternetChargeType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('instanceType', $this->instanceType, true);
-        Model::validateRequired('ensRegionId', $this->ensRegionId, true);
-        Model::validateRequired('period', $this->period, true);
-        Model::validateRequired('quantity', $this->quantity, true);
-        Model::validateRequired('internetChargeType', $this->internetChargeType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->dataDisk) {
+            $res['DataDisk'] = [];
+            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
+                $n = 0;
+                foreach ($this->dataDisk as $item) {
+                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -85,20 +91,8 @@ class DescribePriceRequest extends Model
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-        if (null !== $this->systemDisk) {
-            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
-        }
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
-        }
-        if (null !== $this->dataDisk) {
-            $res['DataDisk'] = [];
-            if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
-                $n = 0;
-                foreach ($this->dataDisk as $item) {
-                    $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
@@ -115,6 +109,18 @@ class DescribePriceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+        }
+        if (isset($map['DataDisk'])) {
+            if (!empty($map['DataDisk'])) {
+                $model->dataDisk = [];
+                $n               = 0;
+                foreach ($map['DataDisk'] as $item) {
+                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }
@@ -127,20 +133,8 @@ class DescribePriceRequest extends Model
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
-        if (isset($map['SystemDisk'])) {
-            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
-        }
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
-        }
-        if (isset($map['DataDisk'])) {
-            if (!empty($map['DataDisk'])) {
-                $model->dataDisk = [];
-                $n               = 0;
-                foreach ($map['DataDisk'] as $item) {
-                    $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];

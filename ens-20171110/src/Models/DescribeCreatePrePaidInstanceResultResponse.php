@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCreatePrePaidInstanceResultResponse\instanceCreateResult;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCreatePrePaidInstanceResultResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var instanceCreateResult
+     * @var DescribeCreatePrePaidInstanceResultResponseBody
      */
-    public $instanceCreateResult;
+    public $body;
     protected $_name = [
-        'requestId'            => 'RequestId',
-        'instanceCreateResult' => 'InstanceCreateResult',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('instanceCreateResult', $this->instanceCreateResult, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->instanceCreateResult) {
-            $res['InstanceCreateResult'] = null !== $this->instanceCreateResult ? $this->instanceCreateResult->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeCreatePrePaidInstanceResultResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['InstanceCreateResult'])) {
-            $model->instanceCreateResult = instanceCreateResult::fromMap($map['InstanceCreateResult']);
+        if (isset($map['body'])) {
+            $model->body = DescribeCreatePrePaidInstanceResultResponseBody::fromMap($map['body']);
         }
 
         return $model;

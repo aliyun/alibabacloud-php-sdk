@@ -30,9 +30,6 @@ class ImportKeyPairRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('keyPairName', $this->keyPairName, true);
-        Model::validateRequired('publicKeyBody', $this->publicKeyBody, true);
     }
 
     public function toMap()

@@ -24,8 +24,6 @@ class DeleteSecurityGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('securityGroupId', $this->securityGroupId, true);
     }
 
     public function toMap()

@@ -30,8 +30,6 @@ class UpgradeApplicationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appId', $this->appId, true);
-        Model::validateRequired('template', $this->template, true);
     }
 
     public function toMap()

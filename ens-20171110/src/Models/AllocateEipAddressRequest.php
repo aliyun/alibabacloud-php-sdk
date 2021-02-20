@@ -36,9 +36,6 @@ class AllocateEipAddressRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('ensRegionId', $this->ensRegionId, true);
-        Model::validateRequired('count', $this->count, true);
     }
 
     public function toMap()

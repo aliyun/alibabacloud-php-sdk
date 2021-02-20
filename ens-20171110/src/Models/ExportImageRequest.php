@@ -48,10 +48,6 @@ class ExportImageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('imageId', $this->imageId, true);
-        Model::validateRequired('OSSBucket', $this->OSSBucket, true);
-        Model::validateRequired('OSSRegionId', $this->OSSRegionId, true);
     }
 
     public function toMap()

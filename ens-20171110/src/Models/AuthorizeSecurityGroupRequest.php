@@ -60,11 +60,6 @@ class AuthorizeSecurityGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('ipProtocol', $this->ipProtocol, true);
-        Model::validateRequired('portRange', $this->portRange, true);
-        Model::validateRequired('securityGroupId', $this->securityGroupId, true);
-        Model::validateRequired('sourceCidrIp', $this->sourceCidrIp, true);
     }
 
     public function toMap()

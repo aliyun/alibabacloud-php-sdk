@@ -102,16 +102,6 @@ class PreCreateEnsServiceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('version', $this->version, true);
-        Model::validateRequired('ensServiceName', $this->ensServiceName, true);
-        Model::validateRequired('imageId', $this->imageId, true);
-        Model::validateRequired('instanceSpec', $this->instanceSpec, true);
-        Model::validateRequired('systemDiskSize', $this->systemDiskSize, true);
-        Model::validateRequired('bandwidthType', $this->bandwidthType, true);
-        Model::validateRequired('instanceBandwithdLimit', $this->instanceBandwithdLimit, true);
-        Model::validateRequired('netLevel', $this->netLevel, true);
-        Model::validateRequired('schedulingStrategy', $this->schedulingStrategy, true);
-        Model::validateRequired('buyResourcesDetail', $this->buyResourcesDetail, true);
     }
 
     public function toMap()
