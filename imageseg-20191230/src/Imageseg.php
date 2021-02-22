@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageseg\V20191230;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Imageseg\V20191230\Models\ChangeSkyAdvanceRequest;
 use AlibabaCloud\SDK\Imageseg\V20191230\Models\ChangeSkyRequest;
 use AlibabaCloud\SDK\Imageseg\V20191230\Models\ChangeSkyResponse;
@@ -73,17 +74,17 @@ use AlibabaCloud\SDK\Imageseg\V20191230\Models\SegmentVehicleResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
-use AlibabaCloud\Tea\RpcUtils\RpcUtils;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\OpenApiClient;
 
-class Imageseg extends Rpc
+class Imageseg extends OpenApiClient
 {
     public function __construct($config)
     {
@@ -94,276 +95,26 @@ class Imageseg extends Rpc
     }
 
     /**
-     * @param SegmentHDSkyRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
      *
-     * @return SegmentHDSkyResponse
+     * @return string
      */
-    public function segmentHDSky($request, $runtime)
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        Utils::validateModel($request);
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
 
-        return SegmentHDSkyResponse::fromMap($this->doRequest('SegmentHDSky', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentHDSkyRequest $request
-     *
-     * @return SegmentHDSkyResponse
-     */
-    public function segmentHDSkySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentHDSky($request, $runtime);
-    }
-
-    /**
-     * @param SegmentHDSkyAdvanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SegmentHDSkyResponse
-     */
-    public function segmentHDSkyAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentHDSkyReq = new SegmentHDSkyRequest([]);
-        RpcUtils::convert($request, $segmentHDSkyReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentHDSkyReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentHDSky($segmentHDSkyReq, $runtime);
-    }
-
-    /**
-     * @param SegmentHDCommonImageRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SegmentHDCommonImageResponse
-     */
-    public function segmentHDCommonImage($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentHDCommonImageResponse::fromMap($this->doRequest('SegmentHDCommonImage', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentHDCommonImageRequest $request
-     *
-     * @return SegmentHDCommonImageResponse
-     */
-    public function segmentHDCommonImageSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentHDCommonImage($request, $runtime);
-    }
-
-    /**
-     * @param SegmentHDCommonImageAdvanceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return SegmentHDCommonImageResponse
-     */
-    public function segmentHDCommonImageAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentHDCommonImageReq = new SegmentHDCommonImageRequest([]);
-        RpcUtils::convert($request, $segmentHDCommonImageReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentHDCommonImageReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentHDCommonImage($segmentHDCommonImageReq, $runtime);
-    }
-
-    /**
-     * @param SegmentSkinRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SegmentSkinResponse
-     */
-    public function segmentSkin($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentSkinResponse::fromMap($this->doRequest('SegmentSkin', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentSkinRequest $request
-     *
-     * @return SegmentSkinResponse
-     */
-    public function segmentSkinSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentSkin($request, $runtime);
-    }
-
-    /**
-     * @param SegmentSkinAdvanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SegmentSkinResponse
-     */
-    public function segmentSkinAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentSkinReq = new SegmentSkinRequest([]);
-        RpcUtils::convert($request, $segmentSkinReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->URLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentSkinReq->URL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentSkin($segmentSkinReq, $runtime);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
@@ -372,11 +123,14 @@ class Imageseg extends Rpc
      *
      * @return ChangeSkyResponse
      */
-    public function changeSky($request, $runtime)
+    public function changeSkyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ChangeSkyResponse::fromMap($this->doRequest('ChangeSky', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return ChangeSkyResponse::fromMap($this->doRPCRequest('ChangeSky', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -384,11 +138,11 @@ class Imageseg extends Rpc
      *
      * @return ChangeSkyResponse
      */
-    public function changeSkySimply($request)
+    public function changeSky($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->changeSky($request, $runtime);
+        return $this->changeSkyWithOptions($request, $runtime);
     }
 
     /**
@@ -427,13 +181,13 @@ class Imageseg extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
         $changeSkyReq = new ChangeSkyRequest([]);
-        RpcUtils::convert($request, $changeSkyReq);
+        OpenApiUtilClient::convert($request, $changeSkyReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->imageURLObject,
@@ -454,644 +208,7 @@ class Imageseg extends Rpc
         $ossClient->postObject($uploadRequest, $ossRuntime);
         $changeSkyReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->changeSky($changeSkyReq, $runtime);
-    }
-
-    /**
-     * @param SegmentLogoRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SegmentLogoResponse
-     */
-    public function segmentLogo($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentLogoResponse::fromMap($this->doRequest('SegmentLogo', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentLogoRequest $request
-     *
-     * @return SegmentLogoResponse
-     */
-    public function segmentLogoSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentLogo($request, $runtime);
-    }
-
-    /**
-     * @param SegmentLogoAdvanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SegmentLogoResponse
-     */
-    public function segmentLogoAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentLogoReq = new SegmentLogoRequest([]);
-        RpcUtils::convert($request, $segmentLogoReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentLogoReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentLogo($segmentLogoReq, $runtime);
-    }
-
-    /**
-     * @param SegmentSceneRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return SegmentSceneResponse
-     */
-    public function segmentScene($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentSceneResponse::fromMap($this->doRequest('SegmentScene', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentSceneRequest $request
-     *
-     * @return SegmentSceneResponse
-     */
-    public function segmentSceneSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentScene($request, $runtime);
-    }
-
-    /**
-     * @param SegmentSceneAdvanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SegmentSceneResponse
-     */
-    public function segmentSceneAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentSceneReq = new SegmentSceneRequest([]);
-        RpcUtils::convert($request, $segmentSceneReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentSceneReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentScene($segmentSceneReq, $runtime);
-    }
-
-    /**
-     * @param SegmentFoodRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SegmentFoodResponse
-     */
-    public function segmentFood($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentFoodResponse::fromMap($this->doRequest('SegmentFood', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentFoodRequest $request
-     *
-     * @return SegmentFoodResponse
-     */
-    public function segmentFoodSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentFood($request, $runtime);
-    }
-
-    /**
-     * @param SegmentFoodAdvanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SegmentFoodResponse
-     */
-    public function segmentFoodAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentFoodReq = new SegmentFoodRequest([]);
-        RpcUtils::convert($request, $segmentFoodReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentFoodReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentFood($segmentFoodReq, $runtime);
-    }
-
-    /**
-     * @param SegmentClothRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return SegmentClothResponse
-     */
-    public function segmentCloth($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentClothResponse::fromMap($this->doRequest('SegmentCloth', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentClothRequest $request
-     *
-     * @return SegmentClothResponse
-     */
-    public function segmentClothSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentCloth($request, $runtime);
-    }
-
-    /**
-     * @param SegmentClothAdvanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SegmentClothResponse
-     */
-    public function segmentClothAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentClothReq = new SegmentClothRequest([]);
-        RpcUtils::convert($request, $segmentClothReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentClothReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentCloth($segmentClothReq, $runtime);
-    }
-
-    /**
-     * @param SegmentAnimalRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return SegmentAnimalResponse
-     */
-    public function segmentAnimal($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentAnimalResponse::fromMap($this->doRequest('SegmentAnimal', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentAnimalRequest $request
-     *
-     * @return SegmentAnimalResponse
-     */
-    public function segmentAnimalSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentAnimal($request, $runtime);
-    }
-
-    /**
-     * @param SegmentAnimalAdvanceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SegmentAnimalResponse
-     */
-    public function segmentAnimalAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentAnimalReq = new SegmentAnimalRequest([]);
-        RpcUtils::convert($request, $segmentAnimalReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentAnimalReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentAnimal($segmentAnimalReq, $runtime);
-    }
-
-    /**
-     * @param SegmentHDBodyRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return SegmentHDBodyResponse
-     */
-    public function segmentHDBody($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentHDBodyResponse::fromMap($this->doRequest('SegmentHDBody', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentHDBodyRequest $request
-     *
-     * @return SegmentHDBodyResponse
-     */
-    public function segmentHDBodySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentHDBody($request, $runtime);
-    }
-
-    /**
-     * @param SegmentHDBodyAdvanceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SegmentHDBodyResponse
-     */
-    public function segmentHDBodyAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentHDBodyReq = new SegmentHDBodyRequest([]);
-        RpcUtils::convert($request, $segmentHDBodyReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentHDBodyReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentHDBody($segmentHDBodyReq, $runtime);
-    }
-
-    /**
-     * @param SegmentSkyRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return SegmentSkyResponse
-     */
-    public function segmentSky($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentSkyResponse::fromMap($this->doRequest('SegmentSky', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentSkyRequest $request
-     *
-     * @return SegmentSkyResponse
-     */
-    public function segmentSkySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentSky($request, $runtime);
-    }
-
-    /**
-     * @param SegmentSkyAdvanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return SegmentSkyResponse
-     */
-    public function segmentSkyAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentSkyReq = new SegmentSkyRequest([]);
-        RpcUtils::convert($request, $segmentSkyReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentSkyReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentSky($segmentSkyReq, $runtime);
+        return $this->changeSkyWithOptions($changeSkyReq, $runtime);
     }
 
     /**
@@ -1100,11 +217,14 @@ class Imageseg extends Rpc
      *
      * @return GetAsyncJobResultResponse
      */
-    public function getAsyncJobResult($request, $runtime)
+    public function getAsyncJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetAsyncJobResultResponse::fromMap($this->doRequest('GetAsyncJobResult', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return GetAsyncJobResultResponse::fromMap($this->doRPCRequest('GetAsyncJobResult', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1112,193 +232,11 @@ class Imageseg extends Rpc
      *
      * @return GetAsyncJobResultResponse
      */
-    public function getAsyncJobResultSimply($request)
+    public function getAsyncJobResult($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getAsyncJobResult($request, $runtime);
-    }
-
-    /**
-     * @param SegmentFurnitureRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SegmentFurnitureResponse
-     */
-    public function segmentFurniture($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentFurnitureResponse::fromMap($this->doRequest('SegmentFurniture', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentFurnitureRequest $request
-     *
-     * @return SegmentFurnitureResponse
-     */
-    public function segmentFurnitureSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentFurniture($request, $runtime);
-    }
-
-    /**
-     * @param SegmentFurnitureAdvanceRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return SegmentFurnitureResponse
-     */
-    public function segmentFurnitureAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentFurnitureReq = new SegmentFurnitureRequest([]);
-        RpcUtils::convert($request, $segmentFurnitureReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentFurnitureReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentFurniture($segmentFurnitureReq, $runtime);
-    }
-
-    /**
-     * @param RefineMaskRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return RefineMaskResponse
-     */
-    public function refineMask($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RefineMaskResponse::fromMap($this->doRequest('RefineMask', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RefineMaskRequest $request
-     *
-     * @return RefineMaskResponse
-     */
-    public function refineMaskSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->refineMask($request, $runtime);
-    }
-
-    /**
-     * @param RefineMaskAdvanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RefineMaskResponse
-     */
-    public function refineMaskAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $refineMaskReq = new RefineMaskRequest([]);
-        RpcUtils::convert($request, $refineMaskReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $refineMaskReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->refineMask($refineMaskReq, $runtime);
+        return $this->getAsyncJobResultWithOptions($request, $runtime);
     }
 
     /**
@@ -1307,11 +245,14 @@ class Imageseg extends Rpc
      *
      * @return ParseFaceResponse
      */
-    public function parseFace($request, $runtime)
+    public function parseFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ParseFaceResponse::fromMap($this->doRequest('ParseFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return ParseFaceResponse::fromMap($this->doRPCRequest('ParseFace', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1319,11 +260,11 @@ class Imageseg extends Rpc
      *
      * @return ParseFaceResponse
      */
-    public function parseFaceSimply($request)
+    public function parseFace($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->parseFace($request, $runtime);
+        return $this->parseFaceWithOptions($request, $runtime);
     }
 
     /**
@@ -1362,13 +303,13 @@ class Imageseg extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
         $parseFaceReq = new ParseFaceRequest([]);
-        RpcUtils::convert($request, $parseFaceReq);
+        OpenApiUtilClient::convert($request, $parseFaceReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->imageURLObject,
@@ -1389,41 +330,44 @@ class Imageseg extends Rpc
         $ossClient->postObject($uploadRequest, $ossRuntime);
         $parseFaceReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->parseFace($parseFaceReq, $runtime);
+        return $this->parseFaceWithOptions($parseFaceReq, $runtime);
     }
 
     /**
-     * @param SegmentVehicleRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param RefineMaskRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return SegmentVehicleResponse
+     * @return RefineMaskResponse
      */
-    public function segmentVehicle($request, $runtime)
+    public function refineMaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return SegmentVehicleResponse::fromMap($this->doRequest('SegmentVehicle', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return RefineMaskResponse::fromMap($this->doRPCRequest('RefineMask', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param SegmentVehicleRequest $request
+     * @param RefineMaskRequest $request
      *
-     * @return SegmentVehicleResponse
+     * @return RefineMaskResponse
      */
-    public function segmentVehicleSimply($request)
+    public function refineMask($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->segmentVehicle($request, $runtime);
+        return $this->refineMaskWithOptions($request, $runtime);
     }
 
     /**
-     * @param SegmentVehicleAdvanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param RefineMaskAdvanceRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return SegmentVehicleResponse
+     * @return RefineMaskResponse
      */
-    public function segmentVehicleAdvance($request, $runtime)
+    public function refineMaskAdvance($request, $runtime)
     {
         // Step 0: init client
         $accessKeyId     = $this->_credential->getAccessKeyId();
@@ -1453,13 +397,13 @@ class Imageseg extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentVehicleReq = new SegmentVehicleRequest([]);
-        RpcUtils::convert($request, $segmentVehicleReq);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $refineMaskReq = new RefineMaskRequest([]);
+        OpenApiUtilClient::convert($request, $refineMaskReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->imageURLObject,
@@ -1478,43 +422,46 @@ class Imageseg extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentVehicleReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $refineMaskReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->segmentVehicle($segmentVehicleReq, $runtime);
+        return $this->refineMaskWithOptions($refineMaskReq, $runtime);
     }
 
     /**
-     * @param SegmentHairRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param SegmentAnimalRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return SegmentHairResponse
+     * @return SegmentAnimalResponse
      */
-    public function segmentHair($request, $runtime)
+    public function segmentAnimalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return SegmentHairResponse::fromMap($this->doRequest('SegmentHair', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return SegmentAnimalResponse::fromMap($this->doRPCRequest('SegmentAnimal', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param SegmentHairRequest $request
+     * @param SegmentAnimalRequest $request
      *
-     * @return SegmentHairResponse
+     * @return SegmentAnimalResponse
      */
-    public function segmentHairSimply($request)
+    public function segmentAnimal($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->segmentHair($request, $runtime);
+        return $this->segmentAnimalWithOptions($request, $runtime);
     }
 
     /**
-     * @param SegmentHairAdvanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param SegmentAnimalAdvanceRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return SegmentHairResponse
+     * @return SegmentAnimalResponse
      */
-    public function segmentHairAdvance($request, $runtime)
+    public function segmentAnimalAdvance($request, $runtime)
     {
         // Step 0: init client
         $accessKeyId     = $this->_credential->getAccessKeyId();
@@ -1544,13 +491,13 @@ class Imageseg extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentHairReq = new SegmentHairRequest([]);
-        RpcUtils::convert($request, $segmentHairReq);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentAnimalReq = new SegmentAnimalRequest([]);
+        OpenApiUtilClient::convert($request, $segmentAnimalReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->imageURLObject,
@@ -1569,282 +516,9 @@ class Imageseg extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentHairReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $segmentAnimalReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->segmentHair($segmentHairReq, $runtime);
-    }
-
-    /**
-     * @param SegmentFaceRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SegmentFaceResponse
-     */
-    public function segmentFace($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentFaceResponse::fromMap($this->doRequest('SegmentFace', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentFaceRequest $request
-     *
-     * @return SegmentFaceResponse
-     */
-    public function segmentFaceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentFace($request, $runtime);
-    }
-
-    /**
-     * @param SegmentFaceAdvanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SegmentFaceResponse
-     */
-    public function segmentFaceAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentFaceReq = new SegmentFaceRequest([]);
-        RpcUtils::convert($request, $segmentFaceReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentFaceReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentFace($segmentFaceReq, $runtime);
-    }
-
-    /**
-     * @param SegmentHeadRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SegmentHeadResponse
-     */
-    public function segmentHead($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentHeadResponse::fromMap($this->doRequest('SegmentHead', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentHeadRequest $request
-     *
-     * @return SegmentHeadResponse
-     */
-    public function segmentHeadSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentHead($request, $runtime);
-    }
-
-    /**
-     * @param SegmentHeadAdvanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SegmentHeadResponse
-     */
-    public function segmentHeadAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentHeadReq = new SegmentHeadRequest([]);
-        RpcUtils::convert($request, $segmentHeadReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentHeadReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentHead($segmentHeadReq, $runtime);
-    }
-
-    /**
-     * @param SegmentCommodityRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SegmentCommodityResponse
-     */
-    public function segmentCommodity($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SegmentCommodityResponse::fromMap($this->doRequest('SegmentCommodity', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SegmentCommodityRequest $request
-     *
-     * @return SegmentCommodityResponse
-     */
-    public function segmentCommoditySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentCommodity($request, $runtime);
-    }
-
-    /**
-     * @param SegmentCommodityAdvanceRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return SegmentCommodityResponse
-     */
-    public function segmentCommodityAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'imageseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $segmentCommodityReq = new SegmentCommodityRequest([]);
-        RpcUtils::convert($request, $segmentCommodityReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentCommodityReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentCommodity($segmentCommodityReq, $runtime);
+        return $this->segmentAnimalWithOptions($segmentAnimalReq, $runtime);
     }
 
     /**
@@ -1853,11 +527,14 @@ class Imageseg extends Rpc
      *
      * @return SegmentBodyResponse
      */
-    public function segmentBody($request, $runtime)
+    public function segmentBodyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return SegmentBodyResponse::fromMap($this->doRequest('SegmentBody', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return SegmentBodyResponse::fromMap($this->doRPCRequest('SegmentBody', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1865,11 +542,11 @@ class Imageseg extends Rpc
      *
      * @return SegmentBodyResponse
      */
-    public function segmentBodySimply($request)
+    public function segmentBody($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->segmentBody($request, $runtime);
+        return $this->segmentBodyWithOptions($request, $runtime);
     }
 
     /**
@@ -1908,13 +585,13 @@ class Imageseg extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
         $segmentBodyReq = new SegmentBodyRequest([]);
-        RpcUtils::convert($request, $segmentBodyReq);
+        OpenApiUtilClient::convert($request, $segmentBodyReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->imageURLObject,
@@ -1935,7 +612,195 @@ class Imageseg extends Rpc
         $ossClient->postObject($uploadRequest, $ossRuntime);
         $segmentBodyReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->segmentBody($segmentBodyReq, $runtime);
+        return $this->segmentBodyWithOptions($segmentBodyReq, $runtime);
+    }
+
+    /**
+     * @param SegmentClothRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SegmentClothResponse
+     */
+    public function segmentClothWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentClothResponse::fromMap($this->doRPCRequest('SegmentCloth', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentClothRequest $request
+     *
+     * @return SegmentClothResponse
+     */
+    public function segmentCloth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentClothWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentClothAdvanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SegmentClothResponse
+     */
+    public function segmentClothAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentClothReq = new SegmentClothRequest([]);
+        OpenApiUtilClient::convert($request, $segmentClothReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentClothReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentClothWithOptions($segmentClothReq, $runtime);
+    }
+
+    /**
+     * @param SegmentCommodityRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SegmentCommodityResponse
+     */
+    public function segmentCommodityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentCommodityResponse::fromMap($this->doRPCRequest('SegmentCommodity', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentCommodityRequest $request
+     *
+     * @return SegmentCommodityResponse
+     */
+    public function segmentCommodity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentCommodityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentCommodityAdvanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SegmentCommodityResponse
+     */
+    public function segmentCommodityAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentCommodityReq = new SegmentCommodityRequest([]);
+        OpenApiUtilClient::convert($request, $segmentCommodityReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentCommodityReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentCommodityWithOptions($segmentCommodityReq, $runtime);
     }
 
     /**
@@ -1944,11 +809,14 @@ class Imageseg extends Rpc
      *
      * @return SegmentCommonImageResponse
      */
-    public function segmentCommonImage($request, $runtime)
+    public function segmentCommonImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return SegmentCommonImageResponse::fromMap($this->doRequest('SegmentCommonImage', 'HTTPS', 'POST', '2019-12-30', 'AK', null, Tea::merge($request), $runtime));
+        return SegmentCommonImageResponse::fromMap($this->doRPCRequest('SegmentCommonImage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1956,11 +824,11 @@ class Imageseg extends Rpc
      *
      * @return SegmentCommonImageResponse
      */
-    public function segmentCommonImageSimply($request)
+    public function segmentCommonImage($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->segmentCommonImage($request, $runtime);
+        return $this->segmentCommonImageWithOptions($request, $runtime);
     }
 
     /**
@@ -1999,13 +867,13 @@ class Imageseg extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
         $segmentCommonImageReq = new SegmentCommonImageRequest([]);
-        RpcUtils::convert($request, $segmentCommonImageReq);
+        OpenApiUtilClient::convert($request, $segmentCommonImageReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->imageURLObject,
@@ -2026,29 +894,1228 @@ class Imageseg extends Rpc
         $ossClient->postObject($uploadRequest, $ossRuntime);
         $segmentCommonImageReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->segmentCommonImage($segmentCommonImageReq, $runtime);
+        return $this->segmentCommonImageWithOptions($segmentCommonImageReq, $runtime);
     }
 
     /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
+     * @param SegmentFaceRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return string
+     * @return SegmentFaceResponse
      */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    public function segmentFaceWithOptions($request, $runtime)
     {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
-            return @$endpointMap[$regionId];
-        }
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return SegmentFaceResponse::fromMap($this->doRPCRequest('SegmentFace', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentFaceRequest $request
+     *
+     * @return SegmentFaceResponse
+     */
+    public function segmentFace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentFaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentFaceAdvanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SegmentFaceResponse
+     */
+    public function segmentFaceAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentFaceReq = new SegmentFaceRequest([]);
+        OpenApiUtilClient::convert($request, $segmentFaceReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentFaceReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentFaceWithOptions($segmentFaceReq, $runtime);
+    }
+
+    /**
+     * @param SegmentFoodRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SegmentFoodResponse
+     */
+    public function segmentFoodWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentFoodResponse::fromMap($this->doRPCRequest('SegmentFood', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentFoodRequest $request
+     *
+     * @return SegmentFoodResponse
+     */
+    public function segmentFood($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentFoodWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentFoodAdvanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SegmentFoodResponse
+     */
+    public function segmentFoodAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentFoodReq = new SegmentFoodRequest([]);
+        OpenApiUtilClient::convert($request, $segmentFoodReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentFoodReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentFoodWithOptions($segmentFoodReq, $runtime);
+    }
+
+    /**
+     * @param SegmentFurnitureRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SegmentFurnitureResponse
+     */
+    public function segmentFurnitureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentFurnitureResponse::fromMap($this->doRPCRequest('SegmentFurniture', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentFurnitureRequest $request
+     *
+     * @return SegmentFurnitureResponse
+     */
+    public function segmentFurniture($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentFurnitureWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentFurnitureAdvanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SegmentFurnitureResponse
+     */
+    public function segmentFurnitureAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentFurnitureReq = new SegmentFurnitureRequest([]);
+        OpenApiUtilClient::convert($request, $segmentFurnitureReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentFurnitureReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentFurnitureWithOptions($segmentFurnitureReq, $runtime);
+    }
+
+    /**
+     * @param SegmentHairRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SegmentHairResponse
+     */
+    public function segmentHairWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentHairResponse::fromMap($this->doRPCRequest('SegmentHair', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentHairRequest $request
+     *
+     * @return SegmentHairResponse
+     */
+    public function segmentHair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentHairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentHairAdvanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SegmentHairResponse
+     */
+    public function segmentHairAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentHairReq = new SegmentHairRequest([]);
+        OpenApiUtilClient::convert($request, $segmentHairReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentHairReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentHairWithOptions($segmentHairReq, $runtime);
+    }
+
+    /**
+     * @param SegmentHDBodyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SegmentHDBodyResponse
+     */
+    public function segmentHDBodyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentHDBodyResponse::fromMap($this->doRPCRequest('SegmentHDBody', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentHDBodyRequest $request
+     *
+     * @return SegmentHDBodyResponse
+     */
+    public function segmentHDBody($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentHDBodyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentHDBodyAdvanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SegmentHDBodyResponse
+     */
+    public function segmentHDBodyAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentHDBodyReq = new SegmentHDBodyRequest([]);
+        OpenApiUtilClient::convert($request, $segmentHDBodyReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentHDBodyReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentHDBodyWithOptions($segmentHDBodyReq, $runtime);
+    }
+
+    /**
+     * @param SegmentHDCommonImageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SegmentHDCommonImageResponse
+     */
+    public function segmentHDCommonImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentHDCommonImageResponse::fromMap($this->doRPCRequest('SegmentHDCommonImage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentHDCommonImageRequest $request
+     *
+     * @return SegmentHDCommonImageResponse
+     */
+    public function segmentHDCommonImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentHDCommonImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentHDCommonImageAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SegmentHDCommonImageResponse
+     */
+    public function segmentHDCommonImageAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentHDCommonImageReq = new SegmentHDCommonImageRequest([]);
+        OpenApiUtilClient::convert($request, $segmentHDCommonImageReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageUrlObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentHDCommonImageReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentHDCommonImageWithOptions($segmentHDCommonImageReq, $runtime);
+    }
+
+    /**
+     * @param SegmentHDSkyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SegmentHDSkyResponse
+     */
+    public function segmentHDSkyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentHDSkyResponse::fromMap($this->doRPCRequest('SegmentHDSky', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentHDSkyRequest $request
+     *
+     * @return SegmentHDSkyResponse
+     */
+    public function segmentHDSky($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentHDSkyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentHDSkyAdvanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SegmentHDSkyResponse
+     */
+    public function segmentHDSkyAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentHDSkyReq = new SegmentHDSkyRequest([]);
+        OpenApiUtilClient::convert($request, $segmentHDSkyReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentHDSkyReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentHDSkyWithOptions($segmentHDSkyReq, $runtime);
+    }
+
+    /**
+     * @param SegmentHeadRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SegmentHeadResponse
+     */
+    public function segmentHeadWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentHeadResponse::fromMap($this->doRPCRequest('SegmentHead', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentHeadRequest $request
+     *
+     * @return SegmentHeadResponse
+     */
+    public function segmentHead($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentHeadWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentHeadAdvanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SegmentHeadResponse
+     */
+    public function segmentHeadAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentHeadReq = new SegmentHeadRequest([]);
+        OpenApiUtilClient::convert($request, $segmentHeadReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentHeadReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentHeadWithOptions($segmentHeadReq, $runtime);
+    }
+
+    /**
+     * @param SegmentLogoRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SegmentLogoResponse
+     */
+    public function segmentLogoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentLogoResponse::fromMap($this->doRPCRequest('SegmentLogo', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentLogoRequest $request
+     *
+     * @return SegmentLogoResponse
+     */
+    public function segmentLogo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentLogoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentLogoAdvanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SegmentLogoResponse
+     */
+    public function segmentLogoAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentLogoReq = new SegmentLogoRequest([]);
+        OpenApiUtilClient::convert($request, $segmentLogoReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentLogoReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentLogoWithOptions($segmentLogoReq, $runtime);
+    }
+
+    /**
+     * @param SegmentSceneRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SegmentSceneResponse
+     */
+    public function segmentSceneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentSceneResponse::fromMap($this->doRPCRequest('SegmentScene', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentSceneRequest $request
+     *
+     * @return SegmentSceneResponse
+     */
+    public function segmentScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentSceneAdvanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SegmentSceneResponse
+     */
+    public function segmentSceneAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentSceneReq = new SegmentSceneRequest([]);
+        OpenApiUtilClient::convert($request, $segmentSceneReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentSceneReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentSceneWithOptions($segmentSceneReq, $runtime);
+    }
+
+    /**
+     * @param SegmentSkinRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SegmentSkinResponse
+     */
+    public function segmentSkinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentSkinResponse::fromMap($this->doRPCRequest('SegmentSkin', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentSkinRequest $request
+     *
+     * @return SegmentSkinResponse
+     */
+    public function segmentSkin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentSkinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentSkinAdvanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SegmentSkinResponse
+     */
+    public function segmentSkinAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentSkinReq = new SegmentSkinRequest([]);
+        OpenApiUtilClient::convert($request, $segmentSkinReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->URLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentSkinReq->URL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentSkinWithOptions($segmentSkinReq, $runtime);
+    }
+
+    /**
+     * @param SegmentSkyRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SegmentSkyResponse
+     */
+    public function segmentSkyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentSkyResponse::fromMap($this->doRPCRequest('SegmentSky', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentSkyRequest $request
+     *
+     * @return SegmentSkyResponse
+     */
+    public function segmentSky($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentSkyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentSkyAdvanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SegmentSkyResponse
+     */
+    public function segmentSkyAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentSkyReq = new SegmentSkyRequest([]);
+        OpenApiUtilClient::convert($request, $segmentSkyReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentSkyReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentSkyWithOptions($segmentSkyReq, $runtime);
+    }
+
+    /**
+     * @param SegmentVehicleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SegmentVehicleResponse
+     */
+    public function segmentVehicleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentVehicleResponse::fromMap($this->doRPCRequest('SegmentVehicle', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentVehicleRequest $request
+     *
+     * @return SegmentVehicleResponse
+     */
+    public function segmentVehicle($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentVehicleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentVehicleAdvanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SegmentVehicleResponse
+     */
+    public function segmentVehicleAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'imageseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentVehicleReq = new SegmentVehicleRequest([]);
+        OpenApiUtilClient::convert($request, $segmentVehicleReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentVehicleReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentVehicleWithOptions($segmentVehicleReq, $runtime);
     }
 }

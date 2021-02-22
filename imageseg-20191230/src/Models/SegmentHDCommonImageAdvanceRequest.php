@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageseg\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class SegmentHDCommonImageAdvanceRequest extends Model
 {
@@ -12,8 +13,14 @@ class SegmentHDCommonImageAdvanceRequest extends Model
      * @var Stream
      */
     public $imageUrlObject;
+
+    /**
+     * @var bool
+     */
+    public $async;
     protected $_name = [
         'imageUrlObject' => 'ImageUrlObject',
+        'async'          => 'Async',
     ];
 
     public function validate()
@@ -26,6 +33,9 @@ class SegmentHDCommonImageAdvanceRequest extends Model
         $res = [];
         if (null !== $this->imageUrlObject) {
             $res['ImageUrlObject'] = $this->imageUrlObject;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
 
         return $res;
@@ -41,6 +51,9 @@ class SegmentHDCommonImageAdvanceRequest extends Model
         $model = new self();
         if (isset($map['ImageUrlObject'])) {
             $model->imageUrlObject = $map['ImageUrlObject'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
 
         return $model;

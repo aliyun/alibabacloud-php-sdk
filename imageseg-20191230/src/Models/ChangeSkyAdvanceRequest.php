@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageseg\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class ChangeSkyAdvanceRequest extends Model
 {
@@ -25,7 +26,6 @@ class ChangeSkyAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('imageURLObject', $this->imageURLObject, true);
-        Model::validateRequired('replaceImageURL', $this->replaceImageURL, true);
     }
 
     public function toMap()

@@ -24,8 +24,6 @@ class RefineMaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('maskImageURL', $this->maskImageURL, true);
-        Model::validateRequired('imageURL', $this->imageURL, true);
     }
 
     public function toMap()

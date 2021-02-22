@@ -24,8 +24,6 @@ class ChangeSkyRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageURL', $this->imageURL, true);
-        Model::validateRequired('replaceImageURL', $this->replaceImageURL, true);
     }
 
     public function toMap()
