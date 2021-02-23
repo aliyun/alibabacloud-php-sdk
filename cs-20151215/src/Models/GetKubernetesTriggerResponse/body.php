@@ -49,6 +49,13 @@ class body extends Model
      * @var string
      */
     public $action;
+
+    /**
+     * @description Token
+     *
+     * @var string
+     */
+    public $token;
     protected $_name = [
         'id'        => 'id',
         'name'      => 'name',
@@ -56,6 +63,7 @@ class body extends Model
         'projectId' => 'project_id',
         'type'      => 'type',
         'action'    => 'action',
+        'token'     => 'token',
     ];
 
     public function validate()
@@ -82,6 +90,9 @@ class body extends Model
         }
         if (null !== $this->action) {
             $res['action'] = $this->action;
+        }
+        if (null !== $this->token) {
+            $res['token'] = $this->token;
         }
 
         return $res;
@@ -112,6 +123,9 @@ class body extends Model
         }
         if (isset($map['action'])) {
             $model->action = $map['action'];
+        }
+        if (isset($map['token'])) {
+            $model->token = $map['token'];
         }
 
         return $model;
