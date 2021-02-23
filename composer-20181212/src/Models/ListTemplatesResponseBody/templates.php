@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Composer\V20181212\Models\ListTemplatesResponse;
+namespace AlibabaCloud\SDK\Composer\V20181212\Models\ListTemplatesResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -90,19 +90,6 @@ class templates extends Model
 
     public function validate()
     {
-        Model::validateRequired('templateId', $this->templateId, true);
-        Model::validateRequired('templateName', $this->templateName, true);
-        Model::validateRequired('templateDescription', $this->templateDescription, true);
-        Model::validateRequired('templateTag', $this->templateTag, true);
-        Model::validateRequired('createTime', $this->createTime, true);
-        Model::validateRequired('updateTime', $this->updateTime, true);
-        Model::validateRequired('templateConnector', $this->templateConnector, true);
-        Model::validateRequired('templateSummary', $this->templateSummary, true);
-        Model::validateRequired('templateSummaryEn', $this->templateSummaryEn, true);
-        Model::validateRequired('templateLocale', $this->templateLocale, true);
-        Model::validateRequired('templateVersion', $this->templateVersion, true);
-        Model::validateRequired('templateCreator', $this->templateCreator, true);
-        Model::validateRequired('templateOverview', $this->templateOverview, true);
     }
 
     public function toMap()

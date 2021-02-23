@@ -18,7 +18,6 @@ class GetFlowRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('flowId', $this->flowId, true);
     }
 
     public function toMap()

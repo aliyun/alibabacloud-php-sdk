@@ -42,7 +42,6 @@ class CreateFlowRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('flowName', $this->flowName, true);
     }
 
     public function toMap()

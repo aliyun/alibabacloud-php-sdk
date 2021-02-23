@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Composer\V20181212\Models\ListTagResourcesResponse;
+namespace AlibabaCloud\SDK\Composer\V20181212\Models\ListTagResourcesResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -36,10 +36,6 @@ class tagResources extends Model
 
     public function validate()
     {
-        Model::validateRequired('tagKey', $this->tagKey, true);
-        Model::validateRequired('tagValue', $this->tagValue, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
-        Model::validateRequired('resourceType', $this->resourceType, true);
     }
 
     public function toMap()

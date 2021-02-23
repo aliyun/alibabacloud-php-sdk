@@ -9,44 +9,57 @@ use AlibabaCloud\Tea\Model;
 class GroupInvokeFlowRequest extends Model
 {
     /**
+     * @description FlowId
+     *
      * @var string
      */
     public $flowId;
 
     /**
+     * @description GroupKey
+     *
      * @var string
      */
     public $groupKey;
 
     /**
+     * @description Data
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description ClientToken
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description TotalCount
+     *
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @description Tags
+     *
+     * @var string
+     */
+    public $tags;
     protected $_name = [
         'flowId'      => 'FlowId',
         'groupKey'    => 'GroupKey',
         'data'        => 'Data',
         'clientToken' => 'ClientToken',
         'totalCount'  => 'TotalCount',
+        'tags'        => 'Tags',
     ];
 
     public function validate()
     {
-        Model::validateRequired('flowId', $this->flowId, true);
-        Model::validateRequired('groupKey', $this->groupKey, true);
-        Model::validateRequired('data', $this->data, true);
-        Model::validateRequired('clientToken', $this->clientToken, true);
-        Model::validateRequired('totalCount', $this->totalCount, true);
     }
 
     public function toMap()
@@ -66,6 +79,9 @@ class GroupInvokeFlowRequest extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -93,6 +109,9 @@ class GroupInvokeFlowRequest extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

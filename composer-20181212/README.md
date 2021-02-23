@@ -1,10 +1,10 @@
-[English](README.md) | 简体中文
+English | [简体中文](README-CN.md)
 
 ![](https://aliyunsdk-pages.alicdn.com/icons/AlibabaCloud.svg)
 
-## Alibaba Cloud Logic Composer (20181212) SDK Library for PHP
+# Alibaba Cloud composer SDK for PHP
 
-## 安装
+## Installation
 
 ### Composer
 
@@ -12,19 +12,23 @@
 composer require alibabacloud/composer-20181212
 ```
 
-## 问题
+## Issues
 
-[提交 Issue](https://github.com/aliyun/alibabacloud-sdk/issues/new)，不符合指南的问题可能会立即关闭。
+[Opening an Issue](https://github.com/aliyun/alibabacloud-php-sdk/issues/new), Issues not conforming to the guidelines may be closed immediately.
 
-## 发行说明
+## Usage
 
-每个版本的详细更改记录在[发行说明](./ChangeLog.txt)中。
+[Quick Examples](https://github.com/aliyun/alibabacloud-php-sdk/blob/master/docs/0-Examples-EN.md#quick-examples)
 
-## 相关
+## Changelog
 
-* [最新源码](https://github.com/aliyun/alibabacloud-sdk)
+Detailed changes for each release are documented in the [release notes](./ChangeLog.txt).
 
-## 许可证
+## References
+
+* [Latest Release](https://github.com/aliyun/alibabacloud-php-sdk/)
+
+## License
 
 [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 

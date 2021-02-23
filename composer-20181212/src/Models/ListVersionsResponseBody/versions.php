@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Composer\V20181212\Models\ListVersionsResponse;
+namespace AlibabaCloud\SDK\Composer\V20181212\Models\ListVersionsResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -48,12 +48,6 @@ class versions extends Model
 
     public function validate()
     {
-        Model::validateRequired('versionId', $this->versionId, true);
-        Model::validateRequired('flowId', $this->flowId, true);
-        Model::validateRequired('versionName', $this->versionName, true);
-        Model::validateRequired('versionStatus', $this->versionStatus, true);
-        Model::validateRequired('createTime', $this->createTime, true);
-        Model::validateRequired('updateTime', $this->updateTime, true);
     }
 
     public function toMap()

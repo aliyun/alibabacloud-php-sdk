@@ -43,7 +43,6 @@ class ListTagResourcesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('resourceType', $this->resourceType, true);
     }
 
     public function toMap()

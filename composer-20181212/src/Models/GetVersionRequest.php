@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetVersionRequest extends Model
 {
     /**
+     * @description 工作流 ID
+     *
      * @var string
      */
     public $flowId;
 
     /**
-     * @var int
+     * @description 工作流版本 ID
+     *
+     * @var string
      */
     public $versionId;
     protected $_name = [
@@ -24,8 +28,6 @@ class GetVersionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('flowId', $this->flowId, true);
-        Model::validateRequired('versionId', $this->versionId, true);
     }
 
     public function toMap()

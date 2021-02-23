@@ -39,11 +39,12 @@ use AlibabaCloud\SDK\Composer\V20181212\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Composer\V20181212\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Composer\V20181212\Models\UpdateFlowRequest;
 use AlibabaCloud\SDK\Composer\V20181212\Models\UpdateFlowResponse;
-use AlibabaCloud\Tea\Rpc\Rpc;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\OpenApiClient;
 
-class Composer extends Rpc
+class Composer extends OpenApiClient
 {
     public function __construct($config)
     {
@@ -54,228 +55,26 @@ class Composer extends Rpc
     }
 
     /**
-     * @param ListTemplatesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
      *
-     * @return ListTemplatesResponse
+     * @return string
      */
-    public function listTemplatesWithOptions($request, $runtime)
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        Utils::validateModel($request);
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
 
-        return ListTemplatesResponse::fromMap($this->doRequest('ListTemplates', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ListTemplatesRequest $request
-     *
-     * @return ListTemplatesResponse
-     */
-    public function listTemplates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTemplatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetTemplateRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetTemplateResponse
-     */
-    public function getTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetTemplateResponse::fromMap($this->doRequest('GetTemplate', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param GetTemplateRequest $request
-     *
-     * @return GetTemplateResponse
-     */
-    public function getTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GroupInvokeFlowRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GroupInvokeFlowResponse
-     */
-    public function groupInvokeFlowWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GroupInvokeFlowResponse::fromMap($this->doRequest('GroupInvokeFlow', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param GroupInvokeFlowRequest $request
-     *
-     * @return GroupInvokeFlowResponse
-     */
-    public function groupInvokeFlow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->groupInvokeFlowWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
-     */
-    public function listTagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListTagResourcesResponse::fromMap($this->doRequest('ListTagResources', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
-     */
-    public function listTagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
-     */
-    public function tagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return TagResourcesResponse::fromMap($this->doRequest('TagResources', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
-     */
-    public function tagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->tagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
-     */
-    public function untagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UntagResourcesResponse::fromMap($this->doRequest('UntagResources', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
-     */
-    public function untagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->untagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetVersionRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetVersionResponse
-     */
-    public function getVersionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetVersionResponse::fromMap($this->doRequest('GetVersion', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param GetVersionRequest $request
-     *
-     * @return GetVersionResponse
-     */
-    public function getVersion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getVersionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListVersionsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListVersionsResponse
-     */
-    public function listVersionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListVersionsResponse::fromMap($this->doRequest('ListVersions', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ListVersionsRequest $request
-     *
-     * @return ListVersionsResponse
-     */
-    public function listVersions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listVersionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateFlowRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return UpdateFlowResponse
-     */
-    public function updateFlowWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateFlowResponse::fromMap($this->doRequest('UpdateFlow', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param UpdateFlowRequest $request
-     *
-     * @return UpdateFlowResponse
-     */
-    public function updateFlow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateFlowWithOptions($request, $runtime);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
@@ -287,8 +86,11 @@ class Composer extends Rpc
     public function cloneFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CloneFlowResponse::fromMap($this->doRequest('CloneFlow', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
+        return CloneFlowResponse::fromMap($this->doRPCRequest('CloneFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -304,53 +106,31 @@ class Composer extends Rpc
     }
 
     /**
-     * @param GetFlowRequest $request
-     * @param RuntimeOptions $runtime
+     * @param CreateFlowRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return GetFlowResponse
+     * @return CreateFlowResponse
      */
-    public function getFlowWithOptions($request, $runtime)
+    public function createFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetFlowResponse::fromMap($this->doRequest('GetFlow', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
+        return CreateFlowResponse::fromMap($this->doRPCRequest('CreateFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetFlowRequest $request
+     * @param CreateFlowRequest $request
      *
-     * @return GetFlowResponse
+     * @return CreateFlowResponse
      */
-    public function getFlow($request)
+    public function createFlow($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getFlowWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListFlowsRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListFlowsResponse
-     */
-    public function listFlowsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListFlowsResponse::fromMap($this->doRequest('ListFlows', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
-    }
-
-    /**
-     * @param ListFlowsRequest $request
-     *
-     * @return ListFlowsResponse
-     */
-    public function listFlows($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFlowsWithOptions($request, $runtime);
+        return $this->createFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -362,8 +142,11 @@ class Composer extends Rpc
     public function deleteFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteFlowResponse::fromMap($this->doRequest('DeleteFlow', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
+        return DeleteFlowResponse::fromMap($this->doRPCRequest('DeleteFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -387,8 +170,11 @@ class Composer extends Rpc
     public function disableFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DisableFlowResponse::fromMap($this->doRequest('DisableFlow', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
+        return DisableFlowResponse::fromMap($this->doRPCRequest('DisableFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -412,8 +198,11 @@ class Composer extends Rpc
     public function enableFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return EnableFlowResponse::fromMap($this->doRequest('EnableFlow', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
+        return EnableFlowResponse::fromMap($this->doRPCRequest('EnableFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -429,28 +218,115 @@ class Composer extends Rpc
     }
 
     /**
-     * @param CreateFlowRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param GetFlowRequest $request
+     * @param RuntimeOptions $runtime
      *
-     * @return CreateFlowResponse
+     * @return GetFlowResponse
      */
-    public function createFlowWithOptions($request, $runtime)
+    public function getFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateFlowResponse::fromMap($this->doRequest('CreateFlow', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
+        return GetFlowResponse::fromMap($this->doRPCRequest('GetFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateFlowRequest $request
+     * @param GetFlowRequest $request
      *
-     * @return CreateFlowResponse
+     * @return GetFlowResponse
      */
-    public function createFlow($request)
+    public function getFlow($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createFlowWithOptions($request, $runtime);
+        return $this->getFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTemplateRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetTemplateResponse
+     */
+    public function getTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetTemplateResponse::fromMap($this->doRPCRequest('GetTemplate', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetTemplateRequest $request
+     *
+     * @return GetTemplateResponse
+     */
+    public function getTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetVersionRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetVersionResponse
+     */
+    public function getVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetVersionResponse::fromMap($this->doRPCRequest('GetVersion', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetVersionRequest $request
+     *
+     * @return GetVersionResponse
+     */
+    public function getVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GroupInvokeFlowRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GroupInvokeFlowResponse
+     */
+    public function groupInvokeFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GroupInvokeFlowResponse::fromMap($this->doRPCRequest('GroupInvokeFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GroupInvokeFlowRequest $request
+     *
+     * @return GroupInvokeFlowResponse
+     */
+    public function groupInvokeFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->groupInvokeFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -462,8 +338,11 @@ class Composer extends Rpc
     public function invokeFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return InvokeFlowResponse::fromMap($this->doRequest('InvokeFlow', 'HTTPS', 'POST', '2018-12-12', 'AK', null, $request, $runtime));
+        return InvokeFlowResponse::fromMap($this->doRPCRequest('InvokeFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -479,25 +358,198 @@ class Composer extends Rpc
     }
 
     /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
+     * @param ListFlowsRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return string
+     * @return ListFlowsResponse
      */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    public function listFlowsWithOptions($request, $runtime)
     {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_($endpointMap['regionId'])) {
-            return $endpointMap['regionId'];
-        }
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return ListFlowsResponse::fromMap($this->doRPCRequest('ListFlows', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListFlowsRequest $request
+     *
+     * @return ListFlowsResponse
+     */
+    public function listFlows($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFlowsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTemplatesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTemplatesResponse
+     */
+    public function listTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListTemplatesResponse::fromMap($this->doRPCRequest('ListTemplates', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListTemplatesRequest $request
+     *
+     * @return ListTemplatesResponse
+     */
+    public function listTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListVersionsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListVersionsResponse
+     */
+    public function listVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListVersionsResponse::fromMap($this->doRPCRequest('ListVersions', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListVersionsRequest $request
+     *
+     * @return ListVersionsResponse
+     */
+    public function listVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateFlowRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateFlowResponse
+     */
+    public function updateFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateFlowResponse::fromMap($this->doRPCRequest('UpdateFlow', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateFlowRequest $request
+     *
+     * @return UpdateFlowResponse
+     */
+    public function updateFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFlowWithOptions($request, $runtime);
     }
 }

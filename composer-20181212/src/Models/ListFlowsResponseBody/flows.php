@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Composer\V20181212\Models\ListFlowsResponse;
+namespace AlibabaCloud\SDK\Composer\V20181212\Models\ListFlowsResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -78,17 +78,6 @@ class flows extends Model
 
     public function validate()
     {
-        Model::validateRequired('flowId', $this->flowId, true);
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('flowName', $this->flowName, true);
-        Model::validateRequired('flowDescription', $this->flowDescription, true);
-        Model::validateRequired('versionId', $this->versionId, true);
-        Model::validateRequired('createTime', $this->createTime, true);
-        Model::validateRequired('updateTime', $this->updateTime, true);
-        Model::validateRequired('flowStatus', $this->flowStatus, true);
-        Model::validateRequired('templateId', $this->templateId, true);
-        Model::validateRequired('flowSource', $this->flowSource, true);
-        Model::validateRequired('flowEditMode', $this->flowEditMode, true);
     }
 
     public function toMap()
