@@ -5,23 +5,24 @@
 namespace AlibabaCloud\SDK\Cloudauth\V20201112;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cloudauth\V20201112\Models\LivenessDetectAdvanceRequest;
 use AlibabaCloud\SDK\Cloudauth\V20201112\Models\LivenessDetectRequest;
 use AlibabaCloud\SDK\Cloudauth\V20201112\Models\LivenessDetectResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
-use AlibabaCloud\Tea\RpcUtils\RpcUtils;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\OpenApiClient;
 
-class Cloudauth extends Rpc
+class Cloudauth extends OpenApiClient
 {
     public function __construct($config)
     {
@@ -32,16 +33,54 @@ class Cloudauth extends Rpc
     }
 
     /**
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    {
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
+
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
      * @param LivenessDetectRequest $request
      * @param RuntimeOptions        $runtime
      *
      * @return LivenessDetectResponse
      */
-    public function livenessDetect($request, $runtime)
+    public function livenessDetectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return LivenessDetectResponse::fromMap($this->doRequest('LivenessDetect', 'HTTPS', 'POST', '2020-11-12', 'AK', null, Tea::merge($request), $runtime));
+        return LivenessDetectResponse::fromMap($this->doRPCRequest('LivenessDetect', '2020-11-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param LivenessDetectRequest $request
+     *
+     * @return LivenessDetectResponse
+     */
+    public function livenessDetect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->livenessDetectWithOptions($request, $runtime);
     }
 
     /**
@@ -80,13 +119,13 @@ class Cloudauth extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
-        $livenessDetectreq = new LivenessDetectRequest([]);
-        RpcUtils::convert($request, $livenessDetectreq);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $livenessDetectReq = new LivenessDetectRequest([]);
+        OpenApiUtilClient::convert($request, $livenessDetectReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
             'content'     => $request->mediaFileObject,
@@ -105,31 +144,8 @@ class Cloudauth extends Rpc
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $livenessDetectreq->mediaFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $livenessDetectReq->mediaFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->livenessDetect($livenessDetectreq, $runtime);
-    }
-
-    /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
-     *
-     * @return string
-     */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
-    {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
-            return @$endpointMap[$regionId];
-        }
-
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return $this->livenessDetectWithOptions($livenessDetectReq, $runtime);
     }
 }
