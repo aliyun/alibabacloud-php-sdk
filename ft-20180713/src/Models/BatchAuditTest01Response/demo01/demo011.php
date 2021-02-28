@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response\demo01;
 
-use AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response\demo01\demo011\demo011;
 use AlibabaCloud\Tea\Model;
 
 class demo011 extends Model
 {
     /**
-     * @var demo011[]
+     * @var \AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response\demo01\demo011\demo011[]
      */
     public $demo011;
     protected $_name = [
@@ -51,7 +50,7 @@ class demo011 extends Model
                 $model->demo011 = [];
                 $n              = 0;
                 foreach ($map['Demo011'] as $item) {
-                    $model->demo011[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->demo011[$n++] = null !== $item ? \AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response\demo01\demo011\demo011::fromMap($item) : $item;
                 }
             }
         }

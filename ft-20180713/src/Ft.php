@@ -13,6 +13,9 @@ use AlibabaCloud\SDK\Ft\V20180713\Models\FtDynamicAddressDubboRequest;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FtDynamicAddressDubboResponse;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FtDynamicAddressHsfRequest;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FtDynamicAddressHsfResponse;
+use AlibabaCloud\SDK\Ft\V20180713\Models\FtDynamicAddressHttpVpcRequest;
+use AlibabaCloud\SDK\Ft\V20180713\Models\FtDynamicAddressHttpVpcResponse;
+use AlibabaCloud\SDK\Ft\V20180713\Models\FtDynamicAddressHttpVpcShrinkRequest;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FtEagleEyeRequest;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FtEagleEyeResponse;
 use AlibabaCloud\SDK\Ft\V20180713\Models\FtFlowSpecialRequest;
@@ -94,6 +97,42 @@ class Ft extends Rpc
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ft', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param FtDynamicAddressHttpVpcRequest $tmp
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return FtDynamicAddressHttpVpcResponse
+     */
+    public function ftDynamicAddressHttpVpcWithOptions($tmp, $runtime)
+    {
+        Utils::validateModel($tmp);
+        $request = new FtDynamicAddressHttpVpcShrinkRequest([]);
+        RpcUtils::convert($tmp, $request);
+        if (!Utils::isUnset($tmp->stringValue)) {
+            $request->stringValueShrink = Utils::toJSONString($tmp->stringValue);
+        }
+        if (!Utils::isUnset($tmp->defaultValue)) {
+            $request->defaultValueShrink = Utils::toJSONString($tmp->defaultValue);
+        }
+        if (!Utils::isUnset($tmp->otherParam)) {
+            $request->otherParamShrink = Utils::toJSONString($tmp->otherParam);
+        }
+
+        return FtDynamicAddressHttpVpcResponse::fromMap($this->doRequest('FtDynamicAddressHttpVpc', 'HTTPS', 'POST', '2018-07-13', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param FtDynamicAddressHttpVpcRequest $request
+     *
+     * @return FtDynamicAddressHttpVpcResponse
+     */
+    public function ftDynamicAddressHttpVpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ftDynamicAddressHttpVpcWithOptions($request, $runtime);
     }
 
     /**
