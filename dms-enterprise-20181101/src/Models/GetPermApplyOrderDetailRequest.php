@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CheckFinishMissionRequest extends Model
+class GetPermApplyOrderDetailRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $missionType;
+    public $orderId;
     protected $_name = [
-        'missionType' => 'MissionType',
+        'orderId' => 'OrderId',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class CheckFinishMissionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->missionType) {
-            $res['MissionType'] = $this->missionType;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class CheckFinishMissionRequest extends Model
     /**
      * @param array $map
      *
-     * @return CheckFinishMissionRequest
+     * @return GetPermApplyOrderDetailRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MissionType'])) {
-            $model->missionType = $map['MissionType'];
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         return $model;

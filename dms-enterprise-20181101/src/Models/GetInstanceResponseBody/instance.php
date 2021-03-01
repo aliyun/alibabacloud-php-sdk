@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceResponseBody;
 
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceResponseBody\instance\ownerIdList;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceResponseBody\instance\ownerNameList;
 use AlibabaCloud\Tea\Model;
 
 class instance extends Model
@@ -16,22 +18,77 @@ class instance extends Model
     /**
      * @var string
      */
-    public $host;
-
-    /**
-     * @var string
-     */
     public $databaseUser;
 
     /**
      * @var string
      */
-    public $state;
+    public $dbaId;
+
+    /**
+     * @var int
+     */
+    public $useDsql;
+
+    /**
+     * @var int
+     */
+    public $port;
 
     /**
      * @var string
      */
-    public $dbaId;
+    public $ecsInstanceId;
+
+    /**
+     * @var string
+     */
+    public $envType;
+
+    /**
+     * @var string
+     */
+    public $sid;
+
+    /**
+     * @var ownerIdList
+     */
+    public $ownerIdList;
+
+    /**
+     * @var string
+     */
+    public $safeRuleId;
+
+    /**
+     * @var ownerNameList
+     */
+    public $ownerNameList;
+
+    /**
+     * @var string
+     */
+    public $dbaNickName;
+
+    /**
+     * @var int
+     */
+    public $queryTimeout;
+
+    /**
+     * @var string
+     */
+    public $instanceSource;
+
+    /**
+     * @var string
+     */
+    public $host;
+
+    /**
+     * @var string
+     */
+    public $state;
 
     /**
      * @var string
@@ -49,39 +106,14 @@ class instance extends Model
     public $instanceId;
 
     /**
-     * @var int
-     */
-    public $useDsql;
-
-    /**
      * @var string
      */
     public $instanceType;
 
     /**
-     * @var int
-     */
-    public $port;
-
-    /**
-     * @var string
-     */
-    public $ecsInstanceId;
-
-    /**
      * @var string
      */
     public $databasePassword;
-
-    /**
-     * @var string
-     */
-    public $envType;
-
-    /**
-     * @var string
-     */
-    public $sid;
 
     /**
      * @var string
@@ -96,50 +128,32 @@ class instance extends Model
     /**
      * @var string
      */
-    public $safeRuleId;
-
-    /**
-     * @var string
-     */
     public $ecsRegion;
-
-    /**
-     * @var string
-     */
-    public $dbaNickName;
-
-    /**
-     * @var int
-     */
-    public $queryTimeout;
-
-    /**
-     * @var string
-     */
-    public $instanceSource;
     protected $_name = [
         'vpcId'            => 'VpcId',
-        'host'             => 'Host',
         'databaseUser'     => 'DatabaseUser',
-        'state'            => 'State',
         'dbaId'            => 'DbaId',
-        'dataLinkName'     => 'DataLinkName',
-        'exportTimeout'    => 'ExportTimeout',
-        'instanceId'       => 'InstanceId',
         'useDsql'          => 'UseDsql',
-        'instanceType'     => 'InstanceType',
         'port'             => 'Port',
         'ecsInstanceId'    => 'EcsInstanceId',
-        'databasePassword' => 'DatabasePassword',
         'envType'          => 'EnvType',
         'sid'              => 'Sid',
-        'instanceAlias'    => 'InstanceAlias',
-        'ddlOnline'        => 'DdlOnline',
+        'ownerIdList'      => 'OwnerIdList',
         'safeRuleId'       => 'SafeRuleId',
-        'ecsRegion'        => 'EcsRegion',
+        'ownerNameList'    => 'OwnerNameList',
         'dbaNickName'      => 'DbaNickName',
         'queryTimeout'     => 'QueryTimeout',
         'instanceSource'   => 'InstanceSource',
+        'host'             => 'Host',
+        'state'            => 'State',
+        'dataLinkName'     => 'DataLinkName',
+        'exportTimeout'    => 'ExportTimeout',
+        'instanceId'       => 'InstanceId',
+        'instanceType'     => 'InstanceType',
+        'databasePassword' => 'DatabasePassword',
+        'instanceAlias'    => 'InstanceAlias',
+        'ddlOnline'        => 'DdlOnline',
+        'ecsRegion'        => 'EcsRegion',
     ];
 
     public function validate()
@@ -152,17 +166,50 @@ class instance extends Model
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-        if (null !== $this->host) {
-            $res['Host'] = $this->host;
-        }
         if (null !== $this->databaseUser) {
             $res['DatabaseUser'] = $this->databaseUser;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->dbaId) {
             $res['DbaId'] = $this->dbaId;
+        }
+        if (null !== $this->useDsql) {
+            $res['UseDsql'] = $this->useDsql;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+        if (null !== $this->ecsInstanceId) {
+            $res['EcsInstanceId'] = $this->ecsInstanceId;
+        }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
+        }
+        if (null !== $this->sid) {
+            $res['Sid'] = $this->sid;
+        }
+        if (null !== $this->ownerIdList) {
+            $res['OwnerIdList'] = null !== $this->ownerIdList ? $this->ownerIdList->toMap() : null;
+        }
+        if (null !== $this->safeRuleId) {
+            $res['SafeRuleId'] = $this->safeRuleId;
+        }
+        if (null !== $this->ownerNameList) {
+            $res['OwnerNameList'] = null !== $this->ownerNameList ? $this->ownerNameList->toMap() : null;
+        }
+        if (null !== $this->dbaNickName) {
+            $res['DbaNickName'] = $this->dbaNickName;
+        }
+        if (null !== $this->queryTimeout) {
+            $res['QueryTimeout'] = $this->queryTimeout;
+        }
+        if (null !== $this->instanceSource) {
+            $res['InstanceSource'] = $this->instanceSource;
+        }
+        if (null !== $this->host) {
+            $res['Host'] = $this->host;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->dataLinkName) {
             $res['DataLinkName'] = $this->dataLinkName;
@@ -173,26 +220,11 @@ class instance extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->useDsql) {
-            $res['UseDsql'] = $this->useDsql;
-        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
-        if (null !== $this->ecsInstanceId) {
-            $res['EcsInstanceId'] = $this->ecsInstanceId;
-        }
         if (null !== $this->databasePassword) {
             $res['DatabasePassword'] = $this->databasePassword;
-        }
-        if (null !== $this->envType) {
-            $res['EnvType'] = $this->envType;
-        }
-        if (null !== $this->sid) {
-            $res['Sid'] = $this->sid;
         }
         if (null !== $this->instanceAlias) {
             $res['InstanceAlias'] = $this->instanceAlias;
@@ -200,20 +232,8 @@ class instance extends Model
         if (null !== $this->ddlOnline) {
             $res['DdlOnline'] = $this->ddlOnline;
         }
-        if (null !== $this->safeRuleId) {
-            $res['SafeRuleId'] = $this->safeRuleId;
-        }
         if (null !== $this->ecsRegion) {
             $res['EcsRegion'] = $this->ecsRegion;
-        }
-        if (null !== $this->dbaNickName) {
-            $res['DbaNickName'] = $this->dbaNickName;
-        }
-        if (null !== $this->queryTimeout) {
-            $res['QueryTimeout'] = $this->queryTimeout;
-        }
-        if (null !== $this->instanceSource) {
-            $res['InstanceSource'] = $this->instanceSource;
         }
 
         return $res;
@@ -230,17 +250,50 @@ class instance extends Model
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-        if (isset($map['Host'])) {
-            $model->host = $map['Host'];
-        }
         if (isset($map['DatabaseUser'])) {
             $model->databaseUser = $map['DatabaseUser'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['DbaId'])) {
             $model->dbaId = $map['DbaId'];
+        }
+        if (isset($map['UseDsql'])) {
+            $model->useDsql = $map['UseDsql'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+        if (isset($map['EcsInstanceId'])) {
+            $model->ecsInstanceId = $map['EcsInstanceId'];
+        }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
+        }
+        if (isset($map['Sid'])) {
+            $model->sid = $map['Sid'];
+        }
+        if (isset($map['OwnerIdList'])) {
+            $model->ownerIdList = ownerIdList::fromMap($map['OwnerIdList']);
+        }
+        if (isset($map['SafeRuleId'])) {
+            $model->safeRuleId = $map['SafeRuleId'];
+        }
+        if (isset($map['OwnerNameList'])) {
+            $model->ownerNameList = ownerNameList::fromMap($map['OwnerNameList']);
+        }
+        if (isset($map['DbaNickName'])) {
+            $model->dbaNickName = $map['DbaNickName'];
+        }
+        if (isset($map['QueryTimeout'])) {
+            $model->queryTimeout = $map['QueryTimeout'];
+        }
+        if (isset($map['InstanceSource'])) {
+            $model->instanceSource = $map['InstanceSource'];
+        }
+        if (isset($map['Host'])) {
+            $model->host = $map['Host'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['DataLinkName'])) {
             $model->dataLinkName = $map['DataLinkName'];
@@ -251,26 +304,11 @@ class instance extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UseDsql'])) {
-            $model->useDsql = $map['UseDsql'];
-        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
-        if (isset($map['EcsInstanceId'])) {
-            $model->ecsInstanceId = $map['EcsInstanceId'];
-        }
         if (isset($map['DatabasePassword'])) {
             $model->databasePassword = $map['DatabasePassword'];
-        }
-        if (isset($map['EnvType'])) {
-            $model->envType = $map['EnvType'];
-        }
-        if (isset($map['Sid'])) {
-            $model->sid = $map['Sid'];
         }
         if (isset($map['InstanceAlias'])) {
             $model->instanceAlias = $map['InstanceAlias'];
@@ -278,20 +316,8 @@ class instance extends Model
         if (isset($map['DdlOnline'])) {
             $model->ddlOnline = $map['DdlOnline'];
         }
-        if (isset($map['SafeRuleId'])) {
-            $model->safeRuleId = $map['SafeRuleId'];
-        }
         if (isset($map['EcsRegion'])) {
             $model->ecsRegion = $map['EcsRegion'];
-        }
-        if (isset($map['DbaNickName'])) {
-            $model->dbaNickName = $map['DbaNickName'];
-        }
-        if (isset($map['QueryTimeout'])) {
-            $model->queryTimeout = $map['QueryTimeout'];
-        }
-        if (isset($map['InstanceSource'])) {
-            $model->instanceSource = $map['InstanceSource'];
         }
 
         return $model;

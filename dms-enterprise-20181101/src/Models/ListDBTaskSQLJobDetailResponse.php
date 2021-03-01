@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CheckFinishMissionResponse extends Model
+class ListDBTaskSQLJobDetailResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class CheckFinishMissionResponse extends Model
     public $headers;
 
     /**
-     * @var CheckFinishMissionResponseBody
+     * @var ListDBTaskSQLJobDetailResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class CheckFinishMissionResponse extends Model
     /**
      * @param array $map
      *
-     * @return CheckFinishMissionResponse
+     * @return ListDBTaskSQLJobDetailResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class CheckFinishMissionResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = CheckFinishMissionResponseBody::fromMap($map['body']);
+            $model->body = ListDBTaskSQLJobDetailResponseBody::fromMap($map['body']);
         }
 
         return $model;
