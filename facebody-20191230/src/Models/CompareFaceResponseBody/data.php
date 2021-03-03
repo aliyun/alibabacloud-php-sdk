@@ -27,11 +27,35 @@ class data extends Model
      * @var int[]
      */
     public $rectAList;
+
+    /**
+     * @description 输入图像A的质量分
+     *
+     * @var float
+     */
+    public $qualityScoreA;
+
+    /**
+     * @description 输入图像A的质量分
+     *
+     * @var float
+     */
+    public $qualityScoreB;
+
+    /**
+     * @description 信息提示信息，纯文字描述，目前支持质量分的提示信息
+     *
+     * @var string
+     */
+    public $messageTips;
     protected $_name = [
-        'thresholds' => 'Thresholds',
-        'rectBList'  => 'RectBList',
-        'confidence' => 'Confidence',
-        'rectAList'  => 'RectAList',
+        'thresholds'    => 'Thresholds',
+        'rectBList'     => 'RectBList',
+        'confidence'    => 'Confidence',
+        'rectAList'     => 'RectAList',
+        'qualityScoreA' => 'QualityScoreA',
+        'qualityScoreB' => 'QualityScoreB',
+        'messageTips'   => 'MessageTips',
     ];
 
     public function validate()
@@ -52,6 +76,15 @@ class data extends Model
         }
         if (null !== $this->rectAList) {
             $res['RectAList'] = $this->rectAList;
+        }
+        if (null !== $this->qualityScoreA) {
+            $res['QualityScoreA'] = $this->qualityScoreA;
+        }
+        if (null !== $this->qualityScoreB) {
+            $res['QualityScoreB'] = $this->qualityScoreB;
+        }
+        if (null !== $this->messageTips) {
+            $res['MessageTips'] = $this->messageTips;
         }
 
         return $res;
@@ -82,6 +115,15 @@ class data extends Model
             if (!empty($map['RectAList'])) {
                 $model->rectAList = $map['RectAList'];
             }
+        }
+        if (isset($map['QualityScoreA'])) {
+            $model->qualityScoreA = $map['QualityScoreA'];
+        }
+        if (isset($map['QualityScoreB'])) {
+            $model->qualityScoreB = $map['QualityScoreB'];
+        }
+        if (isset($map['MessageTips'])) {
+            $model->messageTips = $map['MessageTips'];
         }
 
         return $model;

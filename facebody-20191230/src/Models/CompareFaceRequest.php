@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CompareFaceRequest extends Model
 {
     /**
-     * @var int
+     * @description 质量分阈值，取值范围 [0.0, 100.0],   0.0或空  表示不做质量分判断逻辑。
+     *
+     * @var float
      */
-    public $imageType;
+    public $qualityScoreThreshold;
 
     /**
      * @var string
@@ -22,10 +24,16 @@ class CompareFaceRequest extends Model
      * @var string
      */
     public $imageURLB;
+
+    /**
+     * @var int
+     */
+    public $imageType;
     protected $_name = [
-        'imageType' => 'ImageType',
-        'imageURLA' => 'ImageURLA',
-        'imageURLB' => 'ImageURLB',
+        'qualityScoreThreshold' => 'QualityScoreThreshold',
+        'imageURLA'             => 'ImageURLA',
+        'imageURLB'             => 'ImageURLB',
+        'imageType'             => 'ImageType',
     ];
 
     public function validate()
@@ -35,14 +43,17 @@ class CompareFaceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
+        if (null !== $this->qualityScoreThreshold) {
+            $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
         }
         if (null !== $this->imageURLA) {
             $res['ImageURLA'] = $this->imageURLA;
         }
         if (null !== $this->imageURLB) {
             $res['ImageURLB'] = $this->imageURLB;
+        }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
         }
 
         return $res;
@@ -56,14 +67,17 @@ class CompareFaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
+        if (isset($map['QualityScoreThreshold'])) {
+            $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
         }
         if (isset($map['ImageURLA'])) {
             $model->imageURLA = $map['ImageURLA'];
         }
         if (isset($map['ImageURLB'])) {
             $model->imageURLB = $map['ImageURLB'];
+        }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
         }
 
         return $model;

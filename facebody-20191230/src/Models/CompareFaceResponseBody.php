@@ -18,9 +18,15 @@ class CompareFaceResponseBody extends Model
      * @var data
      */
     public $data;
+
+    /**
+     * @var string
+     */
+    public $code;
     protected $_name = [
         'requestId' => 'RequestId',
         'data'      => 'Data',
+        'code'      => 'Code',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class CompareFaceResponseBody extends Model
         }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -53,6 +62,9 @@ class CompareFaceResponseBody extends Model
         }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
 
         return $model;
