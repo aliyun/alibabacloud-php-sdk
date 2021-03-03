@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBo
 
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\CACS;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\covid;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\detectRibFracture;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\lungNodule;
 use AlibabaCloud\Tea\Model;
 
@@ -25,10 +26,16 @@ class data extends Model
      * @var covid
      */
     public $covid;
+
+    /**
+     * @var detectRibFracture
+     */
+    public $detectRibFracture;
     protected $_name = [
-        'lungNodule' => 'LungNodule',
-        'CACS'       => 'CACS',
-        'covid'      => 'Covid',
+        'lungNodule'        => 'LungNodule',
+        'CACS'              => 'CACS',
+        'covid'             => 'Covid',
+        'detectRibFracture' => 'DetectRibFracture',
     ];
 
     public function validate()
@@ -46,6 +53,9 @@ class data extends Model
         }
         if (null !== $this->covid) {
             $res['Covid'] = null !== $this->covid ? $this->covid->toMap() : null;
+        }
+        if (null !== $this->detectRibFracture) {
+            $res['DetectRibFracture'] = null !== $this->detectRibFracture ? $this->detectRibFracture->toMap() : null;
         }
 
         return $res;
@@ -67,6 +77,9 @@ class data extends Model
         }
         if (isset($map['Covid'])) {
             $model->covid = covid::fromMap($map['Covid']);
+        }
+        if (isset($map['DetectRibFracture'])) {
+            $model->detectRibFracture = detectRibFracture::fromMap($map['DetectRibFracture']);
         }
 
         return $model;
