@@ -24,7 +24,7 @@ class rules extends Model
     public $version;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $content;
 

@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainAdvanceConfigsReq
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainAdvanceConfigsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainBasicConfigsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainBasicConfigsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainListRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainListResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainNamesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainNamesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainRequest;
@@ -39,6 +41,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceInfosRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceInfosResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceSpecInfoRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceSpecInfoResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeLogServiceStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeLogServiceStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleCodeConfigRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleCodeConfigResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleModeRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleModeResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleRulesRequest;
@@ -47,10 +53,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleStatusR
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeWafSourceIpSegmentRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeWafSourceIpSegmentResponse;
-use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyDomainClusterTypeRequest;
-use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyDomainClusterTypeResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyDomainIpv6StatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyDomainIpv6StatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyDomainRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyDomainResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyLogRetrievalStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyLogRetrievalStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyLogServiceStatusRequest;
@@ -468,6 +474,34 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribeDomainListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDomainListResponse
+     */
+    public function describeDomainListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDomainListResponse::fromMap($this->doRPCRequest('DescribeDomainList', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainListRequest $request
+     *
+     * @return DescribeDomainListResponse
+     */
+    public function describeDomainList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDomainNamesRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -608,6 +642,62 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribeLogServiceStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeLogServiceStatusResponse
+     */
+    public function describeLogServiceStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeLogServiceStatusResponse::fromMap($this->doRPCRequest('DescribeLogServiceStatus', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLogServiceStatusRequest $request
+     *
+     * @return DescribeLogServiceStatusResponse
+     */
+    public function describeLogServiceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLogServiceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeProtectionModuleCodeConfigRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeProtectionModuleCodeConfigResponse
+     */
+    public function describeProtectionModuleCodeConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeProtectionModuleCodeConfigResponse::fromMap($this->doRPCRequest('DescribeProtectionModuleCodeConfig', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeProtectionModuleCodeConfigRequest $request
+     *
+     * @return DescribeProtectionModuleCodeConfigResponse
+     */
+    public function describeProtectionModuleCodeConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProtectionModuleCodeConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeProtectionModuleModeRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -720,31 +810,31 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param ModifyDomainClusterTypeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param ModifyDomainRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return ModifyDomainClusterTypeResponse
+     * @return ModifyDomainResponse
      */
-    public function modifyDomainClusterTypeWithOptions($request, $runtime)
+    public function modifyDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ModifyDomainClusterTypeResponse::fromMap($this->doRPCRequest('ModifyDomainClusterType', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDomainResponse::fromMap($this->doRPCRequest('ModifyDomain', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ModifyDomainClusterTypeRequest $request
+     * @param ModifyDomainRequest $request
      *
-     * @return ModifyDomainClusterTypeResponse
+     * @return ModifyDomainResponse
      */
-    public function modifyDomainClusterType($request)
+    public function modifyDomain($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyDomainClusterTypeWithOptions($request, $runtime);
+        return $this->modifyDomainWithOptions($request, $runtime);
     }
 
     /**

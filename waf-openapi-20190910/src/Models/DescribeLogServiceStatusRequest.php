@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeWafSourceIpSegmentRequest extends Model
+class DescribeLogServiceStatusRequest extends Model
 {
     /**
      * @var string
@@ -16,22 +16,40 @@ class DescribeWafSourceIpSegmentRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
      * @var string
      */
+    public $region;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string[]
+     */
+    public $domainNames;
     protected $_name = [
         'sourceIp'        => 'SourceIp',
-        'lang'            => 'Lang',
         'instanceId'      => 'InstanceId',
+        'region'          => 'Region',
         'resourceGroupId' => 'ResourceGroupId',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'domainNames'     => 'DomainNames',
     ];
 
     public function validate()
@@ -44,14 +62,23 @@ class DescribeWafSourceIpSegmentRequest extends Model
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->domainNames) {
+            $res['DomainNames'] = $this->domainNames;
         }
 
         return $res;
@@ -60,7 +87,7 @@ class DescribeWafSourceIpSegmentRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeWafSourceIpSegmentRequest
+     * @return DescribeLogServiceStatusRequest
      */
     public static function fromMap($map = [])
     {
@@ -68,14 +95,25 @@ class DescribeWafSourceIpSegmentRequest extends Model
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['DomainNames'])) {
+            if (!empty($map['DomainNames'])) {
+                $model->domainNames = $map['DomainNames'];
+            }
         }
 
         return $model;

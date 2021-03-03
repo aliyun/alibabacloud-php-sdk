@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeWafSourceIpSegmentRequest extends Model
+class DescribeProtectionModuleCodeConfigRequest extends Model
 {
     /**
      * @var string
@@ -17,6 +17,16 @@ class DescribeWafSourceIpSegmentRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var int
+     */
+    public $codeType;
+
+    /**
+     * @var int
+     */
+    public $codeValue;
 
     /**
      * @var string
@@ -30,6 +40,8 @@ class DescribeWafSourceIpSegmentRequest extends Model
     protected $_name = [
         'sourceIp'        => 'SourceIp',
         'lang'            => 'Lang',
+        'codeType'        => 'CodeType',
+        'codeValue'       => 'CodeValue',
         'instanceId'      => 'InstanceId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
@@ -47,6 +59,12 @@ class DescribeWafSourceIpSegmentRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+        if (null !== $this->codeType) {
+            $res['CodeType'] = $this->codeType;
+        }
+        if (null !== $this->codeValue) {
+            $res['CodeValue'] = $this->codeValue;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -60,7 +78,7 @@ class DescribeWafSourceIpSegmentRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeWafSourceIpSegmentRequest
+     * @return DescribeProtectionModuleCodeConfigRequest
      */
     public static function fromMap($map = [])
     {
@@ -70,6 +88,12 @@ class DescribeWafSourceIpSegmentRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['CodeType'])) {
+            $model->codeType = $map['CodeType'];
+        }
+        if (isset($map['CodeValue'])) {
+            $model->codeValue = $map['CodeValue'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

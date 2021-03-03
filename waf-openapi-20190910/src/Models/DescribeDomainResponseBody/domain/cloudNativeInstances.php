@@ -17,6 +17,11 @@ class cloudNativeInstances extends Model
     /**
      * @var string
      */
+    public $redirectionTypeName;
+
+    /**
+     * @var string
+     */
     public $cloudNativeProductName;
 
     /**
@@ -30,6 +35,7 @@ class cloudNativeInstances extends Model
     public $IPAddressList;
     protected $_name = [
         'protocolPortConfigs'    => 'ProtocolPortConfigs',
+        'redirectionTypeName'    => 'RedirectionTypeName',
         'cloudNativeProductName' => 'CloudNativeProductName',
         'instanceId'             => 'InstanceId',
         'IPAddressList'          => 'IPAddressList',
@@ -50,6 +56,9 @@ class cloudNativeInstances extends Model
                     $res['ProtocolPortConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->redirectionTypeName) {
+            $res['RedirectionTypeName'] = $this->redirectionTypeName;
         }
         if (null !== $this->cloudNativeProductName) {
             $res['CloudNativeProductName'] = $this->cloudNativeProductName;
@@ -80,6 +89,9 @@ class cloudNativeInstances extends Model
                     $model->protocolPortConfigs[$n++] = null !== $item ? protocolPortConfigs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RedirectionTypeName'])) {
+            $model->redirectionTypeName = $map['RedirectionTypeName'];
         }
         if (isset($map['CloudNativeProductName'])) {
             $model->cloudNativeProductName = $map['CloudNativeProductName'];

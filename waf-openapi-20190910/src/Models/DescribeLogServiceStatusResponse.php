@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDomainClusterTypeResponse extends Model
+class DescribeLogServiceStatusResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ModifyDomainClusterTypeResponse extends Model
     public $headers;
 
     /**
-     * @var ModifyDomainClusterTypeResponseBody
+     * @var DescribeLogServiceStatusResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ModifyDomainClusterTypeResponse extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDomainClusterTypeResponse
+     * @return DescribeLogServiceStatusResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ModifyDomainClusterTypeResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ModifyDomainClusterTypeResponseBody::fromMap($map['body']);
+            $model->body = DescribeLogServiceStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;
