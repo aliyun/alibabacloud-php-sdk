@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\CreateJobGroupRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateJobGroupResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateMediaRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateMediaResponse;
+use AlibabaCloud\SDK\CCC\V20170705\Models\CreatePredictiveJobGroupRequest;
+use AlibabaCloud\SDK\CCC\V20170705\Models\CreatePredictiveJobGroupResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateScenarioFromTemplateRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateScenarioFromTemplateResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateScenarioRequest;
@@ -81,6 +83,10 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadUnreachableContactsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadUnreachableContactsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\FindUsersRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\FindUsersResponse;
+use AlibabaCloud\SDK\CCC\V20170705\Models\GenerateAgentStatisticReportRequest;
+use AlibabaCloud\SDK\CCC\V20170705\Models\GenerateAgentStatisticReportResponse;
+use AlibabaCloud\SDK\CCC\V20170705\Models\GetAgentDataRequest;
+use AlibabaCloud\SDK\CCC\V20170705\Models\GetAgentDataResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetCallMeasureSummaryReportRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetCallMeasureSummaryReportResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetConfigRequest;
@@ -101,6 +107,8 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceSummaryReportSinceMidnightR
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceSummaryReportSinceMidnightResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobDataUploadParamsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobDataUploadParamsResponse;
+use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobFileUploadUrlRequest;
+use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobFileUploadUrlResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobGroupRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobGroupResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobListRequest;
@@ -186,6 +194,8 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\ListPhoneTagsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListPhoneTagsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListRealTimeAgentRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListRealTimeAgentResponse;
+use AlibabaCloud\SDK\CCC\V20170705\Models\ListRecentCallRecordsRequest;
+use AlibabaCloud\SDK\CCC\V20170705\Models\ListRecentCallRecordsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListRecordingOfDualTrackRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListRecordingOfDualTrackResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListRecordingsByContactIdRequest;
@@ -256,6 +266,8 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\PickOutboundNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\PickOutboundNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\PublishContactFlowVersionRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\PublishContactFlowVersionResponse;
+use AlibabaCloud\SDK\CCC\V20170705\Models\PublishPredictiveJobGroupRequest;
+use AlibabaCloud\SDK\CCC\V20170705\Models\PublishPredictiveJobGroupResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\PublishSurveyRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\PublishSurveyResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\RefreshTokenRequest;
@@ -272,6 +284,8 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\ResetUserStatusRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ResetUserStatusResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ResumeJobsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ResumeJobsResponse;
+use AlibabaCloud\SDK\CCC\V20170705\Models\ResumePredictiveJobsRequest;
+use AlibabaCloud\SDK\CCC\V20170705\Models\ResumePredictiveJobsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\SaveStatsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\SaveStatsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\SaveWebRTCStatsRequest;
@@ -288,6 +302,8 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\SubmitCabRecordingRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\SubmitCabRecordingResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\SuspendJobsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\SuspendJobsResponse;
+use AlibabaCloud\SDK\CCC\V20170705\Models\SuspendPredictiveJobsRequest;
+use AlibabaCloud\SDK\CCC\V20170705\Models\SuspendPredictiveJobsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\TaskPreparingRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\TaskPreparingResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -826,6 +842,34 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMediaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePredictiveJobGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreatePredictiveJobGroupResponse
+     */
+    public function createPredictiveJobGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreatePredictiveJobGroupResponse::fromMap($this->doRPCRequest('CreatePredictiveJobGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreatePredictiveJobGroupRequest $request
+     *
+     * @return CreatePredictiveJobGroupResponse
+     */
+    public function createPredictiveJobGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPredictiveJobGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1417,6 +1461,62 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param GenerateAgentStatisticReportRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GenerateAgentStatisticReportResponse
+     */
+    public function generateAgentStatisticReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenerateAgentStatisticReportResponse::fromMap($this->doRPCRequest('GenerateAgentStatisticReport', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenerateAgentStatisticReportRequest $request
+     *
+     * @return GenerateAgentStatisticReportResponse
+     */
+    public function generateAgentStatisticReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateAgentStatisticReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAgentDataRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAgentDataResponse
+     */
+    public function getAgentDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetAgentDataResponse::fromMap($this->doRPCRequest('GetAgentData', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAgentDataRequest $request
+     *
+     * @return GetAgentDataResponse
+     */
+    public function getAgentData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetCallMeasureSummaryReportRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1722,6 +1822,34 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getJobDataUploadParamsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetJobFileUploadUrlRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetJobFileUploadUrlResponse
+     */
+    public function getJobFileUploadUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetJobFileUploadUrlResponse::fromMap($this->doRPCRequest('GetJobFileUploadUrl', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetJobFileUploadUrlRequest $request
+     *
+     * @return GetJobFileUploadUrlResponse
+     */
+    public function getJobFileUploadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobFileUploadUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -2895,6 +3023,34 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ListRecentCallRecordsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListRecentCallRecordsResponse
+     */
+    public function listRecentCallRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListRecentCallRecordsResponse::fromMap($this->doRPCRequest('ListRecentCallRecords', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListRecentCallRecordsRequest $request
+     *
+     * @return ListRecentCallRecordsResponse
+     */
+    public function listRecentCallRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRecentCallRecordsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListRecordingOfDualTrackRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -3891,6 +4047,34 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param PublishPredictiveJobGroupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return PublishPredictiveJobGroupResponse
+     */
+    public function publishPredictiveJobGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PublishPredictiveJobGroupResponse::fromMap($this->doRPCRequest('PublishPredictiveJobGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PublishPredictiveJobGroupRequest $request
+     *
+     * @return PublishPredictiveJobGroupResponse
+     */
+    public function publishPredictiveJobGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishPredictiveJobGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PublishSurveyRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -4115,6 +4299,34 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ResumePredictiveJobsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ResumePredictiveJobsResponse
+     */
+    public function resumePredictiveJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ResumePredictiveJobsResponse::fromMap($this->doRPCRequest('ResumePredictiveJobs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ResumePredictiveJobsRequest $request
+     *
+     * @return ResumePredictiveJobsResponse
+     */
+    public function resumePredictiveJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumePredictiveJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SaveStatsRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -4336,6 +4548,34 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->suspendJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SuspendPredictiveJobsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SuspendPredictiveJobsResponse
+     */
+    public function suspendPredictiveJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SuspendPredictiveJobsResponse::fromMap($this->doRPCRequest('SuspendPredictiveJobs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SuspendPredictiveJobsRequest $request
+     *
+     * @return SuspendPredictiveJobsResponse
+     */
+    public function suspendPredictiveJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->suspendPredictiveJobsWithOptions($request, $runtime);
     }
 
     /**
