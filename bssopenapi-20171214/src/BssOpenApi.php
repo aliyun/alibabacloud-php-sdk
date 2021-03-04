@@ -71,6 +71,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCustomerAddressListRequest
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCustomerAddressListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryEvaluateListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryEvaluateListResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryFinancialAccountInfoRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryFinancialAccountInfoResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceBillResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceGaapCostRequest;
@@ -83,12 +85,16 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryMonthlyInstanceConsumption
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryMonthlyInstanceConsumptionResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryOrdersRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryOrdersResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPermissionListRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPermissionListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPrepaidCardsRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryPrepaidCardsResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryProductListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryProductListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRedeemRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRedeemResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRelationListRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRelationListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResellerAvailableQuotaRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResellerAvailableQuotaResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRIUtilizationDetailRequest;
@@ -1156,6 +1162,34 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param QueryFinancialAccountInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryFinancialAccountInfoResponse
+     */
+    public function queryFinancialAccountInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryFinancialAccountInfoResponse::fromMap($this->doRPCRequest('QueryFinancialAccountInfo', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryFinancialAccountInfoRequest $request
+     *
+     * @return QueryFinancialAccountInfoResponse
+     */
+    public function queryFinancialAccountInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryFinancialAccountInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryInstanceBillRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1324,6 +1358,34 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param QueryPermissionListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryPermissionListResponse
+     */
+    public function queryPermissionListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryPermissionListResponse::fromMap($this->doRPCRequest('QueryPermissionList', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryPermissionListRequest $request
+     *
+     * @return QueryPermissionListResponse
+     */
+    public function queryPermissionList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPermissionListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryPrepaidCardsRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1406,6 +1468,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryRedeemWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryRelationListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryRelationListResponse
+     */
+    public function queryRelationListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryRelationListResponse::fromMap($this->doRPCRequest('QueryRelationList', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryRelationListRequest $request
+     *
+     * @return QueryRelationListResponse
+     */
+    public function queryRelationList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRelationListWithOptions($request, $runtime);
     }
 
     /**
