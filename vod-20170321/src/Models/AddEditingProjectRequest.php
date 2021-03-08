@@ -52,6 +52,16 @@ class AddEditingProjectRequest extends Model
      * @var string
      */
     public $division;
+
+    /**
+     * @var string
+     */
+    public $FEExtend;
+
+    /**
+     * @var float
+     */
+    public $duration;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -62,6 +72,8 @@ class AddEditingProjectRequest extends Model
         'timeline'             => 'Timeline',
         'coverURL'             => 'CoverURL',
         'division'             => 'Division',
+        'FEExtend'             => 'FEExtend',
+        'duration'             => 'Duration',
     ];
 
     public function validate()
@@ -97,6 +109,12 @@ class AddEditingProjectRequest extends Model
         }
         if (null !== $this->division) {
             $res['Division'] = $this->division;
+        }
+        if (null !== $this->FEExtend) {
+            $res['FEExtend'] = $this->FEExtend;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
 
         return $res;
@@ -136,6 +154,12 @@ class AddEditingProjectRequest extends Model
         }
         if (isset($map['Division'])) {
             $model->division = $map['Division'];
+        }
+        if (isset($map['FEExtend'])) {
+            $model->FEExtend = $map['FEExtend'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
 
         return $model;

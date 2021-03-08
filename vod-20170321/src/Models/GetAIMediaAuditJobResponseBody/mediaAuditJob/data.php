@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetAIMediaAuditJobResponseBody\mediaAuditJob;
 
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIMediaAuditJobResponseBody\mediaAuditJob\data\audioResult;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIMediaAuditJobResponseBody\mediaAuditJob\data\imageResult;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIMediaAuditJobResponseBody\mediaAuditJob\data\textResult;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIMediaAuditJobResponseBody\mediaAuditJob\data\videoResult;
@@ -20,6 +21,11 @@ class data extends Model
      * @var imageResult[]
      */
     public $imageResult;
+
+    /**
+     * @var audioResult[]
+     */
+    public $audioResult;
 
     /**
      * @var videoResult
@@ -43,6 +49,7 @@ class data extends Model
     protected $_name = [
         'suggestion'      => 'Suggestion',
         'imageResult'     => 'ImageResult',
+        'audioResult'     => 'AudioResult',
         'videoResult'     => 'VideoResult',
         'abnormalModules' => 'AbnormalModules',
         'label'           => 'Label',
@@ -65,6 +72,15 @@ class data extends Model
                 $n = 0;
                 foreach ($this->imageResult as $item) {
                     $res['ImageResult'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->audioResult) {
+            $res['AudioResult'] = [];
+            if (null !== $this->audioResult && \is_array($this->audioResult)) {
+                $n = 0;
+                foreach ($this->audioResult as $item) {
+                    $res['AudioResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -107,6 +123,15 @@ class data extends Model
                 $n                  = 0;
                 foreach ($map['ImageResult'] as $item) {
                     $model->imageResult[$n++] = null !== $item ? imageResult::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['AudioResult'])) {
+            if (!empty($map['AudioResult'])) {
+                $model->audioResult = [];
+                $n                  = 0;
+                foreach ($map['AudioResult'] as $item) {
+                    $model->audioResult[$n++] = null !== $item ? audioResult::fromMap($item) : $item;
                 }
             }
         }

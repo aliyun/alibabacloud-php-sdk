@@ -38,6 +38,11 @@ class material extends Model
     /**
      * @var string
      */
+    public $materialType;
+
+    /**
+     * @var string
+     */
     public $spriteConfig;
 
     /**
@@ -95,6 +100,7 @@ class material extends Model
         'sprites'      => 'Sprites',
         'cateId'       => 'CateId',
         'tags'         => 'Tags',
+        'materialType' => 'MaterialType',
         'spriteConfig' => 'SpriteConfig',
         'source'       => 'Source',
         'snapshots'    => 'Snapshots',
@@ -129,6 +135,9 @@ class material extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->materialType) {
+            $res['MaterialType'] = $this->materialType;
         }
         if (null !== $this->spriteConfig) {
             $res['SpriteConfig'] = $this->spriteConfig;
@@ -189,6 +198,9 @@ class material extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
+        }
+        if (isset($map['MaterialType'])) {
+            $model->materialType = $map['MaterialType'];
         }
         if (isset($map['SpriteConfig'])) {
             $model->spriteConfig = $map['SpriteConfig'];

@@ -117,6 +117,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodVerifyContentRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodVerifyContentResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DetachAppPolicyFromIdentityRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DetachAppPolicyFromIdentityResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetAICaptionExtractionJobsRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetAICaptionExtractionJobsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIImageJobsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIImageJobsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIMediaAuditJobRequest;
@@ -237,6 +239,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\SetMessageCallbackRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetMessageCallbackResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetVodDomainCertificateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetVodDomainCertificateResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAICaptionExtractionJobRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAICaptionExtractionJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIImageAuditJobRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIImageAuditJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIImageJobRequest;
@@ -1941,6 +1945,34 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @param GetAICaptionExtractionJobsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetAICaptionExtractionJobsResponse
+     */
+    public function getAICaptionExtractionJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetAICaptionExtractionJobsResponse::fromMap($this->doRPCRequest('GetAICaptionExtractionJobs', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAICaptionExtractionJobsRequest $request
+     *
+     * @return GetAICaptionExtractionJobsResponse
+     */
+    public function getAICaptionExtractionJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAICaptionExtractionJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAIImageJobsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -3618,6 +3650,34 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setVodDomainCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitAICaptionExtractionJobRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SubmitAICaptionExtractionJobResponse
+     */
+    public function submitAICaptionExtractionJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitAICaptionExtractionJobResponse::fromMap($this->doRPCRequest('SubmitAICaptionExtractionJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitAICaptionExtractionJobRequest $request
+     *
+     * @return SubmitAICaptionExtractionJobResponse
+     */
+    public function submitAICaptionExtractionJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAICaptionExtractionJobWithOptions($request, $runtime);
     }
 
     /**

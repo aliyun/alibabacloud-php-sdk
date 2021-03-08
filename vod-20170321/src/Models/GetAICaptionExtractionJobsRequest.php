@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetTranscodeTaskRequest extends Model
+class GetAICaptionExtractionJobsRequest extends Model
 {
     /**
      * @var string
      */
-    public $transcodeTaskId;
+    public $jobIds;
     protected $_name = [
-        'transcodeTaskId' => 'TranscodeTaskId',
+        'jobIds' => 'JobIds',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class GetTranscodeTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->transcodeTaskId) {
-            $res['TranscodeTaskId'] = $this->transcodeTaskId;
+        if (null !== $this->jobIds) {
+            $res['JobIds'] = $this->jobIds;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class GetTranscodeTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetTranscodeTaskRequest
+     * @return GetAICaptionExtractionJobsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TranscodeTaskId'])) {
-            $model->transcodeTaskId = $map['TranscodeTaskId'];
+        if (isset($map['JobIds'])) {
+            $model->jobIds = $map['JobIds'];
         }
 
         return $model;
