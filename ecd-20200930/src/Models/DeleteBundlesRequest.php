@@ -24,8 +24,6 @@ class DeleteBundlesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('bundleId', $this->bundleId, true);
     }
 
     public function toMap()

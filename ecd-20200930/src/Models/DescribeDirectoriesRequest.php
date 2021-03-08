@@ -19,11 +19,6 @@ class DescribeDirectoriesRequest extends Model
     public $directoryType;
 
     /**
-     * @var string[]
-     */
-    public $directoryId;
-
-    /**
      * @var int
      */
     public $maxResults;
@@ -32,17 +27,21 @@ class DescribeDirectoriesRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string[]
+     */
+    public $directoryId;
     protected $_name = [
         'regionId'      => 'RegionId',
         'directoryType' => 'DirectoryType',
-        'directoryId'   => 'DirectoryId',
         'maxResults'    => 'MaxResults',
         'nextToken'     => 'NextToken',
+        'directoryId'   => 'DirectoryId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -54,14 +53,14 @@ class DescribeDirectoriesRequest extends Model
         if (null !== $this->directoryType) {
             $res['DirectoryType'] = $this->directoryType;
         }
-        if (null !== $this->directoryId) {
-            $res['DirectoryId'] = $this->directoryId;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->directoryId) {
+            $res['DirectoryId'] = $this->directoryId;
         }
 
         return $res;
@@ -81,16 +80,16 @@ class DescribeDirectoriesRequest extends Model
         if (isset($map['DirectoryType'])) {
             $model->directoryType = $map['DirectoryType'];
         }
-        if (isset($map['DirectoryId'])) {
-            if (!empty($map['DirectoryId'])) {
-                $model->directoryId = $map['DirectoryId'];
-            }
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['DirectoryId'])) {
+            if (!empty($map['DirectoryId'])) {
+                $model->directoryId = $map['DirectoryId'];
+            }
         }
 
         return $model;

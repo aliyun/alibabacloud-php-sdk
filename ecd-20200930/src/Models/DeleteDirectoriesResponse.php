@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DeleteDirectoriesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $nextToken;
+    public $headers;
 
     /**
-     * @var string
+     * @var DeleteDirectoriesResponseBody
      */
-    public $requestId;
+    public $body;
     protected $_name = [
-        'nextToken' => 'NextToken',
-        'requestId' => 'RequestId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class DeleteDirectoriesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['body'])) {
+            $model->body = DeleteDirectoriesResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -34,6 +34,11 @@ class DescribeImagesRequest extends Model
     public $imageStatus;
 
     /**
+     * @var bool
+     */
+    public $gpuCategory;
+
+    /**
      * @var string[]
      */
     public $imageId;
@@ -43,12 +48,12 @@ class DescribeImagesRequest extends Model
         'nextToken'   => 'NextToken',
         'imageType'   => 'ImageType',
         'imageStatus' => 'ImageStatus',
+        'gpuCategory' => 'GpuCategory',
         'imageId'     => 'ImageId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -68,6 +73,9 @@ class DescribeImagesRequest extends Model
         }
         if (null !== $this->imageStatus) {
             $res['ImageStatus'] = $this->imageStatus;
+        }
+        if (null !== $this->gpuCategory) {
+            $res['GpuCategory'] = $this->gpuCategory;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -98,6 +106,9 @@ class DescribeImagesRequest extends Model
         }
         if (isset($map['ImageStatus'])) {
             $model->imageStatus = $map['ImageStatus'];
+        }
+        if (isset($map['GpuCategory'])) {
+            $model->gpuCategory = $map['GpuCategory'];
         }
         if (isset($map['ImageId'])) {
             if (!empty($map['ImageId'])) {

@@ -34,27 +34,26 @@ class DescribeBundlesRequest extends Model
     public $category;
 
     /**
-     * @var string[]
-     */
-    public $bundleId;
-
-    /**
      * @var string
      */
     public $bundleType;
+
+    /**
+     * @var string[]
+     */
+    public $bundleId;
     protected $_name = [
         'regionId'   => 'RegionId',
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'userName'   => 'UserName',
         'category'   => 'Category',
-        'bundleId'   => 'BundleId',
         'bundleType' => 'BundleType',
+        'bundleId'   => 'BundleId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -75,11 +74,11 @@ class DescribeBundlesRequest extends Model
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-        if (null !== $this->bundleId) {
-            $res['BundleId'] = $this->bundleId;
-        }
         if (null !== $this->bundleType) {
             $res['BundleType'] = $this->bundleType;
+        }
+        if (null !== $this->bundleId) {
+            $res['BundleId'] = $this->bundleId;
         }
 
         return $res;
@@ -108,13 +107,13 @@ class DescribeBundlesRequest extends Model
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+        if (isset($map['BundleType'])) {
+            $model->bundleType = $map['BundleType'];
+        }
         if (isset($map['BundleId'])) {
             if (!empty($map['BundleId'])) {
                 $model->bundleId = $map['BundleId'];
             }
-        }
-        if (isset($map['BundleType'])) {
-            $model->bundleType = $map['BundleType'];
         }
 
         return $model;

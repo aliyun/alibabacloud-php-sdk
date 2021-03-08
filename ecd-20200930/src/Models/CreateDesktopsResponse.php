@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateDesktopsResponse extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $orderId;
-
-    /**
      * @var string[]
      */
-    public $desktopId;
+    public $headers;
+
+    /**
+     * @var CreateDesktopsResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'orderId'   => 'OrderId',
-        'desktopId' => 'DesktopId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('orderId', $this->orderId, true);
-        Model::validateRequired('desktopId', $this->desktopId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,16 +49,11 @@ class CreateDesktopsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['DesktopId'])) {
-            if (!empty($map['DesktopId'])) {
-                $model->desktopId = $map['DesktopId'];
-            }
+        if (isset($map['body'])) {
+            $model->body = CreateDesktopsResponseBody::fromMap($map['body']);
         }
 
         return $model;

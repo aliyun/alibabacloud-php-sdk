@@ -29,6 +29,26 @@ class CreateADConnectorDirectoryRequest extends Model
     public $domainPassword;
 
     /**
+     * @var string
+     */
+    public $directoryName;
+
+    /**
+     * @var bool
+     */
+    public $enableAdminAccess;
+
+    /**
+     * @var string
+     */
+    public $desktopAccessType;
+
+    /**
+     * @var string
+     */
+    public $subDomainName;
+
+    /**
      * @var string[]
      */
     public $dnsAddress;
@@ -39,25 +59,25 @@ class CreateADConnectorDirectoryRequest extends Model
     public $vSwitchId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $directoryName;
+    public $subDomainDnsAddress;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'domainName'     => 'DomainName',
-        'domainUserName' => 'DomainUserName',
-        'domainPassword' => 'DomainPassword',
-        'dnsAddress'     => 'DnsAddress',
-        'vSwitchId'      => 'VSwitchId',
-        'directoryName'  => 'DirectoryName',
+        'regionId'            => 'RegionId',
+        'domainName'          => 'DomainName',
+        'domainUserName'      => 'DomainUserName',
+        'domainPassword'      => 'DomainPassword',
+        'directoryName'       => 'DirectoryName',
+        'enableAdminAccess'   => 'EnableAdminAccess',
+        'desktopAccessType'   => 'DesktopAccessType',
+        'subDomainName'       => 'SubDomainName',
+        'dnsAddress'          => 'DnsAddress',
+        'vSwitchId'           => 'VSwitchId',
+        'subDomainDnsAddress' => 'SubDomainDnsAddress',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('domainName', $this->domainName, true);
-        Model::validateRequired('domainUserName', $this->domainUserName, true);
-        Model::validateRequired('domainPassword', $this->domainPassword, true);
     }
 
     public function toMap()
@@ -75,14 +95,26 @@ class CreateADConnectorDirectoryRequest extends Model
         if (null !== $this->domainPassword) {
             $res['DomainPassword'] = $this->domainPassword;
         }
+        if (null !== $this->directoryName) {
+            $res['DirectoryName'] = $this->directoryName;
+        }
+        if (null !== $this->enableAdminAccess) {
+            $res['EnableAdminAccess'] = $this->enableAdminAccess;
+        }
+        if (null !== $this->desktopAccessType) {
+            $res['DesktopAccessType'] = $this->desktopAccessType;
+        }
+        if (null !== $this->subDomainName) {
+            $res['SubDomainName'] = $this->subDomainName;
+        }
         if (null !== $this->dnsAddress) {
             $res['DnsAddress'] = $this->dnsAddress;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->directoryName) {
-            $res['DirectoryName'] = $this->directoryName;
+        if (null !== $this->subDomainDnsAddress) {
+            $res['SubDomainDnsAddress'] = $this->subDomainDnsAddress;
         }
 
         return $res;
@@ -108,6 +140,18 @@ class CreateADConnectorDirectoryRequest extends Model
         if (isset($map['DomainPassword'])) {
             $model->domainPassword = $map['DomainPassword'];
         }
+        if (isset($map['DirectoryName'])) {
+            $model->directoryName = $map['DirectoryName'];
+        }
+        if (isset($map['EnableAdminAccess'])) {
+            $model->enableAdminAccess = $map['EnableAdminAccess'];
+        }
+        if (isset($map['DesktopAccessType'])) {
+            $model->desktopAccessType = $map['DesktopAccessType'];
+        }
+        if (isset($map['SubDomainName'])) {
+            $model->subDomainName = $map['SubDomainName'];
+        }
         if (isset($map['DnsAddress'])) {
             if (!empty($map['DnsAddress'])) {
                 $model->dnsAddress = $map['DnsAddress'];
@@ -118,8 +162,10 @@ class CreateADConnectorDirectoryRequest extends Model
                 $model->vSwitchId = $map['VSwitchId'];
             }
         }
-        if (isset($map['DirectoryName'])) {
-            $model->directoryName = $map['DirectoryName'];
+        if (isset($map['SubDomainDnsAddress'])) {
+            if (!empty($map['SubDomainDnsAddress'])) {
+                $model->subDomainDnsAddress = $map['SubDomainDnsAddress'];
+            }
         }
 
         return $model;

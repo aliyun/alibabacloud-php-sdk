@@ -16,6 +16,11 @@ class ListDirectoryUsersRequest extends Model
     /**
      * @var string
      */
+    public $filter;
+
+    /**
+     * @var string
+     */
     public $directoryId;
 
     /**
@@ -29,6 +34,7 @@ class ListDirectoryUsersRequest extends Model
     public $maxResults;
     protected $_name = [
         'regionId'    => 'RegionId',
+        'filter'      => 'Filter',
         'directoryId' => 'DirectoryId',
         'nextToken'   => 'NextToken',
         'maxResults'  => 'MaxResults',
@@ -36,8 +42,6 @@ class ListDirectoryUsersRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('directoryId', $this->directoryId, true);
     }
 
     public function toMap()
@@ -45,6 +49,9 @@ class ListDirectoryUsersRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
@@ -69,6 +76,9 @@ class ListDirectoryUsersRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
         }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];

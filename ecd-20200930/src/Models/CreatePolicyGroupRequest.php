@@ -37,18 +37,35 @@ class CreatePolicyGroupRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $watermarkType;
+
+    /**
+     * @var string
+     */
+    public $watermarkCustomText;
+
+    /**
+     * @var string
+     */
+    public $watermarkTransparency;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'clipboard'   => 'Clipboard',
-        'localDrive'  => 'LocalDrive',
-        'usbRedirect' => 'UsbRedirect',
-        'watermark'   => 'Watermark',
-        'name'        => 'Name',
+        'regionId'              => 'RegionId',
+        'clipboard'             => 'Clipboard',
+        'localDrive'            => 'LocalDrive',
+        'usbRedirect'           => 'UsbRedirect',
+        'watermark'             => 'Watermark',
+        'name'                  => 'Name',
+        'watermarkType'         => 'WatermarkType',
+        'watermarkCustomText'   => 'WatermarkCustomText',
+        'watermarkTransparency' => 'WatermarkTransparency',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -71,6 +88,15 @@ class CreatePolicyGroupRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->watermarkType) {
+            $res['WatermarkType'] = $this->watermarkType;
+        }
+        if (null !== $this->watermarkCustomText) {
+            $res['WatermarkCustomText'] = $this->watermarkCustomText;
+        }
+        if (null !== $this->watermarkTransparency) {
+            $res['WatermarkTransparency'] = $this->watermarkTransparency;
         }
 
         return $res;
@@ -101,6 +127,15 @@ class CreatePolicyGroupRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['WatermarkType'])) {
+            $model->watermarkType = $map['WatermarkType'];
+        }
+        if (isset($map['WatermarkCustomText'])) {
+            $model->watermarkCustomText = $map['WatermarkCustomText'];
+        }
+        if (isset($map['WatermarkTransparency'])) {
+            $model->watermarkTransparency = $map['WatermarkTransparency'];
         }
 
         return $model;

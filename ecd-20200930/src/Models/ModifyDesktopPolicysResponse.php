@@ -4,45 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopPolicysResponse\results;
 use AlibabaCloud\Tea\Model;
 
 class ModifyDesktopPolicysResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var results[]
+     * @var ModifyDesktopPolicysResponseBody
      */
-    public $results;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'results'   => 'Results',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('results', $this->results, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->results) {
-            $res['Results'] = [];
-            if (null !== $this->results && \is_array($this->results)) {
-                $n = 0;
-                foreach ($this->results as $item) {
-                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +49,11 @@ class ModifyDesktopPolicysResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Results'])) {
-            if (!empty($map['Results'])) {
-                $model->results = [];
-                $n              = 0;
-                foreach ($map['Results'] as $item) {
-                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = ModifyDesktopPolicysResponseBody::fromMap($map['body']);
         }
 
         return $model;

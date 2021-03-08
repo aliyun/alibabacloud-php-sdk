@@ -24,6 +24,16 @@ class CreateRAMDirectoryRequest extends Model
     public $enableInternetAccess;
 
     /**
+     * @var bool
+     */
+    public $enableAdminAccess;
+
+    /**
+     * @var string
+     */
+    public $desktopAccessType;
+
+    /**
      * @var string[]
      */
     public $vSwitchId;
@@ -31,12 +41,13 @@ class CreateRAMDirectoryRequest extends Model
         'regionId'             => 'RegionId',
         'directoryName'        => 'DirectoryName',
         'enableInternetAccess' => 'EnableInternetAccess',
+        'enableAdminAccess'    => 'EnableAdminAccess',
+        'desktopAccessType'    => 'DesktopAccessType',
         'vSwitchId'            => 'VSwitchId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -50,6 +61,12 @@ class CreateRAMDirectoryRequest extends Model
         }
         if (null !== $this->enableInternetAccess) {
             $res['EnableInternetAccess'] = $this->enableInternetAccess;
+        }
+        if (null !== $this->enableAdminAccess) {
+            $res['EnableAdminAccess'] = $this->enableAdminAccess;
+        }
+        if (null !== $this->desktopAccessType) {
+            $res['DesktopAccessType'] = $this->desktopAccessType;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -74,6 +91,12 @@ class CreateRAMDirectoryRequest extends Model
         }
         if (isset($map['EnableInternetAccess'])) {
             $model->enableInternetAccess = $map['EnableInternetAccess'];
+        }
+        if (isset($map['EnableAdminAccess'])) {
+            $model->enableAdminAccess = $map['EnableAdminAccess'];
+        }
+        if (isset($map['DesktopAccessType'])) {
+            $model->desktopAccessType = $map['DesktopAccessType'];
         }
         if (isset($map['VSwitchId'])) {
             if (!empty($map['VSwitchId'])) {

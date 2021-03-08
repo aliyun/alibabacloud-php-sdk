@@ -4,55 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopPolicysResponse\describeDesktopPolicys;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDesktopPolicysResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $nextToken;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeDesktopPolicysResponseBody
      */
-    public $requestId;
-
-    /**
-     * @var describeDesktopPolicys[]
-     */
-    public $describeDesktopPolicys;
+    public $body;
     protected $_name = [
-        'nextToken'              => 'NextToken',
-        'requestId'              => 'RequestId',
-        'describeDesktopPolicys' => 'DescribeDesktopPolicys',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('describeDesktopPolicys', $this->describeDesktopPolicys, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->describeDesktopPolicys) {
-            $res['DescribeDesktopPolicys'] = [];
-            if (null !== $this->describeDesktopPolicys && \is_array($this->describeDesktopPolicys)) {
-                $n = 0;
-                foreach ($this->describeDesktopPolicys as $item) {
-                    $res['DescribeDesktopPolicys'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +49,11 @@ class DescribeDesktopPolicysResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DescribeDesktopPolicys'])) {
-            if (!empty($map['DescribeDesktopPolicys'])) {
-                $model->describeDesktopPolicys = [];
-                $n                             = 0;
-                foreach ($map['DescribeDesktopPolicys'] as $item) {
-                    $model->describeDesktopPolicys[$n++] = null !== $item ? describeDesktopPolicys::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeDesktopPolicysResponseBody::fromMap($map['body']);
         }
 
         return $model;

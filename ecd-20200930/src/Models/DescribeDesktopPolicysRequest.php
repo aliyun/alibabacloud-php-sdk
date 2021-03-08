@@ -14,11 +14,6 @@ class DescribeDesktopPolicysRequest extends Model
     public $regionId;
 
     /**
-     * @var string[]
-     */
-    public $desktopId;
-
-    /**
      * @var string
      */
     public $nextToken;
@@ -27,16 +22,20 @@ class DescribeDesktopPolicysRequest extends Model
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var string[]
+     */
+    public $desktopId;
     protected $_name = [
         'regionId'   => 'RegionId',
-        'desktopId'  => 'DesktopId',
         'nextToken'  => 'NextToken',
         'maxResults' => 'MaxResults',
+        'desktopId'  => 'DesktopId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -45,14 +44,14 @@ class DescribeDesktopPolicysRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
 
         return $res;
@@ -69,16 +68,16 @@ class DescribeDesktopPolicysRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['DesktopId'])) {
-            if (!empty($map['DesktopId'])) {
-                $model->desktopId = $map['DesktopId'];
-            }
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['DesktopId'])) {
+            if (!empty($map['DesktopId'])) {
+                $model->desktopId = $map['DesktopId'];
+            }
         }
 
         return $model;

@@ -14,11 +14,6 @@ class ModifyDesktopPolicysRequest extends Model
     public $regionId;
 
     /**
-     * @var string[]
-     */
-    public $desktopId;
-
-    /**
      * @var string
      */
     public $clipboard;
@@ -37,19 +32,22 @@ class ModifyDesktopPolicysRequest extends Model
      * @var string
      */
     public $watermark;
+
+    /**
+     * @var string[]
+     */
+    public $desktopId;
     protected $_name = [
         'regionId'    => 'RegionId',
-        'desktopId'   => 'DesktopId',
         'clipboard'   => 'Clipboard',
         'localDrive'  => 'LocalDrive',
         'usbRedirect' => 'UsbRedirect',
         'watermark'   => 'Watermark',
+        'desktopId'   => 'DesktopId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('desktopId', $this->desktopId, true);
     }
 
     public function toMap()
@@ -57,9 +55,6 @@ class ModifyDesktopPolicysRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
         }
         if (null !== $this->clipboard) {
             $res['Clipboard'] = $this->clipboard;
@@ -72,6 +67,9 @@ class ModifyDesktopPolicysRequest extends Model
         }
         if (null !== $this->watermark) {
             $res['Watermark'] = $this->watermark;
+        }
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
 
         return $res;
@@ -88,11 +86,6 @@ class ModifyDesktopPolicysRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['DesktopId'])) {
-            if (!empty($map['DesktopId'])) {
-                $model->desktopId = $map['DesktopId'];
-            }
-        }
         if (isset($map['Clipboard'])) {
             $model->clipboard = $map['Clipboard'];
         }
@@ -104,6 +97,11 @@ class ModifyDesktopPolicysRequest extends Model
         }
         if (isset($map['Watermark'])) {
             $model->watermark = $map['Watermark'];
+        }
+        if (isset($map['DesktopId'])) {
+            if (!empty($map['DesktopId'])) {
+                $model->desktopId = $map['DesktopId'];
+            }
         }
 
         return $model;

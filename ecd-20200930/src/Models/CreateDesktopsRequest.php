@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateDesktopsRequest extends Model
@@ -59,11 +60,6 @@ class CreateDesktopsRequest extends Model
     public $directoryId;
 
     /**
-     * @var string[]
-     */
-    public $endUserId;
-
-    /**
      * @var string
      */
     public $policyGroupId;
@@ -87,6 +83,16 @@ class CreateDesktopsRequest extends Model
      * @var bool
      */
     public $autoPay;
+
+    /**
+     * @var string[]
+     */
+    public $endUserId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'regionId'       => 'RegionId',
         'groupId'        => 'GroupId',
@@ -98,20 +104,17 @@ class CreateDesktopsRequest extends Model
         'vpcId'          => 'VpcId',
         'amount'         => 'Amount',
         'directoryId'    => 'DirectoryId',
-        'endUserId'      => 'EndUserId',
         'policyGroupId'  => 'PolicyGroupId',
         'chargeType'     => 'ChargeType',
         'period'         => 'Period',
         'periodUnit'     => 'PeriodUnit',
         'autoPay'        => 'AutoPay',
+        'endUserId'      => 'EndUserId',
+        'tag'            => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('bundleId', $this->bundleId, true);
-        Model::validateRequired('endUserId', $this->endUserId, true);
-        Model::validateRequired('policyGroupId', $this->policyGroupId, true);
     }
 
     public function toMap()
@@ -147,9 +150,6 @@ class CreateDesktopsRequest extends Model
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
-        if (null !== $this->endUserId) {
-            $res['EndUserId'] = $this->endUserId;
-        }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
@@ -164,6 +164,18 @@ class CreateDesktopsRequest extends Model
         }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->endUserId) {
+            $res['EndUserId'] = $this->endUserId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -207,11 +219,6 @@ class CreateDesktopsRequest extends Model
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
-        if (isset($map['EndUserId'])) {
-            if (!empty($map['EndUserId'])) {
-                $model->endUserId = $map['EndUserId'];
-            }
-        }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
@@ -226,6 +233,20 @@ class CreateDesktopsRequest extends Model
         }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['EndUserId'])) {
+            if (!empty($map['EndUserId'])) {
+                $model->endUserId = $map['EndUserId'];
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
