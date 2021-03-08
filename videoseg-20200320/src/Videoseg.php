@@ -92,6 +92,100 @@ class Videoseg extends OpenApiClient
     }
 
     /**
+     * @param SegmentGreenScreenVideoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SegmentGreenScreenVideoResponse
+     */
+    public function segmentGreenScreenVideoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SegmentGreenScreenVideoResponse::fromMap($this->doRPCRequest('SegmentGreenScreenVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SegmentGreenScreenVideoRequest $request
+     *
+     * @return SegmentGreenScreenVideoResponse
+     */
+    public function segmentGreenScreenVideo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentGreenScreenVideoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentGreenScreenVideoAdvanceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return SegmentGreenScreenVideoResponse
+     */
+    public function segmentGreenScreenVideoAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'videoseg',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $segmentGreenScreenVideoReq = new SegmentGreenScreenVideoRequest([]);
+        OpenApiUtilClient::convert($request, $segmentGreenScreenVideoReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->videoURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $segmentGreenScreenVideoReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->segmentGreenScreenVideoWithOptions($segmentGreenScreenVideoReq, $runtime);
+    }
+
+    /**
      * @param SegmentHalfBodyRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -277,99 +371,5 @@ class Videoseg extends OpenApiClient
         $segmentVideoBodyReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
         return $this->segmentVideoBodyWithOptions($segmentVideoBodyReq, $runtime);
-    }
-
-    /**
-     * @param SegmentGreenScreenVideoRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return SegmentGreenScreenVideoResponse
-     */
-    public function segmentGreenScreenVideoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SegmentGreenScreenVideoResponse::fromMap($this->doRPCRequest('SegmentGreenScreenVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SegmentGreenScreenVideoRequest $request
-     *
-     * @return SegmentGreenScreenVideoResponse
-     */
-    public function segmentGreenScreenVideo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->segmentGreenScreenVideoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SegmentGreenScreenVideoAdvanceRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return SegmentGreenScreenVideoResponse
-     */
-    public function segmentGreenScreenVideoAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'videoseg',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $segmentGreenScreenVideoReq = new SegmentGreenScreenVideoRequest([]);
-        OpenApiUtilClient::convert($request, $segmentGreenScreenVideoReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->videoURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $segmentGreenScreenVideoReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->segmentGreenScreenVideoWithOptions($segmentGreenScreenVideoReq, $runtime);
     }
 }
