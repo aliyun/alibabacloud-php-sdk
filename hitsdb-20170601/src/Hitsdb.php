@@ -13,10 +13,24 @@ use AlibabaCloud\SDK\Hitsdb\V20170601\Models\DescribeHiTSDBInstanceListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20170601\Models\DescribeHiTSDBInstanceListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20170601\Models\DescribeHiTSDBInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20170601\Models\DescribeHiTSDBInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\DescribeHiTSDBInstanceSecurityIpListRequest;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\DescribeHiTSDBInstanceSecurityIpListResponse;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\DescribeRegionsRequest;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\DescribeZonesRequest;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Hitsdb\V20170601\Models\ModifyHiTSDBInstanceClassRequest;
 use AlibabaCloud\SDK\Hitsdb\V20170601\Models\ModifyHiTSDBInstanceClassResponse;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\ModifyHiTSDBInstanceSecurityIpListRequest;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\ModifyHiTSDBInstanceSecurityIpListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20170601\Models\RenameHiTSDBInstanceAliasRequest;
 use AlibabaCloud\SDK\Hitsdb\V20170601\Models\RenameHiTSDBInstanceAliasResponse;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\RenewTSDBInstanceRequest;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\RenewTSDBInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\RestartHiTSDBInstanceRequest;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\RestartHiTSDBInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\SwitchHiTSDBInstancePublicNetRequest;
+use AlibabaCloud\SDK\Hitsdb\V20170601\Models\SwitchHiTSDBInstancePublicNetResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -217,6 +231,90 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param DescribeHiTSDBInstanceSecurityIpListRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeHiTSDBInstanceSecurityIpListResponse
+     */
+    public function describeHiTSDBInstanceSecurityIpListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeHiTSDBInstanceSecurityIpListResponse::fromMap($this->doRPCRequest('DescribeHiTSDBInstanceSecurityIpList', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHiTSDBInstanceSecurityIpListRequest $request
+     *
+     * @return DescribeHiTSDBInstanceSecurityIpListResponse
+     */
+    public function describeHiTSDBInstanceSecurityIpList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHiTSDBInstanceSecurityIpListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeZonesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeZonesResponse
+     */
+    public function describeZonesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeZonesResponse::fromMap($this->doRPCRequest('DescribeZones', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeZonesRequest $request
+     *
+     * @return DescribeZonesResponse
+     */
+    public function describeZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeZonesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyHiTSDBInstanceClassRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -245,6 +343,34 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param ModifyHiTSDBInstanceSecurityIpListRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModifyHiTSDBInstanceSecurityIpListResponse
+     */
+    public function modifyHiTSDBInstanceSecurityIpListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyHiTSDBInstanceSecurityIpListResponse::fromMap($this->doRPCRequest('ModifyHiTSDBInstanceSecurityIpList', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyHiTSDBInstanceSecurityIpListRequest $request
+     *
+     * @return ModifyHiTSDBInstanceSecurityIpListResponse
+     */
+    public function modifyHiTSDBInstanceSecurityIpList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHiTSDBInstanceSecurityIpListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RenameHiTSDBInstanceAliasRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -270,5 +396,89 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renameHiTSDBInstanceAliasWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RenewTSDBInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RenewTSDBInstanceResponse
+     */
+    public function renewTSDBInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RenewTSDBInstanceResponse::fromMap($this->doRPCRequest('RenewTSDBInstance', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RenewTSDBInstanceRequest $request
+     *
+     * @return RenewTSDBInstanceResponse
+     */
+    public function renewTSDBInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewTSDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RestartHiTSDBInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RestartHiTSDBInstanceResponse
+     */
+    public function restartHiTSDBInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RestartHiTSDBInstanceResponse::fromMap($this->doRPCRequest('RestartHiTSDBInstance', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RestartHiTSDBInstanceRequest $request
+     *
+     * @return RestartHiTSDBInstanceResponse
+     */
+    public function restartHiTSDBInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartHiTSDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SwitchHiTSDBInstancePublicNetRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SwitchHiTSDBInstancePublicNetResponse
+     */
+    public function switchHiTSDBInstancePublicNetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SwitchHiTSDBInstancePublicNetResponse::fromMap($this->doRPCRequest('SwitchHiTSDBInstancePublicNet', '2017-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SwitchHiTSDBInstancePublicNetRequest $request
+     *
+     * @return SwitchHiTSDBInstancePublicNetResponse
+     */
+    public function switchHiTSDBInstancePublicNet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchHiTSDBInstancePublicNetWithOptions($request, $runtime);
     }
 }
