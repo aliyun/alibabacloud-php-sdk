@@ -11,29 +11,29 @@ use AlibabaCloud\Tea\Model;
 class sqlTemplateDTO extends Model
 {
     /**
-     * @var requestParams
-     */
-    public $requestParams;
-
-    /**
      * @var string
      */
     public $originSql;
 
     /**
-     * @var responseParams
-     */
-    public $responseParams;
-
-    /**
      * @var string
      */
     public $templateSql;
+
+    /**
+     * @var requestParams
+     */
+    public $requestParams;
+
+    /**
+     * @var responseParams
+     */
+    public $responseParams;
     protected $_name = [
-        'requestParams'  => 'RequestParams',
         'originSql'      => 'OriginSql',
-        'responseParams' => 'ResponseParams',
         'templateSql'    => 'TemplateSql',
+        'requestParams'  => 'RequestParams',
+        'responseParams' => 'ResponseParams',
     ];
 
     public function validate()
@@ -43,17 +43,17 @@ class sqlTemplateDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestParams) {
-            $res['RequestParams'] = null !== $this->requestParams ? $this->requestParams->toMap() : null;
-        }
         if (null !== $this->originSql) {
             $res['OriginSql'] = $this->originSql;
         }
-        if (null !== $this->responseParams) {
-            $res['ResponseParams'] = null !== $this->responseParams ? $this->responseParams->toMap() : null;
-        }
         if (null !== $this->templateSql) {
             $res['TemplateSql'] = $this->templateSql;
+        }
+        if (null !== $this->requestParams) {
+            $res['RequestParams'] = null !== $this->requestParams ? $this->requestParams->toMap() : null;
+        }
+        if (null !== $this->responseParams) {
+            $res['ResponseParams'] = null !== $this->responseParams ? $this->responseParams->toMap() : null;
         }
 
         return $res;
@@ -67,17 +67,17 @@ class sqlTemplateDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestParams'])) {
-            $model->requestParams = requestParams::fromMap($map['RequestParams']);
-        }
         if (isset($map['OriginSql'])) {
             $model->originSql = $map['OriginSql'];
         }
-        if (isset($map['ResponseParams'])) {
-            $model->responseParams = responseParams::fromMap($map['ResponseParams']);
-        }
         if (isset($map['TemplateSql'])) {
             $model->templateSql = $map['TemplateSql'];
+        }
+        if (isset($map['RequestParams'])) {
+            $model->requestParams = requestParams::fromMap($map['RequestParams']);
+        }
+        if (isset($map['ResponseParams'])) {
+            $model->responseParams = responseParams::fromMap($map['ResponseParams']);
         }
 
         return $model;

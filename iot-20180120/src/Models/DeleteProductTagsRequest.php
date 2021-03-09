@@ -24,6 +24,11 @@ class DeleteProductTagsRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @var string[]
+     */
+    public $productTagKey;
+
+    /**
      * @var string
      */
     public $productKey;
@@ -37,19 +42,14 @@ class DeleteProductTagsRequest extends Model
      * @var string
      */
     public $realTripartiteKey;
-
-    /**
-     * @var string[]
-     */
-    public $productTagKey;
     protected $_name = [
         'apiProduct'        => 'ApiProduct',
         'apiRevision'       => 'ApiRevision',
         'iotInstanceId'     => 'IotInstanceId',
+        'productTagKey'     => 'ProductTagKey',
         'productKey'        => 'ProductKey',
         'realTenantId'      => 'RealTenantId',
         'realTripartiteKey' => 'RealTripartiteKey',
-        'productTagKey'     => 'ProductTagKey',
     ];
 
     public function validate()
@@ -68,6 +68,9 @@ class DeleteProductTagsRequest extends Model
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+        if (null !== $this->productTagKey) {
+            $res['ProductTagKey'] = $this->productTagKey;
+        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -76,9 +79,6 @@ class DeleteProductTagsRequest extends Model
         }
         if (null !== $this->realTripartiteKey) {
             $res['RealTripartiteKey'] = $this->realTripartiteKey;
-        }
-        if (null !== $this->productTagKey) {
-            $res['ProductTagKey'] = $this->productTagKey;
         }
 
         return $res;
@@ -101,6 +101,11 @@ class DeleteProductTagsRequest extends Model
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+        if (isset($map['ProductTagKey'])) {
+            if (!empty($map['ProductTagKey'])) {
+                $model->productTagKey = $map['ProductTagKey'];
+            }
+        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
@@ -109,11 +114,6 @@ class DeleteProductTagsRequest extends Model
         }
         if (isset($map['RealTripartiteKey'])) {
             $model->realTripartiteKey = $map['RealTripartiteKey'];
-        }
-        if (isset($map['ProductTagKey'])) {
-            if (!empty($map['ProductTagKey'])) {
-                $model->productTagKey = $map['ProductTagKey'];
-            }
         }
 
         return $model;

@@ -34,6 +34,21 @@ class DeleteThingModelRequest extends Model
     public $productKey;
 
     /**
+     * @var string[]
+     */
+    public $propertyIdentifier;
+
+    /**
+     * @var string[]
+     */
+    public $serviceIdentifier;
+
+    /**
+     * @var string[]
+     */
+    public $eventIdentifier;
+
+    /**
      * @var string
      */
     public $functionBlockId;
@@ -52,34 +67,19 @@ class DeleteThingModelRequest extends Model
      * @var string
      */
     public $realTripartiteKey;
-
-    /**
-     * @var string[]
-     */
-    public $propertyIdentifier;
-
-    /**
-     * @var string[]
-     */
-    public $serviceIdentifier;
-
-    /**
-     * @var string[]
-     */
-    public $eventIdentifier;
     protected $_name = [
         'apiProduct'         => 'ApiProduct',
         'apiRevision'        => 'ApiRevision',
         'iotInstanceId'      => 'IotInstanceId',
         'resourceGroupId'    => 'ResourceGroupId',
         'productKey'         => 'ProductKey',
+        'propertyIdentifier' => 'PropertyIdentifier',
+        'serviceIdentifier'  => 'ServiceIdentifier',
+        'eventIdentifier'    => 'EventIdentifier',
         'functionBlockId'    => 'FunctionBlockId',
         'isClearAllFunction' => 'IsClearAllFunction',
         'realTenantId'       => 'RealTenantId',
         'realTripartiteKey'  => 'RealTripartiteKey',
-        'propertyIdentifier' => 'PropertyIdentifier',
-        'serviceIdentifier'  => 'ServiceIdentifier',
-        'eventIdentifier'    => 'EventIdentifier',
     ];
 
     public function validate()
@@ -104,6 +104,15 @@ class DeleteThingModelRequest extends Model
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
+        if (null !== $this->propertyIdentifier) {
+            $res['PropertyIdentifier'] = $this->propertyIdentifier;
+        }
+        if (null !== $this->serviceIdentifier) {
+            $res['ServiceIdentifier'] = $this->serviceIdentifier;
+        }
+        if (null !== $this->eventIdentifier) {
+            $res['EventIdentifier'] = $this->eventIdentifier;
+        }
         if (null !== $this->functionBlockId) {
             $res['FunctionBlockId'] = $this->functionBlockId;
         }
@@ -115,15 +124,6 @@ class DeleteThingModelRequest extends Model
         }
         if (null !== $this->realTripartiteKey) {
             $res['RealTripartiteKey'] = $this->realTripartiteKey;
-        }
-        if (null !== $this->propertyIdentifier) {
-            $res['PropertyIdentifier'] = $this->propertyIdentifier;
-        }
-        if (null !== $this->serviceIdentifier) {
-            $res['ServiceIdentifier'] = $this->serviceIdentifier;
-        }
-        if (null !== $this->eventIdentifier) {
-            $res['EventIdentifier'] = $this->eventIdentifier;
         }
 
         return $res;
@@ -152,18 +152,6 @@ class DeleteThingModelRequest extends Model
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
-        if (isset($map['FunctionBlockId'])) {
-            $model->functionBlockId = $map['FunctionBlockId'];
-        }
-        if (isset($map['IsClearAllFunction'])) {
-            $model->isClearAllFunction = $map['IsClearAllFunction'];
-        }
-        if (isset($map['RealTenantId'])) {
-            $model->realTenantId = $map['RealTenantId'];
-        }
-        if (isset($map['RealTripartiteKey'])) {
-            $model->realTripartiteKey = $map['RealTripartiteKey'];
-        }
         if (isset($map['PropertyIdentifier'])) {
             if (!empty($map['PropertyIdentifier'])) {
                 $model->propertyIdentifier = $map['PropertyIdentifier'];
@@ -178,6 +166,18 @@ class DeleteThingModelRequest extends Model
             if (!empty($map['EventIdentifier'])) {
                 $model->eventIdentifier = $map['EventIdentifier'];
             }
+        }
+        if (isset($map['FunctionBlockId'])) {
+            $model->functionBlockId = $map['FunctionBlockId'];
+        }
+        if (isset($map['IsClearAllFunction'])) {
+            $model->isClearAllFunction = $map['IsClearAllFunction'];
+        }
+        if (isset($map['RealTenantId'])) {
+            $model->realTenantId = $map['RealTenantId'];
+        }
+        if (isset($map['RealTripartiteKey'])) {
+            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

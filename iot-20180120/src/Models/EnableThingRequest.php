@@ -37,13 +37,25 @@ class EnableThingRequest extends Model
      * @var string
      */
     public $iotId;
+
+    /**
+     * @var string
+     */
+    public $realTenantId;
+
+    /**
+     * @var string
+     */
+    public $realTripartiteKey;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
-        'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
-        'deviceName'    => 'DeviceName',
-        'iotId'         => 'IotId',
+        'apiProduct'        => 'ApiProduct',
+        'apiRevision'       => 'ApiRevision',
+        'iotInstanceId'     => 'IotInstanceId',
+        'productKey'        => 'ProductKey',
+        'deviceName'        => 'DeviceName',
+        'iotId'             => 'IotId',
+        'realTenantId'      => 'RealTenantId',
+        'realTripartiteKey' => 'RealTripartiteKey',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class EnableThingRequest extends Model
         }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
+        }
+        if (null !== $this->realTenantId) {
+            $res['RealTenantId'] = $this->realTenantId;
+        }
+        if (null !== $this->realTripartiteKey) {
+            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -100,6 +118,12 @@ class EnableThingRequest extends Model
         }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
+        }
+        if (isset($map['RealTenantId'])) {
+            $model->realTenantId = $map['RealTenantId'];
+        }
+        if (isset($map['RealTripartiteKey'])) {
+            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

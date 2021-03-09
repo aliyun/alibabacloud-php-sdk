@@ -15,14 +15,9 @@ class BatchGetDeviceStateResponseBody extends Model
     public $requestId;
 
     /**
-     * @var deviceStatusList
+     * @var bool
      */
-    public $deviceStatusList;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
+    public $success;
 
     /**
      * @var string
@@ -30,15 +25,20 @@ class BatchGetDeviceStateResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $errorMessage;
+
+    /**
+     * @var deviceStatusList
+     */
+    public $deviceStatusList;
     protected $_name = [
         'requestId'        => 'RequestId',
-        'deviceStatusList' => 'DeviceStatusList',
-        'errorMessage'     => 'ErrorMessage',
-        'code'             => 'Code',
         'success'          => 'Success',
+        'code'             => 'Code',
+        'errorMessage'     => 'ErrorMessage',
+        'deviceStatusList' => 'DeviceStatusList',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class BatchGetDeviceStateResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->deviceStatusList) {
-            $res['DeviceStatusList'] = null !== $this->deviceStatusList ? $this->deviceStatusList->toMap() : null;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->deviceStatusList) {
+            $res['DeviceStatusList'] = null !== $this->deviceStatusList ? $this->deviceStatusList->toMap() : null;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class BatchGetDeviceStateResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DeviceStatusList'])) {
-            $model->deviceStatusList = deviceStatusList::fromMap($map['DeviceStatusList']);
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['DeviceStatusList'])) {
+            $model->deviceStatusList = deviceStatusList::fromMap($map['DeviceStatusList']);
         }
 
         return $model;

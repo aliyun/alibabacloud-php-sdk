@@ -10,14 +10,24 @@ use AlibabaCloud\Tea\Model;
 class GetNodesAddingTaskResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $requestId;
 
     /**
-     * @var successDevEuis
+     * @var bool
      */
-    public $successDevEuis;
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @var string
@@ -27,12 +37,12 @@ class GetNodesAddingTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $taskState;
 
     /**
-     * @var string
+     * @var int
      */
-    public $errorMessage;
+    public $totalCount;
 
     /**
      * @var int
@@ -40,29 +50,19 @@ class GetNodesAddingTaskResponseBody extends Model
     public $successCount;
 
     /**
-     * @var string
+     * @var successDevEuis
      */
-    public $taskState;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var bool
-     */
-    public $success;
+    public $successDevEuis;
     protected $_name = [
-        'totalCount'     => 'TotalCount',
-        'successDevEuis' => 'SuccessDevEuis',
-        'taskId'         => 'TaskId',
         'requestId'      => 'RequestId',
-        'errorMessage'   => 'ErrorMessage',
-        'successCount'   => 'SuccessCount',
-        'taskState'      => 'TaskState',
-        'code'           => 'Code',
         'success'        => 'Success',
+        'code'           => 'Code',
+        'errorMessage'   => 'ErrorMessage',
+        'taskId'         => 'TaskId',
+        'taskState'      => 'TaskState',
+        'totalCount'     => 'TotalCount',
+        'successCount'   => 'SuccessCount',
+        'successDevEuis' => 'SuccessDevEuis',
     ];
 
     public function validate()
@@ -72,32 +72,32 @@ class GetNodesAddingTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->successDevEuis) {
-            $res['SuccessDevEuis'] = null !== $this->successDevEuis ? $this->successDevEuis->toMap() : null;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->successCount) {
-            $res['SuccessCount'] = $this->successCount;
-        }
-        if (null !== $this->taskState) {
-            $res['TaskState'] = $this->taskState;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskState) {
+            $res['TaskState'] = $this->taskState;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->successCount) {
+            $res['SuccessCount'] = $this->successCount;
+        }
+        if (null !== $this->successDevEuis) {
+            $res['SuccessDevEuis'] = null !== $this->successDevEuis ? $this->successDevEuis->toMap() : null;
         }
 
         return $res;
@@ -111,32 +111,32 @@ class GetNodesAddingTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['SuccessDevEuis'])) {
-            $model->successDevEuis = successDevEuis::fromMap($map['SuccessDevEuis']);
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['SuccessCount'])) {
-            $model->successCount = $map['SuccessCount'];
-        }
-        if (isset($map['TaskState'])) {
-            $model->taskState = $map['TaskState'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskState'])) {
+            $model->taskState = $map['TaskState'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['SuccessCount'])) {
+            $model->successCount = $map['SuccessCount'];
+        }
+        if (isset($map['SuccessDevEuis'])) {
+            $model->successDevEuis = successDevEuis::fromMap($map['SuccessDevEuis']);
         }
 
         return $model;

@@ -15,14 +15,9 @@ class BatchGetDeviceBindStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data[]
+     * @var bool
      */
-    public $data;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
+    public $success;
 
     /**
      * @var string
@@ -30,15 +25,20 @@ class BatchGetDeviceBindStatusResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $errorMessage;
+
+    /**
+     * @var data[]
+     */
+    public $data;
     protected $_name = [
         'requestId'    => 'RequestId',
-        'data'         => 'Data',
-        'errorMessage' => 'ErrorMessage',
-        'code'         => 'Code',
         'success'      => 'Success',
+        'code'         => 'Code',
+        'errorMessage' => 'ErrorMessage',
+        'data'         => 'Data',
     ];
 
     public function validate()
@@ -51,6 +51,15 @@ class BatchGetDeviceBindStatusResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->data) {
             $res['Data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -59,15 +68,6 @@ class BatchGetDeviceBindStatusResponseBody extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -84,6 +84,15 @@ class BatchGetDeviceBindStatusResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
@@ -92,15 +101,6 @@ class BatchGetDeviceBindStatusResponseBody extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

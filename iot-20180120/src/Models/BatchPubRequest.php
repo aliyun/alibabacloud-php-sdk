@@ -24,6 +24,11 @@ class BatchPubRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @var string[]
+     */
+    public $deviceName;
+
+    /**
      * @var string
      */
     public $productKey;
@@ -42,20 +47,15 @@ class BatchPubRequest extends Model
      * @var string
      */
     public $messageContent;
-
-    /**
-     * @var string[]
-     */
-    public $deviceName;
     protected $_name = [
         'apiProduct'     => 'ApiProduct',
         'apiRevision'    => 'ApiRevision',
         'iotInstanceId'  => 'IotInstanceId',
+        'deviceName'     => 'DeviceName',
         'productKey'     => 'ProductKey',
         'qos'            => 'Qos',
         'topicShortName' => 'TopicShortName',
         'messageContent' => 'MessageContent',
-        'deviceName'     => 'DeviceName',
     ];
 
     public function validate()
@@ -74,6 +74,9 @@ class BatchPubRequest extends Model
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
+        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -85,9 +88,6 @@ class BatchPubRequest extends Model
         }
         if (null !== $this->messageContent) {
             $res['MessageContent'] = $this->messageContent;
-        }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
         }
 
         return $res;
@@ -110,6 +110,11 @@ class BatchPubRequest extends Model
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+        if (isset($map['DeviceName'])) {
+            if (!empty($map['DeviceName'])) {
+                $model->deviceName = $map['DeviceName'];
+            }
+        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
@@ -121,11 +126,6 @@ class BatchPubRequest extends Model
         }
         if (isset($map['MessageContent'])) {
             $model->messageContent = $map['MessageContent'];
-        }
-        if (isset($map['DeviceName'])) {
-            if (!empty($map['DeviceName'])) {
-                $model->deviceName = $map['DeviceName'];
-            }
         }
 
         return $model;

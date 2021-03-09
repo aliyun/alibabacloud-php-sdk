@@ -11,20 +11,20 @@ class deviceChannelList extends Model
     /**
      * @var string
      */
-    public $channelName;
+    public $channelId;
 
     /**
      * @var string
      */
-    public $channelId;
+    public $channelName;
 
     /**
      * @var string
      */
     public $iotId;
     protected $_name = [
-        'channelName' => 'ChannelName',
         'channelId'   => 'ChannelId',
+        'channelName' => 'ChannelName',
         'iotId'       => 'IotId',
     ];
 
@@ -35,11 +35,11 @@ class deviceChannelList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->channelName) {
-            $res['ChannelName'] = $this->channelName;
-        }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
+        }
+        if (null !== $this->channelName) {
+            $res['ChannelName'] = $this->channelName;
         }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
@@ -56,11 +56,11 @@ class deviceChannelList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ChannelName'])) {
-            $model->channelName = $map['ChannelName'];
-        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
+        }
+        if (isset($map['ChannelName'])) {
+            $model->channelName = $map['ChannelName'];
         }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];

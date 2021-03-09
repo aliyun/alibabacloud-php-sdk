@@ -14,14 +14,9 @@ class CreateProductTopicResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $topicId;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
+    public $success;
 
     /**
      * @var string
@@ -29,15 +24,20 @@ class CreateProductTopicResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $topicId;
     protected $_name = [
         'requestId'    => 'RequestId',
-        'topicId'      => 'TopicId',
-        'errorMessage' => 'ErrorMessage',
-        'code'         => 'Code',
         'success'      => 'Success',
+        'code'         => 'Code',
+        'errorMessage' => 'ErrorMessage',
+        'topicId'      => 'TopicId',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class CreateProductTopicResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->topicId) {
-            $res['TopicId'] = $this->topicId;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->topicId) {
+            $res['TopicId'] = $this->topicId;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class CreateProductTopicResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TopicId'])) {
-            $model->topicId = $map['TopicId'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['TopicId'])) {
+            $model->topicId = $map['TopicId'];
         }
 
         return $model;

@@ -11,32 +11,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $gmtCreateTimestamp;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $roleArn;
-
-    /**
-     * @var string
-     */
-    public $roleAttachTime;
-
-    /**
-     * @var int
-     */
-    public $spec;
-
-    /**
-     * @var int
-     */
-    public $gmtModifiedTimestamp;
+    public $name;
 
     /**
      * @var string
@@ -46,32 +26,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $roleName;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $gmtModified;
+    public $type;
 
     /**
      * @var int
      */
-    public $roleAttachTimestamp;
-
-    /**
-     * @var string
-     */
-    public $latestDeploymentType;
-
-    /**
-     * @var int
-     */
-    public $latestDeploymentStatus;
+    public $spec;
 
     /**
      * @var bool
@@ -86,24 +46,64 @@ class data extends Model
     /**
      * @var string
      */
-    public $name;
+    public $gmtModified;
+
+    /**
+     * @var string
+     */
+    public $roleArn;
+
+    /**
+     * @var string
+     */
+    public $roleName;
+
+    /**
+     * @var string
+     */
+    public $roleAttachTime;
+
+    /**
+     * @var int
+     */
+    public $latestDeploymentStatus;
+
+    /**
+     * @var string
+     */
+    public $latestDeploymentType;
+
+    /**
+     * @var int
+     */
+    public $gmtCreateTimestamp;
+
+    /**
+     * @var int
+     */
+    public $gmtModifiedTimestamp;
+
+    /**
+     * @var int
+     */
+    public $roleAttachTimestamp;
     protected $_name = [
-        'type'                   => 'Type',
-        'gmtCreateTimestamp'     => 'GmtCreateTimestamp',
-        'roleArn'                => 'RoleArn',
-        'roleAttachTime'         => 'RoleAttachTime',
-        'spec'                   => 'Spec',
-        'gmtModifiedTimestamp'   => 'GmtModifiedTimestamp',
-        'tags'                   => 'Tags',
-        'roleName'               => 'RoleName',
         'instanceId'             => 'InstanceId',
-        'gmtModified'            => 'GmtModified',
-        'roleAttachTimestamp'    => 'RoleAttachTimestamp',
-        'latestDeploymentType'   => 'LatestDeploymentType',
-        'latestDeploymentStatus' => 'LatestDeploymentStatus',
+        'name'                   => 'Name',
+        'tags'                   => 'Tags',
+        'type'                   => 'Type',
+        'spec'                   => 'Spec',
         'bizEnable'              => 'BizEnable',
         'gmtCreate'              => 'GmtCreate',
-        'name'                   => 'Name',
+        'gmtModified'            => 'GmtModified',
+        'roleArn'                => 'RoleArn',
+        'roleName'               => 'RoleName',
+        'roleAttachTime'         => 'RoleAttachTime',
+        'latestDeploymentStatus' => 'LatestDeploymentStatus',
+        'latestDeploymentType'   => 'LatestDeploymentType',
+        'gmtCreateTimestamp'     => 'GmtCreateTimestamp',
+        'gmtModifiedTimestamp'   => 'GmtModifiedTimestamp',
+        'roleAttachTimestamp'    => 'RoleAttachTimestamp',
     ];
 
     public function validate()
@@ -113,44 +113,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->gmtCreateTimestamp) {
-            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
-        }
-        if (null !== $this->roleArn) {
-            $res['RoleArn'] = $this->roleArn;
-        }
-        if (null !== $this->roleAttachTime) {
-            $res['RoleAttachTime'] = $this->roleAttachTime;
-        }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
-        }
-        if (null !== $this->gmtModifiedTimestamp) {
-            $res['GmtModifiedTimestamp'] = $this->gmtModifiedTimestamp;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->roleAttachTimestamp) {
-            $res['RoleAttachTimestamp'] = $this->roleAttachTimestamp;
-        }
-        if (null !== $this->latestDeploymentType) {
-            $res['LatestDeploymentType'] = $this->latestDeploymentType;
-        }
-        if (null !== $this->latestDeploymentStatus) {
-            $res['LatestDeploymentStatus'] = $this->latestDeploymentStatus;
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
         }
         if (null !== $this->bizEnable) {
             $res['BizEnable'] = $this->bizEnable;
@@ -158,8 +134,32 @@ class data extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
+        }
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
+        }
+        if (null !== $this->roleAttachTime) {
+            $res['RoleAttachTime'] = $this->roleAttachTime;
+        }
+        if (null !== $this->latestDeploymentStatus) {
+            $res['LatestDeploymentStatus'] = $this->latestDeploymentStatus;
+        }
+        if (null !== $this->latestDeploymentType) {
+            $res['LatestDeploymentType'] = $this->latestDeploymentType;
+        }
+        if (null !== $this->gmtCreateTimestamp) {
+            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
+        }
+        if (null !== $this->gmtModifiedTimestamp) {
+            $res['GmtModifiedTimestamp'] = $this->gmtModifiedTimestamp;
+        }
+        if (null !== $this->roleAttachTimestamp) {
+            $res['RoleAttachTimestamp'] = $this->roleAttachTimestamp;
         }
 
         return $res;
@@ -173,44 +173,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['GmtCreateTimestamp'])) {
-            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
-        }
-        if (isset($map['RoleArn'])) {
-            $model->roleArn = $map['RoleArn'];
-        }
-        if (isset($map['RoleAttachTime'])) {
-            $model->roleAttachTime = $map['RoleAttachTime'];
-        }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
-        }
-        if (isset($map['GmtModifiedTimestamp'])) {
-            $model->gmtModifiedTimestamp = $map['GmtModifiedTimestamp'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
-        if (isset($map['RoleAttachTimestamp'])) {
-            $model->roleAttachTimestamp = $map['RoleAttachTimestamp'];
-        }
-        if (isset($map['LatestDeploymentType'])) {
-            $model->latestDeploymentType = $map['LatestDeploymentType'];
-        }
-        if (isset($map['LatestDeploymentStatus'])) {
-            $model->latestDeploymentStatus = $map['LatestDeploymentStatus'];
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
         }
         if (isset($map['BizEnable'])) {
             $model->bizEnable = $map['BizEnable'];
@@ -218,8 +194,32 @@ class data extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
+        }
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
+        }
+        if (isset($map['RoleAttachTime'])) {
+            $model->roleAttachTime = $map['RoleAttachTime'];
+        }
+        if (isset($map['LatestDeploymentStatus'])) {
+            $model->latestDeploymentStatus = $map['LatestDeploymentStatus'];
+        }
+        if (isset($map['LatestDeploymentType'])) {
+            $model->latestDeploymentType = $map['LatestDeploymentType'];
+        }
+        if (isset($map['GmtCreateTimestamp'])) {
+            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
+        }
+        if (isset($map['GmtModifiedTimestamp'])) {
+            $model->gmtModifiedTimestamp = $map['GmtModifiedTimestamp'];
+        }
+        if (isset($map['RoleAttachTimestamp'])) {
+            $model->roleAttachTimestamp = $map['RoleAttachTimestamp'];
         }
 
         return $model;

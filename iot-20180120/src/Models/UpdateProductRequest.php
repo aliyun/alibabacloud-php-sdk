@@ -37,13 +37,25 @@ class UpdateProductRequest extends Model
      * @var string
      */
     public $productName;
+
+    /**
+     * @var string
+     */
+    public $realTenantId;
+
+    /**
+     * @var string
+     */
+    public $realTripartiteKey;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
-        'iotInstanceId' => 'IotInstanceId',
-        'description'   => 'Description',
-        'productKey'    => 'ProductKey',
-        'productName'   => 'ProductName',
+        'apiProduct'        => 'ApiProduct',
+        'apiRevision'       => 'ApiRevision',
+        'iotInstanceId'     => 'IotInstanceId',
+        'description'       => 'Description',
+        'productKey'        => 'ProductKey',
+        'productName'       => 'ProductName',
+        'realTenantId'      => 'RealTenantId',
+        'realTripartiteKey' => 'RealTripartiteKey',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class UpdateProductRequest extends Model
         }
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
+        }
+        if (null !== $this->realTenantId) {
+            $res['RealTenantId'] = $this->realTenantId;
+        }
+        if (null !== $this->realTripartiteKey) {
+            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -100,6 +118,12 @@ class UpdateProductRequest extends Model
         }
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
+        }
+        if (isset($map['RealTenantId'])) {
+            $model->realTenantId = $map['RealTenantId'];
+        }
+        if (isset($map['RealTripartiteKey'])) {
+            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

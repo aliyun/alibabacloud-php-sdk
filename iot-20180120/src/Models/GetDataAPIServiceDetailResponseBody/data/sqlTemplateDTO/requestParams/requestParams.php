@@ -11,12 +11,17 @@ class requestParams extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $required;
+    public $desc;
 
     /**
      * @var string
@@ -24,20 +29,15 @@ class requestParams extends Model
     public $example;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $desc;
+    public $required;
     protected $_name = [
-        'type'     => 'Type',
-        'required' => 'Required',
-        'example'  => 'Example',
         'name'     => 'Name',
+        'type'     => 'Type',
         'desc'     => 'Desc',
+        'example'  => 'Example',
+        'required' => 'Required',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class requestParams extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->required) {
-            $res['Required'] = $this->required;
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
         }
         if (null !== $this->example) {
             $res['Example'] = $this->example;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
+        if (null !== $this->required) {
+            $res['Required'] = $this->required;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class requestParams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['Required'])) {
-            $model->required = $map['Required'];
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
         }
         if (isset($map['Example'])) {
             $model->example = $map['Example'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
+        if (isset($map['Required'])) {
+            $model->required = $map['Required'];
         }
 
         return $model;

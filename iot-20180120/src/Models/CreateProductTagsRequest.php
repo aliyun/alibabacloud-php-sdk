@@ -30,6 +30,11 @@ class CreateProductTagsRequest extends Model
     public $productKey;
 
     /**
+     * @var productTag[]
+     */
+    public $productTag;
+
+    /**
      * @var string
      */
     public $realTenantId;
@@ -38,19 +43,14 @@ class CreateProductTagsRequest extends Model
      * @var string
      */
     public $realTripartiteKey;
-
-    /**
-     * @var productTag[]
-     */
-    public $productTag;
     protected $_name = [
         'apiProduct'        => 'ApiProduct',
         'apiRevision'       => 'ApiRevision',
         'iotInstanceId'     => 'IotInstanceId',
         'productKey'        => 'ProductKey',
+        'productTag'        => 'ProductTag',
         'realTenantId'      => 'RealTenantId',
         'realTripartiteKey' => 'RealTripartiteKey',
-        'productTag'        => 'ProductTag',
     ];
 
     public function validate()
@@ -72,12 +72,6 @@ class CreateProductTagsRequest extends Model
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
-        if (null !== $this->realTenantId) {
-            $res['RealTenantId'] = $this->realTenantId;
-        }
-        if (null !== $this->realTripartiteKey) {
-            $res['RealTripartiteKey'] = $this->realTripartiteKey;
-        }
         if (null !== $this->productTag) {
             $res['ProductTag'] = [];
             if (null !== $this->productTag && \is_array($this->productTag)) {
@@ -86,6 +80,12 @@ class CreateProductTagsRequest extends Model
                     $res['ProductTag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->realTenantId) {
+            $res['RealTenantId'] = $this->realTenantId;
+        }
+        if (null !== $this->realTripartiteKey) {
+            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -111,12 +111,6 @@ class CreateProductTagsRequest extends Model
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
-        if (isset($map['RealTenantId'])) {
-            $model->realTenantId = $map['RealTenantId'];
-        }
-        if (isset($map['RealTripartiteKey'])) {
-            $model->realTripartiteKey = $map['RealTripartiteKey'];
-        }
         if (isset($map['ProductTag'])) {
             if (!empty($map['ProductTag'])) {
                 $model->productTag = [];
@@ -125,6 +119,12 @@ class CreateProductTagsRequest extends Model
                     $model->productTag[$n++] = null !== $item ? productTag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RealTenantId'])) {
+            $model->realTenantId = $map['RealTenantId'];
+        }
+        if (isset($map['RealTripartiteKey'])) {
+            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

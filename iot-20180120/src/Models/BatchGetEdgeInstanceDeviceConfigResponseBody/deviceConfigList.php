@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class deviceConfigList extends Model
 {
     /**
-     * @var config
-     */
-    public $config;
-
-    /**
      * @var string
      */
     public $iotId;
+
+    /**
+     * @var config
+     */
+    public $config;
     protected $_name = [
-        'config' => 'Config',
         'iotId'  => 'IotId',
+        'config' => 'Config',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class deviceConfigList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->config) {
-            $res['Config'] = null !== $this->config ? $this->config->toMap() : null;
-        }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
+        }
+        if (null !== $this->config) {
+            $res['Config'] = null !== $this->config ? $this->config->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class deviceConfigList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Config'])) {
-            $model->config = config::fromMap($map['Config']);
-        }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
+        }
+        if (isset($map['Config'])) {
+            $model->config = config::fromMap($map['Config']);
         }
 
         return $model;

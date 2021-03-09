@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateRuleActionResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $actionId;
-
-    /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
 
     /**
      * @var string
@@ -32,12 +22,22 @@ class CreateRuleActionResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $actionId;
     protected $_name = [
-        'actionId'     => 'ActionId',
         'requestId'    => 'RequestId',
-        'errorMessage' => 'ErrorMessage',
         'code'         => 'Code',
         'success'      => 'Success',
+        'errorMessage' => 'ErrorMessage',
+        'actionId'     => 'ActionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateRuleActionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->actionId) {
-            $res['ActionId'] = $this->actionId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->actionId) {
+            $res['ActionId'] = $this->actionId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateRuleActionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ActionId'])) {
-            $model->actionId = $map['ActionId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['ActionId'])) {
+            $model->actionId = $map['ActionId'];
         }
 
         return $model;

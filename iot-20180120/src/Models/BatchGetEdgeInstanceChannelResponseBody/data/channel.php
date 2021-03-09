@@ -12,20 +12,20 @@ class channel extends Model
     /**
      * @var string
      */
-    public $channelName;
+    public $channelId;
 
     /**
      * @var string
      */
-    public $channelId;
+    public $channelName;
 
     /**
      * @var configList
      */
     public $configList;
     protected $_name = [
-        'channelName' => 'ChannelName',
         'channelId'   => 'ChannelId',
+        'channelName' => 'ChannelName',
         'configList'  => 'ConfigList',
     ];
 
@@ -36,11 +36,11 @@ class channel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->channelName) {
-            $res['ChannelName'] = $this->channelName;
-        }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
+        }
+        if (null !== $this->channelName) {
+            $res['ChannelName'] = $this->channelName;
         }
         if (null !== $this->configList) {
             $res['ConfigList'] = null !== $this->configList ? $this->configList->toMap() : null;
@@ -57,11 +57,11 @@ class channel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ChannelName'])) {
-            $model->channelName = $map['ChannelName'];
-        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
+        }
+        if (isset($map['ChannelName'])) {
+            $model->channelName = $map['ChannelName'];
         }
         if (isset($map['ConfigList'])) {
             $model->configList = configList::fromMap($map['ConfigList']);

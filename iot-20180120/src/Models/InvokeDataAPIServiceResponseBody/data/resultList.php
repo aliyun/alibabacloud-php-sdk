@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resultList extends Model
 {
     /**
-     * @var mixed[][]
+     * @var string[][]
      */
     public $resultList;
     protected $_name = [

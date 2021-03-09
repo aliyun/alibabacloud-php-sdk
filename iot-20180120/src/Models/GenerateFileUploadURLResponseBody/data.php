@@ -16,16 +16,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $ossAccessKeyId;
-
-    /**
-     * @var string
-     */
-    public $signature;
-
-    /**
-     * @var string
-     */
     public $host;
 
     /**
@@ -36,13 +26,23 @@ class data extends Model
     /**
      * @var string
      */
+    public $ossAccessKeyId;
+
+    /**
+     * @var string
+     */
+    public $signature;
+
+    /**
+     * @var string
+     */
     public $objectStorage;
     protected $_name = [
         'key'            => 'Key',
-        'ossAccessKeyId' => 'OssAccessKeyId',
-        'signature'      => 'Signature',
         'host'           => 'Host',
         'policy'         => 'Policy',
+        'ossAccessKeyId' => 'OssAccessKeyId',
+        'signature'      => 'Signature',
         'objectStorage'  => 'ObjectStorage',
     ];
 
@@ -56,17 +56,17 @@ class data extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-        if (null !== $this->ossAccessKeyId) {
-            $res['OssAccessKeyId'] = $this->ossAccessKeyId;
-        }
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
-        }
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
+        }
+        if (null !== $this->ossAccessKeyId) {
+            $res['OssAccessKeyId'] = $this->ossAccessKeyId;
+        }
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
         }
         if (null !== $this->objectStorage) {
             $res['ObjectStorage'] = $this->objectStorage;
@@ -86,17 +86,17 @@ class data extends Model
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-        if (isset($map['OssAccessKeyId'])) {
-            $model->ossAccessKeyId = $map['OssAccessKeyId'];
-        }
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
-        }
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
+        }
+        if (isset($map['OssAccessKeyId'])) {
+            $model->ossAccessKeyId = $map['OssAccessKeyId'];
+        }
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
         }
         if (isset($map['ObjectStorage'])) {
             $model->objectStorage = $map['ObjectStorage'];

@@ -10,19 +10,14 @@ use AlibabaCloud\Tea\Model;
 class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
 {
     /**
-     * @var deviceConfigList[]
-     */
-    public $deviceConfigList;
-
-    /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $errorMessage;
+    public $success;
 
     /**
      * @var string
@@ -30,15 +25,20 @@ class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $errorMessage;
+
+    /**
+     * @var deviceConfigList[]
+     */
+    public $deviceConfigList;
     protected $_name = [
-        'deviceConfigList' => 'DeviceConfigList',
         'requestId'        => 'RequestId',
-        'errorMessage'     => 'ErrorMessage',
-        'code'             => 'Code',
         'success'          => 'Success',
+        'code'             => 'Code',
+        'errorMessage'     => 'ErrorMessage',
+        'deviceConfigList' => 'DeviceConfigList',
     ];
 
     public function validate()
@@ -48,6 +48,18 @@ class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->deviceConfigList) {
             $res['DeviceConfigList'] = [];
             if (null !== $this->deviceConfigList && \is_array($this->deviceConfigList)) {
@@ -56,18 +68,6 @@ class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
                     $res['DeviceConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -81,6 +81,18 @@ class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['DeviceConfigList'])) {
             if (!empty($map['DeviceConfigList'])) {
                 $model->deviceConfigList = [];
@@ -89,18 +101,6 @@ class BatchGetEdgeInstanceDeviceConfigResponseBody extends Model
                     $model->deviceConfigList[$n++] = null !== $item ? deviceConfigList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

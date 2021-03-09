@@ -11,12 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $utcActive;
+    public $productKey;
 
     /**
      * @var string
@@ -26,12 +21,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $deviceName;
+    public $deviceSecret;
 
     /**
      * @var string
      */
-    public $utcCreate;
+    public $deviceName;
 
     /**
      * @var string
@@ -41,17 +36,27 @@ class data extends Model
     /**
      * @var string
      */
+    public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $utcCreate;
+
+    /**
+     * @var string
+     */
+    public $gmtActive;
+
+    /**
+     * @var string
+     */
+    public $utcActive;
+
+    /**
+     * @var string
+     */
     public $gmtOnline;
-
-    /**
-     * @var string
-     */
-    public $region;
-
-    /**
-     * @var string
-     */
-    public $iotId;
 
     /**
      * @var string
@@ -61,7 +66,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $productKey;
+    public $status;
 
     /**
      * @var string
@@ -76,34 +81,29 @@ class data extends Model
     /**
      * @var string
      */
-    public $deviceSecret;
+    public $region;
 
     /**
      * @var string
      */
-    public $gmtCreate;
-
-    /**
-     * @var string
-     */
-    public $gmtActive;
+    public $iotId;
     protected $_name = [
-        'status'          => 'Status',
-        'utcActive'       => 'UtcActive',
-        'productName'     => 'ProductName',
-        'deviceName'      => 'DeviceName',
-        'utcCreate'       => 'UtcCreate',
-        'firmwareVersion' => 'FirmwareVersion',
-        'gmtOnline'       => 'GmtOnline',
-        'region'          => 'region',
-        'iotId'           => 'iotId',
-        'utcOnline'       => 'UtcOnline',
         'productKey'      => 'ProductKey',
+        'productName'     => 'ProductName',
+        'deviceSecret'    => 'DeviceSecret',
+        'deviceName'      => 'DeviceName',
+        'firmwareVersion' => 'FirmwareVersion',
+        'gmtCreate'       => 'GmtCreate',
+        'utcCreate'       => 'UtcCreate',
+        'gmtActive'       => 'GmtActive',
+        'utcActive'       => 'UtcActive',
+        'gmtOnline'       => 'GmtOnline',
+        'utcOnline'       => 'UtcOnline',
+        'status'          => 'Status',
         'ipAddress'       => 'IpAddress',
         'nodeType'        => 'NodeType',
-        'deviceSecret'    => 'DeviceSecret',
-        'gmtCreate'       => 'GmtCreate',
-        'gmtActive'       => 'GmtActive',
+        'region'          => 'region',
+        'iotId'           => 'iotId',
     ];
 
     public function validate()
@@ -113,38 +113,41 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->utcActive) {
-            $res['UtcActive'] = $this->utcActive;
+        if (null !== $this->productKey) {
+            $res['ProductKey'] = $this->productKey;
         }
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
         }
+        if (null !== $this->deviceSecret) {
+            $res['DeviceSecret'] = $this->deviceSecret;
+        }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
-        }
-        if (null !== $this->utcCreate) {
-            $res['UtcCreate'] = $this->utcCreate;
         }
         if (null !== $this->firmwareVersion) {
             $res['FirmwareVersion'] = $this->firmwareVersion;
         }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->utcCreate) {
+            $res['UtcCreate'] = $this->utcCreate;
+        }
+        if (null !== $this->gmtActive) {
+            $res['GmtActive'] = $this->gmtActive;
+        }
+        if (null !== $this->utcActive) {
+            $res['UtcActive'] = $this->utcActive;
+        }
         if (null !== $this->gmtOnline) {
             $res['GmtOnline'] = $this->gmtOnline;
-        }
-        if (null !== $this->region) {
-            $res['region'] = $this->region;
-        }
-        if (null !== $this->iotId) {
-            $res['iotId'] = $this->iotId;
         }
         if (null !== $this->utcOnline) {
             $res['UtcOnline'] = $this->utcOnline;
         }
-        if (null !== $this->productKey) {
-            $res['ProductKey'] = $this->productKey;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
@@ -152,14 +155,11 @@ class data extends Model
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
-        if (null !== $this->deviceSecret) {
-            $res['DeviceSecret'] = $this->deviceSecret;
+        if (null !== $this->region) {
+            $res['region'] = $this->region;
         }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->gmtActive) {
-            $res['GmtActive'] = $this->gmtActive;
+        if (null !== $this->iotId) {
+            $res['iotId'] = $this->iotId;
         }
 
         return $res;
@@ -173,38 +173,41 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['UtcActive'])) {
-            $model->utcActive = $map['UtcActive'];
+        if (isset($map['ProductKey'])) {
+            $model->productKey = $map['ProductKey'];
         }
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
         }
+        if (isset($map['DeviceSecret'])) {
+            $model->deviceSecret = $map['DeviceSecret'];
+        }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
-        }
-        if (isset($map['UtcCreate'])) {
-            $model->utcCreate = $map['UtcCreate'];
         }
         if (isset($map['FirmwareVersion'])) {
             $model->firmwareVersion = $map['FirmwareVersion'];
         }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['UtcCreate'])) {
+            $model->utcCreate = $map['UtcCreate'];
+        }
+        if (isset($map['GmtActive'])) {
+            $model->gmtActive = $map['GmtActive'];
+        }
+        if (isset($map['UtcActive'])) {
+            $model->utcActive = $map['UtcActive'];
+        }
         if (isset($map['GmtOnline'])) {
             $model->gmtOnline = $map['GmtOnline'];
-        }
-        if (isset($map['region'])) {
-            $model->region = $map['region'];
-        }
-        if (isset($map['iotId'])) {
-            $model->iotId = $map['iotId'];
         }
         if (isset($map['UtcOnline'])) {
             $model->utcOnline = $map['UtcOnline'];
         }
-        if (isset($map['ProductKey'])) {
-            $model->productKey = $map['ProductKey'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
@@ -212,14 +215,11 @@ class data extends Model
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
-        if (isset($map['DeviceSecret'])) {
-            $model->deviceSecret = $map['DeviceSecret'];
+        if (isset($map['region'])) {
+            $model->region = $map['region'];
         }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['GmtActive'])) {
-            $model->gmtActive = $map['GmtActive'];
+        if (isset($map['iotId'])) {
+            $model->iotId = $map['iotId'];
         }
 
         return $model;

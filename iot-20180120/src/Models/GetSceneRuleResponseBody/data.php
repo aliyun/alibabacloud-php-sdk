@@ -11,16 +11,6 @@ class data extends Model
     /**
      * @var int
      */
-    public $ruleStatus;
-
-    /**
-     * @var string
-     */
-    public $ruleContent;
-
-    /**
-     * @var int
-     */
     public $gmtCreate;
 
     /**
@@ -31,19 +21,29 @@ class data extends Model
     /**
      * @var string
      */
-    public $ruleDescription;
+    public $ruleName;
 
     /**
      * @var string
      */
-    public $ruleName;
+    public $ruleContent;
+
+    /**
+     * @var string
+     */
+    public $ruleDescription;
+
+    /**
+     * @var int
+     */
+    public $ruleStatus;
     protected $_name = [
-        'ruleStatus'      => 'RuleStatus',
-        'ruleContent'     => 'RuleContent',
         'gmtCreate'       => 'GmtCreate',
         'gmtModified'     => 'GmtModified',
-        'ruleDescription' => 'RuleDescription',
         'ruleName'        => 'RuleName',
+        'ruleContent'     => 'RuleContent',
+        'ruleDescription' => 'RuleDescription',
+        'ruleStatus'      => 'RuleStatus',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleStatus) {
-            $res['RuleStatus'] = $this->ruleStatus;
-        }
-        if (null !== $this->ruleContent) {
-            $res['RuleContent'] = $this->ruleContent;
-        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->ruleContent) {
+            $res['RuleContent'] = $this->ruleContent;
+        }
         if (null !== $this->ruleDescription) {
             $res['RuleDescription'] = $this->ruleDescription;
         }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
+        if (null !== $this->ruleStatus) {
+            $res['RuleStatus'] = $this->ruleStatus;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleStatus'])) {
-            $model->ruleStatus = $map['RuleStatus'];
-        }
-        if (isset($map['RuleContent'])) {
-            $model->ruleContent = $map['RuleContent'];
-        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['RuleContent'])) {
+            $model->ruleContent = $map['RuleContent'];
+        }
         if (isset($map['RuleDescription'])) {
             $model->ruleDescription = $map['RuleDescription'];
         }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
+        if (isset($map['RuleStatus'])) {
+            $model->ruleStatus = $map['RuleStatus'];
         }
 
         return $model;

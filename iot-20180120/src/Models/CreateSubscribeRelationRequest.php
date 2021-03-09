@@ -64,6 +64,11 @@ class CreateSubscribeRelationRequest extends Model
     public $type;
 
     /**
+     * @var string[]
+     */
+    public $consumerGroupIds;
+
+    /**
      * @var bool
      */
     public $otaEventFlag;
@@ -87,11 +92,6 @@ class CreateSubscribeRelationRequest extends Model
      * @var bool
      */
     public $otaJobFlag;
-
-    /**
-     * @var string[]
-     */
-    public $consumerGroupIds;
     protected $_name = [
         'apiProduct'              => 'ApiProduct',
         'apiRevision'             => 'ApiRevision',
@@ -104,12 +104,12 @@ class CreateSubscribeRelationRequest extends Model
         'foundDeviceListFlag'     => 'FoundDeviceListFlag',
         'mnsConfiguration'        => 'MnsConfiguration',
         'type'                    => 'Type',
+        'consumerGroupIds'        => 'ConsumerGroupIds',
         'otaEventFlag'            => 'OtaEventFlag',
         'thingHistoryFlag'        => 'ThingHistoryFlag',
         'deviceTagFlag'           => 'DeviceTagFlag',
         'otaVersionFlag'          => 'OtaVersionFlag',
         'otaJobFlag'              => 'OtaJobFlag',
-        'consumerGroupIds'        => 'ConsumerGroupIds',
     ];
 
     public function validate()
@@ -152,6 +152,9 @@ class CreateSubscribeRelationRequest extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+        if (null !== $this->consumerGroupIds) {
+            $res['ConsumerGroupIds'] = $this->consumerGroupIds;
+        }
         if (null !== $this->otaEventFlag) {
             $res['OtaEventFlag'] = $this->otaEventFlag;
         }
@@ -166,9 +169,6 @@ class CreateSubscribeRelationRequest extends Model
         }
         if (null !== $this->otaJobFlag) {
             $res['OtaJobFlag'] = $this->otaJobFlag;
-        }
-        if (null !== $this->consumerGroupIds) {
-            $res['ConsumerGroupIds'] = $this->consumerGroupIds;
         }
 
         return $res;
@@ -215,6 +215,11 @@ class CreateSubscribeRelationRequest extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+        if (isset($map['ConsumerGroupIds'])) {
+            if (!empty($map['ConsumerGroupIds'])) {
+                $model->consumerGroupIds = $map['ConsumerGroupIds'];
+            }
+        }
         if (isset($map['OtaEventFlag'])) {
             $model->otaEventFlag = $map['OtaEventFlag'];
         }
@@ -229,11 +234,6 @@ class CreateSubscribeRelationRequest extends Model
         }
         if (isset($map['OtaJobFlag'])) {
             $model->otaJobFlag = $map['OtaJobFlag'];
-        }
-        if (isset($map['ConsumerGroupIds'])) {
-            if (!empty($map['ConsumerGroupIds'])) {
-                $model->consumerGroupIds = $map['ConsumerGroupIds'];
-            }
         }
 
         return $model;

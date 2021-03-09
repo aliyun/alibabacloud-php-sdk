@@ -37,13 +37,25 @@ class QueryDeviceRequest extends Model
      * @var int
      */
     public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $realTenantId;
+
+    /**
+     * @var string
+     */
+    public $realTripartiteKey;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
-        'iotInstanceId' => 'IotInstanceId',
-        'pageSize'      => 'PageSize',
-        'productKey'    => 'ProductKey',
-        'currentPage'   => 'CurrentPage',
+        'apiProduct'        => 'ApiProduct',
+        'apiRevision'       => 'ApiRevision',
+        'iotInstanceId'     => 'IotInstanceId',
+        'pageSize'          => 'PageSize',
+        'productKey'        => 'ProductKey',
+        'currentPage'       => 'CurrentPage',
+        'realTenantId'      => 'RealTenantId',
+        'realTripartiteKey' => 'RealTripartiteKey',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class QueryDeviceRequest extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->realTenantId) {
+            $res['RealTenantId'] = $this->realTenantId;
+        }
+        if (null !== $this->realTripartiteKey) {
+            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -100,6 +118,12 @@ class QueryDeviceRequest extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['RealTenantId'])) {
+            $model->realTenantId = $map['RealTenantId'];
+        }
+        if (isset($map['RealTripartiteKey'])) {
+            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

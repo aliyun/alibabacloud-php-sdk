@@ -24,20 +24,20 @@ class CreateTopicRouteTableRequest extends Model
     public $iotInstanceId;
 
     /**
-     * @var string
-     */
-    public $srcTopic;
-
-    /**
      * @var string[]
      */
     public $dstTopic;
+
+    /**
+     * @var string
+     */
+    public $srcTopic;
     protected $_name = [
         'apiProduct'    => 'ApiProduct',
         'apiRevision'   => 'ApiRevision',
         'iotInstanceId' => 'IotInstanceId',
-        'srcTopic'      => 'SrcTopic',
         'dstTopic'      => 'DstTopic',
+        'srcTopic'      => 'SrcTopic',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class CreateTopicRouteTableRequest extends Model
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->srcTopic) {
-            $res['SrcTopic'] = $this->srcTopic;
-        }
         if (null !== $this->dstTopic) {
             $res['DstTopic'] = $this->dstTopic;
+        }
+        if (null !== $this->srcTopic) {
+            $res['SrcTopic'] = $this->srcTopic;
         }
 
         return $res;
@@ -83,13 +83,13 @@ class CreateTopicRouteTableRequest extends Model
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
-        if (isset($map['SrcTopic'])) {
-            $model->srcTopic = $map['SrcTopic'];
-        }
         if (isset($map['DstTopic'])) {
             if (!empty($map['DstTopic'])) {
                 $model->dstTopic = $map['DstTopic'];
             }
+        }
+        if (isset($map['SrcTopic'])) {
+            $model->srcTopic = $map['SrcTopic'];
         }
 
         return $model;

@@ -15,14 +15,9 @@ class DeleteTopicRouteTableResponseBody extends Model
     public $requestId;
 
     /**
-     * @var failureTopics
+     * @var bool
      */
-    public $failureTopics;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
+    public $success;
 
     /**
      * @var string
@@ -35,16 +30,21 @@ class DeleteTopicRouteTableResponseBody extends Model
     public $isAllSucceed;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $errorMessage;
+
+    /**
+     * @var failureTopics
+     */
+    public $failureTopics;
     protected $_name = [
         'requestId'     => 'RequestId',
-        'failureTopics' => 'FailureTopics',
-        'errorMessage'  => 'ErrorMessage',
+        'success'       => 'Success',
         'code'          => 'Code',
         'isAllSucceed'  => 'IsAllSucceed',
-        'success'       => 'Success',
+        'errorMessage'  => 'ErrorMessage',
+        'failureTopics' => 'FailureTopics',
     ];
 
     public function validate()
@@ -57,11 +57,8 @@ class DeleteTopicRouteTableResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->failureTopics) {
-            $res['FailureTopics'] = null !== $this->failureTopics ? $this->failureTopics->toMap() : null;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
@@ -69,8 +66,11 @@ class DeleteTopicRouteTableResponseBody extends Model
         if (null !== $this->isAllSucceed) {
             $res['IsAllSucceed'] = $this->isAllSucceed;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->failureTopics) {
+            $res['FailureTopics'] = null !== $this->failureTopics ? $this->failureTopics->toMap() : null;
         }
 
         return $res;
@@ -87,11 +87,8 @@ class DeleteTopicRouteTableResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['FailureTopics'])) {
-            $model->failureTopics = failureTopics::fromMap($map['FailureTopics']);
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
@@ -99,8 +96,11 @@ class DeleteTopicRouteTableResponseBody extends Model
         if (isset($map['IsAllSucceed'])) {
             $model->isAllSucceed = $map['IsAllSucceed'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['FailureTopics'])) {
+            $model->failureTopics = failureTopics::fromMap($map['FailureTopics']);
         }
 
         return $model;

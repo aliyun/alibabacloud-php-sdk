@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $ossAddress;
+    public $ossPreSignedAddress;
 
     /**
      * @var string
      */
-    public $ossPreSignedAddress;
+    public $ossAddress;
     protected $_name = [
-        'ossAddress'          => 'OssAddress',
         'ossPreSignedAddress' => 'OssPreSignedAddress',
+        'ossAddress'          => 'OssAddress',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ossAddress) {
-            $res['OssAddress'] = $this->ossAddress;
-        }
         if (null !== $this->ossPreSignedAddress) {
             $res['OssPreSignedAddress'] = $this->ossPreSignedAddress;
+        }
+        if (null !== $this->ossAddress) {
+            $res['OssAddress'] = $this->ossAddress;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OssAddress'])) {
-            $model->ossAddress = $map['OssAddress'];
-        }
         if (isset($map['OssPreSignedAddress'])) {
             $model->ossPreSignedAddress = $map['OssPreSignedAddress'];
+        }
+        if (isset($map['OssAddress'])) {
+            $model->ossAddress = $map['OssAddress'];
         }
 
         return $model;

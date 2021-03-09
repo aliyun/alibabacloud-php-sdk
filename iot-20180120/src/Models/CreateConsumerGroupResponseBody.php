@@ -14,16 +14,6 @@ class CreateConsumerGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
@@ -31,13 +21,23 @@ class CreateConsumerGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $code;
     protected $_name = [
         'requestId'    => 'RequestId',
-        'errorMessage' => 'ErrorMessage',
-        'code'         => 'Code',
         'success'      => 'Success',
+        'errorMessage' => 'ErrorMessage',
         'groupId'      => 'GroupId',
+        'code'         => 'Code',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class CreateConsumerGroupResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class CreateConsumerGroupResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
 
         return $model;

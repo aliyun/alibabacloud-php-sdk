@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ruleActionInfo extends Model
 {
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $ruleId;
+
+    /**
      * @var string
      */
     public $type;
@@ -22,22 +32,12 @@ class ruleActionInfo extends Model
      * @var bool
      */
     public $errorActionFlag;
-
-    /**
-     * @var int
-     */
-    public $id;
-
-    /**
-     * @var int
-     */
-    public $ruleId;
     protected $_name = [
+        'id'              => 'Id',
+        'ruleId'          => 'RuleId',
         'type'            => 'Type',
         'configuration'   => 'Configuration',
         'errorActionFlag' => 'ErrorActionFlag',
-        'id'              => 'Id',
-        'ruleId'          => 'RuleId',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class ruleActionInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -55,12 +61,6 @@ class ruleActionInfo extends Model
         }
         if (null !== $this->errorActionFlag) {
             $res['ErrorActionFlag'] = $this->errorActionFlag;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class ruleActionInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
@@ -82,12 +88,6 @@ class ruleActionInfo extends Model
         }
         if (isset($map['ErrorActionFlag'])) {
             $model->errorActionFlag = $map['ErrorActionFlag'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

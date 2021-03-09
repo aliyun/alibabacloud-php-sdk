@@ -11,9 +11,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var resultList
+     * @var int
      */
-    public $resultList;
+    public $pageNo;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -26,20 +31,15 @@ class data extends Model
     public $fieldNameList;
 
     /**
-     * @var int
+     * @var resultList
      */
-    public $pageNo;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $resultList;
     protected $_name = [
-        'resultList'    => 'ResultList',
-        'apiSrn'        => 'ApiSrn',
-        'fieldNameList' => 'FieldNameList',
         'pageNo'        => 'PageNo',
         'pageSize'      => 'PageSize',
+        'apiSrn'        => 'ApiSrn',
+        'fieldNameList' => 'FieldNameList',
+        'resultList'    => 'ResultList',
     ];
 
     public function validate()
@@ -49,8 +49,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resultList) {
-            $res['ResultList'] = null !== $this->resultList ? $this->resultList->toMap() : null;
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->apiSrn) {
             $res['ApiSrn'] = $this->apiSrn;
@@ -58,11 +61,8 @@ class data extends Model
         if (null !== $this->fieldNameList) {
             $res['FieldNameList'] = null !== $this->fieldNameList ? $this->fieldNameList->toMap() : null;
         }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->resultList) {
+            $res['ResultList'] = null !== $this->resultList ? $this->resultList->toMap() : null;
         }
 
         return $res;
@@ -76,8 +76,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResultList'])) {
-            $model->resultList = resultList::fromMap($map['ResultList']);
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ApiSrn'])) {
             $model->apiSrn = $map['ApiSrn'];
@@ -85,11 +88,8 @@ class data extends Model
         if (isset($map['FieldNameList'])) {
             $model->fieldNameList = fieldNameList::fromMap($map['FieldNameList']);
         }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['ResultList'])) {
+            $model->resultList = resultList::fromMap($map['ResultList']);
         }
 
         return $model;

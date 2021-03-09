@@ -19,6 +19,11 @@ class InvokeThingsServiceRequest extends Model
     public $apiRevision;
 
     /**
+     * @var string[]
+     */
+    public $deviceName;
+
+    /**
      * @var string
      */
     public $iotInstanceId;
@@ -37,19 +42,14 @@ class InvokeThingsServiceRequest extends Model
      * @var string
      */
     public $args;
-
-    /**
-     * @var string[]
-     */
-    public $deviceName;
     protected $_name = [
         'apiProduct'    => 'ApiProduct',
         'apiRevision'   => 'ApiRevision',
+        'deviceName'    => 'DeviceName',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
         'identifier'    => 'Identifier',
         'args'          => 'Args',
-        'deviceName'    => 'DeviceName',
     ];
 
     public function validate()
@@ -65,6 +65,9 @@ class InvokeThingsServiceRequest extends Model
         if (null !== $this->apiRevision) {
             $res['ApiRevision'] = $this->apiRevision;
         }
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
+        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -76,9 +79,6 @@ class InvokeThingsServiceRequest extends Model
         }
         if (null !== $this->args) {
             $res['Args'] = $this->args;
-        }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
         }
 
         return $res;
@@ -98,6 +98,11 @@ class InvokeThingsServiceRequest extends Model
         if (isset($map['ApiRevision'])) {
             $model->apiRevision = $map['ApiRevision'];
         }
+        if (isset($map['DeviceName'])) {
+            if (!empty($map['DeviceName'])) {
+                $model->deviceName = $map['DeviceName'];
+            }
+        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -109,11 +114,6 @@ class InvokeThingsServiceRequest extends Model
         }
         if (isset($map['Args'])) {
             $model->args = $map['Args'];
-        }
-        if (isset($map['DeviceName'])) {
-            if (!empty($map['DeviceName'])) {
-                $model->deviceName = $map['DeviceName'];
-            }
         }
 
         return $model;

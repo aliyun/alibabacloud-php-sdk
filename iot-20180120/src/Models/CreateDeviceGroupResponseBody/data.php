@@ -16,12 +16,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $groupName;
+    public $utcCreate;
 
     /**
      * @var string
      */
-    public $utcCreate;
+    public $groupName;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class data extends Model
     public $groupDesc;
     protected $_name = [
         'groupId'   => 'GroupId',
-        'groupName' => 'GroupName',
         'utcCreate' => 'UtcCreate',
+        'groupName' => 'GroupName',
         'groupDesc' => 'GroupDesc',
     ];
 
@@ -44,11 +44,11 @@ class data extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
         if (null !== $this->utcCreate) {
             $res['UtcCreate'] = $this->utcCreate;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->groupDesc) {
             $res['GroupDesc'] = $this->groupDesc;
@@ -68,11 +68,11 @@ class data extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
         if (isset($map['UtcCreate'])) {
             $model->utcCreate = $map['UtcCreate'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['GroupDesc'])) {
             $model->groupDesc = $map['GroupDesc'];

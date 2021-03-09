@@ -15,9 +15,9 @@ class CreateProductTagsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var invalidProductTags
+     * @var bool
      */
-    public $invalidProductTags;
+    public $success;
 
     /**
      * @var string
@@ -30,15 +30,15 @@ class CreateProductTagsResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var invalidProductTags
      */
-    public $success;
+    public $invalidProductTags;
     protected $_name = [
         'requestId'          => 'RequestId',
-        'invalidProductTags' => 'InvalidProductTags',
+        'success'            => 'Success',
         'errorMessage'       => 'ErrorMessage',
         'code'               => 'Code',
-        'success'            => 'Success',
+        'invalidProductTags' => 'InvalidProductTags',
     ];
 
     public function validate()
@@ -51,8 +51,8 @@ class CreateProductTagsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->invalidProductTags) {
-            $res['InvalidProductTags'] = null !== $this->invalidProductTags ? $this->invalidProductTags->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
@@ -60,8 +60,8 @@ class CreateProductTagsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->invalidProductTags) {
+            $res['InvalidProductTags'] = null !== $this->invalidProductTags ? $this->invalidProductTags->toMap() : null;
         }
 
         return $res;
@@ -78,8 +78,8 @@ class CreateProductTagsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['InvalidProductTags'])) {
-            $model->invalidProductTags = invalidProductTags::fromMap($map['InvalidProductTags']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
@@ -87,8 +87,8 @@ class CreateProductTagsResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['InvalidProductTags'])) {
+            $model->invalidProductTags = invalidProductTags::fromMap($map['InvalidProductTags']);
         }
 
         return $model;

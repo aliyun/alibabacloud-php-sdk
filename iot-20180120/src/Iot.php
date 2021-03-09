@@ -10,7 +10,6 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDeviceGroupRelationsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDeviceGroupRelationsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddThingTopoRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddThingTopoResponse;
-use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddThingTopoShrinkRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchBindDeviceToEdgeInstanceWithDriverRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchBindDeviceToEdgeInstanceWithDriverResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesRequest;
@@ -83,6 +82,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateConsumerGroupSubscribeRelationRe
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateConsumerGroupSubscribeRelationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDataAPIServiceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDataAPIServiceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceDistributeJobRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceDistributeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceGroupRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceGroupResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateEdgeDriverRequest;
@@ -99,7 +100,6 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateEdgeOssPreSignedAddressRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateEdgeOssPreSignedAddressResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateJobResponse;
-use AlibabaCloud\SDK\Iot\V20180120\Models\CreateJobShrinkRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateLoRaNodesTaskRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateLoRaNodesTaskResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTADynamicUpgradeJobRequest;
@@ -112,6 +112,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTAStaticUpgradeJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTAStaticUpgradeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTAVerifyJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTAVerifyJobResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductDistributeJobRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductDistributeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductTagsRequest;
@@ -120,6 +122,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductTopicRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateProductTopicResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRuleActionRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRuleActionResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRulengDistributeJobRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRulengDistributeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSceneRuleRequest;
@@ -132,12 +136,12 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateThingScriptRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateThingScriptResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateTopicRouteTableRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateTopicRouteTableResponse;
-use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteClientIdsRequest;
-use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteClientIdsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupSubscribeRelationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteConsumerGroupSubscribeRelationResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceDistributeJobRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceDistributeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceFileRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceFileResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceGroupRequest;
@@ -232,6 +236,12 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\InvokeThingServiceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\InvokeThingServiceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\InvokeThingsServiceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\InvokeThingsServiceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListDeviceDistributeJobRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListDeviceDistributeJobResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListDistributedDeviceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListDistributedDeviceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListDistributedProductRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListDistributedProductResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTAFirmwareRequest;
@@ -264,6 +274,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingTemplatesRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingTemplatesResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\NotifyAddThingTopoRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\NotifyAddThingTopoResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\OpenIotServiceRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\OpenIotServiceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PubBroadcastRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PubBroadcastResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PublishThingModelRequest;
@@ -276,8 +288,6 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryBatchRegisterDeviceStatusRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryBatchRegisterDeviceStatusResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryCertUrlByApplyIdRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryCertUrlByApplyIdResponse;
-use AlibabaCloud\SDK\Iot\V20180120\Models\QueryClientIdsRequest;
-use AlibabaCloud\SDK\Iot\V20180120\Models\QueryClientIdsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupByGroupIdRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupByGroupIdResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupListRequest;
@@ -298,6 +308,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceDesiredPropertyRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceDesiredPropertyResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceDetailRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceDetailResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceDistributeDetailRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceDistributeDetailResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceDistributeJobRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceDistributeJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceEventDataRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceEventDataResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceFileListRequest;
@@ -436,8 +450,6 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\StartRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StartRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StopRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\StopRuleResponse;
-use AlibabaCloud\SDK\Iot\V20180120\Models\TransformClientIdRequest;
-use AlibabaCloud\SDK\Iot\V20180120\Models\TransformClientIdResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TriggerSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\TriggerSceneRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UnbindApplicationFromEdgeInstanceRequest;
@@ -602,19 +614,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchAddThingTopoRequest $tmpReq
+     * @param BatchAddThingTopoRequest $request
      * @param RuntimeOptions           $runtime
      *
      * @return BatchAddThingTopoResponse
      */
-    public function batchAddThingTopoWithOptions($tmpReq, $runtime)
+    public function batchAddThingTopoWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new BatchAddThingTopoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ext)) {
-            $request->extShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'Ext', 'json');
-        }
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
@@ -1643,6 +1650,34 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param CreateDeviceDistributeJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateDeviceDistributeJobResponse
+     */
+    public function createDeviceDistributeJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDeviceDistributeJobResponse::fromMap($this->doRPCRequest('CreateDeviceDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDeviceDistributeJobRequest $request
+     *
+     * @return CreateDeviceDistributeJobResponse
+     */
+    public function createDeviceDistributeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDeviceDistributeJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDeviceGroupRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1839,28 +1874,14 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateJobRequest $tmpReq
+     * @param CreateJobRequest $request
      * @param RuntimeOptions   $runtime
      *
      * @return CreateJobResponse
      */
-    public function createJobWithOptions($tmpReq, $runtime)
+    public function createJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new CreateJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->jobFile)) {
-            $request->jobFileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobFile, 'JobFile', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->timeoutConfig)) {
-            $request->timeoutConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->timeoutConfig, 'TimeoutConfig', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->rolloutConfig)) {
-            $request->rolloutConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rolloutConfig, 'RolloutConfig', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->targetConfig)) {
-            $request->targetConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targetConfig, 'TargetConfig', 'json');
-        }
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
@@ -2077,6 +2098,34 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param CreateProductDistributeJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateProductDistributeJobResponse
+     */
+    public function createProductDistributeJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateProductDistributeJobResponse::fromMap($this->doRPCRequest('CreateProductDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateProductDistributeJobRequest $request
+     *
+     * @return CreateProductDistributeJobResponse
+     */
+    public function createProductDistributeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProductDistributeJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateProductTagsRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2186,6 +2235,34 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRuleActionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRulengDistributeJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateRulengDistributeJobResponse
+     */
+    public function createRulengDistributeJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateRulengDistributeJobResponse::fromMap($this->doRPCRequest('CreateRulengDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRulengDistributeJobRequest $request
+     *
+     * @return CreateRulengDistributeJobResponse
+     */
+    public function createRulengDistributeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRulengDistributeJobWithOptions($request, $runtime);
     }
 
     /**
@@ -2329,34 +2406,6 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param DeleteClientIdsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteClientIdsResponse
-     */
-    public function deleteClientIdsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteClientIdsResponse::fromMap($this->doRPCRequest('DeleteClientIds', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteClientIdsRequest $request
-     *
-     * @return DeleteClientIdsResponse
-     */
-    public function deleteClientIds($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteClientIdsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteConsumerGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2438,6 +2487,34 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDeviceDistributeJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteDeviceDistributeJobResponse
+     */
+    public function deleteDeviceDistributeJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDeviceDistributeJobResponse::fromMap($this->doRPCRequest('DeleteDeviceDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDeviceDistributeJobRequest $request
+     *
+     * @return DeleteDeviceDistributeJobResponse
+     */
+    public function deleteDeviceDistributeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDeviceDistributeJobWithOptions($request, $runtime);
     }
 
     /**
@@ -3729,6 +3806,90 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param ListDeviceDistributeJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListDeviceDistributeJobResponse
+     */
+    public function listDeviceDistributeJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDeviceDistributeJobResponse::fromMap($this->doRPCRequest('ListDeviceDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDeviceDistributeJobRequest $request
+     *
+     * @return ListDeviceDistributeJobResponse
+     */
+    public function listDeviceDistributeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeviceDistributeJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDistributedDeviceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDistributedDeviceResponse
+     */
+    public function listDistributedDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDistributedDeviceResponse::fromMap($this->doRPCRequest('ListDistributedDevice', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDistributedDeviceRequest $request
+     *
+     * @return ListDistributedDeviceResponse
+     */
+    public function listDistributedDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDistributedDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDistributedProductRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDistributedProductResponse
+     */
+    public function listDistributedProductWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDistributedProductResponse::fromMap($this->doRPCRequest('ListDistributedProduct', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDistributedProductRequest $request
+     *
+     * @return ListDistributedProductResponse
+     */
+    public function listDistributedProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDistributedProductWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListJobRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -4178,6 +4339,34 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param OpenIotServiceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return OpenIotServiceResponse
+     */
+    public function openIotServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return OpenIotServiceResponse::fromMap($this->doRPCRequest('OpenIotService', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param OpenIotServiceRequest $request
+     *
+     * @return OpenIotServiceResponse
+     */
+    public function openIotService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openIotServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PubRequest     $request
      * @param RuntimeOptions $runtime
      *
@@ -4343,34 +4532,6 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryCertUrlByApplyIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryClientIdsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return QueryClientIdsResponse
-     */
-    public function queryClientIdsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryClientIdsResponse::fromMap($this->doRPCRequest('QueryClientIds', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryClientIdsRequest $request
-     *
-     * @return QueryClientIdsResponse
-     */
-    public function queryClientIds($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryClientIdsWithOptions($request, $runtime);
     }
 
     /**
@@ -4679,6 +4840,62 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryDeviceDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDeviceDistributeDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryDeviceDistributeDetailResponse
+     */
+    public function queryDeviceDistributeDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryDeviceDistributeDetailResponse::fromMap($this->doRPCRequest('QueryDeviceDistributeDetail', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryDeviceDistributeDetailRequest $request
+     *
+     * @return QueryDeviceDistributeDetailResponse
+     */
+    public function queryDeviceDistributeDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDeviceDistributeDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDeviceDistributeJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryDeviceDistributeJobResponse
+     */
+    public function queryDeviceDistributeJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryDeviceDistributeJobResponse::fromMap($this->doRPCRequest('QueryDeviceDistributeJob', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryDeviceDistributeJobRequest $request
+     *
+     * @return QueryDeviceDistributeJobResponse
+     */
+    public function queryDeviceDistributeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDeviceDistributeJobWithOptions($request, $runtime);
     }
 
     /**
@@ -6584,34 +6801,6 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TransformClientIdRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return TransformClientIdResponse
-     */
-    public function transformClientIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return TransformClientIdResponse::fromMap($this->doRPCRequest('TransformClientId', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param TransformClientIdRequest $request
-     *
-     * @return TransformClientIdResponse
-     */
-    public function transformClientId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->transformClientIdWithOptions($request, $runtime);
     }
 
     /**

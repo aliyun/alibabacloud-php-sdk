@@ -11,11 +11,6 @@ class configList extends Model
     /**
      * @var string
      */
-    public $key;
-
-    /**
-     * @var string
-     */
     public $configId;
 
     /**
@@ -27,11 +22,16 @@ class configList extends Model
      * @var string
      */
     public $content;
+
+    /**
+     * @var string
+     */
+    public $key;
     protected $_name = [
-        'key'      => 'Key',
         'configId' => 'ConfigId',
         'format'   => 'Format',
         'content'  => 'Content',
+        'key'      => 'Key',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class configList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
@@ -52,6 +49,9 @@ class configList extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class configList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
@@ -76,6 +73,9 @@ class configList extends Model
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
 
         return $model;

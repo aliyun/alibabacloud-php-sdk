@@ -42,6 +42,16 @@ class QueryProductListRequest extends Model
      * @var int
      */
     public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $realTenantId;
+
+    /**
+     * @var string
+     */
+    public $realTripartiteKey;
     protected $_name = [
         'apiProduct'          => 'ApiProduct',
         'apiRevision'         => 'ApiRevision',
@@ -50,6 +60,8 @@ class QueryProductListRequest extends Model
         'resourceGroupId'     => 'ResourceGroupId',
         'aliyunCommodityCode' => 'AliyunCommodityCode',
         'currentPage'         => 'CurrentPage',
+        'realTenantId'        => 'RealTenantId',
+        'realTripartiteKey'   => 'RealTripartiteKey',
     ];
 
     public function validate()
@@ -79,6 +91,12 @@ class QueryProductListRequest extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->realTenantId) {
+            $res['RealTenantId'] = $this->realTenantId;
+        }
+        if (null !== $this->realTripartiteKey) {
+            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -112,6 +130,12 @@ class QueryProductListRequest extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['RealTenantId'])) {
+            $model->realTenantId = $map['RealTenantId'];
+        }
+        if (isset($map['RealTripartiteKey'])) {
+            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

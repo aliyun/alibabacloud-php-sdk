@@ -40,6 +40,11 @@ class CreateOTAStaticUpgradeJobRequest extends Model
     public $targetSelection;
 
     /**
+     * @var string[]
+     */
+    public $srcVersion;
+
+    /**
      * @var int
      */
     public $scheduleTime;
@@ -70,6 +75,11 @@ class CreateOTAStaticUpgradeJobRequest extends Model
     public $grayPercent;
 
     /**
+     * @var string[]
+     */
+    public $targetDeviceName;
+
+    /**
      * @var int
      */
     public $scheduleFinishTime;
@@ -80,24 +90,14 @@ class CreateOTAStaticUpgradeJobRequest extends Model
     public $overwriteMode;
 
     /**
-     * @var string
-     */
-    public $dnListFileUrl;
-
-    /**
-     * @var string[]
-     */
-    public $srcVersion;
-
-    /**
-     * @var string[]
-     */
-    public $targetDeviceName;
-
-    /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $dnListFileUrl;
     protected $_name = [
         'apiProduct'         => 'ApiProduct',
         'apiRevision'        => 'ApiRevision',
@@ -105,18 +105,18 @@ class CreateOTAStaticUpgradeJobRequest extends Model
         'firmwareId'         => 'FirmwareId',
         'productKey'         => 'ProductKey',
         'targetSelection'    => 'TargetSelection',
+        'srcVersion'         => 'SrcVersion',
         'scheduleTime'       => 'ScheduleTime',
         'retryInterval'      => 'RetryInterval',
         'retryCount'         => 'RetryCount',
         'timeoutInMinutes'   => 'TimeoutInMinutes',
         'maximumPerMinute'   => 'MaximumPerMinute',
         'grayPercent'        => 'GrayPercent',
+        'targetDeviceName'   => 'TargetDeviceName',
         'scheduleFinishTime' => 'ScheduleFinishTime',
         'overwriteMode'      => 'OverwriteMode',
-        'dnListFileUrl'      => 'DnListFileUrl',
-        'srcVersion'         => 'SrcVersion',
-        'targetDeviceName'   => 'TargetDeviceName',
         'tag'                => 'Tag',
+        'dnListFileUrl'      => 'DnListFileUrl',
     ];
 
     public function validate()
@@ -144,6 +144,9 @@ class CreateOTAStaticUpgradeJobRequest extends Model
         if (null !== $this->targetSelection) {
             $res['TargetSelection'] = $this->targetSelection;
         }
+        if (null !== $this->srcVersion) {
+            $res['SrcVersion'] = $this->srcVersion;
+        }
         if (null !== $this->scheduleTime) {
             $res['ScheduleTime'] = $this->scheduleTime;
         }
@@ -162,20 +165,14 @@ class CreateOTAStaticUpgradeJobRequest extends Model
         if (null !== $this->grayPercent) {
             $res['GrayPercent'] = $this->grayPercent;
         }
+        if (null !== $this->targetDeviceName) {
+            $res['TargetDeviceName'] = $this->targetDeviceName;
+        }
         if (null !== $this->scheduleFinishTime) {
             $res['ScheduleFinishTime'] = $this->scheduleFinishTime;
         }
         if (null !== $this->overwriteMode) {
             $res['OverwriteMode'] = $this->overwriteMode;
-        }
-        if (null !== $this->dnListFileUrl) {
-            $res['DnListFileUrl'] = $this->dnListFileUrl;
-        }
-        if (null !== $this->srcVersion) {
-            $res['SrcVersion'] = $this->srcVersion;
-        }
-        if (null !== $this->targetDeviceName) {
-            $res['TargetDeviceName'] = $this->targetDeviceName;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -185,6 +182,9 @@ class CreateOTAStaticUpgradeJobRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dnListFileUrl) {
+            $res['DnListFileUrl'] = $this->dnListFileUrl;
         }
 
         return $res;
@@ -216,6 +216,11 @@ class CreateOTAStaticUpgradeJobRequest extends Model
         if (isset($map['TargetSelection'])) {
             $model->targetSelection = $map['TargetSelection'];
         }
+        if (isset($map['SrcVersion'])) {
+            if (!empty($map['SrcVersion'])) {
+                $model->srcVersion = $map['SrcVersion'];
+            }
+        }
         if (isset($map['ScheduleTime'])) {
             $model->scheduleTime = $map['ScheduleTime'];
         }
@@ -234,24 +239,16 @@ class CreateOTAStaticUpgradeJobRequest extends Model
         if (isset($map['GrayPercent'])) {
             $model->grayPercent = $map['GrayPercent'];
         }
+        if (isset($map['TargetDeviceName'])) {
+            if (!empty($map['TargetDeviceName'])) {
+                $model->targetDeviceName = $map['TargetDeviceName'];
+            }
+        }
         if (isset($map['ScheduleFinishTime'])) {
             $model->scheduleFinishTime = $map['ScheduleFinishTime'];
         }
         if (isset($map['OverwriteMode'])) {
             $model->overwriteMode = $map['OverwriteMode'];
-        }
-        if (isset($map['DnListFileUrl'])) {
-            $model->dnListFileUrl = $map['DnListFileUrl'];
-        }
-        if (isset($map['SrcVersion'])) {
-            if (!empty($map['SrcVersion'])) {
-                $model->srcVersion = $map['SrcVersion'];
-            }
-        }
-        if (isset($map['TargetDeviceName'])) {
-            if (!empty($map['TargetDeviceName'])) {
-                $model->targetDeviceName = $map['TargetDeviceName'];
-            }
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -261,6 +258,9 @@ class CreateOTAStaticUpgradeJobRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DnListFileUrl'])) {
+            $model->dnListFileUrl = $map['DnListFileUrl'];
         }
 
         return $model;

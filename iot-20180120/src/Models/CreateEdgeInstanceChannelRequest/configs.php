@@ -11,7 +11,7 @@ class configs extends Model
     /**
      * @var string
      */
-    public $key;
+    public $format;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class configs extends Model
     /**
      * @var string
      */
-    public $format;
+    public $key;
     protected $_name = [
-        'key'     => 'Key',
-        'content' => 'Content',
         'format'  => 'Format',
+        'content' => 'Content',
+        'key'     => 'Key',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class configs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
+        if (null !== $this->format) {
+            $res['Format'] = $this->format;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-        if (null !== $this->format) {
-            $res['Format'] = $this->format;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class configs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
+        if (isset($map['Format'])) {
+            $model->format = $map['Format'];
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-        if (isset($map['Format'])) {
-            $model->format = $map['Format'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
 
         return $model;

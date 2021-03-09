@@ -25,20 +25,20 @@ class InvokeDataAPIServiceRequest extends Model
     public $apiSrn;
 
     /**
-     * @var string
-     */
-    public $iotInstanceId;
-
-    /**
      * @var param[]
      */
     public $param;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
     protected $_name = [
         'apiProduct'    => 'ApiProduct',
         'apiRevision'   => 'ApiRevision',
         'apiSrn'        => 'ApiSrn',
-        'iotInstanceId' => 'IotInstanceId',
         'param'         => 'Param',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -57,9 +57,6 @@ class InvokeDataAPIServiceRequest extends Model
         if (null !== $this->apiSrn) {
             $res['ApiSrn'] = $this->apiSrn;
         }
-        if (null !== $this->iotInstanceId) {
-            $res['IotInstanceId'] = $this->iotInstanceId;
-        }
         if (null !== $this->param) {
             $res['Param'] = [];
             if (null !== $this->param && \is_array($this->param)) {
@@ -68,6 +65,9 @@ class InvokeDataAPIServiceRequest extends Model
                     $res['Param'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -90,9 +90,6 @@ class InvokeDataAPIServiceRequest extends Model
         if (isset($map['ApiSrn'])) {
             $model->apiSrn = $map['ApiSrn'];
         }
-        if (isset($map['IotInstanceId'])) {
-            $model->iotInstanceId = $map['IotInstanceId'];
-        }
         if (isset($map['Param'])) {
             if (!empty($map['Param'])) {
                 $model->param = [];
@@ -101,6 +98,9 @@ class InvokeDataAPIServiceRequest extends Model
                     $model->param[$n++] = null !== $item ? param::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

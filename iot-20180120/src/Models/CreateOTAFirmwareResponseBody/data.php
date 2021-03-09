@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $utcCreate;
+    public $firmwareId;
 
     /**
      * @var string
      */
-    public $firmwareId;
+    public $utcCreate;
     protected $_name = [
-        'utcCreate'  => 'UtcCreate',
         'firmwareId' => 'FirmwareId',
+        'utcCreate'  => 'UtcCreate',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->utcCreate) {
-            $res['UtcCreate'] = $this->utcCreate;
-        }
         if (null !== $this->firmwareId) {
             $res['FirmwareId'] = $this->firmwareId;
+        }
+        if (null !== $this->utcCreate) {
+            $res['UtcCreate'] = $this->utcCreate;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UtcCreate'])) {
-            $model->utcCreate = $map['UtcCreate'];
-        }
         if (isset($map['FirmwareId'])) {
             $model->firmwareId = $map['FirmwareId'];
+        }
+        if (isset($map['UtcCreate'])) {
+            $model->utcCreate = $map['UtcCreate'];
         }
 
         return $model;

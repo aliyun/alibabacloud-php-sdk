@@ -35,6 +35,11 @@ class CreateOTADynamicUpgradeJobRequest extends Model
     public $productKey;
 
     /**
+     * @var string[]
+     */
+    public $srcVersion;
+
+    /**
      * @var int
      */
     public $retryInterval;
@@ -65,11 +70,6 @@ class CreateOTADynamicUpgradeJobRequest extends Model
     public $dynamicMode;
 
     /**
-     * @var string[]
-     */
-    public $srcVersion;
-
-    /**
      * @var tag[]
      */
     public $tag;
@@ -79,13 +79,13 @@ class CreateOTADynamicUpgradeJobRequest extends Model
         'iotInstanceId'    => 'IotInstanceId',
         'firmwareId'       => 'FirmwareId',
         'productKey'       => 'ProductKey',
+        'srcVersion'       => 'SrcVersion',
         'retryInterval'    => 'RetryInterval',
         'retryCount'       => 'RetryCount',
         'timeoutInMinutes' => 'TimeoutInMinutes',
         'maximumPerMinute' => 'MaximumPerMinute',
         'overwriteMode'    => 'OverwriteMode',
         'dynamicMode'      => 'DynamicMode',
-        'srcVersion'       => 'SrcVersion',
         'tag'              => 'Tag',
     ];
 
@@ -111,6 +111,9 @@ class CreateOTADynamicUpgradeJobRequest extends Model
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
+        if (null !== $this->srcVersion) {
+            $res['SrcVersion'] = $this->srcVersion;
+        }
         if (null !== $this->retryInterval) {
             $res['RetryInterval'] = $this->retryInterval;
         }
@@ -128,9 +131,6 @@ class CreateOTADynamicUpgradeJobRequest extends Model
         }
         if (null !== $this->dynamicMode) {
             $res['DynamicMode'] = $this->dynamicMode;
-        }
-        if (null !== $this->srcVersion) {
-            $res['SrcVersion'] = $this->srcVersion;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -168,6 +168,11 @@ class CreateOTADynamicUpgradeJobRequest extends Model
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
+        if (isset($map['SrcVersion'])) {
+            if (!empty($map['SrcVersion'])) {
+                $model->srcVersion = $map['SrcVersion'];
+            }
+        }
         if (isset($map['RetryInterval'])) {
             $model->retryInterval = $map['RetryInterval'];
         }
@@ -185,11 +190,6 @@ class CreateOTADynamicUpgradeJobRequest extends Model
         }
         if (isset($map['DynamicMode'])) {
             $model->dynamicMode = $map['DynamicMode'];
-        }
-        if (isset($map['SrcVersion'])) {
-            if (!empty($map['SrcVersion'])) {
-                $model->srcVersion = $map['SrcVersion'];
-            }
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

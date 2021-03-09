@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class failureTopics extends Model
 {
     /**
-     * @var mixed[][]
+     * @var string[][]
      */
     public $topic;
     protected $_name = [

@@ -37,6 +37,11 @@ class SpeechByCombinationRequest extends Model
      * @var string
      */
     public $deviceName;
+
+    /**
+     * @var string
+     */
+    public $iotInstanceId;
     protected $_name = [
         'apiProduct'      => 'ApiProduct',
         'apiRevision'     => 'ApiRevision',
@@ -44,6 +49,7 @@ class SpeechByCombinationRequest extends Model
         'iotId'           => 'IotId',
         'productKey'      => 'ProductKey',
         'deviceName'      => 'DeviceName',
+        'iotInstanceId'   => 'IotInstanceId',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class SpeechByCombinationRequest extends Model
         }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->iotInstanceId) {
+            $res['IotInstanceId'] = $this->iotInstanceId;
         }
 
         return $res;
@@ -102,6 +111,9 @@ class SpeechByCombinationRequest extends Model
         }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['IotInstanceId'])) {
+            $model->iotInstanceId = $map['IotInstanceId'];
         }
 
         return $model;

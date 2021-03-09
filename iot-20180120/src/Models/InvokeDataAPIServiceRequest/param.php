@@ -11,17 +11,12 @@ class param extends Model
     /**
      * @var string
      */
-    public $paramName;
-
-    /**
-     * @var string
-     */
     public $paramType;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $paramValue;
+    public $listParamValue;
 
     /**
      * @var string
@@ -29,15 +24,20 @@ class param extends Model
     public $listParamType;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $listParamValue;
+    public $paramName;
+
+    /**
+     * @var string
+     */
+    public $paramValue;
     protected $_name = [
-        'paramName'      => 'ParamName',
         'paramType'      => 'ParamType',
-        'paramValue'     => 'ParamValue',
-        'listParamType'  => 'ListParamType',
         'listParamValue' => 'ListParamValue',
+        'listParamType'  => 'ListParamType',
+        'paramName'      => 'ParamName',
+        'paramValue'     => 'ParamValue',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class param extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->paramName) {
-            $res['ParamName'] = $this->paramName;
-        }
         if (null !== $this->paramType) {
             $res['ParamType'] = $this->paramType;
         }
-        if (null !== $this->paramValue) {
-            $res['ParamValue'] = $this->paramValue;
+        if (null !== $this->listParamValue) {
+            $res['ListParamValue'] = $this->listParamValue;
         }
         if (null !== $this->listParamType) {
             $res['ListParamType'] = $this->listParamType;
         }
-        if (null !== $this->listParamValue) {
-            $res['ListParamValue'] = $this->listParamValue;
+        if (null !== $this->paramName) {
+            $res['ParamName'] = $this->paramName;
+        }
+        if (null !== $this->paramValue) {
+            $res['ParamValue'] = $this->paramValue;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class param extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParamName'])) {
-            $model->paramName = $map['ParamName'];
-        }
         if (isset($map['ParamType'])) {
             $model->paramType = $map['ParamType'];
-        }
-        if (isset($map['ParamValue'])) {
-            $model->paramValue = $map['ParamValue'];
-        }
-        if (isset($map['ListParamType'])) {
-            $model->listParamType = $map['ListParamType'];
         }
         if (isset($map['ListParamValue'])) {
             if (!empty($map['ListParamValue'])) {
                 $model->listParamValue = $map['ListParamValue'];
             }
+        }
+        if (isset($map['ListParamType'])) {
+            $model->listParamType = $map['ListParamType'];
+        }
+        if (isset($map['ParamName'])) {
+            $model->paramName = $map['ParamName'];
+        }
+        if (isset($map['ParamValue'])) {
+            $model->paramValue = $map['ParamValue'];
         }
 
         return $model;

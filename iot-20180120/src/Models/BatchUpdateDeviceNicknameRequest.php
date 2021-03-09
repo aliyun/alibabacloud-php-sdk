@@ -25,6 +25,11 @@ class BatchUpdateDeviceNicknameRequest extends Model
     public $iotInstanceId;
 
     /**
+     * @var deviceNicknameInfo[]
+     */
+    public $deviceNicknameInfo;
+
+    /**
      * @var string
      */
     public $realTenantId;
@@ -33,18 +38,13 @@ class BatchUpdateDeviceNicknameRequest extends Model
      * @var string
      */
     public $realTripartiteKey;
-
-    /**
-     * @var deviceNicknameInfo[]
-     */
-    public $deviceNicknameInfo;
     protected $_name = [
         'apiProduct'         => 'ApiProduct',
         'apiRevision'        => 'ApiRevision',
         'iotInstanceId'      => 'IotInstanceId',
+        'deviceNicknameInfo' => 'DeviceNicknameInfo',
         'realTenantId'       => 'RealTenantId',
         'realTripartiteKey'  => 'RealTripartiteKey',
-        'deviceNicknameInfo' => 'DeviceNicknameInfo',
     ];
 
     public function validate()
@@ -63,12 +63,6 @@ class BatchUpdateDeviceNicknameRequest extends Model
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->realTenantId) {
-            $res['RealTenantId'] = $this->realTenantId;
-        }
-        if (null !== $this->realTripartiteKey) {
-            $res['RealTripartiteKey'] = $this->realTripartiteKey;
-        }
         if (null !== $this->deviceNicknameInfo) {
             $res['DeviceNicknameInfo'] = [];
             if (null !== $this->deviceNicknameInfo && \is_array($this->deviceNicknameInfo)) {
@@ -77,6 +71,12 @@ class BatchUpdateDeviceNicknameRequest extends Model
                     $res['DeviceNicknameInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->realTenantId) {
+            $res['RealTenantId'] = $this->realTenantId;
+        }
+        if (null !== $this->realTripartiteKey) {
+            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -99,12 +99,6 @@ class BatchUpdateDeviceNicknameRequest extends Model
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
-        if (isset($map['RealTenantId'])) {
-            $model->realTenantId = $map['RealTenantId'];
-        }
-        if (isset($map['RealTripartiteKey'])) {
-            $model->realTripartiteKey = $map['RealTripartiteKey'];
-        }
         if (isset($map['DeviceNicknameInfo'])) {
             if (!empty($map['DeviceNicknameInfo'])) {
                 $model->deviceNicknameInfo = [];
@@ -113,6 +107,12 @@ class BatchUpdateDeviceNicknameRequest extends Model
                     $model->deviceNicknameInfo[$n++] = null !== $item ? deviceNicknameInfo::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RealTenantId'])) {
+            $model->realTenantId = $map['RealTenantId'];
+        }
+        if (isset($map['RealTripartiteKey'])) {
+            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

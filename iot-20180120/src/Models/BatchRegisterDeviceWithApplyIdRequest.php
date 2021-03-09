@@ -32,12 +32,24 @@ class BatchRegisterDeviceWithApplyIdRequest extends Model
      * @var int
      */
     public $applyId;
+
+    /**
+     * @var string
+     */
+    public $realTenantId;
+
+    /**
+     * @var string
+     */
+    public $realTripartiteKey;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
-        'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
-        'applyId'       => 'ApplyId',
+        'apiProduct'        => 'ApiProduct',
+        'apiRevision'       => 'ApiRevision',
+        'iotInstanceId'     => 'IotInstanceId',
+        'productKey'        => 'ProductKey',
+        'applyId'           => 'ApplyId',
+        'realTenantId'      => 'RealTenantId',
+        'realTripartiteKey' => 'RealTripartiteKey',
     ];
 
     public function validate()
@@ -61,6 +73,12 @@ class BatchRegisterDeviceWithApplyIdRequest extends Model
         }
         if (null !== $this->applyId) {
             $res['ApplyId'] = $this->applyId;
+        }
+        if (null !== $this->realTenantId) {
+            $res['RealTenantId'] = $this->realTenantId;
+        }
+        if (null !== $this->realTripartiteKey) {
+            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -88,6 +106,12 @@ class BatchRegisterDeviceWithApplyIdRequest extends Model
         }
         if (isset($map['ApplyId'])) {
             $model->applyId = $map['ApplyId'];
+        }
+        if (isset($map['RealTenantId'])) {
+            $model->realTenantId = $map['RealTenantId'];
+        }
+        if (isset($map['RealTripartiteKey'])) {
+            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

@@ -14,6 +14,11 @@ class DeleteProductTagsResponseBody extends Model
     public $requestId;
 
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @var string
      */
     public $errorMessage;
@@ -22,16 +27,11 @@ class DeleteProductTagsResponseBody extends Model
      * @var string
      */
     public $code;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'requestId'    => 'RequestId',
+        'success'      => 'Success',
         'errorMessage' => 'ErrorMessage',
         'code'         => 'Code',
-        'success'      => 'Success',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DeleteProductTagsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DeleteProductTagsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

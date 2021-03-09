@@ -34,22 +34,22 @@ class CancelOTATaskByDeviceRequest extends Model
     public $productKey;
 
     /**
-     * @var string
-     */
-    public $jobId;
-
-    /**
      * @var string[]
      */
     public $deviceName;
+
+    /**
+     * @var string
+     */
+    public $jobId;
     protected $_name = [
         'apiProduct'    => 'ApiProduct',
         'apiRevision'   => 'ApiRevision',
         'iotInstanceId' => 'IotInstanceId',
         'firmwareId'    => 'FirmwareId',
         'productKey'    => 'ProductKey',
-        'jobId'         => 'JobId',
         'deviceName'    => 'DeviceName',
+        'jobId'         => 'JobId',
     ];
 
     public function validate()
@@ -74,11 +74,11 @@ class CancelOTATaskByDeviceRequest extends Model
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -107,13 +107,13 @@ class CancelOTATaskByDeviceRequest extends Model
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['DeviceName'])) {
             if (!empty($map['DeviceName'])) {
                 $model->deviceName = $map['DeviceName'];
             }
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         return $model;

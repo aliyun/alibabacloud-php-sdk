@@ -15,6 +15,16 @@ class GetRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var string
      */
     public $errorMessage;
@@ -23,22 +33,12 @@ class GetRuleResponseBody extends Model
      * @var ruleInfo
      */
     public $ruleInfo;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'requestId'    => 'RequestId',
+        'success'      => 'Success',
+        'code'         => 'Code',
         'errorMessage' => 'ErrorMessage',
         'ruleInfo'     => 'RuleInfo',
-        'code'         => 'Code',
-        'success'      => 'Success',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class GetRuleResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->ruleInfo) {
             $res['RuleInfo'] = null !== $this->ruleInfo ? $this->ruleInfo->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class GetRuleResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['RuleInfo'])) {
             $model->ruleInfo = ruleInfo::fromMap($map['RuleInfo']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

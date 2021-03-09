@@ -15,9 +15,9 @@ class BatchGetEdgeInstanceDeviceChannelResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $errorMessage;
+    public $success;
 
     /**
      * @var string
@@ -25,9 +25,9 @@ class BatchGetEdgeInstanceDeviceChannelResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $errorMessage;
 
     /**
      * @var deviceChannelList[]
@@ -35,9 +35,9 @@ class BatchGetEdgeInstanceDeviceChannelResponseBody extends Model
     public $deviceChannelList;
     protected $_name = [
         'requestId'         => 'RequestId',
-        'errorMessage'      => 'ErrorMessage',
-        'code'              => 'Code',
         'success'           => 'Success',
+        'code'              => 'Code',
+        'errorMessage'      => 'ErrorMessage',
         'deviceChannelList' => 'DeviceChannelList',
     ];
 
@@ -51,14 +51,14 @@ class BatchGetEdgeInstanceDeviceChannelResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->deviceChannelList) {
             $res['DeviceChannelList'] = [];
@@ -84,14 +84,14 @@ class BatchGetEdgeInstanceDeviceChannelResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['DeviceChannelList'])) {
             if (!empty($map['DeviceChannelList'])) {

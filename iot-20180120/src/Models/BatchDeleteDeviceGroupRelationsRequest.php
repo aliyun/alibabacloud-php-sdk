@@ -30,6 +30,11 @@ class BatchDeleteDeviceGroupRelationsRequest extends Model
     public $groupId;
 
     /**
+     * @var device[]
+     */
+    public $device;
+
+    /**
      * @var string
      */
     public $realTenantId;
@@ -38,19 +43,14 @@ class BatchDeleteDeviceGroupRelationsRequest extends Model
      * @var string
      */
     public $realTripartiteKey;
-
-    /**
-     * @var device[]
-     */
-    public $device;
     protected $_name = [
         'apiProduct'        => 'ApiProduct',
         'apiRevision'       => 'ApiRevision',
         'iotInstanceId'     => 'IotInstanceId',
         'groupId'           => 'GroupId',
+        'device'            => 'Device',
         'realTenantId'      => 'RealTenantId',
         'realTripartiteKey' => 'RealTripartiteKey',
-        'device'            => 'Device',
     ];
 
     public function validate()
@@ -72,12 +72,6 @@ class BatchDeleteDeviceGroupRelationsRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->realTenantId) {
-            $res['RealTenantId'] = $this->realTenantId;
-        }
-        if (null !== $this->realTripartiteKey) {
-            $res['RealTripartiteKey'] = $this->realTripartiteKey;
-        }
         if (null !== $this->device) {
             $res['Device'] = [];
             if (null !== $this->device && \is_array($this->device)) {
@@ -86,6 +80,12 @@ class BatchDeleteDeviceGroupRelationsRequest extends Model
                     $res['Device'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->realTenantId) {
+            $res['RealTenantId'] = $this->realTenantId;
+        }
+        if (null !== $this->realTripartiteKey) {
+            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -111,12 +111,6 @@ class BatchDeleteDeviceGroupRelationsRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['RealTenantId'])) {
-            $model->realTenantId = $map['RealTenantId'];
-        }
-        if (isset($map['RealTripartiteKey'])) {
-            $model->realTripartiteKey = $map['RealTripartiteKey'];
-        }
         if (isset($map['Device'])) {
             if (!empty($map['Device'])) {
                 $model->device = [];
@@ -125,6 +119,12 @@ class BatchDeleteDeviceGroupRelationsRequest extends Model
                     $model->device[$n++] = null !== $item ? device::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RealTenantId'])) {
+            $model->realTenantId = $map['RealTenantId'];
+        }
+        if (isset($map['RealTripartiteKey'])) {
+            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

@@ -38,13 +38,25 @@ class BatchCheckDeviceNamesRequest extends Model
      * @var deviceNameList[]
      */
     public $deviceNameList;
+
+    /**
+     * @var string
+     */
+    public $realTenantId;
+
+    /**
+     * @var string
+     */
+    public $realTripartiteKey;
     protected $_name = [
-        'apiProduct'     => 'ApiProduct',
-        'apiRevision'    => 'ApiRevision',
-        'iotInstanceId'  => 'IotInstanceId',
-        'productKey'     => 'ProductKey',
-        'deviceName'     => 'DeviceName',
-        'deviceNameList' => 'DeviceNameList',
+        'apiProduct'        => 'ApiProduct',
+        'apiRevision'       => 'ApiRevision',
+        'iotInstanceId'     => 'IotInstanceId',
+        'productKey'        => 'ProductKey',
+        'deviceName'        => 'DeviceName',
+        'deviceNameList'    => 'DeviceNameList',
+        'realTenantId'      => 'RealTenantId',
+        'realTripartiteKey' => 'RealTripartiteKey',
     ];
 
     public function validate()
@@ -77,6 +89,12 @@ class BatchCheckDeviceNamesRequest extends Model
                     $res['DeviceNameList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->realTenantId) {
+            $res['RealTenantId'] = $this->realTenantId;
+        }
+        if (null !== $this->realTripartiteKey) {
+            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -115,6 +133,12 @@ class BatchCheckDeviceNamesRequest extends Model
                     $model->deviceNameList[$n++] = null !== $item ? deviceNameList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RealTenantId'])) {
+            $model->realTenantId = $map['RealTenantId'];
+        }
+        if (isset($map['RealTripartiteKey'])) {
+            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

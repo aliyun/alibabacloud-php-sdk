@@ -15,14 +15,9 @@ class GetRuleActionResponseBody extends Model
     public $requestId;
 
     /**
-     * @var ruleActionInfo
+     * @var bool
      */
-    public $ruleActionInfo;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
+    public $success;
 
     /**
      * @var string
@@ -30,15 +25,20 @@ class GetRuleActionResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $errorMessage;
+
+    /**
+     * @var ruleActionInfo
+     */
+    public $ruleActionInfo;
     protected $_name = [
         'requestId'      => 'RequestId',
-        'ruleActionInfo' => 'RuleActionInfo',
-        'errorMessage'   => 'ErrorMessage',
-        'code'           => 'Code',
         'success'        => 'Success',
+        'code'           => 'Code',
+        'errorMessage'   => 'ErrorMessage',
+        'ruleActionInfo' => 'RuleActionInfo',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class GetRuleActionResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->ruleActionInfo) {
-            $res['RuleActionInfo'] = null !== $this->ruleActionInfo ? $this->ruleActionInfo->toMap() : null;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->ruleActionInfo) {
+            $res['RuleActionInfo'] = null !== $this->ruleActionInfo ? $this->ruleActionInfo->toMap() : null;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class GetRuleActionResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['RuleActionInfo'])) {
-            $model->ruleActionInfo = ruleActionInfo::fromMap($map['RuleActionInfo']);
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RuleActionInfo'])) {
+            $model->ruleActionInfo = ruleActionInfo::fromMap($map['RuleActionInfo']);
         }
 
         return $model;

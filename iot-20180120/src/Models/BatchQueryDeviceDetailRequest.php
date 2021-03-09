@@ -19,6 +19,11 @@ class BatchQueryDeviceDetailRequest extends Model
     public $apiRevision;
 
     /**
+     * @var string[]
+     */
+    public $deviceName;
+
+    /**
      * @var string
      */
     public $productKey;
@@ -37,19 +42,14 @@ class BatchQueryDeviceDetailRequest extends Model
      * @var string
      */
     public $realTripartiteKey;
-
-    /**
-     * @var string[]
-     */
-    public $deviceName;
     protected $_name = [
         'apiProduct'        => 'ApiProduct',
         'apiRevision'       => 'ApiRevision',
+        'deviceName'        => 'DeviceName',
         'productKey'        => 'ProductKey',
         'iotInstanceId'     => 'IotInstanceId',
         'realTenantId'      => 'RealTenantId',
         'realTripartiteKey' => 'RealTripartiteKey',
-        'deviceName'        => 'DeviceName',
     ];
 
     public function validate()
@@ -65,6 +65,9 @@ class BatchQueryDeviceDetailRequest extends Model
         if (null !== $this->apiRevision) {
             $res['ApiRevision'] = $this->apiRevision;
         }
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
+        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -76,9 +79,6 @@ class BatchQueryDeviceDetailRequest extends Model
         }
         if (null !== $this->realTripartiteKey) {
             $res['RealTripartiteKey'] = $this->realTripartiteKey;
-        }
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
         }
 
         return $res;
@@ -98,6 +98,11 @@ class BatchQueryDeviceDetailRequest extends Model
         if (isset($map['ApiRevision'])) {
             $model->apiRevision = $map['ApiRevision'];
         }
+        if (isset($map['DeviceName'])) {
+            if (!empty($map['DeviceName'])) {
+                $model->deviceName = $map['DeviceName'];
+            }
+        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
@@ -109,11 +114,6 @@ class BatchQueryDeviceDetailRequest extends Model
         }
         if (isset($map['RealTripartiteKey'])) {
             $model->realTripartiteKey = $map['RealTripartiteKey'];
-        }
-        if (isset($map['DeviceName'])) {
-            if (!empty($map['DeviceName'])) {
-                $model->deviceName = $map['DeviceName'];
-            }
         }
 
         return $model;
