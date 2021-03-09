@@ -13,16 +13,24 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\CreateGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\CreateGroupIdResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\DeleteGroupIdResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetDeviceCredentialRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetDeviceCredentialResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QuerySessionByClientIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QuerySessionByClientIdResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryTokenRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryTokenResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RefreshDeviceCredentialRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RefreshDeviceCredentialResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RegisterDeviceCredentialRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RegisterDeviceCredentialResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RevokeTokenRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RevokeTokenResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SendMessageRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SendMessageResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UnRegisterDeviceCredentialRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UnRegisterDeviceCredentialResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -174,6 +182,34 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
+     * @param GetDeviceCredentialRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetDeviceCredentialResponse
+     */
+    public function getDeviceCredentialWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDeviceCredentialResponse::fromMap($this->doRPCRequest('GetDeviceCredential', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDeviceCredentialRequest $request
+     *
+     * @return GetDeviceCredentialResponse
+     */
+    public function getDeviceCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeviceCredentialWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListGroupIdRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -258,6 +294,62 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
+     * @param RefreshDeviceCredentialRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RefreshDeviceCredentialResponse
+     */
+    public function refreshDeviceCredentialWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RefreshDeviceCredentialResponse::fromMap($this->doRPCRequest('RefreshDeviceCredential', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RefreshDeviceCredentialRequest $request
+     *
+     * @return RefreshDeviceCredentialResponse
+     */
+    public function refreshDeviceCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshDeviceCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RegisterDeviceCredentialRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RegisterDeviceCredentialResponse
+     */
+    public function registerDeviceCredentialWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RegisterDeviceCredentialResponse::fromMap($this->doRPCRequest('RegisterDeviceCredential', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RegisterDeviceCredentialRequest $request
+     *
+     * @return RegisterDeviceCredentialResponse
+     */
+    public function registerDeviceCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerDeviceCredentialWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RevokeTokenRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -311,5 +403,33 @@ class OnsMqtt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnRegisterDeviceCredentialRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UnRegisterDeviceCredentialResponse
+     */
+    public function unRegisterDeviceCredentialWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UnRegisterDeviceCredentialResponse::fromMap($this->doRPCRequest('UnRegisterDeviceCredential', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UnRegisterDeviceCredentialRequest $request
+     *
+     * @return UnRegisterDeviceCredentialResponse
+     */
+    public function unRegisterDeviceCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unRegisterDeviceCredentialWithOptions($request, $runtime);
     }
 }
