@@ -61,6 +61,11 @@ class mediaProducingJob extends Model
     /**
      * @var string
      */
+    public $modifiedTime;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -83,6 +88,7 @@ class mediaProducingJob extends Model
         'duration'     => 'Duration',
         'createTime'   => 'CreateTime',
         'completeTime' => 'CompleteTime',
+        'modifiedTime' => 'ModifiedTime',
         'status'       => 'Status',
         'code'         => 'Code',
         'message'      => 'Message',
@@ -124,6 +130,9 @@ class mediaProducingJob extends Model
         }
         if (null !== $this->completeTime) {
             $res['CompleteTime'] = $this->completeTime;
+        }
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -175,6 +184,9 @@ class mediaProducingJob extends Model
         }
         if (isset($map['CompleteTime'])) {
             $model->completeTime = $map['CompleteTime'];
+        }
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -155,115 +155,32 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateEditingProjectRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ListSmartJobsRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return CreateEditingProjectResponse
+     * @return ListSmartJobsResponse
      */
-    public function createEditingProjectWithOptions($request, $runtime)
+    public function listSmartJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
         ]);
 
-        return CreateEditingProjectResponse::fromMap($this->doRPCRequest('CreateEditingProject', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSmartJobsResponse::fromMap($this->doRPCRequest('ListSmartJobs', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateEditingProjectRequest $request
+     * @param ListSmartJobsRequest $request
      *
-     * @return CreateEditingProjectResponse
+     * @return ListSmartJobsResponse
      */
-    public function createEditingProject($request)
+    public function listSmartJobs($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createEditingProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteEditingProjectsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteEditingProjectsResponse
-     */
-    public function deleteEditingProjectsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteEditingProjectsResponse::fromMap($this->doRPCRequest('DeleteEditingProjects', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteEditingProjectsRequest $request
-     *
-     * @return DeleteEditingProjectsResponse
-     */
-    public function deleteEditingProjects($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteEditingProjectsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteMediaInfosRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteMediaInfosResponse
-     */
-    public function deleteMediaInfosWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteMediaInfosResponse::fromMap($this->doRPCRequest('DeleteMediaInfos', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteMediaInfosRequest $request
-     *
-     * @return DeleteMediaInfosResponse
-     */
-    public function deleteMediaInfos($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteMediaInfosWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteSmartJobRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteSmartJobResponse
-     */
-    public function deleteSmartJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteSmartJobResponse::fromMap($this->doRPCRequest('DeleteSmartJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSmartJobRequest $request
-     *
-     * @return DeleteSmartJobResponse
-     */
-    public function deleteSmartJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSmartJobWithOptions($request, $runtime);
+        return $this->listSmartJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -311,6 +228,119 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param ListMediaBasicInfosRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMediaBasicInfosResponse
+     */
+    public function listMediaBasicInfosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListMediaBasicInfosResponse::fromMap($this->doRPCRequest('ListMediaBasicInfos', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListMediaBasicInfosRequest $request
+     *
+     * @return ListMediaBasicInfosResponse
+     */
+    public function listMediaBasicInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMediaBasicInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitSubtitleProduceJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SubmitSubtitleProduceJobResponse
+     */
+    public function submitSubtitleProduceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitSubtitleProduceJobResponse::fromMap($this->doRPCRequest('SubmitSubtitleProduceJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitSubtitleProduceJobRequest $request
+     *
+     * @return SubmitSubtitleProduceJobResponse
+     */
+    public function submitSubtitleProduceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSubtitleProduceJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitKeyWordCutJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitKeyWordCutJobResponse
+     */
+    public function submitKeyWordCutJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return SubmitKeyWordCutJobResponse::fromMap($this->doRPCRequest('SubmitKeyWordCutJob', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitKeyWordCutJobRequest $request
+     *
+     * @return SubmitKeyWordCutJobResponse
+     */
+    public function submitKeyWordCutJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitKeyWordCutJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitASRJobRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SubmitASRJobResponse
+     */
+    public function submitASRJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitASRJobResponse::fromMap($this->doRPCRequest('SubmitASRJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitASRJobRequest $request
+     *
+     * @return SubmitASRJobResponse
+     */
+    public function submitASRJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitASRJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetEditingProjectRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -340,6 +370,146 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param DeleteSmartJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteSmartJobResponse
+     */
+    public function deleteSmartJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteSmartJobResponse::fromMap($this->doRPCRequest('DeleteSmartJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSmartJobRequest $request
+     *
+     * @return DeleteSmartJobResponse
+     */
+    public function deleteSmartJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSmartJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitIRJobRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SubmitIRJobResponse
+     */
+    public function submitIRJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitIRJobResponse::fromMap($this->doRPCRequest('SubmitIRJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitIRJobRequest $request
+     *
+     * @return SubmitIRJobResponse
+     */
+    public function submitIRJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitIRJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateEditingProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateEditingProjectResponse
+     */
+    public function updateEditingProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateEditingProjectResponse::fromMap($this->doRPCRequest('UpdateEditingProject', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateEditingProjectRequest $request
+     *
+     * @return UpdateEditingProjectResponse
+     */
+    public function updateEditingProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEditingProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchEditingProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchEditingProjectResponse
+     */
+    public function searchEditingProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SearchEditingProjectResponse::fromMap($this->doRPCRequest('SearchEditingProject', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SearchEditingProjectRequest $request
+     *
+     * @return SearchEditingProjectResponse
+     */
+    public function searchEditingProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchEditingProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteEditingProjectsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteEditingProjectsResponse
+     */
+    public function deleteEditingProjectsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteEditingProjectsResponse::fromMap($this->doRPCRequest('DeleteEditingProjects', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEditingProjectsRequest $request
+     *
+     * @return DeleteEditingProjectsResponse
+     */
+    public function deleteEditingProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEditingProjectsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetMediaInfoRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -365,6 +535,286 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitSmartJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitSmartJobResponse
+     */
+    public function submitSmartJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitSmartJobResponse::fromMap($this->doRPCRequest('SubmitSmartJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitSmartJobRequest $request
+     *
+     * @return SubmitSmartJobResponse
+     */
+    public function submitSmartJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSmartJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMediaProducingJobsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListMediaProducingJobsResponse
+     */
+    public function listMediaProducingJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListMediaProducingJobsResponse::fromMap($this->doRPCRequest('ListMediaProducingJobs', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListMediaProducingJobsRequest $request
+     *
+     * @return ListMediaProducingJobsResponse
+     */
+    public function listMediaProducingJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMediaProducingJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitMediaProducingJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitMediaProducingJobResponse
+     */
+    public function submitMediaProducingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitMediaProducingJobResponse::fromMap($this->doRPCRequest('SubmitMediaProducingJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitMediaProducingJobRequest $request
+     *
+     * @return SubmitMediaProducingJobResponse
+     */
+    public function submitMediaProducingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitMediaProducingJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteMediaInfosRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteMediaInfosResponse
+     */
+    public function deleteMediaInfosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteMediaInfosResponse::fromMap($this->doRPCRequest('DeleteMediaInfos', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMediaInfosRequest $request
+     *
+     * @return DeleteMediaInfosResponse
+     */
+    public function deleteMediaInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMediaInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSmartJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateSmartJobResponse
+     */
+    public function updateSmartJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateSmartJobResponse::fromMap($this->doRPCRequest('UpdateSmartJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSmartJobRequest $request
+     *
+     * @return UpdateSmartJobResponse
+     */
+    public function updateSmartJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSmartJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAllPublicMediaTagsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAllPublicMediaTagsResponse
+     */
+    public function listAllPublicMediaTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListAllPublicMediaTagsResponse::fromMap($this->doRPCRequest('ListAllPublicMediaTags', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAllPublicMediaTagsRequest $request
+     *
+     * @return ListAllPublicMediaTagsResponse
+     */
+    public function listAllPublicMediaTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAllPublicMediaTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RegisterMediaInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RegisterMediaInfoResponse
+     */
+    public function registerMediaInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RegisterMediaInfoResponse::fromMap($this->doRPCRequest('RegisterMediaInfo', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RegisterMediaInfoRequest $request
+     *
+     * @return RegisterMediaInfoResponse
+     */
+    public function registerMediaInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateEditingProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateEditingProjectResponse
+     */
+    public function createEditingProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateEditingProjectResponse::fromMap($this->doRPCRequest('CreateEditingProject', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateEditingProjectRequest $request
+     *
+     * @return CreateEditingProjectResponse
+     */
+    public function createEditingProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEditingProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPublicMediaBasicInfosRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListPublicMediaBasicInfosResponse
+     */
+    public function listPublicMediaBasicInfosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListPublicMediaBasicInfosResponse::fromMap($this->doRPCRequest('ListPublicMediaBasicInfos', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListPublicMediaBasicInfosRequest $request
+     *
+     * @return ListPublicMediaBasicInfosResponse
+     */
+    public function listPublicMediaBasicInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPublicMediaBasicInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMediaInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateMediaInfoResponse
+     */
+    public function updateMediaInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateMediaInfoResponse::fromMap($this->doRPCRequest('UpdateMediaInfo', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMediaInfoRequest $request
+     *
+     * @return UpdateMediaInfoResponse
+     */
+    public function updateMediaInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMediaInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -426,316 +876,6 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListAllPublicMediaTagsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListAllPublicMediaTagsResponse
-     */
-    public function listAllPublicMediaTagsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListAllPublicMediaTagsResponse::fromMap($this->doRPCRequest('ListAllPublicMediaTags', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAllPublicMediaTagsRequest $request
-     *
-     * @return ListAllPublicMediaTagsResponse
-     */
-    public function listAllPublicMediaTags($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAllPublicMediaTagsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListMediaBasicInfosRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListMediaBasicInfosResponse
-     */
-    public function listMediaBasicInfosWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListMediaBasicInfosResponse::fromMap($this->doRPCRequest('ListMediaBasicInfos', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListMediaBasicInfosRequest $request
-     *
-     * @return ListMediaBasicInfosResponse
-     */
-    public function listMediaBasicInfos($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listMediaBasicInfosWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListMediaProducingJobsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListMediaProducingJobsResponse
-     */
-    public function listMediaProducingJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListMediaProducingJobsResponse::fromMap($this->doRPCRequest('ListMediaProducingJobs', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListMediaProducingJobsRequest $request
-     *
-     * @return ListMediaProducingJobsResponse
-     */
-    public function listMediaProducingJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listMediaProducingJobsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListPublicMediaBasicInfosRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListPublicMediaBasicInfosResponse
-     */
-    public function listPublicMediaBasicInfosWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListPublicMediaBasicInfosResponse::fromMap($this->doRPCRequest('ListPublicMediaBasicInfos', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListPublicMediaBasicInfosRequest $request
-     *
-     * @return ListPublicMediaBasicInfosResponse
-     */
-    public function listPublicMediaBasicInfos($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPublicMediaBasicInfosWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListSmartJobsRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListSmartJobsResponse
-     */
-    public function listSmartJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListSmartJobsResponse::fromMap($this->doRPCRequest('ListSmartJobs', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSmartJobsRequest $request
-     *
-     * @return ListSmartJobsResponse
-     */
-    public function listSmartJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSmartJobsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RegisterMediaInfoRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RegisterMediaInfoResponse
-     */
-    public function registerMediaInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RegisterMediaInfoResponse::fromMap($this->doRPCRequest('RegisterMediaInfo', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RegisterMediaInfoRequest $request
-     *
-     * @return RegisterMediaInfoResponse
-     */
-    public function registerMediaInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->registerMediaInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SearchEditingProjectRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SearchEditingProjectResponse
-     */
-    public function searchEditingProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SearchEditingProjectResponse::fromMap($this->doRPCRequest('SearchEditingProject', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SearchEditingProjectRequest $request
-     *
-     * @return SearchEditingProjectResponse
-     */
-    public function searchEditingProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->searchEditingProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SubmitASRJobRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return SubmitASRJobResponse
-     */
-    public function submitASRJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SubmitASRJobResponse::fromMap($this->doRPCRequest('SubmitASRJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitASRJobRequest $request
-     *
-     * @return SubmitASRJobResponse
-     */
-    public function submitASRJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitASRJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SubmitIRJobRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SubmitIRJobResponse
-     */
-    public function submitIRJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SubmitIRJobResponse::fromMap($this->doRPCRequest('SubmitIRJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitIRJobRequest $request
-     *
-     * @return SubmitIRJobResponse
-     */
-    public function submitIRJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitIRJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SubmitKeyWordCutJobRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SubmitKeyWordCutJobResponse
-     */
-    public function submitKeyWordCutJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return SubmitKeyWordCutJobResponse::fromMap($this->doRPCRequest('SubmitKeyWordCutJob', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitKeyWordCutJobRequest $request
-     *
-     * @return SubmitKeyWordCutJobResponse
-     */
-    public function submitKeyWordCutJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitKeyWordCutJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SubmitMediaProducingJobRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return SubmitMediaProducingJobResponse
-     */
-    public function submitMediaProducingJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SubmitMediaProducingJobResponse::fromMap($this->doRPCRequest('SubmitMediaProducingJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitMediaProducingJobRequest $request
-     *
-     * @return SubmitMediaProducingJobResponse
-     */
-    public function submitMediaProducingJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitMediaProducingJobWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SubmitPPTCutJobRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -762,145 +902,5 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitPPTCutJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SubmitSmartJobRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return SubmitSmartJobResponse
-     */
-    public function submitSmartJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SubmitSmartJobResponse::fromMap($this->doRPCRequest('SubmitSmartJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitSmartJobRequest $request
-     *
-     * @return SubmitSmartJobResponse
-     */
-    public function submitSmartJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitSmartJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SubmitSubtitleProduceJobRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return SubmitSubtitleProduceJobResponse
-     */
-    public function submitSubtitleProduceJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SubmitSubtitleProduceJobResponse::fromMap($this->doRPCRequest('SubmitSubtitleProduceJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitSubtitleProduceJobRequest $request
-     *
-     * @return SubmitSubtitleProduceJobResponse
-     */
-    public function submitSubtitleProduceJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitSubtitleProduceJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateEditingProjectRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateEditingProjectResponse
-     */
-    public function updateEditingProjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateEditingProjectResponse::fromMap($this->doRPCRequest('UpdateEditingProject', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateEditingProjectRequest $request
-     *
-     * @return UpdateEditingProjectResponse
-     */
-    public function updateEditingProject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateEditingProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateMediaInfoRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateMediaInfoResponse
-     */
-    public function updateMediaInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateMediaInfoResponse::fromMap($this->doRPCRequest('UpdateMediaInfo', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateMediaInfoRequest $request
-     *
-     * @return UpdateMediaInfoResponse
-     */
-    public function updateMediaInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateMediaInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateSmartJobRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateSmartJobResponse
-     */
-    public function updateSmartJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateSmartJobResponse::fromMap($this->doRPCRequest('UpdateSmartJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateSmartJobRequest $request
-     *
-     * @return UpdateSmartJobResponse
-     */
-    public function updateSmartJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateSmartJobWithOptions($request, $runtime);
     }
 }
