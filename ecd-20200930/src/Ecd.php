@@ -37,8 +37,6 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeBundlesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeBundlesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopPolicysRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopPolicysResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopTypesRequest;
@@ -59,14 +57,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVirtualMFADevicesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVirtualMFADevicesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeZonesResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoCheckResourceRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoCheckResourceResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoLogicalDeleteResourceRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoLogicalDeleteResourceResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoPhysicalDeleteResourceRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DoPhysicalDeleteResourceResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\GetConnectionTicketRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\GetConnectionTicketResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDirectorySsoStatusRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDirectorySsoStatusResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GetSpMetadataRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GetSpMetadataResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListDirectoryUsersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListDirectoryUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListTagResourcesRequest;
@@ -75,10 +69,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\LockVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\LockVirtualMFADeviceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyADConnectorDirectoryRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyADConnectorDirectoryResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyBundleRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyBundleResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopNameRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopNameResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopPolicysRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopPolicysResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopsPolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopsPolicyGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyEntitlementRequest;
@@ -87,16 +81,20 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyImageAttributeRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyImageAttributeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\PayOrderCallbackRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\PayOrderCallbackResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RebuildDesktopsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RebuildDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetSnapshotRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetSnapshotResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RunCommandResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDirectorySsoStatusRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDirectorySsoStatusResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SetIdpMetadataRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SetIdpMetadataResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\StartDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\StartDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\StopDesktopsRequest;
@@ -109,12 +107,12 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\UnlockVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UnlockVirtualMFADeviceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UntagResourcesResponse;
+use AlibabaCloud\Tea\Rpc\Rpc;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\OpenApi\Models\OpenApiRequest;
-use Darabonba\OpenApi\OpenApiClient;
 
-class Ecd extends OpenApiClient
+class Ecd extends Rpc
 {
     public function __construct($config)
     {
@@ -125,390 +123,228 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
+     * @param GetDirectorySsoStatusRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return string
+     * @return GetDirectorySsoStatusResponse
      */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
-    {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
-            return @$endpointMap[$regionId];
-        }
-
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * @param CreateADConnectorDirectoryRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateADConnectorDirectoryResponse
-     */
-    public function createADConnectorDirectoryWithOptions($request, $runtime)
+    public function getDirectorySsoStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateADConnectorDirectoryResponse::fromMap($this->doRPCRequest('CreateADConnectorDirectory', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDirectorySsoStatusResponse::fromMap($this->doRequest('GetDirectorySsoStatus', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param CreateADConnectorDirectoryRequest $request
+     * @param GetDirectorySsoStatusRequest $request
      *
-     * @return CreateADConnectorDirectoryResponse
+     * @return GetDirectorySsoStatusResponse
      */
-    public function createADConnectorDirectory($request)
+    public function getDirectorySsoStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createADConnectorDirectoryWithOptions($request, $runtime);
+        return $this->getDirectorySsoStatusWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateBundleRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param SetDirectorySsoStatusRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return CreateBundleResponse
+     * @return SetDirectorySsoStatusResponse
      */
-    public function createBundleWithOptions($request, $runtime)
+    public function setDirectorySsoStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return CreateBundleResponse::fromMap($this->doRPCRequest('CreateBundle', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDirectorySsoStatusResponse::fromMap($this->doRequest('SetDirectorySsoStatus', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param CreateBundleRequest $request
+     * @param SetDirectorySsoStatusRequest $request
      *
-     * @return CreateBundleResponse
+     * @return SetDirectorySsoStatusResponse
      */
-    public function createBundle($request)
+    public function setDirectorySsoStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createBundleWithOptions($request, $runtime);
+        return $this->setDirectorySsoStatusWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateDesktopsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateDesktopsResponse
-     */
-    public function createDesktopsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateDesktopsResponse::fromMap($this->doRPCRequest('CreateDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateDesktopsRequest $request
-     *
-     * @return CreateDesktopsResponse
-     */
-    public function createDesktops($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDesktopsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateImageRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateImageResponse
-     */
-    public function createImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateImageResponse::fromMap($this->doRPCRequest('CreateImage', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateImageRequest $request
-     *
-     * @return CreateImageResponse
-     */
-    public function createImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreatePolicyGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreatePolicyGroupResponse
-     */
-    public function createPolicyGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreatePolicyGroupResponse::fromMap($this->doRPCRequest('CreatePolicyGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreatePolicyGroupRequest $request
-     *
-     * @return CreatePolicyGroupResponse
-     */
-    public function createPolicyGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createPolicyGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateRAMDirectoryRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateRAMDirectoryResponse
-     */
-    public function createRAMDirectoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateRAMDirectoryResponse::fromMap($this->doRPCRequest('CreateRAMDirectory', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateRAMDirectoryRequest $request
-     *
-     * @return CreateRAMDirectoryResponse
-     */
-    public function createRAMDirectory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRAMDirectoryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSnapshotRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateSnapshotResponse
-     */
-    public function createSnapshotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateSnapshotResponse::fromMap($this->doRPCRequest('CreateSnapshot', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateSnapshotRequest $request
-     *
-     * @return CreateSnapshotResponse
-     */
-    public function createSnapshot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSnapshotWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteBundlesRequest $request
+     * @param GetSpMetadataRequest $request
      * @param RuntimeOptions       $runtime
      *
-     * @return DeleteBundlesResponse
+     * @return GetSpMetadataResponse
      */
-    public function deleteBundlesWithOptions($request, $runtime)
+    public function getSpMetadataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteBundlesResponse::fromMap($this->doRPCRequest('DeleteBundles', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSpMetadataResponse::fromMap($this->doRequest('GetSpMetadata', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DeleteBundlesRequest $request
+     * @param GetSpMetadataRequest $request
      *
-     * @return DeleteBundlesResponse
+     * @return GetSpMetadataResponse
      */
-    public function deleteBundles($request)
+    public function getSpMetadata($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteBundlesWithOptions($request, $runtime);
+        return $this->getSpMetadataWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteDesktopsRequest $request
+     * @param SetIdpMetadataRequest $request
      * @param RuntimeOptions        $runtime
      *
-     * @return DeleteDesktopsResponse
+     * @return SetIdpMetadataResponse
      */
-    public function deleteDesktopsWithOptions($request, $runtime)
+    public function setIdpMetadataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteDesktopsResponse::fromMap($this->doRPCRequest('DeleteDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetIdpMetadataResponse::fromMap($this->doRequest('SetIdpMetadata', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DeleteDesktopsRequest $request
+     * @param SetIdpMetadataRequest $request
      *
-     * @return DeleteDesktopsResponse
+     * @return SetIdpMetadataResponse
      */
-    public function deleteDesktops($request)
+    public function setIdpMetadata($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteDesktopsWithOptions($request, $runtime);
+        return $this->setIdpMetadataWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteDirectoriesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param RebuildDesktopsRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return DeleteDirectoriesResponse
+     * @return RebuildDesktopsResponse
      */
-    public function deleteDirectoriesWithOptions($request, $runtime)
+    public function rebuildDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteDirectoriesResponse::fromMap($this->doRPCRequest('DeleteDirectories', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RebuildDesktopsResponse::fromMap($this->doRequest('RebuildDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DeleteDirectoriesRequest $request
+     * @param RebuildDesktopsRequest $request
      *
-     * @return DeleteDirectoriesResponse
+     * @return RebuildDesktopsResponse
      */
-    public function deleteDirectories($request)
+    public function rebuildDesktops($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteDirectoriesWithOptions($request, $runtime);
+        return $this->rebuildDesktopsWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteImagesRequest $request
+     * @param ModifyBundleRequest $request
      * @param RuntimeOptions      $runtime
      *
-     * @return DeleteImagesResponse
+     * @return ModifyBundleResponse
      */
-    public function deleteImagesWithOptions($request, $runtime)
+    public function modifyBundleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteImagesResponse::fromMap($this->doRPCRequest('DeleteImages', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyBundleResponse::fromMap($this->doRequest('ModifyBundle', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DeleteImagesRequest $request
+     * @param ModifyBundleRequest $request
      *
-     * @return DeleteImagesResponse
+     * @return ModifyBundleResponse
      */
-    public function deleteImages($request)
+    public function modifyBundle($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteImagesWithOptions($request, $runtime);
+        return $this->modifyBundleWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeletePolicyGroupsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param UnlockVirtualMFADeviceRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return DeletePolicyGroupsResponse
+     * @return UnlockVirtualMFADeviceResponse
      */
-    public function deletePolicyGroupsWithOptions($request, $runtime)
+    public function unlockVirtualMFADeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeletePolicyGroupsResponse::fromMap($this->doRPCRequest('DeletePolicyGroups', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnlockVirtualMFADeviceResponse::fromMap($this->doRequest('UnlockVirtualMFADevice', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DeletePolicyGroupsRequest $request
+     * @param UnlockVirtualMFADeviceRequest $request
      *
-     * @return DeletePolicyGroupsResponse
+     * @return UnlockVirtualMFADeviceResponse
      */
-    public function deletePolicyGroups($request)
+    public function unlockVirtualMFADevice($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deletePolicyGroupsWithOptions($request, $runtime);
+        return $this->unlockVirtualMFADeviceWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteSnapshotRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DescribeVirtualMFADevicesRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return DeleteSnapshotResponse
+     * @return DescribeVirtualMFADevicesResponse
      */
-    public function deleteSnapshotWithOptions($request, $runtime)
+    public function describeVirtualMFADevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteSnapshotResponse::fromMap($this->doRPCRequest('DeleteSnapshot', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVirtualMFADevicesResponse::fromMap($this->doRequest('DescribeVirtualMFADevices', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DeleteSnapshotRequest $request
+     * @param DescribeVirtualMFADevicesRequest $request
      *
-     * @return DeleteSnapshotResponse
+     * @return DescribeVirtualMFADevicesResponse
      */
-    public function deleteSnapshot($request)
+    public function describeVirtualMFADevices($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteSnapshotWithOptions($request, $runtime);
+        return $this->describeVirtualMFADevicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param LockVirtualMFADeviceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return LockVirtualMFADeviceResponse
+     */
+    public function lockVirtualMFADeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return LockVirtualMFADeviceResponse::fromMap($this->doRequest('LockVirtualMFADevice', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param LockVirtualMFADeviceRequest $request
+     *
+     * @return LockVirtualMFADeviceResponse
+     */
+    public function lockVirtualMFADevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->lockVirtualMFADeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -520,11 +356,8 @@ class Ecd extends OpenApiClient
     public function deleteVirtualMFADeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DeleteVirtualMFADeviceResponse::fromMap($this->doRPCRequest('DeleteVirtualMFADevice', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVirtualMFADeviceResponse::fromMap($this->doRequest('DeleteVirtualMFADevice', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -540,31 +373,253 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeBundlesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ModifyADConnectorDirectoryRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return DescribeBundlesResponse
+     * @return ModifyADConnectorDirectoryResponse
      */
-    public function describeBundlesWithOptions($request, $runtime)
+    public function modifyADConnectorDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeBundlesResponse::fromMap($this->doRPCRequest('DescribeBundles', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyADConnectorDirectoryResponse::fromMap($this->doRequest('ModifyADConnectorDirectory', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DescribeBundlesRequest $request
+     * @param ModifyADConnectorDirectoryRequest $request
      *
-     * @return DescribeBundlesResponse
+     * @return ModifyADConnectorDirectoryResponse
      */
-    public function describeBundles($request)
+    public function modifyADConnectorDirectory($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeBundlesWithOptions($request, $runtime);
+        return $this->modifyADConnectorDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ListTagResourcesResponse::fromMap($this->doRequest('ListTagResources', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return UntagResourcesResponse::fromMap($this->doRequest('UntagResources', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return TagResourcesResponse::fromMap($this->doRequest('TagResources', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDesktopNameRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyDesktopNameResponse
+     */
+    public function modifyDesktopNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ModifyDesktopNameResponse::fromMap($this->doRequest('ModifyDesktopName', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ModifyDesktopNameRequest $request
+     *
+     * @return ModifyDesktopNameResponse
+     */
+    public function modifyDesktopName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDesktopNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RunCommandRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RunCommandResponse
+     */
+    public function runCommandWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return RunCommandResponse::fromMap($this->doRequest('RunCommand', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param RunCommandRequest $request
+     *
+     * @return RunCommandResponse
+     */
+    public function runCommand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runCommandWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopInvocationRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StopInvocationResponse
+     */
+    public function stopInvocationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return StopInvocationResponse::fromMap($this->doRequest('StopInvocation', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param StopInvocationRequest $request
+     *
+     * @return StopInvocationResponse
+     */
+    public function stopInvocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopInvocationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInvocationsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInvocationsResponse
+     */
+    public function describeInvocationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeInvocationsResponse::fromMap($this->doRequest('DescribeInvocations', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeInvocationsRequest $request
+     *
+     * @return DescribeInvocationsResponse
+     */
+    public function describeInvocations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInvocationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeZonesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeZonesResponse
+     */
+    public function describeZonesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeZonesResponse::fromMap($this->doRequest('DescribeZones', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeZonesRequest $request
+     *
+     * @return DescribeZonesResponse
+     */
+    public function describeZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeZonesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeRegionsResponse::fromMap($this->doRequest('DescribeRegions', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionsWithOptions($request, $runtime);
     }
 
     /**
@@ -576,11 +631,8 @@ class Ecd extends OpenApiClient
     public function describeClientEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeClientEventsResponse::fromMap($this->doRPCRequest('DescribeClientEvents', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClientEventsResponse::fromMap($this->doRequest('DescribeClientEvents', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -596,59 +648,203 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeDesktopPolicysRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ResetSnapshotRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return DescribeDesktopPolicysResponse
+     * @return ResetSnapshotResponse
      */
-    public function describeDesktopPolicysWithOptions($request, $runtime)
+    public function resetSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeDesktopPolicysResponse::fromMap($this->doRPCRequest('DescribeDesktopPolicys', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResetSnapshotResponse::fromMap($this->doRequest('ResetSnapshot', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DescribeDesktopPolicysRequest $request
+     * @param ResetSnapshotRequest $request
      *
-     * @return DescribeDesktopPolicysResponse
+     * @return ResetSnapshotResponse
      */
-    public function describeDesktopPolicys($request)
+    public function resetSnapshot($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDesktopPolicysWithOptions($request, $runtime);
+        return $this->resetSnapshotWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeDesktopsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DeleteSnapshotRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return DescribeDesktopsResponse
+     * @return DeleteSnapshotResponse
      */
-    public function describeDesktopsWithOptions($request, $runtime)
+    public function deleteSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeDesktopsResponse::fromMap($this->doRPCRequest('DescribeDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSnapshotResponse::fromMap($this->doRequest('DeleteSnapshot', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DescribeDesktopsRequest $request
+     * @param DeleteSnapshotRequest $request
      *
-     * @return DescribeDesktopsResponse
+     * @return DeleteSnapshotResponse
      */
-    public function describeDesktops($request)
+    public function deleteSnapshot($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDesktopsWithOptions($request, $runtime);
+        return $this->deleteSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSnapshotRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateSnapshotResponse
+     */
+    public function createSnapshotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateSnapshotResponse::fromMap($this->doRequest('CreateSnapshot', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateSnapshotRequest $request
+     *
+     * @return CreateSnapshotResponse
+     */
+    public function createSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSnapshotsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeSnapshotsResponse
+     */
+    public function describeSnapshotsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeSnapshotsResponse::fromMap($this->doRequest('DescribeSnapshots', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeSnapshotsRequest $request
+     *
+     * @return DescribeSnapshotsResponse
+     */
+    public function describeSnapshots($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSnapshotsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RenewDesktopsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RenewDesktopsResponse
+     */
+    public function renewDesktopsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return RenewDesktopsResponse::fromMap($this->doRequest('RenewDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param RenewDesktopsRequest $request
+     *
+     * @return RenewDesktopsResponse
+     */
+    public function renewDesktops($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewDesktopsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopDesktopsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopDesktopsResponse
+     */
+    public function stopDesktopsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return StopDesktopsResponse::fromMap($this->doRequest('StopDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param StopDesktopsRequest $request
+     *
+     * @return StopDesktopsResponse
+     */
+    public function stopDesktops($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDesktopsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartDesktopsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartDesktopsResponse
+     */
+    public function startDesktopsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return StartDesktopsResponse::fromMap($this->doRequest('StartDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param StartDesktopsRequest $request
+     *
+     * @return StartDesktopsResponse
+     */
+    public function startDesktops($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startDesktopsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyPolicyGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyPolicyGroupResponse
+     */
+    public function modifyPolicyGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ModifyPolicyGroupResponse::fromMap($this->doRequest('ModifyPolicyGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ModifyPolicyGroupRequest $request
+     *
+     * @return ModifyPolicyGroupResponse
+     */
+    public function modifyPolicyGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPolicyGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -660,11 +856,8 @@ class Ecd extends OpenApiClient
     public function describeDesktopTypesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeDesktopTypesResponse::fromMap($this->doRPCRequest('DescribeDesktopTypes', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDesktopTypesResponse::fromMap($this->doRequest('DescribeDesktopTypes', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -688,11 +881,8 @@ class Ecd extends OpenApiClient
     public function describeDirectoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeDirectoriesResponse::fromMap($this->doRPCRequest('DescribeDirectories', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDirectoriesResponse::fromMap($this->doRequest('DescribeDirectories', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -708,311 +898,28 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeImagesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeImagesResponse
-     */
-    public function describeImagesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeImagesResponse::fromMap($this->doRPCRequest('DescribeImages', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeImagesRequest $request
-     *
-     * @return DescribeImagesResponse
-     */
-    public function describeImages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeImagesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeInvocationsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeInvocationsResponse
-     */
-    public function describeInvocationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeInvocationsResponse::fromMap($this->doRPCRequest('DescribeInvocations', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeInvocationsRequest $request
-     *
-     * @return DescribeInvocationsResponse
-     */
-    public function describeInvocations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInvocationsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribePolicyGroupsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribePolicyGroupsResponse
-     */
-    public function describePolicyGroupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribePolicyGroupsResponse::fromMap($this->doRPCRequest('DescribePolicyGroups', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribePolicyGroupsRequest $request
-     *
-     * @return DescribePolicyGroupsResponse
-     */
-    public function describePolicyGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describePolicyGroupsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
-     */
-    public function describeRegionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
-     */
-    public function describeRegions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRegionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSnapshotsRequest $request
+     * @param DeleteDirectoriesRequest $request
      * @param RuntimeOptions           $runtime
      *
-     * @return DescribeSnapshotsResponse
+     * @return DeleteDirectoriesResponse
      */
-    public function describeSnapshotsWithOptions($request, $runtime)
+    public function deleteDirectoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return DescribeSnapshotsResponse::fromMap($this->doRPCRequest('DescribeSnapshots', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDirectoriesResponse::fromMap($this->doRequest('DeleteDirectories', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param DescribeSnapshotsRequest $request
+     * @param DeleteDirectoriesRequest $request
      *
-     * @return DescribeSnapshotsResponse
+     * @return DeleteDirectoriesResponse
      */
-    public function describeSnapshots($request)
+    public function deleteDirectories($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeSnapshotsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeVirtualMFADevicesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeVirtualMFADevicesResponse
-     */
-    public function describeVirtualMFADevicesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeVirtualMFADevicesResponse::fromMap($this->doRPCRequest('DescribeVirtualMFADevices', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeVirtualMFADevicesRequest $request
-     *
-     * @return DescribeVirtualMFADevicesResponse
-     */
-    public function describeVirtualMFADevices($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeVirtualMFADevicesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeZonesResponse
-     */
-    public function describeZonesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeZonesResponse::fromMap($this->doRPCRequest('DescribeZones', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeZonesRequest $request
-     *
-     * @return DescribeZonesResponse
-     */
-    public function describeZones($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeZonesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DoCheckResourceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DoCheckResourceResponse
-     */
-    public function doCheckResourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DoCheckResourceResponse::fromMap($this->doRPCRequest('DoCheckResource', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DoCheckResourceRequest $request
-     *
-     * @return DoCheckResourceResponse
-     */
-    public function doCheckResource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->doCheckResourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DoLogicalDeleteResourceRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DoLogicalDeleteResourceResponse
-     */
-    public function doLogicalDeleteResourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DoLogicalDeleteResourceResponse::fromMap($this->doRPCRequest('DoLogicalDeleteResource', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DoLogicalDeleteResourceRequest $request
-     *
-     * @return DoLogicalDeleteResourceResponse
-     */
-    public function doLogicalDeleteResource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->doLogicalDeleteResourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DoPhysicalDeleteResourceRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DoPhysicalDeleteResourceResponse
-     */
-    public function doPhysicalDeleteResourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DoPhysicalDeleteResourceResponse::fromMap($this->doRPCRequest('DoPhysicalDeleteResource', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DoPhysicalDeleteResourceRequest $request
-     *
-     * @return DoPhysicalDeleteResourceResponse
-     */
-    public function doPhysicalDeleteResource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->doPhysicalDeleteResourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetConnectionTicketRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetConnectionTicketResponse
-     */
-    public function getConnectionTicketWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetConnectionTicketResponse::fromMap($this->doRPCRequest('GetConnectionTicket', '2020-09-30', 'HTTP', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetConnectionTicketRequest $request
-     *
-     * @return GetConnectionTicketResponse
-     */
-    public function getConnectionTicket($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getConnectionTicketWithOptions($request, $runtime);
+        return $this->deleteDirectoriesWithOptions($request, $runtime);
     }
 
     /**
@@ -1024,11 +931,8 @@ class Ecd extends OpenApiClient
     public function listDirectoryUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ListDirectoryUsersResponse::fromMap($this->doRPCRequest('ListDirectoryUsers', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDirectoryUsersResponse::fromMap($this->doRequest('ListDirectoryUsers', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1044,199 +948,128 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param CreateImageRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return ListTagResourcesResponse
+     * @return CreateImageResponse
      */
-    public function listTagResourcesWithOptions($request, $runtime)
+    public function createImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateImageResponse::fromMap($this->doRequest('CreateImage', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @param CreateImageRequest $request
      *
-     * @return ListTagResourcesResponse
+     * @return CreateImageResponse
      */
-    public function listTagResources($request)
+    public function createImage($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listTagResourcesWithOptions($request, $runtime);
+        return $this->createImageWithOptions($request, $runtime);
     }
 
     /**
-     * @param LockVirtualMFADeviceRequest $request
+     * @param CreateRAMDirectoryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateRAMDirectoryResponse
+     */
+    public function createRAMDirectoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateRAMDirectoryResponse::fromMap($this->doRequest('CreateRAMDirectory', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateRAMDirectoryRequest $request
+     *
+     * @return CreateRAMDirectoryResponse
+     */
+    public function createRAMDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRAMDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePolicyGroupsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeletePolicyGroupsResponse
+     */
+    public function deletePolicyGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DeletePolicyGroupsResponse::fromMap($this->doRequest('DeletePolicyGroups', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DeletePolicyGroupsRequest $request
+     *
+     * @return DeletePolicyGroupsResponse
+     */
+    public function deletePolicyGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolicyGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePolicyGroupsRequest $request
      * @param RuntimeOptions              $runtime
      *
-     * @return LockVirtualMFADeviceResponse
+     * @return DescribePolicyGroupsResponse
      */
-    public function lockVirtualMFADeviceWithOptions($request, $runtime)
+    public function describePolicyGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return LockVirtualMFADeviceResponse::fromMap($this->doRPCRequest('LockVirtualMFADevice', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePolicyGroupsResponse::fromMap($this->doRequest('DescribePolicyGroups', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param LockVirtualMFADeviceRequest $request
+     * @param DescribePolicyGroupsRequest $request
      *
-     * @return LockVirtualMFADeviceResponse
+     * @return DescribePolicyGroupsResponse
      */
-    public function lockVirtualMFADevice($request)
+    public function describePolicyGroups($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->lockVirtualMFADeviceWithOptions($request, $runtime);
+        return $this->describePolicyGroupsWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyADConnectorDirectoryRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DeleteDesktopsRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return ModifyADConnectorDirectoryResponse
+     * @return DeleteDesktopsResponse
      */
-    public function modifyADConnectorDirectoryWithOptions($request, $runtime)
+    public function deleteDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyADConnectorDirectoryResponse::fromMap($this->doRPCRequest('ModifyADConnectorDirectory', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDesktopsResponse::fromMap($this->doRequest('DeleteDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param ModifyADConnectorDirectoryRequest $request
+     * @param DeleteDesktopsRequest $request
      *
-     * @return ModifyADConnectorDirectoryResponse
+     * @return DeleteDesktopsResponse
      */
-    public function modifyADConnectorDirectory($request)
+    public function deleteDesktops($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyADConnectorDirectoryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyDesktopNameRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyDesktopNameResponse
-     */
-    public function modifyDesktopNameWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyDesktopNameResponse::fromMap($this->doRPCRequest('ModifyDesktopName', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDesktopNameRequest $request
-     *
-     * @return ModifyDesktopNameResponse
-     */
-    public function modifyDesktopName($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDesktopNameWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyDesktopPolicysRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyDesktopPolicysResponse
-     */
-    public function modifyDesktopPolicysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyDesktopPolicysResponse::fromMap($this->doRPCRequest('ModifyDesktopPolicys', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDesktopPolicysRequest $request
-     *
-     * @return ModifyDesktopPolicysResponse
-     */
-    public function modifyDesktopPolicys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDesktopPolicysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyDesktopsPolicyGroupRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyDesktopsPolicyGroupResponse
-     */
-    public function modifyDesktopsPolicyGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyDesktopsPolicyGroupResponse::fromMap($this->doRPCRequest('ModifyDesktopsPolicyGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDesktopsPolicyGroupRequest $request
-     *
-     * @return ModifyDesktopsPolicyGroupResponse
-     */
-    public function modifyDesktopsPolicyGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDesktopsPolicyGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyEntitlementRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyEntitlementResponse
-     */
-    public function modifyEntitlementWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyEntitlementResponse::fromMap($this->doRPCRequest('ModifyEntitlement', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyEntitlementRequest $request
-     *
-     * @return ModifyEntitlementResponse
-     */
-    public function modifyEntitlement($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyEntitlementWithOptions($request, $runtime);
+        return $this->deleteDesktopsWithOptions($request, $runtime);
     }
 
     /**
@@ -1248,11 +1081,8 @@ class Ecd extends OpenApiClient
     public function modifyImageAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyImageAttributeResponse::fromMap($this->doRPCRequest('ModifyImageAttribute', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyImageAttributeResponse::fromMap($this->doRequest('ModifyImageAttribute', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1268,59 +1098,78 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param ModifyPolicyGroupRequest $request
+     * @param ModifyEntitlementRequest $request
      * @param RuntimeOptions           $runtime
      *
-     * @return ModifyPolicyGroupResponse
+     * @return ModifyEntitlementResponse
      */
-    public function modifyPolicyGroupWithOptions($request, $runtime)
+    public function modifyEntitlementWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return ModifyPolicyGroupResponse::fromMap($this->doRPCRequest('ModifyPolicyGroup', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyEntitlementResponse::fromMap($this->doRequest('ModifyEntitlement', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param ModifyPolicyGroupRequest $request
+     * @param ModifyEntitlementRequest $request
      *
-     * @return ModifyPolicyGroupResponse
+     * @return ModifyEntitlementResponse
      */
-    public function modifyPolicyGroup($request)
+    public function modifyEntitlement($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyPolicyGroupWithOptions($request, $runtime);
+        return $this->modifyEntitlementWithOptions($request, $runtime);
     }
 
     /**
-     * @param PayOrderCallbackRequest $request
+     * @param DeleteBundlesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteBundlesResponse
+     */
+    public function deleteBundlesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DeleteBundlesResponse::fromMap($this->doRequest('DeleteBundles', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DeleteBundlesRequest $request
+     *
+     * @return DeleteBundlesResponse
+     */
+    public function deleteBundles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBundlesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDesktopsRequest $request
      * @param RuntimeOptions          $runtime
      *
-     * @return PayOrderCallbackResponse
+     * @return DescribeDesktopsResponse
      */
-    public function payOrderCallbackWithOptions($request, $runtime)
+    public function describeDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return PayOrderCallbackResponse::fromMap($this->doRPCRequest('PayOrderCallback', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDesktopsResponse::fromMap($this->doRequest('DescribeDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param PayOrderCallbackRequest $request
+     * @param DescribeDesktopsRequest $request
      *
-     * @return PayOrderCallbackResponse
+     * @return DescribeDesktopsResponse
      */
-    public function payOrderCallback($request)
+    public function describeDesktops($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->payOrderCallbackWithOptions($request, $runtime);
+        return $this->describeDesktopsWithOptions($request, $runtime);
     }
 
     /**
@@ -1332,11 +1181,8 @@ class Ecd extends OpenApiClient
     public function rebootDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return RebootDesktopsResponse::fromMap($this->doRPCRequest('RebootDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RebootDesktopsResponse::fromMap($this->doRequest('RebootDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1352,254 +1198,225 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param RenewDesktopsRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RenewDesktopsResponse
-     */
-    public function renewDesktopsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RenewDesktopsResponse::fromMap($this->doRPCRequest('RenewDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RenewDesktopsRequest $request
-     *
-     * @return RenewDesktopsResponse
-     */
-    public function renewDesktops($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->renewDesktopsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ResetSnapshotRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ResetSnapshotResponse
-     */
-    public function resetSnapshotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ResetSnapshotResponse::fromMap($this->doRPCRequest('ResetSnapshot', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ResetSnapshotRequest $request
-     *
-     * @return ResetSnapshotResponse
-     */
-    public function resetSnapshot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->resetSnapshotWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RunCommandRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return RunCommandResponse
-     */
-    public function runCommandWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RunCommandResponse::fromMap($this->doRPCRequest('RunCommand', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RunCommandRequest $request
-     *
-     * @return RunCommandResponse
-     */
-    public function runCommand($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->runCommandWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StartDesktopsRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return StartDesktopsResponse
-     */
-    public function startDesktopsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartDesktopsResponse::fromMap($this->doRPCRequest('StartDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartDesktopsRequest $request
-     *
-     * @return StartDesktopsResponse
-     */
-    public function startDesktops($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startDesktopsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StopDesktopsRequest $request
+     * @param CreateBundleRequest $request
      * @param RuntimeOptions      $runtime
      *
-     * @return StopDesktopsResponse
+     * @return CreateBundleResponse
      */
-    public function stopDesktopsWithOptions($request, $runtime)
+    public function createBundleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return StopDesktopsResponse::fromMap($this->doRPCRequest('StopDesktops', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBundleResponse::fromMap($this->doRequest('CreateBundle', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param StopDesktopsRequest $request
+     * @param CreateBundleRequest $request
      *
-     * @return StopDesktopsResponse
+     * @return CreateBundleResponse
      */
-    public function stopDesktops($request)
+    public function createBundle($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->stopDesktopsWithOptions($request, $runtime);
+        return $this->createBundleWithOptions($request, $runtime);
     }
 
     /**
-     * @param StopInvocationRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ModifyDesktopsPolicyGroupRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return StopInvocationResponse
+     * @return ModifyDesktopsPolicyGroupResponse
      */
-    public function stopInvocationWithOptions($request, $runtime)
+    public function modifyDesktopsPolicyGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return StopInvocationResponse::fromMap($this->doRPCRequest('StopInvocation', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDesktopsPolicyGroupResponse::fromMap($this->doRequest('ModifyDesktopsPolicyGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param StopInvocationRequest $request
+     * @param ModifyDesktopsPolicyGroupRequest $request
      *
-     * @return StopInvocationResponse
+     * @return ModifyDesktopsPolicyGroupResponse
      */
-    public function stopInvocation($request)
+    public function modifyDesktopsPolicyGroup($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->stopInvocationWithOptions($request, $runtime);
+        return $this->modifyDesktopsPolicyGroupWithOptions($request, $runtime);
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @param CreatePolicyGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreatePolicyGroupResponse
+     */
+    public function createPolicyGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreatePolicyGroupResponse::fromMap($this->doRequest('CreatePolicyGroup', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreatePolicyGroupRequest $request
+     *
+     * @return CreatePolicyGroupResponse
+     */
+    public function createPolicyGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolicyGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateADConnectorDirectoryRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateADConnectorDirectoryResponse
+     */
+    public function createADConnectorDirectoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateADConnectorDirectoryResponse::fromMap($this->doRequest('CreateADConnectorDirectory', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateADConnectorDirectoryRequest $request
+     *
+     * @return CreateADConnectorDirectoryResponse
+     */
+    public function createADConnectorDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createADConnectorDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBundlesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeBundlesResponse
+     */
+    public function describeBundlesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeBundlesResponse::fromMap($this->doRequest('DescribeBundles', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeBundlesRequest $request
+     *
+     * @return DescribeBundlesResponse
+     */
+    public function describeBundles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBundlesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteImagesRequest $request
      * @param RuntimeOptions      $runtime
      *
-     * @return TagResourcesResponse
+     * @return DeleteImagesResponse
      */
-    public function tagResourcesWithOptions($request, $runtime)
+    public function deleteImagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteImagesResponse::fromMap($this->doRequest('DeleteImages', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @param DeleteImagesRequest $request
      *
-     * @return TagResourcesResponse
+     * @return DeleteImagesResponse
      */
-    public function tagResources($request)
+    public function deleteImages($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->tagResourcesWithOptions($request, $runtime);
+        return $this->deleteImagesWithOptions($request, $runtime);
     }
 
     /**
-     * @param UnlockVirtualMFADeviceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return UnlockVirtualMFADeviceResponse
-     */
-    public function unlockVirtualMFADeviceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UnlockVirtualMFADeviceResponse::fromMap($this->doRPCRequest('UnlockVirtualMFADevice', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UnlockVirtualMFADeviceRequest $request
-     *
-     * @return UnlockVirtualMFADeviceResponse
-     */
-    public function unlockVirtualMFADevice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unlockVirtualMFADeviceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UntagResourcesRequest $request
+     * @param CreateDesktopsRequest $request
      * @param RuntimeOptions        $runtime
      *
-     * @return UntagResourcesResponse
+     * @return CreateDesktopsResponse
      */
-    public function untagResourcesWithOptions($request, $runtime)
+    public function createDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2020-09-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDesktopsResponse::fromMap($this->doRequest('CreateDesktops', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @param CreateDesktopsRequest $request
      *
-     * @return UntagResourcesResponse
+     * @return CreateDesktopsResponse
      */
-    public function untagResources($request)
+    public function createDesktops($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->untagResourcesWithOptions($request, $runtime);
+        return $this->createDesktopsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeImagesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeImagesResponse
+     */
+    public function describeImagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DescribeImagesResponse::fromMap($this->doRequest('DescribeImages', 'HTTPS', 'POST', '2020-09-30', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DescribeImagesRequest $request
+     *
+     * @return DescribeImagesResponse
+     */
+    public function describeImages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    {
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
+
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 }

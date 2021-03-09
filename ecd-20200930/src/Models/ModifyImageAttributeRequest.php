@@ -36,6 +36,8 @@ class ModifyImageAttributeRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('imageId', $this->imageId, true);
     }
 
     public function toMap()

@@ -25,16 +25,6 @@ class CreateDesktopsRequest extends Model
     public $bundleId;
 
     /**
-     * @var int
-     */
-    public $systemDiskSize;
-
-    /**
-     * @var int
-     */
-    public $dataDiskSize;
-
-    /**
      * @var string
      */
     public $desktopName;
@@ -58,6 +48,11 @@ class CreateDesktopsRequest extends Model
      * @var string
      */
     public $directoryId;
+
+    /**
+     * @var string[]
+     */
+    public $endUserId;
 
     /**
      * @var string
@@ -85,36 +80,39 @@ class CreateDesktopsRequest extends Model
     public $autoPay;
 
     /**
-     * @var string[]
-     */
-    public $endUserId;
-
-    /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var bool
+     */
+    public $autoRenew;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'groupId'        => 'GroupId',
-        'bundleId'       => 'BundleId',
-        'systemDiskSize' => 'SystemDiskSize',
-        'dataDiskSize'   => 'DataDiskSize',
-        'desktopName'    => 'DesktopName',
-        'userName'       => 'UserName',
-        'vpcId'          => 'VpcId',
-        'amount'         => 'Amount',
-        'directoryId'    => 'DirectoryId',
-        'policyGroupId'  => 'PolicyGroupId',
-        'chargeType'     => 'ChargeType',
-        'period'         => 'Period',
-        'periodUnit'     => 'PeriodUnit',
-        'autoPay'        => 'AutoPay',
-        'endUserId'      => 'EndUserId',
-        'tag'            => 'Tag',
+        'regionId'      => 'RegionId',
+        'groupId'       => 'GroupId',
+        'bundleId'      => 'BundleId',
+        'desktopName'   => 'DesktopName',
+        'userName'      => 'UserName',
+        'vpcId'         => 'VpcId',
+        'amount'        => 'Amount',
+        'directoryId'   => 'DirectoryId',
+        'endUserId'     => 'EndUserId',
+        'policyGroupId' => 'PolicyGroupId',
+        'chargeType'    => 'ChargeType',
+        'period'        => 'Period',
+        'periodUnit'    => 'PeriodUnit',
+        'autoPay'       => 'AutoPay',
+        'tag'           => 'Tag',
+        'autoRenew'     => 'AutoRenew',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('bundleId', $this->bundleId, true);
+        Model::validateRequired('endUserId', $this->endUserId, true);
+        Model::validateRequired('policyGroupId', $this->policyGroupId, true);
     }
 
     public function toMap()
@@ -128,12 +126,6 @@ class CreateDesktopsRequest extends Model
         }
         if (null !== $this->bundleId) {
             $res['BundleId'] = $this->bundleId;
-        }
-        if (null !== $this->systemDiskSize) {
-            $res['SystemDiskSize'] = $this->systemDiskSize;
-        }
-        if (null !== $this->dataDiskSize) {
-            $res['DataDiskSize'] = $this->dataDiskSize;
         }
         if (null !== $this->desktopName) {
             $res['DesktopName'] = $this->desktopName;
@@ -150,6 +142,9 @@ class CreateDesktopsRequest extends Model
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+        if (null !== $this->endUserId) {
+            $res['EndUserId'] = $this->endUserId;
+        }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
@@ -165,9 +160,6 @@ class CreateDesktopsRequest extends Model
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
-        if (null !== $this->endUserId) {
-            $res['EndUserId'] = $this->endUserId;
-        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -176,6 +168,9 @@ class CreateDesktopsRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
 
         return $res;
@@ -198,12 +193,6 @@ class CreateDesktopsRequest extends Model
         if (isset($map['BundleId'])) {
             $model->bundleId = $map['BundleId'];
         }
-        if (isset($map['SystemDiskSize'])) {
-            $model->systemDiskSize = $map['SystemDiskSize'];
-        }
-        if (isset($map['DataDiskSize'])) {
-            $model->dataDiskSize = $map['DataDiskSize'];
-        }
         if (isset($map['DesktopName'])) {
             $model->desktopName = $map['DesktopName'];
         }
@@ -218,6 +207,11 @@ class CreateDesktopsRequest extends Model
         }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['EndUserId'])) {
+            if (!empty($map['EndUserId'])) {
+                $model->endUserId = $map['EndUserId'];
+            }
         }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
@@ -234,11 +228,6 @@ class CreateDesktopsRequest extends Model
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
-        if (isset($map['EndUserId'])) {
-            if (!empty($map['EndUserId'])) {
-                $model->endUserId = $map['EndUserId'];
-            }
-        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -247,6 +236,9 @@ class CreateDesktopsRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
 
         return $model;

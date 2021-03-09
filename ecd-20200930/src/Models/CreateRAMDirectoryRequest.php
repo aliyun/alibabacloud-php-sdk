@@ -48,6 +48,8 @@ class CreateRAMDirectoryRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('vSwitchId', $this->vSwitchId, true);
     }
 
     public function toMap()

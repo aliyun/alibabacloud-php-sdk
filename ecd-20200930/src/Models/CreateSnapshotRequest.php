@@ -42,6 +42,10 @@ class CreateSnapshotRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('desktopId', $this->desktopId, true);
+        Model::validateRequired('snapshotName', $this->snapshotName, true);
+        Model::validateRequired('sourceDiskType', $this->sourceDiskType, true);
     }
 
     public function toMap()

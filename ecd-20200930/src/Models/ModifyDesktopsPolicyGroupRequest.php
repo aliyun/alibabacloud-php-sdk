@@ -30,6 +30,8 @@ class ModifyDesktopsPolicyGroupRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('desktopId', $this->desktopId, true);
     }
 
     public function toMap()

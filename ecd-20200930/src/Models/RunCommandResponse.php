@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class RunCommandResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var RunCommandResponseBody
+     * @var string
      */
-    public $body;
+    public $invokeId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'invokeId'  => 'InvokeId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('invokeId', $this->invokeId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->invokeId) {
+            $res['InvokeId'] = $this->invokeId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class RunCommandResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = RunCommandResponseBody::fromMap($map['body']);
+        if (isset($map['InvokeId'])) {
+            $model->invokeId = $map['InvokeId'];
         }
 
         return $model;

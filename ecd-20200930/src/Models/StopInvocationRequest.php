@@ -30,6 +30,8 @@ class StopInvocationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('invokeId', $this->invokeId, true);
     }
 
     public function toMap()

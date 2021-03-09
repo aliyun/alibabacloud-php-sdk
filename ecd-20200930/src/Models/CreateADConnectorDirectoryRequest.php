@@ -29,6 +29,16 @@ class CreateADConnectorDirectoryRequest extends Model
     public $domainPassword;
 
     /**
+     * @var string[]
+     */
+    public $dnsAddress;
+
+    /**
+     * @var string[]
+     */
+    public $vSwitchId;
+
+    /**
      * @var string
      */
     public $directoryName;
@@ -44,40 +54,42 @@ class CreateADConnectorDirectoryRequest extends Model
     public $desktopAccessType;
 
     /**
+     * @var string[]
+     */
+    public $subDomainDnsAddress;
+
+    /**
      * @var string
      */
     public $subDomainName;
 
     /**
-     * @var string[]
+     * @var bool
      */
-    public $dnsAddress;
-
-    /**
-     * @var string[]
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string[]
-     */
-    public $subDomainDnsAddress;
+    public $mfaEnabled;
     protected $_name = [
         'regionId'            => 'RegionId',
         'domainName'          => 'DomainName',
         'domainUserName'      => 'DomainUserName',
         'domainPassword'      => 'DomainPassword',
+        'dnsAddress'          => 'DnsAddress',
+        'vSwitchId'           => 'VSwitchId',
         'directoryName'       => 'DirectoryName',
         'enableAdminAccess'   => 'EnableAdminAccess',
         'desktopAccessType'   => 'DesktopAccessType',
-        'subDomainName'       => 'SubDomainName',
-        'dnsAddress'          => 'DnsAddress',
-        'vSwitchId'           => 'VSwitchId',
         'subDomainDnsAddress' => 'SubDomainDnsAddress',
+        'subDomainName'       => 'SubDomainName',
+        'mfaEnabled'          => 'MfaEnabled',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('domainName', $this->domainName, true);
+        Model::validateRequired('domainUserName', $this->domainUserName, true);
+        Model::validateRequired('domainPassword', $this->domainPassword, true);
+        Model::validateRequired('dnsAddress', $this->dnsAddress, true);
+        Model::validateRequired('vSwitchId', $this->vSwitchId, true);
     }
 
     public function toMap()
@@ -95,6 +107,12 @@ class CreateADConnectorDirectoryRequest extends Model
         if (null !== $this->domainPassword) {
             $res['DomainPassword'] = $this->domainPassword;
         }
+        if (null !== $this->dnsAddress) {
+            $res['DnsAddress'] = $this->dnsAddress;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
         if (null !== $this->directoryName) {
             $res['DirectoryName'] = $this->directoryName;
         }
@@ -104,17 +122,14 @@ class CreateADConnectorDirectoryRequest extends Model
         if (null !== $this->desktopAccessType) {
             $res['DesktopAccessType'] = $this->desktopAccessType;
         }
+        if (null !== $this->subDomainDnsAddress) {
+            $res['SubDomainDnsAddress'] = $this->subDomainDnsAddress;
+        }
         if (null !== $this->subDomainName) {
             $res['SubDomainName'] = $this->subDomainName;
         }
-        if (null !== $this->dnsAddress) {
-            $res['DnsAddress'] = $this->dnsAddress;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->subDomainDnsAddress) {
-            $res['SubDomainDnsAddress'] = $this->subDomainDnsAddress;
+        if (null !== $this->mfaEnabled) {
+            $res['MfaEnabled'] = $this->mfaEnabled;
         }
 
         return $res;
@@ -140,18 +155,6 @@ class CreateADConnectorDirectoryRequest extends Model
         if (isset($map['DomainPassword'])) {
             $model->domainPassword = $map['DomainPassword'];
         }
-        if (isset($map['DirectoryName'])) {
-            $model->directoryName = $map['DirectoryName'];
-        }
-        if (isset($map['EnableAdminAccess'])) {
-            $model->enableAdminAccess = $map['EnableAdminAccess'];
-        }
-        if (isset($map['DesktopAccessType'])) {
-            $model->desktopAccessType = $map['DesktopAccessType'];
-        }
-        if (isset($map['SubDomainName'])) {
-            $model->subDomainName = $map['SubDomainName'];
-        }
         if (isset($map['DnsAddress'])) {
             if (!empty($map['DnsAddress'])) {
                 $model->dnsAddress = $map['DnsAddress'];
@@ -162,10 +165,25 @@ class CreateADConnectorDirectoryRequest extends Model
                 $model->vSwitchId = $map['VSwitchId'];
             }
         }
+        if (isset($map['DirectoryName'])) {
+            $model->directoryName = $map['DirectoryName'];
+        }
+        if (isset($map['EnableAdminAccess'])) {
+            $model->enableAdminAccess = $map['EnableAdminAccess'];
+        }
+        if (isset($map['DesktopAccessType'])) {
+            $model->desktopAccessType = $map['DesktopAccessType'];
+        }
         if (isset($map['SubDomainDnsAddress'])) {
             if (!empty($map['SubDomainDnsAddress'])) {
                 $model->subDomainDnsAddress = $map['SubDomainDnsAddress'];
             }
+        }
+        if (isset($map['SubDomainName'])) {
+            $model->subDomainName = $map['SubDomainName'];
+        }
+        if (isset($map['MfaEnabled'])) {
+            $model->mfaEnabled = $map['MfaEnabled'];
         }
 
         return $model;

@@ -54,6 +54,11 @@ class CreateBundleRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('imageId', $this->imageId, true);
+        Model::validateRequired('desktopType', $this->desktopType, true);
+        Model::validateRequired('rootDiskSizeGib', $this->rootDiskSizeGib, true);
+        Model::validateRequired('userDiskSizeGib', $this->userDiskSizeGib, true);
     }
 
     public function toMap()

@@ -24,6 +24,8 @@ class DeleteDirectoriesRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('directoryId', $this->directoryId, true);
     }
 
     public function toMap()

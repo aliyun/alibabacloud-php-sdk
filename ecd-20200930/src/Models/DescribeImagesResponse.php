@@ -4,38 +4,55 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeImagesResponse\images;
 use AlibabaCloud\Tea\Model;
 
 class DescribeImagesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $nextToken;
 
     /**
-     * @var DescribeImagesResponseBody
+     * @var string
      */
-    public $body;
+    public $requestId;
+
+    /**
+     * @var images[]
+     */
+    public $images;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'images'    => 'Images',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('nextToken', $this->nextToken, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('images', $this->images, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->images) {
+            $res['Images'] = [];
+            if (null !== $this->images && \is_array($this->images)) {
+                $n = 0;
+                foreach ($this->images as $item) {
+                    $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +66,20 @@ class DescribeImagesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeImagesResponseBody::fromMap($map['body']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Images'])) {
+            if (!empty($map['Images'])) {
+                $model->images = [];
+                $n             = 0;
+                foreach ($map['Images'] as $item) {
+                    $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

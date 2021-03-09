@@ -30,6 +30,9 @@ class ModifyDesktopNameRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('newDesktopName', $this->newDesktopName, true);
+        Model::validateRequired('desktopId', $this->desktopId, true);
     }
 
     public function toMap()

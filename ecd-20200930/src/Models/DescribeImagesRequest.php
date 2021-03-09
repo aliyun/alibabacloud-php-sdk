@@ -34,26 +34,27 @@ class DescribeImagesRequest extends Model
     public $imageStatus;
 
     /**
-     * @var bool
-     */
-    public $gpuCategory;
-
-    /**
      * @var string[]
      */
     public $imageId;
+
+    /**
+     * @var bool
+     */
+    public $gpuCategory;
     protected $_name = [
         'regionId'    => 'RegionId',
         'maxResults'  => 'MaxResults',
         'nextToken'   => 'NextToken',
         'imageType'   => 'ImageType',
         'imageStatus' => 'ImageStatus',
-        'gpuCategory' => 'GpuCategory',
         'imageId'     => 'ImageId',
+        'gpuCategory' => 'GpuCategory',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -74,11 +75,11 @@ class DescribeImagesRequest extends Model
         if (null !== $this->imageStatus) {
             $res['ImageStatus'] = $this->imageStatus;
         }
-        if (null !== $this->gpuCategory) {
-            $res['GpuCategory'] = $this->gpuCategory;
-        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->gpuCategory) {
+            $res['GpuCategory'] = $this->gpuCategory;
         }
 
         return $res;
@@ -107,13 +108,13 @@ class DescribeImagesRequest extends Model
         if (isset($map['ImageStatus'])) {
             $model->imageStatus = $map['ImageStatus'];
         }
-        if (isset($map['GpuCategory'])) {
-            $model->gpuCategory = $map['GpuCategory'];
-        }
         if (isset($map['ImageId'])) {
             if (!empty($map['ImageId'])) {
                 $model->imageId = $map['ImageId'];
             }
+        }
+        if (isset($map['GpuCategory'])) {
+            $model->gpuCategory = $map['GpuCategory'];
         }
 
         return $model;

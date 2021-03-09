@@ -14,6 +14,11 @@ class RenewDesktopsRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $desktopId;
+
+    /**
      * @var int
      */
     public $period;
@@ -27,21 +32,18 @@ class RenewDesktopsRequest extends Model
      * @var bool
      */
     public $autoPay;
-
-    /**
-     * @var string[]
-     */
-    public $desktopId;
     protected $_name = [
         'regionId'   => 'RegionId',
+        'desktopId'  => 'DesktopId',
         'period'     => 'Period',
         'periodUnit' => 'PeriodUnit',
         'autoPay'    => 'AutoPay',
-        'desktopId'  => 'DesktopId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('desktopId', $this->desktopId, true);
     }
 
     public function toMap()
@@ -49,6 +51,9 @@ class RenewDesktopsRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -58,9 +63,6 @@ class RenewDesktopsRequest extends Model
         }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
-        }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
         }
 
         return $res;
@@ -77,6 +79,11 @@ class RenewDesktopsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['DesktopId'])) {
+            if (!empty($map['DesktopId'])) {
+                $model->desktopId = $map['DesktopId'];
+            }
+        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
@@ -85,11 +92,6 @@ class RenewDesktopsRequest extends Model
         }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
-        }
-        if (isset($map['DesktopId'])) {
-            if (!empty($map['DesktopId'])) {
-                $model->desktopId = $map['DesktopId'];
-            }
         }
 
         return $model;

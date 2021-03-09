@@ -72,6 +72,8 @@ class ModifyPolicyGroupRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('policyGroupId', $this->policyGroupId, true);
     }
 
     public function toMap()
