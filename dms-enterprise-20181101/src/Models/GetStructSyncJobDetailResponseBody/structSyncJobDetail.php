@@ -42,6 +42,11 @@ class structSyncJobDetail extends Model
      * @var string
      */
     public $securityRule;
+
+    /**
+     * @var int
+     */
+    public $DBTaskGroupId;
     protected $_name = [
         'jobStatus'     => 'JobStatus',
         'message'       => 'Message',
@@ -50,6 +55,7 @@ class structSyncJobDetail extends Model
         'sqlCount'      => 'SqlCount',
         'executeCount'  => 'ExecuteCount',
         'securityRule'  => 'SecurityRule',
+        'DBTaskGroupId' => 'DBTaskGroupId',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class structSyncJobDetail extends Model
         }
         if (null !== $this->securityRule) {
             $res['SecurityRule'] = $this->securityRule;
+        }
+        if (null !== $this->DBTaskGroupId) {
+            $res['DBTaskGroupId'] = $this->DBTaskGroupId;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class structSyncJobDetail extends Model
         }
         if (isset($map['SecurityRule'])) {
             $model->securityRule = $map['SecurityRule'];
+        }
+        if (isset($map['DBTaskGroupId'])) {
+            $model->DBTaskGroupId = $map['DBTaskGroupId'];
         }
 
         return $model;

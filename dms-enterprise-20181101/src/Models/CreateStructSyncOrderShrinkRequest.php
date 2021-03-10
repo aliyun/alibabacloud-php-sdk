@@ -22,10 +22,22 @@ class CreateStructSyncOrderShrinkRequest extends Model
      * @var string
      */
     public $paramShrink;
+
+    /**
+     * @var string
+     */
+    public $attachmentKey;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
         'comment'               => 'Comment',
         'relatedUserListShrink' => 'RelatedUserList',
         'paramShrink'           => 'Param',
+        'attachmentKey'         => 'AttachmentKey',
+        'tid'                   => 'Tid',
     ];
 
     public function validate()
@@ -43,6 +55,12 @@ class CreateStructSyncOrderShrinkRequest extends Model
         }
         if (null !== $this->paramShrink) {
             $res['Param'] = $this->paramShrink;
+        }
+        if (null !== $this->attachmentKey) {
+            $res['AttachmentKey'] = $this->attachmentKey;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -64,6 +82,12 @@ class CreateStructSyncOrderShrinkRequest extends Model
         }
         if (isset($map['Param'])) {
             $model->paramShrink = $map['Param'];
+        }
+        if (isset($map['AttachmentKey'])) {
+            $model->attachmentKey = $map['AttachmentKey'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

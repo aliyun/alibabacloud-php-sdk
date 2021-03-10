@@ -25,10 +25,16 @@ class dataCorrectOrderDetail extends Model
      * @var databaseList
      */
     public $databaseList;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'preCheckDetail' => 'PreCheckDetail',
         'orderDetail'    => 'OrderDetail',
         'databaseList'   => 'DatabaseList',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class dataCorrectOrderDetail extends Model
         }
         if (null !== $this->databaseList) {
             $res['DatabaseList'] = null !== $this->databaseList ? $this->databaseList->toMap() : null;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -67,6 +76,9 @@ class dataCorrectOrderDetail extends Model
         }
         if (isset($map['DatabaseList'])) {
             $model->databaseList = databaseList::fromMap($map['DatabaseList']);
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

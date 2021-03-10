@@ -32,12 +32,18 @@ class CreateOrderShrinkRequest extends Model
      * @var string
      */
     public $pluginType;
+
+    /**
+     * @var string
+     */
+    public $attachmentKey;
     protected $_name = [
         'tid'               => 'Tid',
         'comment'           => 'Comment',
         'pluginParamShrink' => 'PluginParam',
         'relatedUserList'   => 'RelatedUserList',
         'pluginType'        => 'PluginType',
+        'attachmentKey'     => 'AttachmentKey',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class CreateOrderShrinkRequest extends Model
         }
         if (null !== $this->pluginType) {
             $res['PluginType'] = $this->pluginType;
+        }
+        if (null !== $this->attachmentKey) {
+            $res['AttachmentKey'] = $this->attachmentKey;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class CreateOrderShrinkRequest extends Model
         }
         if (isset($map['PluginType'])) {
             $model->pluginType = $map['PluginType'];
+        }
+        if (isset($map['AttachmentKey'])) {
+            $model->attachmentKey = $map['AttachmentKey'];
         }
 
         return $model;

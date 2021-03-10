@@ -23,10 +23,22 @@ class CreateStructSyncOrderRequest extends Model
      * @var param
      */
     public $param;
+
+    /**
+     * @var string
+     */
+    public $attachmentKey;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
         'comment'         => 'Comment',
         'relatedUserList' => 'RelatedUserList',
         'param'           => 'Param',
+        'attachmentKey'   => 'AttachmentKey',
+        'tid'             => 'Tid',
     ];
 
     public function validate()
@@ -44,6 +56,12 @@ class CreateStructSyncOrderRequest extends Model
         }
         if (null !== $this->param) {
             $res['Param'] = null !== $this->param ? $this->param->toMap() : null;
+        }
+        if (null !== $this->attachmentKey) {
+            $res['AttachmentKey'] = $this->attachmentKey;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -67,6 +85,12 @@ class CreateStructSyncOrderRequest extends Model
         }
         if (isset($map['Param'])) {
             $model->param = param::fromMap($map['Param']);
+        }
+        if (isset($map['AttachmentKey'])) {
+            $model->attachmentKey = $map['AttachmentKey'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

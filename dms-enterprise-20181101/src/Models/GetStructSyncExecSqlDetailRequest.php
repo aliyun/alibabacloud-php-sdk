@@ -22,10 +22,16 @@ class GetStructSyncExecSqlDetailRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
         'orderId'    => 'OrderId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'tid'        => 'Tid',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class GetStructSyncExecSqlDetailRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class GetStructSyncExecSqlDetailRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

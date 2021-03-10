@@ -27,11 +27,17 @@ class CreateUploadFileJobRequest extends Model
      * @var string
      */
     public $uploadURL;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
         'fileSource' => 'FileSource',
         'fileName'   => 'FileName',
         'uploadType' => 'UploadType',
         'uploadURL'  => 'UploadURL',
+        'tid'        => 'Tid',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class CreateUploadFileJobRequest extends Model
         }
         if (null !== $this->uploadURL) {
             $res['UploadURL'] = $this->uploadURL;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class CreateUploadFileJobRequest extends Model
         }
         if (isset($map['UploadURL'])) {
             $model->uploadURL = $map['UploadURL'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

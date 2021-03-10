@@ -27,11 +27,17 @@ class CreateUploadOSSFileJobShrinkRequest extends Model
      * @var string
      */
     public $uploadTargetShrink;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
         'fileSource'         => 'FileSource',
         'fileName'           => 'FileName',
         'uploadType'         => 'UploadType',
         'uploadTargetShrink' => 'UploadTarget',
+        'tid'                => 'Tid',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class CreateUploadOSSFileJobShrinkRequest extends Model
         }
         if (null !== $this->uploadTargetShrink) {
             $res['UploadTarget'] = $this->uploadTargetShrink;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class CreateUploadOSSFileJobShrinkRequest extends Model
         }
         if (isset($map['UploadTarget'])) {
             $model->uploadTargetShrink = $map['UploadTarget'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

@@ -10,6 +10,18 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCorrectOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderShrinkRequest;
@@ -52,6 +64,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailReq
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectSQLFileRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectSQLFileResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectTaskDetailRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectTaskDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCronClearTaskDetailListRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCronClearTaskDetailListResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportDownloadURLRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportDownloadURLResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportOrderDetailRequest;
@@ -82,6 +98,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncOrderDetailRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserActiveTenantRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserActiveTenantResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserResponse;
@@ -119,6 +138,7 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserPermissionsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserPermissionsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUsersResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserTenantsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserTenantsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowNodesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowNodesResponse;
@@ -409,6 +429,42 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDataCorrectSQLFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFreeLockCorrectOrderRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateFreeLockCorrectOrderResponse
+     */
+    public function createFreeLockCorrectOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateFreeLockCorrectOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->param)) {
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateFreeLockCorrectOrderResponse::fromMap($this->doRPCRequest('CreateFreeLockCorrectOrder', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateFreeLockCorrectOrderRequest $request
+     *
+     * @return CreateFreeLockCorrectOrderResponse
+     */
+    public function createFreeLockCorrectOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFreeLockCorrectOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -1066,25 +1122,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetUserActiveTenantRequest $request
+     * @param RuntimeOptions             $runtime
      *
      * @return GetUserActiveTenantResponse
      */
-    public function getUserActiveTenantWithOptions($runtime)
+    public function getUserActiveTenantWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
         return GetUserActiveTenantResponse::fromMap($this->doRPCRequest('GetUserActiveTenant', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
+     * @param GetUserActiveTenantRequest $request
+     *
      * @return GetUserActiveTenantResponse
      */
-    public function getUserActiveTenant()
+    public function getUserActiveTenant($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getUserActiveTenantWithOptions($runtime);
+        return $this->getUserActiveTenantWithOptions($request, $runtime);
     }
 
     /**
@@ -1228,6 +1290,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetTableTopologyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetTableTopologyResponse
+     */
+    public function getTableTopologyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetTableTopologyResponse::fromMap($this->doRPCRequest('GetTableTopology', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetTableTopologyRequest $request
+     *
+     * @return GetTableTopologyResponse
+     */
+    public function getTableTopology($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableTopologyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDataExportDownloadURLRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1253,6 +1343,42 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDataExportDownloadURLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDataCronClearOrderRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateDataCronClearOrderResponse
+     */
+    public function createDataCronClearOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataCronClearOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->param)) {
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDataCronClearOrderResponse::fromMap($this->doRPCRequest('CreateDataCronClearOrder', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataCronClearOrderRequest $request
+     *
+     * @return CreateDataCronClearOrderResponse
+     */
+    public function createDataCronClearOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataCronClearOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -1452,6 +1578,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetDataCronClearTaskDetailListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetDataCronClearTaskDetailListResponse
+     */
+    public function getDataCronClearTaskDetailListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDataCronClearTaskDetailListResponse::fromMap($this->doRPCRequest('GetDataCronClearTaskDetailList', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDataCronClearTaskDetailListRequest $request
+     *
+     * @return GetDataCronClearTaskDetailListResponse
+     */
+    public function getDataCronClearTaskDetailList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataCronClearTaskDetailListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetStructSyncJobAnalyzeResultRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -1508,6 +1662,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetDataCorrectTaskDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataCorrectTaskDetailResponse
+     */
+    public function getDataCorrectTaskDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDataCorrectTaskDetailResponse::fromMap($this->doRPCRequest('GetDataCorrectTaskDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDataCorrectTaskDetailRequest $request
+     *
+     * @return GetDataCorrectTaskDetailResponse
+     */
+    public function getDataCorrectTaskDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataCorrectTaskDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateUploadFileJobRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1561,6 +1743,42 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listLogicDatabasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDataImportOrderRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDataImportOrderResponse
+     */
+    public function createDataImportOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataImportOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->param)) {
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDataImportOrderResponse::fromMap($this->doRPCRequest('CreateDataImportOrder', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataImportOrderRequest $request
+     *
+     * @return CreateDataImportOrderResponse
+     */
+    public function createDataImportOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataImportOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -1676,25 +1894,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param ListUserTenantsRequest $request
+     * @param RuntimeOptions         $runtime
      *
      * @return ListUserTenantsResponse
      */
-    public function listUserTenantsWithOptions($runtime)
+    public function listUserTenantsWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
         return ListUserTenantsResponse::fromMap($this->doRPCRequest('ListUserTenants', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
+     * @param ListUserTenantsRequest $request
+     *
      * @return ListUserTenantsResponse
      */
-    public function listUserTenants()
+    public function listUserTenants($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listUserTenantsWithOptions($runtime);
+        return $this->listUserTenantsWithOptions($request, $runtime);
     }
 
     /**
@@ -1723,6 +1947,42 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setOwnersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDataCorrectOrderRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDataCorrectOrderResponse
+     */
+    public function createDataCorrectOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataCorrectOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->param)) {
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDataCorrectOrderResponse::fromMap($this->doRPCRequest('CreateDataCorrectOrder', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataCorrectOrderRequest $request
+     *
+     * @return CreateDataCorrectOrderResponse
+     */
+    public function createDataCorrectOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataCorrectOrderWithOptions($request, $runtime);
     }
 
     /**

@@ -28,11 +28,17 @@ class CreateUploadOSSFileJobRequest extends Model
      * @var uploadTarget
      */
     public $uploadTarget;
+
+    /**
+     * @var int
+     */
+    public $tid;
     protected $_name = [
         'fileSource'   => 'FileSource',
         'fileName'     => 'FileName',
         'uploadType'   => 'UploadType',
         'uploadTarget' => 'UploadTarget',
+        'tid'          => 'Tid',
     ];
 
     public function validate()
@@ -53,6 +59,9 @@ class CreateUploadOSSFileJobRequest extends Model
         }
         if (null !== $this->uploadTarget) {
             $res['UploadTarget'] = null !== $this->uploadTarget ? $this->uploadTarget->toMap() : null;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -77,6 +86,9 @@ class CreateUploadOSSFileJobRequest extends Model
         }
         if (isset($map['UploadTarget'])) {
             $model->uploadTarget = uploadTarget::fromMap($map['UploadTarget']);
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;
