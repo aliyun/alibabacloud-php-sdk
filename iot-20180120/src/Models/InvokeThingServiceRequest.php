@@ -11,16 +11,6 @@ class InvokeThingServiceRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -47,42 +37,24 @@ class InvokeThingServiceRequest extends Model
      * @var string
      */
     public $iotId;
-
-    /**
-     * @var string
-     */
-    public $realTenantId;
-
-    /**
-     * @var string
-     */
-    public $realTripartiteKey;
     protected $_name = [
-        'apiProduct'        => 'ApiProduct',
-        'apiRevision'       => 'ApiRevision',
-        'iotInstanceId'     => 'IotInstanceId',
-        'productKey'        => 'ProductKey',
-        'deviceName'        => 'DeviceName',
-        'identifier'        => 'Identifier',
-        'args'              => 'Args',
-        'iotId'             => 'IotId',
-        'realTenantId'      => 'RealTenantId',
-        'realTripartiteKey' => 'RealTripartiteKey',
+        'iotInstanceId' => 'IotInstanceId',
+        'productKey'    => 'ProductKey',
+        'deviceName'    => 'DeviceName',
+        'identifier'    => 'Identifier',
+        'args'          => 'Args',
+        'iotId'         => 'IotId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('identifier', $this->identifier, true);
+        Model::validateRequired('args', $this->args, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -101,12 +73,6 @@ class InvokeThingServiceRequest extends Model
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
-        if (null !== $this->realTenantId) {
-            $res['RealTenantId'] = $this->realTenantId;
-        }
-        if (null !== $this->realTripartiteKey) {
-            $res['RealTripartiteKey'] = $this->realTripartiteKey;
-        }
 
         return $res;
     }
@@ -119,12 +85,6 @@ class InvokeThingServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -142,12 +102,6 @@ class InvokeThingServiceRequest extends Model
         }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
-        }
-        if (isset($map['RealTenantId'])) {
-            $model->realTenantId = $map['RealTenantId'];
-        }
-        if (isset($map['RealTripartiteKey'])) {
-            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

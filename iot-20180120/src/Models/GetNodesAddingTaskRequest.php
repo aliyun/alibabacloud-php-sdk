@@ -11,16 +11,6 @@ class GetNodesAddingTaskRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -28,25 +18,18 @@ class GetNodesAddingTaskRequest extends Model
      */
     public $taskId;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
         'iotInstanceId' => 'IotInstanceId',
         'taskId'        => 'TaskId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('taskId', $this->taskId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -65,12 +48,6 @@ class GetNodesAddingTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

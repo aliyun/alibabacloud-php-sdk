@@ -11,16 +11,6 @@ class DeleteOTAModuleRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -32,33 +22,21 @@ class DeleteOTAModuleRequest extends Model
      * @var string
      */
     public $moduleName;
-
-    /**
-     * @var string
-     */
-    public $authConfig;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
         'moduleName'    => 'ModuleName',
-        'authConfig'    => 'AuthConfig',
     ];
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('moduleName', $this->moduleName, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -67,9 +45,6 @@ class DeleteOTAModuleRequest extends Model
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
-        }
-        if (null !== $this->authConfig) {
-            $res['AuthConfig'] = $this->authConfig;
         }
 
         return $res;
@@ -83,12 +58,6 @@ class DeleteOTAModuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -97,9 +66,6 @@ class DeleteOTAModuleRequest extends Model
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
-        }
-        if (isset($map['AuthConfig'])) {
-            $model->authConfig = $map['AuthConfig'];
         }
 
         return $model;

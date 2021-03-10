@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceDistributeJobRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
      * @var string[]
      */
     public $deviceName;
@@ -45,11 +35,6 @@ class CreateDeviceDistributeJobRequest extends Model
     public $targetAliyunId;
 
     /**
-     * @var string
-     */
-    public $captcha;
-
-    /**
      * @var targetInstanceConfig[]
      */
     public $targetInstanceConfig;
@@ -59,31 +44,27 @@ class CreateDeviceDistributeJobRequest extends Model
      */
     public $strategy;
     protected $_name = [
-        'apiProduct'           => 'ApiProduct',
-        'apiRevision'          => 'ApiRevision',
         'deviceName'           => 'DeviceName',
         'sourceInstanceId'     => 'SourceInstanceId',
         'productKey'           => 'ProductKey',
         'targetUid'            => 'TargetUid',
         'targetAliyunId'       => 'TargetAliyunId',
-        'captcha'              => 'Captcha',
         'targetInstanceConfig' => 'TargetInstanceConfig',
         'strategy'             => 'Strategy',
     ];
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('sourceInstanceId', $this->sourceInstanceId, true);
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('targetInstanceConfig', $this->targetInstanceConfig, true);
+        Model::validateRequired('strategy', $this->strategy, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
@@ -98,9 +79,6 @@ class CreateDeviceDistributeJobRequest extends Model
         }
         if (null !== $this->targetAliyunId) {
             $res['TargetAliyunId'] = $this->targetAliyunId;
-        }
-        if (null !== $this->captcha) {
-            $res['Captcha'] = $this->captcha;
         }
         if (null !== $this->targetInstanceConfig) {
             $res['TargetInstanceConfig'] = [];
@@ -126,12 +104,6 @@ class CreateDeviceDistributeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['DeviceName'])) {
             if (!empty($map['DeviceName'])) {
                 $model->deviceName = $map['DeviceName'];
@@ -148,9 +120,6 @@ class CreateDeviceDistributeJobRequest extends Model
         }
         if (isset($map['TargetAliyunId'])) {
             $model->targetAliyunId = $map['TargetAliyunId'];
-        }
-        if (isset($map['Captcha'])) {
-            $model->captcha = $map['Captcha'];
         }
         if (isset($map['TargetInstanceConfig'])) {
             if (!empty($map['TargetInstanceConfig'])) {

@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class InvokeThingsServiceRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
      * @var string[]
      */
     public $deviceName;
@@ -43,8 +33,6 @@ class InvokeThingsServiceRequest extends Model
      */
     public $args;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
         'deviceName'    => 'DeviceName',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
@@ -54,17 +42,15 @@ class InvokeThingsServiceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('identifier', $this->identifier, true);
+        Model::validateRequired('args', $this->args, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
@@ -92,12 +78,6 @@ class InvokeThingsServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['DeviceName'])) {
             if (!empty($map['DeviceName'])) {
                 $model->deviceName = $map['DeviceName'];

@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListDistributedProductRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -48,8 +38,6 @@ class ListDistributedProductRequest extends Model
      */
     public $currentPage;
     protected $_name = [
-        'apiProduct'       => 'ApiProduct',
-        'apiRevision'      => 'ApiRevision',
         'pageSize'         => 'PageSize',
         'sourceInstanceId' => 'SourceInstanceId',
         'productKey'       => 'ProductKey',
@@ -60,17 +48,13 @@ class ListDistributedProductRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('currentPage', $this->currentPage, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -101,12 +85,6 @@ class ListDistributedProductRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

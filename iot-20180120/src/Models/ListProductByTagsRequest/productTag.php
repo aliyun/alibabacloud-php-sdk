@@ -24,6 +24,7 @@ class productTag extends Model
 
     public function validate()
     {
+        Model::validateRequired('tagKey', $this->tagKey, true);
     }
 
     public function toMap()

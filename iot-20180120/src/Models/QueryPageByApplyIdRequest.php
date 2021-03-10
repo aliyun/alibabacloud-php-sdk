@@ -11,16 +11,6 @@ class QueryPageByApplyIdRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -37,40 +27,21 @@ class QueryPageByApplyIdRequest extends Model
      * @var int
      */
     public $currentPage;
-
-    /**
-     * @var string
-     */
-    public $realTenantId;
-
-    /**
-     * @var string
-     */
-    public $realTripartiteKey;
     protected $_name = [
-        'apiProduct'        => 'ApiProduct',
-        'apiRevision'       => 'ApiRevision',
-        'iotInstanceId'     => 'IotInstanceId',
-        'pageSize'          => 'PageSize',
-        'applyId'           => 'ApplyId',
-        'currentPage'       => 'CurrentPage',
-        'realTenantId'      => 'RealTenantId',
-        'realTripartiteKey' => 'RealTripartiteKey',
+        'iotInstanceId' => 'IotInstanceId',
+        'pageSize'      => 'PageSize',
+        'applyId'       => 'ApplyId',
+        'currentPage'   => 'CurrentPage',
     ];
 
     public function validate()
     {
+        Model::validateRequired('applyId', $this->applyId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -82,12 +53,6 @@ class QueryPageByApplyIdRequest extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->realTenantId) {
-            $res['RealTenantId'] = $this->realTenantId;
-        }
-        if (null !== $this->realTripartiteKey) {
-            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -101,12 +66,6 @@ class QueryPageByApplyIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -118,12 +77,6 @@ class QueryPageByApplyIdRequest extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['RealTenantId'])) {
-            $model->realTenantId = $map['RealTenantId'];
-        }
-        if (isset($map['RealTripartiteKey'])) {
-            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

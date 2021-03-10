@@ -11,16 +11,6 @@ class CreateProductDistributeJobRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $sourceInstanceId;
 
     /**
@@ -41,36 +31,25 @@ class CreateProductDistributeJobRequest extends Model
     /**
      * @var string
      */
-    public $captcha;
-
-    /**
-     * @var string
-     */
     public $targetAliyunId;
     protected $_name = [
-        'apiProduct'       => 'ApiProduct',
-        'apiRevision'      => 'ApiRevision',
         'sourceInstanceId' => 'SourceInstanceId',
         'productKey'       => 'ProductKey',
         'targetInstanceId' => 'TargetInstanceId',
         'targetUid'        => 'TargetUid',
-        'captcha'          => 'Captcha',
         'targetAliyunId'   => 'TargetAliyunId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('sourceInstanceId', $this->sourceInstanceId, true);
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('targetInstanceId', $this->targetInstanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->sourceInstanceId) {
             $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
@@ -82,9 +61,6 @@ class CreateProductDistributeJobRequest extends Model
         }
         if (null !== $this->targetUid) {
             $res['TargetUid'] = $this->targetUid;
-        }
-        if (null !== $this->captcha) {
-            $res['Captcha'] = $this->captcha;
         }
         if (null !== $this->targetAliyunId) {
             $res['TargetAliyunId'] = $this->targetAliyunId;
@@ -101,12 +77,6 @@ class CreateProductDistributeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['SourceInstanceId'])) {
             $model->sourceInstanceId = $map['SourceInstanceId'];
         }
@@ -118,9 +88,6 @@ class CreateProductDistributeJobRequest extends Model
         }
         if (isset($map['TargetUid'])) {
             $model->targetUid = $map['TargetUid'];
-        }
-        if (isset($map['Captcha'])) {
-            $model->captcha = $map['Captcha'];
         }
         if (isset($map['TargetAliyunId'])) {
             $model->targetAliyunId = $map['TargetAliyunId'];

@@ -9,33 +9,63 @@ use AlibabaCloud\Tea\Model;
 class CreateRuleResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var CreateRuleResponseBody
+     * @var bool
      */
-    public $body;
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $ruleId;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'    => 'RequestId',
+        'success'      => 'Success',
+        'code'         => 'Code',
+        'errorMessage' => 'ErrorMessage',
+        'ruleId'       => 'RuleId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('success', $this->success, true);
+        Model::validateRequired('code', $this->code, true);
+        Model::validateRequired('errorMessage', $this->errorMessage, true);
+        Model::validateRequired('ruleId', $this->ruleId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -49,11 +79,20 @@ class CreateRuleResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = CreateRuleResponseBody::fromMap($map['body']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

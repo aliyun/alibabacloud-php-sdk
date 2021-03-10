@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BatchQueryDeviceDetailRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
      * @var string[]
      */
     public $deviceName;
@@ -32,39 +22,21 @@ class BatchQueryDeviceDetailRequest extends Model
      * @var string
      */
     public $iotInstanceId;
-
-    /**
-     * @var string
-     */
-    public $realTenantId;
-
-    /**
-     * @var string
-     */
-    public $realTripartiteKey;
     protected $_name = [
-        'apiProduct'        => 'ApiProduct',
-        'apiRevision'       => 'ApiRevision',
-        'deviceName'        => 'DeviceName',
-        'productKey'        => 'ProductKey',
-        'iotInstanceId'     => 'IotInstanceId',
-        'realTenantId'      => 'RealTenantId',
-        'realTripartiteKey' => 'RealTripartiteKey',
+        'deviceName'    => 'DeviceName',
+        'productKey'    => 'ProductKey',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
@@ -73,12 +45,6 @@ class BatchQueryDeviceDetailRequest extends Model
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->realTenantId) {
-            $res['RealTenantId'] = $this->realTenantId;
-        }
-        if (null !== $this->realTripartiteKey) {
-            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -92,12 +58,6 @@ class BatchQueryDeviceDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['DeviceName'])) {
             if (!empty($map['DeviceName'])) {
                 $model->deviceName = $map['DeviceName'];
@@ -108,12 +68,6 @@ class BatchQueryDeviceDetailRequest extends Model
         }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['RealTenantId'])) {
-            $model->realTenantId = $map['RealTenantId'];
-        }
-        if (isset($map['RealTripartiteKey'])) {
-            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

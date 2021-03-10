@@ -13,16 +13,6 @@ class CreateDataAPIServiceRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $displayName;
 
     /**
@@ -60,8 +50,6 @@ class CreateDataAPIServiceRequest extends Model
      */
     public $iotInstanceId;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
         'displayName'   => 'DisplayName',
         'originSql'     => 'OriginSql',
         'requestParam'  => 'RequestParam',
@@ -74,17 +62,15 @@ class CreateDataAPIServiceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('displayName', $this->displayName, true);
+        Model::validateRequired('originSql', $this->originSql, true);
+        Model::validateRequired('templateSql', $this->templateSql, true);
+        Model::validateRequired('apiPath', $this->apiPath, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -133,12 +119,6 @@ class CreateDataAPIServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }

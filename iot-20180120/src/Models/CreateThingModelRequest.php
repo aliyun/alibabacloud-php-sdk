@@ -11,16 +11,6 @@ class CreateThingModelRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -42,41 +32,22 @@ class CreateThingModelRequest extends Model
      * @var string
      */
     public $functionBlockName;
-
-    /**
-     * @var string
-     */
-    public $realTenantId;
-
-    /**
-     * @var string
-     */
-    public $realTripartiteKey;
     protected $_name = [
-        'apiProduct'        => 'ApiProduct',
-        'apiRevision'       => 'ApiRevision',
         'iotInstanceId'     => 'IotInstanceId',
         'productKey'        => 'ProductKey',
         'thingModelJson'    => 'ThingModelJson',
         'functionBlockId'   => 'FunctionBlockId',
         'functionBlockName' => 'FunctionBlockName',
-        'realTenantId'      => 'RealTenantId',
-        'realTripartiteKey' => 'RealTripartiteKey',
     ];
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -92,12 +63,6 @@ class CreateThingModelRequest extends Model
         if (null !== $this->functionBlockName) {
             $res['FunctionBlockName'] = $this->functionBlockName;
         }
-        if (null !== $this->realTenantId) {
-            $res['RealTenantId'] = $this->realTenantId;
-        }
-        if (null !== $this->realTripartiteKey) {
-            $res['RealTripartiteKey'] = $this->realTripartiteKey;
-        }
 
         return $res;
     }
@@ -110,12 +75,6 @@ class CreateThingModelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -130,12 +89,6 @@ class CreateThingModelRequest extends Model
         }
         if (isset($map['FunctionBlockName'])) {
             $model->functionBlockName = $map['FunctionBlockName'];
-        }
-        if (isset($map['RealTenantId'])) {
-            $model->realTenantId = $map['RealTenantId'];
-        }
-        if (isset($map['RealTripartiteKey'])) {
-            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

@@ -11,16 +11,6 @@ class CreateRulengDistributeJobRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $productKey;
 
     /**
@@ -33,8 +23,6 @@ class CreateRulengDistributeJobRequest extends Model
      */
     public $targetInstanceId;
     protected $_name = [
-        'apiProduct'       => 'ApiProduct',
-        'apiRevision'      => 'ApiRevision',
         'productKey'       => 'ProductKey',
         'sourceInstanceId' => 'SourceInstanceId',
         'targetInstanceId' => 'TargetInstanceId',
@@ -42,17 +30,14 @@ class CreateRulengDistributeJobRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('sourceInstanceId', $this->sourceInstanceId, true);
+        Model::validateRequired('targetInstanceId', $this->targetInstanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -74,12 +59,6 @@ class CreateRulengDistributeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }

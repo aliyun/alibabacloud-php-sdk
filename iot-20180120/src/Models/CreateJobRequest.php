@@ -11,16 +11,6 @@ class CreateJobRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -39,7 +29,7 @@ class CreateJobRequest extends Model
     public $type;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $jobFile;
 
@@ -49,22 +39,20 @@ class CreateJobRequest extends Model
     public $jobName;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $timeoutConfig;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $rolloutConfig;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $targetConfig;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
         'iotInstanceId' => 'IotInstanceId',
         'description'   => 'Description',
         'jobDocument'   => 'JobDocument',
@@ -78,17 +66,15 @@ class CreateJobRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('jobDocument', $this->jobDocument, true);
+        Model::validateRequired('type', $this->type, true);
+        Model::validateRequired('jobName', $this->jobName, true);
+        Model::validateRequired('targetConfig', $this->targetConfig, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -128,12 +114,6 @@ class CreateJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

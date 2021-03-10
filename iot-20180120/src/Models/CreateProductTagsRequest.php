@@ -12,16 +12,6 @@ class CreateProductTagsRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -33,39 +23,21 @@ class CreateProductTagsRequest extends Model
      * @var productTag[]
      */
     public $productTag;
-
-    /**
-     * @var string
-     */
-    public $realTenantId;
-
-    /**
-     * @var string
-     */
-    public $realTripartiteKey;
     protected $_name = [
-        'apiProduct'        => 'ApiProduct',
-        'apiRevision'       => 'ApiRevision',
-        'iotInstanceId'     => 'IotInstanceId',
-        'productKey'        => 'ProductKey',
-        'productTag'        => 'ProductTag',
-        'realTenantId'      => 'RealTenantId',
-        'realTripartiteKey' => 'RealTripartiteKey',
+        'iotInstanceId' => 'IotInstanceId',
+        'productKey'    => 'ProductKey',
+        'productTag'    => 'ProductTag',
     ];
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('productTag', $this->productTag, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -81,12 +53,6 @@ class CreateProductTagsRequest extends Model
                 }
             }
         }
-        if (null !== $this->realTenantId) {
-            $res['RealTenantId'] = $this->realTenantId;
-        }
-        if (null !== $this->realTripartiteKey) {
-            $res['RealTripartiteKey'] = $this->realTripartiteKey;
-        }
 
         return $res;
     }
@@ -99,12 +65,6 @@ class CreateProductTagsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -119,12 +79,6 @@ class CreateProductTagsRequest extends Model
                     $model->productTag[$n++] = null !== $item ? productTag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RealTenantId'])) {
-            $model->realTenantId = $map['RealTenantId'];
-        }
-        if (isset($map['RealTripartiteKey'])) {
-            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

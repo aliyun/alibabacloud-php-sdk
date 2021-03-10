@@ -11,16 +11,6 @@ class ListRuleRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -36,35 +26,23 @@ class ListRuleRequest extends Model
     /**
      * @var string
      */
-    public $searchName;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
     protected $_name = [
-        'apiProduct'      => 'ApiProduct',
-        'apiRevision'     => 'ApiRevision',
         'iotInstanceId'   => 'IotInstanceId',
         'currentPage'     => 'CurrentPage',
         'pageSize'        => 'PageSize',
-        'searchName'      => 'SearchName',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -73,9 +51,6 @@ class ListRuleRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->searchName) {
-            $res['SearchName'] = $this->searchName;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -92,12 +67,6 @@ class ListRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -106,9 +75,6 @@ class ListRuleRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['SearchName'])) {
-            $model->searchName = $map['SearchName'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

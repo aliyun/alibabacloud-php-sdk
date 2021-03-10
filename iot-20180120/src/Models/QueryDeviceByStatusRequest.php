@@ -11,16 +11,6 @@ class QueryDeviceByStatusRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -46,34 +36,14 @@ class QueryDeviceByStatusRequest extends Model
     /**
      * @var string
      */
-    public $bizTenantId;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $realTenantId;
-
-    /**
-     * @var string
-     */
-    public $realTripartiteKey;
     protected $_name = [
-        'apiProduct'        => 'ApiProduct',
-        'apiRevision'       => 'ApiRevision',
-        'iotInstanceId'     => 'IotInstanceId',
-        'productKey'        => 'ProductKey',
-        'status'            => 'Status',
-        'currentPage'       => 'CurrentPage',
-        'pageSize'          => 'PageSize',
-        'bizTenantId'       => 'BizTenantId',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'realTenantId'      => 'RealTenantId',
-        'realTripartiteKey' => 'RealTripartiteKey',
+        'iotInstanceId'   => 'IotInstanceId',
+        'productKey'      => 'ProductKey',
+        'status'          => 'Status',
+        'currentPage'     => 'CurrentPage',
+        'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -83,12 +53,6 @@ class QueryDeviceByStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -104,17 +68,8 @@ class QueryDeviceByStatusRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->bizTenantId) {
-            $res['BizTenantId'] = $this->bizTenantId;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->realTenantId) {
-            $res['RealTenantId'] = $this->realTenantId;
-        }
-        if (null !== $this->realTripartiteKey) {
-            $res['RealTripartiteKey'] = $this->realTripartiteKey;
         }
 
         return $res;
@@ -128,12 +83,6 @@ class QueryDeviceByStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -149,17 +98,8 @@ class QueryDeviceByStatusRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['BizTenantId'])) {
-            $model->bizTenantId = $map['BizTenantId'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['RealTenantId'])) {
-            $model->realTenantId = $map['RealTenantId'];
-        }
-        if (isset($map['RealTripartiteKey'])) {
-            $model->realTripartiteKey = $map['RealTripartiteKey'];
         }
 
         return $model;

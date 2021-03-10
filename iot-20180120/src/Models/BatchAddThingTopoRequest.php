@@ -12,16 +12,6 @@ class BatchAddThingTopoRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -37,35 +27,24 @@ class BatchAddThingTopoRequest extends Model
     /**
      * @var string
      */
-    public $ext;
-
-    /**
-     * @var string
-     */
     public $gwDeviceName;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
         'iotInstanceId' => 'IotInstanceId',
         'topoAddItem'   => 'TopoAddItem',
         'gwProductKey'  => 'GwProductKey',
-        'ext'           => 'Ext',
         'gwDeviceName'  => 'GwDeviceName',
     ];
 
     public function validate()
     {
+        Model::validateRequired('topoAddItem', $this->topoAddItem, true);
+        Model::validateRequired('gwProductKey', $this->gwProductKey, true);
+        Model::validateRequired('gwDeviceName', $this->gwDeviceName, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -80,9 +59,6 @@ class BatchAddThingTopoRequest extends Model
         }
         if (null !== $this->gwProductKey) {
             $res['GwProductKey'] = $this->gwProductKey;
-        }
-        if (null !== $this->ext) {
-            $res['Ext'] = $this->ext;
         }
         if (null !== $this->gwDeviceName) {
             $res['GwDeviceName'] = $this->gwDeviceName;
@@ -99,12 +75,6 @@ class BatchAddThingTopoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
@@ -119,9 +89,6 @@ class BatchAddThingTopoRequest extends Model
         }
         if (isset($map['GwProductKey'])) {
             $model->gwProductKey = $map['GwProductKey'];
-        }
-        if (isset($map['Ext'])) {
-            $model->ext = $map['Ext'];
         }
         if (isset($map['GwDeviceName'])) {
             $model->gwDeviceName = $map['GwDeviceName'];

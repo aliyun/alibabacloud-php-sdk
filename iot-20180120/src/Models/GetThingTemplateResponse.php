@@ -9,33 +9,63 @@ use AlibabaCloud\Tea\Model;
 class GetThingTemplateResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var GetThingTemplateResponseBody
+     * @var bool
      */
-    public $body;
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
+    public $thingModelJSON;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
+        'code'           => 'Code',
+        'errorMessage'   => 'ErrorMessage',
+        'thingModelJSON' => 'ThingModelJSON',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('success', $this->success, true);
+        Model::validateRequired('code', $this->code, true);
+        Model::validateRequired('errorMessage', $this->errorMessage, true);
+        Model::validateRequired('thingModelJSON', $this->thingModelJSON, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->thingModelJSON) {
+            $res['ThingModelJSON'] = $this->thingModelJSON;
         }
 
         return $res;
@@ -49,11 +79,20 @@ class GetThingTemplateResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = GetThingTemplateResponseBody::fromMap($map['body']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['ThingModelJSON'])) {
+            $model->thingModelJSON = $map['ThingModelJSON'];
         }
 
         return $model;

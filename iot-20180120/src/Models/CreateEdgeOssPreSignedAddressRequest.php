@@ -11,16 +11,6 @@ class CreateEdgeOssPreSignedAddressRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $resourceId;
 
     /**
@@ -48,8 +38,6 @@ class CreateEdgeOssPreSignedAddressRequest extends Model
      */
     public $resourceVersion;
     protected $_name = [
-        'apiProduct'      => 'ApiProduct',
-        'apiRevision'     => 'ApiRevision',
         'resourceId'      => 'ResourceId',
         'fileName'        => 'FileName',
         'iotInstanceId'   => 'IotInstanceId',
@@ -60,17 +48,15 @@ class CreateEdgeOssPreSignedAddressRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('resourceId', $this->resourceId, true);
+        Model::validateRequired('fileName', $this->fileName, true);
+        Model::validateRequired('type', $this->type, true);
+        Model::validateRequired('resourceVersion', $this->resourceVersion, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -101,12 +87,6 @@ class CreateEdgeOssPreSignedAddressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }

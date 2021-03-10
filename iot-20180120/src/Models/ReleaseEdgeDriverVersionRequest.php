@@ -11,16 +11,6 @@ class ReleaseEdgeDriverVersionRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -33,8 +23,6 @@ class ReleaseEdgeDriverVersionRequest extends Model
      */
     public $driverVersion;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
         'iotInstanceId' => 'IotInstanceId',
         'driverId'      => 'DriverId',
         'driverVersion' => 'DriverVersion',
@@ -42,17 +30,13 @@ class ReleaseEdgeDriverVersionRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('driverId', $this->driverId, true);
+        Model::validateRequired('driverVersion', $this->driverVersion, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -74,12 +58,6 @@ class ReleaseEdgeDriverVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

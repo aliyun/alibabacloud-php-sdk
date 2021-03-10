@@ -24,6 +24,8 @@ class device extends Model
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('deviceName', $this->deviceName, true);
     }
 
     public function toMap()

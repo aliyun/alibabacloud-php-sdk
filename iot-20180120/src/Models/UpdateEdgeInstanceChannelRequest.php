@@ -12,16 +12,6 @@ class UpdateEdgeInstanceChannelRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -49,8 +39,6 @@ class UpdateEdgeInstanceChannelRequest extends Model
      */
     public $configs;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
         'iotInstanceId' => 'IotInstanceId',
         'instanceId'    => 'InstanceId',
         'driverId'      => 'DriverId',
@@ -61,17 +49,16 @@ class UpdateEdgeInstanceChannelRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('driverId', $this->driverId, true);
+        Model::validateRequired('channelId', $this->channelId, true);
+        Model::validateRequired('channelName', $this->channelName, true);
+        Model::validateRequired('configs', $this->configs, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -108,12 +95,6 @@ class UpdateEdgeInstanceChannelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

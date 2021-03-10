@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SpeechByCombinationRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
      * @var string[]
      */
     public $combinationList;
@@ -43,8 +33,6 @@ class SpeechByCombinationRequest extends Model
      */
     public $iotInstanceId;
     protected $_name = [
-        'apiProduct'      => 'ApiProduct',
-        'apiRevision'     => 'ApiRevision',
         'combinationList' => 'CombinationList',
         'iotId'           => 'IotId',
         'productKey'      => 'ProductKey',
@@ -54,17 +42,12 @@ class SpeechByCombinationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('combinationList', $this->combinationList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->combinationList) {
             $res['CombinationList'] = $this->combinationList;
         }
@@ -92,12 +75,6 @@ class SpeechByCombinationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['CombinationList'])) {
             if (!empty($map['CombinationList'])) {
                 $model->combinationList = $map['CombinationList'];

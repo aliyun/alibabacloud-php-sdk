@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateSubscribeRelationRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
      * @var bool
      */
     public $deviceStatusChangeFlag;
@@ -93,8 +83,6 @@ class UpdateSubscribeRelationRequest extends Model
      */
     public $otaJobFlag;
     protected $_name = [
-        'apiProduct'              => 'ApiProduct',
-        'apiRevision'             => 'ApiRevision',
         'deviceStatusChangeFlag'  => 'DeviceStatusChangeFlag',
         'iotInstanceId'           => 'IotInstanceId',
         'thingHistoryFlag'        => 'ThingHistoryFlag',
@@ -114,17 +102,13 @@ class UpdateSubscribeRelationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->deviceStatusChangeFlag) {
             $res['DeviceStatusChangeFlag'] = $this->deviceStatusChangeFlag;
         }
@@ -182,12 +166,6 @@ class UpdateSubscribeRelationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['DeviceStatusChangeFlag'])) {
             $model->deviceStatusChangeFlag = $map['DeviceStatusChangeFlag'];
         }

@@ -11,16 +11,6 @@ class ListDeviceDistributeJobRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $targetUid;
 
     /**
@@ -38,8 +28,6 @@ class ListDeviceDistributeJobRequest extends Model
      */
     public $status;
     protected $_name = [
-        'apiProduct'  => 'ApiProduct',
-        'apiRevision' => 'ApiRevision',
         'targetUid'   => 'TargetUid',
         'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
@@ -48,17 +36,13 @@ class ListDeviceDistributeJobRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->targetUid) {
             $res['TargetUid'] = $this->targetUid;
         }
@@ -83,12 +67,6 @@ class ListDeviceDistributeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['TargetUid'])) {
             $model->targetUid = $map['TargetUid'];
         }

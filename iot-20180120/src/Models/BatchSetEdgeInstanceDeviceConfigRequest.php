@@ -12,16 +12,6 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -34,8 +24,6 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
      */
     public $deviceConfigs;
     protected $_name = [
-        'apiProduct'    => 'ApiProduct',
-        'apiRevision'   => 'ApiRevision',
         'iotInstanceId' => 'IotInstanceId',
         'instanceId'    => 'InstanceId',
         'deviceConfigs' => 'DeviceConfigs',
@@ -43,17 +31,13 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('deviceConfigs', $this->deviceConfigs, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -81,12 +65,6 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

@@ -11,16 +11,6 @@ class CreateConsumerGroupSubscribeRelationRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $consumerGroupId;
 
     /**
@@ -33,8 +23,6 @@ class CreateConsumerGroupSubscribeRelationRequest extends Model
      */
     public $productKey;
     protected $_name = [
-        'apiProduct'      => 'ApiProduct',
-        'apiRevision'     => 'ApiRevision',
         'consumerGroupId' => 'ConsumerGroupId',
         'iotInstanceId'   => 'IotInstanceId',
         'productKey'      => 'ProductKey',
@@ -42,17 +30,13 @@ class CreateConsumerGroupSubscribeRelationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('consumerGroupId', $this->consumerGroupId, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->consumerGroupId) {
             $res['ConsumerGroupId'] = $this->consumerGroupId;
         }
@@ -74,12 +58,6 @@ class CreateConsumerGroupSubscribeRelationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['ConsumerGroupId'])) {
             $model->consumerGroupId = $map['ConsumerGroupId'];
         }

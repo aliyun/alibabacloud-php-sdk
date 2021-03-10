@@ -11,16 +11,6 @@ class CreateSubscribeRelationRequest extends Model
     /**
      * @var string
      */
-    public $apiProduct;
-
-    /**
-     * @var string
-     */
-    public $apiRevision;
-
-    /**
-     * @var string
-     */
     public $iotInstanceId;
 
     /**
@@ -93,8 +83,6 @@ class CreateSubscribeRelationRequest extends Model
      */
     public $otaJobFlag;
     protected $_name = [
-        'apiProduct'              => 'ApiProduct',
-        'apiRevision'             => 'ApiRevision',
         'iotInstanceId'           => 'IotInstanceId',
         'productKey'              => 'ProductKey',
         'deviceDataFlag'          => 'DeviceDataFlag',
@@ -114,17 +102,12 @@ class CreateSubscribeRelationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiProduct) {
-            $res['ApiProduct'] = $this->apiProduct;
-        }
-        if (null !== $this->apiRevision) {
-            $res['ApiRevision'] = $this->apiRevision;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -182,12 +165,6 @@ class CreateSubscribeRelationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiProduct'])) {
-            $model->apiProduct = $map['ApiProduct'];
-        }
-        if (isset($map['ApiRevision'])) {
-            $model->apiRevision = $map['ApiRevision'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
