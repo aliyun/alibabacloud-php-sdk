@@ -22,10 +22,16 @@ class elements extends Model
      * @var int[]
      */
     public $box;
+
+    /**
+     * @var float
+     */
+    public $targetRate;
     protected $_name = [
-        'type'  => 'Type',
-        'score' => 'Score',
-        'box'   => 'Box',
+        'type'       => 'Type',
+        'score'      => 'Score',
+        'box'        => 'Box',
+        'targetRate' => 'TargetRate',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class elements extends Model
         }
         if (null !== $this->box) {
             $res['Box'] = $this->box;
+        }
+        if (null !== $this->targetRate) {
+            $res['TargetRate'] = $this->targetRate;
         }
 
         return $res;
@@ -66,6 +75,9 @@ class elements extends Model
             if (!empty($map['Box'])) {
                 $model->box = $map['Box'];
             }
+        }
+        if (isset($map['TargetRate'])) {
+            $model->targetRate = $map['TargetRate'];
         }
 
         return $model;

@@ -92,136 +92,6 @@ class Objectdet extends OpenApiClient
     }
 
     /**
-     * @param DetectTransparentImageRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DetectTransparentImageResponse
-     */
-    public function detectTransparentImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DetectTransparentImageResponse::fromMap($this->doRPCRequest('DetectTransparentImage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DetectTransparentImageRequest $request
-     *
-     * @return DetectTransparentImageResponse
-     */
-    public function detectTransparentImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectTransparentImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetectTransparentImageAdvanceRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DetectTransparentImageResponse
-     */
-    public function detectTransparentImageAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'objectdet',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $detectTransparentImageReq = new DetectTransparentImageRequest([]);
-        OpenApiUtilClient::convert($request, $detectTransparentImageReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectTransparentImageReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->detectTransparentImageWithOptions($detectTransparentImageReq, $runtime);
-    }
-
-    /**
-     * @param DetectVehicleICongestionRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DetectVehicleICongestionResponse
-     */
-    public function detectVehicleICongestionWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new DetectVehicleICongestionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->roadRegions)) {
-            $request->roadRegionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roadRegions, 'RoadRegions', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->preRegionIntersectFeatures)) {
-            $request->preRegionIntersectFeaturesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->preRegionIntersectFeatures, 'PreRegionIntersectFeatures', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DetectVehicleICongestionResponse::fromMap($this->doRPCRequest('DetectVehicleICongestion', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DetectVehicleICongestionRequest $request
-     *
-     * @return DetectVehicleICongestionResponse
-     */
-    public function detectVehicleICongestion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectVehicleICongestionWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ClassifyVehicleInsuranceRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -344,128 +214,6 @@ class Objectdet extends OpenApiClient
     }
 
     /**
-     * @param GetVehicleRepairPlanRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetVehicleRepairPlanResponse
-     */
-    public function getVehicleRepairPlanWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetVehicleRepairPlanResponse::fromMap($this->doRPCRequest('GetVehicleRepairPlan', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetVehicleRepairPlanRequest $request
-     *
-     * @return GetVehicleRepairPlanResponse
-     */
-    public function getVehicleRepairPlan($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getVehicleRepairPlanWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetectWhiteBaseImageRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DetectWhiteBaseImageResponse
-     */
-    public function detectWhiteBaseImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DetectWhiteBaseImageResponse::fromMap($this->doRPCRequest('DetectWhiteBaseImage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DetectWhiteBaseImageRequest $request
-     *
-     * @return DetectWhiteBaseImageResponse
-     */
-    public function detectWhiteBaseImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectWhiteBaseImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetectWhiteBaseImageAdvanceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DetectWhiteBaseImageResponse
-     */
-    public function detectWhiteBaseImageAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'objectdet',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $detectWhiteBaseImageReq = new DetectWhiteBaseImageRequest([]);
-        OpenApiUtilClient::convert($request, $detectWhiteBaseImageReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectWhiteBaseImageReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->detectWhiteBaseImageWithOptions($detectWhiteBaseImageReq, $runtime);
-    }
-
-    /**
      * @param DetectMainBodyRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -557,6 +305,194 @@ class Objectdet extends OpenApiClient
         $detectMainBodyReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
         return $this->detectMainBodyWithOptions($detectMainBodyReq, $runtime);
+    }
+
+    /**
+     * @param DetectObjectRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DetectObjectResponse
+     */
+    public function detectObjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetectObjectResponse::fromMap($this->doRPCRequest('DetectObject', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetectObjectRequest $request
+     *
+     * @return DetectObjectResponse
+     */
+    public function detectObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectObjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectObjectAdvanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DetectObjectResponse
+     */
+    public function detectObjectAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'objectdet',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $detectObjectReq = new DetectObjectRequest([]);
+        OpenApiUtilClient::convert($request, $detectObjectReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $detectObjectReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->detectObjectWithOptions($detectObjectReq, $runtime);
+    }
+
+    /**
+     * @param DetectTransparentImageRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DetectTransparentImageResponse
+     */
+    public function detectTransparentImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetectTransparentImageResponse::fromMap($this->doRPCRequest('DetectTransparentImage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetectTransparentImageRequest $request
+     *
+     * @return DetectTransparentImageResponse
+     */
+    public function detectTransparentImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectTransparentImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectTransparentImageAdvanceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DetectTransparentImageResponse
+     */
+    public function detectTransparentImageAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'objectdet',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $detectTransparentImageReq = new DetectTransparentImageRequest([]);
+        OpenApiUtilClient::convert($request, $detectTransparentImageReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $detectTransparentImageReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->detectTransparentImageWithOptions($detectTransparentImageReq, $runtime);
     }
 
     /**
@@ -654,6 +590,42 @@ class Objectdet extends OpenApiClient
     }
 
     /**
+     * @param DetectVehicleICongestionRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DetectVehicleICongestionResponse
+     */
+    public function detectVehicleICongestionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DetectVehicleICongestionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roadRegions)) {
+            $request->roadRegionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roadRegions, 'RoadRegions', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->preRegionIntersectFeatures)) {
+            $request->preRegionIntersectFeaturesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->preRegionIntersectFeatures, 'PreRegionIntersectFeatures', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetectVehicleICongestionResponse::fromMap($this->doRPCRequest('DetectVehicleICongestion', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetectVehicleICongestionRequest $request
+     *
+     * @return DetectVehicleICongestionResponse
+     */
+    public function detectVehicleICongestion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectVehicleICongestionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DetectVehicleIllegalParkingRequest $tmpReq
      * @param RuntimeOptions                     $runtime
      *
@@ -684,6 +656,156 @@ class Objectdet extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detectVehicleIllegalParkingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectWhiteBaseImageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DetectWhiteBaseImageResponse
+     */
+    public function detectWhiteBaseImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetectWhiteBaseImageResponse::fromMap($this->doRPCRequest('DetectWhiteBaseImage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetectWhiteBaseImageRequest $request
+     *
+     * @return DetectWhiteBaseImageResponse
+     */
+    public function detectWhiteBaseImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectWhiteBaseImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectWhiteBaseImageAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DetectWhiteBaseImageResponse
+     */
+    public function detectWhiteBaseImageAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'objectdet',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $detectWhiteBaseImageReq = new DetectWhiteBaseImageRequest([]);
+        OpenApiUtilClient::convert($request, $detectWhiteBaseImageReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $detectWhiteBaseImageReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->detectWhiteBaseImageWithOptions($detectWhiteBaseImageReq, $runtime);
+    }
+
+    /**
+     * @param GenerateVehicleRepairPlanRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GenerateVehicleRepairPlanResponse
+     */
+    public function generateVehicleRepairPlanWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenerateVehicleRepairPlanResponse::fromMap($this->doRPCRequest('GenerateVehicleRepairPlan', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenerateVehicleRepairPlanRequest $request
+     *
+     * @return GenerateVehicleRepairPlanResponse
+     */
+    public function generateVehicleRepairPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateVehicleRepairPlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetVehicleRepairPlanRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetVehicleRepairPlanResponse
+     */
+    public function getVehicleRepairPlanWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetVehicleRepairPlanResponse::fromMap($this->doRPCRequest('GetVehicleRepairPlan', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetVehicleRepairPlanRequest $request
+     *
+     * @return GetVehicleRepairPlanResponse
+     */
+    public function getVehicleRepairPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVehicleRepairPlanWithOptions($request, $runtime);
     }
 
     /**
@@ -966,127 +1088,5 @@ class Objectdet extends OpenApiClient
         $recognizeVehiclePartsReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
         return $this->recognizeVehiclePartsWithOptions($recognizeVehiclePartsReq, $runtime);
-    }
-
-    /**
-     * @param GenerateVehicleRepairPlanRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GenerateVehicleRepairPlanResponse
-     */
-    public function generateVehicleRepairPlanWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GenerateVehicleRepairPlanResponse::fromMap($this->doRPCRequest('GenerateVehicleRepairPlan', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GenerateVehicleRepairPlanRequest $request
-     *
-     * @return GenerateVehicleRepairPlanResponse
-     */
-    public function generateVehicleRepairPlan($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateVehicleRepairPlanWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetectObjectRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DetectObjectResponse
-     */
-    public function detectObjectWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DetectObjectResponse::fromMap($this->doRPCRequest('DetectObject', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DetectObjectRequest $request
-     *
-     * @return DetectObjectResponse
-     */
-    public function detectObject($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectObjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetectObjectAdvanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DetectObjectResponse
-     */
-    public function detectObjectAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'objectdet',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $detectObjectReq = new DetectObjectRequest([]);
-        OpenApiUtilClient::convert($request, $detectObjectReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectObjectReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->detectObjectWithOptions($detectObjectReq, $runtime);
     }
 }
