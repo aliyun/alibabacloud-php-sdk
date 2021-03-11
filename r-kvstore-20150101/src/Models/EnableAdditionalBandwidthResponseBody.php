@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponseBody\availableZones;
 use AlibabaCloud\Tea\Model;
 
-class DescribeAvailableResourceResponseBody extends Model
+class EnableAdditionalBandwidthResponseBody extends Model
 {
     /**
      * @var string
@@ -15,12 +14,12 @@ class DescribeAvailableResourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @var availableZones
+     * @var string
      */
-    public $availableZones;
+    public $orderId;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'availableZones' => 'AvailableZones',
+        'requestId' => 'RequestId',
+        'orderId'   => 'OrderId',
     ];
 
     public function validate()
@@ -33,8 +32,8 @@ class DescribeAvailableResourceResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->availableZones) {
-            $res['AvailableZones'] = null !== $this->availableZones ? $this->availableZones->toMap() : null;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -43,7 +42,7 @@ class DescribeAvailableResourceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeAvailableResourceResponseBody
+     * @return EnableAdditionalBandwidthResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -51,8 +50,8 @@ class DescribeAvailableResourceResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['AvailableZones'])) {
-            $model->availableZones = availableZones::fromMap($map['AvailableZones']);
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         return $model;

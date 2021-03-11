@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateInstanceRequest extends Model
+class CreateTairInstanceRequest extends Model
 {
     /**
      * @var string
@@ -41,22 +41,12 @@ class CreateInstanceRequest extends Model
     /**
      * @var string
      */
-    public $token;
-
-    /**
-     * @var string
-     */
     public $instanceName;
 
     /**
      * @var string
      */
     public $password;
-
-    /**
-     * @var int
-     */
-    public $capacity;
 
     /**
      * @var string
@@ -71,22 +61,7 @@ class CreateInstanceRequest extends Model
     /**
      * @var string
      */
-    public $config;
-
-    /**
-     * @var string
-     */
     public $chargeType;
-
-    /**
-     * @var string
-     */
-    public $nodeType;
-
-    /**
-     * @var string
-     */
-    public $networkType;
 
     /**
      * @var string
@@ -99,7 +74,7 @@ class CreateInstanceRequest extends Model
     public $vSwitchId;
 
     /**
-     * @var string
+     * @var int
      */
     public $period;
 
@@ -126,16 +101,6 @@ class CreateInstanceRequest extends Model
     /**
      * @var string
      */
-    public $instanceType;
-
-    /**
-     * @var string
-     */
-    public $engineVersion;
-
-    /**
-     * @var string
-     */
     public $privateIpAddress;
 
     /**
@@ -154,19 +119,34 @@ class CreateInstanceRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @var string
+     * @var int
      */
     public $resourceGroupId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $restoreTime;
+    public $autoPay;
 
     /**
      * @var string
      */
-    public $dedicatedHostGroupId;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $storageType;
+
+    /**
+     * @var int
+     */
+    public $storage;
+
+    /**
+     * @var string
+     */
+    public $shardType;
 
     /**
      * @var int
@@ -176,17 +156,12 @@ class CreateInstanceRequest extends Model
     /**
      * @var string
      */
-    public $globalInstanceId;
-
-    /**
-     * @var bool
-     */
-    public $globalInstance;
+    public $engineVersion;
 
     /**
      * @var string
      */
-    public $secondaryZoneId;
+    public $instanceType;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -194,16 +169,11 @@ class CreateInstanceRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'token'                => 'Token',
         'instanceName'         => 'InstanceName',
         'password'             => 'Password',
-        'capacity'             => 'Capacity',
         'instanceClass'        => 'InstanceClass',
         'zoneId'               => 'ZoneId',
-        'config'               => 'Config',
         'chargeType'           => 'ChargeType',
-        'nodeType'             => 'NodeType',
-        'networkType'          => 'NetworkType',
         'vpcId'                => 'VpcId',
         'vSwitchId'            => 'VSwitchId',
         'period'               => 'Period',
@@ -211,19 +181,19 @@ class CreateInstanceRequest extends Model
         'couponNo'             => 'CouponNo',
         'srcDBInstanceId'      => 'SrcDBInstanceId',
         'backupId'             => 'BackupId',
-        'instanceType'         => 'InstanceType',
-        'engineVersion'        => 'EngineVersion',
         'privateIpAddress'     => 'PrivateIpAddress',
         'autoUseCoupon'        => 'AutoUseCoupon',
         'autoRenew'            => 'AutoRenew',
         'autoRenewPeriod'      => 'AutoRenewPeriod',
         'resourceGroupId'      => 'ResourceGroupId',
-        'restoreTime'          => 'RestoreTime',
-        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
+        'autoPay'              => 'AutoPay',
+        'clientToken'          => 'ClientToken',
+        'storageType'          => 'StorageType',
+        'storage'              => 'Storage',
+        'shardType'            => 'ShardType',
         'shardCount'           => 'ShardCount',
-        'globalInstanceId'     => 'GlobalInstanceId',
-        'globalInstance'       => 'GlobalInstance',
-        'secondaryZoneId'      => 'SecondaryZoneId',
+        'engineVersion'        => 'EngineVersion',
+        'instanceType'         => 'InstanceType',
     ];
 
     public function validate()
@@ -251,17 +221,11 @@ class CreateInstanceRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
-        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
-        }
-        if (null !== $this->capacity) {
-            $res['Capacity'] = $this->capacity;
         }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
@@ -269,17 +233,8 @@ class CreateInstanceRequest extends Model
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
-        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
-        }
-        if (null !== $this->nodeType) {
-            $res['NodeType'] = $this->nodeType;
-        }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -302,12 +257,6 @@ class CreateInstanceRequest extends Model
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
-        if (null !== $this->engineVersion) {
-            $res['EngineVersion'] = $this->engineVersion;
-        }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
@@ -323,23 +272,29 @@ class CreateInstanceRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->restoreTime) {
-            $res['RestoreTime'] = $this->restoreTime;
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
         }
-        if (null !== $this->dedicatedHostGroupId) {
-            $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
+        }
+        if (null !== $this->storage) {
+            $res['Storage'] = $this->storage;
+        }
+        if (null !== $this->shardType) {
+            $res['ShardType'] = $this->shardType;
         }
         if (null !== $this->shardCount) {
             $res['ShardCount'] = $this->shardCount;
         }
-        if (null !== $this->globalInstanceId) {
-            $res['GlobalInstanceId'] = $this->globalInstanceId;
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
-        if (null !== $this->globalInstance) {
-            $res['GlobalInstance'] = $this->globalInstance;
-        }
-        if (null !== $this->secondaryZoneId) {
-            $res['SecondaryZoneId'] = $this->secondaryZoneId;
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         return $res;
@@ -348,7 +303,7 @@ class CreateInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateInstanceRequest
+     * @return CreateTairInstanceRequest
      */
     public static function fromMap($map = [])
     {
@@ -371,17 +326,11 @@ class CreateInstanceRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
-        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
-        }
-        if (isset($map['Capacity'])) {
-            $model->capacity = $map['Capacity'];
         }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
@@ -389,17 +338,8 @@ class CreateInstanceRequest extends Model
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
-        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
-        }
-        if (isset($map['NodeType'])) {
-            $model->nodeType = $map['NodeType'];
-        }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
@@ -422,12 +362,6 @@ class CreateInstanceRequest extends Model
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
-        if (isset($map['EngineVersion'])) {
-            $model->engineVersion = $map['EngineVersion'];
-        }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
@@ -443,23 +377,29 @@ class CreateInstanceRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['RestoreTime'])) {
-            $model->restoreTime = $map['RestoreTime'];
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
         }
-        if (isset($map['DedicatedHostGroupId'])) {
-            $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
+        }
+        if (isset($map['Storage'])) {
+            $model->storage = $map['Storage'];
+        }
+        if (isset($map['ShardType'])) {
+            $model->shardType = $map['ShardType'];
         }
         if (isset($map['ShardCount'])) {
             $model->shardCount = $map['ShardCount'];
         }
-        if (isset($map['GlobalInstanceId'])) {
-            $model->globalInstanceId = $map['GlobalInstanceId'];
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
-        if (isset($map['GlobalInstance'])) {
-            $model->globalInstance = $map['GlobalInstance'];
-        }
-        if (isset($map['SecondaryZoneId'])) {
-            $model->secondaryZoneId = $map['SecondaryZoneId'];
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         return $model;

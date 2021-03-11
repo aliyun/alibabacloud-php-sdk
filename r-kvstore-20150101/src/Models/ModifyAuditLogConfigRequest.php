@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeAvailableResourceRequest extends Model
+class ModifyAuditLogConfigRequest extends Model
 {
     /**
      * @var string
@@ -36,56 +36,50 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @var string
      */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $instanceChargeType;
-
-    /**
-     * @var string
-     */
-    public $orderType;
-
-    /**
-     * @var string
-     */
-    public $level;
-
-    /**
-     * @var string
-     */
-    public $engine;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
      * @var string
      */
-    public $acceptLanguage;
+    public $auditLogSwitchSource;
+
+    /**
+     * @var string
+     */
+    public $serviceType;
+
+    /**
+     * @var int
+     */
+    public $retention;
+
+    /**
+     * @var string
+     */
+    public $proxyAudit;
+
+    /**
+     * @var bool
+     */
+    public $dbAudit;
+
+    /**
+     * @var string
+     */
+    public $auditCommand;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
-        'zoneId'               => 'ZoneId',
-        'instanceChargeType'   => 'InstanceChargeType',
-        'orderType'            => 'OrderType',
-        'level'                => 'Level',
-        'engine'               => 'Engine',
-        'resourceGroupId'      => 'ResourceGroupId',
         'instanceId'           => 'InstanceId',
-        'acceptLanguage'       => 'AcceptLanguage',
+        'auditLogSwitchSource' => 'AuditLogSwitchSource',
+        'serviceType'          => 'ServiceType',
+        'retention'            => 'Retention',
+        'proxyAudit'           => 'ProxyAudit',
+        'dbAudit'              => 'DbAudit',
+        'auditCommand'         => 'AuditCommand',
     ];
 
     public function validate()
@@ -110,29 +104,26 @@ class DescribeAvailableResourceRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
-        if (null !== $this->orderType) {
-            $res['OrderType'] = $this->orderType;
-        }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
-        }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->acceptLanguage) {
-            $res['AcceptLanguage'] = $this->acceptLanguage;
+        if (null !== $this->auditLogSwitchSource) {
+            $res['AuditLogSwitchSource'] = $this->auditLogSwitchSource;
+        }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
+        }
+        if (null !== $this->retention) {
+            $res['Retention'] = $this->retention;
+        }
+        if (null !== $this->proxyAudit) {
+            $res['ProxyAudit'] = $this->proxyAudit;
+        }
+        if (null !== $this->dbAudit) {
+            $res['DbAudit'] = $this->dbAudit;
+        }
+        if (null !== $this->auditCommand) {
+            $res['AuditCommand'] = $this->auditCommand;
         }
 
         return $res;
@@ -141,7 +132,7 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeAvailableResourceRequest
+     * @return ModifyAuditLogConfigRequest
      */
     public static function fromMap($map = [])
     {
@@ -161,29 +152,26 @@ class DescribeAvailableResourceRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
-        if (isset($map['OrderType'])) {
-            $model->orderType = $map['OrderType'];
-        }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
-        }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['AcceptLanguage'])) {
-            $model->acceptLanguage = $map['AcceptLanguage'];
+        if (isset($map['AuditLogSwitchSource'])) {
+            $model->auditLogSwitchSource = $map['AuditLogSwitchSource'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
+        }
+        if (isset($map['Retention'])) {
+            $model->retention = $map['Retention'];
+        }
+        if (isset($map['ProxyAudit'])) {
+            $model->proxyAudit = $map['ProxyAudit'];
+        }
+        if (isset($map['DbAudit'])) {
+            $model->dbAudit = $map['DbAudit'];
+        }
+        if (isset($map['AuditCommand'])) {
+            $model->auditCommand = $map['AuditCommand'];
         }
 
         return $model;

@@ -37,6 +37,16 @@ class ModifyIntranetAttributeRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $bandWidth;
+
+    /**
+     * @var string
+     */
+    public $nodeId;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -44,6 +54,8 @@ class ModifyIntranetAttributeRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
+        'bandWidth'            => 'BandWidth',
+        'nodeId'               => 'NodeId',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class ModifyIntranetAttributeRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->bandWidth) {
+            $res['BandWidth'] = $this->bandWidth;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
 
         return $res;
@@ -100,6 +118,12 @@ class ModifyIntranetAttributeRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['BandWidth'])) {
+            $model->bandWidth = $map['BandWidth'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
 
         return $model;

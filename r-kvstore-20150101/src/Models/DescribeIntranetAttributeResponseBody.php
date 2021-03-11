@@ -16,6 +16,11 @@ class DescribeIntranetAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $bandwidthExpireTime;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -23,9 +28,10 @@ class DescribeIntranetAttributeResponseBody extends Model
      */
     public $expireTime;
     protected $_name = [
-        'intranetBandwidth' => 'IntranetBandwidth',
-        'requestId'         => 'RequestId',
-        'expireTime'        => 'ExpireTime',
+        'intranetBandwidth'   => 'IntranetBandwidth',
+        'bandwidthExpireTime' => 'BandwidthExpireTime',
+        'requestId'           => 'RequestId',
+        'expireTime'          => 'ExpireTime',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class DescribeIntranetAttributeResponseBody extends Model
         $res = [];
         if (null !== $this->intranetBandwidth) {
             $res['IntranetBandwidth'] = $this->intranetBandwidth;
+        }
+        if (null !== $this->bandwidthExpireTime) {
+            $res['BandwidthExpireTime'] = $this->bandwidthExpireTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -58,6 +67,9 @@ class DescribeIntranetAttributeResponseBody extends Model
         $model = new self();
         if (isset($map['IntranetBandwidth'])) {
             $model->intranetBandwidth = $map['IntranetBandwidth'];
+        }
+        if (isset($map['BandwidthExpireTime'])) {
+            $model->bandwidthExpireTime = $map['BandwidthExpireTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

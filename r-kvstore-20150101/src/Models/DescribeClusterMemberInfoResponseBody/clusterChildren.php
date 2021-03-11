@@ -29,6 +29,11 @@ class clusterChildren extends Model
     public $bandWidth;
 
     /**
+     * @var int
+     */
+    public $currentBandWidth;
+
+    /**
      * @var string
      */
     public $classCode;
@@ -82,6 +87,7 @@ class clusterChildren extends Model
         'userId'              => 'UserId',
         'diskSizeMB'          => 'DiskSizeMB',
         'bandWidth'           => 'BandWidth',
+        'currentBandWidth'    => 'CurrentBandWidth',
         'classCode'           => 'ClassCode',
         'bizType'             => 'BizType',
         'service'             => 'Service',
@@ -112,6 +118,9 @@ class clusterChildren extends Model
         }
         if (null !== $this->bandWidth) {
             $res['BandWidth'] = $this->bandWidth;
+        }
+        if (null !== $this->currentBandWidth) {
+            $res['CurrentBandWidth'] = $this->currentBandWidth;
         }
         if (null !== $this->classCode) {
             $res['ClassCode'] = $this->classCode;
@@ -166,6 +175,9 @@ class clusterChildren extends Model
         }
         if (isset($map['BandWidth'])) {
             $model->bandWidth = $map['BandWidth'];
+        }
+        if (isset($map['CurrentBandWidth'])) {
+            $model->currentBandWidth = $map['CurrentBandWidth'];
         }
         if (isset($map['ClassCode'])) {
             $model->classCode = $map['ClassCode'];

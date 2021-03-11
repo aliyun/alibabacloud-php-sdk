@@ -37,6 +37,11 @@ class DescribeInstancesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $instanceIds;
 
     /**
@@ -139,6 +144,7 @@ class DescribeInstancesRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
         'instanceIds'          => 'InstanceIds',
         'instanceStatus'       => 'InstanceStatus',
         'chargeType'           => 'ChargeType',
@@ -182,6 +188,9 @@ class DescribeInstancesRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
@@ -275,6 +284,9 @@ class DescribeInstancesRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];

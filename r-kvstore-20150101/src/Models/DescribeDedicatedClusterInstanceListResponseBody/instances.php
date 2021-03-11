@@ -65,6 +65,16 @@ class instances extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $bandWidth;
+
+    /**
+     * @var int
+     */
+    public $currentBandWidth;
+
+    /**
      * @var string
      */
     public $engineVersion;
@@ -125,6 +135,8 @@ class instances extends Model
         'storageType'       => 'StorageType',
         'instanceNodeList'  => 'InstanceNodeList',
         'instanceId'        => 'InstanceId',
+        'bandWidth'         => 'BandWidth',
+        'currentBandWidth'  => 'CurrentBandWidth',
         'engineVersion'     => 'EngineVersion',
         'regionId'          => 'RegionId',
         'instanceName'      => 'InstanceName',
@@ -182,6 +194,12 @@ class instances extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->bandWidth) {
+            $res['BandWidth'] = $this->bandWidth;
+        }
+        if (null !== $this->currentBandWidth) {
+            $res['CurrentBandWidth'] = $this->currentBandWidth;
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
@@ -263,6 +281,12 @@ class instances extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['BandWidth'])) {
+            $model->bandWidth = $map['BandWidth'];
+        }
+        if (isset($map['CurrentBandWidth'])) {
+            $model->currentBandWidth = $map['CurrentBandWidth'];
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];

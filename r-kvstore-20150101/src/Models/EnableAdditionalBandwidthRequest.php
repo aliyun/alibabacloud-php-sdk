@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeRoleZoneInfoRequest extends Model
+class EnableAdditionalBandwidthRequest extends Model
 {
     /**
      * @var string
@@ -41,32 +41,27 @@ class DescribeRoleZoneInfoRequest extends Model
     /**
      * @var string
      */
-    public $product;
+    public $couponNo;
+
+    /**
+     * @var bool
+     */
+    public $autoPay;
 
     /**
      * @var string
      */
-    public $category;
-
-    /**
-     * @var int
-     */
-    public $queryType;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $nodeId;
 
     /**
      * @var string
      */
-    public $role;
+    public $bandwidth;
+
+    /**
+     * @var string
+     */
+    public $orderTimeLength;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -74,12 +69,11 @@ class DescribeRoleZoneInfoRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
-        'product'              => 'Product',
-        'category'             => 'Category',
-        'queryType'            => 'QueryType',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'role'                 => 'Role',
+        'couponNo'             => 'CouponNo',
+        'autoPay'              => 'AutoPay',
+        'nodeId'               => 'NodeId',
+        'bandwidth'            => 'Bandwidth',
+        'orderTimeLength'      => 'OrderTimeLength',
     ];
 
     public function validate()
@@ -107,23 +101,20 @@ class DescribeRoleZoneInfoRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
+        if (null !== $this->couponNo) {
+            $res['CouponNo'] = $this->couponNo;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
         }
-        if (null !== $this->queryType) {
-            $res['QueryType'] = $this->queryType;
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
+        if (null !== $this->orderTimeLength) {
+            $res['OrderTimeLength'] = $this->orderTimeLength;
         }
 
         return $res;
@@ -132,7 +123,7 @@ class DescribeRoleZoneInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRoleZoneInfoRequest
+     * @return EnableAdditionalBandwidthRequest
      */
     public static function fromMap($map = [])
     {
@@ -155,23 +146,20 @@ class DescribeRoleZoneInfoRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
+        if (isset($map['CouponNo'])) {
+            $model->couponNo = $map['CouponNo'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
         }
-        if (isset($map['QueryType'])) {
-            $model->queryType = $map['QueryType'];
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
+        if (isset($map['OrderTimeLength'])) {
+            $model->orderTimeLength = $map['OrderTimeLength'];
         }
 
         return $model;

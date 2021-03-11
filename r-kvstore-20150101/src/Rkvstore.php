@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalDistributeCacheReques
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalDistributeCacheResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateUserClusterHostRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateUserClusterHostResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteAccountRequest;
@@ -37,8 +39,6 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskReques
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditRecordsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditRecordsResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupsRequest;
@@ -103,6 +103,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeUserClusterHostRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeUserClusterHostResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeZonesResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\EnableAdditionalBandwidthRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\EnableAdditionalBandwidthResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\FlushExpireKeysRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\FlushExpireKeysResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\FlushInstanceRequest;
@@ -121,6 +123,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountPasswordRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountPasswordResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTaskRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTaskResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAuditLogConfigRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAuditLogConfigResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyDBInstanceConnectionStringRequest;
@@ -493,6 +497,34 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param CreateTairInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateTairInstanceResponse
+     */
+    public function createTairInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateTairInstanceResponse::fromMap($this->doRPCRequest('CreateTairInstance', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateTairInstanceRequest $request
+     *
+     * @return CreateTairInstanceResponse
+     */
+    public function createTairInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTairInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateUserClusterHostRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -714,34 +746,6 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAuditRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAvailableResourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeAvailableResourceResponse
-     */
-    public function describeAvailableResourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeAvailableResourceResponse::fromMap($this->doRPCRequest('DescribeAvailableResource', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAvailableResourceRequest $request
-     *
-     * @return DescribeAvailableResourceResponse
-     */
-    public function describeAvailableResource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAvailableResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -1641,6 +1645,34 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @param EnableAdditionalBandwidthRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableAdditionalBandwidthResponse
+     */
+    public function enableAdditionalBandwidthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EnableAdditionalBandwidthResponse::fromMap($this->doRPCRequest('EnableAdditionalBandwidth', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EnableAdditionalBandwidthRequest $request
+     *
+     * @return EnableAdditionalBandwidthResponse
+     */
+    public function enableAdditionalBandwidth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableAdditionalBandwidthWithOptions($request, $runtime);
+    }
+
+    /**
      * @param FlushExpireKeysRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1890,6 +1922,34 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyActiveOperationTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAuditLogConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyAuditLogConfigResponse
+     */
+    public function modifyAuditLogConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyAuditLogConfigResponse::fromMap($this->doRPCRequest('ModifyAuditLogConfig', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAuditLogConfigRequest $request
+     *
+     * @return ModifyAuditLogConfigResponse
+     */
+    public function modifyAuditLogConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAuditLogConfigWithOptions($request, $runtime);
     }
 
     /**

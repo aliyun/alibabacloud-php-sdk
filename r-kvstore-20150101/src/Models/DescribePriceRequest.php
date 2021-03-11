@@ -34,6 +34,11 @@ class DescribePriceRequest extends Model
     public $ownerAccount;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $capacity;
@@ -108,6 +113,7 @@ class DescribePriceRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
         'capacity'             => 'Capacity',
         'instanceClass'        => 'InstanceClass',
         'orderType'            => 'OrderType',
@@ -145,6 +151,9 @@ class DescribePriceRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->capacity) {
             $res['Capacity'] = $this->capacity;
@@ -214,6 +223,9 @@ class DescribePriceRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Capacity'])) {
             $model->capacity = $map['Capacity'];

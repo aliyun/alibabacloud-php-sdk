@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeAvailableResourceResponse extends Model
+class CreateTairInstanceResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DescribeAvailableResourceResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeAvailableResourceResponseBody
+     * @var CreateTairInstanceResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DescribeAvailableResourceResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeAvailableResourceResponse
+     * @return CreateTairInstanceResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DescribeAvailableResourceResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeAvailableResourceResponseBody::fromMap($map['body']);
+            $model->body = CreateTairInstanceResponseBody::fromMap($map['body']);
         }
 
         return $model;
