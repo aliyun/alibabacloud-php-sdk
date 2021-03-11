@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo;
 
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitScore\hitScore;
 use AlibabaCloud\Tea\Model;
 
 class hitScore extends Model
 {
     /**
-     * @var hitScore[]
+     * @var \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitScore\hitScore[]
      */
     public $hitScore;
     protected $_name = [
@@ -50,7 +49,7 @@ class hitScore extends Model
                 $model->hitScore = [];
                 $n               = 0;
                 foreach ($map['HitScore'] as $item) {
-                    $model->hitScore[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->hitScore[$n++] = null !== $item ? \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitScore\hitScore::fromMap($item) : $item;
                 }
             }
         }

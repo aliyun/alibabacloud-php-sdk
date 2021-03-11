@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo;
 
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo\complainHistories\complainHistories;
 use AlibabaCloud\Tea\Model;
 
 class complainHistories extends Model
 {
     /**
-     * @var complainHistories[]
+     * @var \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo\complainHistories\complainHistories[]
      */
     public $complainHistories;
     protected $_name = [
@@ -50,7 +49,7 @@ class complainHistories extends Model
                 $model->complainHistories = [];
                 $n                        = 0;
                 foreach ($map['ComplainHistories'] as $item) {
-                    $model->complainHistories[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->complainHistories[$n++] = null !== $item ? \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo\complainHistories\complainHistories::fromMap($item) : $item;
                 }
             }
         }

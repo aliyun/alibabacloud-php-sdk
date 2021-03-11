@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo;
 
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\asrResult\asrResult;
 use AlibabaCloud\Tea\Model;
 
 class asrResult extends Model
 {
     /**
-     * @var asrResult[]
+     * @var \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\asrResult\asrResult[]
      */
     public $asrResult;
     protected $_name = [
@@ -50,7 +49,7 @@ class asrResult extends Model
                 $model->asrResult = [];
                 $n                = 0;
                 foreach ($map['AsrResult'] as $item) {
-                    $model->asrResult[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->asrResult[$n++] = null !== $item ? \AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\asrResult\asrResult::fromMap($item) : $item;
                 }
             }
         }

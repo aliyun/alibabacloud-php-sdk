@@ -21,12 +21,22 @@ class resultInfo extends Model
     /**
      * @var string
      */
-    public $errorMessage;
+    public $assignmentTime;
 
     /**
      * @var string
      */
-    public $reviewer;
+    public $lastDataId;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $reviewStatus;
 
     /**
      * @var string
@@ -34,9 +44,9 @@ class resultInfo extends Model
     public $createTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $reviewStatus;
+    public $reviewer;
 
     /**
      * @var string
@@ -51,12 +61,12 @@ class resultInfo extends Model
     /**
      * @var int
      */
-    public $reviewResult;
+    public $score;
 
     /**
      * @var int
      */
-    public $score;
+    public $reviewResult;
 
     /**
      * @var agent
@@ -104,19 +114,26 @@ class resultInfo extends Model
     public $taskId;
 
     /**
+     * @var int
+     */
+    public $reviewType;
+
+    /**
      * @var string
      */
     public $resolver;
     protected $_name = [
         'status'         => 'Status',
+        'assignmentTime' => 'AssignmentTime',
+        'lastDataId'     => 'LastDataId',
         'errorMessage'   => 'ErrorMessage',
-        'reviewer'       => 'Reviewer',
-        'createTime'     => 'CreateTime',
         'reviewStatus'   => 'ReviewStatus',
+        'createTime'     => 'CreateTime',
+        'reviewer'       => 'Reviewer',
         'taskName'       => 'TaskName',
         'reviewTimeLong' => 'ReviewTimeLong',
-        'reviewResult'   => 'ReviewResult',
         'score'          => 'Score',
+        'reviewResult'   => 'ReviewResult',
         'agent'          => 'Agent',
         'createTimeLong' => 'CreateTimeLong',
         'asrResult'      => 'AsrResult',
@@ -126,6 +143,7 @@ class resultInfo extends Model
         'hitResult'      => 'HitResult',
         'recording'      => 'Recording',
         'taskId'         => 'TaskId',
+        'reviewType'     => 'ReviewType',
         'resolver'       => 'Resolver',
     ];
 
@@ -139,17 +157,23 @@ class resultInfo extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->assignmentTime) {
+            $res['AssignmentTime'] = $this->assignmentTime;
+        }
+        if (null !== $this->lastDataId) {
+            $res['LastDataId'] = $this->lastDataId;
+        }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->reviewer) {
-            $res['Reviewer'] = $this->reviewer;
+        if (null !== $this->reviewStatus) {
+            $res['ReviewStatus'] = $this->reviewStatus;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->reviewStatus) {
-            $res['ReviewStatus'] = $this->reviewStatus;
+        if (null !== $this->reviewer) {
+            $res['Reviewer'] = $this->reviewer;
         }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
@@ -157,11 +181,11 @@ class resultInfo extends Model
         if (null !== $this->reviewTimeLong) {
             $res['ReviewTimeLong'] = $this->reviewTimeLong;
         }
-        if (null !== $this->reviewResult) {
-            $res['ReviewResult'] = $this->reviewResult;
-        }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
+        }
+        if (null !== $this->reviewResult) {
+            $res['ReviewResult'] = $this->reviewResult;
         }
         if (null !== $this->agent) {
             $res['Agent'] = null !== $this->agent ? $this->agent->toMap() : null;
@@ -190,6 +214,9 @@ class resultInfo extends Model
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+        if (null !== $this->reviewType) {
+            $res['ReviewType'] = $this->reviewType;
+        }
         if (null !== $this->resolver) {
             $res['Resolver'] = $this->resolver;
         }
@@ -208,17 +235,23 @@ class resultInfo extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['AssignmentTime'])) {
+            $model->assignmentTime = $map['AssignmentTime'];
+        }
+        if (isset($map['LastDataId'])) {
+            $model->lastDataId = $map['LastDataId'];
+        }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['Reviewer'])) {
-            $model->reviewer = $map['Reviewer'];
+        if (isset($map['ReviewStatus'])) {
+            $model->reviewStatus = $map['ReviewStatus'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['ReviewStatus'])) {
-            $model->reviewStatus = $map['ReviewStatus'];
+        if (isset($map['Reviewer'])) {
+            $model->reviewer = $map['Reviewer'];
         }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
@@ -226,11 +259,11 @@ class resultInfo extends Model
         if (isset($map['ReviewTimeLong'])) {
             $model->reviewTimeLong = $map['ReviewTimeLong'];
         }
-        if (isset($map['ReviewResult'])) {
-            $model->reviewResult = $map['ReviewResult'];
-        }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
+        }
+        if (isset($map['ReviewResult'])) {
+            $model->reviewResult = $map['ReviewResult'];
         }
         if (isset($map['Agent'])) {
             $model->agent = agent::fromMap($map['Agent']);
@@ -258,6 +291,9 @@ class resultInfo extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['ReviewType'])) {
+            $model->reviewType = $map['ReviewType'];
         }
         if (isset($map['Resolver'])) {
             $model->resolver = $map['Resolver'];

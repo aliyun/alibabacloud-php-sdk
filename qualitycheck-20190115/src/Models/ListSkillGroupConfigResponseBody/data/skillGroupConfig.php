@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigRes
 
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigResponseBody\data\skillGroupConfig\allRuleList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigResponseBody\data\skillGroupConfig\ruleList;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigResponseBody\data\skillGroupConfig\skillGroupScreens;
 use AlibabaCloud\Tea\Model;
 
 class skillGroupConfig extends Model
@@ -44,6 +45,11 @@ class skillGroupConfig extends Model
      * @var string
      */
     public $skillGroupId;
+
+    /**
+     * @var bool
+     */
+    public $screenSwitch;
 
     /**
      * @var string
@@ -101,6 +107,11 @@ class skillGroupConfig extends Model
     public $id;
 
     /**
+     * @var skillGroupScreens
+     */
+    public $skillGroupScreens;
+
+    /**
      * @var int
      */
     public $qualityCheckType;
@@ -117,6 +128,7 @@ class skillGroupConfig extends Model
         'allContentQualityCheck' => 'AllContentQualityCheck',
         'createTime'             => 'CreateTime',
         'skillGroupId'           => 'SkillGroupId',
+        'screenSwitch'           => 'ScreenSwitch',
         'instanceId'             => 'InstanceId',
         'vocabId'                => 'VocabId',
         'skillGroupFrom'         => 'SkillGroupFrom',
@@ -128,6 +140,7 @@ class skillGroupConfig extends Model
         'name'                   => 'Name',
         'modelId'                => 'ModelId',
         'id'                     => 'Id',
+        'skillGroupScreens'      => 'SkillGroupScreens',
         'qualityCheckType'       => 'QualityCheckType',
         'vocabName'              => 'VocabName',
     ];
@@ -159,6 +172,9 @@ class skillGroupConfig extends Model
         }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
+        }
+        if (null !== $this->screenSwitch) {
+            $res['ScreenSwitch'] = $this->screenSwitch;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -192,6 +208,9 @@ class skillGroupConfig extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->skillGroupScreens) {
+            $res['SkillGroupScreens'] = null !== $this->skillGroupScreens ? $this->skillGroupScreens->toMap() : null;
         }
         if (null !== $this->qualityCheckType) {
             $res['QualityCheckType'] = $this->qualityCheckType;
@@ -232,6 +251,9 @@ class skillGroupConfig extends Model
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }
+        if (isset($map['ScreenSwitch'])) {
+            $model->screenSwitch = $map['ScreenSwitch'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -264,6 +286,9 @@ class skillGroupConfig extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['SkillGroupScreens'])) {
+            $model->skillGroupScreens = skillGroupScreens::fromMap($map['SkillGroupScreens']);
         }
         if (isset($map['QualityCheckType'])) {
             $model->qualityCheckType = $map['QualityCheckType'];
