@@ -16,6 +16,11 @@ class CompareFaceRequest extends Model
     public $qualityScoreThreshold;
 
     /**
+     * @var int
+     */
+    public $imageType;
+
+    /**
      * @var string
      */
     public $imageURLA;
@@ -26,14 +31,21 @@ class CompareFaceRequest extends Model
     public $imageURLB;
 
     /**
-     * @var int
+     * @var int[]
      */
-    public $imageType;
+    public $imageDataA;
+
+    /**
+     * @var int[]
+     */
+    public $imageDataB;
     protected $_name = [
         'qualityScoreThreshold' => 'QualityScoreThreshold',
+        'imageType'             => 'ImageType',
         'imageURLA'             => 'ImageURLA',
         'imageURLB'             => 'ImageURLB',
-        'imageType'             => 'ImageType',
+        'imageDataA'            => 'ImageDataA',
+        'imageDataB'            => 'ImageDataB',
     ];
 
     public function validate()
@@ -46,14 +58,20 @@ class CompareFaceRequest extends Model
         if (null !== $this->qualityScoreThreshold) {
             $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
         }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
+        }
         if (null !== $this->imageURLA) {
             $res['ImageURLA'] = $this->imageURLA;
         }
         if (null !== $this->imageURLB) {
             $res['ImageURLB'] = $this->imageURLB;
         }
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
+        if (null !== $this->imageDataA) {
+            $res['ImageDataA'] = $this->imageDataA;
+        }
+        if (null !== $this->imageDataB) {
+            $res['ImageDataB'] = $this->imageDataB;
         }
 
         return $res;
@@ -70,14 +88,20 @@ class CompareFaceRequest extends Model
         if (isset($map['QualityScoreThreshold'])) {
             $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
         }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
+        }
         if (isset($map['ImageURLA'])) {
             $model->imageURLA = $map['ImageURLA'];
         }
         if (isset($map['ImageURLB'])) {
             $model->imageURLB = $map['ImageURLB'];
         }
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
+        if (isset($map['ImageDataA'])) {
+            $model->imageDataA = $map['ImageDataA'];
+        }
+        if (isset($map['ImageDataB'])) {
+            $model->imageDataB = $map['ImageDataB'];
         }
 
         return $model;

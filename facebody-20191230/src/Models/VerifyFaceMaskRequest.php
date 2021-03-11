@@ -17,9 +17,21 @@ class VerifyFaceMaskRequest extends Model
      * @var string
      */
     public $refUrl;
+
+    /**
+     * @var int[]
+     */
+    public $imageData;
+
+    /**
+     * @var int[]
+     */
+    public $refData;
     protected $_name = [
-        'imageURL' => 'ImageURL',
-        'refUrl'   => 'RefUrl',
+        'imageURL'  => 'ImageURL',
+        'refUrl'    => 'RefUrl',
+        'imageData' => 'ImageData',
+        'refData'   => 'RefData',
     ];
 
     public function validate()
@@ -34,6 +46,12 @@ class VerifyFaceMaskRequest extends Model
         }
         if (null !== $this->refUrl) {
             $res['RefUrl'] = $this->refUrl;
+        }
+        if (null !== $this->imageData) {
+            $res['ImageData'] = $this->imageData;
+        }
+        if (null !== $this->refData) {
+            $res['RefData'] = $this->refData;
         }
 
         return $res;
@@ -52,6 +70,12 @@ class VerifyFaceMaskRequest extends Model
         }
         if (isset($map['RefUrl'])) {
             $model->refUrl = $map['RefUrl'];
+        }
+        if (isset($map['ImageData'])) {
+            $model->imageData = $map['ImageData'];
+        }
+        if (isset($map['RefData'])) {
+            $model->refData = $map['RefData'];
         }
 
         return $model;

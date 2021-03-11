@@ -23,10 +23,16 @@ class RecognizeActionRequest extends Model
      * @var URLList[]
      */
     public $URLList;
+
+    /**
+     * @var int[]
+     */
+    public $videoData;
     protected $_name = [
-        'type'     => 'Type',
-        'videoUrl' => 'VideoUrl',
-        'URLList'  => 'URLList',
+        'type'      => 'Type',
+        'videoUrl'  => 'VideoUrl',
+        'URLList'   => 'URLList',
+        'videoData' => 'VideoData',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class RecognizeActionRequest extends Model
                     $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->videoData) {
+            $res['VideoData'] = $this->videoData;
         }
 
         return $res;
@@ -77,6 +86,9 @@ class RecognizeActionRequest extends Model
                     $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['VideoData'])) {
+            $model->videoData = $map['VideoData'];
         }
 
         return $model;

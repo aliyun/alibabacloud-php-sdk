@@ -58,6 +58,7 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectChefCapResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectFaceAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectFaceResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectIPCPedestrianAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectIPCPedestrianRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectIPCPedestrianResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceRequest;
@@ -146,12 +147,10 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchBodyTraceShrinkRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchFaceAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchFaceResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\SwapFacialFeaturesAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\SwapFacialFeaturesRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\SwapFacialFeaturesResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\UpdateFaceEntityRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\UpdateFaceEntityResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\VerifyFaceMaskAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\VerifyFaceMaskRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\VerifyFaceMaskResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
@@ -605,12 +604,40 @@ class Facebody extends OpenApiClient
     }
 
     /**
-     * @param VerifyFaceMaskAdvanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DetectIPCPedestrianRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return VerifyFaceMaskResponse
+     * @return DetectIPCPedestrianResponse
      */
-    public function verifyFaceMaskAdvance($request, $runtime)
+    public function detectIPCPedestrianWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetectIPCPedestrianResponse::fromMap($this->doRPCRequest('DetectIPCPedestrian', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetectIPCPedestrianRequest $request
+     *
+     * @return DetectIPCPedestrianResponse
+     */
+    public function detectIPCPedestrian($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectIPCPedestrianWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetectIPCPedestrianAdvanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DetectIPCPedestrianResponse
+     */
+    public function detectIPCPedestrianAdvance($request, $runtime)
     {
         // Step 0: init client
         $accessKeyId     = $this->_credential->getAccessKeyId();
@@ -641,8 +668,8 @@ class Facebody extends OpenApiClient
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $verifyFaceMaskReq = new VerifyFaceMaskRequest([]);
-        OpenApiUtilClient::convert($request, $verifyFaceMaskReq);
+        $detectIPCPedestrianReq = new DetectIPCPedestrianRequest([]);
+        OpenApiUtilClient::convert($request, $detectIPCPedestrianReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
         $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
@@ -665,37 +692,9 @@ class Facebody extends OpenApiClient
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $verifyFaceMaskReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $detectIPCPedestrianReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->verifyFaceMaskWithOptions($verifyFaceMaskReq, $runtime);
-    }
-
-    /**
-     * @param DetectIPCPedestrianRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DetectIPCPedestrianResponse
-     */
-    public function detectIPCPedestrianWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DetectIPCPedestrianResponse::fromMap($this->doRPCRequest('DetectIPCPedestrian', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DetectIPCPedestrianRequest $request
-     *
-     * @return DetectIPCPedestrianResponse
-     */
-    public function detectIPCPedestrian($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectIPCPedestrianWithOptions($request, $runtime);
+        return $this->detectIPCPedestrianWithOptions($detectIPCPedestrianReq, $runtime);
     }
 
     /**
@@ -2061,72 +2060,6 @@ class Facebody extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->swapFacialFeaturesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SwapFacialFeaturesAdvanceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SwapFacialFeaturesResponse
-     */
-    public function swapFacialFeaturesAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'facebody',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $swapFacialFeaturesReq = new SwapFacialFeaturesRequest([]);
-        OpenApiUtilClient::convert($request, $swapFacialFeaturesReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->sourceImageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $swapFacialFeaturesReq->sourceImageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->swapFacialFeaturesWithOptions($swapFacialFeaturesReq, $runtime);
     }
 
     /**

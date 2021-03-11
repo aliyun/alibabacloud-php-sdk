@@ -12,8 +12,14 @@ class URLList extends Model
      * @var string
      */
     public $URL;
+
+    /**
+     * @var int[]
+     */
+    public $imageData;
     protected $_name = [
-        'URL' => 'URL',
+        'URL'       => 'URL',
+        'imageData' => 'imageData',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class URLList extends Model
         $res = [];
         if (null !== $this->URL) {
             $res['URL'] = $this->URL;
+        }
+        if (null !== $this->imageData) {
+            $res['imageData'] = $this->imageData;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class URLList extends Model
         $model = new self();
         if (isset($map['URL'])) {
             $model->URL = $map['URL'];
+        }
+        if (isset($map['imageData'])) {
+            $model->imageData = $map['imageData'];
         }
 
         return $model;
