@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response;
+namespace AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01ResponseBody;
 
-use AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response\demo01\demo011;
+use AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01ResponseBody\demo01\demo011;
 use AlibabaCloud\Tea\Model;
 
 class demo01 extends Model
@@ -19,7 +19,6 @@ class demo01 extends Model
 
     public function validate()
     {
-        Model::validateRequired('demo011', $this->demo011, true);
     }
 
     public function toMap()

@@ -2,14 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response\demo01;
+namespace AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01ResponseBody\demo01;
 
 use AlibabaCloud\Tea\Model;
 
 class demo011 extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response\demo01\demo011\demo011[]
+     * @var \AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01ResponseBody\demo01\demo011\demo011[]
      */
     public $demo011;
     protected $_name = [
@@ -18,7 +18,6 @@ class demo011 extends Model
 
     public function validate()
     {
-        Model::validateRequired('demo011', $this->demo011, true);
     }
 
     public function toMap()
@@ -50,7 +49,7 @@ class demo011 extends Model
                 $model->demo011 = [];
                 $n              = 0;
                 foreach ($map['Demo011'] as $item) {
-                    $model->demo011[$n++] = null !== $item ? \AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01Response\demo01\demo011\demo011::fromMap($item) : $item;
+                    $model->demo011[$n++] = null !== $item ? \AlibabaCloud\SDK\Ft\V20180713\Models\BatchAuditTest01ResponseBody\demo01\demo011\demo011::fromMap($item) : $item;
                 }
             }
         }

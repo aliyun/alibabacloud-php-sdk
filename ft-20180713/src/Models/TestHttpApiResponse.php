@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class TestHttpApiResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $params;
+    public $headers;
 
     /**
-     * @var string
+     * @var TestHttpApiResponseBody
      */
-    public $serviceRpcSign;
+    public $body;
     protected $_name = [
-        'params'         => 'Params',
-        'serviceRpcSign' => 'ServiceRpcSign',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('params', $this->params, true);
-        Model::validateRequired('serviceRpcSign', $this->serviceRpcSign, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->params) {
-            $res['Params'] = $this->params;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->serviceRpcSign) {
-            $res['ServiceRpcSign'] = $this->serviceRpcSign;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class TestHttpApiResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Params'])) {
-            $model->params = $map['Params'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ServiceRpcSign'])) {
-            $model->serviceRpcSign = $map['ServiceRpcSign'];
+        if (isset($map['body'])) {
+            $model->body = TestHttpApiResponseBody::fromMap($map['body']);
         }
 
         return $model;
