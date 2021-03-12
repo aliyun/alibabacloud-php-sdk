@@ -7,6 +7,16 @@ namespace AlibabaCloud\SDK\Mseap\V20210118;
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\ActivateLicenseRequest;
 use AlibabaCloud\SDK\Mseap\V20210118\Models\ActivateLicenseResponse;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\BusinessLicenseOcrRequest;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\BusinessLicenseOcrResponse;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\CertificateQualityRequest;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\CertificateQualityResponse;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\DescribeAgreementStatusRequest;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\DescribeAgreementStatusResponse;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\IdentityCardOcrRequest;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\IdentityCardOcrResponse;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\UpdateAgreementStatusRequest;
+use AlibabaCloud\SDK\Mseap\V20210118\Models\UpdateAgreementStatusResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -71,5 +81,145 @@ class Mseap extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->activateLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BusinessLicenseOcrRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BusinessLicenseOcrResponse
+     */
+    public function businessLicenseOcrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BusinessLicenseOcrResponse::fromMap($this->doRPCRequest('BusinessLicenseOcr', '2021-01-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BusinessLicenseOcrRequest $request
+     *
+     * @return BusinessLicenseOcrResponse
+     */
+    public function businessLicenseOcr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->businessLicenseOcrWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CertificateQualityRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CertificateQualityResponse
+     */
+    public function certificateQualityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CertificateQualityResponse::fromMap($this->doRPCRequest('CertificateQuality', '2021-01-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CertificateQualityRequest $request
+     *
+     * @return CertificateQualityResponse
+     */
+    public function certificateQuality($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->certificateQualityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAgreementStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAgreementStatusResponse
+     */
+    public function describeAgreementStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAgreementStatusResponse::fromMap($this->doRPCRequest('DescribeAgreementStatus', '2021-01-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAgreementStatusRequest $request
+     *
+     * @return DescribeAgreementStatusResponse
+     */
+    public function describeAgreementStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgreementStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param IdentityCardOcrRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return IdentityCardOcrResponse
+     */
+    public function identityCardOcrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return IdentityCardOcrResponse::fromMap($this->doRPCRequest('IdentityCardOcr', '2021-01-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param IdentityCardOcrRequest $request
+     *
+     * @return IdentityCardOcrResponse
+     */
+    public function identityCardOcr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->identityCardOcrWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAgreementStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateAgreementStatusResponse
+     */
+    public function updateAgreementStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateAgreementStatusResponse::fromMap($this->doRPCRequest('UpdateAgreementStatus', '2021-01-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAgreementStatusRequest $request
+     *
+     * @return UpdateAgreementStatusResponse
+     */
+    public function updateAgreementStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAgreementStatusWithOptions($request, $runtime);
     }
 }
