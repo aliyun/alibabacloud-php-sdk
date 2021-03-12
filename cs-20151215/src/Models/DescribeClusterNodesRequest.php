@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodesRequest extends Model
 {
     /**
-     * @description 节点实例ID，按照实例ID进行过滤。  节点池ID不为空时会忽略此字段。
+     * @description 节点实例ID，按照实例ID进行过滤。  节点池ID不为空时会忽略此字段。多节点用逗号分割
      *
-     * @var string[]
+     * @var string
      */
     public $instanceIds;
 
@@ -85,9 +85,7 @@ class DescribeClusterNodesRequest extends Model
     {
         $model = new self();
         if (isset($map['instanceIds'])) {
-            if (!empty($map['instanceIds'])) {
-                $model->instanceIds = $map['instanceIds'];
-            }
+            $model->instanceIds = $map['instanceIds'];
         }
         if (isset($map['nodepool_id'])) {
             $model->nodepoolId = $map['nodepool_id'];
