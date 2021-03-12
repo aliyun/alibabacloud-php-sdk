@@ -18,7 +18,6 @@ class DescribeGuestClusterAccessLogDashboardsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('k8sClusterId', $this->k8sClusterId, true);
     }
 
     public function toMap()

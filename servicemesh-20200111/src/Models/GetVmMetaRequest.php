@@ -36,7 +36,6 @@ class GetVmMetaRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('serviceMeshId', $this->serviceMeshId, true);
     }
 
     public function toMap()

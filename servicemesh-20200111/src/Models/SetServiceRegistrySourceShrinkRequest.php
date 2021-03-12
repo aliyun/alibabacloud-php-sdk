@@ -24,8 +24,6 @@ class SetServiceRegistrySourceShrinkRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('serviceMeshId', $this->serviceMeshId, true);
-        Model::validateRequired('configShrink', $this->configShrink, true);
     }
 
     public function toMap()

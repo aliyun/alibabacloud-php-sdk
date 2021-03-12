@@ -36,6 +36,16 @@ class CreateServiceMeshRequest extends Model
     /**
      * @var bool
      */
+    public $strictMTLS;
+
+    /**
+     * @var string
+     */
+    public $outboundTrafficPolicy;
+
+    /**
+     * @var bool
+     */
     public $tracing;
 
     /**
@@ -104,6 +114,26 @@ class CreateServiceMeshRequest extends Model
     public $auditProject;
 
     /**
+     * @var bool
+     */
+    public $CADisableSecretAutoGeneration;
+
+    /**
+     * @var string
+     */
+    public $CAListenedNamespaces;
+
+    /**
+     * @var string
+     */
+    public $appNamespaces;
+
+    /**
+     * @var string
+     */
+    public $clusterDomain;
+
+    /**
      * @var string
      */
     public $proxyRequestCPU;
@@ -167,46 +197,91 @@ class CreateServiceMeshRequest extends Model
      * @var string
      */
     public $prometheusUrl;
+
+    /**
+     * @var bool
+     */
+    public $redisFilterEnabled;
+
+    /**
+     * @var bool
+     */
+    public $mysqlFilterEnabled;
+
+    /**
+     * @var bool
+     */
+    public $thriftFilterEnabled;
+
+    /**
+     * @var bool
+     */
+    public $webAssemblyFilterEnabled;
+
+    /**
+     * @var bool
+     */
+    public $MSEEnabled;
+
+    /**
+     * @var bool
+     */
+    public $DNSProxyingEnabled;
+
+    /**
+     * @var string
+     */
+    public $edition;
     protected $_name = [
-        'regionId'              => 'RegionId',
-        'istioVersion'          => 'IstioVersion',
-        'vpcId'                 => 'VpcId',
-        'apiServerPublicEip'    => 'ApiServerPublicEip',
-        'pilotPublicEip'        => 'PilotPublicEip',
-        'tracing'               => 'Tracing',
-        'name'                  => 'Name',
-        'vSwitches'             => 'VSwitches',
-        'traceSampling'         => 'TraceSampling',
-        'localityLoadBalancing' => 'LocalityLoadBalancing',
-        'telemetry'             => 'Telemetry',
-        'openAgentPolicy'       => 'OpenAgentPolicy',
-        'OPALogLevel'           => 'OPALogLevel',
-        'OPARequestCPU'         => 'OPARequestCPU',
-        'OPARequestMemory'      => 'OPARequestMemory',
-        'OPALimitCPU'           => 'OPALimitCPU',
-        'OPALimitMemory'        => 'OPALimitMemory',
-        'enableAudit'           => 'EnableAudit',
-        'auditProject'          => 'AuditProject',
-        'proxyRequestCPU'       => 'ProxyRequestCPU',
-        'proxyRequestMemory'    => 'ProxyRequestMemory',
-        'proxyLimitCPU'         => 'ProxyLimitCPU',
-        'proxyLimitMemory'      => 'ProxyLimitMemory',
-        'includeIPRanges'       => 'IncludeIPRanges',
-        'excludeIPRanges'       => 'ExcludeIPRanges',
-        'excludeOutboundPorts'  => 'ExcludeOutboundPorts',
-        'excludeInboundPorts'   => 'ExcludeInboundPorts',
-        'opaEnabled'            => 'OpaEnabled',
-        'kialiEnabled'          => 'KialiEnabled',
-        'accessLogEnabled'      => 'AccessLogEnabled',
-        'customizedPrometheus'  => 'CustomizedPrometheus',
-        'prometheusUrl'         => 'PrometheusUrl',
+        'regionId'                      => 'RegionId',
+        'istioVersion'                  => 'IstioVersion',
+        'vpcId'                         => 'VpcId',
+        'apiServerPublicEip'            => 'ApiServerPublicEip',
+        'pilotPublicEip'                => 'PilotPublicEip',
+        'strictMTLS'                    => 'StrictMTLS',
+        'outboundTrafficPolicy'         => 'OutboundTrafficPolicy',
+        'tracing'                       => 'Tracing',
+        'name'                          => 'Name',
+        'vSwitches'                     => 'VSwitches',
+        'traceSampling'                 => 'TraceSampling',
+        'localityLoadBalancing'         => 'LocalityLoadBalancing',
+        'telemetry'                     => 'Telemetry',
+        'openAgentPolicy'               => 'OpenAgentPolicy',
+        'OPALogLevel'                   => 'OPALogLevel',
+        'OPARequestCPU'                 => 'OPARequestCPU',
+        'OPARequestMemory'              => 'OPARequestMemory',
+        'OPALimitCPU'                   => 'OPALimitCPU',
+        'OPALimitMemory'                => 'OPALimitMemory',
+        'enableAudit'                   => 'EnableAudit',
+        'auditProject'                  => 'AuditProject',
+        'CADisableSecretAutoGeneration' => 'CADisableSecretAutoGeneration',
+        'CAListenedNamespaces'          => 'CAListenedNamespaces',
+        'appNamespaces'                 => 'AppNamespaces',
+        'clusterDomain'                 => 'ClusterDomain',
+        'proxyRequestCPU'               => 'ProxyRequestCPU',
+        'proxyRequestMemory'            => 'ProxyRequestMemory',
+        'proxyLimitCPU'                 => 'ProxyLimitCPU',
+        'proxyLimitMemory'              => 'ProxyLimitMemory',
+        'includeIPRanges'               => 'IncludeIPRanges',
+        'excludeIPRanges'               => 'ExcludeIPRanges',
+        'excludeOutboundPorts'          => 'ExcludeOutboundPorts',
+        'excludeInboundPorts'           => 'ExcludeInboundPorts',
+        'opaEnabled'                    => 'OpaEnabled',
+        'kialiEnabled'                  => 'KialiEnabled',
+        'accessLogEnabled'              => 'AccessLogEnabled',
+        'customizedPrometheus'          => 'CustomizedPrometheus',
+        'prometheusUrl'                 => 'PrometheusUrl',
+        'redisFilterEnabled'            => 'RedisFilterEnabled',
+        'mysqlFilterEnabled'            => 'MysqlFilterEnabled',
+        'thriftFilterEnabled'           => 'ThriftFilterEnabled',
+        'webAssemblyFilterEnabled'      => 'WebAssemblyFilterEnabled',
+        'MSEEnabled'                    => 'MSEEnabled',
+        'DNSProxyingEnabled'            => 'DNSProxyingEnabled',
+        'edition'                       => 'Edition',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('vpcId', $this->vpcId, true);
-        Model::validateRequired('vSwitches', $this->vSwitches, true);
     }
 
     public function toMap()
@@ -226,6 +301,12 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->pilotPublicEip) {
             $res['PilotPublicEip'] = $this->pilotPublicEip;
+        }
+        if (null !== $this->strictMTLS) {
+            $res['StrictMTLS'] = $this->strictMTLS;
+        }
+        if (null !== $this->outboundTrafficPolicy) {
+            $res['OutboundTrafficPolicy'] = $this->outboundTrafficPolicy;
         }
         if (null !== $this->tracing) {
             $res['Tracing'] = $this->tracing;
@@ -269,6 +350,18 @@ class CreateServiceMeshRequest extends Model
         if (null !== $this->auditProject) {
             $res['AuditProject'] = $this->auditProject;
         }
+        if (null !== $this->CADisableSecretAutoGeneration) {
+            $res['CADisableSecretAutoGeneration'] = $this->CADisableSecretAutoGeneration;
+        }
+        if (null !== $this->CAListenedNamespaces) {
+            $res['CAListenedNamespaces'] = $this->CAListenedNamespaces;
+        }
+        if (null !== $this->appNamespaces) {
+            $res['AppNamespaces'] = $this->appNamespaces;
+        }
+        if (null !== $this->clusterDomain) {
+            $res['ClusterDomain'] = $this->clusterDomain;
+        }
         if (null !== $this->proxyRequestCPU) {
             $res['ProxyRequestCPU'] = $this->proxyRequestCPU;
         }
@@ -308,6 +401,27 @@ class CreateServiceMeshRequest extends Model
         if (null !== $this->prometheusUrl) {
             $res['PrometheusUrl'] = $this->prometheusUrl;
         }
+        if (null !== $this->redisFilterEnabled) {
+            $res['RedisFilterEnabled'] = $this->redisFilterEnabled;
+        }
+        if (null !== $this->mysqlFilterEnabled) {
+            $res['MysqlFilterEnabled'] = $this->mysqlFilterEnabled;
+        }
+        if (null !== $this->thriftFilterEnabled) {
+            $res['ThriftFilterEnabled'] = $this->thriftFilterEnabled;
+        }
+        if (null !== $this->webAssemblyFilterEnabled) {
+            $res['WebAssemblyFilterEnabled'] = $this->webAssemblyFilterEnabled;
+        }
+        if (null !== $this->MSEEnabled) {
+            $res['MSEEnabled'] = $this->MSEEnabled;
+        }
+        if (null !== $this->DNSProxyingEnabled) {
+            $res['DNSProxyingEnabled'] = $this->DNSProxyingEnabled;
+        }
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
+        }
 
         return $res;
     }
@@ -334,6 +448,12 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['PilotPublicEip'])) {
             $model->pilotPublicEip = $map['PilotPublicEip'];
+        }
+        if (isset($map['StrictMTLS'])) {
+            $model->strictMTLS = $map['StrictMTLS'];
+        }
+        if (isset($map['OutboundTrafficPolicy'])) {
+            $model->outboundTrafficPolicy = $map['OutboundTrafficPolicy'];
         }
         if (isset($map['Tracing'])) {
             $model->tracing = $map['Tracing'];
@@ -377,6 +497,18 @@ class CreateServiceMeshRequest extends Model
         if (isset($map['AuditProject'])) {
             $model->auditProject = $map['AuditProject'];
         }
+        if (isset($map['CADisableSecretAutoGeneration'])) {
+            $model->CADisableSecretAutoGeneration = $map['CADisableSecretAutoGeneration'];
+        }
+        if (isset($map['CAListenedNamespaces'])) {
+            $model->CAListenedNamespaces = $map['CAListenedNamespaces'];
+        }
+        if (isset($map['AppNamespaces'])) {
+            $model->appNamespaces = $map['AppNamespaces'];
+        }
+        if (isset($map['ClusterDomain'])) {
+            $model->clusterDomain = $map['ClusterDomain'];
+        }
         if (isset($map['ProxyRequestCPU'])) {
             $model->proxyRequestCPU = $map['ProxyRequestCPU'];
         }
@@ -415,6 +547,27 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['PrometheusUrl'])) {
             $model->prometheusUrl = $map['PrometheusUrl'];
+        }
+        if (isset($map['RedisFilterEnabled'])) {
+            $model->redisFilterEnabled = $map['RedisFilterEnabled'];
+        }
+        if (isset($map['MysqlFilterEnabled'])) {
+            $model->mysqlFilterEnabled = $map['MysqlFilterEnabled'];
+        }
+        if (isset($map['ThriftFilterEnabled'])) {
+            $model->thriftFilterEnabled = $map['ThriftFilterEnabled'];
+        }
+        if (isset($map['WebAssemblyFilterEnabled'])) {
+            $model->webAssemblyFilterEnabled = $map['WebAssemblyFilterEnabled'];
+        }
+        if (isset($map['MSEEnabled'])) {
+            $model->MSEEnabled = $map['MSEEnabled'];
+        }
+        if (isset($map['DNSProxyingEnabled'])) {
+            $model->DNSProxyingEnabled = $map['DNSProxyingEnabled'];
+        }
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
         }
 
         return $model;
