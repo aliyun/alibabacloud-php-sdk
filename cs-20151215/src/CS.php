@@ -2340,7 +2340,7 @@ class CS extends OpenApiClient
             'headers' => $headers,
         ]);
 
-        return DescribeClusterNamespacesResponse::fromMap($this->doROARequest('DescribeClusterNamespaces', '2015-12-15', 'HTTPS', 'GET', 'AK', '/k8s/' . $ClusterId . '/namespaces', 'none', $req, $runtime));
+        return DescribeClusterNamespacesResponse::fromMap($this->doROARequest('DescribeClusterNamespaces', '2015-12-15', 'HTTPS', 'GET', 'AK', '/k8s/' . $ClusterId . '/namespaces', 'array', $req, $runtime));
     }
 
     /**
