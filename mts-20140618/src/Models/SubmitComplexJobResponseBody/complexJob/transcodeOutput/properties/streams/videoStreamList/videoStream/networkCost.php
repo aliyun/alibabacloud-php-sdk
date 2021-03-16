@@ -16,16 +16,16 @@ class networkCost extends Model
     /**
      * @var string
      */
-    public $costBandwidth;
+    public $avgBitrate;
 
     /**
      * @var string
      */
-    public $avgBitrate;
+    public $costBandwidth;
     protected $_name = [
         'preloadTime'   => 'PreloadTime',
-        'costBandwidth' => 'CostBandwidth',
         'avgBitrate'    => 'AvgBitrate',
+        'costBandwidth' => 'CostBandwidth',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class networkCost extends Model
         if (null !== $this->preloadTime) {
             $res['PreloadTime'] = $this->preloadTime;
         }
-        if (null !== $this->costBandwidth) {
-            $res['CostBandwidth'] = $this->costBandwidth;
-        }
         if (null !== $this->avgBitrate) {
             $res['AvgBitrate'] = $this->avgBitrate;
+        }
+        if (null !== $this->costBandwidth) {
+            $res['CostBandwidth'] = $this->costBandwidth;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class networkCost extends Model
         if (isset($map['PreloadTime'])) {
             $model->preloadTime = $map['PreloadTime'];
         }
-        if (isset($map['CostBandwidth'])) {
-            $model->costBandwidth = $map['CostBandwidth'];
-        }
         if (isset($map['AvgBitrate'])) {
             $model->avgBitrate = $map['AvgBitrate'];
+        }
+        if (isset($map['CostBandwidth'])) {
+            $model->costBandwidth = $map['CostBandwidth'];
         }
 
         return $model;

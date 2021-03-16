@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class editingInput extends Model
 {
     /**
-     * @var string
-     */
-    public $id;
-
-    /**
      * @var inputFile
      */
     public $inputFile;
@@ -24,10 +19,15 @@ class editingInput extends Model
      * @var inputConfig
      */
     public $inputConfig;
+
+    /**
+     * @var string
+     */
+    public $id;
     protected $_name = [
-        'id'          => 'Id',
         'inputFile'   => 'InputFile',
         'inputConfig' => 'InputConfig',
+        'id'          => 'Id',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class editingInput extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->inputFile) {
             $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toMap() : null;
         }
         if (null !== $this->inputConfig) {
             $res['InputConfig'] = null !== $this->inputConfig ? $this->inputConfig->toMap() : null;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class editingInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['InputFile'])) {
             $model->inputFile = inputFile::fromMap($map['InputFile']);
         }
         if (isset($map['InputConfig'])) {
             $model->inputConfig = inputConfig::fromMap($map['InputConfig']);
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

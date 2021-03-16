@@ -97,6 +97,8 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotDBRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotDBResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotFilesRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotFilesResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotNotaryRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotNotaryResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListJobRequest;
@@ -143,12 +145,18 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFacerecogJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFacerecogJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpCompareJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpCompareJobListResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpDBDeleteJobListRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpDBDeleteJobListResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpFileDeleteJobListRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpFileDeleteJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpImportResultRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpImportResultResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryImageSearchJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryImageSearchJobListResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryInnerJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryInnerJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryIProductionJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryIProductionJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryIProductionJobRequest;
@@ -207,6 +215,8 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\QueryVideoGifJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryVideoGifJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryVideoPoseJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryVideoPoseJobListResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryVideoQualityJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryVideoQualityJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryVideoSplitJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryVideoSplitJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryVideoSummaryJobListRequest;
@@ -273,12 +283,18 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFacerecogJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFacerecogJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpCompareJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpCompareJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpDBDeleteJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpDBDeleteJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpFileDeleteJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpFileDeleteJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpShotJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpShotJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitImageQualityJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitImageQualityJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitImageSearchJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitImageSearchJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitInnerJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitInnerJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitIProductionJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitIProductionJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitJobsRequest;
@@ -311,6 +327,8 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoGifJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoGifJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoPoseJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoPoseJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoQualityJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoQualityJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoSplitJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoSplitJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoSummaryJobRequest;
@@ -1728,6 +1746,34 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param ListFpShotFilesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListFpShotFilesResponse
+     */
+    public function listFpShotFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListFpShotFilesResponse::fromMap($this->doRPCRequest('ListFpShotFiles', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListFpShotFilesRequest $request
+     *
+     * @return ListFpShotFilesResponse
+     */
+    public function listFpShotFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFpShotFilesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListFpShotNotaryRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2372,6 +2418,62 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param QueryFpDBDeleteJobListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryFpDBDeleteJobListResponse
+     */
+    public function queryFpDBDeleteJobListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryFpDBDeleteJobListResponse::fromMap($this->doRPCRequest('QueryFpDBDeleteJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryFpDBDeleteJobListRequest $request
+     *
+     * @return QueryFpDBDeleteJobListResponse
+     */
+    public function queryFpDBDeleteJobList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryFpDBDeleteJobListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryFpFileDeleteJobListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryFpFileDeleteJobListResponse
+     */
+    public function queryFpFileDeleteJobListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryFpFileDeleteJobListResponse::fromMap($this->doRPCRequest('QueryFpFileDeleteJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryFpFileDeleteJobListRequest $request
+     *
+     * @return QueryFpFileDeleteJobListResponse
+     */
+    public function queryFpFileDeleteJobList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryFpFileDeleteJobListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryFpImportResultRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2453,6 +2555,34 @@ class Mts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryImageSearchJobListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryInnerJobRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryInnerJobResponse
+     */
+    public function queryInnerJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryInnerJobResponse::fromMap($this->doRPCRequest('QueryInnerJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryInnerJobRequest $request
+     *
+     * @return QueryInnerJobResponse
+     */
+    public function queryInnerJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInnerJobWithOptions($request, $runtime);
     }
 
     /**
@@ -3265,6 +3395,34 @@ class Mts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryVideoPoseJobListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryVideoQualityJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryVideoQualityJobResponse
+     */
+    public function queryVideoQualityJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryVideoQualityJobResponse::fromMap($this->doRPCRequest('QueryVideoQualityJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryVideoQualityJobRequest $request
+     *
+     * @return QueryVideoQualityJobResponse
+     */
+    public function queryVideoQualityJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVideoQualityJobWithOptions($request, $runtime);
     }
 
     /**
@@ -4192,6 +4350,62 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param SubmitFpDBDeleteJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitFpDBDeleteJobResponse
+     */
+    public function submitFpDBDeleteJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitFpDBDeleteJobResponse::fromMap($this->doRPCRequest('SubmitFpDBDeleteJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitFpDBDeleteJobRequest $request
+     *
+     * @return SubmitFpDBDeleteJobResponse
+     */
+    public function submitFpDBDeleteJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitFpDBDeleteJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitFpFileDeleteJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitFpFileDeleteJobResponse
+     */
+    public function submitFpFileDeleteJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitFpFileDeleteJobResponse::fromMap($this->doRPCRequest('SubmitFpFileDeleteJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitFpFileDeleteJobRequest $request
+     *
+     * @return SubmitFpFileDeleteJobResponse
+     */
+    public function submitFpFileDeleteJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitFpFileDeleteJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitFpShotJobRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4273,6 +4487,34 @@ class Mts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitImageSearchJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitInnerJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitInnerJobResponse
+     */
+    public function submitInnerJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitInnerJobResponse::fromMap($this->doRPCRequest('SubmitInnerJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitInnerJobRequest $request
+     *
+     * @return SubmitInnerJobResponse
+     */
+    public function submitInnerJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitInnerJobWithOptions($request, $runtime);
     }
 
     /**
@@ -4721,6 +4963,34 @@ class Mts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitVideoPoseJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitVideoQualityJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitVideoQualityJobResponse
+     */
+    public function submitVideoQualityJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitVideoQualityJobResponse::fromMap($this->doRPCRequest('SubmitVideoQualityJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitVideoQualityJobRequest $request
+     *
+     * @return SubmitVideoQualityJobResponse
+     */
+    public function submitVideoQualityJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitVideoQualityJobWithOptions($request, $runtime);
     }
 
     /**

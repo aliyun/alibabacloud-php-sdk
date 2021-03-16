@@ -11,7 +11,7 @@ class notifyConfig extends Model
     /**
      * @var string
      */
-    public $topic;
+    public $mqTopic;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class notifyConfig extends Model
     /**
      * @var string
      */
-    public $mqTopic;
+    public $mqTag;
 
     /**
      * @var string
      */
-    public $mqTag;
+    public $topic;
     protected $_name = [
-        'topic'     => 'Topic',
-        'queueName' => 'QueueName',
         'mqTopic'   => 'MqTopic',
+        'queueName' => 'QueueName',
         'mqTag'     => 'MqTag',
+        'topic'     => 'Topic',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class notifyConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
+        if (null !== $this->mqTopic) {
+            $res['MqTopic'] = $this->mqTopic;
         }
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
         }
-        if (null !== $this->mqTopic) {
-            $res['MqTopic'] = $this->mqTopic;
-        }
         if (null !== $this->mqTag) {
             $res['MqTag'] = $this->mqTag;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class notifyConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
+        if (isset($map['MqTopic'])) {
+            $model->mqTopic = $map['MqTopic'];
         }
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
         }
-        if (isset($map['MqTopic'])) {
-            $model->mqTopic = $map['MqTopic'];
-        }
         if (isset($map['MqTag'])) {
             $model->mqTag = $map['MqTag'];
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class SetAuthConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $key2;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class SetAuthConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $key2;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'key1'      => 'Key1',
         'key2'      => 'Key2',
+        'key1'      => 'Key1',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SetAuthConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->key2) {
+            $res['Key2'] = $this->key2;
         }
         if (null !== $this->key1) {
             $res['Key1'] = $this->key1;
         }
-        if (null !== $this->key2) {
-            $res['Key2'] = $this->key2;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SetAuthConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Key2'])) {
+            $model->key2 = $map['Key2'];
         }
         if (isset($map['Key1'])) {
             $model->key1 = $map['Key1'];
         }
-        if (isset($map['Key2'])) {
-            $model->key2 = $map['Key2'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

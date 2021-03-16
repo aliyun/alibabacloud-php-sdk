@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryImageSearchJobListResponseBody\imageSearchJobList\imageSearchJob\result;
 
-use AlibabaCloud\SDK\Mts\V20140618\Models\QueryImageSearchJobListResponseBody\imageSearchJobList\imageSearchJob\result\imageSearchShots\imageSearchShots;
 use AlibabaCloud\Tea\Model;
 
 class imageSearchShots extends Model
 {
     /**
-     * @var imageSearchShots[]
+     * @var \AlibabaCloud\SDK\Mts\V20140618\Models\QueryImageSearchJobListResponseBody\imageSearchJobList\imageSearchJob\result\imageSearchShots\imageSearchShots[]
      */
     public $imageSearchShots;
     protected $_name = [
@@ -50,7 +49,7 @@ class imageSearchShots extends Model
                 $model->imageSearchShots = [];
                 $n                       = 0;
                 foreach ($map['ImageSearchShots'] as $item) {
-                    $model->imageSearchShots[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->imageSearchShots[$n++] = null !== $item ? \AlibabaCloud\SDK\Mts\V20140618\Models\QueryImageSearchJobListResponseBody\imageSearchJobList\imageSearchJob\result\imageSearchShots\imageSearchShots::fromMap($item) : $item;
                 }
             }
         }

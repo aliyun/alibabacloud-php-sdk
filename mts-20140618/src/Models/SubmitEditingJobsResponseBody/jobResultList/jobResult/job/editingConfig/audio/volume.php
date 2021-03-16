@@ -11,15 +11,15 @@ class volume extends Model
     /**
      * @var string
      */
-    public $level;
+    public $method;
 
     /**
      * @var string
      */
-    public $method;
+    public $level;
     protected $_name = [
-        'level'  => 'Level',
         'method' => 'Method',
+        'level'  => 'Level',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class volume extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
-        }
         if (null !== $this->method) {
             $res['Method'] = $this->method;
+        }
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class volume extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
-        }
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
+        }
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
 
         return $model;

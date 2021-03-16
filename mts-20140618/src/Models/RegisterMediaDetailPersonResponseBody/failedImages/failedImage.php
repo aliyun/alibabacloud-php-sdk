@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class failedImage extends Model
 {
     /**
-     * @var string
+     * @var imageFile
      */
-    public $code;
+    public $imageFile;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class failedImage extends Model
     public $success;
 
     /**
-     * @var imageFile
+     * @var string
      */
-    public $imageFile;
+    public $code;
     protected $_name = [
-        'code'      => 'Code',
-        'success'   => 'Success',
         'imageFile' => 'ImageFile',
+        'success'   => 'Success',
+        'code'      => 'Code',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class failedImage extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->imageFile) {
+            $res['ImageFile'] = null !== $this->imageFile ? $this->imageFile->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->imageFile) {
-            $res['ImageFile'] = null !== $this->imageFile ? $this->imageFile->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class failedImage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['ImageFile'])) {
+            $model->imageFile = imageFile::fromMap($map['ImageFile']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['ImageFile'])) {
-            $model->imageFile = imageFile::fromMap($map['ImageFile']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
 
         return $model;

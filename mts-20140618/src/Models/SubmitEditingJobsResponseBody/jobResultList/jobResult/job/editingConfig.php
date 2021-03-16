@@ -25,29 +25,24 @@ use AlibabaCloud\Tea\Model;
 class editingConfig extends Model
 {
     /**
-     * @var string
+     * @var video
      */
-    public $templateId;
+    public $video;
 
     /**
-     * @var string
+     * @var transConfig
      */
-    public $userData;
+    public $transConfig;
 
     /**
-     * @var string
+     * @var encryption
      */
-    public $rotate;
+    public $encryption;
 
     /**
-     * @var string
+     * @var waterMarkList
      */
-    public $videoStreamMap;
-
-    /**
-     * @var string
-     */
-    public $audioStreamMap;
+    public $waterMarkList;
 
     /**
      * @var string
@@ -57,37 +52,7 @@ class editingConfig extends Model
     /**
      * @var string
      */
-    public $priority;
-
-    /**
-     * @var string
-     */
     public $waterMarkConfigUrl;
-
-    /**
-     * @var string
-     */
-    public $mergeConfigUrl;
-
-    /**
-     * @var waterMarkList
-     */
-    public $waterMarkList;
-
-    /**
-     * @var mergeList
-     */
-    public $mergeList;
-
-    /**
-     * @var digiWaterMark
-     */
-    public $digiWaterMark;
-
-    /**
-     * @var outputFile
-     */
-    public $outputFile;
 
     /**
      * @var m3U8NonStandardSupport
@@ -95,34 +60,9 @@ class editingConfig extends Model
     public $m3U8NonStandardSupport;
 
     /**
-     * @var properties
+     * @var string
      */
-    public $properties;
-
-    /**
-     * @var clip
-     */
-    public $clip;
-
-    /**
-     * @var superReso
-     */
-    public $superReso;
-
-    /**
-     * @var subtitleConfig
-     */
-    public $subtitleConfig;
-
-    /**
-     * @var transConfig
-     */
-    public $transConfig;
-
-    /**
-     * @var muxConfig
-     */
-    public $muxConfig;
+    public $priority;
 
     /**
      * @var audio
@@ -130,9 +70,49 @@ class editingConfig extends Model
     public $audio;
 
     /**
-     * @var video
+     * @var string
      */
-    public $video;
+    public $audioStreamMap;
+
+    /**
+     * @var mergeList
+     */
+    public $mergeList;
+
+    /**
+     * @var superReso
+     */
+    public $superReso;
+
+    /**
+     * @var string
+     */
+    public $userData;
+
+    /**
+     * @var digiWaterMark
+     */
+    public $digiWaterMark;
+
+    /**
+     * @var string
+     */
+    public $videoStreamMap;
+
+    /**
+     * @var outputFile
+     */
+    public $outputFile;
+
+    /**
+     * @var string
+     */
+    public $rotate;
+
+    /**
+     * @var editing
+     */
+    public $editing;
 
     /**
      * @var container
@@ -140,40 +120,60 @@ class editingConfig extends Model
     public $container;
 
     /**
-     * @var encryption
+     * @var clip
      */
-    public $encryption;
+    public $clip;
 
     /**
-     * @var editing
+     * @var string
      */
-    public $editing;
+    public $mergeConfigUrl;
+
+    /**
+     * @var muxConfig
+     */
+    public $muxConfig;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var subtitleConfig
+     */
+    public $subtitleConfig;
+
+    /**
+     * @var properties
+     */
+    public $properties;
     protected $_name = [
-        'templateId'             => 'TemplateId',
-        'userData'               => 'UserData',
-        'rotate'                 => 'Rotate',
-        'videoStreamMap'         => 'VideoStreamMap',
-        'audioStreamMap'         => 'AudioStreamMap',
-        'deWatermark'            => 'DeWatermark',
-        'priority'               => 'Priority',
-        'waterMarkConfigUrl'     => 'WaterMarkConfigUrl',
-        'mergeConfigUrl'         => 'MergeConfigUrl',
-        'waterMarkList'          => 'WaterMarkList',
-        'mergeList'              => 'MergeList',
-        'digiWaterMark'          => 'DigiWaterMark',
-        'outputFile'             => 'OutputFile',
-        'm3U8NonStandardSupport' => 'M3U8NonStandardSupport',
-        'properties'             => 'Properties',
-        'clip'                   => 'Clip',
-        'superReso'              => 'SuperReso',
-        'subtitleConfig'         => 'SubtitleConfig',
-        'transConfig'            => 'TransConfig',
-        'muxConfig'              => 'MuxConfig',
-        'audio'                  => 'Audio',
         'video'                  => 'Video',
-        'container'              => 'Container',
+        'transConfig'            => 'TransConfig',
         'encryption'             => 'Encryption',
+        'waterMarkList'          => 'WaterMarkList',
+        'deWatermark'            => 'DeWatermark',
+        'waterMarkConfigUrl'     => 'WaterMarkConfigUrl',
+        'm3U8NonStandardSupport' => 'M3U8NonStandardSupport',
+        'priority'               => 'Priority',
+        'audio'                  => 'Audio',
+        'audioStreamMap'         => 'AudioStreamMap',
+        'mergeList'              => 'MergeList',
+        'superReso'              => 'SuperReso',
+        'userData'               => 'UserData',
+        'digiWaterMark'          => 'DigiWaterMark',
+        'videoStreamMap'         => 'VideoStreamMap',
+        'outputFile'             => 'OutputFile',
+        'rotate'                 => 'Rotate',
         'editing'                => 'Editing',
+        'container'              => 'Container',
+        'clip'                   => 'Clip',
+        'mergeConfigUrl'         => 'MergeConfigUrl',
+        'muxConfig'              => 'MuxConfig',
+        'templateId'             => 'TemplateId',
+        'subtitleConfig'         => 'SubtitleConfig',
+        'properties'             => 'Properties',
     ];
 
     public function validate()
@@ -183,80 +183,80 @@ class editingConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->rotate) {
-            $res['Rotate'] = $this->rotate;
-        }
-        if (null !== $this->videoStreamMap) {
-            $res['VideoStreamMap'] = $this->videoStreamMap;
-        }
-        if (null !== $this->audioStreamMap) {
-            $res['AudioStreamMap'] = $this->audioStreamMap;
-        }
-        if (null !== $this->deWatermark) {
-            $res['DeWatermark'] = $this->deWatermark;
-        }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
-        }
-        if (null !== $this->waterMarkConfigUrl) {
-            $res['WaterMarkConfigUrl'] = $this->waterMarkConfigUrl;
-        }
-        if (null !== $this->mergeConfigUrl) {
-            $res['MergeConfigUrl'] = $this->mergeConfigUrl;
-        }
-        if (null !== $this->waterMarkList) {
-            $res['WaterMarkList'] = null !== $this->waterMarkList ? $this->waterMarkList->toMap() : null;
-        }
-        if (null !== $this->mergeList) {
-            $res['MergeList'] = null !== $this->mergeList ? $this->mergeList->toMap() : null;
-        }
-        if (null !== $this->digiWaterMark) {
-            $res['DigiWaterMark'] = null !== $this->digiWaterMark ? $this->digiWaterMark->toMap() : null;
-        }
-        if (null !== $this->outputFile) {
-            $res['OutputFile'] = null !== $this->outputFile ? $this->outputFile->toMap() : null;
-        }
-        if (null !== $this->m3U8NonStandardSupport) {
-            $res['M3U8NonStandardSupport'] = null !== $this->m3U8NonStandardSupport ? $this->m3U8NonStandardSupport->toMap() : null;
-        }
-        if (null !== $this->properties) {
-            $res['Properties'] = null !== $this->properties ? $this->properties->toMap() : null;
-        }
-        if (null !== $this->clip) {
-            $res['Clip'] = null !== $this->clip ? $this->clip->toMap() : null;
-        }
-        if (null !== $this->superReso) {
-            $res['SuperReso'] = null !== $this->superReso ? $this->superReso->toMap() : null;
-        }
-        if (null !== $this->subtitleConfig) {
-            $res['SubtitleConfig'] = null !== $this->subtitleConfig ? $this->subtitleConfig->toMap() : null;
+        if (null !== $this->video) {
+            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
         }
         if (null !== $this->transConfig) {
             $res['TransConfig'] = null !== $this->transConfig ? $this->transConfig->toMap() : null;
         }
-        if (null !== $this->muxConfig) {
-            $res['MuxConfig'] = null !== $this->muxConfig ? $this->muxConfig->toMap() : null;
+        if (null !== $this->encryption) {
+            $res['Encryption'] = null !== $this->encryption ? $this->encryption->toMap() : null;
+        }
+        if (null !== $this->waterMarkList) {
+            $res['WaterMarkList'] = null !== $this->waterMarkList ? $this->waterMarkList->toMap() : null;
+        }
+        if (null !== $this->deWatermark) {
+            $res['DeWatermark'] = $this->deWatermark;
+        }
+        if (null !== $this->waterMarkConfigUrl) {
+            $res['WaterMarkConfigUrl'] = $this->waterMarkConfigUrl;
+        }
+        if (null !== $this->m3U8NonStandardSupport) {
+            $res['M3U8NonStandardSupport'] = null !== $this->m3U8NonStandardSupport ? $this->m3U8NonStandardSupport->toMap() : null;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->audio) {
             $res['Audio'] = null !== $this->audio ? $this->audio->toMap() : null;
         }
-        if (null !== $this->video) {
-            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
+        if (null !== $this->audioStreamMap) {
+            $res['AudioStreamMap'] = $this->audioStreamMap;
+        }
+        if (null !== $this->mergeList) {
+            $res['MergeList'] = null !== $this->mergeList ? $this->mergeList->toMap() : null;
+        }
+        if (null !== $this->superReso) {
+            $res['SuperReso'] = null !== $this->superReso ? $this->superReso->toMap() : null;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->digiWaterMark) {
+            $res['DigiWaterMark'] = null !== $this->digiWaterMark ? $this->digiWaterMark->toMap() : null;
+        }
+        if (null !== $this->videoStreamMap) {
+            $res['VideoStreamMap'] = $this->videoStreamMap;
+        }
+        if (null !== $this->outputFile) {
+            $res['OutputFile'] = null !== $this->outputFile ? $this->outputFile->toMap() : null;
+        }
+        if (null !== $this->rotate) {
+            $res['Rotate'] = $this->rotate;
+        }
+        if (null !== $this->editing) {
+            $res['Editing'] = null !== $this->editing ? $this->editing->toMap() : null;
         }
         if (null !== $this->container) {
             $res['Container'] = null !== $this->container ? $this->container->toMap() : null;
         }
-        if (null !== $this->encryption) {
-            $res['Encryption'] = null !== $this->encryption ? $this->encryption->toMap() : null;
+        if (null !== $this->clip) {
+            $res['Clip'] = null !== $this->clip ? $this->clip->toMap() : null;
         }
-        if (null !== $this->editing) {
-            $res['Editing'] = null !== $this->editing ? $this->editing->toMap() : null;
+        if (null !== $this->mergeConfigUrl) {
+            $res['MergeConfigUrl'] = $this->mergeConfigUrl;
+        }
+        if (null !== $this->muxConfig) {
+            $res['MuxConfig'] = null !== $this->muxConfig ? $this->muxConfig->toMap() : null;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->subtitleConfig) {
+            $res['SubtitleConfig'] = null !== $this->subtitleConfig ? $this->subtitleConfig->toMap() : null;
+        }
+        if (null !== $this->properties) {
+            $res['Properties'] = null !== $this->properties ? $this->properties->toMap() : null;
         }
 
         return $res;
@@ -270,80 +270,80 @@ class editingConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
-        if (isset($map['Rotate'])) {
-            $model->rotate = $map['Rotate'];
-        }
-        if (isset($map['VideoStreamMap'])) {
-            $model->videoStreamMap = $map['VideoStreamMap'];
-        }
-        if (isset($map['AudioStreamMap'])) {
-            $model->audioStreamMap = $map['AudioStreamMap'];
-        }
-        if (isset($map['DeWatermark'])) {
-            $model->deWatermark = $map['DeWatermark'];
-        }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
-        }
-        if (isset($map['WaterMarkConfigUrl'])) {
-            $model->waterMarkConfigUrl = $map['WaterMarkConfigUrl'];
-        }
-        if (isset($map['MergeConfigUrl'])) {
-            $model->mergeConfigUrl = $map['MergeConfigUrl'];
-        }
-        if (isset($map['WaterMarkList'])) {
-            $model->waterMarkList = waterMarkList::fromMap($map['WaterMarkList']);
-        }
-        if (isset($map['MergeList'])) {
-            $model->mergeList = mergeList::fromMap($map['MergeList']);
-        }
-        if (isset($map['DigiWaterMark'])) {
-            $model->digiWaterMark = digiWaterMark::fromMap($map['DigiWaterMark']);
-        }
-        if (isset($map['OutputFile'])) {
-            $model->outputFile = outputFile::fromMap($map['OutputFile']);
-        }
-        if (isset($map['M3U8NonStandardSupport'])) {
-            $model->m3U8NonStandardSupport = m3U8NonStandardSupport::fromMap($map['M3U8NonStandardSupport']);
-        }
-        if (isset($map['Properties'])) {
-            $model->properties = properties::fromMap($map['Properties']);
-        }
-        if (isset($map['Clip'])) {
-            $model->clip = clip::fromMap($map['Clip']);
-        }
-        if (isset($map['SuperReso'])) {
-            $model->superReso = superReso::fromMap($map['SuperReso']);
-        }
-        if (isset($map['SubtitleConfig'])) {
-            $model->subtitleConfig = subtitleConfig::fromMap($map['SubtitleConfig']);
+        if (isset($map['Video'])) {
+            $model->video = video::fromMap($map['Video']);
         }
         if (isset($map['TransConfig'])) {
             $model->transConfig = transConfig::fromMap($map['TransConfig']);
         }
-        if (isset($map['MuxConfig'])) {
-            $model->muxConfig = muxConfig::fromMap($map['MuxConfig']);
+        if (isset($map['Encryption'])) {
+            $model->encryption = encryption::fromMap($map['Encryption']);
+        }
+        if (isset($map['WaterMarkList'])) {
+            $model->waterMarkList = waterMarkList::fromMap($map['WaterMarkList']);
+        }
+        if (isset($map['DeWatermark'])) {
+            $model->deWatermark = $map['DeWatermark'];
+        }
+        if (isset($map['WaterMarkConfigUrl'])) {
+            $model->waterMarkConfigUrl = $map['WaterMarkConfigUrl'];
+        }
+        if (isset($map['M3U8NonStandardSupport'])) {
+            $model->m3U8NonStandardSupport = m3U8NonStandardSupport::fromMap($map['M3U8NonStandardSupport']);
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['Audio'])) {
             $model->audio = audio::fromMap($map['Audio']);
         }
-        if (isset($map['Video'])) {
-            $model->video = video::fromMap($map['Video']);
+        if (isset($map['AudioStreamMap'])) {
+            $model->audioStreamMap = $map['AudioStreamMap'];
+        }
+        if (isset($map['MergeList'])) {
+            $model->mergeList = mergeList::fromMap($map['MergeList']);
+        }
+        if (isset($map['SuperReso'])) {
+            $model->superReso = superReso::fromMap($map['SuperReso']);
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
+        }
+        if (isset($map['DigiWaterMark'])) {
+            $model->digiWaterMark = digiWaterMark::fromMap($map['DigiWaterMark']);
+        }
+        if (isset($map['VideoStreamMap'])) {
+            $model->videoStreamMap = $map['VideoStreamMap'];
+        }
+        if (isset($map['OutputFile'])) {
+            $model->outputFile = outputFile::fromMap($map['OutputFile']);
+        }
+        if (isset($map['Rotate'])) {
+            $model->rotate = $map['Rotate'];
+        }
+        if (isset($map['Editing'])) {
+            $model->editing = editing::fromMap($map['Editing']);
         }
         if (isset($map['Container'])) {
             $model->container = container::fromMap($map['Container']);
         }
-        if (isset($map['Encryption'])) {
-            $model->encryption = encryption::fromMap($map['Encryption']);
+        if (isset($map['Clip'])) {
+            $model->clip = clip::fromMap($map['Clip']);
         }
-        if (isset($map['Editing'])) {
-            $model->editing = editing::fromMap($map['Editing']);
+        if (isset($map['MergeConfigUrl'])) {
+            $model->mergeConfigUrl = $map['MergeConfigUrl'];
+        }
+        if (isset($map['MuxConfig'])) {
+            $model->muxConfig = muxConfig::fromMap($map['MuxConfig']);
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['SubtitleConfig'])) {
+            $model->subtitleConfig = subtitleConfig::fromMap($map['SubtitleConfig']);
+        }
+        if (isset($map['Properties'])) {
+            $model->properties = properties::fromMap($map['Properties']);
         }
 
         return $model;

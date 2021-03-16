@@ -12,7 +12,27 @@ class pipeline extends Model
     /**
      * @var string
      */
-    public $id;
+    public $speed;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var int
+     */
+    public $speedLevel;
+
+    /**
+     * @var notifyConfig
+     */
+    public $notifyConfig;
+
+    /**
+     * @var string
+     */
+    public $role;
 
     /**
      * @var string
@@ -22,41 +42,21 @@ class pipeline extends Model
     /**
      * @var string
      */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $speed;
-
-    /**
-     * @var int
-     */
-    public $speedLevel;
+    public $id;
 
     /**
      * @var int
      */
     public $quotaAllocate;
-
-    /**
-     * @var string
-     */
-    public $role;
-
-    /**
-     * @var notifyConfig
-     */
-    public $notifyConfig;
     protected $_name = [
-        'id'            => 'Id',
-        'name'          => 'Name',
-        'state'         => 'State',
         'speed'         => 'Speed',
+        'state'         => 'State',
         'speedLevel'    => 'SpeedLevel',
-        'quotaAllocate' => 'QuotaAllocate',
-        'role'          => 'Role',
         'notifyConfig'  => 'NotifyConfig',
+        'role'          => 'Role',
+        'name'          => 'Name',
+        'id'            => 'Id',
+        'quotaAllocate' => 'QuotaAllocate',
     ];
 
     public function validate()
@@ -66,29 +66,29 @@ class pipeline extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->speed) {
+            $res['Speed'] = $this->speed;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
-        if (null !== $this->speed) {
-            $res['Speed'] = $this->speed;
-        }
         if (null !== $this->speedLevel) {
             $res['SpeedLevel'] = $this->speedLevel;
         }
-        if (null !== $this->quotaAllocate) {
-            $res['QuotaAllocate'] = $this->quotaAllocate;
+        if (null !== $this->notifyConfig) {
+            $res['NotifyConfig'] = null !== $this->notifyConfig ? $this->notifyConfig->toMap() : null;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
-        if (null !== $this->notifyConfig) {
-            $res['NotifyConfig'] = null !== $this->notifyConfig ? $this->notifyConfig->toMap() : null;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->quotaAllocate) {
+            $res['QuotaAllocate'] = $this->quotaAllocate;
         }
 
         return $res;
@@ -102,29 +102,29 @@ class pipeline extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Speed'])) {
+            $model->speed = $map['Speed'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
-        if (isset($map['Speed'])) {
-            $model->speed = $map['Speed'];
-        }
         if (isset($map['SpeedLevel'])) {
             $model->speedLevel = $map['SpeedLevel'];
         }
-        if (isset($map['QuotaAllocate'])) {
-            $model->quotaAllocate = $map['QuotaAllocate'];
+        if (isset($map['NotifyConfig'])) {
+            $model->notifyConfig = notifyConfig::fromMap($map['NotifyConfig']);
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
-        if (isset($map['NotifyConfig'])) {
-            $model->notifyConfig = notifyConfig::fromMap($map['NotifyConfig']);
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['QuotaAllocate'])) {
+            $model->quotaAllocate = $map['QuotaAllocate'];
         }
 
         return $model;

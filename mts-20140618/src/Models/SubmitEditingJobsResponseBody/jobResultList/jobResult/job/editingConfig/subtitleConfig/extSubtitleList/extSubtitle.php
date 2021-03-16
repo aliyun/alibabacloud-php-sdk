@@ -12,20 +12,20 @@ class extSubtitle extends Model
     /**
      * @var string
      */
-    public $fontName;
+    public $charEnc;
 
     /**
      * @var string
      */
-    public $charEnc;
+    public $fontName;
 
     /**
      * @var input
      */
     public $input;
     protected $_name = [
-        'fontName' => 'FontName',
         'charEnc'  => 'CharEnc',
+        'fontName' => 'FontName',
         'input'    => 'Input',
     ];
 
@@ -36,11 +36,11 @@ class extSubtitle extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fontName) {
-            $res['FontName'] = $this->fontName;
-        }
         if (null !== $this->charEnc) {
             $res['CharEnc'] = $this->charEnc;
+        }
+        if (null !== $this->fontName) {
+            $res['FontName'] = $this->fontName;
         }
         if (null !== $this->input) {
             $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
@@ -57,11 +57,11 @@ class extSubtitle extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FontName'])) {
-            $model->fontName = $map['FontName'];
-        }
         if (isset($map['CharEnc'])) {
             $model->charEnc = $map['CharEnc'];
+        }
+        if (isset($map['FontName'])) {
+            $model->fontName = $map['FontName'];
         }
         if (isset($map['Input'])) {
             $model->input = input::fromMap($map['Input']);

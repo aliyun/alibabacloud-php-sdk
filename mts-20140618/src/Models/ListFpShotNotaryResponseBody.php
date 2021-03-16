@@ -15,18 +15,18 @@ class ListFpShotNotaryResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $nextPageToken;
-
-    /**
      * @var fpShotNotaryList
      */
     public $fpShotNotaryList;
+
+    /**
+     * @var string
+     */
+    public $nextPageToken;
     protected $_name = [
         'requestId'        => 'RequestId',
-        'nextPageToken'    => 'NextPageToken',
         'fpShotNotaryList' => 'FpShotNotaryList',
+        'nextPageToken'    => 'NextPageToken',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class ListFpShotNotaryResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->nextPageToken) {
-            $res['NextPageToken'] = $this->nextPageToken;
-        }
         if (null !== $this->fpShotNotaryList) {
             $res['FpShotNotaryList'] = null !== $this->fpShotNotaryList ? $this->fpShotNotaryList->toMap() : null;
+        }
+        if (null !== $this->nextPageToken) {
+            $res['NextPageToken'] = $this->nextPageToken;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class ListFpShotNotaryResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['NextPageToken'])) {
-            $model->nextPageToken = $map['NextPageToken'];
-        }
         if (isset($map['FpShotNotaryList'])) {
             $model->fpShotNotaryList = fpShotNotaryList::fromMap($map['FpShotNotaryList']);
+        }
+        if (isset($map['NextPageToken'])) {
+            $model->nextPageToken = $map['NextPageToken'];
         }
 
         return $model;

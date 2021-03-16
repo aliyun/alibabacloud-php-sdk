@@ -11,20 +11,20 @@ class timelineConfigAudio extends Model
     /**
      * @var string
      */
-    public $samplerate;
+    public $channelLayout;
 
     /**
      * @var string
      */
-    public $channelLayout;
+    public $samplerate;
 
     /**
      * @var string
      */
     public $channels;
     protected $_name = [
-        'samplerate'    => 'Samplerate',
         'channelLayout' => 'ChannelLayout',
+        'samplerate'    => 'Samplerate',
         'channels'      => 'Channels',
     ];
 
@@ -35,11 +35,11 @@ class timelineConfigAudio extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->samplerate) {
-            $res['Samplerate'] = $this->samplerate;
-        }
         if (null !== $this->channelLayout) {
             $res['ChannelLayout'] = $this->channelLayout;
+        }
+        if (null !== $this->samplerate) {
+            $res['Samplerate'] = $this->samplerate;
         }
         if (null !== $this->channels) {
             $res['Channels'] = $this->channels;
@@ -56,11 +56,11 @@ class timelineConfigAudio extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Samplerate'])) {
-            $model->samplerate = $map['Samplerate'];
-        }
         if (isset($map['ChannelLayout'])) {
             $model->channelLayout = $map['ChannelLayout'];
+        }
+        if (isset($map['Samplerate'])) {
+            $model->samplerate = $map['Samplerate'];
         }
         if (isset($map['Channels'])) {
             $model->channels = $map['Channels'];

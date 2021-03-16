@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class muxConfig extends Model
 {
     /**
-     * @var segment
-     */
-    public $segment;
-
-    /**
      * @var gif
      */
     public $gif;
+
+    /**
+     * @var segment
+     */
+    public $segment;
     protected $_name = [
-        'segment' => 'Segment',
         'gif'     => 'Gif',
+        'segment' => 'Segment',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class muxConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->segment) {
-            $res['Segment'] = null !== $this->segment ? $this->segment->toMap() : null;
-        }
         if (null !== $this->gif) {
             $res['Gif'] = null !== $this->gif ? $this->gif->toMap() : null;
+        }
+        if (null !== $this->segment) {
+            $res['Segment'] = null !== $this->segment ? $this->segment->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class muxConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Segment'])) {
-            $model->segment = segment::fromMap($map['Segment']);
-        }
         if (isset($map['Gif'])) {
             $model->gif = gif::fromMap($map['Gif']);
+        }
+        if (isset($map['Segment'])) {
+            $model->segment = segment::fromMap($map['Segment']);
         }
 
         return $model;

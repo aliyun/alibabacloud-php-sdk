@@ -11,27 +11,27 @@ class switch_ extends Model
     /**
      * @var string
      */
-    public $state;
-
-    /**
-     * @var string
-     */
     public $functionId;
 
     /**
      * @var string
      */
-    public $switchId;
+    public $functionName;
 
     /**
      * @var string
      */
-    public $functionName;
+    public $state;
+
+    /**
+     * @var string
+     */
+    public $switchId;
     protected $_name = [
-        'state'        => 'State',
         'functionId'   => 'FunctionId',
-        'switchId'     => 'SwitchId',
         'functionName' => 'FunctionName',
+        'state'        => 'State',
+        'switchId'     => 'SwitchId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class switch_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->functionId) {
             $res['FunctionId'] = $this->functionId;
         }
-        if (null !== $this->switchId) {
-            $res['SwitchId'] = $this->switchId;
-        }
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+        if (null !== $this->switchId) {
+            $res['SwitchId'] = $this->switchId;
         }
 
         return $res;
@@ -60,22 +60,22 @@ class switch_ extends Model
     /**
      * @param array $map
      *
-     * @return switch
+     * @return switch_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['FunctionId'])) {
             $model->functionId = $map['FunctionId'];
         }
-        if (isset($map['SwitchId'])) {
-            $model->switchId = $map['SwitchId'];
-        }
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+        if (isset($map['SwitchId'])) {
+            $model->switchId = $map['SwitchId'];
         }
 
         return $model;

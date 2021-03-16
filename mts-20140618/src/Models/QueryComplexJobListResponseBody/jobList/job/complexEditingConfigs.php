@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryComplexJobListResponseBody\jobList\job;
 
-use AlibabaCloud\SDK\Mts\V20140618\Models\QueryComplexJobListResponseBody\jobList\job\complexEditingConfigs\complexEditingConfigs;
 use AlibabaCloud\Tea\Model;
 
 class complexEditingConfigs extends Model
 {
     /**
-     * @var complexEditingConfigs[]
+     * @var \AlibabaCloud\SDK\Mts\V20140618\Models\QueryComplexJobListResponseBody\jobList\job\complexEditingConfigs\complexEditingConfigs[]
      */
     public $complexEditingConfigs;
     protected $_name = [
@@ -50,7 +49,7 @@ class complexEditingConfigs extends Model
                 $model->complexEditingConfigs = [];
                 $n                            = 0;
                 foreach ($map['ComplexEditingConfigs'] as $item) {
-                    $model->complexEditingConfigs[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->complexEditingConfigs[$n++] = null !== $item ? \AlibabaCloud\SDK\Mts\V20140618\Models\QueryComplexJobListResponseBody\jobList\job\complexEditingConfigs\complexEditingConfigs::fromMap($item) : $item;
                 }
             }
         }

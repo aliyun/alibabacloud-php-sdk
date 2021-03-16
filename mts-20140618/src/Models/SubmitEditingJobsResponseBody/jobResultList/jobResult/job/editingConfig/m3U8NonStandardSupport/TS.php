@@ -11,15 +11,15 @@ class TS extends Model
     /**
      * @var bool
      */
-    public $md5Support;
+    public $sizeSupport;
 
     /**
      * @var bool
      */
-    public $sizeSupport;
+    public $md5Support;
     protected $_name = [
-        'md5Support'  => 'Md5Support',
         'sizeSupport' => 'SizeSupport',
+        'md5Support'  => 'Md5Support',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class TS extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->md5Support) {
-            $res['Md5Support'] = $this->md5Support;
-        }
         if (null !== $this->sizeSupport) {
             $res['SizeSupport'] = $this->sizeSupport;
+        }
+        if (null !== $this->md5Support) {
+            $res['Md5Support'] = $this->md5Support;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class TS extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Md5Support'])) {
-            $model->md5Support = $map['Md5Support'];
-        }
         if (isset($map['SizeSupport'])) {
             $model->sizeSupport = $map['SizeSupport'];
+        }
+        if (isset($map['Md5Support'])) {
+            $model->md5Support = $map['Md5Support'];
         }
 
         return $model;

@@ -13,6 +13,21 @@ class imageQualityJob extends Model
     /**
      * @var string
      */
+    public $creationTime;
+
+    /**
+     * @var result
+     */
+    public $result;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var string
+     */
     public $jobId;
 
     /**
@@ -26,32 +41,17 @@ class imageQualityJob extends Model
     public $pipelineId;
 
     /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $creationTime;
-
-    /**
      * @var input
      */
     public $input;
-
-    /**
-     * @var result
-     */
-    public $result;
     protected $_name = [
+        'creationTime' => 'CreationTime',
+        'result'       => 'Result',
+        'state'        => 'State',
         'jobId'        => 'JobId',
         'userData'     => 'UserData',
         'pipelineId'   => 'PipelineId',
-        'state'        => 'State',
-        'creationTime' => 'CreationTime',
         'input'        => 'Input',
-        'result'       => 'Result',
     ];
 
     public function validate()
@@ -61,6 +61,15 @@ class imageQualityJob extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -70,17 +79,8 @@ class imageQualityJob extends Model
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
         if (null !== $this->input) {
             $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
-        }
-        if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
 
         return $res;
@@ -94,6 +94,15 @@ class imageQualityJob extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Result'])) {
+            $model->result = result::fromMap($map['Result']);
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
@@ -103,17 +112,8 @@ class imageQualityJob extends Model
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
         if (isset($map['Input'])) {
             $model->input = input::fromMap($map['Input']);
-        }
-        if (isset($map['Result'])) {
-            $model->result = result::fromMap($map['Result']);
         }
 
         return $model;

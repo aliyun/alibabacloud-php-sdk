@@ -23,11 +23,6 @@ class properties extends Model
     /**
      * @var string
      */
-    public $bitrate;
-
-    /**
-     * @var string
-     */
     public $duration;
 
     /**
@@ -38,7 +33,7 @@ class properties extends Model
     /**
      * @var string
      */
-    public $fileSize;
+    public $bitrate;
 
     /**
      * @var string
@@ -54,16 +49,21 @@ class properties extends Model
      * @var format
      */
     public $format;
+
+    /**
+     * @var string
+     */
+    public $fileSize;
     protected $_name = [
         'width'      => 'Width',
         'height'     => 'Height',
-        'bitrate'    => 'Bitrate',
         'duration'   => 'Duration',
         'fps'        => 'Fps',
-        'fileSize'   => 'FileSize',
+        'bitrate'    => 'Bitrate',
         'fileFormat' => 'FileFormat',
         'streams'    => 'Streams',
         'format'     => 'Format',
+        'fileSize'   => 'FileSize',
     ];
 
     public function validate()
@@ -79,17 +79,14 @@ class properties extends Model
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
-        if (null !== $this->bitrate) {
-            $res['Bitrate'] = $this->bitrate;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
         if (null !== $this->fps) {
             $res['Fps'] = $this->fps;
         }
-        if (null !== $this->fileSize) {
-            $res['FileSize'] = $this->fileSize;
+        if (null !== $this->bitrate) {
+            $res['Bitrate'] = $this->bitrate;
         }
         if (null !== $this->fileFormat) {
             $res['FileFormat'] = $this->fileFormat;
@@ -99,6 +96,9 @@ class properties extends Model
         }
         if (null !== $this->format) {
             $res['Format'] = null !== $this->format ? $this->format->toMap() : null;
+        }
+        if (null !== $this->fileSize) {
+            $res['FileSize'] = $this->fileSize;
         }
 
         return $res;
@@ -118,17 +118,14 @@ class properties extends Model
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
-        if (isset($map['Bitrate'])) {
-            $model->bitrate = $map['Bitrate'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
         if (isset($map['Fps'])) {
             $model->fps = $map['Fps'];
         }
-        if (isset($map['FileSize'])) {
-            $model->fileSize = $map['FileSize'];
+        if (isset($map['Bitrate'])) {
+            $model->bitrate = $map['Bitrate'];
         }
         if (isset($map['FileFormat'])) {
             $model->fileFormat = $map['FileFormat'];
@@ -138,6 +135,9 @@ class properties extends Model
         }
         if (isset($map['Format'])) {
             $model->format = format::fromMap($map['Format']);
+        }
+        if (isset($map['FileSize'])) {
+            $model->fileSize = $map['FileSize'];
         }
 
         return $model;

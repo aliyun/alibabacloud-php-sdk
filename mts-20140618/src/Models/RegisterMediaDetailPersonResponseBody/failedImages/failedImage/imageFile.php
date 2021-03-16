@@ -11,7 +11,7 @@ class imageFile extends Model
     /**
      * @var string
      */
-    public $bucket;
+    public $object;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class imageFile extends Model
     /**
      * @var string
      */
-    public $object;
+    public $bucket;
     protected $_name = [
-        'bucket'   => 'Bucket',
-        'location' => 'Location',
         'object'   => 'Object',
+        'location' => 'Location',
+        'bucket'   => 'Bucket',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class imageFile extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bucket) {
-            $res['Bucket'] = $this->bucket;
+        if (null !== $this->object) {
+            $res['Object'] = $this->object;
         }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
-        if (null !== $this->object) {
-            $res['Object'] = $this->object;
+        if (null !== $this->bucket) {
+            $res['Bucket'] = $this->bucket;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class imageFile extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Bucket'])) {
-            $model->bucket = $map['Bucket'];
+        if (isset($map['Object'])) {
+            $model->object = $map['Object'];
         }
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
-        if (isset($map['Object'])) {
-            $model->object = $map['Object'];
+        if (isset($map['Bucket'])) {
+            $model->bucket = $map['Bucket'];
         }
 
         return $model;

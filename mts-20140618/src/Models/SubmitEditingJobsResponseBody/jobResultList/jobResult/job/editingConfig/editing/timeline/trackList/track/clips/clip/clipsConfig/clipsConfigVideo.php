@@ -11,15 +11,15 @@ class clipsConfigVideo extends Model
     /**
      * @var string
      */
-    public $l;
+    public $t;
 
     /**
      * @var string
      */
-    public $t;
+    public $l;
     protected $_name = [
-        'l' => 'L',
         't' => 'T',
+        'l' => 'L',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class clipsConfigVideo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->l) {
-            $res['L'] = $this->l;
-        }
         if (null !== $this->t) {
             $res['T'] = $this->t;
+        }
+        if (null !== $this->l) {
+            $res['L'] = $this->l;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class clipsConfigVideo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['L'])) {
-            $model->l = $map['L'];
-        }
         if (isset($map['T'])) {
             $model->t = $map['T'];
+        }
+        if (isset($map['L'])) {
+            $model->l = $map['L'];
         }
 
         return $model;

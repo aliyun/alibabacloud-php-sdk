@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class jobResult extends Model
 {
     /**
+     * @var job
+     */
+    public $job;
+
+    /**
      * @var bool
      */
     public $success;
@@ -23,16 +28,11 @@ class jobResult extends Model
      * @var string
      */
     public $message;
-
-    /**
-     * @var job
-     */
-    public $job;
     protected $_name = [
+        'job'     => 'Job',
         'success' => 'Success',
         'code'    => 'Code',
         'message' => 'Message',
-        'job'     => 'Job',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class jobResult extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->job) {
+            $res['Job'] = null !== $this->job ? $this->job->toMap() : null;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -50,9 +53,6 @@ class jobResult extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->job) {
-            $res['Job'] = null !== $this->job ? $this->job->toMap() : null;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class jobResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Job'])) {
+            $model->job = job::fromMap($map['Job']);
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
@@ -74,9 +77,6 @@ class jobResult extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['Job'])) {
-            $model->job = job::fromMap($map['Job']);
         }
 
         return $model;

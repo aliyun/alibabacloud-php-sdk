@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class editing extends Model
 {
     /**
-     * @var clipList
-     */
-    public $clipList;
-
-    /**
      * @var timeline
      */
     public $timeline;
+
+    /**
+     * @var clipList
+     */
+    public $clipList;
     protected $_name = [
-        'clipList' => 'ClipList',
         'timeline' => 'Timeline',
+        'clipList' => 'ClipList',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class editing extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clipList) {
-            $res['ClipList'] = null !== $this->clipList ? $this->clipList->toMap() : null;
-        }
         if (null !== $this->timeline) {
             $res['Timeline'] = null !== $this->timeline ? $this->timeline->toMap() : null;
+        }
+        if (null !== $this->clipList) {
+            $res['ClipList'] = null !== $this->clipList ? $this->clipList->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class editing extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClipList'])) {
-            $model->clipList = clipList::fromMap($map['ClipList']);
-        }
         if (isset($map['Timeline'])) {
             $model->timeline = timeline::fromMap($map['Timeline']);
+        }
+        if (isset($map['ClipList'])) {
+            $model->clipList = clipList::fromMap($map['ClipList']);
         }
 
         return $model;

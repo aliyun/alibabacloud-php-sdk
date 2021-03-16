@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class clip extends Model
 {
     /**
+     * @var clipsConfig
+     */
+    public $clipsConfig;
+
+    /**
      * @var string
      */
-    public $clipID;
+    public $out;
 
     /**
      * @var string
@@ -22,17 +27,12 @@ class clip extends Model
     /**
      * @var string
      */
-    public $out;
-
-    /**
-     * @var clipsConfig
-     */
-    public $clipsConfig;
+    public $clipID;
     protected $_name = [
-        'clipID'      => 'clipID',
-        'in'          => 'In',
-        'out'         => 'Out',
         'clipsConfig' => 'ClipsConfig',
+        'out'         => 'Out',
+        'in'          => 'In',
+        'clipID'      => 'clipID',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class clip extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clipID) {
-            $res['clipID'] = $this->clipID;
-        }
-        if (null !== $this->in) {
-            $res['In'] = $this->in;
+        if (null !== $this->clipsConfig) {
+            $res['ClipsConfig'] = null !== $this->clipsConfig ? $this->clipsConfig->toMap() : null;
         }
         if (null !== $this->out) {
             $res['Out'] = $this->out;
         }
-        if (null !== $this->clipsConfig) {
-            $res['ClipsConfig'] = null !== $this->clipsConfig ? $this->clipsConfig->toMap() : null;
+        if (null !== $this->in) {
+            $res['In'] = $this->in;
+        }
+        if (null !== $this->clipID) {
+            $res['clipID'] = $this->clipID;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class clip extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['clipID'])) {
-            $model->clipID = $map['clipID'];
-        }
-        if (isset($map['In'])) {
-            $model->in = $map['In'];
+        if (isset($map['ClipsConfig'])) {
+            $model->clipsConfig = clipsConfig::fromMap($map['ClipsConfig']);
         }
         if (isset($map['Out'])) {
             $model->out = $map['Out'];
         }
-        if (isset($map['ClipsConfig'])) {
-            $model->clipsConfig = clipsConfig::fromMap($map['ClipsConfig']);
+        if (isset($map['In'])) {
+            $model->in = $map['In'];
+        }
+        if (isset($map['clipID'])) {
+            $model->clipID = $map['clipID'];
         }
 
         return $model;

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListPornPipelineResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $totalCount;
@@ -22,22 +17,27 @@ class ListPornPipelineResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
      */
-    public $pageSize;
+    public $pageNumber;
 
     /**
      * @var pipelineList
      */
     public $pipelineList;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'totalCount'   => 'TotalCount',
-        'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
+        'requestId'    => 'RequestId',
+        'pageNumber'   => 'PageNumber',
         'pipelineList' => 'PipelineList',
     ];
 
@@ -48,17 +48,17 @@ class ListPornPipelineResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pipelineList) {
             $res['PipelineList'] = null !== $this->pipelineList ? $this->pipelineList->toMap() : null;
@@ -75,17 +75,17 @@ class ListPornPipelineResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PipelineList'])) {
             $model->pipelineList = pipelineList::fromMap($map['PipelineList']);

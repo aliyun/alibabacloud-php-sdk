@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class subtitleConfig extends Model
 {
     /**
-     * @var subtitleList
-     */
-    public $subtitleList;
-
-    /**
      * @var extSubtitleList
      */
     public $extSubtitleList;
+
+    /**
+     * @var subtitleList
+     */
+    public $subtitleList;
     protected $_name = [
-        'subtitleList'    => 'SubtitleList',
         'extSubtitleList' => 'ExtSubtitleList',
+        'subtitleList'    => 'SubtitleList',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class subtitleConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subtitleList) {
-            $res['SubtitleList'] = null !== $this->subtitleList ? $this->subtitleList->toMap() : null;
-        }
         if (null !== $this->extSubtitleList) {
             $res['ExtSubtitleList'] = null !== $this->extSubtitleList ? $this->extSubtitleList->toMap() : null;
+        }
+        if (null !== $this->subtitleList) {
+            $res['SubtitleList'] = null !== $this->subtitleList ? $this->subtitleList->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class subtitleConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubtitleList'])) {
-            $model->subtitleList = subtitleList::fromMap($map['SubtitleList']);
-        }
         if (isset($map['ExtSubtitleList'])) {
             $model->extSubtitleList = extSubtitleList::fromMap($map['ExtSubtitleList']);
+        }
+        if (isset($map['SubtitleList'])) {
+            $model->subtitleList = subtitleList::fromMap($map['SubtitleList']);
         }
 
         return $model;

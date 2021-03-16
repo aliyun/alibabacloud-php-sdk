@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class timelineConfig extends Model
 {
     /**
-     * @var timelineConfigVideo
-     */
-    public $timelineConfigVideo;
-
-    /**
      * @var timelineConfigAudio
      */
     public $timelineConfigAudio;
+
+    /**
+     * @var timelineConfigVideo
+     */
+    public $timelineConfigVideo;
     protected $_name = [
-        'timelineConfigVideo' => 'TimelineConfigVideo',
         'timelineConfigAudio' => 'TimelineConfigAudio',
+        'timelineConfigVideo' => 'TimelineConfigVideo',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class timelineConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timelineConfigVideo) {
-            $res['TimelineConfigVideo'] = null !== $this->timelineConfigVideo ? $this->timelineConfigVideo->toMap() : null;
-        }
         if (null !== $this->timelineConfigAudio) {
             $res['TimelineConfigAudio'] = null !== $this->timelineConfigAudio ? $this->timelineConfigAudio->toMap() : null;
+        }
+        if (null !== $this->timelineConfigVideo) {
+            $res['TimelineConfigVideo'] = null !== $this->timelineConfigVideo ? $this->timelineConfigVideo->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class timelineConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimelineConfigVideo'])) {
-            $model->timelineConfigVideo = timelineConfigVideo::fromMap($map['TimelineConfigVideo']);
-        }
         if (isset($map['TimelineConfigAudio'])) {
             $model->timelineConfigAudio = timelineConfigAudio::fromMap($map['TimelineConfigAudio']);
+        }
+        if (isset($map['TimelineConfigVideo'])) {
+            $model->timelineConfigVideo = timelineConfigVideo::fromMap($map['TimelineConfigVideo']);
         }
 
         return $model;

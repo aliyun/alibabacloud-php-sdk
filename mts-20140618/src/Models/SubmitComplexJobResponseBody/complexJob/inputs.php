@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitComplexJobResponseBody\complexJob;
 
-use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitComplexJobResponseBody\complexJob\inputs\inputs;
 use AlibabaCloud\Tea\Model;
 
 class inputs extends Model
 {
     /**
-     * @var inputs[]
+     * @var \AlibabaCloud\SDK\Mts\V20140618\Models\SubmitComplexJobResponseBody\complexJob\inputs\inputs[]
      */
     public $inputs;
     protected $_name = [
@@ -50,7 +49,7 @@ class inputs extends Model
                 $model->inputs = [];
                 $n             = 0;
                 foreach ($map['Inputs'] as $item) {
-                    $model->inputs[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->inputs[$n++] = null !== $item ? \AlibabaCloud\SDK\Mts\V20140618\Models\SubmitComplexJobResponseBody\complexJob\inputs\inputs::fromMap($item) : $item;
                 }
             }
         }

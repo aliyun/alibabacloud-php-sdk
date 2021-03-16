@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class outputConfig extends Model
 {
     /**
-     * @var videoFile
-     */
-    public $videoFile;
-
-    /**
      * @var dataFile
      */
     public $dataFile;
+
+    /**
+     * @var videoFile
+     */
+    public $videoFile;
     protected $_name = [
-        'videoFile' => 'VideoFile',
         'dataFile'  => 'DataFile',
+        'videoFile' => 'VideoFile',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class outputConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoFile) {
-            $res['VideoFile'] = null !== $this->videoFile ? $this->videoFile->toMap() : null;
-        }
         if (null !== $this->dataFile) {
             $res['DataFile'] = null !== $this->dataFile ? $this->dataFile->toMap() : null;
+        }
+        if (null !== $this->videoFile) {
+            $res['VideoFile'] = null !== $this->videoFile ? $this->videoFile->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class outputConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoFile'])) {
-            $model->videoFile = videoFile::fromMap($map['VideoFile']);
-        }
         if (isset($map['DataFile'])) {
             $model->dataFile = dataFile::fromMap($map['DataFile']);
+        }
+        if (isset($map['VideoFile'])) {
+            $model->videoFile = videoFile::fromMap($map['VideoFile']);
         }
 
         return $model;

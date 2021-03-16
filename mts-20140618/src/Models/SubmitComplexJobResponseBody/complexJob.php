@@ -15,22 +15,7 @@ class complexJob extends Model
     /**
      * @var string
      */
-    public $jobId;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $message;
+    public $creationTime;
 
     /**
      * @var int
@@ -40,27 +25,12 @@ class complexJob extends Model
     /**
      * @var string
      */
-    public $pipelineId;
-
-    /**
-     * @var string
-     */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
     public $finishTime;
 
     /**
-     * @var inputs
+     * @var string
      */
-    public $inputs;
-
-    /**
-     * @var complexEditingConfigs
-     */
-    public $complexEditingConfigs;
+    public $state;
 
     /**
      * @var transcodeOutput
@@ -68,22 +38,52 @@ class complexJob extends Model
     public $transcodeOutput;
 
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @var MNSMessageResult
      */
     public $MNSMessageResult;
+
+    /**
+     * @var complexEditingConfigs
+     */
+    public $complexEditingConfigs;
+
+    /**
+     * @var inputs
+     */
+    public $inputs;
+
+    /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $pipelineId;
     protected $_name = [
-        'jobId'                 => 'JobId',
-        'state'                 => 'State',
-        'code'                  => 'Code',
-        'message'               => 'Message',
-        'percent'               => 'Percent',
-        'pipelineId'            => 'PipelineId',
         'creationTime'          => 'CreationTime',
+        'percent'               => 'Percent',
         'finishTime'            => 'FinishTime',
-        'inputs'                => 'Inputs',
-        'complexEditingConfigs' => 'ComplexEditingConfigs',
+        'state'                 => 'State',
         'transcodeOutput'       => 'transcodeOutput',
+        'message'               => 'Message',
         'MNSMessageResult'      => 'MNSMessageResult',
+        'complexEditingConfigs' => 'ComplexEditingConfigs',
+        'inputs'                => 'Inputs',
+        'jobId'                 => 'JobId',
+        'code'                  => 'Code',
+        'pipelineId'            => 'PipelineId',
     ];
 
     public function validate()
@@ -93,41 +93,41 @@ class complexJob extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->percent) {
             $res['Percent'] = $this->percent;
         }
-        if (null !== $this->pipelineId) {
-            $res['PipelineId'] = $this->pipelineId;
-        }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
         }
-        if (null !== $this->inputs) {
-            $res['Inputs'] = null !== $this->inputs ? $this->inputs->toMap() : null;
-        }
-        if (null !== $this->complexEditingConfigs) {
-            $res['ComplexEditingConfigs'] = null !== $this->complexEditingConfigs ? $this->complexEditingConfigs->toMap() : null;
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->transcodeOutput) {
             $res['transcodeOutput'] = null !== $this->transcodeOutput ? $this->transcodeOutput->toMap() : null;
         }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->MNSMessageResult) {
             $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toMap() : null;
+        }
+        if (null !== $this->complexEditingConfigs) {
+            $res['ComplexEditingConfigs'] = null !== $this->complexEditingConfigs ? $this->complexEditingConfigs->toMap() : null;
+        }
+        if (null !== $this->inputs) {
+            $res['Inputs'] = null !== $this->inputs ? $this->inputs->toMap() : null;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
         }
 
         return $res;
@@ -141,41 +141,41 @@ class complexJob extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['Percent'])) {
             $model->percent = $map['Percent'];
         }
-        if (isset($map['PipelineId'])) {
-            $model->pipelineId = $map['PipelineId'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
         }
-        if (isset($map['Inputs'])) {
-            $model->inputs = inputs::fromMap($map['Inputs']);
-        }
-        if (isset($map['ComplexEditingConfigs'])) {
-            $model->complexEditingConfigs = complexEditingConfigs::fromMap($map['ComplexEditingConfigs']);
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['transcodeOutput'])) {
             $model->transcodeOutput = transcodeOutput::fromMap($map['transcodeOutput']);
         }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['MNSMessageResult'])) {
             $model->MNSMessageResult = MNSMessageResult::fromMap($map['MNSMessageResult']);
+        }
+        if (isset($map['ComplexEditingConfigs'])) {
+            $model->complexEditingConfigs = complexEditingConfigs::fromMap($map['ComplexEditingConfigs']);
+        }
+        if (isset($map['Inputs'])) {
+            $model->inputs = inputs::fromMap($map['Inputs']);
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
         }
 
         return $model;
