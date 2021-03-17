@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class ChangeImageSizeAdvanceRequest extends Model
 {
@@ -31,8 +32,6 @@ class ChangeImageSizeAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('urlObject', $this->urlObject, true);
-        Model::validateRequired('width', $this->width, true);
-        Model::validateRequired('height', $this->height, true);
     }
 
     public function toMap()

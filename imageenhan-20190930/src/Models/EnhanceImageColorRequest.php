@@ -30,9 +30,6 @@ class EnhanceImageColorRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageURL', $this->imageURL, true);
-        Model::validateRequired('outputFormat', $this->outputFormat, true);
-        Model::validateRequired('mode', $this->mode, true);
     }
 
     public function toMap()

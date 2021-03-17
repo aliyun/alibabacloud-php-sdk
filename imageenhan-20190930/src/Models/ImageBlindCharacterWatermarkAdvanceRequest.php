@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class ImageBlindCharacterWatermarkAdvanceRequest extends Model
 {
@@ -49,8 +50,6 @@ class ImageBlindCharacterWatermarkAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('originImageURLObject', $this->originImageURLObject, true);
-        Model::validateRequired('functionType', $this->functionType, true);
-        Model::validateRequired('qualityFactor', $this->qualityFactor, true);
     }
 
     public function toMap()

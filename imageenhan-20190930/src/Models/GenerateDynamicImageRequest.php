@@ -24,8 +24,6 @@ class GenerateDynamicImageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('url', $this->url, true);
-        Model::validateRequired('operation', $this->operation, true);
     }
 
     public function toMap()

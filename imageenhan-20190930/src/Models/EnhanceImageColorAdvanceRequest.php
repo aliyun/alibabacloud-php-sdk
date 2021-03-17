@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class EnhanceImageColorAdvanceRequest extends Model
 {
@@ -31,8 +32,6 @@ class EnhanceImageColorAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('imageURLObject', $this->imageURLObject, true);
-        Model::validateRequired('outputFormat', $this->outputFormat, true);
-        Model::validateRequired('mode', $this->mode, true);
     }
 
     public function toMap()

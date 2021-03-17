@@ -12,13 +12,24 @@ class MakeSuperResolutionImageRequest extends Model
      * @var string
      */
     public $url;
+
+    /**
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @var int
+     */
+    public $upscaleFactor;
     protected $_name = [
-        'url' => 'Url',
+        'url'           => 'Url',
+        'mode'          => 'Mode',
+        'upscaleFactor' => 'UpscaleFactor',
     ];
 
     public function validate()
     {
-        Model::validateRequired('url', $this->url, true);
     }
 
     public function toMap()
@@ -26,6 +37,12 @@ class MakeSuperResolutionImageRequest extends Model
         $res = [];
         if (null !== $this->url) {
             $res['Url'] = $this->url;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->upscaleFactor) {
+            $res['UpscaleFactor'] = $this->upscaleFactor;
         }
 
         return $res;
@@ -41,6 +58,12 @@ class MakeSuperResolutionImageRequest extends Model
         $model = new self();
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['UpscaleFactor'])) {
+            $model->upscaleFactor = $map['UpscaleFactor'];
         }
 
         return $model;

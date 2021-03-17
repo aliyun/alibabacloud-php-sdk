@@ -24,8 +24,6 @@ class ImitatePhotoStyleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('styleUrl', $this->styleUrl, true);
-        Model::validateRequired('imageURL', $this->imageURL, true);
     }
 
     public function toMap()

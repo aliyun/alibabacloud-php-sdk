@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
 use AlibabaCloud\SDK\Imageenhan\V20190930\Models\RecolorHDImageAdvanceRequest\colorTemplate;
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class RecolorHDImageAdvanceRequest extends Model
 {
@@ -30,27 +31,32 @@ class RecolorHDImageAdvanceRequest extends Model
     public $colorCount;
 
     /**
-     * @var colorTemplate[]
-     */
-    public $colorTemplate;
-
-    /**
      * @var string
      */
     public $degree;
+
+    /**
+     * @var bool
+     */
+    public $async;
+
+    /**
+     * @var colorTemplate[]
+     */
+    public $colorTemplate;
     protected $_name = [
         'urlObject'     => 'UrlObject',
         'mode'          => 'Mode',
         'refUrl'        => 'RefUrl',
         'colorCount'    => 'ColorCount',
-        'colorTemplate' => 'ColorTemplate',
         'degree'        => 'Degree',
+        'async'         => 'Async',
+        'colorTemplate' => 'ColorTemplate',
     ];
 
     public function validate()
     {
         Model::validateRequired('urlObject', $this->urlObject, true);
-        Model::validateRequired('degree', $this->degree, true);
     }
 
     public function toMap()
@@ -68,6 +74,12 @@ class RecolorHDImageAdvanceRequest extends Model
         if (null !== $this->colorCount) {
             $res['ColorCount'] = $this->colorCount;
         }
+        if (null !== $this->degree) {
+            $res['Degree'] = $this->degree;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
+        }
         if (null !== $this->colorTemplate) {
             $res['ColorTemplate'] = [];
             if (null !== $this->colorTemplate && \is_array($this->colorTemplate)) {
@@ -76,9 +88,6 @@ class RecolorHDImageAdvanceRequest extends Model
                     $res['ColorTemplate'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->degree) {
-            $res['Degree'] = $this->degree;
         }
 
         return $res;
@@ -104,6 +113,12 @@ class RecolorHDImageAdvanceRequest extends Model
         if (isset($map['ColorCount'])) {
             $model->colorCount = $map['ColorCount'];
         }
+        if (isset($map['Degree'])) {
+            $model->degree = $map['Degree'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
+        }
         if (isset($map['ColorTemplate'])) {
             if (!empty($map['ColorTemplate'])) {
                 $model->colorTemplate = [];
@@ -112,9 +127,6 @@ class RecolorHDImageAdvanceRequest extends Model
                     $model->colorTemplate[$n++] = null !== $item ? colorTemplate::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Degree'])) {
-            $model->degree = $map['Degree'];
         }
 
         return $model;

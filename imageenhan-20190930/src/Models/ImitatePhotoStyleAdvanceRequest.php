@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class ImitatePhotoStyleAdvanceRequest extends Model
 {
@@ -25,7 +26,6 @@ class ImitatePhotoStyleAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('imageURLObject', $this->imageURLObject, true);
-        Model::validateRequired('styleUrl', $this->styleUrl, true);
     }
 
     public function toMap()

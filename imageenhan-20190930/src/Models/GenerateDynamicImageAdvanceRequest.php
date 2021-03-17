@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class GenerateDynamicImageAdvanceRequest extends Model
 {
@@ -25,7 +26,6 @@ class GenerateDynamicImageAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('urlObject', $this->urlObject, true);
-        Model::validateRequired('operation', $this->operation, true);
     }
 
     public function toMap()

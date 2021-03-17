@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class ErasePersonAdvanceRequest extends Model
 {
@@ -25,7 +26,6 @@ class ErasePersonAdvanceRequest extends Model
     public function validate()
     {
         Model::validateRequired('imageURLObject', $this->imageURLObject, true);
-        Model::validateRequired('userMask', $this->userMask, true);
     }
 
     public function toMap()

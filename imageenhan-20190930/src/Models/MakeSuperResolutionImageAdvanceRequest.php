@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class MakeSuperResolutionImageAdvanceRequest extends Model
 {
@@ -12,8 +13,20 @@ class MakeSuperResolutionImageAdvanceRequest extends Model
      * @var Stream
      */
     public $urlObject;
+
+    /**
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @var int
+     */
+    public $upscaleFactor;
     protected $_name = [
-        'urlObject' => 'UrlObject',
+        'urlObject'     => 'UrlObject',
+        'mode'          => 'Mode',
+        'upscaleFactor' => 'UpscaleFactor',
     ];
 
     public function validate()
@@ -26,6 +39,12 @@ class MakeSuperResolutionImageAdvanceRequest extends Model
         $res = [];
         if (null !== $this->urlObject) {
             $res['UrlObject'] = $this->urlObject;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->upscaleFactor) {
+            $res['UpscaleFactor'] = $this->upscaleFactor;
         }
 
         return $res;
@@ -41,6 +60,12 @@ class MakeSuperResolutionImageAdvanceRequest extends Model
         $model = new self();
         if (isset($map['UrlObject'])) {
             $model->urlObject = $map['UrlObject'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['UpscaleFactor'])) {
+            $model->upscaleFactor = $map['UpscaleFactor'];
         }
 
         return $model;

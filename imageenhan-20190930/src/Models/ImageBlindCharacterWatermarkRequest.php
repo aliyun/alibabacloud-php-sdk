@@ -48,9 +48,6 @@ class ImageBlindCharacterWatermarkRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('functionType', $this->functionType, true);
-        Model::validateRequired('qualityFactor', $this->qualityFactor, true);
-        Model::validateRequired('originImageURL', $this->originImageURL, true);
     }
 
     public function toMap()

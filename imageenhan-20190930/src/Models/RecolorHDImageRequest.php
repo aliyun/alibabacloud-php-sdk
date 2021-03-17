@@ -30,27 +30,31 @@ class RecolorHDImageRequest extends Model
     public $colorCount;
 
     /**
-     * @var colorTemplate[]
-     */
-    public $colorTemplate;
-
-    /**
      * @var string
      */
     public $degree;
+
+    /**
+     * @var bool
+     */
+    public $async;
+
+    /**
+     * @var colorTemplate[]
+     */
+    public $colorTemplate;
     protected $_name = [
         'url'           => 'Url',
         'mode'          => 'Mode',
         'refUrl'        => 'RefUrl',
         'colorCount'    => 'ColorCount',
-        'colorTemplate' => 'ColorTemplate',
         'degree'        => 'Degree',
+        'async'         => 'Async',
+        'colorTemplate' => 'ColorTemplate',
     ];
 
     public function validate()
     {
-        Model::validateRequired('url', $this->url, true);
-        Model::validateRequired('degree', $this->degree, true);
     }
 
     public function toMap()
@@ -68,6 +72,12 @@ class RecolorHDImageRequest extends Model
         if (null !== $this->colorCount) {
             $res['ColorCount'] = $this->colorCount;
         }
+        if (null !== $this->degree) {
+            $res['Degree'] = $this->degree;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
+        }
         if (null !== $this->colorTemplate) {
             $res['ColorTemplate'] = [];
             if (null !== $this->colorTemplate && \is_array($this->colorTemplate)) {
@@ -76,9 +86,6 @@ class RecolorHDImageRequest extends Model
                     $res['ColorTemplate'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->degree) {
-            $res['Degree'] = $this->degree;
         }
 
         return $res;
@@ -104,6 +111,12 @@ class RecolorHDImageRequest extends Model
         if (isset($map['ColorCount'])) {
             $model->colorCount = $map['ColorCount'];
         }
+        if (isset($map['Degree'])) {
+            $model->degree = $map['Degree'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
+        }
         if (isset($map['ColorTemplate'])) {
             if (!empty($map['ColorTemplate'])) {
                 $model->colorTemplate = [];
@@ -112,9 +125,6 @@ class RecolorHDImageRequest extends Model
                     $model->colorTemplate[$n++] = null !== $item ? colorTemplate::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Degree'])) {
-            $model->degree = $map['Degree'];
         }
 
         return $model;

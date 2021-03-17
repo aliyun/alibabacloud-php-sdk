@@ -24,8 +24,6 @@ class ErasePersonRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageURL', $this->imageURL, true);
-        Model::validateRequired('userMask', $this->userMask, true);
     }
 
     public function toMap()

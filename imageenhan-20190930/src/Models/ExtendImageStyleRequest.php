@@ -24,8 +24,6 @@ class ExtendImageStyleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('styleUrl', $this->styleUrl, true);
-        Model::validateRequired('majorUrl', $this->majorUrl, true);
     }
 
     public function toMap()

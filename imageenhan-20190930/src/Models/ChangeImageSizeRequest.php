@@ -30,9 +30,6 @@ class ChangeImageSizeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('width', $this->width, true);
-        Model::validateRequired('height', $this->height, true);
-        Model::validateRequired('url', $this->url, true);
     }
 
     public function toMap()
