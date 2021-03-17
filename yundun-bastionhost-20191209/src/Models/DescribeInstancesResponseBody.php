@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var instances[]
      */
-    public $requestId;
+    public $instances;
 
     /**
      * @var int
@@ -20,13 +20,13 @@ class DescribeInstancesResponseBody extends Model
     public $totalCount;
 
     /**
-     * @var instances[]
+     * @var string
      */
-    public $instances;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
         'instances'  => 'Instances',
+        'totalCount' => 'TotalCount',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->instances) {
             $res['Instances'] = [];
             if (null !== $this->instances && \is_array($this->instances)) {
@@ -50,6 +44,12 @@ class DescribeInstancesResponseBody extends Model
                     $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
@@ -77,6 +71,12 @@ class DescribeInstancesResponseBody extends Model
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -102,12 +102,22 @@ class instanceAttribute extends Model
     /**
      * @var string
      */
+    public $webTerminalModule;
+
+    /**
+     * @var string
+     */
     public $instanceStatus;
 
     /**
      * @var string
      */
     public $licenseCode;
+
+    /**
+     * @var string[]
+     */
+    public $publicIps;
 
     /**
      * @var bool
@@ -137,8 +147,10 @@ class instanceAttribute extends Model
         'publicExportIps'          => 'PublicExportIps',
         'startTime'                => 'StartTime',
         'publicWhiteList'          => 'PublicWhiteList',
+        'webTerminalModule'        => 'WebTerminalModule',
         'instanceStatus'           => 'InstanceStatus',
         'licenseCode'              => 'LicenseCode',
+        'publicIps'                => 'PublicIps',
         'publicNetworkAccess'      => 'PublicNetworkAccess',
         'storage'                  => 'Storage',
     ];
@@ -210,11 +222,17 @@ class instanceAttribute extends Model
         if (null !== $this->publicWhiteList) {
             $res['PublicWhiteList'] = $this->publicWhiteList;
         }
+        if (null !== $this->webTerminalModule) {
+            $res['WebTerminalModule'] = $this->webTerminalModule;
+        }
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
         }
         if (null !== $this->licenseCode) {
             $res['LicenseCode'] = $this->licenseCode;
+        }
+        if (null !== $this->publicIps) {
+            $res['PublicIps'] = $this->publicIps;
         }
         if (null !== $this->publicNetworkAccess) {
             $res['PublicNetworkAccess'] = $this->publicNetworkAccess;
@@ -306,11 +324,19 @@ class instanceAttribute extends Model
                 $model->publicWhiteList = $map['PublicWhiteList'];
             }
         }
+        if (isset($map['WebTerminalModule'])) {
+            $model->webTerminalModule = $map['WebTerminalModule'];
+        }
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
         }
         if (isset($map['LicenseCode'])) {
             $model->licenseCode = $map['LicenseCode'];
+        }
+        if (isset($map['PublicIps'])) {
+            if (!empty($map['PublicIps'])) {
+                $model->publicIps = $map['PublicIps'];
+            }
         }
         if (isset($map['PublicNetworkAccess'])) {
             $model->publicNetworkAccess = $map['PublicNetworkAccess'];

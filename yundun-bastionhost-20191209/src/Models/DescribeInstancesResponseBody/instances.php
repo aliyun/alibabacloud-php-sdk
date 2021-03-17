@@ -11,26 +11,6 @@ class instances extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceStatus;
-
-    /**
-     * @var bool
-     */
-    public $legacy;
-
-    /**
-     * @var string
-     */
     public $vpcId;
 
     /**
@@ -41,17 +21,17 @@ class instances extends Model
     /**
      * @var string
      */
-    public $intranetEndpoint;
+    public $imageVersion;
 
     /**
      * @var string
      */
-    public $internetEndpoint;
+    public $planCode;
 
     /**
-     * @var int
+     * @var string
      */
-    public $startTime;
+    public $description;
 
     /**
      * @var int
@@ -59,9 +39,39 @@ class instances extends Model
     public $expireTime;
 
     /**
+     * @var bool
+     */
+    public $legacy;
+
+    /**
      * @var string
      */
-    public $description;
+    public $internetEndpoint;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $intranetEndpoint;
+
+    /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $instanceStatus;
 
     /**
      * @var string
@@ -72,26 +82,22 @@ class instances extends Model
      * @var bool
      */
     public $publicNetworkAccess;
-
-    /**
-     * @var string
-     */
-    public $imageVersion;
     protected $_name = [
-        'regionId'            => 'RegionId',
-        'instanceId'          => 'InstanceId',
-        'instanceStatus'      => 'InstanceStatus',
-        'legacy'              => 'Legacy',
         'vpcId'               => 'VpcId',
         'vswitchId'           => 'VswitchId',
-        'intranetEndpoint'    => 'IntranetEndpoint',
-        'internetEndpoint'    => 'InternetEndpoint',
-        'startTime'           => 'StartTime',
-        'expireTime'          => 'ExpireTime',
+        'imageVersion'        => 'ImageVersion',
+        'planCode'            => 'PlanCode',
         'description'         => 'Description',
+        'expireTime'          => 'ExpireTime',
+        'legacy'              => 'Legacy',
+        'internetEndpoint'    => 'InternetEndpoint',
+        'instanceId'          => 'InstanceId',
+        'regionId'            => 'RegionId',
+        'intranetEndpoint'    => 'IntranetEndpoint',
+        'startTime'           => 'StartTime',
+        'instanceStatus'      => 'InstanceStatus',
         'licenseCode'         => 'LicenseCode',
         'publicNetworkAccess' => 'PublicNetworkAccess',
-        'imageVersion'        => 'ImageVersion',
     ];
 
     public function validate()
@@ -101,47 +107,50 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceStatus) {
-            $res['InstanceStatus'] = $this->instanceStatus;
-        }
-        if (null !== $this->legacy) {
-            $res['Legacy'] = $this->legacy;
-        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
         }
-        if (null !== $this->intranetEndpoint) {
-            $res['IntranetEndpoint'] = $this->intranetEndpoint;
+        if (null !== $this->imageVersion) {
+            $res['ImageVersion'] = $this->imageVersion;
         }
-        if (null !== $this->internetEndpoint) {
-            $res['InternetEndpoint'] = $this->internetEndpoint;
+        if (null !== $this->planCode) {
+            $res['PlanCode'] = $this->planCode;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->legacy) {
+            $res['Legacy'] = $this->legacy;
+        }
+        if (null !== $this->internetEndpoint) {
+            $res['InternetEndpoint'] = $this->internetEndpoint;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->intranetEndpoint) {
+            $res['IntranetEndpoint'] = $this->intranetEndpoint;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->instanceStatus) {
+            $res['InstanceStatus'] = $this->instanceStatus;
         }
         if (null !== $this->licenseCode) {
             $res['LicenseCode'] = $this->licenseCode;
         }
         if (null !== $this->publicNetworkAccess) {
             $res['PublicNetworkAccess'] = $this->publicNetworkAccess;
-        }
-        if (null !== $this->imageVersion) {
-            $res['ImageVersion'] = $this->imageVersion;
         }
 
         return $res;
@@ -155,47 +164,50 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceStatus'])) {
-            $model->instanceStatus = $map['InstanceStatus'];
-        }
-        if (isset($map['Legacy'])) {
-            $model->legacy = $map['Legacy'];
-        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
         if (isset($map['VswitchId'])) {
             $model->vswitchId = $map['VswitchId'];
         }
-        if (isset($map['IntranetEndpoint'])) {
-            $model->intranetEndpoint = $map['IntranetEndpoint'];
+        if (isset($map['ImageVersion'])) {
+            $model->imageVersion = $map['ImageVersion'];
         }
-        if (isset($map['InternetEndpoint'])) {
-            $model->internetEndpoint = $map['InternetEndpoint'];
+        if (isset($map['PlanCode'])) {
+            $model->planCode = $map['PlanCode'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Legacy'])) {
+            $model->legacy = $map['Legacy'];
+        }
+        if (isset($map['InternetEndpoint'])) {
+            $model->internetEndpoint = $map['InternetEndpoint'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['IntranetEndpoint'])) {
+            $model->intranetEndpoint = $map['IntranetEndpoint'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['InstanceStatus'])) {
+            $model->instanceStatus = $map['InstanceStatus'];
         }
         if (isset($map['LicenseCode'])) {
             $model->licenseCode = $map['LicenseCode'];
         }
         if (isset($map['PublicNetworkAccess'])) {
             $model->publicNetworkAccess = $map['PublicNetworkAccess'];
-        }
-        if (isset($map['ImageVersion'])) {
-            $model->imageVersion = $map['ImageVersion'];
         }
 
         return $model;
