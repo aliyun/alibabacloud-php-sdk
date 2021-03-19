@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\EnableBillGenerationRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\EnableBillGenerationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetCustomerAccountInfoRequest;
@@ -75,6 +77,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryFinancialAccountInfoReques
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryFinancialAccountInfoResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceBillResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceByTagRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceByTagResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceGaapCostRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInstanceGaapCostResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryInvoicingCustomerListRequest;
@@ -129,8 +133,12 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetResellerUserStatusRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetResellerUserStatusResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SubscribeBillToOSSRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SubscribeBillToOSSResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\UnsubscribeBillToOSSRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\UnsubscribeBillToOSSResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\UpgradeResourcePackageRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\UpgradeResourcePackageResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -561,6 +569,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeResourcePackageProductWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSplitItemBillRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSplitItemBillResponse
+     */
+    public function describeSplitItemBillWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSplitItemBillResponse::fromMap($this->doRPCRequest('DescribeSplitItemBill', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSplitItemBillRequest $request
+     *
+     * @return DescribeSplitItemBillResponse
+     */
+    public function describeSplitItemBill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSplitItemBillWithOptions($request, $runtime);
     }
 
     /**
@@ -1215,6 +1251,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryInstanceBillWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryInstanceByTagRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryInstanceByTagResponse
+     */
+    public function queryInstanceByTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryInstanceByTagResponse::fromMap($this->doRPCRequest('QueryInstanceByTag', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryInstanceByTagRequest $request
+     *
+     * @return QueryInstanceByTagResponse
+     */
+    public function queryInstanceByTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInstanceByTagWithOptions($request, $runtime);
     }
 
     /**
@@ -1975,6 +2039,34 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UnsubscribeBillToOSSRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2000,6 +2092,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unsubscribeBillToOSSWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 
     /**
