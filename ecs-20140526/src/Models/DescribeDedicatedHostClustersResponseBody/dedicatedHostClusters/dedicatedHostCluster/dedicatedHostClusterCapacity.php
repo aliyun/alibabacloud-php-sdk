@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster\dedicatedHostClusterCapacity\availableInstanceTypes;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster\dedicatedHostClusterCapacity\localStorageCapacities;
 use AlibabaCloud\Tea\Model;
 
@@ -30,6 +31,11 @@ class dedicatedHostClusterCapacity extends Model
     public $totalVcpus;
 
     /**
+     * @var availableInstanceTypes
+     */
+    public $availableInstanceTypes;
+
+    /**
      * @var int
      */
     public $availableVcpus;
@@ -38,6 +44,7 @@ class dedicatedHostClusterCapacity extends Model
         'availableMemory'        => 'AvailableMemory',
         'totalMemory'            => 'TotalMemory',
         'totalVcpus'             => 'TotalVcpus',
+        'availableInstanceTypes' => 'AvailableInstanceTypes',
         'availableVcpus'         => 'AvailableVcpus',
     ];
 
@@ -59,6 +66,9 @@ class dedicatedHostClusterCapacity extends Model
         }
         if (null !== $this->totalVcpus) {
             $res['TotalVcpus'] = $this->totalVcpus;
+        }
+        if (null !== $this->availableInstanceTypes) {
+            $res['AvailableInstanceTypes'] = null !== $this->availableInstanceTypes ? $this->availableInstanceTypes->toMap() : null;
         }
         if (null !== $this->availableVcpus) {
             $res['AvailableVcpus'] = $this->availableVcpus;
@@ -86,6 +96,9 @@ class dedicatedHostClusterCapacity extends Model
         }
         if (isset($map['TotalVcpus'])) {
             $model->totalVcpus = $map['TotalVcpus'];
+        }
+        if (isset($map['AvailableInstanceTypes'])) {
+            $model->availableInstanceTypes = availableInstanceTypes::fromMap($map['AvailableInstanceTypes']);
         }
         if (isset($map['AvailableVcpus'])) {
             $model->availableVcpus = $map['AvailableVcpus'];

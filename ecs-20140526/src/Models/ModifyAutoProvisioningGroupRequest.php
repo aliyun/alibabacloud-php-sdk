@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoProvisioningGroupRequest\launchTemplateConfig;
 use AlibabaCloud\Tea\Model;
 
 class ModifyAutoProvisioningGroupRequest extends Model
@@ -77,6 +78,11 @@ class ModifyAutoProvisioningGroupRequest extends Model
      * @var string
      */
     public $autoProvisioningGroupName;
+
+    /**
+     * @var launchTemplateConfig[]
+     */
+    public $launchTemplateConfig;
     protected $_name = [
         'ownerId'                          => 'OwnerId',
         'resourceOwnerAccount'             => 'ResourceOwnerAccount',
@@ -92,6 +98,7 @@ class ModifyAutoProvisioningGroupRequest extends Model
         'payAsYouGoTargetCapacity'         => 'PayAsYouGoTargetCapacity',
         'spotTargetCapacity'               => 'SpotTargetCapacity',
         'autoProvisioningGroupName'        => 'AutoProvisioningGroupName',
+        'launchTemplateConfig'             => 'LaunchTemplateConfig',
     ];
 
     public function validate()
@@ -142,6 +149,15 @@ class ModifyAutoProvisioningGroupRequest extends Model
         }
         if (null !== $this->autoProvisioningGroupName) {
             $res['AutoProvisioningGroupName'] = $this->autoProvisioningGroupName;
+        }
+        if (null !== $this->launchTemplateConfig) {
+            $res['LaunchTemplateConfig'] = [];
+            if (null !== $this->launchTemplateConfig && \is_array($this->launchTemplateConfig)) {
+                $n = 0;
+                foreach ($this->launchTemplateConfig as $item) {
+                    $res['LaunchTemplateConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -196,6 +212,15 @@ class ModifyAutoProvisioningGroupRequest extends Model
         }
         if (isset($map['AutoProvisioningGroupName'])) {
             $model->autoProvisioningGroupName = $map['AutoProvisioningGroupName'];
+        }
+        if (isset($map['LaunchTemplateConfig'])) {
+            if (!empty($map['LaunchTemplateConfig'])) {
+                $model->launchTemplateConfig = [];
+                $n                           = 0;
+                foreach ($map['LaunchTemplateConfig'] as $item) {
+                    $model->launchTemplateConfig[$n++] = null !== $item ? launchTemplateConfig::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

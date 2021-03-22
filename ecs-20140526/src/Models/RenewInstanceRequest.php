@@ -47,6 +47,11 @@ class RenewInstanceRequest extends Model
      * @var string
      */
     public $periodUnit;
+
+    /**
+     * @var int
+     */
+    public $expectedRenewDay;
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'ownerId'              => 'OwnerId',
@@ -56,6 +61,7 @@ class RenewInstanceRequest extends Model
         'instanceId'           => 'InstanceId',
         'period'               => 'Period',
         'periodUnit'           => 'PeriodUnit',
+        'expectedRenewDay'     => 'ExpectedRenewDay',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class RenewInstanceRequest extends Model
         }
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
+        }
+        if (null !== $this->expectedRenewDay) {
+            $res['ExpectedRenewDay'] = $this->expectedRenewDay;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class RenewInstanceRequest extends Model
         }
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+        if (isset($map['ExpectedRenewDay'])) {
+            $model->expectedRenewDay = $map['ExpectedRenewDay'];
         }
 
         return $model;

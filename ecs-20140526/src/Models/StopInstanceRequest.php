@@ -52,11 +52,6 @@ class StopInstanceRequest extends Model
      * @var bool
      */
     public $dryRun;
-
-    /**
-     * @var bool
-     */
-    public $hibernate;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -67,7 +62,6 @@ class StopInstanceRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'stoppedMode'          => 'StoppedMode',
         'dryRun'               => 'DryRun',
-        'hibernate'            => 'Hibernate',
     ];
 
     public function validate()
@@ -103,9 +97,6 @@ class StopInstanceRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->hibernate) {
-            $res['Hibernate'] = $this->hibernate;
         }
 
         return $res;
@@ -145,9 +136,6 @@ class StopInstanceRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['Hibernate'])) {
-            $model->hibernate = $map['Hibernate'];
         }
 
         return $model;

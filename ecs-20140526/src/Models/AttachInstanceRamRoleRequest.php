@@ -37,6 +37,11 @@ class AttachInstanceRamRoleRequest extends Model
      * @var string
      */
     public $instanceIds;
+
+    /**
+     * @var string
+     */
+    public $policy;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -44,6 +49,7 @@ class AttachInstanceRamRoleRequest extends Model
         'regionId'             => 'RegionId',
         'ramRoleName'          => 'RamRoleName',
         'instanceIds'          => 'InstanceIds',
+        'policy'               => 'Policy',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class AttachInstanceRamRoleRequest extends Model
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
+        }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class AttachInstanceRamRoleRequest extends Model
         }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
+        }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
         }
 
         return $model;

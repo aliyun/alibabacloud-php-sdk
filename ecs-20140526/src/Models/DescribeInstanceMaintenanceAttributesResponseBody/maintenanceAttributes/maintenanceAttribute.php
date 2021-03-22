@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class maintenanceAttribute extends Model
 {
     /**
+     * @var bool
+     */
+    public $notifyOnMaintenance;
+
+    /**
      * @var maintenanceWindows
      */
     public $maintenanceWindows;
@@ -25,6 +30,7 @@ class maintenanceAttribute extends Model
      */
     public $actionOnMaintenance;
     protected $_name = [
+        'notifyOnMaintenance' => 'NotifyOnMaintenance',
         'maintenanceWindows'  => 'MaintenanceWindows',
         'instanceId'          => 'InstanceId',
         'actionOnMaintenance' => 'ActionOnMaintenance',
@@ -37,6 +43,9 @@ class maintenanceAttribute extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->notifyOnMaintenance) {
+            $res['NotifyOnMaintenance'] = $this->notifyOnMaintenance;
+        }
         if (null !== $this->maintenanceWindows) {
             $res['MaintenanceWindows'] = null !== $this->maintenanceWindows ? $this->maintenanceWindows->toMap() : null;
         }
@@ -58,6 +67,9 @@ class maintenanceAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NotifyOnMaintenance'])) {
+            $model->notifyOnMaintenance = $map['NotifyOnMaintenance'];
+        }
         if (isset($map['MaintenanceWindows'])) {
             $model->maintenanceWindows = maintenanceWindows::fromMap($map['MaintenanceWindows']);
         }

@@ -20,6 +20,11 @@ class DescribeInstancesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -36,6 +41,7 @@ class DescribeInstancesResponseBody extends Model
     protected $_name = [
         'instances'  => 'Instances',
         'totalCount' => 'TotalCount',
+        'nextToken'  => 'NextToken',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
@@ -53,6 +59,9 @@ class DescribeInstancesResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -80,6 +89,9 @@ class DescribeInstancesResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

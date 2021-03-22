@@ -48,6 +48,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelCopyImageRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelCopyImageResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelImagePipelineExecutionRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelImagePipelineExecutionResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelPhysicalConnectionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelPhysicalConnectionResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelSimulatedSystemEventsRequest;
@@ -62,6 +64,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CopyImageRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CopyImageResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CopySnapshotRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CopySnapshotResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateActivationRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateActivationResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoSnapshotPolicyRequest;
@@ -86,6 +90,10 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateHaVipRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateHaVipResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateHpcClusterRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateHpcClusterResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageComponentRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageComponentResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateInstanceRequest;
@@ -114,6 +122,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSecurityGroupRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSecurityGroupResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSimulatedSystemEventsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSimulatedSystemEventsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSnapshotGroupRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSnapshotGroupResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSnapshotRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateSnapshotResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateStorageSetRequest;
@@ -126,6 +136,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateVSwitchRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateVSwitchResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeactivateRouterInterfaceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeactivateRouterInterfaceResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteActivationRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteActivationResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteAutoProvisioningGroupRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteAutoProvisioningGroupResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteAutoSnapshotPolicyRequest;
@@ -148,6 +160,10 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteHaVipRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteHaVipResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteHpcClusterRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteHpcClusterResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteImageComponentRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteImageComponentResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteImagePipelineRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteImagePipelineResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteImageRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteImageResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteInstanceRequest;
@@ -174,6 +190,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteRouterInterfaceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteRouterInterfaceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteSecurityGroupRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteSecurityGroupResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteSnapshotGroupRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteSnapshotGroupResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteSnapshotRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteSnapshotResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteStorageSetRequest;
@@ -184,10 +202,14 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVpcRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVpcResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVSwitchRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVSwitchResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeregisterManagedInstanceRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeregisterManagedInstanceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccessPointsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccessPointsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccountAttributesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccountAttributesResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeActivationsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeActivationsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupHistoryRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupHistoryResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupInstancesRequest;
@@ -250,8 +272,14 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHaVipsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHaVipsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHpcClustersRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHpcClustersResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageComponentsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageComponentsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageFromFamilyRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageFromFamilyResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelineExecutionsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelineExecutionsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSharePermissionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSharePermissionResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagesRequest;
@@ -268,6 +296,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceHistoryEventsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceHistoryEventsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMaintenanceAttributesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMaintenanceAttributesResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceModificationPriceRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceModificationPriceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMonitorDataRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMonitorDataResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceRamRoleRequest;
@@ -300,6 +330,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLimitationRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLimitationResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeManagedInstancesRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeManagedInstancesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNatGatewaysRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNatGatewaysResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeRequest;
@@ -338,6 +370,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSendFileResultsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSendFileResultsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotGroupsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotGroupsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotLinksRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotLinksResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotMonitorDataRequest;
@@ -390,6 +424,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DetachKeyPairRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DetachKeyPairResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DetachNetworkInterfaceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DetachNetworkInterfaceResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableActivationRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DisableActivationResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EipFillParamsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EipFillParamsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\EipFillProductRequest;
@@ -433,6 +469,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyBandwidthPackageSpecRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyBandwidthPackageSpecResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCapacityReservationRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCapacityReservationResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCommandRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCommandResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDedicatedHostAttributeRequest;
@@ -457,6 +495,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskSpecRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskSpecResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyEipAddressAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyEipAddressAttributeResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyElasticityAssuranceRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyElasticityAssuranceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyForwardEntryRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyForwardEntryResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyHaVipAttributeRequest;
@@ -495,8 +535,12 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceVpcAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceVpcAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyLaunchTemplateDefaultVersionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyLaunchTemplateDefaultVersionResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyManagedInstanceRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyManagedInstanceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPhysicalConnectionAttributeRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPhysicalConnectionAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPrepayInstanceSpecRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPrepayInstanceSpecResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyReservedInstanceAttributeRequest;
@@ -517,6 +561,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifySecurityGroupRuleRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifySecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifySnapshotAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifySnapshotAttributeResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifySnapshotGroupRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifySnapshotGroupResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyStorageCapacityUnitAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyStorageCapacityUnitAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyStorageSetAttributeRequest;
@@ -571,6 +617,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ReportInstancesStatusRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ReportInstancesStatusResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDiskRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDiskResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDisksRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDisksResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ResizeDiskRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ResizeDiskResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RevokeSecurityGroupEgressRequest;
@@ -580,10 +628,14 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\RevokeSecurityGroupResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunCommandResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RunCommandShrinkRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\SendFileRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\SendFileResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartElasticityAssuranceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartElasticityAssuranceResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\StartImagePipelineExecutionRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\StartImagePipelineExecutionResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartInstancesRequest;
@@ -1281,6 +1333,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param CancelImagePipelineExecutionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CancelImagePipelineExecutionResponse
+     */
+    public function cancelImagePipelineExecutionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelImagePipelineExecutionResponse::fromMap($this->doRPCRequest('CancelImagePipelineExecution', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelImagePipelineExecutionRequest $request
+     *
+     * @return CancelImagePipelineExecutionResponse
+     */
+    public function cancelImagePipelineExecution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelImagePipelineExecutionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CancelPhysicalConnectionRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1474,6 +1554,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->copySnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateActivationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateActivationResponse
+     */
+    public function createActivationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateActivationResponse::fromMap($this->doRPCRequest('CreateActivation', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateActivationRequest $request
+     *
+     * @return CreateActivationResponse
+     */
+    public function createActivation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createActivationWithOptions($request, $runtime);
     }
 
     /**
@@ -1838,6 +1946,62 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateImageComponentRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateImageComponentResponse
+     */
+    public function createImageComponentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateImageComponentResponse::fromMap($this->doRPCRequest('CreateImageComponent', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateImageComponentRequest $request
+     *
+     * @return CreateImageComponentResponse
+     */
+    public function createImageComponent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createImageComponentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateImagePipelineRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateImagePipelineResponse
+     */
+    public function createImagePipelineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateImagePipelineResponse::fromMap($this->doRPCRequest('CreateImagePipeline', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateImagePipelineRequest $request
+     *
+     * @return CreateImagePipelineResponse
+     */
+    public function createImagePipeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createImagePipelineWithOptions($request, $runtime);
     }
 
     /**
@@ -2233,6 +2397,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param CreateSnapshotGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSnapshotGroupResponse
+     */
+    public function createSnapshotGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateSnapshotGroupResponse::fromMap($this->doRPCRequest('CreateSnapshotGroup', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateSnapshotGroupRequest $request
+     *
+     * @return CreateSnapshotGroupResponse
+     */
+    public function createSnapshotGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSnapshotGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateStorageSetRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2370,6 +2562,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deactivateRouterInterfaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteActivationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteActivationResponse
+     */
+    public function deleteActivationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteActivationResponse::fromMap($this->doRPCRequest('DeleteActivation', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteActivationRequest $request
+     *
+     * @return DeleteActivationResponse
+     */
+    public function deleteActivation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteActivationWithOptions($request, $runtime);
     }
 
     /**
@@ -2706,6 +2926,62 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteImageComponentRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteImageComponentResponse
+     */
+    public function deleteImageComponentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteImageComponentResponse::fromMap($this->doRPCRequest('DeleteImageComponent', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteImageComponentRequest $request
+     *
+     * @return DeleteImageComponentResponse
+     */
+    public function deleteImageComponent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteImageComponentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteImagePipelineRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteImagePipelineResponse
+     */
+    public function deleteImagePipelineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteImagePipelineResponse::fromMap($this->doRPCRequest('DeleteImagePipeline', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteImagePipelineRequest $request
+     *
+     * @return DeleteImagePipelineResponse
+     */
+    public function deleteImagePipeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteImagePipelineWithOptions($request, $runtime);
     }
 
     /**
@@ -3073,6 +3349,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param DeleteSnapshotGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteSnapshotGroupResponse
+     */
+    public function deleteSnapshotGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteSnapshotGroupResponse::fromMap($this->doRPCRequest('DeleteSnapshotGroup', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSnapshotGroupRequest $request
+     *
+     * @return DeleteSnapshotGroupResponse
+     */
+    public function deleteSnapshotGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSnapshotGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteStorageSetRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3185,6 +3489,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param DeregisterManagedInstanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeregisterManagedInstanceResponse
+     */
+    public function deregisterManagedInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeregisterManagedInstanceResponse::fromMap($this->doRPCRequest('DeregisterManagedInstance', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeregisterManagedInstanceRequest $request
+     *
+     * @return DeregisterManagedInstanceResponse
+     */
+    public function deregisterManagedInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deregisterManagedInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAccessPointsRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3238,6 +3570,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAccountAttributesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeActivationsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeActivationsResponse
+     */
+    public function describeActivationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeActivationsResponse::fromMap($this->doRPCRequest('DescribeActivations', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeActivationsRequest $request
+     *
+     * @return DescribeActivationsResponse
+     */
+    public function describeActivations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActivationsWithOptions($request, $runtime);
     }
 
     /**
@@ -4109,6 +4469,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param DescribeImageComponentsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeImageComponentsResponse
+     */
+    public function describeImageComponentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeImageComponentsResponse::fromMap($this->doRPCRequest('DescribeImageComponents', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImageComponentsRequest $request
+     *
+     * @return DescribeImageComponentsResponse
+     */
+    public function describeImageComponents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageComponentsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeImageFromFamilyRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -4134,6 +4522,62 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeImageFromFamilyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeImagePipelineExecutionsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeImagePipelineExecutionsResponse
+     */
+    public function describeImagePipelineExecutionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeImagePipelineExecutionsResponse::fromMap($this->doRPCRequest('DescribeImagePipelineExecutions', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImagePipelineExecutionsRequest $request
+     *
+     * @return DescribeImagePipelineExecutionsResponse
+     */
+    public function describeImagePipelineExecutions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImagePipelineExecutionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeImagePipelinesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeImagePipelinesResponse
+     */
+    public function describeImagePipelinesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeImagePipelinesResponse::fromMap($this->doRPCRequest('DescribeImagePipelines', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImagePipelinesRequest $request
+     *
+     * @return DescribeImagePipelinesResponse
+     */
+    public function describeImagePipelines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImagePipelinesWithOptions($request, $runtime);
     }
 
     /**
@@ -4358,6 +4802,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceMaintenanceAttributesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceModificationPriceRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeInstanceModificationPriceResponse
+     */
+    public function describeInstanceModificationPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeInstanceModificationPriceResponse::fromMap($this->doRPCRequest('DescribeInstanceModificationPrice', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceModificationPriceRequest $request
+     *
+     * @return DescribeInstanceModificationPriceResponse
+     */
+    public function describeInstanceModificationPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceModificationPriceWithOptions($request, $runtime);
     }
 
     /**
@@ -4806,6 +5278,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLimitationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeManagedInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeManagedInstancesResponse
+     */
+    public function describeManagedInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeManagedInstancesResponse::fromMap($this->doRPCRequest('DescribeManagedInstances', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeManagedInstancesRequest $request
+     *
+     * @return DescribeManagedInstancesResponse
+     */
+    public function describeManagedInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeManagedInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -5338,6 +5838,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSendFileResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSnapshotGroupsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSnapshotGroupsResponse
+     */
+    public function describeSnapshotGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSnapshotGroupsResponse::fromMap($this->doRPCRequest('DescribeSnapshotGroups', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSnapshotGroupsRequest $request
+     *
+     * @return DescribeSnapshotGroupsResponse
+     */
+    public function describeSnapshotGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSnapshotGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -6069,6 +6597,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param DisableActivationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DisableActivationResponse
+     */
+    public function disableActivationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DisableActivationResponse::fromMap($this->doRPCRequest('DisableActivation', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DisableActivationRequest $request
+     *
+     * @return DisableActivationResponse
+     */
+    public function disableActivation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableActivationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EipFillParamsRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -6662,6 +7218,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param ModifyCapacityReservationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyCapacityReservationResponse
+     */
+    public function modifyCapacityReservationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyCapacityReservationResponse::fromMap($this->doRPCRequest('ModifyCapacityReservation', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCapacityReservationRequest $request
+     *
+     * @return ModifyCapacityReservationResponse
+     */
+    public function modifyCapacityReservation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCapacityReservationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyCommandRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -6995,6 +7579,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyEipAddressAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyElasticityAssuranceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyElasticityAssuranceResponse
+     */
+    public function modifyElasticityAssuranceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyElasticityAssuranceResponse::fromMap($this->doRPCRequest('ModifyElasticityAssurance', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyElasticityAssuranceRequest $request
+     *
+     * @return ModifyElasticityAssuranceResponse
+     */
+    public function modifyElasticityAssurance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyElasticityAssuranceWithOptions($request, $runtime);
     }
 
     /**
@@ -7530,6 +8142,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param ModifyManagedInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyManagedInstanceResponse
+     */
+    public function modifyManagedInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyManagedInstanceResponse::fromMap($this->doRPCRequest('ModifyManagedInstance', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyManagedInstanceRequest $request
+     *
+     * @return ModifyManagedInstanceResponse
+     */
+    public function modifyManagedInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyManagedInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyNetworkInterfaceAttributeRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -7555,6 +8195,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyNetworkInterfaceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyPhysicalConnectionAttributeRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyPhysicalConnectionAttributeResponse
+     */
+    public function modifyPhysicalConnectionAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyPhysicalConnectionAttributeResponse::fromMap($this->doRPCRequest('ModifyPhysicalConnectionAttribute', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyPhysicalConnectionAttributeRequest $request
+     *
+     * @return ModifyPhysicalConnectionAttributeResponse
+     */
+    public function modifyPhysicalConnectionAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPhysicalConnectionAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -7835,6 +8503,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySnapshotAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifySnapshotGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifySnapshotGroupResponse
+     */
+    public function modifySnapshotGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifySnapshotGroupResponse::fromMap($this->doRPCRequest('ModifySnapshotGroup', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifySnapshotGroupRequest $request
+     *
+     * @return ModifySnapshotGroupResponse
+     */
+    public function modifySnapshotGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySnapshotGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -8594,6 +9290,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param ResetDisksRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ResetDisksResponse
+     */
+    public function resetDisksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ResetDisksResponse::fromMap($this->doRPCRequest('ResetDisks', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ResetDisksRequest $request
+     *
+     * @return ResetDisksResponse
+     */
+    public function resetDisks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetDisksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ResizeDiskRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -8711,6 +9435,34 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param RunInstancesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RunInstancesResponse
+     */
+    public function runInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RunInstancesResponse::fromMap($this->doRPCRequest('RunInstances', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RunInstancesRequest $request
+     *
+     * @return RunInstancesResponse
+     */
+    public function runInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SendFileRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -8764,6 +9516,34 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startElasticityAssuranceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartImagePipelineExecutionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return StartImagePipelineExecutionResponse
+     */
+    public function startImagePipelineExecutionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartImagePipelineExecutionResponse::fromMap($this->doRPCRequest('StartImagePipelineExecution', '2014-05-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartImagePipelineExecutionRequest $request
+     *
+     * @return StartImagePipelineExecutionResponse
+     */
+    public function startImagePipelineExecution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startImagePipelineExecutionWithOptions($request, $runtime);
     }
 
     /**

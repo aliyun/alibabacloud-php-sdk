@@ -266,16 +266,6 @@ class CreateInstanceRequest extends Model
     /**
      * @var string
      */
-    public $capacityReservationId;
-
-    /**
-     * @var string
-     */
-    public $capacityReservationPreference;
-
-    /**
-     * @var string
-     */
     public $affinity;
 
     /**
@@ -323,68 +313,66 @@ class CreateInstanceRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'systemDisk'                    => 'SystemDisk',
-        'privatePoolOptions'            => 'PrivatePoolOptions',
-        'ownerId'                       => 'OwnerId',
-        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
-        'resourceOwnerId'               => 'ResourceOwnerId',
-        'regionId'                      => 'RegionId',
-        'imageId'                       => 'ImageId',
-        'imageFamily'                   => 'ImageFamily',
-        'instanceType'                  => 'InstanceType',
-        'securityGroupId'               => 'SecurityGroupId',
-        'instanceName'                  => 'InstanceName',
-        'internetChargeType'            => 'InternetChargeType',
-        'autoRenew'                     => 'AutoRenew',
-        'autoRenewPeriod'               => 'AutoRenewPeriod',
-        'internetMaxBandwidthIn'        => 'InternetMaxBandwidthIn',
-        'internetMaxBandwidthOut'       => 'InternetMaxBandwidthOut',
-        'hostName'                      => 'HostName',
-        'password'                      => 'Password',
-        'passwordInherit'               => 'PasswordInherit',
-        'deploymentSetId'               => 'DeploymentSetId',
-        'deploymentSetGroupNo'          => 'DeploymentSetGroupNo',
-        'zoneId'                        => 'ZoneId',
-        'clusterId'                     => 'ClusterId',
-        'clientToken'                   => 'ClientToken',
-        'vlanId'                        => 'VlanId',
-        'innerIpAddress'                => 'InnerIpAddress',
-        'nodeControllerId'              => 'NodeControllerId',
-        'description'                   => 'Description',
-        'vSwitchId'                     => 'VSwitchId',
-        'privateIpAddress'              => 'PrivateIpAddress',
-        'ioOptimized'                   => 'IoOptimized',
-        'ownerAccount'                  => 'OwnerAccount',
-        'useAdditionalService'          => 'UseAdditionalService',
-        'instanceChargeType'            => 'InstanceChargeType',
-        'period'                        => 'Period',
-        'periodUnit'                    => 'PeriodUnit',
-        'userData'                      => 'UserData',
-        'spotStrategy'                  => 'SpotStrategy',
-        'keyPairName'                   => 'KeyPairName',
-        'spotPriceLimit'                => 'SpotPriceLimit',
-        'spotDuration'                  => 'SpotDuration',
-        'spotInterruptionBehavior'      => 'SpotInterruptionBehavior',
-        'ramRoleName'                   => 'RamRoleName',
-        'securityEnhancementStrategy'   => 'SecurityEnhancementStrategy',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'hpcClusterId'                  => 'HpcClusterId',
-        'dryRun'                        => 'DryRun',
-        'dedicatedHostId'               => 'DedicatedHostId',
-        'creditSpecification'           => 'CreditSpecification',
-        'deletionProtection'            => 'DeletionProtection',
-        'capacityReservationId'         => 'CapacityReservationId',
-        'capacityReservationPreference' => 'CapacityReservationPreference',
-        'affinity'                      => 'Affinity',
-        'tenancy'                       => 'Tenancy',
-        'storageSetId'                  => 'StorageSetId',
-        'storageSetPartitionNumber'     => 'StorageSetPartitionNumber',
-        'httpEndpoint'                  => 'HttpEndpoint',
-        'httpTokens'                    => 'HttpTokens',
-        'httpPutResponseHopLimit'       => 'HttpPutResponseHopLimit',
-        'dataDisk'                      => 'DataDisk',
-        'arn'                           => 'Arn',
-        'tag'                           => 'Tag',
+        'systemDisk'                  => 'SystemDisk',
+        'privatePoolOptions'          => 'PrivatePoolOptions',
+        'ownerId'                     => 'OwnerId',
+        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
+        'resourceOwnerId'             => 'ResourceOwnerId',
+        'regionId'                    => 'RegionId',
+        'imageId'                     => 'ImageId',
+        'imageFamily'                 => 'ImageFamily',
+        'instanceType'                => 'InstanceType',
+        'securityGroupId'             => 'SecurityGroupId',
+        'instanceName'                => 'InstanceName',
+        'internetChargeType'          => 'InternetChargeType',
+        'autoRenew'                   => 'AutoRenew',
+        'autoRenewPeriod'             => 'AutoRenewPeriod',
+        'internetMaxBandwidthIn'      => 'InternetMaxBandwidthIn',
+        'internetMaxBandwidthOut'     => 'InternetMaxBandwidthOut',
+        'hostName'                    => 'HostName',
+        'password'                    => 'Password',
+        'passwordInherit'             => 'PasswordInherit',
+        'deploymentSetId'             => 'DeploymentSetId',
+        'deploymentSetGroupNo'        => 'DeploymentSetGroupNo',
+        'zoneId'                      => 'ZoneId',
+        'clusterId'                   => 'ClusterId',
+        'clientToken'                 => 'ClientToken',
+        'vlanId'                      => 'VlanId',
+        'innerIpAddress'              => 'InnerIpAddress',
+        'nodeControllerId'            => 'NodeControllerId',
+        'description'                 => 'Description',
+        'vSwitchId'                   => 'VSwitchId',
+        'privateIpAddress'            => 'PrivateIpAddress',
+        'ioOptimized'                 => 'IoOptimized',
+        'ownerAccount'                => 'OwnerAccount',
+        'useAdditionalService'        => 'UseAdditionalService',
+        'instanceChargeType'          => 'InstanceChargeType',
+        'period'                      => 'Period',
+        'periodUnit'                  => 'PeriodUnit',
+        'userData'                    => 'UserData',
+        'spotStrategy'                => 'SpotStrategy',
+        'keyPairName'                 => 'KeyPairName',
+        'spotPriceLimit'              => 'SpotPriceLimit',
+        'spotDuration'                => 'SpotDuration',
+        'spotInterruptionBehavior'    => 'SpotInterruptionBehavior',
+        'ramRoleName'                 => 'RamRoleName',
+        'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
+        'resourceGroupId'             => 'ResourceGroupId',
+        'hpcClusterId'                => 'HpcClusterId',
+        'dryRun'                      => 'DryRun',
+        'dedicatedHostId'             => 'DedicatedHostId',
+        'creditSpecification'         => 'CreditSpecification',
+        'deletionProtection'          => 'DeletionProtection',
+        'affinity'                    => 'Affinity',
+        'tenancy'                     => 'Tenancy',
+        'storageSetId'                => 'StorageSetId',
+        'storageSetPartitionNumber'   => 'StorageSetPartitionNumber',
+        'httpEndpoint'                => 'HttpEndpoint',
+        'httpTokens'                  => 'HttpTokens',
+        'httpPutResponseHopLimit'     => 'HttpPutResponseHopLimit',
+        'dataDisk'                    => 'DataDisk',
+        'arn'                         => 'Arn',
+        'tag'                         => 'Tag',
     ];
 
     public function validate()
@@ -543,12 +531,6 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
-        }
-        if (null !== $this->capacityReservationId) {
-            $res['CapacityReservationId'] = $this->capacityReservationId;
-        }
-        if (null !== $this->capacityReservationPreference) {
-            $res['CapacityReservationPreference'] = $this->capacityReservationPreference;
         }
         if (null !== $this->affinity) {
             $res['Affinity'] = $this->affinity;
@@ -759,12 +741,6 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
-        }
-        if (isset($map['CapacityReservationId'])) {
-            $model->capacityReservationId = $map['CapacityReservationId'];
-        }
-        if (isset($map['CapacityReservationPreference'])) {
-            $model->capacityReservationPreference = $map['CapacityReservationPreference'];
         }
         if (isset($map['Affinity'])) {
             $model->affinity = $map['Affinity'];

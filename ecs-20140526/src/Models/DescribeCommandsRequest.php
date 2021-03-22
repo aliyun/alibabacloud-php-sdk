@@ -36,6 +36,11 @@ class DescribeCommandsRequest extends Model
     /**
      * @var string
      */
+    public $provider;
+
+    /**
+     * @var string
+     */
     public $commandId;
 
     /**
@@ -73,6 +78,7 @@ class DescribeCommandsRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'provider'             => 'Provider',
         'commandId'            => 'CommandId',
         'name'                 => 'Name',
         'description'          => 'Description',
@@ -103,6 +109,9 @@ class DescribeCommandsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->provider) {
+            $res['Provider'] = $this->provider;
         }
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
@@ -151,6 +160,9 @@ class DescribeCommandsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Provider'])) {
+            $model->provider = $map['Provider'];
         }
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];

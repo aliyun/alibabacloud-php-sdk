@@ -52,6 +52,11 @@ class DescribeRenewalPriceRequest extends Model
      * @var string
      */
     public $priceUnit;
+
+    /**
+     * @var int
+     */
+    public $expectedRenewDay;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'ownerAccount'         => 'OwnerAccount',
@@ -62,6 +67,7 @@ class DescribeRenewalPriceRequest extends Model
         'resourceId'           => 'ResourceId',
         'period'               => 'Period',
         'priceUnit'            => 'PriceUnit',
+        'expectedRenewDay'     => 'ExpectedRenewDay',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class DescribeRenewalPriceRequest extends Model
         }
         if (null !== $this->priceUnit) {
             $res['PriceUnit'] = $this->priceUnit;
+        }
+        if (null !== $this->expectedRenewDay) {
+            $res['ExpectedRenewDay'] = $this->expectedRenewDay;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class DescribeRenewalPriceRequest extends Model
         }
         if (isset($map['PriceUnit'])) {
             $model->priceUnit = $map['PriceUnit'];
+        }
+        if (isset($map['ExpectedRenewDay'])) {
+            $model->expectedRenewDay = $map['ExpectedRenewDay'];
         }
 
         return $model;

@@ -91,6 +91,11 @@ class AllocateDedicatedHostsRequest extends Model
     public $cpuOverCommitRatio;
 
     /**
+     * @var int
+     */
+    public $minQuantity;
+
+    /**
      * @var string
      */
     public $chargeType;
@@ -146,6 +151,7 @@ class AllocateDedicatedHostsRequest extends Model
         'description'            => 'Description',
         'autoPlacement'          => 'AutoPlacement',
         'cpuOverCommitRatio'     => 'CpuOverCommitRatio',
+        'minQuantity'            => 'MinQuantity',
         'chargeType'             => 'ChargeType',
         'quantity'               => 'Quantity',
         'period'                 => 'Period',
@@ -216,6 +222,9 @@ class AllocateDedicatedHostsRequest extends Model
         }
         if (null !== $this->cpuOverCommitRatio) {
             $res['CpuOverCommitRatio'] = $this->cpuOverCommitRatio;
+        }
+        if (null !== $this->minQuantity) {
+            $res['MinQuantity'] = $this->minQuantity;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
@@ -306,6 +315,9 @@ class AllocateDedicatedHostsRequest extends Model
         }
         if (isset($map['CpuOverCommitRatio'])) {
             $model->cpuOverCommitRatio = $map['CpuOverCommitRatio'];
+        }
+        if (isset($map['MinQuantity'])) {
+            $model->minQuantity = $map['MinQuantity'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];

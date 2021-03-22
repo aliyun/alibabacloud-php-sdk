@@ -116,6 +116,11 @@ class launchConfiguration extends Model
     public $creditSpecification;
 
     /**
+     * @var string
+     */
+    public $deploymentSetId;
+
+    /**
      * @var dataDisk[]
      */
     public $dataDisk;
@@ -146,6 +151,7 @@ class launchConfiguration extends Model
         'passwordInherit'             => 'PasswordInherit',
         'resourceGroupId'             => 'ResourceGroupId',
         'creditSpecification'         => 'CreditSpecification',
+        'deploymentSetId'             => 'DeploymentSetId',
         'dataDisk'                    => 'DataDisk',
         'tag'                         => 'Tag',
     ];
@@ -219,6 +225,9 @@ class launchConfiguration extends Model
         }
         if (null !== $this->creditSpecification) {
             $res['CreditSpecification'] = $this->creditSpecification;
+        }
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
         }
         if (null !== $this->dataDisk) {
             $res['DataDisk'] = [];
@@ -312,6 +321,9 @@ class launchConfiguration extends Model
         }
         if (isset($map['CreditSpecification'])) {
             $model->creditSpecification = $map['CreditSpecification'];
+        }
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
         }
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {

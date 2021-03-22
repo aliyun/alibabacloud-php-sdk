@@ -40,11 +40,6 @@ class CreateElasticityAssuranceRequest extends Model
     public $regionId;
 
     /**
-     * @var string
-     */
-    public $chargeType;
-
-    /**
      * @var int
      */
     public $period;
@@ -85,26 +80,6 @@ class CreateElasticityAssuranceRequest extends Model
     public $startTime;
 
     /**
-     * @var string
-     */
-    public $instanceChargeType;
-
-    /**
-     * @var string
-     */
-    public $platform;
-
-    /**
-     * @var string
-     */
-    public $packageType;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
      * @var string[]
      */
     public $zoneId;
@@ -120,7 +95,6 @@ class CreateElasticityAssuranceRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'chargeType'           => 'ChargeType',
         'period'               => 'Period',
         'periodUnit'           => 'PeriodUnit',
         'clientToken'          => 'ClientToken',
@@ -129,10 +103,6 @@ class CreateElasticityAssuranceRequest extends Model
         'instanceAmount'       => 'InstanceAmount',
         'instanceCpuCoreCount' => 'InstanceCpuCoreCount',
         'startTime'            => 'StartTime',
-        'instanceChargeType'   => 'InstanceChargeType',
-        'platform'             => 'Platform',
-        'packageType'          => 'PackageType',
-        'resourceType'         => 'ResourceType',
         'zoneId'               => 'ZoneId',
         'instanceType'         => 'InstanceType',
     ];
@@ -162,9 +132,6 @@ class CreateElasticityAssuranceRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->chargeType) {
-            $res['ChargeType'] = $this->chargeType;
-        }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
@@ -188,18 +155,6 @@ class CreateElasticityAssuranceRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
-        if (null !== $this->platform) {
-            $res['Platform'] = $this->platform;
-        }
-        if (null !== $this->packageType) {
-            $res['PackageType'] = $this->packageType;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -237,9 +192,6 @@ class CreateElasticityAssuranceRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ChargeType'])) {
-            $model->chargeType = $map['ChargeType'];
-        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
@@ -263,18 +215,6 @@ class CreateElasticityAssuranceRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
-        if (isset($map['Platform'])) {
-            $model->platform = $map['Platform'];
-        }
-        if (isset($map['PackageType'])) {
-            $model->packageType = $map['PackageType'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['ZoneId'])) {
             if (!empty($map['ZoneId'])) {

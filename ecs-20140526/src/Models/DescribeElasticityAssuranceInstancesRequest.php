@@ -48,11 +48,6 @@ class DescribeElasticityAssuranceInstancesRequest extends Model
      * @var string
      */
     public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $packageType;
     protected $_name = [
         'privatePoolOptions'   => 'PrivatePoolOptions',
         'ownerId'              => 'OwnerId',
@@ -62,7 +57,6 @@ class DescribeElasticityAssuranceInstancesRequest extends Model
         'regionId'             => 'RegionId',
         'maxResults'           => 'MaxResults',
         'nextToken'            => 'NextToken',
-        'packageType'          => 'PackageType',
     ];
 
     public function validate()
@@ -95,9 +89,6 @@ class DescribeElasticityAssuranceInstancesRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->packageType) {
-            $res['PackageType'] = $this->packageType;
         }
 
         return $res;
@@ -134,9 +125,6 @@ class DescribeElasticityAssuranceInstancesRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['PackageType'])) {
-            $model->packageType = $map['PackageType'];
         }
 
         return $model;

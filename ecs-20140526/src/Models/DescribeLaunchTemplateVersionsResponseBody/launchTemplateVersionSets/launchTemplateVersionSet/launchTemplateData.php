@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsRe
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\dataDisks;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\networkInterfaces;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\securityGroupIds;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\systemDisk;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\tags;
 use AlibabaCloud\Tea\Model;
@@ -16,6 +17,11 @@ class launchTemplateData extends Model
      * @var systemDisk
      */
     public $systemDisk;
+
+    /**
+     * @var string
+     */
+    public $deploymentSetId;
 
     /**
      * @var string
@@ -63,14 +69,14 @@ class launchTemplateData extends Model
     public $description;
 
     /**
-     * @var int
-     */
-    public $spotDuration;
-
-    /**
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var int
+     */
+    public $spotDuration;
 
     /**
      * @var string
@@ -91,6 +97,11 @@ class launchTemplateData extends Model
      * @var float
      */
     public $spotPriceLimit;
+
+    /**
+     * @var string
+     */
+    public $privateIpAddress;
 
     /**
      * @var string
@@ -126,6 +137,11 @@ class launchTemplateData extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var securityGroupIds
+     */
+    public $securityGroupIds;
 
     /**
      * @var int
@@ -173,6 +189,7 @@ class launchTemplateData extends Model
     public $networkInterfaces;
     protected $_name = [
         'systemDisk'                  => 'SystemDisk',
+        'deploymentSetId'             => 'DeploymentSetId',
         'vpcId'                       => 'VpcId',
         'keyPairName'                 => 'KeyPairName',
         'securityGroupId'             => 'SecurityGroupId',
@@ -182,12 +199,13 @@ class launchTemplateData extends Model
         'spotStrategy'                => 'SpotStrategy',
         'enableVmOsConfig'            => 'EnableVmOsConfig',
         'description'                 => 'Description',
-        'spotDuration'                => 'SpotDuration',
         'instanceName'                => 'InstanceName',
+        'spotDuration'                => 'SpotDuration',
         'userData'                    => 'UserData',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'passwordInherit'             => 'PasswordInherit',
         'spotPriceLimit'              => 'SpotPriceLimit',
+        'privateIpAddress'            => 'PrivateIpAddress',
         'imageId'                     => 'ImageId',
         'autoReleaseTime'             => 'AutoReleaseTime',
         'imageOwnerAlias'             => 'ImageOwnerAlias',
@@ -195,6 +213,7 @@ class launchTemplateData extends Model
         'internetMaxBandwidthOut'     => 'InternetMaxBandwidthOut',
         'internetMaxBandwidthIn'      => 'InternetMaxBandwidthIn',
         'instanceType'                => 'InstanceType',
+        'securityGroupIds'            => 'SecurityGroupIds',
         'period'                      => 'Period',
         'instanceChargeType'          => 'InstanceChargeType',
         'ioOptimized'                 => 'IoOptimized',
@@ -216,6 +235,9 @@ class launchTemplateData extends Model
         $res = [];
         if (null !== $this->systemDisk) {
             $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+        }
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -244,11 +266,11 @@ class launchTemplateData extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->spotDuration) {
-            $res['SpotDuration'] = $this->spotDuration;
-        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->spotDuration) {
+            $res['SpotDuration'] = $this->spotDuration;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -261,6 +283,9 @@ class launchTemplateData extends Model
         }
         if (null !== $this->spotPriceLimit) {
             $res['SpotPriceLimit'] = $this->spotPriceLimit;
+        }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -282,6 +307,9 @@ class launchTemplateData extends Model
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->securityGroupIds) {
+            $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -325,6 +353,9 @@ class launchTemplateData extends Model
         if (isset($map['SystemDisk'])) {
             $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
         }
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
@@ -352,11 +383,11 @@ class launchTemplateData extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['SpotDuration'])) {
-            $model->spotDuration = $map['SpotDuration'];
-        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['SpotDuration'])) {
+            $model->spotDuration = $map['SpotDuration'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
@@ -369,6 +400,9 @@ class launchTemplateData extends Model
         }
         if (isset($map['SpotPriceLimit'])) {
             $model->spotPriceLimit = $map['SpotPriceLimit'];
+        }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
@@ -390,6 +424,9 @@ class launchTemplateData extends Model
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['SecurityGroupIds'])) {
+            $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];

@@ -78,6 +78,16 @@ class DescribeInstancesRequest extends Model
     /**
      * @var string
      */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
     public $innerIpAddresses;
 
     /**
@@ -218,6 +228,8 @@ class DescribeInstancesRequest extends Model
         'instanceIds'             => 'InstanceIds',
         'pageNumber'              => 'PageNumber',
         'pageSize'                => 'PageSize',
+        'nextToken'               => 'NextToken',
+        'maxResults'              => 'MaxResults',
         'innerIpAddresses'        => 'InnerIpAddresses',
         'privateIpAddresses'      => 'PrivateIpAddresses',
         'publicIpAddresses'       => 'PublicIpAddresses',
@@ -297,6 +309,12 @@ class DescribeInstancesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->innerIpAddresses) {
             $res['InnerIpAddresses'] = $this->innerIpAddresses;
@@ -438,6 +456,12 @@ class DescribeInstancesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['InnerIpAddresses'])) {
             $model->innerIpAddresses = $map['InnerIpAddresses'];

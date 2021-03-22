@@ -42,21 +42,6 @@ class CreateCapacityReservationRequest extends Model
     /**
      * @var string
      */
-    public $chargeType;
-
-    /**
-     * @var int
-     */
-    public $period;
-
-    /**
-     * @var string
-     */
-    public $periodUnit;
-
-    /**
-     * @var string
-     */
     public $clientToken;
 
     /**
@@ -95,31 +80,6 @@ class CreateCapacityReservationRequest extends Model
     public $platform;
 
     /**
-     * @var string
-     */
-    public $instanceChargeType;
-
-    /**
-     * @var string
-     */
-    public $packageType;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @var int
-     */
-    public $efficientStatus;
-
-    /**
-     * @var string
-     */
-    public $timeSlot;
-
-    /**
      * @var string[]
      */
     public $zoneId;
@@ -130,9 +90,6 @@ class CreateCapacityReservationRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'chargeType'           => 'ChargeType',
-        'period'               => 'Period',
-        'periodUnit'           => 'PeriodUnit',
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
         'instanceAmount'       => 'InstanceAmount',
@@ -141,11 +98,6 @@ class CreateCapacityReservationRequest extends Model
         'endTime'              => 'EndTime',
         'endTimeType'          => 'EndTimeType',
         'platform'             => 'Platform',
-        'instanceChargeType'   => 'InstanceChargeType',
-        'packageType'          => 'PackageType',
-        'resourceType'         => 'ResourceType',
-        'efficientStatus'      => 'EfficientStatus',
-        'timeSlot'             => 'TimeSlot',
         'zoneId'               => 'ZoneId',
     ];
 
@@ -174,15 +126,6 @@ class CreateCapacityReservationRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->chargeType) {
-            $res['ChargeType'] = $this->chargeType;
-        }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
-        if (null !== $this->periodUnit) {
-            $res['PeriodUnit'] = $this->periodUnit;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -206,21 +149,6 @@ class CreateCapacityReservationRequest extends Model
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
-        if (null !== $this->packageType) {
-            $res['PackageType'] = $this->packageType;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->efficientStatus) {
-            $res['EfficientStatus'] = $this->efficientStatus;
-        }
-        if (null !== $this->timeSlot) {
-            $res['TimeSlot'] = $this->timeSlot;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -255,15 +183,6 @@ class CreateCapacityReservationRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ChargeType'])) {
-            $model->chargeType = $map['ChargeType'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
-        if (isset($map['PeriodUnit'])) {
-            $model->periodUnit = $map['PeriodUnit'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -287,21 +206,6 @@ class CreateCapacityReservationRequest extends Model
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
-        if (isset($map['PackageType'])) {
-            $model->packageType = $map['PackageType'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['EfficientStatus'])) {
-            $model->efficientStatus = $map['EfficientStatus'];
-        }
-        if (isset($map['TimeSlot'])) {
-            $model->timeSlot = $map['TimeSlot'];
         }
         if (isset($map['ZoneId'])) {
             if (!empty($map['ZoneId'])) {

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupResponseBody\launchResults;
 use AlibabaCloud\Tea\Model;
 
 class CreateAutoProvisioningGroupResponseBody extends Model
@@ -17,9 +18,15 @@ class CreateAutoProvisioningGroupResponseBody extends Model
      * @var string
      */
     public $autoProvisioningGroupId;
+
+    /**
+     * @var launchResults
+     */
+    public $launchResults;
     protected $_name = [
         'requestId'               => 'RequestId',
         'autoProvisioningGroupId' => 'AutoProvisioningGroupId',
+        'launchResults'           => 'LaunchResults',
     ];
 
     public function validate()
@@ -34,6 +41,9 @@ class CreateAutoProvisioningGroupResponseBody extends Model
         }
         if (null !== $this->autoProvisioningGroupId) {
             $res['AutoProvisioningGroupId'] = $this->autoProvisioningGroupId;
+        }
+        if (null !== $this->launchResults) {
+            $res['LaunchResults'] = null !== $this->launchResults ? $this->launchResults->toMap() : null;
         }
 
         return $res;
@@ -52,6 +62,9 @@ class CreateAutoProvisioningGroupResponseBody extends Model
         }
         if (isset($map['AutoProvisioningGroupId'])) {
             $model->autoProvisioningGroupId = $map['AutoProvisioningGroupId'];
+        }
+        if (isset($map['LaunchResults'])) {
+            $model->launchResults = launchResults::fromMap($map['LaunchResults']);
         }
 
         return $model;

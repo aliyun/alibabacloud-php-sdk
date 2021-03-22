@@ -79,26 +79,6 @@ class DescribeRecommendInstanceTypeRequest extends Model
     public $maxPrice;
 
     /**
-     * @var int
-     */
-    public $instanceBandwidthRx;
-
-    /**
-     * @var int
-     */
-    public $instanceBandwidthTx;
-
-    /**
-     * @var int
-     */
-    public $instancePpsRx;
-
-    /**
-     * @var int
-     */
-    public $instancePpsTx;
-
-    /**
      * @var string
      */
     public $regionId;
@@ -112,6 +92,11 @@ class DescribeRecommendInstanceTypeRequest extends Model
      * @var string
      */
     public $systemDiskCategory;
+
+    /**
+     * @var string
+     */
+    public $zoneMatchMode;
 
     /**
      * @var string
@@ -137,13 +122,10 @@ class DescribeRecommendInstanceTypeRequest extends Model
         'ioOptimized'          => 'IoOptimized',
         'priorityStrategy'     => 'PriorityStrategy',
         'maxPrice'             => 'MaxPrice',
-        'instanceBandwidthRx'  => 'InstanceBandwidthRx',
-        'instanceBandwidthTx'  => 'InstanceBandwidthTx',
-        'instancePpsRx'        => 'InstancePpsRx',
-        'instancePpsTx'        => 'InstancePpsTx',
         'regionId'             => 'RegionId',
         'zoneId'               => 'ZoneId',
         'systemDiskCategory'   => 'SystemDiskCategory',
+        'zoneMatchMode'        => 'ZoneMatchMode',
         'scene'                => 'Scene',
         'instanceTypeFamily'   => 'InstanceTypeFamily',
     ];
@@ -197,18 +179,6 @@ class DescribeRecommendInstanceTypeRequest extends Model
         if (null !== $this->maxPrice) {
             $res['MaxPrice'] = $this->maxPrice;
         }
-        if (null !== $this->instanceBandwidthRx) {
-            $res['InstanceBandwidthRx'] = $this->instanceBandwidthRx;
-        }
-        if (null !== $this->instanceBandwidthTx) {
-            $res['InstanceBandwidthTx'] = $this->instanceBandwidthTx;
-        }
-        if (null !== $this->instancePpsRx) {
-            $res['InstancePpsRx'] = $this->instancePpsRx;
-        }
-        if (null !== $this->instancePpsTx) {
-            $res['InstancePpsTx'] = $this->instancePpsTx;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -217,6 +187,9 @@ class DescribeRecommendInstanceTypeRequest extends Model
         }
         if (null !== $this->systemDiskCategory) {
             $res['SystemDiskCategory'] = $this->systemDiskCategory;
+        }
+        if (null !== $this->zoneMatchMode) {
+            $res['ZoneMatchMode'] = $this->zoneMatchMode;
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
@@ -278,18 +251,6 @@ class DescribeRecommendInstanceTypeRequest extends Model
         if (isset($map['MaxPrice'])) {
             $model->maxPrice = $map['MaxPrice'];
         }
-        if (isset($map['InstanceBandwidthRx'])) {
-            $model->instanceBandwidthRx = $map['InstanceBandwidthRx'];
-        }
-        if (isset($map['InstanceBandwidthTx'])) {
-            $model->instanceBandwidthTx = $map['InstanceBandwidthTx'];
-        }
-        if (isset($map['InstancePpsRx'])) {
-            $model->instancePpsRx = $map['InstancePpsRx'];
-        }
-        if (isset($map['InstancePpsTx'])) {
-            $model->instancePpsTx = $map['InstancePpsTx'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -298,6 +259,9 @@ class DescribeRecommendInstanceTypeRequest extends Model
         }
         if (isset($map['SystemDiskCategory'])) {
             $model->systemDiskCategory = $map['SystemDiskCategory'];
+        }
+        if (isset($map['ZoneMatchMode'])) {
+            $model->zoneMatchMode = $map['ZoneMatchMode'];
         }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];

@@ -59,6 +59,11 @@ class InvokeCommandRequest extends Model
     public $username;
 
     /**
+     * @var string
+     */
+    public $windowsPasswordName;
+
+    /**
      * @var string[]
      */
     public $instanceId;
@@ -73,6 +78,7 @@ class InvokeCommandRequest extends Model
         'frequency'            => 'Frequency',
         'parameters'           => 'Parameters',
         'username'             => 'Username',
+        'windowsPasswordName'  => 'WindowsPasswordName',
         'instanceId'           => 'InstanceId',
     ];
 
@@ -112,6 +118,9 @@ class InvokeCommandRequest extends Model
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
+        }
+        if (null !== $this->windowsPasswordName) {
+            $res['WindowsPasswordName'] = $this->windowsPasswordName;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -157,6 +166,9 @@ class InvokeCommandRequest extends Model
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
+        }
+        if (isset($map['WindowsPasswordName'])) {
+            $model->windowsPasswordName = $map['WindowsPasswordName'];
         }
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {

@@ -16,9 +16,15 @@ class CreateDiskResponseBody extends Model
     /**
      * @var string
      */
+    public $orderId;
+
+    /**
+     * @var string
+     */
     public $diskId;
     protected $_name = [
         'requestId' => 'RequestId',
+        'orderId'   => 'OrderId',
         'diskId'    => 'DiskId',
     ];
 
@@ -31,6 +37,9 @@ class CreateDiskResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
@@ -49,6 +58,9 @@ class CreateDiskResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];

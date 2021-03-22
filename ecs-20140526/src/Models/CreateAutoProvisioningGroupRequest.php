@@ -143,6 +143,11 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var launchTemplateConfig[]
      */
     public $launchTemplateConfig;
@@ -183,6 +188,7 @@ class CreateAutoProvisioningGroupRequest extends Model
         'launchTemplateId'                 => 'LaunchTemplateId',
         'launchTemplateVersion'            => 'LaunchTemplateVersion',
         'description'                      => 'Description',
+        'clientToken'                      => 'ClientToken',
         'launchTemplateConfig'             => 'LaunchTemplateConfig',
         'systemDiskConfig'                 => 'SystemDiskConfig',
         'dataDiskConfig'                   => 'DataDiskConfig',
@@ -272,6 +278,9 @@ class CreateAutoProvisioningGroupRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->launchTemplateConfig) {
             $res['LaunchTemplateConfig'] = [];
@@ -389,6 +398,9 @@ class CreateAutoProvisioningGroupRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['LaunchTemplateConfig'])) {
             if (!empty($map['LaunchTemplateConfig'])) {

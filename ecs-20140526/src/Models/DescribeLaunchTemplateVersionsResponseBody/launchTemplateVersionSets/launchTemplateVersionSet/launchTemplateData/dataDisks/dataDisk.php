@@ -11,6 +11,11 @@ class dataDisk extends Model
     /**
      * @var string
      */
+    public $performanceLevel;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -48,6 +53,7 @@ class dataDisk extends Model
      */
     public $encrypted;
     protected $_name = [
+        'performanceLevel'   => 'PerformanceLevel',
         'description'        => 'Description',
         'snapshotId'         => 'SnapshotId',
         'device'             => 'Device',
@@ -65,6 +71,9 @@ class dataDisk extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->performanceLevel) {
+            $res['PerformanceLevel'] = $this->performanceLevel;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -101,6 +110,9 @@ class dataDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PerformanceLevel'])) {
+            $model->performanceLevel = $map['PerformanceLevel'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

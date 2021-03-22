@@ -32,12 +32,24 @@ class systemDisk extends Model
      * @var int
      */
     public $iops;
+
+    /**
+     * @var string
+     */
+    public $performanceLevel;
+
+    /**
+     * @var bool
+     */
+    public $deleteWithInstance;
     protected $_name = [
-        'category'    => 'Category',
-        'size'        => 'Size',
-        'diskName'    => 'DiskName',
-        'description' => 'Description',
-        'iops'        => 'Iops',
+        'category'           => 'Category',
+        'size'               => 'Size',
+        'diskName'           => 'DiskName',
+        'description'        => 'Description',
+        'iops'               => 'Iops',
+        'performanceLevel'   => 'PerformanceLevel',
+        'deleteWithInstance' => 'DeleteWithInstance',
     ];
 
     public function validate()
@@ -61,6 +73,12 @@ class systemDisk extends Model
         }
         if (null !== $this->iops) {
             $res['Iops'] = $this->iops;
+        }
+        if (null !== $this->performanceLevel) {
+            $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+        if (null !== $this->deleteWithInstance) {
+            $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
 
         return $res;
@@ -88,6 +106,12 @@ class systemDisk extends Model
         }
         if (isset($map['Iops'])) {
             $model->iops = $map['Iops'];
+        }
+        if (isset($map['PerformanceLevel'])) {
+            $model->performanceLevel = $map['PerformanceLevel'];
+        }
+        if (isset($map['DeleteWithInstance'])) {
+            $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
 
         return $model;

@@ -63,6 +63,11 @@ class DescribePriceRequest extends Model
     /**
      * @var string
      */
+    public $dedicatedHostType;
+
+    /**
+     * @var string
+     */
     public $ioOptimized;
 
     /**
@@ -150,6 +155,7 @@ class DescribePriceRequest extends Model
         'resourceType'            => 'ResourceType',
         'imageId'                 => 'ImageId',
         'instanceType'            => 'InstanceType',
+        'dedicatedHostType'       => 'DedicatedHostType',
         'ioOptimized'             => 'IoOptimized',
         'instanceNetworkType'     => 'InstanceNetworkType',
         'internetChargeType'      => 'InternetChargeType',
@@ -210,6 +216,9 @@ class DescribePriceRequest extends Model
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->dedicatedHostType) {
+            $res['DedicatedHostType'] = $this->dedicatedHostType;
         }
         if (null !== $this->ioOptimized) {
             $res['IoOptimized'] = $this->ioOptimized;
@@ -306,6 +315,9 @@ class DescribePriceRequest extends Model
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['DedicatedHostType'])) {
+            $model->dedicatedHostType = $map['DedicatedHostType'];
         }
         if (isset($map['IoOptimized'])) {
             $model->ioOptimized = $map['IoOptimized'];

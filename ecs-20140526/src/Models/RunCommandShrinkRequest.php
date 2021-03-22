@@ -99,6 +99,11 @@ class RunCommandShrinkRequest extends Model
     public $username;
 
     /**
+     * @var string
+     */
+    public $windowsPasswordName;
+
+    /**
      * @var string[]
      */
     public $instanceId;
@@ -121,6 +126,7 @@ class RunCommandShrinkRequest extends Model
         'keepCommand'          => 'KeepCommand',
         'contentEncoding'      => 'ContentEncoding',
         'username'             => 'Username',
+        'windowsPasswordName'  => 'WindowsPasswordName',
         'instanceId'           => 'InstanceId',
     ];
 
@@ -184,6 +190,9 @@ class RunCommandShrinkRequest extends Model
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
+        }
+        if (null !== $this->windowsPasswordName) {
+            $res['WindowsPasswordName'] = $this->windowsPasswordName;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -253,6 +262,9 @@ class RunCommandShrinkRequest extends Model
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
+        }
+        if (isset($map['WindowsPasswordName'])) {
+            $model->windowsPasswordName = $map['WindowsPasswordName'];
         }
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {

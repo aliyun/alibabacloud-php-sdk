@@ -204,6 +204,16 @@ class CreateLaunchTemplateRequest extends Model
     public $securityEnhancementStrategy;
 
     /**
+     * @var string
+     */
+    public $privateIpAddress;
+
+    /**
+     * @var string
+     */
+    public $deploymentSetId;
+
+    /**
      * @var dataDisk[]
      */
     public $dataDisk;
@@ -217,6 +227,11 @@ class CreateLaunchTemplateRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string[]
+     */
+    public $securityGroupIds;
     protected $_name = [
         'systemDisk'                  => 'SystemDisk',
         'ownerId'                     => 'OwnerId',
@@ -256,9 +271,12 @@ class CreateLaunchTemplateRequest extends Model
         'resourceGroupId'             => 'ResourceGroupId',
         'templateResourceGroupId'     => 'TemplateResourceGroupId',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
+        'privateIpAddress'            => 'PrivateIpAddress',
+        'deploymentSetId'             => 'DeploymentSetId',
         'dataDisk'                    => 'DataDisk',
         'networkInterface'            => 'NetworkInterface',
         'tag'                         => 'Tag',
+        'securityGroupIds'            => 'SecurityGroupIds',
     ];
 
     public function validate()
@@ -388,6 +406,12 @@ class CreateLaunchTemplateRequest extends Model
         if (null !== $this->securityEnhancementStrategy) {
             $res['SecurityEnhancementStrategy'] = $this->securityEnhancementStrategy;
         }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
+        }
         if (null !== $this->dataDisk) {
             $res['DataDisk'] = [];
             if (null !== $this->dataDisk && \is_array($this->dataDisk)) {
@@ -414,6 +438,9 @@ class CreateLaunchTemplateRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->securityGroupIds) {
+            $res['SecurityGroupIds'] = $this->securityGroupIds;
         }
 
         return $res;
@@ -547,6 +574,12 @@ class CreateLaunchTemplateRequest extends Model
         if (isset($map['SecurityEnhancementStrategy'])) {
             $model->securityEnhancementStrategy = $map['SecurityEnhancementStrategy'];
         }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
+        }
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
                 $model->dataDisk = [];
@@ -572,6 +605,11 @@ class CreateLaunchTemplateRequest extends Model
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['SecurityGroupIds'])) {
+            if (!empty($map['SecurityGroupIds'])) {
+                $model->securityGroupIds = $map['SecurityGroupIds'];
             }
         }
 

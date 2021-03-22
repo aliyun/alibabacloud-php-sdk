@@ -34,6 +34,21 @@ class DescribeCloudAssistantStatusRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $OSType;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string[]
      */
     public $instanceId;
@@ -43,6 +58,9 @@ class DescribeCloudAssistantStatusRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
+        'OSType'               => 'OSType',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
         'instanceId'           => 'InstanceId',
     ];
 
@@ -67,6 +85,15 @@ class DescribeCloudAssistantStatusRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->OSType) {
+            $res['OSType'] = $this->OSType;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -97,6 +124,15 @@ class DescribeCloudAssistantStatusRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['OSType'])) {
+            $model->OSType = $map['OSType'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {

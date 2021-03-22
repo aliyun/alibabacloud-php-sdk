@@ -21,9 +21,19 @@ class recommendInstanceType extends Model
     public $commodityCode;
 
     /**
+     * @var string
+     */
+    public $zoneId;
+
+    /**
      * @var int
      */
     public $priority;
+
+    /**
+     * @var string
+     */
+    public $networkType;
 
     /**
      * @var instanceType
@@ -52,7 +62,9 @@ class recommendInstanceType extends Model
     protected $_name = [
         'zones'              => 'Zones',
         'commodityCode'      => 'CommodityCode',
+        'zoneId'             => 'ZoneId',
         'priority'           => 'Priority',
+        'networkType'        => 'NetworkType',
         'instanceType'       => 'InstanceType',
         'scene'              => 'Scene',
         'spotStrategy'       => 'SpotStrategy',
@@ -73,8 +85,14 @@ class recommendInstanceType extends Model
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = null !== $this->instanceType ? $this->instanceType->toMap() : null;
@@ -109,8 +127,14 @@ class recommendInstanceType extends Model
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
+        }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = instanceType::fromMap($map['InstanceType']);

@@ -32,12 +32,18 @@ class networkInterface extends Model
      * @var string
      */
     public $primaryIpAddress;
+
+    /**
+     * @var string[]
+     */
+    public $securityGroupIds;
     protected $_name = [
         'networkInterfaceName' => 'NetworkInterfaceName',
         'vSwitchId'            => 'VSwitchId',
         'description'          => 'Description',
         'securityGroupId'      => 'SecurityGroupId',
         'primaryIpAddress'     => 'PrimaryIpAddress',
+        'securityGroupIds'     => 'SecurityGroupIds',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class networkInterface extends Model
         }
         if (null !== $this->primaryIpAddress) {
             $res['PrimaryIpAddress'] = $this->primaryIpAddress;
+        }
+        if (null !== $this->securityGroupIds) {
+            $res['SecurityGroupIds'] = $this->securityGroupIds;
         }
 
         return $res;
@@ -88,6 +97,11 @@ class networkInterface extends Model
         }
         if (isset($map['PrimaryIpAddress'])) {
             $model->primaryIpAddress = $map['PrimaryIpAddress'];
+        }
+        if (isset($map['SecurityGroupIds'])) {
+            if (!empty($map['SecurityGroupIds'])) {
+                $model->securityGroupIds = $map['SecurityGroupIds'];
+            }
         }
 
         return $model;

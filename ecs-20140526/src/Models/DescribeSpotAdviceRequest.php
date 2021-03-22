@@ -79,16 +79,6 @@ class DescribeSpotAdviceRequest extends Model
     public $gpuAmount;
 
     /**
-     * @var string
-     */
-    public $networkType;
-
-    /**
-     * @var string
-     */
-    public $ioOptimized;
-
-    /**
      * @var string[]
      */
     public $instanceTypes;
@@ -107,8 +97,6 @@ class DescribeSpotAdviceRequest extends Model
         'instanceFamilyLevel'  => 'InstanceFamilyLevel',
         'gpuSpec'              => 'GpuSpec',
         'gpuAmount'            => 'GpuAmount',
-        'networkType'          => 'NetworkType',
-        'ioOptimized'          => 'IoOptimized',
         'instanceTypes'        => 'InstanceTypes',
     ];
 
@@ -160,12 +148,6 @@ class DescribeSpotAdviceRequest extends Model
         }
         if (null !== $this->gpuAmount) {
             $res['GpuAmount'] = $this->gpuAmount;
-        }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
-        }
-        if (null !== $this->ioOptimized) {
-            $res['IoOptimized'] = $this->ioOptimized;
         }
         if (null !== $this->instanceTypes) {
             $res['InstanceTypes'] = $this->instanceTypes;
@@ -223,12 +205,6 @@ class DescribeSpotAdviceRequest extends Model
         }
         if (isset($map['GpuAmount'])) {
             $model->gpuAmount = $map['GpuAmount'];
-        }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
-        }
-        if (isset($map['IoOptimized'])) {
-            $model->ioOptimized = $map['IoOptimized'];
         }
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {

@@ -73,11 +73,6 @@ class DescribeCapacityReservationsRequest extends Model
      * @var string
      */
     public $status;
-
-    /**
-     * @var string
-     */
-    public $packageType;
     protected $_name = [
         'privatePoolOptions'   => 'PrivatePoolOptions',
         'ownerId'              => 'OwnerId',
@@ -92,7 +87,6 @@ class DescribeCapacityReservationsRequest extends Model
         'zoneId'               => 'ZoneId',
         'instanceChargeType'   => 'InstanceChargeType',
         'status'               => 'Status',
-        'packageType'          => 'PackageType',
     ];
 
     public function validate()
@@ -140,9 +134,6 @@ class DescribeCapacityReservationsRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->packageType) {
-            $res['PackageType'] = $this->packageType;
         }
 
         return $res;
@@ -194,9 +185,6 @@ class DescribeCapacityReservationsRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['PackageType'])) {
-            $model->packageType = $map['PackageType'];
         }
 
         return $model;

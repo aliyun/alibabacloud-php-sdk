@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @var string
+     */
+    public $performanceLevel;
+
+    /**
      * @var int
      */
     public $size;
@@ -17,6 +22,11 @@ class systemDisk extends Model
      * @var string
      */
     public $diskName;
+
+    /**
+     * @var bool
+     */
+    public $deleteWithInstance;
 
     /**
      * @var string
@@ -33,11 +43,13 @@ class systemDisk extends Model
      */
     public $iops;
     protected $_name = [
-        'size'        => 'Size',
-        'diskName'    => 'DiskName',
-        'category'    => 'Category',
-        'description' => 'Description',
-        'iops'        => 'Iops',
+        'performanceLevel'   => 'PerformanceLevel',
+        'size'               => 'Size',
+        'diskName'           => 'DiskName',
+        'deleteWithInstance' => 'DeleteWithInstance',
+        'category'           => 'Category',
+        'description'        => 'Description',
+        'iops'               => 'Iops',
     ];
 
     public function validate()
@@ -47,11 +59,17 @@ class systemDisk extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->performanceLevel) {
+            $res['PerformanceLevel'] = $this->performanceLevel;
+        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
+        }
+        if (null !== $this->deleteWithInstance) {
+            $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
@@ -74,11 +92,17 @@ class systemDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PerformanceLevel'])) {
+            $model->performanceLevel = $map['PerformanceLevel'];
+        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
+        }
+        if (isset($map['DeleteWithInstance'])) {
+            $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];

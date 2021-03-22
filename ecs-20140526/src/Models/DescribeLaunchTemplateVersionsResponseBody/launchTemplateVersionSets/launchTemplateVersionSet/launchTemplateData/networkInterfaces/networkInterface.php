@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\networkInterfaces;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponseBody\launchTemplateVersionSets\launchTemplateVersionSet\launchTemplateData\networkInterfaces\networkInterface\securityGroupIds;
 use AlibabaCloud\Tea\Model;
 
 class networkInterface extends Model
@@ -32,12 +33,18 @@ class networkInterface extends Model
      * @var string
      */
     public $primaryIpAddress;
+
+    /**
+     * @var securityGroupIds
+     */
+    public $securityGroupIds;
     protected $_name = [
         'networkInterfaceName' => 'NetworkInterfaceName',
         'vSwitchId'            => 'VSwitchId',
         'description'          => 'Description',
         'securityGroupId'      => 'SecurityGroupId',
         'primaryIpAddress'     => 'PrimaryIpAddress',
+        'securityGroupIds'     => 'SecurityGroupIds',
     ];
 
     public function validate()
@@ -61,6 +68,9 @@ class networkInterface extends Model
         }
         if (null !== $this->primaryIpAddress) {
             $res['PrimaryIpAddress'] = $this->primaryIpAddress;
+        }
+        if (null !== $this->securityGroupIds) {
+            $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
         }
 
         return $res;
@@ -88,6 +98,9 @@ class networkInterface extends Model
         }
         if (isset($map['PrimaryIpAddress'])) {
             $model->primaryIpAddress = $map['PrimaryIpAddress'];
+        }
+        if (isset($map['SecurityGroupIds'])) {
+            $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
         }
 
         return $model;

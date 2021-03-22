@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost\capacity;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost\hostDetailInfo;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost\instances;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost\networkAttributes;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost\operationLocks;
@@ -77,6 +78,11 @@ class dedicatedHost extends Model
     public $dedicatedHostType;
 
     /**
+     * @var hostDetailInfo
+     */
+    public $hostDetailInfo;
+
+    /**
      * @var string
      */
     public $dedicatedHostId;
@@ -127,14 +133,14 @@ class dedicatedHost extends Model
     public $regionId;
 
     /**
-     * @var networkAttributes
-     */
-    public $networkAttributes;
-
-    /**
      * @var string
      */
     public $dedicatedHostName;
+
+    /**
+     * @var networkAttributes
+     */
+    public $networkAttributes;
 
     /**
      * @var string
@@ -178,6 +184,7 @@ class dedicatedHost extends Model
         'saleCycle'                           => 'SaleCycle',
         'description'                         => 'Description',
         'dedicatedHostType'                   => 'DedicatedHostType',
+        'hostDetailInfo'                      => 'HostDetailInfo',
         'dedicatedHostId'                     => 'DedicatedHostId',
         'sockets'                             => 'Sockets',
         'cores'                               => 'Cores',
@@ -188,8 +195,8 @@ class dedicatedHost extends Model
         'supportedCustomInstanceTypeFamilies' => 'SupportedCustomInstanceTypeFamilies',
         'instances'                           => 'Instances',
         'regionId'                            => 'RegionId',
-        'networkAttributes'                   => 'NetworkAttributes',
         'dedicatedHostName'                   => 'DedicatedHostName',
+        'networkAttributes'                   => 'NetworkAttributes',
         'expiredTime'                         => 'ExpiredTime',
         'dedicatedHostClusterId'              => 'DedicatedHostClusterId',
         'resourceGroupId'                     => 'ResourceGroupId',
@@ -241,6 +248,9 @@ class dedicatedHost extends Model
         if (null !== $this->dedicatedHostType) {
             $res['DedicatedHostType'] = $this->dedicatedHostType;
         }
+        if (null !== $this->hostDetailInfo) {
+            $res['HostDetailInfo'] = null !== $this->hostDetailInfo ? $this->hostDetailInfo->toMap() : null;
+        }
         if (null !== $this->dedicatedHostId) {
             $res['DedicatedHostId'] = $this->dedicatedHostId;
         }
@@ -271,11 +281,11 @@ class dedicatedHost extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->networkAttributes) {
-            $res['NetworkAttributes'] = null !== $this->networkAttributes ? $this->networkAttributes->toMap() : null;
-        }
         if (null !== $this->dedicatedHostName) {
             $res['DedicatedHostName'] = $this->dedicatedHostName;
+        }
+        if (null !== $this->networkAttributes) {
+            $res['NetworkAttributes'] = null !== $this->networkAttributes ? $this->networkAttributes->toMap() : null;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
@@ -343,6 +353,9 @@ class dedicatedHost extends Model
         if (isset($map['DedicatedHostType'])) {
             $model->dedicatedHostType = $map['DedicatedHostType'];
         }
+        if (isset($map['HostDetailInfo'])) {
+            $model->hostDetailInfo = hostDetailInfo::fromMap($map['HostDetailInfo']);
+        }
         if (isset($map['DedicatedHostId'])) {
             $model->dedicatedHostId = $map['DedicatedHostId'];
         }
@@ -373,11 +386,11 @@ class dedicatedHost extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['NetworkAttributes'])) {
-            $model->networkAttributes = networkAttributes::fromMap($map['NetworkAttributes']);
-        }
         if (isset($map['DedicatedHostName'])) {
             $model->dedicatedHostName = $map['DedicatedHostName'];
+        }
+        if (isset($map['NetworkAttributes'])) {
+            $model->networkAttributes = networkAttributes::fromMap($map['NetworkAttributes']);
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
