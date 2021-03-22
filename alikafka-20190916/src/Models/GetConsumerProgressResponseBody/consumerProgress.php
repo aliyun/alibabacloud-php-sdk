@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class consumerProgress extends Model
 {
     /**
-     * @var topicList[]
+     * @var topicList
      */
     public $topicList;
 
@@ -37,13 +37,7 @@ class consumerProgress extends Model
     {
         $res = [];
         if (null !== $this->topicList) {
-            $res['TopicList'] = [];
-            if (null !== $this->topicList && \is_array($this->topicList)) {
-                $n = 0;
-                foreach ($this->topicList as $item) {
-                    $res['TopicList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['TopicList'] = null !== $this->topicList ? $this->topicList->toMap() : null;
         }
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
@@ -64,13 +58,7 @@ class consumerProgress extends Model
     {
         $model = new self();
         if (isset($map['TopicList'])) {
-            if (!empty($map['TopicList'])) {
-                $model->topicList = [];
-                $n                = 0;
-                foreach ($map['TopicList'] as $item) {
-                    $model->topicList[$n++] = null !== $item ? topicList::fromMap($item) : $item;
-                }
-            }
+            $model->topicList = topicList::fromMap($map['TopicList']);
         }
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];

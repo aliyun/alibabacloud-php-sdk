@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicListResponseBody\topicList;
+namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO\tags;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class tagVO extends Model
 {
     /**
      * @var string
@@ -42,7 +42,7 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return tagVO
      */
     public static function fromMap($map = [])
     {

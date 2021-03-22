@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeSaslUsersResponseBody;
 
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeSaslUsersResponseBody\saslUserList\saslUserVO;
 use AlibabaCloud\Tea\Model;
 
 class saslUserList extends Model
 {
     /**
-     * @var string
+     * @var saslUserVO[]
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $password;
-
-    /**
-     * @var string
-     */
-    public $username;
+    public $saslUserVO;
     protected $_name = [
-        'type'     => 'Type',
-        'password' => 'Password',
-        'username' => 'Username',
+        'saslUserVO' => 'SaslUserVO',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class saslUserList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
-        }
-        if (null !== $this->username) {
-            $res['Username'] = $this->username;
+        if (null !== $this->saslUserVO) {
+            $res['SaslUserVO'] = [];
+            if (null !== $this->saslUserVO && \is_array($this->saslUserVO)) {
+                $n = 0;
+                foreach ($this->saslUserVO as $item) {
+                    $res['SaslUserVO'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class saslUserList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
-        }
-        if (isset($map['Username'])) {
-            $model->username = $map['Username'];
+        if (isset($map['SaslUserVO'])) {
+            if (!empty($map['SaslUserVO'])) {
+                $model->saslUserVO = [];
+                $n                 = 0;
+                foreach ($map['SaslUserVO'] as $item) {
+                    $model->saslUserVO[$n++] = null !== $item ? saslUserVO::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

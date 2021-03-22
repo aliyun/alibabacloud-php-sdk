@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeNodeStatusResponseBody\statusList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeNodeStatusResponseBody extends Model
@@ -19,7 +20,7 @@ class DescribeNodeStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
+     * @var statusList
      */
     public $statusList;
 
@@ -54,7 +55,7 @@ class DescribeNodeStatusResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->statusList) {
-            $res['StatusList'] = $this->statusList;
+            $res['StatusList'] = null !== $this->statusList ? $this->statusList->toMap() : null;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
@@ -81,9 +82,7 @@ class DescribeNodeStatusResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['StatusList'])) {
-            if (!empty($map['StatusList'])) {
-                $model->statusList = $map['StatusList'];
-            }
+            $model->statusList = statusList::fromMap($map['StatusList']);
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];

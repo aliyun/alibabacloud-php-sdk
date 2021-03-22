@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\ListTagResourcesResponseBody;
 
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ListTagResourcesResponseBody\tagResources\tagResource;
 use AlibabaCloud\Tea\Model;
 
 class tagResources extends Model
 {
     /**
-     * @var string
+     * @var tagResource[]
      */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $tagValue;
-
-    /**
-     * @var string
-     */
-    public $resourceId;
-
-    /**
-     * @var string
-     */
-    public $tagKey;
+    public $tagResource;
     protected $_name = [
-        'resourceType' => 'ResourceType',
-        'tagValue'     => 'TagValue',
-        'resourceId'   => 'ResourceId',
-        'tagKey'       => 'TagKey',
+        'tagResource' => 'TagResource',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class tagResources extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->tagValue) {
-            $res['TagValue'] = $this->tagValue;
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
-        }
-        if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+        if (null !== $this->tagResource) {
+            $res['TagResource'] = [];
+            if (null !== $this->tagResource && \is_array($this->tagResource)) {
+                $n = 0;
+                foreach ($this->tagResource as $item) {
+                    $res['TagResource'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class tagResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['TagValue'])) {
-            $model->tagValue = $map['TagValue'];
-        }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
-        }
-        if (isset($map['TagKey'])) {
-            $model->tagKey = $map['TagKey'];
+        if (isset($map['TagResource'])) {
+            if (!empty($map['TagResource'])) {
+                $model->tagResource = [];
+                $n                  = 0;
+                foreach ($map['TagResource'] as $item) {
+                    $model->tagResource[$n++] = null !== $item ? tagResource::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

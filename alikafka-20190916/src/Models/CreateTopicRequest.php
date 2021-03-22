@@ -29,27 +29,15 @@ class CreateTopicRequest extends Model
     public $regionId;
 
     /**
-     * @var bool
-     */
-    public $compactTopic;
-
-    /**
      * @var string
      */
     public $partitionNum;
-
-    /**
-     * @var bool
-     */
-    public $localTopic;
     protected $_name = [
         'instanceId'   => 'InstanceId',
         'topic'        => 'Topic',
         'remark'       => 'Remark',
         'regionId'     => 'RegionId',
-        'compactTopic' => 'CompactTopic',
         'partitionNum' => 'PartitionNum',
-        'localTopic'   => 'LocalTopic',
     ];
 
     public function validate()
@@ -71,14 +59,8 @@ class CreateTopicRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->compactTopic) {
-            $res['CompactTopic'] = $this->compactTopic;
-        }
         if (null !== $this->partitionNum) {
             $res['PartitionNum'] = $this->partitionNum;
-        }
-        if (null !== $this->localTopic) {
-            $res['LocalTopic'] = $this->localTopic;
         }
 
         return $res;
@@ -104,14 +86,8 @@ class CreateTopicRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['CompactTopic'])) {
-            $model->compactTopic = $map['CompactTopic'];
-        }
         if (isset($map['PartitionNum'])) {
             $model->partitionNum = $map['PartitionNum'];
-        }
-        if (isset($map['LocalTopic'])) {
-            $model->localTopic = $map['LocalTopic'];
         }
 
         return $model;

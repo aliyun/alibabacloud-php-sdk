@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSaslUsersResponseBody extends Model
 {
     /**
-     * @var saslUserList[]
+     * @var saslUserList
      */
     public $saslUserList;
 
@@ -49,13 +49,7 @@ class DescribeSaslUsersResponseBody extends Model
     {
         $res = [];
         if (null !== $this->saslUserList) {
-            $res['SaslUserList'] = [];
-            if (null !== $this->saslUserList && \is_array($this->saslUserList)) {
-                $n = 0;
-                foreach ($this->saslUserList as $item) {
-                    $res['SaslUserList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['SaslUserList'] = null !== $this->saslUserList ? $this->saslUserList->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -82,13 +76,7 @@ class DescribeSaslUsersResponseBody extends Model
     {
         $model = new self();
         if (isset($map['SaslUserList'])) {
-            if (!empty($map['SaslUserList'])) {
-                $model->saslUserList = [];
-                $n                   = 0;
-                foreach ($map['SaslUserList'] as $item) {
-                    $model->saslUserList[$n++] = null !== $item ? saslUserList::fromMap($item) : $item;
-                }
-            }
+            $model->saslUserList = saslUserList::fromMap($map['SaslUserList']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

@@ -20,7 +20,7 @@ class topicStatus extends Model
     public $totalCount;
 
     /**
-     * @var offsetTable[]
+     * @var offsetTable
      */
     public $offsetTable;
     protected $_name = [
@@ -43,13 +43,7 @@ class topicStatus extends Model
             $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->offsetTable) {
-            $res['OffsetTable'] = [];
-            if (null !== $this->offsetTable && \is_array($this->offsetTable)) {
-                $n = 0;
-                foreach ($this->offsetTable as $item) {
-                    $res['OffsetTable'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['OffsetTable'] = null !== $this->offsetTable ? $this->offsetTable->toMap() : null;
         }
 
         return $res;
@@ -70,13 +64,7 @@ class topicStatus extends Model
             $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['OffsetTable'])) {
-            if (!empty($map['OffsetTable'])) {
-                $model->offsetTable = [];
-                $n                  = 0;
-                foreach ($map['OffsetTable'] as $item) {
-                    $model->offsetTable[$n++] = null !== $item ? offsetTable::fromMap($item) : $item;
-                }
-            }
+            $model->offsetTable = offsetTable::fromMap($map['OffsetTable']);
         }
 
         return $model;

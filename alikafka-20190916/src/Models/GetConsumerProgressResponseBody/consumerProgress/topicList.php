@@ -4,35 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress;
 
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\topicList\offsetList;
 use AlibabaCloud\Tea\Model;
 
 class topicList extends Model
 {
     /**
-     * @var int
+     * @var \AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\topicList\topicList[]
      */
-    public $totalDiff;
-
-    /**
-     * @var int
-     */
-    public $lastTimestamp;
-
-    /**
-     * @var string
-     */
-    public $topic;
-
-    /**
-     * @var offsetList[]
-     */
-    public $offsetList;
+    public $topicList;
     protected $_name = [
-        'totalDiff'     => 'TotalDiff',
-        'lastTimestamp' => 'LastTimestamp',
-        'topic'         => 'Topic',
-        'offsetList'    => 'OffsetList',
+        'topicList' => 'TopicList',
     ];
 
     public function validate()
@@ -42,21 +23,12 @@ class topicList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalDiff) {
-            $res['TotalDiff'] = $this->totalDiff;
-        }
-        if (null !== $this->lastTimestamp) {
-            $res['LastTimestamp'] = $this->lastTimestamp;
-        }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
-        if (null !== $this->offsetList) {
-            $res['OffsetList'] = [];
-            if (null !== $this->offsetList && \is_array($this->offsetList)) {
+        if (null !== $this->topicList) {
+            $res['TopicList'] = [];
+            if (null !== $this->topicList && \is_array($this->topicList)) {
                 $n = 0;
-                foreach ($this->offsetList as $item) {
-                    $res['OffsetList'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->topicList as $item) {
+                    $res['TopicList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -72,21 +44,12 @@ class topicList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalDiff'])) {
-            $model->totalDiff = $map['TotalDiff'];
-        }
-        if (isset($map['LastTimestamp'])) {
-            $model->lastTimestamp = $map['LastTimestamp'];
-        }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
-        if (isset($map['OffsetList'])) {
-            if (!empty($map['OffsetList'])) {
-                $model->offsetList = [];
-                $n                 = 0;
-                foreach ($map['OffsetList'] as $item) {
-                    $model->offsetList[$n++] = null !== $item ? offsetList::fromMap($item) : $item;
+        if (isset($map['TopicList'])) {
+            if (!empty($map['TopicList'])) {
+                $model->topicList = [];
+                $n                = 0;
+                foreach ($map['TopicList'] as $item) {
+                    $model->topicList[$n++] = null !== $item ? \AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\topicList\topicList::fromMap($item) : $item;
                 }
             }
         }

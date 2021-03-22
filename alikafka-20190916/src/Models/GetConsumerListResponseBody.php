@@ -25,7 +25,7 @@ class GetConsumerListResponseBody extends Model
     public $code;
 
     /**
-     * @var consumerList[]
+     * @var consumerList
      */
     public $consumerList;
 
@@ -58,13 +58,7 @@ class GetConsumerListResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->consumerList) {
-            $res['ConsumerList'] = [];
-            if (null !== $this->consumerList && \is_array($this->consumerList)) {
-                $n = 0;
-                foreach ($this->consumerList as $item) {
-                    $res['ConsumerList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ConsumerList'] = null !== $this->consumerList ? $this->consumerList->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -91,13 +85,7 @@ class GetConsumerListResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['ConsumerList'])) {
-            if (!empty($map['ConsumerList'])) {
-                $model->consumerList = [];
-                $n                   = 0;
-                foreach ($map['ConsumerList'] as $item) {
-                    $model->consumerList[$n++] = null !== $item ? consumerList::fromMap($item) : $item;
-                }
-            }
+            $model->consumerList = consumerList::fromMap($map['ConsumerList']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

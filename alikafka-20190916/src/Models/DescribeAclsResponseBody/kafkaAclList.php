@@ -4,46 +4,17 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsResponseBody;
 
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsResponseBody\kafkaAclList\kafkaAclVO;
 use AlibabaCloud\Tea\Model;
 
 class kafkaAclList extends Model
 {
     /**
-     * @var string
+     * @var kafkaAclVO[]
      */
-    public $aclResourceType;
-
-    /**
-     * @var string
-     */
-    public $host;
-
-    /**
-     * @var string
-     */
-    public $aclOperationType;
-
-    /**
-     * @var string
-     */
-    public $aclResourceName;
-
-    /**
-     * @var string
-     */
-    public $aclResourcePatternType;
-
-    /**
-     * @var string
-     */
-    public $username;
+    public $kafkaAclVO;
     protected $_name = [
-        'aclResourceType'        => 'AclResourceType',
-        'host'                   => 'Host',
-        'aclOperationType'       => 'AclOperationType',
-        'aclResourceName'        => 'AclResourceName',
-        'aclResourcePatternType' => 'AclResourcePatternType',
-        'username'               => 'Username',
+        'kafkaAclVO' => 'KafkaAclVO',
     ];
 
     public function validate()
@@ -53,23 +24,14 @@ class kafkaAclList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclResourceType) {
-            $res['AclResourceType'] = $this->aclResourceType;
-        }
-        if (null !== $this->host) {
-            $res['Host'] = $this->host;
-        }
-        if (null !== $this->aclOperationType) {
-            $res['AclOperationType'] = $this->aclOperationType;
-        }
-        if (null !== $this->aclResourceName) {
-            $res['AclResourceName'] = $this->aclResourceName;
-        }
-        if (null !== $this->aclResourcePatternType) {
-            $res['AclResourcePatternType'] = $this->aclResourcePatternType;
-        }
-        if (null !== $this->username) {
-            $res['Username'] = $this->username;
+        if (null !== $this->kafkaAclVO) {
+            $res['KafkaAclVO'] = [];
+            if (null !== $this->kafkaAclVO && \is_array($this->kafkaAclVO)) {
+                $n = 0;
+                foreach ($this->kafkaAclVO as $item) {
+                    $res['KafkaAclVO'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -83,23 +45,14 @@ class kafkaAclList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclResourceType'])) {
-            $model->aclResourceType = $map['AclResourceType'];
-        }
-        if (isset($map['Host'])) {
-            $model->host = $map['Host'];
-        }
-        if (isset($map['AclOperationType'])) {
-            $model->aclOperationType = $map['AclOperationType'];
-        }
-        if (isset($map['AclResourceName'])) {
-            $model->aclResourceName = $map['AclResourceName'];
-        }
-        if (isset($map['AclResourcePatternType'])) {
-            $model->aclResourcePatternType = $map['AclResourcePatternType'];
-        }
-        if (isset($map['Username'])) {
-            $model->username = $map['Username'];
+        if (isset($map['KafkaAclVO'])) {
+            if (!empty($map['KafkaAclVO'])) {
+                $model->kafkaAclVO = [];
+                $n                 = 0;
+                foreach ($map['KafkaAclVO'] as $item) {
+                    $model->kafkaAclVO[$n++] = null !== $item ? kafkaAclVO::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

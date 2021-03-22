@@ -35,7 +35,7 @@ class GetTopicListResponseBody extends Model
     public $total;
 
     /**
-     * @var topicList[]
+     * @var topicList
      */
     public $topicList;
 
@@ -82,13 +82,7 @@ class GetTopicListResponseBody extends Model
             $res['Total'] = $this->total;
         }
         if (null !== $this->topicList) {
-            $res['TopicList'] = [];
-            if (null !== $this->topicList && \is_array($this->topicList)) {
-                $n = 0;
-                foreach ($this->topicList as $item) {
-                    $res['TopicList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['TopicList'] = null !== $this->topicList ? $this->topicList->toMap() : null;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
@@ -124,13 +118,7 @@ class GetTopicListResponseBody extends Model
             $model->total = $map['Total'];
         }
         if (isset($map['TopicList'])) {
-            if (!empty($map['TopicList'])) {
-                $model->topicList = [];
-                $n                = 0;
-                foreach ($map['TopicList'] as $item) {
-                    $model->topicList[$n++] = null !== $item ? topicList::fromMap($item) : $item;
-                }
-            }
+            $model->topicList = topicList::fromMap($map['TopicList']);
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];

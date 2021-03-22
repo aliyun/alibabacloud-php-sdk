@@ -64,14 +64,24 @@ class StartInstanceRequest extends Model
     public $name;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $crossZone;
+    public $securityGroup;
 
     /**
      * @var string
      */
-    public $securityGroup;
+    public $serviceVersion;
+
+    /**
+     * @var string
+     */
+    public $config;
+
+    /**
+     * @var string
+     */
+    public $KMSKeyId;
     protected $_name = [
         'instanceId'           => 'InstanceId',
         'regionId'             => 'RegionId',
@@ -84,8 +94,10 @@ class StartInstanceRequest extends Model
         'username'             => 'Username',
         'password'             => 'Password',
         'name'                 => 'Name',
-        'crossZone'            => 'CrossZone',
         'securityGroup'        => 'SecurityGroup',
+        'serviceVersion'       => 'ServiceVersion',
+        'config'               => 'Config',
+        'KMSKeyId'             => 'KMSKeyId',
     ];
 
     public function validate()
@@ -128,11 +140,17 @@ class StartInstanceRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->crossZone) {
-            $res['CrossZone'] = $this->crossZone;
-        }
         if (null !== $this->securityGroup) {
             $res['SecurityGroup'] = $this->securityGroup;
+        }
+        if (null !== $this->serviceVersion) {
+            $res['ServiceVersion'] = $this->serviceVersion;
+        }
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
+        }
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
         }
 
         return $res;
@@ -179,11 +197,17 @@ class StartInstanceRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['CrossZone'])) {
-            $model->crossZone = $map['CrossZone'];
-        }
         if (isset($map['SecurityGroup'])) {
             $model->securityGroup = $map['SecurityGroup'];
+        }
+        if (isset($map['ServiceVersion'])) {
+            $model->serviceVersion = $map['ServiceVersion'];
+        }
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
+        }
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
         }
 
         return $model;

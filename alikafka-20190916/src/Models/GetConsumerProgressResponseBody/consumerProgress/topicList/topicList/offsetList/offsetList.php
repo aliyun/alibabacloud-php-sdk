@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\topicList;
+namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\topicList\topicList\offsetList;
 
 use AlibabaCloud\Tea\Model;
 

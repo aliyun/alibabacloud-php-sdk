@@ -30,7 +30,7 @@ class DescribeAclsResponseBody extends Model
     public $success;
 
     /**
-     * @var kafkaAclList[]
+     * @var kafkaAclList
      */
     public $kafkaAclList;
     protected $_name = [
@@ -61,13 +61,7 @@ class DescribeAclsResponseBody extends Model
             $res['Success'] = $this->success;
         }
         if (null !== $this->kafkaAclList) {
-            $res['KafkaAclList'] = [];
-            if (null !== $this->kafkaAclList && \is_array($this->kafkaAclList)) {
-                $n = 0;
-                foreach ($this->kafkaAclList as $item) {
-                    $res['KafkaAclList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['KafkaAclList'] = null !== $this->kafkaAclList ? $this->kafkaAclList->toMap() : null;
         }
 
         return $res;
@@ -94,13 +88,7 @@ class DescribeAclsResponseBody extends Model
             $model->success = $map['Success'];
         }
         if (isset($map['KafkaAclList'])) {
-            if (!empty($map['KafkaAclList'])) {
-                $model->kafkaAclList = [];
-                $n                   = 0;
-                foreach ($map['KafkaAclList'] as $item) {
-                    $model->kafkaAclList[$n++] = null !== $item ? kafkaAclList::fromMap($item) : $item;
-                }
-            }
+            $model->kafkaAclList = kafkaAclList::fromMap($map['KafkaAclList']);
         }
 
         return $model;

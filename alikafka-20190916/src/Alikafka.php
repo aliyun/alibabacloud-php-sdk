@@ -67,6 +67,10 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateAllowedIpRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateAllowedIpResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateInstanceConfigRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpdateInstanceConfigResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradeInstanceVersionRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradeInstanceVersionResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePostPayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePostPayOrderResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderRequest;
@@ -1012,6 +1016,62 @@ class Alikafka extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAllowedIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateInstanceConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateInstanceConfigResponse
+     */
+    public function updateInstanceConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateInstanceConfigResponse::fromMap($this->doRPCRequest('UpdateInstanceConfig', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateInstanceConfigRequest $request
+     *
+     * @return UpdateInstanceConfigResponse
+     */
+    public function updateInstanceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInstanceConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeInstanceVersionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpgradeInstanceVersionResponse
+     */
+    public function upgradeInstanceVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpgradeInstanceVersionResponse::fromMap($this->doRPCRequest('UpgradeInstanceVersion', '2019-09-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeInstanceVersionRequest $request
+     *
+     * @return UpgradeInstanceVersionResponse
+     */
+    public function upgradeInstanceVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeInstanceVersionWithOptions($request, $runtime);
     }
 
     /**

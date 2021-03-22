@@ -20,7 +20,7 @@ class GetInstanceListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var instanceList[]
+     * @var instanceList
      */
     public $instanceList;
 
@@ -55,13 +55,7 @@ class GetInstanceListResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->instanceList) {
-            $res['InstanceList'] = [];
-            if (null !== $this->instanceList && \is_array($this->instanceList)) {
-                $n = 0;
-                foreach ($this->instanceList as $item) {
-                    $res['InstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['InstanceList'] = null !== $this->instanceList ? $this->instanceList->toMap() : null;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
@@ -88,13 +82,7 @@ class GetInstanceListResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['InstanceList'])) {
-            if (!empty($map['InstanceList'])) {
-                $model->instanceList = [];
-                $n                   = 0;
-                foreach ($map['InstanceList'] as $item) {
-                    $model->instanceList[$n++] = null !== $item ? instanceList::fromMap($item) : $item;
-                }
-            }
+            $model->instanceList = instanceList::fromMap($map['InstanceList']);
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];

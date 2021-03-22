@@ -4,41 +4,17 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerListResponseBody;
 
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerListResponseBody\consumerList\tags;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerListResponseBody\consumerList\consumerVO;
 use AlibabaCloud\Tea\Model;
 
 class consumerList extends Model
 {
     /**
-     * @var string
+     * @var consumerVO[]
      */
-    public $remark;
-
-    /**
-     * @var tags[]
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
-    public $consumerId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $consumerVO;
     protected $_name = [
-        'remark'     => 'Remark',
-        'tags'       => 'Tags',
-        'consumerId' => 'ConsumerId',
-        'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'consumerVO' => 'ConsumerVO',
     ];
 
     public function validate()
@@ -48,26 +24,14 @@ class consumerList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
+        if (null !== $this->consumerVO) {
+            $res['ConsumerVO'] = [];
+            if (null !== $this->consumerVO && \is_array($this->consumerVO)) {
                 $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->consumerVO as $item) {
+                    $res['ConsumerVO'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->consumerId) {
-            $res['ConsumerId'] = $this->consumerId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -81,26 +45,14 @@ class consumerList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+        if (isset($map['ConsumerVO'])) {
+            if (!empty($map['ConsumerVO'])) {
+                $model->consumerVO = [];
+                $n                 = 0;
+                foreach ($map['ConsumerVO'] as $item) {
+                    $model->consumerVO[$n++] = null !== $item ? consumerVO::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ConsumerId'])) {
-            $model->consumerId = $map['ConsumerId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

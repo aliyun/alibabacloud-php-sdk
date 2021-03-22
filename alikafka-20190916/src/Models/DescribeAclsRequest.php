@@ -32,12 +32,18 @@ class DescribeAclsRequest extends Model
      * @var string
      */
     public $aclResourceName;
+
+    /**
+     * @var string
+     */
+    public $aclResourcePatternType;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'instanceId'      => 'InstanceId',
-        'username'        => 'Username',
-        'aclResourceType' => 'AclResourceType',
-        'aclResourceName' => 'AclResourceName',
+        'regionId'               => 'RegionId',
+        'instanceId'             => 'InstanceId',
+        'username'               => 'Username',
+        'aclResourceType'        => 'AclResourceType',
+        'aclResourceName'        => 'AclResourceName',
+        'aclResourcePatternType' => 'AclResourcePatternType',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class DescribeAclsRequest extends Model
         }
         if (null !== $this->aclResourceName) {
             $res['AclResourceName'] = $this->aclResourceName;
+        }
+        if (null !== $this->aclResourcePatternType) {
+            $res['AclResourcePatternType'] = $this->aclResourcePatternType;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class DescribeAclsRequest extends Model
         }
         if (isset($map['AclResourceName'])) {
             $model->aclResourceName = $map['AclResourceName'];
+        }
+        if (isset($map['AclResourcePatternType'])) {
+            $model->aclResourcePatternType = $map['AclResourcePatternType'];
         }
 
         return $model;

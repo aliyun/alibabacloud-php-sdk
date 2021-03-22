@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList;
+namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO;
 
 use AlibabaCloud\Tea\Model;
 

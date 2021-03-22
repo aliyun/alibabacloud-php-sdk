@@ -4,52 +4,17 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetMetaProductListResponseBody\metaData;
 
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetMetaProductListResponseBody\metaData\productsNormal\specVO;
 use AlibabaCloud\Tea\Model;
 
 class productsNormal extends Model
 {
     /**
-     * @var string
+     * @var specVO[]
      */
-    public $topicQuota;
-
-    /**
-     * @var string
-     */
-    public $specType;
-
-    /**
-     * @var string
-     */
-    public $deployType;
-
-    /**
-     * @var string
-     */
-    public $diskSize;
-
-    /**
-     * @var int
-     */
-    public $ioMax;
-
-    /**
-     * @var string
-     */
-    public $diskType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $specVO;
     protected $_name = [
-        'topicQuota' => 'TopicQuota',
-        'specType'   => 'SpecType',
-        'deployType' => 'DeployType',
-        'diskSize'   => 'DiskSize',
-        'ioMax'      => 'IoMax',
-        'diskType'   => 'DiskType',
-        'regionId'   => 'RegionId',
+        'specVO' => 'SpecVO',
     ];
 
     public function validate()
@@ -59,26 +24,14 @@ class productsNormal extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->topicQuota) {
-            $res['TopicQuota'] = $this->topicQuota;
-        }
-        if (null !== $this->specType) {
-            $res['SpecType'] = $this->specType;
-        }
-        if (null !== $this->deployType) {
-            $res['DeployType'] = $this->deployType;
-        }
-        if (null !== $this->diskSize) {
-            $res['DiskSize'] = $this->diskSize;
-        }
-        if (null !== $this->ioMax) {
-            $res['IoMax'] = $this->ioMax;
-        }
-        if (null !== $this->diskType) {
-            $res['DiskType'] = $this->diskType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->specVO) {
+            $res['SpecVO'] = [];
+            if (null !== $this->specVO && \is_array($this->specVO)) {
+                $n = 0;
+                foreach ($this->specVO as $item) {
+                    $res['SpecVO'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -92,26 +45,14 @@ class productsNormal extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TopicQuota'])) {
-            $model->topicQuota = $map['TopicQuota'];
-        }
-        if (isset($map['SpecType'])) {
-            $model->specType = $map['SpecType'];
-        }
-        if (isset($map['DeployType'])) {
-            $model->deployType = $map['DeployType'];
-        }
-        if (isset($map['DiskSize'])) {
-            $model->diskSize = $map['DiskSize'];
-        }
-        if (isset($map['IoMax'])) {
-            $model->ioMax = $map['IoMax'];
-        }
-        if (isset($map['DiskType'])) {
-            $model->diskType = $map['DiskType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['SpecVO'])) {
+            if (!empty($map['SpecVO'])) {
+                $model->specVO = [];
+                $n             = 0;
+                foreach ($map['SpecVO'] as $item) {
+                    $model->specVO[$n++] = null !== $item ? specVO::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

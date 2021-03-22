@@ -9,35 +9,11 @@ use AlibabaCloud\Tea\Model;
 class offsetTable extends Model
 {
     /**
-     * @var int
+     * @var \AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusResponseBody\topicStatus\offsetTable\offsetTable[]
      */
-    public $minOffset;
-
-    /**
-     * @var string
-     */
-    public $topic;
-
-    /**
-     * @var int
-     */
-    public $partition;
-
-    /**
-     * @var int
-     */
-    public $lastUpdateTimestamp;
-
-    /**
-     * @var int
-     */
-    public $maxOffset;
+    public $offsetTable;
     protected $_name = [
-        'minOffset'           => 'MinOffset',
-        'topic'               => 'Topic',
-        'partition'           => 'Partition',
-        'lastUpdateTimestamp' => 'LastUpdateTimestamp',
-        'maxOffset'           => 'MaxOffset',
+        'offsetTable' => 'OffsetTable',
     ];
 
     public function validate()
@@ -47,20 +23,14 @@ class offsetTable extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->minOffset) {
-            $res['MinOffset'] = $this->minOffset;
-        }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
-        if (null !== $this->partition) {
-            $res['Partition'] = $this->partition;
-        }
-        if (null !== $this->lastUpdateTimestamp) {
-            $res['LastUpdateTimestamp'] = $this->lastUpdateTimestamp;
-        }
-        if (null !== $this->maxOffset) {
-            $res['MaxOffset'] = $this->maxOffset;
+        if (null !== $this->offsetTable) {
+            $res['OffsetTable'] = [];
+            if (null !== $this->offsetTable && \is_array($this->offsetTable)) {
+                $n = 0;
+                foreach ($this->offsetTable as $item) {
+                    $res['OffsetTable'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -74,20 +44,14 @@ class offsetTable extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MinOffset'])) {
-            $model->minOffset = $map['MinOffset'];
-        }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
-        if (isset($map['Partition'])) {
-            $model->partition = $map['Partition'];
-        }
-        if (isset($map['LastUpdateTimestamp'])) {
-            $model->lastUpdateTimestamp = $map['LastUpdateTimestamp'];
-        }
-        if (isset($map['MaxOffset'])) {
-            $model->maxOffset = $map['MaxOffset'];
+        if (isset($map['OffsetTable'])) {
+            if (!empty($map['OffsetTable'])) {
+                $model->offsetTable = [];
+                $n                  = 0;
+                foreach ($map['OffsetTable'] as $item) {
+                    $model->offsetTable[$n++] = null !== $item ? \AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusResponseBody\topicStatus\offsetTable\offsetTable::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

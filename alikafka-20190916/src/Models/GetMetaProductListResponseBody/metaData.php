@@ -11,12 +11,12 @@ use AlibabaCloud\Tea\Model;
 class metaData extends Model
 {
     /**
-     * @var productsNormal[]
+     * @var productsNormal
      */
     public $productsNormal;
 
     /**
-     * @var productsProfessional[]
+     * @var productsProfessional
      */
     public $productsProfessional;
 
@@ -38,22 +38,10 @@ class metaData extends Model
     {
         $res = [];
         if (null !== $this->productsNormal) {
-            $res['ProductsNormal'] = [];
-            if (null !== $this->productsNormal && \is_array($this->productsNormal)) {
-                $n = 0;
-                foreach ($this->productsNormal as $item) {
-                    $res['ProductsNormal'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ProductsNormal'] = null !== $this->productsNormal ? $this->productsNormal->toMap() : null;
         }
         if (null !== $this->productsProfessional) {
-            $res['ProductsProfessional'] = [];
-            if (null !== $this->productsProfessional && \is_array($this->productsProfessional)) {
-                $n = 0;
-                foreach ($this->productsProfessional as $item) {
-                    $res['ProductsProfessional'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ProductsProfessional'] = null !== $this->productsProfessional ? $this->productsProfessional->toMap() : null;
         }
         if (null !== $this->names) {
             $res['Names'] = $this->names;
@@ -71,22 +59,10 @@ class metaData extends Model
     {
         $model = new self();
         if (isset($map['ProductsNormal'])) {
-            if (!empty($map['ProductsNormal'])) {
-                $model->productsNormal = [];
-                $n                     = 0;
-                foreach ($map['ProductsNormal'] as $item) {
-                    $model->productsNormal[$n++] = null !== $item ? productsNormal::fromMap($item) : $item;
-                }
-            }
+            $model->productsNormal = productsNormal::fromMap($map['ProductsNormal']);
         }
         if (isset($map['ProductsProfessional'])) {
-            if (!empty($map['ProductsProfessional'])) {
-                $model->productsProfessional = [];
-                $n                           = 0;
-                foreach ($map['ProductsProfessional'] as $item) {
-                    $model->productsProfessional[$n++] = null !== $item ? productsProfessional::fromMap($item) : $item;
-                }
-            }
+            $model->productsProfessional = productsProfessional::fromMap($map['ProductsProfessional']);
         }
         if (isset($map['Names'])) {
             $model->names = $map['Names'];

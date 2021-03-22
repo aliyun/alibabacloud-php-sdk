@@ -44,11 +44,6 @@ class CreatePostPayOrderRequest extends Model
     public $eipMax;
 
     /**
-     * @var int
-     */
-    public $paidType;
-
-    /**
      * @var string
      */
     public $specType;
@@ -65,7 +60,6 @@ class CreatePostPayOrderRequest extends Model
         'deployType' => 'DeployType',
         'ioMax'      => 'IoMax',
         'eipMax'     => 'EipMax',
-        'paidType'   => 'PaidType',
         'specType'   => 'SpecType',
         'ioMaxSpec'  => 'IoMaxSpec',
     ];
@@ -97,9 +91,6 @@ class CreatePostPayOrderRequest extends Model
         }
         if (null !== $this->eipMax) {
             $res['EipMax'] = $this->eipMax;
-        }
-        if (null !== $this->paidType) {
-            $res['PaidType'] = $this->paidType;
         }
         if (null !== $this->specType) {
             $res['SpecType'] = $this->specType;
@@ -139,9 +130,6 @@ class CreatePostPayOrderRequest extends Model
         }
         if (isset($map['EipMax'])) {
             $model->eipMax = $map['EipMax'];
-        }
-        if (isset($map['PaidType'])) {
-            $model->paidType = $map['PaidType'];
         }
         if (isset($map['SpecType'])) {
             $model->specType = $map['SpecType'];
