@@ -35,11 +35,6 @@ class DescribeDBInstancesRequest extends Model
     public $DBInstanceIds;
 
     /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -48,15 +43,20 @@ class DescribeDBInstancesRequest extends Model
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'ownerId'               => 'OwnerId',
         'regionId'              => 'RegionId',
         'DBInstanceDescription' => 'DBInstanceDescription',
         'instanceNetworkType'   => 'InstanceNetworkType',
         'DBInstanceIds'         => 'DBInstanceIds',
-        'tag'                   => 'Tag',
         'pageSize'              => 'PageSize',
         'pageNumber'            => 'PageNumber',
+        'tag'                   => 'Tag',
     ];
 
     public function validate()
@@ -82,6 +82,12 @@ class DescribeDBInstancesRequest extends Model
         if (null !== $this->DBInstanceIds) {
             $res['DBInstanceIds'] = $this->DBInstanceIds;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -90,12 +96,6 @@ class DescribeDBInstancesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -124,6 +124,12 @@ class DescribeDBInstancesRequest extends Model
         if (isset($map['DBInstanceIds'])) {
             $model->DBInstanceIds = $map['DBInstanceIds'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -132,12 +138,6 @@ class DescribeDBInstancesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
         }
 
         return $model;

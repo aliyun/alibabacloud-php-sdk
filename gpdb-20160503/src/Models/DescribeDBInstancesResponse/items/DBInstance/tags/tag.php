@@ -11,31 +11,31 @@ class tag extends Model
     /**
      * @var string
      */
-    public $key;
+    public $value;
 
     /**
      * @var string
      */
-    public $value;
+    public $key;
     protected $_name = [
-        'key'   => 'Key',
         'value' => 'Value',
+        'key'   => 'Key',
     ];
 
     public function validate()
     {
-        Model::validateRequired('key', $this->key, true);
         Model::validateRequired('value', $this->value, true);
+        Model::validateRequired('key', $this->key, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
+        }
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class tag extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
+        }
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
 
         return $model;

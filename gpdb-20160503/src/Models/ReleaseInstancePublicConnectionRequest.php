@@ -17,9 +17,15 @@ class ReleaseInstancePublicConnectionRequest extends Model
      * @var string
      */
     public $currentConnectionString;
+
+    /**
+     * @var string
+     */
+    public $addressType;
     protected $_name = [
         'DBInstanceId'            => 'DBInstanceId',
         'currentConnectionString' => 'CurrentConnectionString',
+        'addressType'             => 'AddressType',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class ReleaseInstancePublicConnectionRequest extends Model
         }
         if (null !== $this->currentConnectionString) {
             $res['CurrentConnectionString'] = $this->currentConnectionString;
+        }
+        if (null !== $this->addressType) {
+            $res['AddressType'] = $this->addressType;
         }
 
         return $res;
@@ -54,6 +63,9 @@ class ReleaseInstancePublicConnectionRequest extends Model
         }
         if (isset($map['CurrentConnectionString'])) {
             $model->currentConnectionString = $map['CurrentConnectionString'];
+        }
+        if (isset($map['AddressType'])) {
+            $model->addressType = $map['AddressType'];
         }
 
         return $model;

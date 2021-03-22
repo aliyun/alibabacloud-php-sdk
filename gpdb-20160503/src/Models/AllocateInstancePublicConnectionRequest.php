@@ -37,6 +37,11 @@ class AllocateInstancePublicConnectionRequest extends Model
      * @var string
      */
     public $port;
+
+    /**
+     * @var string
+     */
+    public $addressType;
     protected $_name = [
         'ownerId'                => 'OwnerId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
@@ -44,6 +49,7 @@ class AllocateInstancePublicConnectionRequest extends Model
         'DBInstanceId'           => 'DBInstanceId',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
         'port'                   => 'Port',
+        'addressType'            => 'AddressType',
     ];
 
     public function validate()
@@ -74,6 +80,9 @@ class AllocateInstancePublicConnectionRequest extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+        if (null !== $this->addressType) {
+            $res['AddressType'] = $this->addressType;
+        }
 
         return $res;
     }
@@ -103,6 +112,9 @@ class AllocateInstancePublicConnectionRequest extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['AddressType'])) {
+            $model->addressType = $map['AddressType'];
         }
 
         return $model;

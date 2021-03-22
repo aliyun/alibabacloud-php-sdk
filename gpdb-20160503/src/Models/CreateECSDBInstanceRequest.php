@@ -112,6 +112,11 @@ class CreateECSDBInstanceRequest extends Model
      * @var string
      */
     public $encryptionType;
+
+    /**
+     * @var int
+     */
+    public $masterNodeNum;
     protected $_name = [
         'ownerId'               => 'OwnerId',
         'regionId'              => 'RegionId',
@@ -134,6 +139,7 @@ class CreateECSDBInstanceRequest extends Model
         'privateIpAddress'      => 'PrivateIpAddress',
         'encryptionKey'         => 'EncryptionKey',
         'encryptionType'        => 'EncryptionType',
+        'masterNodeNum'         => 'MasterNodeNum',
     ];
 
     public function validate()
@@ -214,6 +220,9 @@ class CreateECSDBInstanceRequest extends Model
         if (null !== $this->encryptionType) {
             $res['EncryptionType'] = $this->encryptionType;
         }
+        if (null !== $this->masterNodeNum) {
+            $res['MasterNodeNum'] = $this->masterNodeNum;
+        }
 
         return $res;
     }
@@ -288,6 +297,9 @@ class CreateECSDBInstanceRequest extends Model
         }
         if (isset($map['EncryptionType'])) {
             $model->encryptionType = $map['EncryptionType'];
+        }
+        if (isset($map['MasterNodeNum'])) {
+            $model->masterNodeNum = $map['MasterNodeNum'];
         }
 
         return $model;
