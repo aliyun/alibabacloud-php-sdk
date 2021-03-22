@@ -27,11 +27,23 @@ class CreateEaiRequest extends Model
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'instanceType' => 'InstanceType',
-        'clientToken'  => 'ClientToken',
-        'instanceName' => 'InstanceName',
+        'regionId'        => 'RegionId',
+        'instanceType'    => 'InstanceType',
+        'clientToken'     => 'ClientToken',
+        'instanceName'    => 'InstanceName',
+        'securityGroupId' => 'SecurityGroupId',
+        'vSwitchId'       => 'VSwitchId',
     ];
 
     public function validate()
@@ -52,6 +64,12 @@ class CreateEaiRequest extends Model
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -76,6 +94,12 @@ class CreateEaiRequest extends Model
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;
