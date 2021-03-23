@@ -42,6 +42,16 @@ class QueryAccountBillRequest extends Model
      * @var int
      */
     public $billOwnerId;
+
+    /**
+     * @var string
+     */
+    public $granularity;
+
+    /**
+     * @var string
+     */
+    public $billingDate;
     protected $_name = [
         'billingCycle'     => 'BillingCycle',
         'pageNum'          => 'PageNum',
@@ -50,6 +60,8 @@ class QueryAccountBillRequest extends Model
         'isGroupByProduct' => 'IsGroupByProduct',
         'productCode'      => 'ProductCode',
         'billOwnerId'      => 'BillOwnerId',
+        'granularity'      => 'Granularity',
+        'billingDate'      => 'BillingDate',
     ];
 
     public function validate()
@@ -79,6 +91,12 @@ class QueryAccountBillRequest extends Model
         }
         if (null !== $this->billOwnerId) {
             $res['BillOwnerId'] = $this->billOwnerId;
+        }
+        if (null !== $this->granularity) {
+            $res['Granularity'] = $this->granularity;
+        }
+        if (null !== $this->billingDate) {
+            $res['BillingDate'] = $this->billingDate;
         }
 
         return $res;
@@ -112,6 +130,12 @@ class QueryAccountBillRequest extends Model
         }
         if (isset($map['BillOwnerId'])) {
             $model->billOwnerId = $map['BillOwnerId'];
+        }
+        if (isset($map['Granularity'])) {
+            $model->granularity = $map['Granularity'];
+        }
+        if (isset($map['BillingDate'])) {
+            $model->billingDate = $map['BillingDate'];
         }
 
         return $model;

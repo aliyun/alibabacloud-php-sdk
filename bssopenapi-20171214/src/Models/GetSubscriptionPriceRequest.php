@@ -55,14 +55,14 @@ class GetSubscriptionPriceRequest extends Model
     public $instanceId;
 
     /**
-     * @var int
-     */
-    public $quantity;
-
-    /**
      * @var moduleList[]
      */
     public $moduleList;
+
+    /**
+     * @var int
+     */
+    public $quantity;
     protected $_name = [
         'servicePeriodUnit'     => 'ServicePeriodUnit',
         'subscriptionType'      => 'SubscriptionType',
@@ -73,8 +73,8 @@ class GetSubscriptionPriceRequest extends Model
         'productType'           => 'ProductType',
         'region'                => 'Region',
         'instanceId'            => 'InstanceId',
-        'quantity'              => 'Quantity',
         'moduleList'            => 'ModuleList',
+        'quantity'              => 'Quantity',
     ];
 
     public function validate()
@@ -111,9 +111,6 @@ class GetSubscriptionPriceRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->quantity) {
-            $res['Quantity'] = $this->quantity;
-        }
         if (null !== $this->moduleList) {
             $res['ModuleList'] = [];
             if (null !== $this->moduleList && \is_array($this->moduleList)) {
@@ -122,6 +119,9 @@ class GetSubscriptionPriceRequest extends Model
                     $res['ModuleList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->quantity) {
+            $res['Quantity'] = $this->quantity;
         }
 
         return $res;
@@ -162,9 +162,6 @@ class GetSubscriptionPriceRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Quantity'])) {
-            $model->quantity = $map['Quantity'];
-        }
         if (isset($map['ModuleList'])) {
             if (!empty($map['ModuleList'])) {
                 $model->moduleList = [];
@@ -173,6 +170,9 @@ class GetSubscriptionPriceRequest extends Model
                     $model->moduleList[$n++] = null !== $item ? moduleList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Quantity'])) {
+            $model->quantity = $map['Quantity'];
         }
 
         return $model;

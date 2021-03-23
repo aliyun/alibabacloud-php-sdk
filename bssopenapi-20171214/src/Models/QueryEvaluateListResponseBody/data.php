@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var evaluateList
-     */
-    public $evaluateList;
-
-    /**
      * @var string
      */
     public $hostId;
@@ -43,14 +38,19 @@ class data extends Model
      * @var int
      */
     public $totalUnAppliedInvoiceAmount;
+
+    /**
+     * @var evaluateList
+     */
+    public $evaluateList;
     protected $_name = [
-        'evaluateList'                => 'EvaluateList',
         'hostId'                      => 'HostId',
         'pageNum'                     => 'PageNum',
         'pageSize'                    => 'PageSize',
         'totalCount'                  => 'TotalCount',
         'totalInvoiceAmount'          => 'TotalInvoiceAmount',
         'totalUnAppliedInvoiceAmount' => 'TotalUnAppliedInvoiceAmount',
+        'evaluateList'                => 'EvaluateList',
     ];
 
     public function validate()
@@ -60,9 +60,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->evaluateList) {
-            $res['EvaluateList'] = null !== $this->evaluateList ? $this->evaluateList->toMap() : null;
-        }
         if (null !== $this->hostId) {
             $res['HostId'] = $this->hostId;
         }
@@ -81,6 +78,9 @@ class data extends Model
         if (null !== $this->totalUnAppliedInvoiceAmount) {
             $res['TotalUnAppliedInvoiceAmount'] = $this->totalUnAppliedInvoiceAmount;
         }
+        if (null !== $this->evaluateList) {
+            $res['EvaluateList'] = null !== $this->evaluateList ? $this->evaluateList->toMap() : null;
+        }
 
         return $res;
     }
@@ -93,9 +93,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EvaluateList'])) {
-            $model->evaluateList = evaluateList::fromMap($map['EvaluateList']);
-        }
         if (isset($map['HostId'])) {
             $model->hostId = $map['HostId'];
         }
@@ -113,6 +110,9 @@ class data extends Model
         }
         if (isset($map['TotalUnAppliedInvoiceAmount'])) {
             $model->totalUnAppliedInvoiceAmount = $map['TotalUnAppliedInvoiceAmount'];
+        }
+        if (isset($map['EvaluateList'])) {
+            $model->evaluateList = evaluateList::fromMap($map['EvaluateList']);
         }
 
         return $model;

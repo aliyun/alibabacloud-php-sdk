@@ -12,21 +12,21 @@ class tagResource extends Model
     /**
      * @var string
      */
+    public $resourceId;
+
+    /**
+     * @var string
+     */
     public $resourceType;
 
     /**
      * @var tag[]
      */
     public $tag;
-
-    /**
-     * @var string
-     */
-    public $resourceId;
     protected $_name = [
+        'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
-        'resourceId'   => 'ResourceId',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class tagResource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -47,9 +50,6 @@ class tagResource extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
         }
 
         return $res;
@@ -63,6 +63,9 @@ class tagResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
@@ -74,9 +77,6 @@ class tagResource extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
         }
 
         return $model;

@@ -44,14 +44,14 @@ class ApplyInvoiceRequest extends Model
     public $applyUserNick;
 
     /**
-     * @var bool
-     */
-    public $invoiceByAmount;
-
-    /**
      * @var int[]
      */
     public $selectedIds;
+
+    /**
+     * @var bool
+     */
+    public $invoiceByAmount;
     protected $_name = [
         'invoiceAmount'   => 'InvoiceAmount',
         'ownerId'         => 'OwnerId',
@@ -60,8 +60,8 @@ class ApplyInvoiceRequest extends Model
         'invoicingType'   => 'InvoicingType',
         'processWay'      => 'ProcessWay',
         'applyUserNick'   => 'ApplyUserNick',
-        'invoiceByAmount' => 'InvoiceByAmount',
         'selectedIds'     => 'SelectedIds',
+        'invoiceByAmount' => 'InvoiceByAmount',
     ];
 
     public function validate()
@@ -92,11 +92,11 @@ class ApplyInvoiceRequest extends Model
         if (null !== $this->applyUserNick) {
             $res['ApplyUserNick'] = $this->applyUserNick;
         }
-        if (null !== $this->invoiceByAmount) {
-            $res['InvoiceByAmount'] = $this->invoiceByAmount;
-        }
         if (null !== $this->selectedIds) {
             $res['SelectedIds'] = $this->selectedIds;
+        }
+        if (null !== $this->invoiceByAmount) {
+            $res['InvoiceByAmount'] = $this->invoiceByAmount;
         }
 
         return $res;
@@ -131,13 +131,13 @@ class ApplyInvoiceRequest extends Model
         if (isset($map['ApplyUserNick'])) {
             $model->applyUserNick = $map['ApplyUserNick'];
         }
-        if (isset($map['InvoiceByAmount'])) {
-            $model->invoiceByAmount = $map['InvoiceByAmount'];
-        }
         if (isset($map['SelectedIds'])) {
             if (!empty($map['SelectedIds'])) {
                 $model->selectedIds = $map['SelectedIds'];
             }
+        }
+        if (isset($map['InvoiceByAmount'])) {
+            $model->invoiceByAmount = $map['InvoiceByAmount'];
         }
 
         return $model;

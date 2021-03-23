@@ -14,18 +14,18 @@ class availableDuration extends Model
     public $name;
 
     /**
-     * @var string
-     */
-    public $unit;
-
-    /**
      * @var int
      */
     public $value;
+
+    /**
+     * @var string
+     */
+    public $unit;
     protected $_name = [
         'name'  => 'Name',
-        'unit'  => 'Unit',
         'value' => 'Value',
+        'unit'  => 'Unit',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class availableDuration extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->unit) {
-            $res['Unit'] = $this->unit;
-        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
+        }
+        if (null !== $this->unit) {
+            $res['Unit'] = $this->unit;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class availableDuration extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Unit'])) {
-            $model->unit = $map['Unit'];
-        }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
+        }
+        if (isset($map['Unit'])) {
+            $model->unit = $map['Unit'];
         }
 
         return $model;

@@ -15,9 +15,9 @@ class data extends Model
     public $accountName;
 
     /**
-     * @var accountTransactionsList
+     * @var int
      */
-    public $accountTransactionsList;
+    public $totalCount;
 
     /**
      * @var int
@@ -30,15 +30,15 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var accountTransactionsList
      */
-    public $totalCount;
+    public $accountTransactionsList;
     protected $_name = [
         'accountName'             => 'AccountName',
-        'accountTransactionsList' => 'AccountTransactionsList',
+        'totalCount'              => 'TotalCount',
         'pageNum'                 => 'PageNum',
         'pageSize'                => 'PageSize',
-        'totalCount'              => 'TotalCount',
+        'accountTransactionsList' => 'AccountTransactionsList',
     ];
 
     public function validate()
@@ -51,8 +51,8 @@ class data extends Model
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
-        if (null !== $this->accountTransactionsList) {
-            $res['AccountTransactionsList'] = null !== $this->accountTransactionsList ? $this->accountTransactionsList->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -60,8 +60,8 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->accountTransactionsList) {
+            $res['AccountTransactionsList'] = null !== $this->accountTransactionsList ? $this->accountTransactionsList->toMap() : null;
         }
 
         return $res;
@@ -78,8 +78,8 @@ class data extends Model
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
-        if (isset($map['AccountTransactionsList'])) {
-            $model->accountTransactionsList = accountTransactionsList::fromMap($map['AccountTransactionsList']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
@@ -87,8 +87,8 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['AccountTransactionsList'])) {
+            $model->accountTransactionsList = accountTransactionsList::fromMap($map['AccountTransactionsList']);
         }
 
         return $model;

@@ -20,19 +20,19 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @var redeem
-     */
-    public $redeem;
-
-    /**
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var redeem
+     */
+    public $redeem;
     protected $_name = [
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
-        'redeem'     => 'Redeem',
         'totalCount' => 'TotalCount',
+        'redeem'     => 'Redeem',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->redeem) {
-            $res['Redeem'] = null !== $this->redeem ? $this->redeem->toMap() : null;
-        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->redeem) {
+            $res['Redeem'] = null !== $this->redeem ? $this->redeem->toMap() : null;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Redeem'])) {
-            $model->redeem = redeem::fromMap($map['Redeem']);
-        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Redeem'])) {
+            $model->redeem = redeem::fromMap($map['Redeem']);
         }
 
         return $model;

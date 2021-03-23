@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class prepaidCard extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $applicableProducts;
+    public $prepaidCardId;
 
     /**
      * @var string
      */
-    public $applicableScenarios;
+    public $prepaidCardNo;
 
     /**
      * @var string
      */
-    public $balance;
+    public $grantedTime;
 
     /**
      * @var string
@@ -36,7 +36,12 @@ class prepaidCard extends Model
     /**
      * @var string
      */
-    public $grantedTime;
+    public $applicableProducts;
+
+    /**
+     * @var string
+     */
+    public $applicableScenarios;
 
     /**
      * @var string
@@ -44,29 +49,24 @@ class prepaidCard extends Model
     public $nominalValue;
 
     /**
-     * @var int
-     */
-    public $prepaidCardId;
-
-    /**
      * @var string
      */
-    public $prepaidCardNo;
+    public $balance;
 
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'applicableProducts'  => 'ApplicableProducts',
-        'applicableScenarios' => 'ApplicableScenarios',
-        'balance'             => 'Balance',
-        'effectiveTime'       => 'EffectiveTime',
-        'expiryTime'          => 'ExpiryTime',
-        'grantedTime'         => 'GrantedTime',
-        'nominalValue'        => 'NominalValue',
         'prepaidCardId'       => 'PrepaidCardId',
         'prepaidCardNo'       => 'PrepaidCardNo',
+        'grantedTime'         => 'GrantedTime',
+        'effectiveTime'       => 'EffectiveTime',
+        'expiryTime'          => 'ExpiryTime',
+        'applicableProducts'  => 'ApplicableProducts',
+        'applicableScenarios' => 'ApplicableScenarios',
+        'nominalValue'        => 'NominalValue',
+        'balance'             => 'Balance',
         'status'              => 'Status',
     ];
 
@@ -77,14 +77,14 @@ class prepaidCard extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->applicableProducts) {
-            $res['ApplicableProducts'] = $this->applicableProducts;
+        if (null !== $this->prepaidCardId) {
+            $res['PrepaidCardId'] = $this->prepaidCardId;
         }
-        if (null !== $this->applicableScenarios) {
-            $res['ApplicableScenarios'] = $this->applicableScenarios;
+        if (null !== $this->prepaidCardNo) {
+            $res['PrepaidCardNo'] = $this->prepaidCardNo;
         }
-        if (null !== $this->balance) {
-            $res['Balance'] = $this->balance;
+        if (null !== $this->grantedTime) {
+            $res['GrantedTime'] = $this->grantedTime;
         }
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
@@ -92,17 +92,17 @@ class prepaidCard extends Model
         if (null !== $this->expiryTime) {
             $res['ExpiryTime'] = $this->expiryTime;
         }
-        if (null !== $this->grantedTime) {
-            $res['GrantedTime'] = $this->grantedTime;
+        if (null !== $this->applicableProducts) {
+            $res['ApplicableProducts'] = $this->applicableProducts;
+        }
+        if (null !== $this->applicableScenarios) {
+            $res['ApplicableScenarios'] = $this->applicableScenarios;
         }
         if (null !== $this->nominalValue) {
             $res['NominalValue'] = $this->nominalValue;
         }
-        if (null !== $this->prepaidCardId) {
-            $res['PrepaidCardId'] = $this->prepaidCardId;
-        }
-        if (null !== $this->prepaidCardNo) {
-            $res['PrepaidCardNo'] = $this->prepaidCardNo;
+        if (null !== $this->balance) {
+            $res['Balance'] = $this->balance;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -119,14 +119,14 @@ class prepaidCard extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApplicableProducts'])) {
-            $model->applicableProducts = $map['ApplicableProducts'];
+        if (isset($map['PrepaidCardId'])) {
+            $model->prepaidCardId = $map['PrepaidCardId'];
         }
-        if (isset($map['ApplicableScenarios'])) {
-            $model->applicableScenarios = $map['ApplicableScenarios'];
+        if (isset($map['PrepaidCardNo'])) {
+            $model->prepaidCardNo = $map['PrepaidCardNo'];
         }
-        if (isset($map['Balance'])) {
-            $model->balance = $map['Balance'];
+        if (isset($map['GrantedTime'])) {
+            $model->grantedTime = $map['GrantedTime'];
         }
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];
@@ -134,17 +134,17 @@ class prepaidCard extends Model
         if (isset($map['ExpiryTime'])) {
             $model->expiryTime = $map['ExpiryTime'];
         }
-        if (isset($map['GrantedTime'])) {
-            $model->grantedTime = $map['GrantedTime'];
+        if (isset($map['ApplicableProducts'])) {
+            $model->applicableProducts = $map['ApplicableProducts'];
+        }
+        if (isset($map['ApplicableScenarios'])) {
+            $model->applicableScenarios = $map['ApplicableScenarios'];
         }
         if (isset($map['NominalValue'])) {
             $model->nominalValue = $map['NominalValue'];
         }
-        if (isset($map['PrepaidCardId'])) {
-            $model->prepaidCardId = $map['PrepaidCardId'];
-        }
-        if (isset($map['PrepaidCardNo'])) {
-            $model->prepaidCardNo = $map['PrepaidCardNo'];
+        if (isset($map['Balance'])) {
+            $model->balance = $map['Balance'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

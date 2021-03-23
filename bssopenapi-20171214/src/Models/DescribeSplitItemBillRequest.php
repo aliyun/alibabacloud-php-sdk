@@ -50,6 +50,11 @@ class DescribeSplitItemBillRequest extends Model
     public $billOwnerId;
 
     /**
+     * @var tagFilter[]
+     */
+    public $tagFilter;
+
+    /**
      * @var string
      */
     public $instanceID;
@@ -58,11 +63,6 @@ class DescribeSplitItemBillRequest extends Model
      * @var string
      */
     public $splitItemID;
-
-    /**
-     * @var tagFilter[]
-     */
-    public $tagFilter;
     protected $_name = [
         'billingCycle'     => 'BillingCycle',
         'productCode'      => 'ProductCode',
@@ -72,9 +72,9 @@ class DescribeSplitItemBillRequest extends Model
         'nextToken'        => 'NextToken',
         'maxResults'       => 'MaxResults',
         'billOwnerId'      => 'BillOwnerId',
+        'tagFilter'        => 'TagFilter',
         'instanceID'       => 'InstanceID',
         'splitItemID'      => 'SplitItemID',
-        'tagFilter'        => 'TagFilter',
     ];
 
     public function validate()
@@ -108,12 +108,6 @@ class DescribeSplitItemBillRequest extends Model
         if (null !== $this->billOwnerId) {
             $res['BillOwnerId'] = $this->billOwnerId;
         }
-        if (null !== $this->instanceID) {
-            $res['InstanceID'] = $this->instanceID;
-        }
-        if (null !== $this->splitItemID) {
-            $res['SplitItemID'] = $this->splitItemID;
-        }
         if (null !== $this->tagFilter) {
             $res['TagFilter'] = [];
             if (null !== $this->tagFilter && \is_array($this->tagFilter)) {
@@ -122,6 +116,12 @@ class DescribeSplitItemBillRequest extends Model
                     $res['TagFilter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->instanceID) {
+            $res['InstanceID'] = $this->instanceID;
+        }
+        if (null !== $this->splitItemID) {
+            $res['SplitItemID'] = $this->splitItemID;
         }
 
         return $res;
@@ -159,12 +159,6 @@ class DescribeSplitItemBillRequest extends Model
         if (isset($map['BillOwnerId'])) {
             $model->billOwnerId = $map['BillOwnerId'];
         }
-        if (isset($map['InstanceID'])) {
-            $model->instanceID = $map['InstanceID'];
-        }
-        if (isset($map['SplitItemID'])) {
-            $model->splitItemID = $map['SplitItemID'];
-        }
         if (isset($map['TagFilter'])) {
             if (!empty($map['TagFilter'])) {
                 $model->tagFilter = [];
@@ -173,6 +167,12 @@ class DescribeSplitItemBillRequest extends Model
                     $model->tagFilter[$n++] = null !== $item ? tagFilter::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['InstanceID'])) {
+            $model->instanceID = $map['InstanceID'];
+        }
+        if (isset($map['SplitItemID'])) {
+            $model->splitItemID = $map['SplitItemID'];
         }
 
         return $model;

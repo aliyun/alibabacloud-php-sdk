@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateResourcePackageRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateResourcePackageResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillRequest;
@@ -101,6 +103,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRelationListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRelationListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResellerAvailableQuotaRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResellerAvailableQuotaResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResourcePackageInstancesRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResourcePackageInstancesResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRIUtilizationDetailRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRIUtilizationDetailResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySavingsPlansDeductLogRequest;
@@ -541,6 +545,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCostUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePricingModuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribePricingModuleResponse
+     */
+    public function describePricingModuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePricingModuleResponse::fromMap($this->doRPCRequest('DescribePricingModule', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePricingModuleRequest $request
+     *
+     * @return DescribePricingModuleResponse
+     */
+    public function describePricingModule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePricingModuleWithOptions($request, $runtime);
     }
 
     /**
@@ -1588,6 +1620,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryResellerAvailableQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryResourcePackageInstancesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return QueryResourcePackageInstancesResponse
+     */
+    public function queryResourcePackageInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryResourcePackageInstancesResponse::fromMap($this->doRPCRequest('QueryResourcePackageInstances', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryResourcePackageInstancesRequest $request
+     *
+     * @return QueryResourcePackageInstancesResponse
+     */
+    public function queryResourcePackageInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryResourcePackageInstancesWithOptions($request, $runtime);
     }
 
     /**

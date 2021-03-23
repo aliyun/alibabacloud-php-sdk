@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class cashCoupon extends Model
 {
     /**
-     * @var string
-     */
-    public $applicableProducts;
-
-    /**
-     * @var string
-     */
-    public $applicableScenarios;
-
-    /**
-     * @var string
-     */
-    public $balance;
-
-    /**
      * @var int
      */
     public $cashCouponId;
@@ -32,6 +17,11 @@ class cashCoupon extends Model
      * @var string
      */
     public $cashCouponNo;
+
+    /**
+     * @var string
+     */
+    public $grantedTime;
 
     /**
      * @var string
@@ -46,7 +36,12 @@ class cashCoupon extends Model
     /**
      * @var string
      */
-    public $grantedTime;
+    public $applicableProducts;
+
+    /**
+     * @var string
+     */
+    public $applicableScenarios;
 
     /**
      * @var string
@@ -56,17 +51,22 @@ class cashCoupon extends Model
     /**
      * @var string
      */
+    public $balance;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
-        'applicableProducts'  => 'ApplicableProducts',
-        'applicableScenarios' => 'ApplicableScenarios',
-        'balance'             => 'Balance',
         'cashCouponId'        => 'CashCouponId',
         'cashCouponNo'        => 'CashCouponNo',
+        'grantedTime'         => 'GrantedTime',
         'effectiveTime'       => 'EffectiveTime',
         'expiryTime'          => 'ExpiryTime',
-        'grantedTime'         => 'GrantedTime',
+        'applicableProducts'  => 'ApplicableProducts',
+        'applicableScenarios' => 'ApplicableScenarios',
         'nominalValue'        => 'NominalValue',
+        'balance'             => 'Balance',
         'status'              => 'Status',
     ];
 
@@ -77,20 +77,14 @@ class cashCoupon extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->applicableProducts) {
-            $res['ApplicableProducts'] = $this->applicableProducts;
-        }
-        if (null !== $this->applicableScenarios) {
-            $res['ApplicableScenarios'] = $this->applicableScenarios;
-        }
-        if (null !== $this->balance) {
-            $res['Balance'] = $this->balance;
-        }
         if (null !== $this->cashCouponId) {
             $res['CashCouponId'] = $this->cashCouponId;
         }
         if (null !== $this->cashCouponNo) {
             $res['CashCouponNo'] = $this->cashCouponNo;
+        }
+        if (null !== $this->grantedTime) {
+            $res['GrantedTime'] = $this->grantedTime;
         }
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
@@ -98,11 +92,17 @@ class cashCoupon extends Model
         if (null !== $this->expiryTime) {
             $res['ExpiryTime'] = $this->expiryTime;
         }
-        if (null !== $this->grantedTime) {
-            $res['GrantedTime'] = $this->grantedTime;
+        if (null !== $this->applicableProducts) {
+            $res['ApplicableProducts'] = $this->applicableProducts;
+        }
+        if (null !== $this->applicableScenarios) {
+            $res['ApplicableScenarios'] = $this->applicableScenarios;
         }
         if (null !== $this->nominalValue) {
             $res['NominalValue'] = $this->nominalValue;
+        }
+        if (null !== $this->balance) {
+            $res['Balance'] = $this->balance;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -119,20 +119,14 @@ class cashCoupon extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApplicableProducts'])) {
-            $model->applicableProducts = $map['ApplicableProducts'];
-        }
-        if (isset($map['ApplicableScenarios'])) {
-            $model->applicableScenarios = $map['ApplicableScenarios'];
-        }
-        if (isset($map['Balance'])) {
-            $model->balance = $map['Balance'];
-        }
         if (isset($map['CashCouponId'])) {
             $model->cashCouponId = $map['CashCouponId'];
         }
         if (isset($map['CashCouponNo'])) {
             $model->cashCouponNo = $map['CashCouponNo'];
+        }
+        if (isset($map['GrantedTime'])) {
+            $model->grantedTime = $map['GrantedTime'];
         }
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];
@@ -140,11 +134,17 @@ class cashCoupon extends Model
         if (isset($map['ExpiryTime'])) {
             $model->expiryTime = $map['ExpiryTime'];
         }
-        if (isset($map['GrantedTime'])) {
-            $model->grantedTime = $map['GrantedTime'];
+        if (isset($map['ApplicableProducts'])) {
+            $model->applicableProducts = $map['ApplicableProducts'];
+        }
+        if (isset($map['ApplicableScenarios'])) {
+            $model->applicableScenarios = $map['ApplicableScenarios'];
         }
         if (isset($map['NominalValue'])) {
             $model->nominalValue = $map['NominalValue'];
+        }
+        if (isset($map['Balance'])) {
+            $model->balance = $map['Balance'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

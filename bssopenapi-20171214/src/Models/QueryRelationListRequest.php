@@ -14,6 +14,11 @@ class QueryRelationListRequest extends Model
     public $userId;
 
     /**
+     * @var string[]
+     */
+    public $statusList;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -22,16 +27,11 @@ class QueryRelationListRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string[]
-     */
-    public $statusList;
     protected $_name = [
         'userId'     => 'UserId',
+        'statusList' => 'StatusList',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
-        'statusList' => 'StatusList',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class QueryRelationListRequest extends Model
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+        if (null !== $this->statusList) {
+            $res['StatusList'] = $this->statusList;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->statusList) {
-            $res['StatusList'] = $this->statusList;
         }
 
         return $res;
@@ -68,16 +68,16 @@ class QueryRelationListRequest extends Model
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+        if (isset($map['StatusList'])) {
+            if (!empty($map['StatusList'])) {
+                $model->statusList = $map['StatusList'];
+            }
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['StatusList'])) {
-            if (!empty($map['StatusList'])) {
-                $model->statusList = $map['StatusList'];
-            }
         }
 
         return $model;

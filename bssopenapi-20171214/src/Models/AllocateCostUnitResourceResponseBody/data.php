@@ -16,16 +16,16 @@ class data extends Model
     /**
      * @var int
      */
-    public $toUnitId;
+    public $toUnitUserId;
 
     /**
      * @var int
      */
-    public $toUnitUserId;
+    public $toUnitId;
     protected $_name = [
         'isSuccess'    => 'IsSuccess',
-        'toUnitId'     => 'ToUnitId',
         'toUnitUserId' => 'ToUnitUserId',
+        'toUnitId'     => 'ToUnitId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class data extends Model
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
-        if (null !== $this->toUnitId) {
-            $res['ToUnitId'] = $this->toUnitId;
-        }
         if (null !== $this->toUnitUserId) {
             $res['ToUnitUserId'] = $this->toUnitUserId;
+        }
+        if (null !== $this->toUnitId) {
+            $res['ToUnitId'] = $this->toUnitId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class data extends Model
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
-        if (isset($map['ToUnitId'])) {
-            $model->toUnitId = $map['ToUnitId'];
-        }
         if (isset($map['ToUnitUserId'])) {
             $model->toUnitUserId = $map['ToUnitUserId'];
+        }
+        if (isset($map['ToUnitId'])) {
+            $model->toUnitId = $map['ToUnitId'];
         }
 
         return $model;

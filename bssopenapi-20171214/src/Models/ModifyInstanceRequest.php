@@ -40,14 +40,14 @@ class ModifyInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
      * @var parameter[]
      */
     public $parameter;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
     protected $_name = [
         'productCode'      => 'ProductCode',
         'ownerId'          => 'OwnerId',
@@ -55,8 +55,8 @@ class ModifyInstanceRequest extends Model
         'subscriptionType' => 'SubscriptionType',
         'modifyType'       => 'ModifyType',
         'instanceId'       => 'InstanceId',
-        'clientToken'      => 'ClientToken',
         'parameter'        => 'Parameter',
+        'clientToken'      => 'ClientToken',
     ];
 
     public function validate()
@@ -84,9 +84,6 @@ class ModifyInstanceRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->parameter) {
             $res['Parameter'] = [];
             if (null !== $this->parameter && \is_array($this->parameter)) {
@@ -95,6 +92,9 @@ class ModifyInstanceRequest extends Model
                     $res['Parameter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -126,9 +126,6 @@ class ModifyInstanceRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['Parameter'])) {
             if (!empty($map['Parameter'])) {
                 $model->parameter = [];
@@ -137,6 +134,9 @@ class ModifyInstanceRequest extends Model
                     $model->parameter[$n++] = null !== $item ? parameter::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;
