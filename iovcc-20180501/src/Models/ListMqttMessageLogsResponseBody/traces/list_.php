@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
      * @var int
      */
     public $time;
-
-    /**
-     * @var string
-     */
-    public $action;
 
     /**
      * @var string
@@ -31,25 +21,35 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $action;
+
+    /**
+     * @var string
+     */
     public $mid;
 
     /**
      * @var string
      */
-    public $clientMid;
+    public $clientId;
 
     /**
      * @var string
      */
-    public $clientId;
+    public $clientMid;
     protected $_name = [
-        'type'      => 'Type',
         'time'      => 'Time',
-        'action'    => 'Action',
         'topic'     => 'Topic',
+        'type'      => 'Type',
+        'action'    => 'Action',
         'mid'       => 'Mid',
-        'clientMid' => 'ClientMid',
         'clientId'  => 'ClientId',
+        'clientMid' => 'ClientMid',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->time) {
             $res['Time'] = $this->time;
-        }
-        if (null !== $this->action) {
-            $res['Action'] = $this->action;
         }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->action) {
+            $res['Action'] = $this->action;
+        }
         if (null !== $this->mid) {
             $res['Mid'] = $this->mid;
         }
-        if (null !== $this->clientMid) {
-            $res['ClientMid'] = $this->clientMid;
-        }
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
+        }
+        if (null !== $this->clientMid) {
+            $res['ClientMid'] = $this->clientMid;
         }
 
         return $res;
@@ -87,31 +87,31 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
-        }
-        if (isset($map['Action'])) {
-            $model->action = $map['Action'];
         }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Action'])) {
+            $model->action = $map['Action'];
+        }
         if (isset($map['Mid'])) {
             $model->mid = $map['Mid'];
         }
-        if (isset($map['ClientMid'])) {
-            $model->clientMid = $map['ClientMid'];
-        }
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
+        }
+        if (isset($map['ClientMid'])) {
+            $model->clientMid = $map['ClientMid'];
         }
 
         return $model;

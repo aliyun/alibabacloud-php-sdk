@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListMessageReceiversResponseBody extends Model
 {
     /**
-     * @var messageReceivers
-     */
-    public $messageReceivers;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var messageReceivers
+     */
+    public $messageReceivers;
     protected $_name = [
-        'messageReceivers' => 'MessageReceivers',
         'requestId'        => 'RequestId',
+        'messageReceivers' => 'MessageReceivers',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ListMessageReceiversResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->messageReceivers) {
-            $res['MessageReceivers'] = null !== $this->messageReceivers ? $this->messageReceivers->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->messageReceivers) {
+            $res['MessageReceivers'] = null !== $this->messageReceivers ? $this->messageReceivers->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ListMessageReceiversResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MessageReceivers'])) {
-            $model->messageReceivers = messageReceivers::fromMap($map['MessageReceivers']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['MessageReceivers'])) {
+            $model->messageReceivers = messageReceivers::fromMap($map['MessageReceivers']);
         }
 
         return $model;

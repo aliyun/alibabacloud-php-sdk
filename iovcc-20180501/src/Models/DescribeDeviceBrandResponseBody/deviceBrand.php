@@ -16,7 +16,7 @@ class deviceBrand extends Model
     /**
      * @var string
      */
-    public $description;
+    public $deviceBrand;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class deviceBrand extends Model
     /**
      * @var string
      */
-    public $deviceBrand;
+    public $description;
     protected $_name = [
         'deviceBrandId' => 'DeviceBrandId',
-        'description'   => 'Description',
+        'deviceBrand'   => 'DeviceBrand',
         'projectId'     => 'ProjectId',
         'manufacture'   => 'Manufacture',
-        'deviceBrand'   => 'DeviceBrand',
+        'description'   => 'Description',
     ];
 
     public function validate()
@@ -50,8 +50,8 @@ class deviceBrand extends Model
         if (null !== $this->deviceBrandId) {
             $res['DeviceBrandId'] = $this->deviceBrandId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->deviceBrand) {
+            $res['DeviceBrand'] = $this->deviceBrand;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -59,8 +59,8 @@ class deviceBrand extends Model
         if (null !== $this->manufacture) {
             $res['Manufacture'] = $this->manufacture;
         }
-        if (null !== $this->deviceBrand) {
-            $res['DeviceBrand'] = $this->deviceBrand;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -77,8 +77,8 @@ class deviceBrand extends Model
         if (isset($map['DeviceBrandId'])) {
             $model->deviceBrandId = $map['DeviceBrandId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['DeviceBrand'])) {
+            $model->deviceBrand = $map['DeviceBrand'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
@@ -86,8 +86,8 @@ class deviceBrand extends Model
         if (isset($map['Manufacture'])) {
             $model->manufacture = $map['Manufacture'];
         }
-        if (isset($map['DeviceBrand'])) {
-            $model->deviceBrand = $map['DeviceBrand'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         return $model;

@@ -11,42 +11,7 @@ class files extends Model
     /**
      * @var int
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $productionDeployTime;
-
-    /**
-     * @var int
-     */
-    public $productionDeployStatus;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $sandboxDeployTime;
-
-    /**
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
-     * @var int
-     */
-    public $sandboxDeployStatus;
-
-    /**
-     * @var int
-     */
-    public $gmtModified;
+    public $id;
 
     /**
      * @var string
@@ -61,19 +26,54 @@ class files extends Model
     /**
      * @var int
      */
-    public $id;
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $gmtModified;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var int
+     */
+    public $sandboxDeployTime;
+
+    /**
+     * @var int
+     */
+    public $productionDeployTime;
+
+    /**
+     * @var int
+     */
+    public $sandboxDeployStatus;
+
+    /**
+     * @var int
+     */
+    public $productionDeployStatus;
     protected $_name = [
-        'status'                 => 'Status',
-        'productionDeployTime'   => 'ProductionDeployTime',
-        'productionDeployStatus' => 'ProductionDeployStatus',
-        'description'            => 'Description',
-        'sandboxDeployTime'      => 'SandboxDeployTime',
-        'gmtCreate'              => 'GmtCreate',
-        'sandboxDeployStatus'    => 'SandboxDeployStatus',
-        'gmtModified'            => 'GmtModified',
+        'id'                     => 'Id',
         'name'                   => 'Name',
         'contentId'              => 'ContentId',
-        'id'                     => 'Id',
+        'status'                 => 'Status',
+        'gmtCreate'              => 'GmtCreate',
+        'gmtModified'            => 'GmtModified',
+        'description'            => 'Description',
+        'sandboxDeployTime'      => 'SandboxDeployTime',
+        'productionDeployTime'   => 'ProductionDeployTime',
+        'sandboxDeployStatus'    => 'SandboxDeployStatus',
+        'productionDeployStatus' => 'ProductionDeployStatus',
     ];
 
     public function validate()
@@ -83,29 +83,8 @@ class files extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->productionDeployTime) {
-            $res['ProductionDeployTime'] = $this->productionDeployTime;
-        }
-        if (null !== $this->productionDeployStatus) {
-            $res['ProductionDeployStatus'] = $this->productionDeployStatus;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->sandboxDeployTime) {
-            $res['SandboxDeployTime'] = $this->sandboxDeployTime;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->sandboxDeployStatus) {
-            $res['SandboxDeployStatus'] = $this->sandboxDeployStatus;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -113,8 +92,29 @@ class files extends Model
         if (null !== $this->contentId) {
             $res['ContentId'] = $this->contentId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->sandboxDeployTime) {
+            $res['SandboxDeployTime'] = $this->sandboxDeployTime;
+        }
+        if (null !== $this->productionDeployTime) {
+            $res['ProductionDeployTime'] = $this->productionDeployTime;
+        }
+        if (null !== $this->sandboxDeployStatus) {
+            $res['SandboxDeployStatus'] = $this->sandboxDeployStatus;
+        }
+        if (null !== $this->productionDeployStatus) {
+            $res['ProductionDeployStatus'] = $this->productionDeployStatus;
         }
 
         return $res;
@@ -128,29 +128,8 @@ class files extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ProductionDeployTime'])) {
-            $model->productionDeployTime = $map['ProductionDeployTime'];
-        }
-        if (isset($map['ProductionDeployStatus'])) {
-            $model->productionDeployStatus = $map['ProductionDeployStatus'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['SandboxDeployTime'])) {
-            $model->sandboxDeployTime = $map['SandboxDeployTime'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['SandboxDeployStatus'])) {
-            $model->sandboxDeployStatus = $map['SandboxDeployStatus'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -158,8 +137,29 @@ class files extends Model
         if (isset($map['ContentId'])) {
             $model->contentId = $map['ContentId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['SandboxDeployTime'])) {
+            $model->sandboxDeployTime = $map['SandboxDeployTime'];
+        }
+        if (isset($map['ProductionDeployTime'])) {
+            $model->productionDeployTime = $map['ProductionDeployTime'];
+        }
+        if (isset($map['SandboxDeployStatus'])) {
+            $model->sandboxDeployStatus = $map['SandboxDeployStatus'];
+        }
+        if (isset($map['ProductionDeployStatus'])) {
+            $model->productionDeployStatus = $map['ProductionDeployStatus'];
         }
 
         return $model;

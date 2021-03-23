@@ -12,12 +12,52 @@ class triggers extends Model
     /**
      * @var int
      */
-    public $status;
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @var string
+     */
+    public $source;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $gmtModified;
+
+    /**
+     * @var string
+     */
+    public $chainedFunctionIds;
 
     /**
      * @var int
      */
     public $type;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $invocationMode;
+
+    /**
+     * @var int
+     */
+    public $sandbox;
 
     /**
      * @var int
@@ -28,59 +68,19 @@ class triggers extends Model
      * @var functions[]
      */
     public $functions;
-
-    /**
-     * @var int
-     */
-    public $sandbox;
-
-    /**
-     * @var string
-     */
-    public $namespace;
-
-    /**
-     * @var int
-     */
-    public $gmtModified;
-
-    /**
-     * @var string
-     */
-    public $source;
-
-    /**
-     * @var string
-     */
-    public $chainedFunctionIds;
-
-    /**
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
-     * @var int
-     */
-    public $invocationMode;
-
-    /**
-     * @var int
-     */
-    public $id;
     protected $_name = [
-        'status'             => 'Status',
+        'id'                 => 'Id',
+        'namespace'          => 'Namespace',
+        'source'             => 'Source',
+        'gmtCreate'          => 'GmtCreate',
+        'gmtModified'        => 'GmtModified',
+        'chainedFunctionIds' => 'ChainedFunctionIds',
         'type'               => 'Type',
+        'status'             => 'Status',
+        'invocationMode'     => 'InvocationMode',
+        'sandbox'            => 'Sandbox',
         'production'         => 'Production',
         'functions'          => 'Functions',
-        'sandbox'            => 'Sandbox',
-        'namespace'          => 'Namespace',
-        'gmtModified'        => 'GmtModified',
-        'source'             => 'Source',
-        'chainedFunctionIds' => 'ChainedFunctionIds',
-        'gmtCreate'          => 'GmtCreate',
-        'invocationMode'     => 'InvocationMode',
-        'id'                 => 'Id',
     ];
 
     public function validate()
@@ -90,11 +90,35 @@ class triggers extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->chainedFunctionIds) {
+            $res['ChainedFunctionIds'] = $this->chainedFunctionIds;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->invocationMode) {
+            $res['InvocationMode'] = $this->invocationMode;
+        }
+        if (null !== $this->sandbox) {
+            $res['Sandbox'] = $this->sandbox;
         }
         if (null !== $this->production) {
             $res['Production'] = $this->production;
@@ -108,30 +132,6 @@ class triggers extends Model
                 }
             }
         }
-        if (null !== $this->sandbox) {
-            $res['Sandbox'] = $this->sandbox;
-        }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
-        }
-        if (null !== $this->chainedFunctionIds) {
-            $res['ChainedFunctionIds'] = $this->chainedFunctionIds;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->invocationMode) {
-            $res['InvocationMode'] = $this->invocationMode;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
 
         return $res;
     }
@@ -144,11 +144,35 @@ class triggers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['ChainedFunctionIds'])) {
+            $model->chainedFunctionIds = $map['ChainedFunctionIds'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['InvocationMode'])) {
+            $model->invocationMode = $map['InvocationMode'];
+        }
+        if (isset($map['Sandbox'])) {
+            $model->sandbox = $map['Sandbox'];
         }
         if (isset($map['Production'])) {
             $model->production = $map['Production'];
@@ -161,30 +185,6 @@ class triggers extends Model
                     $model->functions[$n++] = null !== $item ? functions::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Sandbox'])) {
-            $model->sandbox = $map['Sandbox'];
-        }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
-        }
-        if (isset($map['ChainedFunctionIds'])) {
-            $model->chainedFunctionIds = $map['ChainedFunctionIds'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['InvocationMode'])) {
-            $model->invocationMode = $map['InvocationMode'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

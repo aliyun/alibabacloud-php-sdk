@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomizedFilterResponseBody extends Model
 {
     /**
-     * @var customizedFilter
-     */
-    public $customizedFilter;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var customizedFilter
+     */
+    public $customizedFilter;
     protected $_name = [
-        'customizedFilter' => 'CustomizedFilter',
         'requestId'        => 'RequestId',
+        'customizedFilter' => 'CustomizedFilter',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeCustomizedFilterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->customizedFilter) {
-            $res['CustomizedFilter'] = null !== $this->customizedFilter ? $this->customizedFilter->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->customizedFilter) {
+            $res['CustomizedFilter'] = null !== $this->customizedFilter ? $this->customizedFilter->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeCustomizedFilterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustomizedFilter'])) {
-            $model->customizedFilter = customizedFilter::fromMap($map['CustomizedFilter']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['CustomizedFilter'])) {
+            $model->customizedFilter = customizedFilter::fromMap($map['CustomizedFilter']);
         }
 
         return $model;

@@ -11,12 +11,7 @@ class ossUploadMeta extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $objectKey;
+    public $accessKeyId;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class ossUploadMeta extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $bucket;
+
+    /**
+     * @var string
+     */
+    public $objectKey;
     protected $_name = [
-        'securityToken'   => 'SecurityToken',
-        'objectKey'       => 'ObjectKey',
-        'accessKeySecret' => 'AccessKeySecret',
         'accessKeyId'     => 'AccessKeyId',
+        'accessKeySecret' => 'AccessKeySecret',
+        'securityToken'   => 'SecurityToken',
         'bucket'          => 'Bucket',
+        'objectKey'       => 'ObjectKey',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ossUploadMeta extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->objectKey) {
-            $res['ObjectKey'] = $this->objectKey;
+        if (null !== $this->accessKeyId) {
+            $res['AccessKeyId'] = $this->accessKeyId;
         }
         if (null !== $this->accessKeySecret) {
             $res['AccessKeySecret'] = $this->accessKeySecret;
         }
-        if (null !== $this->accessKeyId) {
-            $res['AccessKeyId'] = $this->accessKeyId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
+        }
+        if (null !== $this->objectKey) {
+            $res['ObjectKey'] = $this->objectKey;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ossUploadMeta extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['ObjectKey'])) {
-            $model->objectKey = $map['ObjectKey'];
+        if (isset($map['AccessKeyId'])) {
+            $model->accessKeyId = $map['AccessKeyId'];
         }
         if (isset($map['AccessKeySecret'])) {
             $model->accessKeySecret = $map['AccessKeySecret'];
         }
-        if (isset($map['AccessKeyId'])) {
-            $model->accessKeyId = $map['AccessKeyId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
+        }
+        if (isset($map['ObjectKey'])) {
+            $model->objectKey = $map['ObjectKey'];
         }
 
         return $model;

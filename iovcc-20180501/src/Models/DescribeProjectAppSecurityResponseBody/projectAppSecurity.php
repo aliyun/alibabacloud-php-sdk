@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class projectAppSecurity extends Model
 {
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
-    public $appSecret;
+    public $appId;
 
     /**
      * @var string
@@ -21,7 +26,7 @@ class projectAppSecurity extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $appSecret;
 
     /**
      * @var int
@@ -32,18 +37,13 @@ class projectAppSecurity extends Model
      * @var int
      */
     public $gmtModified;
-
-    /**
-     * @var int
-     */
-    public $id;
     protected $_name = [
-        'appSecret'   => 'AppSecret',
-        'appKey'      => 'AppKey',
+        'id'          => 'Id',
         'appId'       => 'AppId',
+        'appKey'      => 'AppKey',
+        'appSecret'   => 'AppSecret',
         'gmtCreate'   => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'id'          => 'Id',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class projectAppSecurity extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appSecret) {
-            $res['AppSecret'] = $this->appSecret;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->appSecret) {
+            $res['AppSecret'] = $this->appSecret;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class projectAppSecurity extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppSecret'])) {
-            $model->appSecret = $map['AppSecret'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['AppSecret'])) {
+            $model->appSecret = $map['AppSecret'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

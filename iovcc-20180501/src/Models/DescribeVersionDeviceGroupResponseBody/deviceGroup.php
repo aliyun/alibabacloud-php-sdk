@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class deviceGroup extends Model
 {
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
-    public $gmtModify;
+    public $name;
 
     /**
      * @var string
@@ -26,23 +31,18 @@ class deviceGroup extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var int
-     */
-    public $id;
+    public $gmtModify;
 
     /**
      * @var string
      */
     public $maxCount;
     protected $_name = [
-        'gmtModify'   => 'GmtModify',
+        'id'          => 'Id',
+        'name'        => 'Name',
         'description' => 'Description',
         'gmtCreate'   => 'GmtCreate',
-        'name'        => 'Name',
-        'id'          => 'Id',
+        'gmtModify'   => 'GmtModify',
         'maxCount'    => 'MaxCount',
     ];
 
@@ -53,8 +53,11 @@ class deviceGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gmtModify) {
-            $res['GmtModify'] = $this->gmtModify;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -62,11 +65,8 @@ class deviceGroup extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->gmtModify) {
+            $res['GmtModify'] = $this->gmtModify;
         }
         if (null !== $this->maxCount) {
             $res['MaxCount'] = $this->maxCount;
@@ -83,8 +83,11 @@ class deviceGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GmtModify'])) {
-            $model->gmtModify = $map['GmtModify'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -92,11 +95,8 @@ class deviceGroup extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['GmtModify'])) {
+            $model->gmtModify = $map['GmtModify'];
         }
         if (isset($map['MaxCount'])) {
             $model->maxCount = $map['MaxCount'];

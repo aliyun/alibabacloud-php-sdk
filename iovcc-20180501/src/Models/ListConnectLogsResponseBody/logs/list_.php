@@ -11,27 +11,17 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $sid;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $time;
-
-    /**
-     * @var string
-     */
     public $deviceId;
 
     /**
      * @var string
      */
     public $systemVersion;
+
+    /**
+     * @var string
+     */
+    public $terminal;
 
     /**
      * @var string
@@ -44,18 +34,28 @@ class list_ extends Model
     public $netWorking;
 
     /**
+     * @var int
+     */
+    public $time;
+
+    /**
      * @var string
      */
-    public $terminal;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $sid;
     protected $_name = [
-        'sid'           => 'Sid',
-        'status'        => 'Status',
-        'time'          => 'Time',
         'deviceId'      => 'DeviceId',
         'systemVersion' => 'SystemVersion',
+        'terminal'      => 'Terminal',
         'ip'            => 'Ip',
         'netWorking'    => 'NetWorking',
-        'terminal'      => 'Terminal',
+        'time'          => 'Time',
+        'status'        => 'Status',
+        'sid'           => 'Sid',
     ];
 
     public function validate()
@@ -65,20 +65,14 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sid) {
-            $res['Sid'] = $this->sid;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
         if (null !== $this->systemVersion) {
             $res['SystemVersion'] = $this->systemVersion;
+        }
+        if (null !== $this->terminal) {
+            $res['Terminal'] = $this->terminal;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
@@ -86,8 +80,14 @@ class list_ extends Model
         if (null !== $this->netWorking) {
             $res['NetWorking'] = $this->netWorking;
         }
-        if (null !== $this->terminal) {
-            $res['Terminal'] = $this->terminal;
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->sid) {
+            $res['Sid'] = $this->sid;
         }
 
         return $res;
@@ -96,25 +96,19 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Sid'])) {
-            $model->sid = $map['Sid'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
         if (isset($map['SystemVersion'])) {
             $model->systemVersion = $map['SystemVersion'];
+        }
+        if (isset($map['Terminal'])) {
+            $model->terminal = $map['Terminal'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
@@ -122,8 +116,14 @@ class list_ extends Model
         if (isset($map['NetWorking'])) {
             $model->netWorking = $map['NetWorking'];
         }
-        if (isset($map['Terminal'])) {
-            $model->terminal = $map['Terminal'];
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Sid'])) {
+            $model->sid = $map['Sid'];
         }
 
         return $model;

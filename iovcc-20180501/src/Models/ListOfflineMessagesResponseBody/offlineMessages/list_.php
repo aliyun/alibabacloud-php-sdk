@@ -11,21 +11,21 @@ class list_ extends Model
     /**
      * @var int
      */
-    public $expiredTime;
-
-    /**
-     * @var int
-     */
     public $mid;
 
     /**
      * @var int
      */
     public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $expiredTime;
     protected $_name = [
-        'expiredTime' => 'ExpiredTime',
         'mid'         => 'Mid',
         'gmtCreate'   => 'GmtCreate',
+        'expiredTime' => 'ExpiredTime',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
-        }
         if (null !== $this->mid) {
             $res['Mid'] = $this->mid;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
         }
 
         return $res;
@@ -51,19 +51,19 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
-        }
         if (isset($map['Mid'])) {
             $model->mid = $map['Mid'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
         }
 
         return $model;

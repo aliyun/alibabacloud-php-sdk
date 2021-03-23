@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class adapters extends Model
 {
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $versionId;
+
+    /**
      * @var string
      */
     public $deviceModelId;
+
+    /**
+     * @var string
+     */
+    public $minOsVersion;
 
     /**
      * @var string
@@ -21,28 +36,13 @@ class adapters extends Model
     /**
      * @var string
      */
-    public $minOsVersion;
-
-    /**
-     * @var int
-     */
-    public $versionId;
-
-    /**
-     * @var int
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
     public $deviceModelName;
     protected $_name = [
-        'deviceModelId'   => 'DeviceModelId',
-        'maxOsVersion'    => 'MaxOsVersion',
-        'minOsVersion'    => 'MinOsVersion',
-        'versionId'       => 'VersionId',
         'id'              => 'Id',
+        'versionId'       => 'VersionId',
+        'deviceModelId'   => 'DeviceModelId',
+        'minOsVersion'    => 'MinOsVersion',
+        'maxOsVersion'    => 'MaxOsVersion',
         'deviceModelName' => 'DeviceModelName',
     ];
 
@@ -53,20 +53,20 @@ class adapters extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deviceModelId) {
-            $res['DeviceModelId'] = $this->deviceModelId;
-        }
-        if (null !== $this->maxOsVersion) {
-            $res['MaxOsVersion'] = $this->maxOsVersion;
-        }
-        if (null !== $this->minOsVersion) {
-            $res['MinOsVersion'] = $this->minOsVersion;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->deviceModelId) {
+            $res['DeviceModelId'] = $this->deviceModelId;
+        }
+        if (null !== $this->minOsVersion) {
+            $res['MinOsVersion'] = $this->minOsVersion;
+        }
+        if (null !== $this->maxOsVersion) {
+            $res['MaxOsVersion'] = $this->maxOsVersion;
         }
         if (null !== $this->deviceModelName) {
             $res['DeviceModelName'] = $this->deviceModelName;
@@ -83,20 +83,20 @@ class adapters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeviceModelId'])) {
-            $model->deviceModelId = $map['DeviceModelId'];
-        }
-        if (isset($map['MaxOsVersion'])) {
-            $model->maxOsVersion = $map['MaxOsVersion'];
-        }
-        if (isset($map['MinOsVersion'])) {
-            $model->minOsVersion = $map['MinOsVersion'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['DeviceModelId'])) {
+            $model->deviceModelId = $map['DeviceModelId'];
+        }
+        if (isset($map['MinOsVersion'])) {
+            $model->minOsVersion = $map['MinOsVersion'];
+        }
+        if (isset($map['MaxOsVersion'])) {
+            $model->maxOsVersion = $map['MaxOsVersion'];
         }
         if (isset($map['DeviceModelName'])) {
             $model->deviceModelName = $map['DeviceModelName'];

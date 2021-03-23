@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListDeviceModelsResponseBody extends Model
 {
     /**
-     * @var deviceModels[]
-     */
-    public $deviceModels;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var deviceModels[]
+     */
+    public $deviceModels;
     protected $_name = [
-        'deviceModels' => 'DeviceModels',
         'requestId'    => 'RequestId',
+        'deviceModels' => 'DeviceModels',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class ListDeviceModelsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->deviceModels) {
             $res['DeviceModels'] = [];
             if (null !== $this->deviceModels && \is_array($this->deviceModels)) {
@@ -38,9 +41,6 @@ class ListDeviceModelsResponseBody extends Model
                     $res['DeviceModels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class ListDeviceModelsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['DeviceModels'])) {
             if (!empty($map['DeviceModels'])) {
                 $model->deviceModels = [];
@@ -62,9 +65,6 @@ class ListDeviceModelsResponseBody extends Model
                     $model->deviceModels[$n++] = null !== $item ? deviceModels::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

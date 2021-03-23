@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class offlineMessages extends Model
 {
     /**
-     * @var pagination
-     */
-    public $pagination;
-
-    /**
      * @var list_[]
      */
     public $list;
+
+    /**
+     * @var pagination
+     */
+    public $pagination;
     protected $_name = [
-        'pagination' => 'Pagination',
         'list'       => 'List',
+        'pagination' => 'Pagination',
     ];
 
     public function validate()
@@ -31,9 +31,6 @@ class offlineMessages extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pagination) {
-            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
-        }
         if (null !== $this->list) {
             $res['List'] = [];
             if (null !== $this->list && \is_array($this->list)) {
@@ -42,6 +39,9 @@ class offlineMessages extends Model
                     $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pagination) {
+            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
         }
 
         return $res;
@@ -55,9 +55,6 @@ class offlineMessages extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Pagination'])) {
-            $model->pagination = pagination::fromMap($map['Pagination']);
-        }
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
@@ -66,6 +63,9 @@ class offlineMessages extends Model
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Pagination'])) {
+            $model->pagination = pagination::fromMap($map['Pagination']);
         }
 
         return $model;

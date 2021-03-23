@@ -11,21 +11,21 @@ class GenerateAssistFileUploadUrlResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $fileKey;
 
     /**
      * @var string
      */
     public $uploadUrl;
-
-    /**
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
+        'requestId' => 'RequestId',
         'fileKey'   => 'FileKey',
         'uploadUrl' => 'UploadUrl',
-        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GenerateAssistFileUploadUrlResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
         }
         if (null !== $this->uploadUrl) {
             $res['UploadUrl'] = $this->uploadUrl;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GenerateAssistFileUploadUrlResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
         }
         if (isset($map['UploadUrl'])) {
             $model->uploadUrl = $map['UploadUrl'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

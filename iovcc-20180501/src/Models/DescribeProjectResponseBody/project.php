@@ -11,12 +11,12 @@ class project extends Model
     /**
      * @var int
      */
-    public $status;
+    public $id;
 
     /**
      * @var string
      */
-    public $description;
+    public $projectId;
 
     /**
      * @var string
@@ -26,7 +26,17 @@ class project extends Model
     /**
      * @var string
      */
-    public $projectId;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var int
@@ -41,26 +51,16 @@ class project extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var int
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
     public $creator;
     protected $_name = [
+        'id'          => 'Id',
+        'projectId'   => 'ProjectId',
+        'userId'      => 'UserId',
+        'name'        => 'Name',
         'status'      => 'Status',
         'description' => 'Description',
-        'userId'      => 'UserId',
-        'projectId'   => 'ProjectId',
         'gmtCreate'   => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'name'        => 'Name',
-        'id'          => 'Id',
         'creator'     => 'Creator',
     ];
 
@@ -71,29 +71,29 @@ class project extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
@@ -110,29 +110,29 @@ class project extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];

@@ -16,27 +16,12 @@ class modelList extends Model
     /**
      * @var string
      */
-    public $hardwareType;
-
-    /**
-     * @var string
-     */
     public $deviceType;
 
     /**
-     * @var int
-     */
-    public $canCreateDeviceId;
-
-    /**
      * @var string
      */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $osPlatform;
+    public $hardwareType;
 
     /**
      * @var string
@@ -44,19 +29,14 @@ class modelList extends Model
     public $deviceModel;
 
     /**
+     * @var string
+     */
+    public $deviceBrand;
+
+    /**
      * @var int
      */
-    public $securityChip;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $initUsageTypeDesc;
+    public $canCreateDeviceId;
 
     /**
      * @var int
@@ -66,20 +46,40 @@ class modelList extends Model
     /**
      * @var string
      */
-    public $deviceBrand;
+    public $initUsageTypeDesc;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var int
+     */
+    public $securityChip;
+
+    /**
+     * @var string
+     */
+    public $osPlatform;
     protected $_name = [
         'deviceModelId'     => 'DeviceModelId',
-        'hardwareType'      => 'HardwareType',
         'deviceType'        => 'DeviceType',
-        'canCreateDeviceId' => 'CanCreateDeviceId',
-        'projectId'         => 'ProjectId',
-        'osPlatform'        => 'OsPlatform',
+        'hardwareType'      => 'HardwareType',
         'deviceModel'       => 'DeviceModel',
-        'securityChip'      => 'SecurityChip',
-        'description'       => 'Description',
-        'initUsageTypeDesc' => 'InitUsageTypeDesc',
-        'initUsageType'     => 'InitUsageType',
         'deviceBrand'       => 'DeviceBrand',
+        'canCreateDeviceId' => 'CanCreateDeviceId',
+        'initUsageType'     => 'InitUsageType',
+        'initUsageTypeDesc' => 'InitUsageTypeDesc',
+        'description'       => 'Description',
+        'projectId'         => 'ProjectId',
+        'securityChip'      => 'SecurityChip',
+        'osPlatform'        => 'OsPlatform',
     ];
 
     public function validate()
@@ -92,38 +92,38 @@ class modelList extends Model
         if (null !== $this->deviceModelId) {
             $res['DeviceModelId'] = $this->deviceModelId;
         }
-        if (null !== $this->hardwareType) {
-            $res['HardwareType'] = $this->hardwareType;
-        }
         if (null !== $this->deviceType) {
             $res['DeviceType'] = $this->deviceType;
         }
-        if (null !== $this->canCreateDeviceId) {
-            $res['CanCreateDeviceId'] = $this->canCreateDeviceId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->osPlatform) {
-            $res['OsPlatform'] = $this->osPlatform;
+        if (null !== $this->hardwareType) {
+            $res['HardwareType'] = $this->hardwareType;
         }
         if (null !== $this->deviceModel) {
             $res['DeviceModel'] = $this->deviceModel;
         }
-        if (null !== $this->securityChip) {
-            $res['SecurityChip'] = $this->securityChip;
+        if (null !== $this->deviceBrand) {
+            $res['DeviceBrand'] = $this->deviceBrand;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->initUsageTypeDesc) {
-            $res['InitUsageTypeDesc'] = $this->initUsageTypeDesc;
+        if (null !== $this->canCreateDeviceId) {
+            $res['CanCreateDeviceId'] = $this->canCreateDeviceId;
         }
         if (null !== $this->initUsageType) {
             $res['InitUsageType'] = $this->initUsageType;
         }
-        if (null !== $this->deviceBrand) {
-            $res['DeviceBrand'] = $this->deviceBrand;
+        if (null !== $this->initUsageTypeDesc) {
+            $res['InitUsageTypeDesc'] = $this->initUsageTypeDesc;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->securityChip) {
+            $res['SecurityChip'] = $this->securityChip;
+        }
+        if (null !== $this->osPlatform) {
+            $res['OsPlatform'] = $this->osPlatform;
         }
 
         return $res;
@@ -140,38 +140,38 @@ class modelList extends Model
         if (isset($map['DeviceModelId'])) {
             $model->deviceModelId = $map['DeviceModelId'];
         }
-        if (isset($map['HardwareType'])) {
-            $model->hardwareType = $map['HardwareType'];
-        }
         if (isset($map['DeviceType'])) {
             $model->deviceType = $map['DeviceType'];
         }
-        if (isset($map['CanCreateDeviceId'])) {
-            $model->canCreateDeviceId = $map['CanCreateDeviceId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['OsPlatform'])) {
-            $model->osPlatform = $map['OsPlatform'];
+        if (isset($map['HardwareType'])) {
+            $model->hardwareType = $map['HardwareType'];
         }
         if (isset($map['DeviceModel'])) {
             $model->deviceModel = $map['DeviceModel'];
         }
-        if (isset($map['SecurityChip'])) {
-            $model->securityChip = $map['SecurityChip'];
+        if (isset($map['DeviceBrand'])) {
+            $model->deviceBrand = $map['DeviceBrand'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['InitUsageTypeDesc'])) {
-            $model->initUsageTypeDesc = $map['InitUsageTypeDesc'];
+        if (isset($map['CanCreateDeviceId'])) {
+            $model->canCreateDeviceId = $map['CanCreateDeviceId'];
         }
         if (isset($map['InitUsageType'])) {
             $model->initUsageType = $map['InitUsageType'];
         }
-        if (isset($map['DeviceBrand'])) {
-            $model->deviceBrand = $map['DeviceBrand'];
+        if (isset($map['InitUsageTypeDesc'])) {
+            $model->initUsageTypeDesc = $map['InitUsageTypeDesc'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['SecurityChip'])) {
+            $model->securityChip = $map['SecurityChip'];
+        }
+        if (isset($map['OsPlatform'])) {
+            $model->osPlatform = $map['OsPlatform'];
         }
 
         return $model;

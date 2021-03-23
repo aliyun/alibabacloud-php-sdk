@@ -16,16 +16,16 @@ class nightUpgradeOption extends Model
     /**
      * @var string
      */
-    public $isAllowedCancel;
+    public $isShowTip;
 
     /**
      * @var string
      */
-    public $isShowTip;
+    public $isAllowedCancel;
     protected $_name = [
         'downloadType'    => 'DownloadType',
-        'isAllowedCancel' => 'IsAllowedCancel',
         'isShowTip'       => 'IsShowTip',
+        'isAllowedCancel' => 'IsAllowedCancel',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class nightUpgradeOption extends Model
         if (null !== $this->downloadType) {
             $res['DownloadType'] = $this->downloadType;
         }
-        if (null !== $this->isAllowedCancel) {
-            $res['IsAllowedCancel'] = $this->isAllowedCancel;
-        }
         if (null !== $this->isShowTip) {
             $res['IsShowTip'] = $this->isShowTip;
+        }
+        if (null !== $this->isAllowedCancel) {
+            $res['IsAllowedCancel'] = $this->isAllowedCancel;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class nightUpgradeOption extends Model
         if (isset($map['DownloadType'])) {
             $model->downloadType = $map['DownloadType'];
         }
-        if (isset($map['IsAllowedCancel'])) {
-            $model->isAllowedCancel = $map['IsAllowedCancel'];
-        }
         if (isset($map['IsShowTip'])) {
             $model->isShowTip = $map['IsShowTip'];
+        }
+        if (isset($map['IsAllowedCancel'])) {
+            $model->isAllowedCancel = $map['IsAllowedCancel'];
         }
 
         return $model;

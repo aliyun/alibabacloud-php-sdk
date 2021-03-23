@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppVersionResponseBody extends Model
 {
     /**
-     * @var appVersion
-     */
-    public $appVersion;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var appVersion
+     */
+    public $appVersion;
     protected $_name = [
-        'appVersion' => 'AppVersion',
         'requestId'  => 'RequestId',
+        'appVersion' => 'AppVersion',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeAppVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appVersion) {
-            $res['AppVersion'] = null !== $this->appVersion ? $this->appVersion->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = null !== $this->appVersion ? $this->appVersion->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeAppVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppVersion'])) {
-            $model->appVersion = appVersion::fromMap($map['AppVersion']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = appVersion::fromMap($map['AppVersion']);
         }
 
         return $model;

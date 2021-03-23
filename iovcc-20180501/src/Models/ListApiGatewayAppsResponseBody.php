@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListApiGatewayAppsResponseBody extends Model
 {
     /**
-     * @var apiGatewayApps[]
-     */
-    public $apiGatewayApps;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var apiGatewayApps[]
+     */
+    public $apiGatewayApps;
     protected $_name = [
-        'apiGatewayApps' => 'ApiGatewayApps',
         'requestId'      => 'RequestId',
+        'apiGatewayApps' => 'ApiGatewayApps',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class ListApiGatewayAppsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->apiGatewayApps) {
             $res['ApiGatewayApps'] = [];
             if (null !== $this->apiGatewayApps && \is_array($this->apiGatewayApps)) {
@@ -38,9 +41,6 @@ class ListApiGatewayAppsResponseBody extends Model
                     $res['ApiGatewayApps'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class ListApiGatewayAppsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['ApiGatewayApps'])) {
             if (!empty($map['ApiGatewayApps'])) {
                 $model->apiGatewayApps = [];
@@ -62,9 +65,6 @@ class ListApiGatewayAppsResponseBody extends Model
                     $model->apiGatewayApps[$n++] = null !== $item ? apiGatewayApps::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class triggerList extends Model
 {
     /**
-     * @var pagination
-     */
-    public $pagination;
-
-    /**
      * @var triggers[]
      */
     public $triggers;
+
+    /**
+     * @var pagination
+     */
+    public $pagination;
     protected $_name = [
-        'pagination' => 'Pagination',
         'triggers'   => 'Triggers',
+        'pagination' => 'Pagination',
     ];
 
     public function validate()
@@ -31,9 +31,6 @@ class triggerList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pagination) {
-            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
-        }
         if (null !== $this->triggers) {
             $res['Triggers'] = [];
             if (null !== $this->triggers && \is_array($this->triggers)) {
@@ -42,6 +39,9 @@ class triggerList extends Model
                     $res['Triggers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pagination) {
+            $res['Pagination'] = null !== $this->pagination ? $this->pagination->toMap() : null;
         }
 
         return $res;
@@ -55,9 +55,6 @@ class triggerList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Pagination'])) {
-            $model->pagination = pagination::fromMap($map['Pagination']);
-        }
         if (isset($map['Triggers'])) {
             if (!empty($map['Triggers'])) {
                 $model->triggers = [];
@@ -66,6 +63,9 @@ class triggerList extends Model
                     $model->triggers[$n++] = null !== $item ? triggers::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Pagination'])) {
+            $model->pagination = pagination::fromMap($map['Pagination']);
         }
 
         return $model;

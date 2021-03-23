@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeOpenAccountResponseBody extends Model
 {
     /**
-     * @var openAccount
-     */
-    public $openAccount;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var openAccount
+     */
+    public $openAccount;
     protected $_name = [
-        'openAccount' => 'OpenAccount',
         'requestId'   => 'RequestId',
+        'openAccount' => 'OpenAccount',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeOpenAccountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->openAccount) {
-            $res['OpenAccount'] = null !== $this->openAccount ? $this->openAccount->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->openAccount) {
+            $res['OpenAccount'] = null !== $this->openAccount ? $this->openAccount->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeOpenAccountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OpenAccount'])) {
-            $model->openAccount = openAccount::fromMap($map['OpenAccount']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['OpenAccount'])) {
+            $model->openAccount = openAccount::fromMap($map['OpenAccount']);
         }
 
         return $model;

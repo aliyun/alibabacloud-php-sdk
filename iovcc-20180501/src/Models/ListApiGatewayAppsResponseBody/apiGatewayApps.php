@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class apiGatewayApps extends Model
 {
     /**
-     * @var string
-     */
-    public $gatewayAppKey;
-
-    /**
      * @var int
      */
-    public $status;
+    public $id;
 
     /**
      * @var string
      */
-    public $gatewayAppSecret;
-
-    /**
-     * @var string
-     */
-    public $gatewayAppId;
+    public $projectId;
 
     /**
      * @var string
@@ -34,9 +24,9 @@ class apiGatewayApps extends Model
     public $userId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $projectId;
+    public $status;
 
     /**
      * @var int
@@ -49,19 +39,29 @@ class apiGatewayApps extends Model
     public $gmtModified;
 
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $gatewayAppKey;
+
+    /**
+     * @var string
+     */
+    public $gatewayAppSecret;
+
+    /**
+     * @var string
+     */
+    public $gatewayAppId;
     protected $_name = [
-        'gatewayAppKey'    => 'GatewayAppKey',
-        'status'           => 'Status',
-        'gatewayAppSecret' => 'GatewayAppSecret',
-        'gatewayAppId'     => 'GatewayAppId',
-        'userId'           => 'UserId',
+        'id'               => 'Id',
         'projectId'        => 'ProjectId',
+        'userId'           => 'UserId',
+        'status'           => 'Status',
         'gmtCreate'        => 'GmtCreate',
         'gmtModified'      => 'GmtModified',
-        'id'               => 'Id',
+        'gatewayAppKey'    => 'GatewayAppKey',
+        'gatewayAppSecret' => 'GatewayAppSecret',
+        'gatewayAppId'     => 'GatewayAppId',
     ];
 
     public function validate()
@@ -71,23 +71,17 @@ class apiGatewayApps extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gatewayAppKey) {
-            $res['GatewayAppKey'] = $this->gatewayAppKey;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->gatewayAppSecret) {
-            $res['GatewayAppSecret'] = $this->gatewayAppSecret;
-        }
-        if (null !== $this->gatewayAppId) {
-            $res['GatewayAppId'] = $this->gatewayAppId;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -95,8 +89,14 @@ class apiGatewayApps extends Model
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->gatewayAppKey) {
+            $res['GatewayAppKey'] = $this->gatewayAppKey;
+        }
+        if (null !== $this->gatewayAppSecret) {
+            $res['GatewayAppSecret'] = $this->gatewayAppSecret;
+        }
+        if (null !== $this->gatewayAppId) {
+            $res['GatewayAppId'] = $this->gatewayAppId;
         }
 
         return $res;
@@ -110,23 +110,17 @@ class apiGatewayApps extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GatewayAppKey'])) {
-            $model->gatewayAppKey = $map['GatewayAppKey'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['GatewayAppSecret'])) {
-            $model->gatewayAppSecret = $map['GatewayAppSecret'];
-        }
-        if (isset($map['GatewayAppId'])) {
-            $model->gatewayAppId = $map['GatewayAppId'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
@@ -134,8 +128,14 @@ class apiGatewayApps extends Model
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['GatewayAppKey'])) {
+            $model->gatewayAppKey = $map['GatewayAppKey'];
+        }
+        if (isset($map['GatewayAppSecret'])) {
+            $model->gatewayAppSecret = $map['GatewayAppSecret'];
+        }
+        if (isset($map['GatewayAppId'])) {
+            $model->gatewayAppId = $map['GatewayAppId'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class eventList extends Model
     /**
      * @var string
      */
-    public $packageName;
+    public $tenantId;
 
     /**
      * @var string
@@ -29,11 +29,6 @@ class eventList extends Model
     public $event;
 
     /**
-     * @var int
-     */
-    public $reportTimestamp;
-
-    /**
      * @var string
      */
     public $reportTime;
@@ -41,15 +36,20 @@ class eventList extends Model
     /**
      * @var string
      */
-    public $tenantId;
+    public $packageName;
+
+    /**
+     * @var int
+     */
+    public $reportTimestamp;
     protected $_name = [
-        'packageName'       => 'PackageName',
+        'tenantId'          => 'TenantId',
         'deviceId'          => 'DeviceId',
         'targetVersionCode' => 'TargetVersionCode',
         'event'             => 'Event',
-        'reportTimestamp'   => 'ReportTimestamp',
         'reportTime'        => 'ReportTime',
-        'tenantId'          => 'TenantId',
+        'packageName'       => 'PackageName',
+        'reportTimestamp'   => 'ReportTimestamp',
     ];
 
     public function validate()
@@ -59,8 +59,8 @@ class eventList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->packageName) {
-            $res['PackageName'] = $this->packageName;
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
@@ -71,14 +71,14 @@ class eventList extends Model
         if (null !== $this->event) {
             $res['Event'] = $this->event;
         }
-        if (null !== $this->reportTimestamp) {
-            $res['ReportTimestamp'] = $this->reportTimestamp;
-        }
         if (null !== $this->reportTime) {
             $res['ReportTime'] = $this->reportTime;
         }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
+        if (null !== $this->packageName) {
+            $res['PackageName'] = $this->packageName;
+        }
+        if (null !== $this->reportTimestamp) {
+            $res['ReportTimestamp'] = $this->reportTimestamp;
         }
 
         return $res;
@@ -92,8 +92,8 @@ class eventList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PackageName'])) {
-            $model->packageName = $map['PackageName'];
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
@@ -104,14 +104,14 @@ class eventList extends Model
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
         }
-        if (isset($map['ReportTimestamp'])) {
-            $model->reportTimestamp = $map['ReportTimestamp'];
-        }
         if (isset($map['ReportTime'])) {
             $model->reportTime = $map['ReportTime'];
         }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
+        if (isset($map['PackageName'])) {
+            $model->packageName = $map['PackageName'];
+        }
+        if (isset($map['ReportTimestamp'])) {
+            $model->reportTimestamp = $map['ReportTimestamp'];
         }
 
         return $model;

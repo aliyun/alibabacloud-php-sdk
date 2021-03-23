@@ -16,22 +16,22 @@ class pagination extends Model
     /**
      * @var int
      */
-    public $totalPageCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var int
+     */
+    public $totalPageCount;
     protected $_name = [
         'pageIndex'      => 'PageIndex',
-        'totalPageCount' => 'TotalPageCount',
         'pageSize'       => 'PageSize',
         'totalCount'     => 'TotalCount',
+        'totalPageCount' => 'TotalPageCount',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class pagination extends Model
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
-        if (null !== $this->totalPageCount) {
-            $res['TotalPageCount'] = $this->totalPageCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->totalPageCount) {
+            $res['TotalPageCount'] = $this->totalPageCount;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class pagination extends Model
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
-        if (isset($map['TotalPageCount'])) {
-            $model->totalPageCount = $map['TotalPageCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['TotalPageCount'])) {
+            $model->totalPageCount = $map['TotalPageCount'];
         }
 
         return $model;

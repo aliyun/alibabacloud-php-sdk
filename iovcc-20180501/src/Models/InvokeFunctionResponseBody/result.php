@@ -11,15 +11,15 @@ class result extends Model
     /**
      * @var string
      */
-    public $output;
+    public $backEndRequestId;
 
     /**
      * @var string
      */
-    public $backEndRequestId;
+    public $output;
     protected $_name = [
-        'output'           => 'Output',
         'backEndRequestId' => 'BackEndRequestId',
+        'output'           => 'Output',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->output) {
-            $res['Output'] = $this->output;
-        }
         if (null !== $this->backEndRequestId) {
             $res['BackEndRequestId'] = $this->backEndRequestId;
+        }
+        if (null !== $this->output) {
+            $res['Output'] = $this->output;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Output'])) {
-            $model->output = $map['Output'];
-        }
         if (isset($map['BackEndRequestId'])) {
             $model->backEndRequestId = $map['BackEndRequestId'];
+        }
+        if (isset($map['Output'])) {
+            $model->output = $map['Output'];
         }
 
         return $model;

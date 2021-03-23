@@ -16,12 +16,7 @@ class list_ extends Model
     /**
      * @var int
      */
-    public $deviceModelId;
-
-    /**
-     * @var int
-     */
-    public $authType;
+    public $id;
 
     /**
      * @var string
@@ -31,12 +26,7 @@ class list_ extends Model
     /**
      * @var int
      */
-    public $gmtCreate;
-
-    /**
-     * @var string
-     */
-    public $namespace;
+    public $deviceModelId;
 
     /**
      * @var string
@@ -44,30 +34,40 @@ class list_ extends Model
     public $deviceModel;
 
     /**
-     * @var int
-     */
-    public $gmtModified;
-
-    /**
      * @var string
      */
     public $moduleSchema;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @var int
      */
-    public $id;
+    public $authType;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $gmtModified;
     protected $_name = [
         'authTypeDesc'  => 'AuthTypeDesc',
-        'deviceModelId' => 'DeviceModelId',
-        'authType'      => 'AuthType',
-        'projectId'     => 'ProjectId',
-        'gmtCreate'     => 'GmtCreate',
-        'namespace'     => 'Namespace',
-        'deviceModel'   => 'DeviceModel',
-        'gmtModified'   => 'GmtModified',
-        'moduleSchema'  => 'ModuleSchema',
         'id'            => 'Id',
+        'projectId'     => 'ProjectId',
+        'deviceModelId' => 'DeviceModelId',
+        'deviceModel'   => 'DeviceModel',
+        'moduleSchema'  => 'ModuleSchema',
+        'namespace'     => 'Namespace',
+        'authType'      => 'AuthType',
+        'gmtCreate'     => 'GmtCreate',
+        'gmtModified'   => 'GmtModified',
     ];
 
     public function validate()
@@ -80,32 +80,32 @@ class list_ extends Model
         if (null !== $this->authTypeDesc) {
             $res['AuthTypeDesc'] = $this->authTypeDesc;
         }
-        if (null !== $this->deviceModelId) {
-            $res['DeviceModelId'] = $this->deviceModelId;
-        }
-        if (null !== $this->authType) {
-            $res['AuthType'] = $this->authType;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
+        if (null !== $this->deviceModelId) {
+            $res['DeviceModelId'] = $this->deviceModelId;
         }
         if (null !== $this->deviceModel) {
             $res['DeviceModel'] = $this->deviceModel;
         }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
         if (null !== $this->moduleSchema) {
             $res['ModuleSchema'] = $this->moduleSchema;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
 
         return $res;
@@ -114,7 +114,7 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {
@@ -122,32 +122,32 @@ class list_ extends Model
         if (isset($map['AuthTypeDesc'])) {
             $model->authTypeDesc = $map['AuthTypeDesc'];
         }
-        if (isset($map['DeviceModelId'])) {
-            $model->deviceModelId = $map['DeviceModelId'];
-        }
-        if (isset($map['AuthType'])) {
-            $model->authType = $map['AuthType'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
+        if (isset($map['DeviceModelId'])) {
+            $model->deviceModelId = $map['DeviceModelId'];
         }
         if (isset($map['DeviceModel'])) {
             $model->deviceModel = $map['DeviceModel'];
         }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
         if (isset($map['ModuleSchema'])) {
             $model->moduleSchema = $map['ModuleSchema'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
 
         return $model;

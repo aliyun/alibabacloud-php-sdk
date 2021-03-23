@@ -11,17 +11,12 @@ class ossUploadMeta extends Model
     /**
      * @var string
      */
+    public $objectKey;
+
+    /**
+     * @var string
+     */
     public $accessKey;
-
-    /**
-     * @var string
-     */
-    public $signature;
-
-    /**
-     * @var string
-     */
-    public $host;
 
     /**
      * @var string
@@ -31,19 +26,24 @@ class ossUploadMeta extends Model
     /**
      * @var string
      */
+    public $signature;
+
+    /**
+     * @var string
+     */
     public $securityToken;
 
     /**
      * @var string
      */
-    public $objectKey;
+    public $host;
     protected $_name = [
-        'accessKey'     => 'AccessKey',
-        'signature'     => 'Signature',
-        'host'          => 'Host',
-        'policy'        => 'Policy',
-        'securityToken' => 'SecurityToken',
         'objectKey'     => 'ObjectKey',
+        'accessKey'     => 'AccessKey',
+        'policy'        => 'Policy',
+        'signature'     => 'Signature',
+        'securityToken' => 'SecurityToken',
+        'host'          => 'Host',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ossUploadMeta extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->objectKey) {
+            $res['ObjectKey'] = $this->objectKey;
+        }
         if (null !== $this->accessKey) {
             $res['AccessKey'] = $this->accessKey;
-        }
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
-        }
-        if (null !== $this->host) {
-            $res['Host'] = $this->host;
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-        if (null !== $this->objectKey) {
-            $res['ObjectKey'] = $this->objectKey;
+        if (null !== $this->host) {
+            $res['Host'] = $this->host;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ossUploadMeta extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ObjectKey'])) {
+            $model->objectKey = $map['ObjectKey'];
+        }
         if (isset($map['AccessKey'])) {
             $model->accessKey = $map['AccessKey'];
-        }
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
-        }
-        if (isset($map['Host'])) {
-            $model->host = $map['Host'];
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-        if (isset($map['ObjectKey'])) {
-            $model->objectKey = $map['ObjectKey'];
+        if (isset($map['Host'])) {
+            $model->host = $map['Host'];
         }
 
         return $model;

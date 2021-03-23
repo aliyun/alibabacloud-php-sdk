@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Iovcc\V20180501\Models\AddVersionWhiteDevicesRequest;
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\AddVersionWhiteDevicesResponse;
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\ConnectAssistDeviceRequest;
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\ConnectAssistDeviceResponse;
+use AlibabaCloud\SDK\Iovcc\V20180501\Models\CountActivatedOrNewRegistrationDeviceRequest;
+use AlibabaCloud\SDK\Iovcc\V20180501\Models\CountActivatedOrNewRegistrationDeviceResponse;
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\CountDeviceBrandsRequest;
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\CountDeviceBrandsResponse;
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\CountDeviceModelsRequest;
@@ -222,6 +224,8 @@ use AlibabaCloud\SDK\Iovcc\V20180501\Models\GetDeviceSystemUpdateFunnelEventsReq
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\GetDeviceSystemUpdateFunnelEventsResponse;
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\GetNamespaceDataRequest;
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\GetNamespaceDataResponse;
+use AlibabaCloud\SDK\Iovcc\V20180501\Models\GetNamespaceStatisticsDataRequest;
+use AlibabaCloud\SDK\Iovcc\V20180501\Models\GetNamespaceStatisticsDataResponse;
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\GetOssUploadMetaRequest;
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\GetOssUploadMetaResponse;
 use AlibabaCloud\SDK\Iovcc\V20180501\Models\InvokeFunctionRequest;
@@ -564,6 +568,34 @@ class Iovcc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->connectAssistDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CountActivatedOrNewRegistrationDeviceRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return CountActivatedOrNewRegistrationDeviceResponse
+     */
+    public function countActivatedOrNewRegistrationDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CountActivatedOrNewRegistrationDeviceResponse::fromMap($this->doRPCRequest('CountActivatedOrNewRegistrationDevice', '2018-05-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CountActivatedOrNewRegistrationDeviceRequest $request
+     *
+     * @return CountActivatedOrNewRegistrationDeviceResponse
+     */
+    public function countActivatedOrNewRegistrationDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->countActivatedOrNewRegistrationDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -3448,6 +3480,34 @@ class Iovcc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNamespaceDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetNamespaceStatisticsDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetNamespaceStatisticsDataResponse
+     */
+    public function getNamespaceStatisticsDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetNamespaceStatisticsDataResponse::fromMap($this->doRPCRequest('GetNamespaceStatisticsData', '2018-05-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetNamespaceStatisticsDataRequest $request
+     *
+     * @return GetNamespaceStatisticsDataResponse
+     */
+    public function getNamespaceStatisticsData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNamespaceStatisticsDataWithOptions($request, $runtime);
     }
 
     /**

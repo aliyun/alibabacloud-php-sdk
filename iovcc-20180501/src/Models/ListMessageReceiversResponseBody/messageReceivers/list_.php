@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @var int
+     */
+    public $mid;
+
+    /**
      * @var string
      */
     public $type;
@@ -17,15 +22,10 @@ class list_ extends Model
      * @var string
      */
     public $value;
-
-    /**
-     * @var int
-     */
-    public $mid;
     protected $_name = [
+        'mid'   => 'Mid',
         'type'  => 'Type',
         'value' => 'Value',
-        'mid'   => 'Mid',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mid) {
+            $res['Mid'] = $this->mid;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
-        }
-        if (null !== $this->mid) {
-            $res['Mid'] = $this->mid;
         }
 
         return $res;
@@ -51,19 +51,19 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Mid'])) {
+            $model->mid = $map['Mid'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
-        }
-        if (isset($map['Mid'])) {
-            $model->mid = $map['Mid'];
         }
 
         return $model;

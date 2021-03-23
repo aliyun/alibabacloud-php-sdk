@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
-    public $gmtCreateTimestamp;
+    public $id;
 
     /**
      * @var string
@@ -26,7 +21,12 @@ class items extends Model
     /**
      * @var string
      */
-    public $gmtModify;
+    public $systemVersion;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var string
@@ -36,27 +36,7 @@ class items extends Model
     /**
      * @var string
      */
-    public $remark;
-
-    /**
-     * @var string
-     */
-    public $systemVersion;
-
-    /**
-     * @var string
-     */
-    public $statusName;
-
-    /**
-     * @var string
-     */
-    public $isForceReboot;
-
-    /**
-     * @var string
-     */
-    public $deviceModelName;
+    public $isForceUpgrade;
 
     /**
      * @var string
@@ -64,9 +44,9 @@ class items extends Model
     public $isSilentUpgrade;
 
     /**
-     * @var int
+     * @var string
      */
-    public $gmtModifyTimestamp;
+    public $isForceReboot;
 
     /**
      * @var string
@@ -81,29 +61,49 @@ class items extends Model
     /**
      * @var string
      */
-    public $isForceUpgrade;
+    public $gmtModify;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @var string
+     */
+    public $statusName;
+
+    /**
+     * @var string
+     */
+    public $deviceModelName;
 
     /**
      * @var int
      */
-    public $id;
+    public $gmtCreateTimestamp;
+
+    /**
+     * @var int
+     */
+    public $gmtModifyTimestamp;
     protected $_name = [
-        'status'              => 'Status',
-        'gmtCreateTimestamp'  => 'GmtCreateTimestamp',
+        'id'                  => 'Id',
         'deviceModelId'       => 'DeviceModelId',
-        'gmtModify'           => 'GmtModify',
-        'isMilestone'         => 'IsMilestone',
-        'remark'              => 'Remark',
         'systemVersion'       => 'SystemVersion',
-        'statusName'          => 'StatusName',
-        'isForceReboot'       => 'IsForceReboot',
-        'deviceModelName'     => 'DeviceModelName',
+        'status'              => 'Status',
+        'isMilestone'         => 'IsMilestone',
+        'isForceUpgrade'      => 'IsForceUpgrade',
         'isSilentUpgrade'     => 'IsSilentUpgrade',
-        'gmtModifyTimestamp'  => 'GmtModifyTimestamp',
+        'isForceReboot'       => 'IsForceReboot',
         'isForceNightUpgrade' => 'IsForceNightUpgrade',
         'gmtCreate'           => 'GmtCreate',
-        'isForceUpgrade'      => 'IsForceUpgrade',
-        'id'                  => 'Id',
+        'gmtModify'           => 'GmtModify',
+        'remark'              => 'Remark',
+        'statusName'          => 'StatusName',
+        'deviceModelName'     => 'DeviceModelName',
+        'gmtCreateTimestamp'  => 'GmtCreateTimestamp',
+        'gmtModifyTimestamp'  => 'GmtModifyTimestamp',
     ];
 
     public function validate()
@@ -113,41 +113,29 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->gmtCreateTimestamp) {
-            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->deviceModelId) {
             $res['DeviceModelId'] = $this->deviceModelId;
         }
-        if (null !== $this->gmtModify) {
-            $res['GmtModify'] = $this->gmtModify;
+        if (null !== $this->systemVersion) {
+            $res['SystemVersion'] = $this->systemVersion;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->isMilestone) {
             $res['IsMilestone'] = $this->isMilestone;
         }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->systemVersion) {
-            $res['SystemVersion'] = $this->systemVersion;
-        }
-        if (null !== $this->statusName) {
-            $res['StatusName'] = $this->statusName;
-        }
-        if (null !== $this->isForceReboot) {
-            $res['IsForceReboot'] = $this->isForceReboot;
-        }
-        if (null !== $this->deviceModelName) {
-            $res['DeviceModelName'] = $this->deviceModelName;
+        if (null !== $this->isForceUpgrade) {
+            $res['IsForceUpgrade'] = $this->isForceUpgrade;
         }
         if (null !== $this->isSilentUpgrade) {
             $res['IsSilentUpgrade'] = $this->isSilentUpgrade;
         }
-        if (null !== $this->gmtModifyTimestamp) {
-            $res['GmtModifyTimestamp'] = $this->gmtModifyTimestamp;
+        if (null !== $this->isForceReboot) {
+            $res['IsForceReboot'] = $this->isForceReboot;
         }
         if (null !== $this->isForceNightUpgrade) {
             $res['IsForceNightUpgrade'] = $this->isForceNightUpgrade;
@@ -155,11 +143,23 @@ class items extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->isForceUpgrade) {
-            $res['IsForceUpgrade'] = $this->isForceUpgrade;
+        if (null !== $this->gmtModify) {
+            $res['GmtModify'] = $this->gmtModify;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->statusName) {
+            $res['StatusName'] = $this->statusName;
+        }
+        if (null !== $this->deviceModelName) {
+            $res['DeviceModelName'] = $this->deviceModelName;
+        }
+        if (null !== $this->gmtCreateTimestamp) {
+            $res['GmtCreateTimestamp'] = $this->gmtCreateTimestamp;
+        }
+        if (null !== $this->gmtModifyTimestamp) {
+            $res['GmtModifyTimestamp'] = $this->gmtModifyTimestamp;
         }
 
         return $res;
@@ -173,41 +173,29 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['GmtCreateTimestamp'])) {
-            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['DeviceModelId'])) {
             $model->deviceModelId = $map['DeviceModelId'];
         }
-        if (isset($map['GmtModify'])) {
-            $model->gmtModify = $map['GmtModify'];
+        if (isset($map['SystemVersion'])) {
+            $model->systemVersion = $map['SystemVersion'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['IsMilestone'])) {
             $model->isMilestone = $map['IsMilestone'];
         }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['SystemVersion'])) {
-            $model->systemVersion = $map['SystemVersion'];
-        }
-        if (isset($map['StatusName'])) {
-            $model->statusName = $map['StatusName'];
-        }
-        if (isset($map['IsForceReboot'])) {
-            $model->isForceReboot = $map['IsForceReboot'];
-        }
-        if (isset($map['DeviceModelName'])) {
-            $model->deviceModelName = $map['DeviceModelName'];
+        if (isset($map['IsForceUpgrade'])) {
+            $model->isForceUpgrade = $map['IsForceUpgrade'];
         }
         if (isset($map['IsSilentUpgrade'])) {
             $model->isSilentUpgrade = $map['IsSilentUpgrade'];
         }
-        if (isset($map['GmtModifyTimestamp'])) {
-            $model->gmtModifyTimestamp = $map['GmtModifyTimestamp'];
+        if (isset($map['IsForceReboot'])) {
+            $model->isForceReboot = $map['IsForceReboot'];
         }
         if (isset($map['IsForceNightUpgrade'])) {
             $model->isForceNightUpgrade = $map['IsForceNightUpgrade'];
@@ -215,11 +203,23 @@ class items extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['IsForceUpgrade'])) {
-            $model->isForceUpgrade = $map['IsForceUpgrade'];
+        if (isset($map['GmtModify'])) {
+            $model->gmtModify = $map['GmtModify'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['StatusName'])) {
+            $model->statusName = $map['StatusName'];
+        }
+        if (isset($map['DeviceModelName'])) {
+            $model->deviceModelName = $map['DeviceModelName'];
+        }
+        if (isset($map['GmtCreateTimestamp'])) {
+            $model->gmtCreateTimestamp = $map['GmtCreateTimestamp'];
+        }
+        if (isset($map['GmtModifyTimestamp'])) {
+            $model->gmtModifyTimestamp = $map['GmtModifyTimestamp'];
         }
 
         return $model;
