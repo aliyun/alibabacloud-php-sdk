@@ -51,11 +51,6 @@ class AddVmAppToMeshRequest extends Model
     /**
      * @var bool
      */
-    public $useWorkload;
-
-    /**
-     * @var bool
-     */
     public $force;
     protected $_name = [
         'serviceMeshId'  => 'ServiceMeshId',
@@ -66,7 +61,6 @@ class AddVmAppToMeshRequest extends Model
         'labels'         => 'Labels',
         'annotations'    => 'Annotations',
         'serviceAccount' => 'ServiceAccount',
-        'useWorkload'    => 'UseWorkload',
         'force'          => 'Force',
     ];
 
@@ -100,9 +94,6 @@ class AddVmAppToMeshRequest extends Model
         }
         if (null !== $this->serviceAccount) {
             $res['ServiceAccount'] = $this->serviceAccount;
-        }
-        if (null !== $this->useWorkload) {
-            $res['UseWorkload'] = $this->useWorkload;
         }
         if (null !== $this->force) {
             $res['Force'] = $this->force;
@@ -142,9 +133,6 @@ class AddVmAppToMeshRequest extends Model
         }
         if (isset($map['ServiceAccount'])) {
             $model->serviceAccount = $map['ServiceAccount'];
-        }
-        if (isset($map['UseWorkload'])) {
-            $model->useWorkload = $map['UseWorkload'];
         }
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
