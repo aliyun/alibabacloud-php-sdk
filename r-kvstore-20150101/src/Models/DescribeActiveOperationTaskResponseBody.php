@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTaskResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalRecordCount;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalRecordCount;
 
     /**
      * @var int
@@ -34,8 +34,8 @@ class DescribeActiveOperationTaskResponseBody extends Model
      */
     public $items;
     protected $_name = [
-        'totalRecordCount' => 'TotalRecordCount',
         'requestId'        => 'RequestId',
+        'totalRecordCount' => 'TotalRecordCount',
         'pageSize'         => 'PageSize',
         'pageNumber'       => 'PageNumber',
         'items'            => 'Items',
@@ -48,11 +48,11 @@ class DescribeActiveOperationTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalRecordCount) {
-            $res['TotalRecordCount'] = $this->totalRecordCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -81,11 +81,11 @@ class DescribeActiveOperationTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalRecordCount'])) {
-            $model->totalRecordCount = $map['TotalRecordCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

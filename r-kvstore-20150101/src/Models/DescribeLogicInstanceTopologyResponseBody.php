@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogicInstanceTopologyResponseBody extends Model
 {
     /**
-     * @var redisShardList
-     */
-    public $redisShardList;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -29,11 +24,16 @@ class DescribeLogicInstanceTopologyResponseBody extends Model
      * @var redisProxyList
      */
     public $redisProxyList;
+
+    /**
+     * @var redisShardList
+     */
+    public $redisShardList;
     protected $_name = [
-        'redisShardList' => 'RedisShardList',
         'requestId'      => 'RequestId',
         'instanceId'     => 'InstanceId',
         'redisProxyList' => 'RedisProxyList',
+        'redisShardList' => 'RedisShardList',
     ];
 
     public function validate()
@@ -43,9 +43,6 @@ class DescribeLogicInstanceTopologyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->redisShardList) {
-            $res['RedisShardList'] = null !== $this->redisShardList ? $this->redisShardList->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,6 +51,9 @@ class DescribeLogicInstanceTopologyResponseBody extends Model
         }
         if (null !== $this->redisProxyList) {
             $res['RedisProxyList'] = null !== $this->redisProxyList ? $this->redisProxyList->toMap() : null;
+        }
+        if (null !== $this->redisShardList) {
+            $res['RedisShardList'] = null !== $this->redisShardList ? $this->redisShardList->toMap() : null;
         }
 
         return $res;
@@ -67,9 +67,6 @@ class DescribeLogicInstanceTopologyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RedisShardList'])) {
-            $model->redisShardList = redisShardList::fromMap($map['RedisShardList']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -78,6 +75,9 @@ class DescribeLogicInstanceTopologyResponseBody extends Model
         }
         if (isset($map['RedisProxyList'])) {
             $model->redisProxyList = redisProxyList::fromMap($map['RedisProxyList']);
+        }
+        if (isset($map['RedisShardList'])) {
+            $model->redisShardList = redisShardList::fromMap($map['RedisShardList']);
         }
 
         return $model;

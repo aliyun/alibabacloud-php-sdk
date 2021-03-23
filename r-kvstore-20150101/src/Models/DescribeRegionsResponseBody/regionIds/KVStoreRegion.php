@@ -12,12 +12,17 @@ class KVStoreRegion extends Model
     /**
      * @var string
      */
-    public $localName;
+    public $regionId;
 
     /**
-     * @var zoneIdList
+     * @var string
      */
-    public $zoneIdList;
+    public $zoneIds;
+
+    /**
+     * @var string
+     */
+    public $localName;
 
     /**
      * @var string
@@ -25,20 +30,15 @@ class KVStoreRegion extends Model
     public $regionEndpoint;
 
     /**
-     * @var string
+     * @var zoneIdList
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $zoneIds;
+    public $zoneIdList;
     protected $_name = [
-        'localName'      => 'LocalName',
-        'zoneIdList'     => 'ZoneIdList',
-        'regionEndpoint' => 'RegionEndpoint',
         'regionId'       => 'RegionId',
         'zoneIds'        => 'ZoneIds',
+        'localName'      => 'LocalName',
+        'regionEndpoint' => 'RegionEndpoint',
+        'zoneIdList'     => 'ZoneIdList',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class KVStoreRegion extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->localName) {
-            $res['LocalName'] = $this->localName;
-        }
-        if (null !== $this->zoneIdList) {
-            $res['ZoneIdList'] = null !== $this->zoneIdList ? $this->zoneIdList->toMap() : null;
-        }
-        if (null !== $this->regionEndpoint) {
-            $res['RegionEndpoint'] = $this->regionEndpoint;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->zoneIds) {
             $res['ZoneIds'] = $this->zoneIds;
+        }
+        if (null !== $this->localName) {
+            $res['LocalName'] = $this->localName;
+        }
+        if (null !== $this->regionEndpoint) {
+            $res['RegionEndpoint'] = $this->regionEndpoint;
+        }
+        if (null !== $this->zoneIdList) {
+            $res['ZoneIdList'] = null !== $this->zoneIdList ? $this->zoneIdList->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class KVStoreRegion extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LocalName'])) {
-            $model->localName = $map['LocalName'];
-        }
-        if (isset($map['ZoneIdList'])) {
-            $model->zoneIdList = zoneIdList::fromMap($map['ZoneIdList']);
-        }
-        if (isset($map['RegionEndpoint'])) {
-            $model->regionEndpoint = $map['RegionEndpoint'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ZoneIds'])) {
             $model->zoneIds = $map['ZoneIds'];
+        }
+        if (isset($map['LocalName'])) {
+            $model->localName = $map['LocalName'];
+        }
+        if (isset($map['RegionEndpoint'])) {
+            $model->regionEndpoint = $map['RegionEndpoint'];
+        }
+        if (isset($map['ZoneIdList'])) {
+            $model->zoneIdList = zoneIdList::fromMap($map['ZoneIdList']);
         }
 
         return $model;

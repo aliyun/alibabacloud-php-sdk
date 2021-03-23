@@ -44,11 +44,6 @@ class DescribeRunningLogRecordsRequest extends Model
     public $nodeId;
 
     /**
-     * @var int
-     */
-    public $SQLId;
-
-    /**
      * @var string
      */
     public $startTime;
@@ -105,7 +100,6 @@ class DescribeRunningLogRecordsRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
         'nodeId'               => 'NodeId',
-        'SQLId'                => 'SQLId',
         'startTime'            => 'StartTime',
         'endTime'              => 'EndTime',
         'DBName'               => 'DBName',
@@ -145,9 +139,6 @@ class DescribeRunningLogRecordsRequest extends Model
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
-        }
-        if (null !== $this->SQLId) {
-            $res['SQLId'] = $this->SQLId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -211,9 +202,6 @@ class DescribeRunningLogRecordsRequest extends Model
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
-        }
-        if (isset($map['SQLId'])) {
-            $model->SQLId = $map['SQLId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

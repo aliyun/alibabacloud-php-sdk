@@ -57,11 +57,6 @@ class DescribeActiveOperationTaskRequest extends Model
      * @var int
      */
     public $pageNumber;
-
-    /**
-     * @var string
-     */
-    public $productId;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -73,7 +68,6 @@ class DescribeActiveOperationTaskRequest extends Model
         'isHistory'            => 'IsHistory',
         'pageSize'             => 'PageSize',
         'pageNumber'           => 'PageNumber',
-        'productId'            => 'ProductId',
     ];
 
     public function validate()
@@ -112,9 +106,6 @@ class DescribeActiveOperationTaskRequest extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->productId) {
-            $res['ProductId'] = $this->productId;
         }
 
         return $res;
@@ -157,9 +148,6 @@ class DescribeActiveOperationTaskRequest extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['ProductId'])) {
-            $model->productId = $map['ProductId'];
         }
 
         return $model;

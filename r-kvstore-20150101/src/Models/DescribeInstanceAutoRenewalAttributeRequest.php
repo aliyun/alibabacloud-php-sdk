@@ -31,11 +31,6 @@ class DescribeInstanceAutoRenewalAttributeRequest extends Model
     /**
      * @var string
      */
-    public $proxyId;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
@@ -57,23 +52,16 @@ class DescribeInstanceAutoRenewalAttributeRequest extends Model
      * @var string
      */
     public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $category;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'clientToken'          => 'ClientToken',
-        'proxyId'              => 'proxyId',
         'regionId'             => 'RegionId',
         'DBInstanceId'         => 'DBInstanceId',
         'pageSize'             => 'PageSize',
         'pageNumber'           => 'PageNumber',
         'ownerAccount'         => 'OwnerAccount',
-        'category'             => 'Category',
     ];
 
     public function validate()
@@ -95,9 +83,6 @@ class DescribeInstanceAutoRenewalAttributeRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->proxyId) {
-            $res['proxyId'] = $this->proxyId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -112,9 +97,6 @@ class DescribeInstanceAutoRenewalAttributeRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
         }
 
         return $res;
@@ -140,9 +122,6 @@ class DescribeInstanceAutoRenewalAttributeRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['proxyId'])) {
-            $model->proxyId = $map['proxyId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -157,9 +136,6 @@ class DescribeInstanceAutoRenewalAttributeRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
         }
 
         return $model;

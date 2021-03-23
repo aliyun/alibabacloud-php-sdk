@@ -51,16 +51,6 @@ class SwitchInstanceHARequest extends Model
     /**
      * @var string
      */
-    public $product;
-
-    /**
-     * @var string
-     */
-    public $category;
-
-    /**
-     * @var string
-     */
     public $switchType;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
@@ -71,8 +61,6 @@ class SwitchInstanceHARequest extends Model
         'instanceId'           => 'InstanceId',
         'nodeId'               => 'NodeId',
         'switchMode'           => 'SwitchMode',
-        'product'              => 'Product',
-        'category'             => 'Category',
         'switchType'           => 'SwitchType',
     ];
 
@@ -106,12 +94,6 @@ class SwitchInstanceHARequest extends Model
         }
         if (null !== $this->switchMode) {
             $res['SwitchMode'] = $this->switchMode;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
         }
         if (null !== $this->switchType) {
             $res['SwitchType'] = $this->switchType;
@@ -151,12 +133,6 @@ class SwitchInstanceHARequest extends Model
         }
         if (isset($map['SwitchMode'])) {
             $model->switchMode = $map['SwitchMode'];
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
         }
         if (isset($map['SwitchType'])) {
             $model->switchType = $map['SwitchType'];

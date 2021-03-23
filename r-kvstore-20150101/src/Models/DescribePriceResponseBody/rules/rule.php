@@ -16,16 +16,16 @@ class rule extends Model
     /**
      * @var string
      */
-    public $title;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $title;
     protected $_name = [
         'ruleDescId' => 'RuleDescId',
-        'title'      => 'Title',
         'name'       => 'Name',
+        'title'      => 'Title',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class rule extends Model
         if (null !== $this->ruleDescId) {
             $res['RuleDescId'] = $this->ruleDescId;
         }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class rule extends Model
         if (isset($map['RuleDescId'])) {
             $model->ruleDescId = $map['RuleDescId'];
         }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

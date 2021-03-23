@@ -9,31 +9,6 @@ use AlibabaCloud\Tea\Model;
 class instanceNetInfo extends Model
 {
     /**
-     * @var int
-     */
-    public $directConnection;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceNetType;
-
-    /**
-     * @var string
-     */
-    public $upgradeable;
-
-    /**
-     * @var string
-     */
-    public $expiredTime;
-
-    /**
      * @var string
      */
     public $connectionString;
@@ -41,12 +16,7 @@ class instanceNetInfo extends Model
     /**
      * @var string
      */
-    public $IPType;
-
-    /**
-     * @var string
-     */
-    public $VPCInstanceId;
+    public $IPAddress;
 
     /**
      * @var string
@@ -61,19 +31,49 @@ class instanceNetInfo extends Model
     /**
      * @var string
      */
-    public $IPAddress;
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceNetType;
+
+    /**
+     * @var string
+     */
+    public $VPCInstanceId;
+
+    /**
+     * @var string
+     */
+    public $IPType;
+
+    /**
+     * @var string
+     */
+    public $expiredTime;
+
+    /**
+     * @var string
+     */
+    public $upgradeable;
+
+    /**
+     * @var int
+     */
+    public $directConnection;
     protected $_name = [
-        'directConnection'  => 'DirectConnection',
-        'vSwitchId'         => 'VSwitchId',
-        'DBInstanceNetType' => 'DBInstanceNetType',
-        'upgradeable'       => 'Upgradeable',
-        'expiredTime'       => 'ExpiredTime',
         'connectionString'  => 'ConnectionString',
-        'IPType'            => 'IPType',
-        'VPCInstanceId'     => 'VPCInstanceId',
+        'IPAddress'         => 'IPAddress',
         'port'              => 'Port',
         'VPCId'             => 'VPCId',
-        'IPAddress'         => 'IPAddress',
+        'vSwitchId'         => 'VSwitchId',
+        'DBInstanceNetType' => 'DBInstanceNetType',
+        'VPCInstanceId'     => 'VPCInstanceId',
+        'IPType'            => 'IPType',
+        'expiredTime'       => 'ExpiredTime',
+        'upgradeable'       => 'Upgradeable',
+        'directConnection'  => 'DirectConnection',
     ];
 
     public function validate()
@@ -83,29 +83,11 @@ class instanceNetInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->directConnection) {
-            $res['DirectConnection'] = $this->directConnection;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->DBInstanceNetType) {
-            $res['DBInstanceNetType'] = $this->DBInstanceNetType;
-        }
-        if (null !== $this->upgradeable) {
-            $res['Upgradeable'] = $this->upgradeable;
-        }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
-        }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
-        if (null !== $this->IPType) {
-            $res['IPType'] = $this->IPType;
-        }
-        if (null !== $this->VPCInstanceId) {
-            $res['VPCInstanceId'] = $this->VPCInstanceId;
+        if (null !== $this->IPAddress) {
+            $res['IPAddress'] = $this->IPAddress;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -113,8 +95,26 @@ class instanceNetInfo extends Model
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
-        if (null !== $this->IPAddress) {
-            $res['IPAddress'] = $this->IPAddress;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->DBInstanceNetType) {
+            $res['DBInstanceNetType'] = $this->DBInstanceNetType;
+        }
+        if (null !== $this->VPCInstanceId) {
+            $res['VPCInstanceId'] = $this->VPCInstanceId;
+        }
+        if (null !== $this->IPType) {
+            $res['IPType'] = $this->IPType;
+        }
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->upgradeable) {
+            $res['Upgradeable'] = $this->upgradeable;
+        }
+        if (null !== $this->directConnection) {
+            $res['DirectConnection'] = $this->directConnection;
         }
 
         return $res;
@@ -128,29 +128,11 @@ class instanceNetInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DirectConnection'])) {
-            $model->directConnection = $map['DirectConnection'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['DBInstanceNetType'])) {
-            $model->DBInstanceNetType = $map['DBInstanceNetType'];
-        }
-        if (isset($map['Upgradeable'])) {
-            $model->upgradeable = $map['Upgradeable'];
-        }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
-        }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
-        if (isset($map['IPType'])) {
-            $model->IPType = $map['IPType'];
-        }
-        if (isset($map['VPCInstanceId'])) {
-            $model->VPCInstanceId = $map['VPCInstanceId'];
+        if (isset($map['IPAddress'])) {
+            $model->IPAddress = $map['IPAddress'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
@@ -158,8 +140,26 @@ class instanceNetInfo extends Model
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
-        if (isset($map['IPAddress'])) {
-            $model->IPAddress = $map['IPAddress'];
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['DBInstanceNetType'])) {
+            $model->DBInstanceNetType = $map['DBInstanceNetType'];
+        }
+        if (isset($map['VPCInstanceId'])) {
+            $model->VPCInstanceId = $map['VPCInstanceId'];
+        }
+        if (isset($map['IPType'])) {
+            $model->IPType = $map['IPType'];
+        }
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['Upgradeable'])) {
+            $model->upgradeable = $map['Upgradeable'];
+        }
+        if (isset($map['DirectConnection'])) {
+            $model->directConnection = $map['DirectConnection'];
         }
 
         return $model;

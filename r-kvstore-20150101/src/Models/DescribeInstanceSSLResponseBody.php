@@ -11,17 +11,7 @@ class DescribeInstanceSSLResponseBody extends Model
     /**
      * @var string
      */
-    public $SSLExpiredTime;
-
-    /**
-     * @var string
-     */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $SSLEnabled;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class DescribeInstanceSSLResponseBody extends Model
     /**
      * @var string
      */
+    public $SSLEnabled;
+
+    /**
+     * @var string
+     */
     public $certCommonName;
+
+    /**
+     * @var string
+     */
+    public $SSLExpiredTime;
     protected $_name = [
-        'SSLExpiredTime' => 'SSLExpiredTime',
         'requestId'      => 'RequestId',
-        'SSLEnabled'     => 'SSLEnabled',
         'instanceId'     => 'InstanceId',
+        'SSLEnabled'     => 'SSLEnabled',
         'certCommonName' => 'CertCommonName',
+        'SSLExpiredTime' => 'SSLExpiredTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeInstanceSSLResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->SSLExpiredTime) {
-            $res['SSLExpiredTime'] = $this->SSLExpiredTime;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->SSLEnabled) {
-            $res['SSLEnabled'] = $this->SSLEnabled;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->SSLEnabled) {
+            $res['SSLEnabled'] = $this->SSLEnabled;
+        }
         if (null !== $this->certCommonName) {
             $res['CertCommonName'] = $this->certCommonName;
+        }
+        if (null !== $this->SSLExpiredTime) {
+            $res['SSLExpiredTime'] = $this->SSLExpiredTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeInstanceSSLResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SSLExpiredTime'])) {
-            $model->SSLExpiredTime = $map['SSLExpiredTime'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SSLEnabled'])) {
-            $model->SSLEnabled = $map['SSLEnabled'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['SSLEnabled'])) {
+            $model->SSLEnabled = $map['SSLEnabled'];
+        }
         if (isset($map['CertCommonName'])) {
             $model->certCommonName = $map['CertCommonName'];
+        }
+        if (isset($map['SSLExpiredTime'])) {
+            $model->SSLExpiredTime = $map['SSLExpiredTime'];
         }
 
         return $model;

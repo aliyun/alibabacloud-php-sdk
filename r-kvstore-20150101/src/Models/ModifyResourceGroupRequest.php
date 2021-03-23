@@ -47,16 +47,6 @@ class ModifyResourceGroupRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $product;
-
-    /**
-     * @var string
-     */
-    public $category;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -66,8 +56,6 @@ class ModifyResourceGroupRequest extends Model
         'instanceId'           => 'InstanceId',
         'resourceGroupId'      => 'ResourceGroupId',
         'regionId'             => 'RegionId',
-        'product'              => 'Product',
-        'category'             => 'Category',
     ];
 
     public function validate()
@@ -100,12 +88,6 @@ class ModifyResourceGroupRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
         }
 
         return $res;
@@ -142,12 +124,6 @@ class ModifyResourceGroupRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
         }
 
         return $model;

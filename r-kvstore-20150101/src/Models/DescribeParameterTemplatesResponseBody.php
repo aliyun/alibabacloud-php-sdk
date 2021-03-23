@@ -12,7 +12,7 @@ class DescribeParameterTemplatesResponseBody extends Model
     /**
      * @var string
      */
-    public $parameterCount;
+    public $engine;
 
     /**
      * @var string
@@ -20,9 +20,9 @@ class DescribeParameterTemplatesResponseBody extends Model
     public $engineVersion;
 
     /**
-     * @var parameters
+     * @var string
      */
-    public $parameters;
+    public $parameterCount;
 
     /**
      * @var string
@@ -30,15 +30,15 @@ class DescribeParameterTemplatesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var parameters
      */
-    public $engine;
+    public $parameters;
     protected $_name = [
-        'parameterCount' => 'ParameterCount',
-        'engineVersion'  => 'EngineVersion',
-        'parameters'     => 'Parameters',
-        'requestId'      => 'RequestId',
         'engine'         => 'Engine',
+        'engineVersion'  => 'EngineVersion',
+        'parameterCount' => 'ParameterCount',
+        'requestId'      => 'RequestId',
+        'parameters'     => 'Parameters',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeParameterTemplatesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parameterCount) {
-            $res['ParameterCount'] = $this->parameterCount;
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = null !== $this->parameters ? $this->parameters->toMap() : null;
+        if (null !== $this->parameterCount) {
+            $res['ParameterCount'] = $this->parameterCount;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
+        if (null !== $this->parameters) {
+            $res['Parameters'] = null !== $this->parameters ? $this->parameters->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeParameterTemplatesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParameterCount'])) {
-            $model->parameterCount = $map['ParameterCount'];
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
-        if (isset($map['Parameters'])) {
-            $model->parameters = parameters::fromMap($map['Parameters']);
+        if (isset($map['ParameterCount'])) {
+            $model->parameterCount = $map['ParameterCount'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
+        if (isset($map['Parameters'])) {
+            $model->parameters = parameters::fromMap($map['Parameters']);
         }
 
         return $model;

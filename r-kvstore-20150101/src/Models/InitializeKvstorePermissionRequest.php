@@ -37,11 +37,6 @@ class InitializeKvstorePermissionRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $serviceName;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -49,7 +44,6 @@ class InitializeKvstorePermissionRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'serviceName'          => 'ServiceName',
     ];
 
     public function validate()
@@ -76,9 +70,6 @@ class InitializeKvstorePermissionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
         }
 
         return $res;
@@ -109,9 +100,6 @@ class InitializeKvstorePermissionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

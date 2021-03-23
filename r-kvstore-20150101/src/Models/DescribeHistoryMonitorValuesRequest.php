@@ -62,26 +62,6 @@ class DescribeHistoryMonitorValuesRequest extends Model
      * @var string
      */
     public $nodeId;
-
-    /**
-     * @var string
-     */
-    public $accessType;
-
-    /**
-     * @var string
-     */
-    public $product;
-
-    /**
-     * @var string
-     */
-    public $category;
-
-    /**
-     * @var string
-     */
-    public $replicatorJobId;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -94,10 +74,6 @@ class DescribeHistoryMonitorValuesRequest extends Model
         'intervalForHistory'   => 'IntervalForHistory',
         'monitorKeys'          => 'MonitorKeys',
         'nodeId'               => 'NodeId',
-        'accessType'           => 'AccessType',
-        'product'              => 'Product',
-        'category'             => 'Category',
-        'replicatorJobId'      => 'ReplicatorJobId',
     ];
 
     public function validate()
@@ -139,18 +115,6 @@ class DescribeHistoryMonitorValuesRequest extends Model
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
-        }
-        if (null !== $this->accessType) {
-            $res['AccessType'] = $this->accessType;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
-        if (null !== $this->replicatorJobId) {
-            $res['ReplicatorJobId'] = $this->replicatorJobId;
         }
 
         return $res;
@@ -196,18 +160,6 @@ class DescribeHistoryMonitorValuesRequest extends Model
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
-        }
-        if (isset($map['AccessType'])) {
-            $model->accessType = $map['AccessType'];
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
-        if (isset($map['ReplicatorJobId'])) {
-            $model->replicatorJobId = $map['ReplicatorJobId'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class nodeInfo extends Model
     /**
      * @var string
      */
-    public $capacity;
+    public $nodeId;
 
     /**
      * @var string
@@ -21,23 +21,23 @@ class nodeInfo extends Model
     /**
      * @var string
      */
-    public $nodeType;
-
-    /**
-     * @var string
-     */
     public $bandwidth;
 
     /**
      * @var string
      */
-    public $nodeId;
+    public $capacity;
+
+    /**
+     * @var string
+     */
+    public $nodeType;
     protected $_name = [
-        'capacity'   => 'Capacity',
-        'connection' => 'Connection',
-        'nodeType'   => 'NodeType',
-        'bandwidth'  => 'Bandwidth',
         'nodeId'     => 'NodeId',
+        'connection' => 'Connection',
+        'bandwidth'  => 'Bandwidth',
+        'capacity'   => 'Capacity',
+        'nodeType'   => 'NodeType',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class nodeInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->capacity) {
-            $res['Capacity'] = $this->capacity;
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->connection) {
             $res['Connection'] = $this->connection;
         }
-        if (null !== $this->nodeType) {
-            $res['NodeType'] = $this->nodeType;
-        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
+        if (null !== $this->capacity) {
+            $res['Capacity'] = $this->capacity;
+        }
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class nodeInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Capacity'])) {
-            $model->capacity = $map['Capacity'];
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['Connection'])) {
             $model->connection = $map['Connection'];
         }
-        if (isset($map['NodeType'])) {
-            $model->nodeType = $map['NodeType'];
-        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
+        if (isset($map['Capacity'])) {
+            $model->capacity = $map['Capacity'];
+        }
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
 
         return $model;

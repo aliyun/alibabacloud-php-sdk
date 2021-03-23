@@ -169,11 +169,6 @@ class CreateInstanceRequest extends Model
     public $dedicatedHostGroupId;
 
     /**
-     * @var int
-     */
-    public $shardCount;
-
-    /**
      * @var string
      */
     public $globalInstanceId;
@@ -182,11 +177,6 @@ class CreateInstanceRequest extends Model
      * @var bool
      */
     public $globalInstance;
-
-    /**
-     * @var string
-     */
-    public $secondaryZoneId;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -220,10 +210,8 @@ class CreateInstanceRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'restoreTime'          => 'RestoreTime',
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'shardCount'           => 'ShardCount',
         'globalInstanceId'     => 'GlobalInstanceId',
         'globalInstance'       => 'GlobalInstance',
-        'secondaryZoneId'      => 'SecondaryZoneId',
     ];
 
     public function validate()
@@ -329,17 +317,11 @@ class CreateInstanceRequest extends Model
         if (null !== $this->dedicatedHostGroupId) {
             $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
         }
-        if (null !== $this->shardCount) {
-            $res['ShardCount'] = $this->shardCount;
-        }
         if (null !== $this->globalInstanceId) {
             $res['GlobalInstanceId'] = $this->globalInstanceId;
         }
         if (null !== $this->globalInstance) {
             $res['GlobalInstance'] = $this->globalInstance;
-        }
-        if (null !== $this->secondaryZoneId) {
-            $res['SecondaryZoneId'] = $this->secondaryZoneId;
         }
 
         return $res;
@@ -449,17 +431,11 @@ class CreateInstanceRequest extends Model
         if (isset($map['DedicatedHostGroupId'])) {
             $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
         }
-        if (isset($map['ShardCount'])) {
-            $model->shardCount = $map['ShardCount'];
-        }
         if (isset($map['GlobalInstanceId'])) {
             $model->globalInstanceId = $map['GlobalInstanceId'];
         }
         if (isset($map['GlobalInstance'])) {
             $model->globalInstance = $map['GlobalInstance'];
-        }
-        if (isset($map['SecondaryZoneId'])) {
-            $model->secondaryZoneId = $map['SecondaryZoneId'];
         }
 
         return $model;

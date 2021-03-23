@@ -11,12 +11,7 @@ class subInstances extends Model
     /**
      * @var string
      */
-    public $instanceClass;
-
-    /**
-     * @var string
-     */
-    public $instanceStatus;
+    public $globalInstanceId;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class subInstances extends Model
     /**
      * @var string
      */
-    public $globalInstanceId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $instanceStatus;
+
+    /**
+     * @var string
+     */
+    public $instanceClass;
     protected $_name = [
-        'instanceClass'    => 'InstanceClass',
-        'instanceStatus'   => 'InstanceStatus',
-        'instanceID'       => 'InstanceID',
         'globalInstanceId' => 'GlobalInstanceId',
+        'instanceID'       => 'InstanceID',
         'regionId'         => 'RegionId',
+        'instanceStatus'   => 'InstanceStatus',
+        'instanceClass'    => 'InstanceClass',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class subInstances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceClass) {
-            $res['InstanceClass'] = $this->instanceClass;
-        }
-        if (null !== $this->instanceStatus) {
-            $res['InstanceStatus'] = $this->instanceStatus;
+        if (null !== $this->globalInstanceId) {
+            $res['GlobalInstanceId'] = $this->globalInstanceId;
         }
         if (null !== $this->instanceID) {
             $res['InstanceID'] = $this->instanceID;
         }
-        if (null !== $this->globalInstanceId) {
-            $res['GlobalInstanceId'] = $this->globalInstanceId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->instanceStatus) {
+            $res['InstanceStatus'] = $this->instanceStatus;
+        }
+        if (null !== $this->instanceClass) {
+            $res['InstanceClass'] = $this->instanceClass;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class subInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceClass'])) {
-            $model->instanceClass = $map['InstanceClass'];
-        }
-        if (isset($map['InstanceStatus'])) {
-            $model->instanceStatus = $map['InstanceStatus'];
+        if (isset($map['GlobalInstanceId'])) {
+            $model->globalInstanceId = $map['GlobalInstanceId'];
         }
         if (isset($map['InstanceID'])) {
             $model->instanceID = $map['InstanceID'];
         }
-        if (isset($map['GlobalInstanceId'])) {
-            $model->globalInstanceId = $map['GlobalInstanceId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['InstanceStatus'])) {
+            $model->instanceStatus = $map['InstanceStatus'];
+        }
+        if (isset($map['InstanceClass'])) {
+            $model->instanceClass = $map['InstanceClass'];
         }
 
         return $model;

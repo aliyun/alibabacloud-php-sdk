@@ -14,18 +14,18 @@ class AddShardingNodeResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
-     */
-    public $nodeIds;
-
-    /**
      * @var int
      */
     public $orderId;
+
+    /**
+     * @var string[]
+     */
+    public $nodeIds;
     protected $_name = [
         'requestId' => 'RequestId',
-        'nodeIds'   => 'NodeIds',
         'orderId'   => 'OrderId',
+        'nodeIds'   => 'NodeIds',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class AddShardingNodeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->nodeIds) {
-            $res['NodeIds'] = $this->nodeIds;
-        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->nodeIds) {
+            $res['NodeIds'] = $this->nodeIds;
         }
 
         return $res;
@@ -59,13 +59,13 @@ class AddShardingNodeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
                 $model->nodeIds = $map['NodeIds'];
             }
-        }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
         }
 
         return $model;

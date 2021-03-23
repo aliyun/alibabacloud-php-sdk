@@ -57,11 +57,6 @@ class DescribeCacheAnalysisReportListRequest extends Model
      * @var string
      */
     public $nodeId;
-
-    /**
-     * @var string
-     */
-    public $date;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -73,7 +68,6 @@ class DescribeCacheAnalysisReportListRequest extends Model
         'pageSize'             => 'PageSize',
         'pageNumbers'          => 'PageNumbers',
         'nodeId'               => 'NodeId',
-        'date'                 => 'Date',
     ];
 
     public function validate()
@@ -112,9 +106,6 @@ class DescribeCacheAnalysisReportListRequest extends Model
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
-        }
-        if (null !== $this->date) {
-            $res['Date'] = $this->date;
         }
 
         return $res;
@@ -157,9 +148,6 @@ class DescribeCacheAnalysisReportListRequest extends Model
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
-        }
-        if (isset($map['Date'])) {
-            $model->date = $map['Date'];
         }
 
         return $model;

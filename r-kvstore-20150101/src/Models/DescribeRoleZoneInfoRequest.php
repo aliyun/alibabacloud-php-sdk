@@ -39,16 +39,6 @@ class DescribeRoleZoneInfoRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $product;
-
-    /**
-     * @var string
-     */
-    public $category;
-
-    /**
      * @var int
      */
     public $queryType;
@@ -62,11 +52,6 @@ class DescribeRoleZoneInfoRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $role;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -74,12 +59,9 @@ class DescribeRoleZoneInfoRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
-        'product'              => 'Product',
-        'category'             => 'Category',
         'queryType'            => 'QueryType',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'role'                 => 'Role',
     ];
 
     public function validate()
@@ -107,12 +89,6 @@ class DescribeRoleZoneInfoRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
         }
@@ -121,9 +97,6 @@ class DescribeRoleZoneInfoRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
         }
 
         return $res;
@@ -155,12 +128,6 @@ class DescribeRoleZoneInfoRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
         }
@@ -169,9 +136,6 @@ class DescribeRoleZoneInfoRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
         }
 
         return $model;

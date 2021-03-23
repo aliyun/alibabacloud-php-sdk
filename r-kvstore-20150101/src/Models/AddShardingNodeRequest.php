@@ -62,11 +62,6 @@ class AddShardingNodeRequest extends Model
      * @var string
      */
     public $businessInfo;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -79,7 +74,6 @@ class AddShardingNodeRequest extends Model
         'autoPay'              => 'AutoPay',
         'couponNo'             => 'CouponNo',
         'businessInfo'         => 'BusinessInfo',
-        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
@@ -121,9 +115,6 @@ class AddShardingNodeRequest extends Model
         }
         if (null !== $this->businessInfo) {
             $res['BusinessInfo'] = $this->businessInfo;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -169,9 +160,6 @@ class AddShardingNodeRequest extends Model
         }
         if (isset($map['BusinessInfo'])) {
             $model->businessInfo = $map['BusinessInfo'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

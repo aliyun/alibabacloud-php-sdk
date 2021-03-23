@@ -16,16 +16,16 @@ class logRecords extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $instanceId;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'instanceId' => 'InstanceId',
         'content'    => 'Content',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class logRecords extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class logRecords extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

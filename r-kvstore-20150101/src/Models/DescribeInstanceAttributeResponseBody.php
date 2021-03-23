@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAttributeResponseBody extends Model
 {
     /**
-     * @var instances
-     */
-    public $instances;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var instances
+     */
+    public $instances;
     protected $_name = [
-        'instances' => 'Instances',
         'requestId' => 'RequestId',
+        'instances' => 'Instances',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeInstanceAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instances) {
-            $res['Instances'] = null !== $this->instances ? $this->instances->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->instances) {
+            $res['Instances'] = null !== $this->instances ? $this->instances->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeInstanceAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Instances'])) {
-            $model->instances = instances::fromMap($map['Instances']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Instances'])) {
+            $model->instances = instances::fromMap($map['Instances']);
         }
 
         return $model;

@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskReques
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditRecordsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditRecordsResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAvailableResourceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupsRequest;
@@ -746,6 +748,34 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAuditRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAvailableResourceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAvailableResourceResponse
+     */
+    public function describeAvailableResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAvailableResourceResponse::fromMap($this->doRPCRequest('DescribeAvailableResource', '2015-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAvailableResourceRequest $request
+     *
+     * @return DescribeAvailableResourceResponse
+     */
+    public function describeAvailableResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableResourceWithOptions($request, $runtime);
     }
 
     /**

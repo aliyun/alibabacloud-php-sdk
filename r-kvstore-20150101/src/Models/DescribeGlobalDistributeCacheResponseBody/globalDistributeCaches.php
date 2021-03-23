@@ -12,21 +12,21 @@ class globalDistributeCaches extends Model
     /**
      * @var string
      */
+    public $globalInstanceId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
      * @var subInstances[]
      */
     public $subInstances;
-
-    /**
-     * @var string
-     */
-    public $globalInstanceId;
     protected $_name = [
+        'globalInstanceId' => 'GlobalInstanceId',
         'status'           => 'Status',
         'subInstances'     => 'SubInstances',
-        'globalInstanceId' => 'GlobalInstanceId',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class globalDistributeCaches extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->globalInstanceId) {
+            $res['GlobalInstanceId'] = $this->globalInstanceId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -47,9 +50,6 @@ class globalDistributeCaches extends Model
                     $res['SubInstances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->globalInstanceId) {
-            $res['GlobalInstanceId'] = $this->globalInstanceId;
         }
 
         return $res;
@@ -63,6 +63,9 @@ class globalDistributeCaches extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GlobalInstanceId'])) {
+            $model->globalInstanceId = $map['GlobalInstanceId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
@@ -74,9 +77,6 @@ class globalDistributeCaches extends Model
                     $model->subInstances[$n++] = null !== $item ? subInstances::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['GlobalInstanceId'])) {
-            $model->globalInstanceId = $map['GlobalInstanceId'];
         }
 
         return $model;

@@ -119,11 +119,6 @@ class CreateTairInstanceRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @var int
-     */
-    public $resourceGroupId;
-
-    /**
      * @var bool
      */
     public $autoPay;
@@ -185,7 +180,6 @@ class CreateTairInstanceRequest extends Model
         'autoUseCoupon'        => 'AutoUseCoupon',
         'autoRenew'            => 'AutoRenew',
         'autoRenewPeriod'      => 'AutoRenewPeriod',
-        'resourceGroupId'      => 'ResourceGroupId',
         'autoPay'              => 'AutoPay',
         'clientToken'          => 'ClientToken',
         'storageType'          => 'StorageType',
@@ -268,9 +262,6 @@ class CreateTairInstanceRequest extends Model
         }
         if (null !== $this->autoRenewPeriod) {
             $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
@@ -373,9 +364,6 @@ class CreateTairInstanceRequest extends Model
         }
         if (isset($map['AutoRenewPeriod'])) {
             $model->autoRenewPeriod = $map['AutoRenewPeriod'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];

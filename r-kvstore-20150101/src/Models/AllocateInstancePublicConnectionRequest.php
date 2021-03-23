@@ -47,11 +47,6 @@ class AllocateInstancePublicConnectionRequest extends Model
      * @var string
      */
     public $port;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
         'securityToken'          => 'SecurityToken',
         'ownerId'                => 'OwnerId',
@@ -61,7 +56,6 @@ class AllocateInstancePublicConnectionRequest extends Model
         'instanceId'             => 'InstanceId',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
         'port'                   => 'Port',
-        'clientToken'            => 'ClientToken',
     ];
 
     public function validate()
@@ -94,9 +88,6 @@ class AllocateInstancePublicConnectionRequest extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -133,9 +124,6 @@ class AllocateInstancePublicConnectionRequest extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

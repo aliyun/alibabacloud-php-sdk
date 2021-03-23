@@ -16,7 +16,7 @@ class netInfoItem extends Model
     /**
      * @var string
      */
-    public $connectionString;
+    public $port;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class netInfoItem extends Model
     /**
      * @var string
      */
-    public $port;
+    public $connectionString;
 
     /**
      * @var string
@@ -34,9 +34,9 @@ class netInfoItem extends Model
     public $IPAddress;
     protected $_name = [
         'DBInstanceNetType' => 'DBInstanceNetType',
-        'connectionString'  => 'ConnectionString',
-        'expiredTime'       => 'ExpiredTime',
         'port'              => 'Port',
+        'expiredTime'       => 'ExpiredTime',
+        'connectionString'  => 'ConnectionString',
         'IPAddress'         => 'IPAddress',
     ];
 
@@ -50,14 +50,14 @@ class netInfoItem extends Model
         if (null !== $this->DBInstanceNetType) {
             $res['DBInstanceNetType'] = $this->DBInstanceNetType;
         }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
         }
         if (null !== $this->IPAddress) {
             $res['IPAddress'] = $this->IPAddress;
@@ -77,14 +77,14 @@ class netInfoItem extends Model
         if (isset($map['DBInstanceNetType'])) {
             $model->DBInstanceNetType = $map['DBInstanceNetType'];
         }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
         }
         if (isset($map['IPAddress'])) {
             $model->IPAddress = $map['IPAddress'];

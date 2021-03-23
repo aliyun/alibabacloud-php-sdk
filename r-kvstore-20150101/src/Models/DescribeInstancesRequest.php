@@ -115,9 +115,9 @@ class DescribeInstancesRequest extends Model
     public $zoneId;
 
     /**
-     * @var int
+     * @var tag[]
      */
-    public $vpcCloudInsInfo;
+    public $tag;
 
     /**
      * @var string
@@ -133,11 +133,6 @@ class DescribeInstancesRequest extends Model
      * @var string
      */
     public $editionType;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -160,11 +155,10 @@ class DescribeInstancesRequest extends Model
         'architectureType'     => 'ArchitectureType',
         'expired'              => 'Expired',
         'zoneId'               => 'ZoneId',
-        'vpcCloudInsInfo'      => 'VpcCloudInsInfo',
+        'tag'                  => 'Tag',
         'resourceGroupId'      => 'ResourceGroupId',
         'globalInstance'       => 'GlobalInstance',
         'editionType'          => 'EditionType',
-        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -237,8 +231,14 @@ class DescribeInstancesRequest extends Model
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
-        if (null !== $this->vpcCloudInsInfo) {
-            $res['VpcCloudInsInfo'] = $this->vpcCloudInsInfo;
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -248,15 +248,6 @@ class DescribeInstancesRequest extends Model
         }
         if (null !== $this->editionType) {
             $res['EditionType'] = $this->editionType;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -333,8 +324,14 @@ class DescribeInstancesRequest extends Model
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
-        if (isset($map['VpcCloudInsInfo'])) {
-            $model->vpcCloudInsInfo = $map['VpcCloudInsInfo'];
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -344,15 +341,6 @@ class DescribeInstancesRequest extends Model
         }
         if (isset($map['EditionType'])) {
             $model->editionType = $map['EditionType'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

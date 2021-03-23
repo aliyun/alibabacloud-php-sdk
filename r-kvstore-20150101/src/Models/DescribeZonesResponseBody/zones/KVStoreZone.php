@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class KVStoreZone extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $isRds;
+    public $regionId;
 
     /**
      * @var string
@@ -19,9 +19,9 @@ class KVStoreZone extends Model
     public $zoneId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $disabled;
+    public $zoneName;
 
     /**
      * @var bool
@@ -29,21 +29,21 @@ class KVStoreZone extends Model
     public $switchNetwork;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $zoneName;
+    public $isRds;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $regionId;
+    public $disabled;
     protected $_name = [
-        'isRds'         => 'IsRds',
-        'zoneId'        => 'ZoneId',
-        'disabled'      => 'Disabled',
-        'switchNetwork' => 'SwitchNetwork',
-        'zoneName'      => 'ZoneName',
         'regionId'      => 'RegionId',
+        'zoneId'        => 'ZoneId',
+        'zoneName'      => 'ZoneName',
+        'switchNetwork' => 'SwitchNetwork',
+        'isRds'         => 'IsRds',
+        'disabled'      => 'Disabled',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class KVStoreZone extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isRds) {
-            $res['IsRds'] = $this->isRds;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
-        if (null !== $this->disabled) {
-            $res['Disabled'] = $this->disabled;
+        if (null !== $this->zoneName) {
+            $res['ZoneName'] = $this->zoneName;
         }
         if (null !== $this->switchNetwork) {
             $res['SwitchNetwork'] = $this->switchNetwork;
         }
-        if (null !== $this->zoneName) {
-            $res['ZoneName'] = $this->zoneName;
+        if (null !== $this->isRds) {
+            $res['IsRds'] = $this->isRds;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->disabled) {
+            $res['Disabled'] = $this->disabled;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class KVStoreZone extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsRds'])) {
-            $model->isRds = $map['IsRds'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
-        if (isset($map['Disabled'])) {
-            $model->disabled = $map['Disabled'];
+        if (isset($map['ZoneName'])) {
+            $model->zoneName = $map['ZoneName'];
         }
         if (isset($map['SwitchNetwork'])) {
             $model->switchNetwork = $map['SwitchNetwork'];
         }
-        if (isset($map['ZoneName'])) {
-            $model->zoneName = $map['ZoneName'];
+        if (isset($map['IsRds'])) {
+            $model->isRds = $map['IsRds'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Disabled'])) {
+            $model->disabled = $map['Disabled'];
         }
 
         return $model;

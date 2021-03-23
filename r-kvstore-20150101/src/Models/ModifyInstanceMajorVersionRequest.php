@@ -46,11 +46,6 @@ class ModifyInstanceMajorVersionRequest extends Model
     /**
      * @var string
      */
-    public $effectTime;
-
-    /**
-     * @var string
-     */
     public $effectiveTime;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
@@ -60,7 +55,6 @@ class ModifyInstanceMajorVersionRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
         'majorVersion'         => 'MajorVersion',
-        'effectTime'           => 'EffectTime',
         'effectiveTime'        => 'EffectiveTime',
     ];
 
@@ -91,9 +85,6 @@ class ModifyInstanceMajorVersionRequest extends Model
         }
         if (null !== $this->majorVersion) {
             $res['MajorVersion'] = $this->majorVersion;
-        }
-        if (null !== $this->effectTime) {
-            $res['EffectTime'] = $this->effectTime;
         }
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
@@ -130,9 +121,6 @@ class ModifyInstanceMajorVersionRequest extends Model
         }
         if (isset($map['MajorVersion'])) {
             $model->majorVersion = $map['MajorVersion'];
-        }
-        if (isset($map['EffectTime'])) {
-            $model->effectTime = $map['EffectTime'];
         }
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];

@@ -14,16 +14,6 @@ class templateRecord extends Model
     public $checkingCode;
 
     /**
-     * @var string
-     */
-    public $parameterName;
-
-    /**
-     * @var string
-     */
-    public $parameterValue;
-
-    /**
      * @var bool
      */
     public $forceModify;
@@ -37,13 +27,23 @@ class templateRecord extends Model
      * @var string
      */
     public $parameterDescription;
+
+    /**
+     * @var string
+     */
+    public $parameterName;
+
+    /**
+     * @var string
+     */
+    public $parameterValue;
     protected $_name = [
         'checkingCode'         => 'CheckingCode',
-        'parameterName'        => 'ParameterName',
-        'parameterValue'       => 'ParameterValue',
         'forceModify'          => 'ForceModify',
         'forceRestart'         => 'ForceRestart',
         'parameterDescription' => 'ParameterDescription',
+        'parameterName'        => 'ParameterName',
+        'parameterValue'       => 'ParameterValue',
     ];
 
     public function validate()
@@ -56,12 +56,6 @@ class templateRecord extends Model
         if (null !== $this->checkingCode) {
             $res['CheckingCode'] = $this->checkingCode;
         }
-        if (null !== $this->parameterName) {
-            $res['ParameterName'] = $this->parameterName;
-        }
-        if (null !== $this->parameterValue) {
-            $res['ParameterValue'] = $this->parameterValue;
-        }
         if (null !== $this->forceModify) {
             $res['ForceModify'] = $this->forceModify;
         }
@@ -70,6 +64,12 @@ class templateRecord extends Model
         }
         if (null !== $this->parameterDescription) {
             $res['ParameterDescription'] = $this->parameterDescription;
+        }
+        if (null !== $this->parameterName) {
+            $res['ParameterName'] = $this->parameterName;
+        }
+        if (null !== $this->parameterValue) {
+            $res['ParameterValue'] = $this->parameterValue;
         }
 
         return $res;
@@ -86,12 +86,6 @@ class templateRecord extends Model
         if (isset($map['CheckingCode'])) {
             $model->checkingCode = $map['CheckingCode'];
         }
-        if (isset($map['ParameterName'])) {
-            $model->parameterName = $map['ParameterName'];
-        }
-        if (isset($map['ParameterValue'])) {
-            $model->parameterValue = $map['ParameterValue'];
-        }
         if (isset($map['ForceModify'])) {
             $model->forceModify = $map['ForceModify'];
         }
@@ -100,6 +94,12 @@ class templateRecord extends Model
         }
         if (isset($map['ParameterDescription'])) {
             $model->parameterDescription = $map['ParameterDescription'];
+        }
+        if (isset($map['ParameterName'])) {
+            $model->parameterName = $map['ParameterName'];
+        }
+        if (isset($map['ParameterValue'])) {
+            $model->parameterValue = $map['ParameterValue'];
         }
 
         return $model;

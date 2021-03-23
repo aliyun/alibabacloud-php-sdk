@@ -42,11 +42,6 @@ class DeleteInstanceRequest extends Model
      * @var string
      */
     public $globalInstanceId;
-
-    /**
-     * @var bool
-     */
-    public $releaseSubInstance;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -55,7 +50,6 @@ class DeleteInstanceRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
         'globalInstanceId'     => 'GlobalInstanceId',
-        'releaseSubInstance'   => 'ReleaseSubInstance',
     ];
 
     public function validate()
@@ -85,9 +79,6 @@ class DeleteInstanceRequest extends Model
         }
         if (null !== $this->globalInstanceId) {
             $res['GlobalInstanceId'] = $this->globalInstanceId;
-        }
-        if (null !== $this->releaseSubInstance) {
-            $res['ReleaseSubInstance'] = $this->releaseSubInstance;
         }
 
         return $res;
@@ -121,9 +112,6 @@ class DeleteInstanceRequest extends Model
         }
         if (isset($map['GlobalInstanceId'])) {
             $model->globalInstanceId = $map['GlobalInstanceId'];
-        }
-        if (isset($map['ReleaseSubInstance'])) {
-            $model->releaseSubInstance = $map['ReleaseSubInstance'];
         }
 
         return $model;

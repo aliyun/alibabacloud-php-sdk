@@ -36,11 +36,6 @@ class ModifySecurityIpsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -68,7 +63,6 @@ class ModifySecurityIpsRequest extends Model
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
         'ownerAccount'             => 'OwnerAccount',
-        'regionId'                 => 'RegionId',
         'instanceId'               => 'InstanceId',
         'securityIps'              => 'SecurityIps',
         'securityIpGroupName'      => 'SecurityIpGroupName',
@@ -97,9 +91,6 @@ class ModifySecurityIpsRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -142,9 +133,6 @@ class ModifySecurityIpsRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

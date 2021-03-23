@@ -46,11 +46,6 @@ class ModifyInstanceSpecRequest extends Model
     /**
      * @var string
      */
-    public $fromApp;
-
-    /**
-     * @var string
-     */
     public $businessInfo;
 
     /**
@@ -100,7 +95,6 @@ class ModifyInstanceSpecRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
         'instanceClass'        => 'InstanceClass',
-        'fromApp'              => 'FromApp',
         'businessInfo'         => 'BusinessInfo',
         'couponNo'             => 'CouponNo',
         'forceUpgrade'         => 'ForceUpgrade',
@@ -139,9 +133,6 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
-        }
-        if (null !== $this->fromApp) {
-            $res['FromApp'] = $this->fromApp;
         }
         if (null !== $this->businessInfo) {
             $res['BusinessInfo'] = $this->businessInfo;
@@ -202,9 +193,6 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
-        }
-        if (isset($map['FromApp'])) {
-            $model->fromApp = $map['FromApp'];
         }
         if (isset($map['BusinessInfo'])) {
             $model->businessInfo = $map['BusinessInfo'];

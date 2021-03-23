@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeCacheAnalysisReportListResponseBody extends Model
 {
     /**
-     * @var dailyTasks
-     */
-    public $dailyTasks;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -23,10 +18,15 @@ class DescribeCacheAnalysisReportListResponseBody extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var dailyTasks
+     */
+    public $dailyTasks;
     protected $_name = [
-        'dailyTasks' => 'DailyTasks',
         'requestId'  => 'RequestId',
         'instanceId' => 'InstanceId',
+        'dailyTasks' => 'DailyTasks',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeCacheAnalysisReportListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dailyTasks) {
-            $res['DailyTasks'] = null !== $this->dailyTasks ? $this->dailyTasks->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->dailyTasks) {
+            $res['DailyTasks'] = null !== $this->dailyTasks ? $this->dailyTasks->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeCacheAnalysisReportListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DailyTasks'])) {
-            $model->dailyTasks = dailyTasks::fromMap($map['DailyTasks']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['DailyTasks'])) {
+            $model->dailyTasks = dailyTasks::fromMap($map['DailyTasks']);
         }
 
         return $model;

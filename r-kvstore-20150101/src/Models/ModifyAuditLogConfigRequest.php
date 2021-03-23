@@ -39,34 +39,14 @@ class ModifyAuditLogConfigRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $auditLogSwitchSource;
-
-    /**
-     * @var string
-     */
-    public $serviceType;
-
-    /**
      * @var int
      */
     public $retention;
 
     /**
-     * @var string
-     */
-    public $proxyAudit;
-
-    /**
      * @var bool
      */
     public $dbAudit;
-
-    /**
-     * @var string
-     */
-    public $auditCommand;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -74,12 +54,8 @@ class ModifyAuditLogConfigRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
-        'auditLogSwitchSource' => 'AuditLogSwitchSource',
-        'serviceType'          => 'ServiceType',
         'retention'            => 'Retention',
-        'proxyAudit'           => 'ProxyAudit',
         'dbAudit'              => 'DbAudit',
-        'auditCommand'         => 'AuditCommand',
     ];
 
     public function validate()
@@ -107,23 +83,11 @@ class ModifyAuditLogConfigRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->auditLogSwitchSource) {
-            $res['AuditLogSwitchSource'] = $this->auditLogSwitchSource;
-        }
-        if (null !== $this->serviceType) {
-            $res['ServiceType'] = $this->serviceType;
-        }
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
         }
-        if (null !== $this->proxyAudit) {
-            $res['ProxyAudit'] = $this->proxyAudit;
-        }
         if (null !== $this->dbAudit) {
             $res['DbAudit'] = $this->dbAudit;
-        }
-        if (null !== $this->auditCommand) {
-            $res['AuditCommand'] = $this->auditCommand;
         }
 
         return $res;
@@ -155,23 +119,11 @@ class ModifyAuditLogConfigRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['AuditLogSwitchSource'])) {
-            $model->auditLogSwitchSource = $map['AuditLogSwitchSource'];
-        }
-        if (isset($map['ServiceType'])) {
-            $model->serviceType = $map['ServiceType'];
-        }
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
         }
-        if (isset($map['ProxyAudit'])) {
-            $model->proxyAudit = $map['ProxyAudit'];
-        }
         if (isset($map['DbAudit'])) {
             $model->dbAudit = $map['DbAudit'];
-        }
-        if (isset($map['AuditCommand'])) {
-            $model->auditCommand = $map['AuditCommand'];
         }
 
         return $model;

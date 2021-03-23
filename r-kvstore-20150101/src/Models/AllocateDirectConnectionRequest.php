@@ -47,16 +47,6 @@ class AllocateDirectConnectionRequest extends Model
      * @var string
      */
     public $port;
-
-    /**
-     * @var bool
-     */
-    public $onlyAllocateIp;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -66,8 +56,6 @@ class AllocateDirectConnectionRequest extends Model
         'instanceId'           => 'InstanceId',
         'connectionString'     => 'ConnectionString',
         'port'                 => 'Port',
-        'onlyAllocateIp'       => 'OnlyAllocateIp',
-        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
@@ -100,12 +88,6 @@ class AllocateDirectConnectionRequest extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
-        }
-        if (null !== $this->onlyAllocateIp) {
-            $res['OnlyAllocateIp'] = $this->onlyAllocateIp;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -142,12 +124,6 @@ class AllocateDirectConnectionRequest extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
-        }
-        if (isset($map['OnlyAllocateIp'])) {
-            $model->onlyAllocateIp = $map['OnlyAllocateIp'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

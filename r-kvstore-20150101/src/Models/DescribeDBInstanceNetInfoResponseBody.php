@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoResponseBody extends Model
 {
     /**
-     * @var netInfoItems
-     */
-    public $netInfoItems;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -23,10 +18,15 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
      * @var string
      */
     public $instanceNetworkType;
+
+    /**
+     * @var netInfoItems
+     */
+    public $netInfoItems;
     protected $_name = [
-        'netInfoItems'        => 'NetInfoItems',
         'requestId'           => 'RequestId',
         'instanceNetworkType' => 'InstanceNetworkType',
+        'netInfoItems'        => 'NetInfoItems',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->netInfoItems) {
-            $res['NetInfoItems'] = null !== $this->netInfoItems ? $this->netInfoItems->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
+        }
+        if (null !== $this->netInfoItems) {
+            $res['NetInfoItems'] = null !== $this->netInfoItems ? $this->netInfoItems->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NetInfoItems'])) {
-            $model->netInfoItems = netInfoItems::fromMap($map['NetInfoItems']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
+        }
+        if (isset($map['NetInfoItems'])) {
+            $model->netInfoItems = netInfoItems::fromMap($map['NetInfoItems']);
         }
 
         return $model;

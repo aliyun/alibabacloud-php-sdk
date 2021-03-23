@@ -62,11 +62,6 @@ class CreateAccountRequest extends Model
      * @var string
      */
     public $accountType;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -79,7 +74,6 @@ class CreateAccountRequest extends Model
         'accountPassword'      => 'AccountPassword',
         'accountDescription'   => 'AccountDescription',
         'accountType'          => 'AccountType',
-        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
@@ -121,9 +115,6 @@ class CreateAccountRequest extends Model
         }
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -169,9 +160,6 @@ class CreateAccountRequest extends Model
         }
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

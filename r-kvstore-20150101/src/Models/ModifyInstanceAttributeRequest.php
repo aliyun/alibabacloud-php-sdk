@@ -52,16 +52,6 @@ class ModifyInstanceAttributeRequest extends Model
      * @var bool
      */
     public $instanceReleaseProtection;
-
-    /**
-     * @var string
-     */
-    public $product;
-
-    /**
-     * @var string
-     */
-    public $category;
     protected $_name = [
         'securityToken'             => 'SecurityToken',
         'ownerId'                   => 'OwnerId',
@@ -72,8 +62,6 @@ class ModifyInstanceAttributeRequest extends Model
         'instanceName'              => 'InstanceName',
         'newPassword'               => 'NewPassword',
         'instanceReleaseProtection' => 'InstanceReleaseProtection',
-        'product'                   => 'Product',
-        'category'                  => 'Category',
     ];
 
     public function validate()
@@ -109,12 +97,6 @@ class ModifyInstanceAttributeRequest extends Model
         }
         if (null !== $this->instanceReleaseProtection) {
             $res['InstanceReleaseProtection'] = $this->instanceReleaseProtection;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
         }
 
         return $res;
@@ -154,12 +136,6 @@ class ModifyInstanceAttributeRequest extends Model
         }
         if (isset($map['InstanceReleaseProtection'])) {
             $model->instanceReleaseProtection = $map['InstanceReleaseProtection'];
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
         }
 
         return $model;

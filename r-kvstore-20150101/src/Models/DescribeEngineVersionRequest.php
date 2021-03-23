@@ -37,11 +37,6 @@ class DescribeEngineVersionRequest extends Model
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $parameters;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -49,7 +44,6 @@ class DescribeEngineVersionRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
-        'parameters'           => 'Parameters',
     ];
 
     public function validate()
@@ -76,9 +70,6 @@ class DescribeEngineVersionRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
         }
 
         return $res;
@@ -109,9 +100,6 @@ class DescribeEngineVersionRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
         }
 
         return $model;

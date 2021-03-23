@@ -37,11 +37,6 @@ class CreateGlobalDistributeCacheRequest extends Model
      * @var string
      */
     public $seedSubInstanceId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -49,7 +44,6 @@ class CreateGlobalDistributeCacheRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'seedSubInstanceId'    => 'SeedSubInstanceId',
-        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
@@ -76,9 +70,6 @@ class CreateGlobalDistributeCacheRequest extends Model
         }
         if (null !== $this->seedSubInstanceId) {
             $res['SeedSubInstanceId'] = $this->seedSubInstanceId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -109,9 +100,6 @@ class CreateGlobalDistributeCacheRequest extends Model
         }
         if (isset($map['SeedSubInstanceId'])) {
             $model->seedSubInstanceId = $map['SeedSubInstanceId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

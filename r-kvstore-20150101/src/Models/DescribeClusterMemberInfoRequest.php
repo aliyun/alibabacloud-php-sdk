@@ -37,26 +37,6 @@ class DescribeClusterMemberInfoRequest extends Model
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $filterService;
-
-    /**
-     * @var string
-     */
-    public $needReplica;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -64,10 +44,6 @@ class DescribeClusterMemberInfoRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
-        'filterService'        => 'FilterService',
-        'needReplica'          => 'NeedReplica',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
     ];
 
     public function validate()
@@ -94,18 +70,6 @@ class DescribeClusterMemberInfoRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->filterService) {
-            $res['FilterService'] = $this->filterService;
-        }
-        if (null !== $this->needReplica) {
-            $res['NeedReplica'] = $this->needReplica;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -136,18 +100,6 @@ class DescribeClusterMemberInfoRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['FilterService'])) {
-            $model->filterService = $map['FilterService'];
-        }
-        if (isset($map['NeedReplica'])) {
-            $model->needReplica = $map['NeedReplica'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

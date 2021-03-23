@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class dailyTask extends Model
 {
     /**
-     * @var tasks
-     */
-    public $tasks;
-
-    /**
      * @var string
      */
     public $date;
+
+    /**
+     * @var tasks
+     */
+    public $tasks;
     protected $_name = [
-        'tasks' => 'Tasks',
         'date'  => 'Date',
+        'tasks' => 'Tasks',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class dailyTask extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tasks) {
-            $res['Tasks'] = null !== $this->tasks ? $this->tasks->toMap() : null;
-        }
         if (null !== $this->date) {
             $res['Date'] = $this->date;
+        }
+        if (null !== $this->tasks) {
+            $res['Tasks'] = null !== $this->tasks ? $this->tasks->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class dailyTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tasks'])) {
-            $model->tasks = tasks::fromMap($map['Tasks']);
-        }
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
+        }
+        if (isset($map['Tasks'])) {
+            $model->tasks = tasks::fromMap($map['Tasks']);
         }
 
         return $model;

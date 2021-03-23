@@ -47,11 +47,6 @@ class TransformToPrePaidRequest extends Model
      * @var bool
      */
     public $autoPay;
-
-    /**
-     * @var string
-     */
-    public $fromApp;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -61,7 +56,6 @@ class TransformToPrePaidRequest extends Model
         'instanceId'           => 'InstanceId',
         'period'               => 'Period',
         'autoPay'              => 'AutoPay',
-        'fromApp'              => 'FromApp',
     ];
 
     public function validate()
@@ -94,9 +88,6 @@ class TransformToPrePaidRequest extends Model
         }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
-        }
-        if (null !== $this->fromApp) {
-            $res['FromApp'] = $this->fromApp;
         }
 
         return $res;
@@ -133,9 +124,6 @@ class TransformToPrePaidRequest extends Model
         }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
-        }
-        if (isset($map['FromApp'])) {
-            $model->fromApp = $map['FromApp'];
         }
 
         return $model;

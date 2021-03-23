@@ -46,11 +46,6 @@ class ModifyInstanceMinorVersionRequest extends Model
     /**
      * @var string
      */
-    public $effectTime;
-
-    /**
-     * @var string
-     */
     public $effectiveTime;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
@@ -60,7 +55,6 @@ class ModifyInstanceMinorVersionRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
         'minorversion'         => 'Minorversion',
-        'effectTime'           => 'EffectTime',
         'effectiveTime'        => 'EffectiveTime',
     ];
 
@@ -91,9 +85,6 @@ class ModifyInstanceMinorVersionRequest extends Model
         }
         if (null !== $this->minorversion) {
             $res['Minorversion'] = $this->minorversion;
-        }
-        if (null !== $this->effectTime) {
-            $res['EffectTime'] = $this->effectTime;
         }
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
@@ -130,9 +121,6 @@ class ModifyInstanceMinorVersionRequest extends Model
         }
         if (isset($map['Minorversion'])) {
             $model->minorversion = $map['Minorversion'];
-        }
-        if (isset($map['EffectTime'])) {
-            $model->effectTime = $map['EffectTime'];
         }
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];

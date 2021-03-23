@@ -10,21 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalDistributeCacheResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalRecordCount;
-
-    /**
-     * @var globalDistributeCaches[]
-     */
-    public $globalDistributeCaches;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -32,13 +17,28 @@ class DescribeGlobalDistributeCacheResponseBody extends Model
     /**
      * @var int
      */
+    public $totalRecordCount;
+
+    /**
+     * @var int
+     */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var globalDistributeCaches[]
+     */
+    public $globalDistributeCaches;
     protected $_name = [
-        'totalRecordCount'       => 'TotalRecordCount',
-        'globalDistributeCaches' => 'GlobalDistributeCaches',
-        'pageSize'               => 'PageSize',
         'requestId'              => 'RequestId',
+        'totalRecordCount'       => 'TotalRecordCount',
         'pageNumber'             => 'PageNumber',
+        'pageSize'               => 'PageSize',
+        'globalDistributeCaches' => 'GlobalDistributeCaches',
     ];
 
     public function validate()
@@ -48,8 +48,17 @@ class DescribeGlobalDistributeCacheResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->globalDistributeCaches) {
             $res['GlobalDistributeCaches'] = [];
@@ -59,15 +68,6 @@ class DescribeGlobalDistributeCacheResponseBody extends Model
                     $res['GlobalDistributeCaches'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -81,8 +81,17 @@ class DescribeGlobalDistributeCacheResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['GlobalDistributeCaches'])) {
             if (!empty($map['GlobalDistributeCaches'])) {
@@ -92,15 +101,6 @@ class DescribeGlobalDistributeCacheResponseBody extends Model
                     $model->globalDistributeCaches[$n++] = null !== $item ? globalDistributeCaches::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
         }
 
         return $model;

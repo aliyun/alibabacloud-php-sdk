@@ -44,11 +44,6 @@ class DescribeSlowLogRecordsRequest extends Model
     public $nodeId;
 
     /**
-     * @var int
-     */
-    public $SQLId;
-
-    /**
      * @var string
      */
     public $startTime;
@@ -100,7 +95,6 @@ class DescribeSlowLogRecordsRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
         'nodeId'               => 'NodeId',
-        'SQLId'                => 'SQLId',
         'startTime'            => 'StartTime',
         'endTime'              => 'EndTime',
         'DBName'               => 'DBName',
@@ -139,9 +133,6 @@ class DescribeSlowLogRecordsRequest extends Model
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
-        }
-        if (null !== $this->SQLId) {
-            $res['SQLId'] = $this->SQLId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -202,9 +193,6 @@ class DescribeSlowLogRecordsRequest extends Model
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
-        }
-        if (isset($map['SQLId'])) {
-            $model->SQLId = $map['SQLId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

@@ -62,6 +62,11 @@ class EnableAdditionalBandwidthRequest extends Model
      * @var string
      */
     public $orderTimeLength;
+
+    /**
+     * @var string
+     */
+    public $sourceBiz;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -74,6 +79,7 @@ class EnableAdditionalBandwidthRequest extends Model
         'nodeId'               => 'NodeId',
         'bandwidth'            => 'Bandwidth',
         'orderTimeLength'      => 'OrderTimeLength',
+        'sourceBiz'            => 'SourceBiz',
     ];
 
     public function validate()
@@ -115,6 +121,9 @@ class EnableAdditionalBandwidthRequest extends Model
         }
         if (null !== $this->orderTimeLength) {
             $res['OrderTimeLength'] = $this->orderTimeLength;
+        }
+        if (null !== $this->sourceBiz) {
+            $res['SourceBiz'] = $this->sourceBiz;
         }
 
         return $res;
@@ -160,6 +169,9 @@ class EnableAdditionalBandwidthRequest extends Model
         }
         if (isset($map['OrderTimeLength'])) {
             $model->orderTimeLength = $map['OrderTimeLength'];
+        }
+        if (isset($map['SourceBiz'])) {
+            $model->sourceBiz = $map['SourceBiz'];
         }
 
         return $model;

@@ -72,11 +72,6 @@ class RenewInstanceRequest extends Model
      * @var string
      */
     public $couponNo;
-
-    /**
-     * @var bool
-     */
-    public $forceUpgrade;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -91,7 +86,6 @@ class RenewInstanceRequest extends Model
         'fromApp'              => 'FromApp',
         'businessInfo'         => 'BusinessInfo',
         'couponNo'             => 'CouponNo',
-        'forceUpgrade'         => 'ForceUpgrade',
     ];
 
     public function validate()
@@ -139,9 +133,6 @@ class RenewInstanceRequest extends Model
         }
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
-        }
-        if (null !== $this->forceUpgrade) {
-            $res['ForceUpgrade'] = $this->forceUpgrade;
         }
 
         return $res;
@@ -193,9 +184,6 @@ class RenewInstanceRequest extends Model
         }
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
-        }
-        if (isset($map['ForceUpgrade'])) {
-            $model->forceUpgrade = $map['ForceUpgrade'];
         }
 
         return $model;

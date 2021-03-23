@@ -17,28 +17,28 @@ class subOrder extends Model
     /**
      * @var string
      */
-    public $discountAmount;
-
-    /**
-     * @var ruleIds
-     */
-    public $ruleIds;
-
-    /**
-     * @var string
-     */
     public $tradeAmount;
 
     /**
      * @var string
      */
+    public $discountAmount;
+
+    /**
+     * @var string
+     */
     public $instanceId;
+
+    /**
+     * @var ruleIds
+     */
+    public $ruleIds;
     protected $_name = [
         'originalAmount' => 'OriginalAmount',
-        'discountAmount' => 'DiscountAmount',
-        'ruleIds'        => 'RuleIds',
         'tradeAmount'    => 'TradeAmount',
+        'discountAmount' => 'DiscountAmount',
         'instanceId'     => 'InstanceId',
+        'ruleIds'        => 'RuleIds',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class subOrder extends Model
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
         }
-        if (null !== $this->discountAmount) {
-            $res['DiscountAmount'] = $this->discountAmount;
-        }
-        if (null !== $this->ruleIds) {
-            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
-        }
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
+        if (null !== $this->discountAmount) {
+            $res['DiscountAmount'] = $this->discountAmount;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ruleIds) {
+            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class subOrder extends Model
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];
         }
-        if (isset($map['DiscountAmount'])) {
-            $model->discountAmount = $map['DiscountAmount'];
-        }
-        if (isset($map['RuleIds'])) {
-            $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
-        }
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];
         }
+        if (isset($map['DiscountAmount'])) {
+            $model->discountAmount = $map['DiscountAmount'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RuleIds'])) {
+            $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
         }
 
         return $model;

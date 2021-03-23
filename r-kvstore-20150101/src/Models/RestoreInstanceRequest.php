@@ -42,16 +42,6 @@ class RestoreInstanceRequest extends Model
      * @var string
      */
     public $backupId;
-
-    /**
-     * @var string
-     */
-    public $restoreType;
-
-    /**
-     * @var string
-     */
-    public $restoreTime;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -60,8 +50,6 @@ class RestoreInstanceRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'instanceId'           => 'InstanceId',
         'backupId'             => 'BackupId',
-        'restoreType'          => 'RestoreType',
-        'restoreTime'          => 'RestoreTime',
     ];
 
     public function validate()
@@ -91,12 +79,6 @@ class RestoreInstanceRequest extends Model
         }
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
-        }
-        if (null !== $this->restoreType) {
-            $res['RestoreType'] = $this->restoreType;
-        }
-        if (null !== $this->restoreTime) {
-            $res['RestoreTime'] = $this->restoreTime;
         }
 
         return $res;
@@ -130,12 +112,6 @@ class RestoreInstanceRequest extends Model
         }
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
-        }
-        if (isset($map['RestoreType'])) {
-            $model->restoreType = $map['RestoreType'];
-        }
-        if (isset($map['RestoreTime'])) {
-            $model->restoreTime = $map['RestoreTime'];
         }
 
         return $model;
