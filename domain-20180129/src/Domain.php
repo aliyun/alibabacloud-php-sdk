@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\CheckTransferInFeasibilityRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\CheckTransferInFeasibilityResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\ConfirmTransferInEmailRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\ConfirmTransferInEmailResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteContactTemplatesRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteContactTemplatesResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteDomainGroupRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteDomainGroupResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\DeleteEmailVerificationRequest;
@@ -135,6 +137,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForDomainNameProxyServ
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForDomainNameProxyServiceResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForModifyingDomainDnsRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForModifyingDomainDnsResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForReserveDropListDomainRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForReserveDropListDomainResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForTransferProhibitionLockRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForTransferProhibitionLockResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForUpdateProhibitionLockRequest;
@@ -145,6 +149,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForUpdatingContactInfo
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveDomainGroupRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveDomainGroupResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveRegistrantProfileRealNameVerificationRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SaveRegistrantProfileRealNameVerificationResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveRegistrantProfileRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveRegistrantProfileResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveSingleTaskForAddingDSRecordRequest;
@@ -205,6 +211,8 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\SaveTaskForUpdatingRegistrantInfoBy
 use AlibabaCloud\SDK\Domain\V20180129\Models\SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\ScrollDomainListRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\ScrollDomainListResponse;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SetDefaultRegistrantProfileRequest;
+use AlibabaCloud\SDK\Domain\V20180129\Models\SetDefaultRegistrantProfileResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SubmitEmailVerificationRequest;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SubmitEmailVerificationResponse;
 use AlibabaCloud\SDK\Domain\V20180129\Models\SubmitOperationAuditInfoRequest;
@@ -597,6 +605,34 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->confirmTransferInEmailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteContactTemplatesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteContactTemplatesResponse
+     */
+    public function deleteContactTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteContactTemplatesResponse::fromMap($this->doRPCRequest('DeleteContactTemplates', '2018-01-29', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteContactTemplatesRequest $request
+     *
+     * @return DeleteContactTemplatesResponse
+     */
+    public function deleteContactTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContactTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -2084,6 +2120,34 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * @param SaveBatchTaskForReserveDropListDomainRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SaveBatchTaskForReserveDropListDomainResponse
+     */
+    public function saveBatchTaskForReserveDropListDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SaveBatchTaskForReserveDropListDomainResponse::fromMap($this->doRPCRequest('SaveBatchTaskForReserveDropListDomain', '2018-01-29', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SaveBatchTaskForReserveDropListDomainRequest $request
+     *
+     * @return SaveBatchTaskForReserveDropListDomainResponse
+     */
+    public function saveBatchTaskForReserveDropListDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveBatchTaskForReserveDropListDomainWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SaveBatchTaskForTransferProhibitionLockRequest $request
      * @param RuntimeOptions                                 $runtime
      *
@@ -2249,6 +2313,34 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveRegistrantProfileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveRegistrantProfileRealNameVerificationRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return SaveRegistrantProfileRealNameVerificationResponse
+     */
+    public function saveRegistrantProfileRealNameVerificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SaveRegistrantProfileRealNameVerificationResponse::fromMap($this->doRPCRequest('SaveRegistrantProfileRealNameVerification', '2018-01-29', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SaveRegistrantProfileRealNameVerificationRequest $request
+     *
+     * @return SaveRegistrantProfileRealNameVerificationResponse
+     */
+    public function saveRegistrantProfileRealNameVerification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveRegistrantProfileRealNameVerificationWithOptions($request, $runtime);
     }
 
     /**
@@ -3061,6 +3153,34 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->scrollDomainListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDefaultRegistrantProfileRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetDefaultRegistrantProfileResponse
+     */
+    public function setDefaultRegistrantProfileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetDefaultRegistrantProfileResponse::fromMap($this->doRPCRequest('SetDefaultRegistrantProfile', '2018-01-29', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetDefaultRegistrantProfileRequest $request
+     *
+     * @return SetDefaultRegistrantProfileResponse
+     */
+    public function setDefaultRegistrantProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDefaultRegistrantProfileWithOptions($request, $runtime);
     }
 
     /**

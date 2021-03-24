@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainAdminDivisionResponseBody\adminDivisions\adminDivision;
 
-use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainAdminDivisionResponseBody\adminDivisions\adminDivision\children\children;
 use AlibabaCloud\Tea\Model;
 
 class children extends Model
 {
     /**
-     * @var children[]
+     * @var \AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainAdminDivisionResponseBody\adminDivisions\adminDivision\children\children[]
      */
     public $children;
     protected $_name = [
@@ -50,7 +49,7 @@ class children extends Model
                 $model->children = [];
                 $n               = 0;
                 foreach ($map['Children'] as $item) {
-                    $model->children[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->children[$n++] = null !== $item ? \AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainAdminDivisionResponseBody\adminDivisions\adminDivision\children\children::fromMap($item) : $item;
                 }
             }
         }
