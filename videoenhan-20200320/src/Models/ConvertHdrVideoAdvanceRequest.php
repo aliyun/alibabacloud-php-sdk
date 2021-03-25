@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class ConvertHdrVideoAdvanceRequest extends Model
 {
@@ -12,11 +13,6 @@ class ConvertHdrVideoAdvanceRequest extends Model
      * @var Stream
      */
     public $videoURLObject;
-
-    /**
-     * @var bool
-     */
-    public $async;
 
     /**
      * @var string
@@ -34,7 +30,6 @@ class ConvertHdrVideoAdvanceRequest extends Model
     public $bitrate;
     protected $_name = [
         'videoURLObject' => 'VideoURLObject',
-        'async'          => 'Async',
         'HDRFormat'      => 'HDRFormat',
         'maxIlluminance' => 'MaxIlluminance',
         'bitrate'        => 'Bitrate',
@@ -50,9 +45,6 @@ class ConvertHdrVideoAdvanceRequest extends Model
         $res = [];
         if (null !== $this->videoURLObject) {
             $res['VideoURLObject'] = $this->videoURLObject;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->HDRFormat) {
             $res['HDRFormat'] = $this->HDRFormat;
@@ -77,9 +69,6 @@ class ConvertHdrVideoAdvanceRequest extends Model
         $model = new self();
         if (isset($map['VideoURLObject'])) {
             $model->videoURLObject = $map['VideoURLObject'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['HDRFormat'])) {
             $model->HDRFormat = $map['HDRFormat'];

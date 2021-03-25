@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class ToneSdrVideoAdvanceRequest extends Model
 {
@@ -12,11 +13,6 @@ class ToneSdrVideoAdvanceRequest extends Model
      * @var Stream
      */
     public $videoURLObject;
-
-    /**
-     * @var bool
-     */
-    public $async;
 
     /**
      * @var int
@@ -29,7 +25,6 @@ class ToneSdrVideoAdvanceRequest extends Model
     public $recolorModel;
     protected $_name = [
         'videoURLObject' => 'VideoURLObject',
-        'async'          => 'Async',
         'bitrate'        => 'Bitrate',
         'recolorModel'   => 'RecolorModel',
     ];
@@ -44,9 +39,6 @@ class ToneSdrVideoAdvanceRequest extends Model
         $res = [];
         if (null !== $this->videoURLObject) {
             $res['VideoURLObject'] = $this->videoURLObject;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
@@ -68,9 +60,6 @@ class ToneSdrVideoAdvanceRequest extends Model
         $model = new self();
         if (isset($map['VideoURLObject'])) {
             $model->videoURLObject = $map['VideoURLObject'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];

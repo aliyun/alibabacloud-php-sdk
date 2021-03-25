@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class MergeVideoFaceRequest extends Model
+class InterpolateVideoFrameRequest extends Model
 {
     /**
      * @var string
@@ -14,18 +14,18 @@ class MergeVideoFaceRequest extends Model
     public $videoURL;
 
     /**
-     * @var string
+     * @var int
      */
-    public $postURL;
+    public $frameRate;
 
     /**
-     * @var string
+     * @var int
      */
-    public $referenceURL;
+    public $bitrate;
     protected $_name = [
-        'videoURL'     => 'VideoURL',
-        'postURL'      => 'PostURL',
-        'referenceURL' => 'ReferenceURL',
+        'videoURL'  => 'VideoURL',
+        'frameRate' => 'FrameRate',
+        'bitrate'   => 'Bitrate',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class MergeVideoFaceRequest extends Model
         if (null !== $this->videoURL) {
             $res['VideoURL'] = $this->videoURL;
         }
-        if (null !== $this->postURL) {
-            $res['PostURL'] = $this->postURL;
+        if (null !== $this->frameRate) {
+            $res['FrameRate'] = $this->frameRate;
         }
-        if (null !== $this->referenceURL) {
-            $res['ReferenceURL'] = $this->referenceURL;
+        if (null !== $this->bitrate) {
+            $res['Bitrate'] = $this->bitrate;
         }
 
         return $res;
@@ -51,7 +51,7 @@ class MergeVideoFaceRequest extends Model
     /**
      * @param array $map
      *
-     * @return MergeVideoFaceRequest
+     * @return InterpolateVideoFrameRequest
      */
     public static function fromMap($map = [])
     {
@@ -59,11 +59,11 @@ class MergeVideoFaceRequest extends Model
         if (isset($map['VideoURL'])) {
             $model->videoURL = $map['VideoURL'];
         }
-        if (isset($map['PostURL'])) {
-            $model->postURL = $map['PostURL'];
+        if (isset($map['FrameRate'])) {
+            $model->frameRate = $map['FrameRate'];
         }
-        if (isset($map['ReferenceURL'])) {
-            $model->referenceURL = $map['ReferenceURL'];
+        if (isset($map['Bitrate'])) {
+            $model->bitrate = $map['Bitrate'];
         }
 
         return $model;

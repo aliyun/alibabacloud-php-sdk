@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GenerateVideoRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $async;
-
-    /**
      * @var string
      */
     public $scene;
@@ -69,7 +64,6 @@ class GenerateVideoRequest extends Model
      */
     public $fileList;
     protected $_name = [
-        'async'            => 'Async',
         'scene'            => 'Scene',
         'width'            => 'Width',
         'height'           => 'Height',
@@ -90,9 +84,6 @@ class GenerateVideoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
-        }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
@@ -144,9 +135,6 @@ class GenerateVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
-        }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }

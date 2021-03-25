@@ -14,17 +14,11 @@ class SuperResolveVideoRequest extends Model
     public $videoUrl;
 
     /**
-     * @var bool
-     */
-    public $async;
-
-    /**
      * @var int
      */
     public $bitRate;
     protected $_name = [
         'videoUrl' => 'VideoUrl',
-        'async'    => 'Async',
         'bitRate'  => 'BitRate',
     ];
 
@@ -37,9 +31,6 @@ class SuperResolveVideoRequest extends Model
         $res = [];
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->bitRate) {
             $res['BitRate'] = $this->bitRate;
@@ -58,9 +49,6 @@ class SuperResolveVideoRequest extends Model
         $model = new self();
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['BitRate'])) {
             $model->bitRate = $map['BitRate'];

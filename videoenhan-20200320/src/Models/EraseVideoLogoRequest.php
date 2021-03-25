@@ -15,17 +15,11 @@ class EraseVideoLogoRequest extends Model
     public $videoUrl;
 
     /**
-     * @var bool
-     */
-    public $async;
-
-    /**
      * @var boxes[]
      */
     public $boxes;
     protected $_name = [
         'videoUrl' => 'VideoUrl',
-        'async'    => 'Async',
         'boxes'    => 'Boxes',
     ];
 
@@ -38,9 +32,6 @@ class EraseVideoLogoRequest extends Model
         $res = [];
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->boxes) {
             $res['Boxes'] = [];
@@ -65,9 +56,6 @@ class EraseVideoLogoRequest extends Model
         $model = new self();
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['Boxes'])) {
             if (!empty($map['Boxes'])) {

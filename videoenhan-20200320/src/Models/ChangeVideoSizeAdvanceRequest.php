@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class ChangeVideoSizeAdvanceRequest extends Model
 {
@@ -12,11 +13,6 @@ class ChangeVideoSizeAdvanceRequest extends Model
      * @var Stream
      */
     public $videoUrlObject;
-
-    /**
-     * @var bool
-     */
-    public $async;
 
     /**
      * @var int
@@ -59,7 +55,6 @@ class ChangeVideoSizeAdvanceRequest extends Model
     public $b;
     protected $_name = [
         'videoUrlObject' => 'VideoUrlObject',
-        'async'          => 'Async',
         'width'          => 'Width',
         'height'         => 'Height',
         'cropType'       => 'CropType',
@@ -80,9 +75,6 @@ class ChangeVideoSizeAdvanceRequest extends Model
         $res = [];
         if (null !== $this->videoUrlObject) {
             $res['VideoUrlObject'] = $this->videoUrlObject;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
@@ -122,9 +114,6 @@ class ChangeVideoSizeAdvanceRequest extends Model
         $model = new self();
         if (isset($map['VideoUrlObject'])) {
             $model->videoUrlObject = $map['VideoUrlObject'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];

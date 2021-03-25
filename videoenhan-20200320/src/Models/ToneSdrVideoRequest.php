@@ -14,11 +14,6 @@ class ToneSdrVideoRequest extends Model
     public $videoURL;
 
     /**
-     * @var bool
-     */
-    public $async;
-
-    /**
      * @var int
      */
     public $bitrate;
@@ -29,7 +24,6 @@ class ToneSdrVideoRequest extends Model
     public $recolorModel;
     protected $_name = [
         'videoURL'     => 'VideoURL',
-        'async'        => 'Async',
         'bitrate'      => 'Bitrate',
         'recolorModel' => 'RecolorModel',
     ];
@@ -43,9 +37,6 @@ class ToneSdrVideoRequest extends Model
         $res = [];
         if (null !== $this->videoURL) {
             $res['VideoURL'] = $this->videoURL;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
@@ -67,9 +58,6 @@ class ToneSdrVideoRequest extends Model
         $model = new self();
         if (isset($map['VideoURL'])) {
             $model->videoURL = $map['VideoURL'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
