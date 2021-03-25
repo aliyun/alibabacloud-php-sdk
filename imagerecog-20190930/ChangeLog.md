@@ -1,3 +1,6 @@
+2021-03-25 Version: 2.0.2
+- Generated php 2019-09-30 for imagerecog.
+
 2021-02-04 Version: 2.0.1
 - Update TaggingImage.
 
