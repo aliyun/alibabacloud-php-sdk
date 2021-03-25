@@ -11,16 +11,6 @@ class CreateCertAndKeyRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $domain;
 
     /**
@@ -48,8 +38,6 @@ class CreateCertAndKeyRequest extends Model
      */
     public $httpsCertName;
     protected $_name = [
-        'sourceIp'      => 'SourceIp',
-        'lang'          => 'Lang',
         'domain'        => 'Domain',
         'region'        => 'Region',
         'instanceId'    => 'InstanceId',
@@ -65,12 +53,6 @@ class CreateCertAndKeyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -101,12 +83,6 @@ class CreateCertAndKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
