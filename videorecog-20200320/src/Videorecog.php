@@ -64,34 +64,6 @@ class Videorecog extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncJobResultRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetAsyncJobResultResponse
-     */
-    public function getAsyncJobResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetAsyncJobResultResponse::fromMap($this->doRPCRequest('GetAsyncJobResult', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAsyncJobResultRequest $request
-     *
-     * @return GetAsyncJobResultResponse
-     */
-    public function getAsyncJobResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAsyncJobResultWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DetectVideoShotRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -277,6 +249,34 @@ class Videorecog extends OpenApiClient
         $generateVideoCoverReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
         return $this->generateVideoCoverWithOptions($generateVideoCoverReq, $runtime);
+    }
+
+    /**
+     * @param GetAsyncJobResultRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetAsyncJobResultResponse
+     */
+    public function getAsyncJobResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetAsyncJobResultResponse::fromMap($this->doRPCRequest('GetAsyncJobResult', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAsyncJobResultRequest $request
+     *
+     * @return GetAsyncJobResultResponse
+     */
+    public function getAsyncJobResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAsyncJobResultWithOptions($request, $runtime);
     }
 
     /**

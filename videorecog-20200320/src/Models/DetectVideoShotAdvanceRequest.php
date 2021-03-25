@@ -13,14 +13,8 @@ class DetectVideoShotAdvanceRequest extends Model
      * @var Stream
      */
     public $videoUrlObject;
-
-    /**
-     * @var bool
-     */
-    public $async;
     protected $_name = [
         'videoUrlObject' => 'VideoUrlObject',
-        'async'          => 'Async',
     ];
 
     public function validate()
@@ -33,9 +27,6 @@ class DetectVideoShotAdvanceRequest extends Model
         $res = [];
         if (null !== $this->videoUrlObject) {
             $res['VideoUrlObject'] = $this->videoUrlObject;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
 
         return $res;
@@ -51,9 +42,6 @@ class DetectVideoShotAdvanceRequest extends Model
         $model = new self();
         if (isset($map['VideoUrlObject'])) {
             $model->videoUrlObject = $map['VideoUrlObject'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
 
         return $model;

@@ -16,15 +16,9 @@ class GenerateVideoCoverRequest extends Model
     /**
      * @var bool
      */
-    public $async;
-
-    /**
-     * @var bool
-     */
     public $isGif;
     protected $_name = [
         'videoUrl' => 'VideoUrl',
-        'async'    => 'Async',
         'isGif'    => 'IsGif',
     ];
 
@@ -37,9 +31,6 @@ class GenerateVideoCoverRequest extends Model
         $res = [];
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
         if (null !== $this->isGif) {
             $res['IsGif'] = $this->isGif;
@@ -58,9 +49,6 @@ class GenerateVideoCoverRequest extends Model
         $model = new self();
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
         if (isset($map['IsGif'])) {
             $model->isGif = $map['IsGif'];
