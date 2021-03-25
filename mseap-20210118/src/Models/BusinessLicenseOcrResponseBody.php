@@ -21,12 +21,12 @@ class BusinessLicenseOcrResponseBody extends Model
     /**
      * @var string
      */
-    public $validPeriod;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $validPeriod;
 
     /**
      * @var string
@@ -51,35 +51,29 @@ class BusinessLicenseOcrResponseBody extends Model
     /**
      * @var string
      */
-    public $nationality;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $business;
 
     /**
      * @var string
      */
     public $trackId;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
         'registerNumber' => 'RegisterNumber',
         'type'           => 'Type',
-        'validPeriod'    => 'ValidPeriod',
         'requestId'      => 'RequestId',
+        'validPeriod'    => 'ValidPeriod',
         'address'        => 'Address',
         'capital'        => 'Capital',
         'legalPerson'    => 'LegalPerson',
         'establishDate'  => 'EstablishDate',
-        'nationality'    => 'Nationality',
-        'name'           => 'Name',
         'business'       => 'Business',
         'trackId'        => 'TrackId',
+        'name'           => 'Name',
     ];
 
     public function validate()
@@ -95,11 +89,11 @@ class BusinessLicenseOcrResponseBody extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->validPeriod) {
-            $res['ValidPeriod'] = $this->validPeriod;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->validPeriod) {
+            $res['ValidPeriod'] = $this->validPeriod;
         }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
@@ -113,17 +107,14 @@ class BusinessLicenseOcrResponseBody extends Model
         if (null !== $this->establishDate) {
             $res['EstablishDate'] = $this->establishDate;
         }
-        if (null !== $this->nationality) {
-            $res['Nationality'] = $this->nationality;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->business) {
             $res['Business'] = $this->business;
         }
         if (null !== $this->trackId) {
             $res['TrackId'] = $this->trackId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -143,11 +134,11 @@ class BusinessLicenseOcrResponseBody extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['ValidPeriod'])) {
-            $model->validPeriod = $map['ValidPeriod'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ValidPeriod'])) {
+            $model->validPeriod = $map['ValidPeriod'];
         }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
@@ -161,17 +152,14 @@ class BusinessLicenseOcrResponseBody extends Model
         if (isset($map['EstablishDate'])) {
             $model->establishDate = $map['EstablishDate'];
         }
-        if (isset($map['Nationality'])) {
-            $model->nationality = $map['Nationality'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Business'])) {
             $model->business = $map['Business'];
         }
         if (isset($map['TrackId'])) {
             $model->trackId = $map['TrackId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;
