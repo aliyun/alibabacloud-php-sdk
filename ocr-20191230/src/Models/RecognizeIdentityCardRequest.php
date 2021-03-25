@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RecognizeIdentityCardRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $imageType;
-
-    /**
      * @var string
      */
     public $imageURL;
@@ -23,9 +18,8 @@ class RecognizeIdentityCardRequest extends Model
      */
     public $side;
     protected $_name = [
-        'imageType' => 'ImageType',
-        'imageURL'  => 'ImageURL',
-        'side'      => 'Side',
+        'imageURL' => 'ImageURL',
+        'side'     => 'Side',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class RecognizeIdentityCardRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
-        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
@@ -56,9 +47,6 @@ class RecognizeIdentityCardRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }

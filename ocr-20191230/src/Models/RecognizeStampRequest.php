@@ -9,17 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RecognizeStampRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $imageType;
-
-    /**
      * @var string
      */
     public $imageURL;
     protected $_name = [
-        'imageType' => 'ImageType',
-        'imageURL'  => 'ImageURL',
+        'imageURL' => 'ImageURL',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class RecognizeStampRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
-        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
@@ -47,9 +38,6 @@ class RecognizeStampRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }

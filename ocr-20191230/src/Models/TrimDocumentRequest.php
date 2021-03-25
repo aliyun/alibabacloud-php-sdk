@@ -22,16 +22,10 @@ class TrimDocumentRequest extends Model
      * @var string
      */
     public $outputType;
-
-    /**
-     * @var bool
-     */
-    public $async;
     protected $_name = [
         'fileURL'    => 'FileURL',
         'fileType'   => 'FileType',
         'outputType' => 'OutputType',
-        'async'      => 'Async',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class TrimDocumentRequest extends Model
         }
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
-        }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class TrimDocumentRequest extends Model
         }
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];
-        }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
         }
 
         return $model;

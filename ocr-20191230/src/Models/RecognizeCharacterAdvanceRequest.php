@@ -17,11 +17,6 @@ class RecognizeCharacterAdvanceRequest extends Model
     /**
      * @var int
      */
-    public $imageType;
-
-    /**
-     * @var int
-     */
     public $minHeight;
 
     /**
@@ -30,7 +25,6 @@ class RecognizeCharacterAdvanceRequest extends Model
     public $outputProbability;
     protected $_name = [
         'imageURLObject'    => 'ImageURLObject',
-        'imageType'         => 'ImageType',
         'minHeight'         => 'MinHeight',
         'outputProbability' => 'OutputProbability',
     ];
@@ -45,9 +39,6 @@ class RecognizeCharacterAdvanceRequest extends Model
         $res = [];
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
-        }
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
         }
         if (null !== $this->minHeight) {
             $res['MinHeight'] = $this->minHeight;
@@ -69,9 +60,6 @@ class RecognizeCharacterAdvanceRequest extends Model
         $model = new self();
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
-        }
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
         }
         if (isset($map['MinHeight'])) {
             $model->minHeight = $map['MinHeight'];

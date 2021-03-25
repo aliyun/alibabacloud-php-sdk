@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RecognizeCharacterRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $imageType;
-
-    /**
      * @var string
      */
     public $imageURL;
@@ -28,7 +23,6 @@ class RecognizeCharacterRequest extends Model
      */
     public $outputProbability;
     protected $_name = [
-        'imageType'         => 'ImageType',
         'imageURL'          => 'ImageURL',
         'minHeight'         => 'MinHeight',
         'outputProbability' => 'OutputProbability',
@@ -41,9 +35,6 @@ class RecognizeCharacterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
-        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
@@ -65,9 +56,6 @@ class RecognizeCharacterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }

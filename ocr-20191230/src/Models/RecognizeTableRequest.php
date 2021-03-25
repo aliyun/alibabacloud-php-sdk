@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RecognizeTableRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $imageType;
-
-    /**
      * @var string
      */
     public $imageURL;
@@ -43,7 +38,6 @@ class RecognizeTableRequest extends Model
      */
     public $skipDetection;
     protected $_name = [
-        'imageType'       => 'ImageType',
         'imageURL'        => 'ImageURL',
         'outputFormat'    => 'OutputFormat',
         'useFinanceModel' => 'UseFinanceModel',
@@ -59,9 +53,6 @@ class RecognizeTableRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
-        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
@@ -92,9 +83,6 @@ class RecognizeTableRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }

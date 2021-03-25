@@ -1,3 +1,6 @@
+2021-03-25 Version: 1.0.2
+- Generated php 2019-12-30 for ocr.
+
 2021-03-04 Version: 1.0.1
 - Update Ocr.
 

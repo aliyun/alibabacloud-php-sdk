@@ -15,17 +15,11 @@ class RecognizeDriverLicenseAdvanceRequest extends Model
     public $imageURLObject;
 
     /**
-     * @var int
-     */
-    public $imageType;
-
-    /**
      * @var string
      */
     public $side;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
-        'imageType'      => 'ImageType',
         'side'           => 'Side',
     ];
 
@@ -39,9 +33,6 @@ class RecognizeDriverLicenseAdvanceRequest extends Model
         $res = [];
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
-        }
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
         }
         if (null !== $this->side) {
             $res['Side'] = $this->side;
@@ -60,9 +51,6 @@ class RecognizeDriverLicenseAdvanceRequest extends Model
         $model = new self();
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
-        }
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
         }
         if (isset($map['Side'])) {
             $model->side = $map['Side'];
