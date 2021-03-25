@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Goodstech\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class RecognizeFurnitureSpuAdvanceRequest extends Model
 {
