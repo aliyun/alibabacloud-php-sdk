@@ -65,13 +65,6 @@ class UpdateMediaInfoRequest extends Model
     public $coverURL;
 
     /**
-     * @description 截图
-     *
-     * @var string
-     */
-    public $snapshots;
-
-    /**
      * @description 用户自定义元数据
      *
      * @var string
@@ -93,13 +86,6 @@ class UpdateMediaInfoRequest extends Model
     public $appendTags;
 
     /**
-     * @description 是否以append的形式更新Snapshots字段
-     *
-     * @var bool
-     */
-    public $appendSnapshots;
-
-    /**
      * @description 是否以append的形式更新DynamicMetaDataList字段
      *
      * @var bool
@@ -114,11 +100,9 @@ class UpdateMediaInfoRequest extends Model
         'category'            => 'Category',
         'mediaTags'           => 'MediaTags',
         'coverURL'            => 'CoverURL',
-        'snapshots'           => 'Snapshots',
         'dynamicMetaDataList' => 'DynamicMetaDataList',
         'userData'            => 'UserData',
         'appendTags'          => 'AppendTags',
-        'appendSnapshots'     => 'AppendSnapshots',
         'appendDynamicMeta'   => 'AppendDynamicMeta',
     ];
 
@@ -153,9 +137,6 @@ class UpdateMediaInfoRequest extends Model
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
         }
-        if (null !== $this->snapshots) {
-            $res['Snapshots'] = $this->snapshots;
-        }
         if (null !== $this->dynamicMetaDataList) {
             $res['DynamicMetaDataList'] = $this->dynamicMetaDataList;
         }
@@ -164,9 +145,6 @@ class UpdateMediaInfoRequest extends Model
         }
         if (null !== $this->appendTags) {
             $res['AppendTags'] = $this->appendTags;
-        }
-        if (null !== $this->appendSnapshots) {
-            $res['AppendSnapshots'] = $this->appendSnapshots;
         }
         if (null !== $this->appendDynamicMeta) {
             $res['AppendDynamicMeta'] = $this->appendDynamicMeta;
@@ -207,9 +185,6 @@ class UpdateMediaInfoRequest extends Model
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
         }
-        if (isset($map['Snapshots'])) {
-            $model->snapshots = $map['Snapshots'];
-        }
         if (isset($map['DynamicMetaDataList'])) {
             $model->dynamicMetaDataList = $map['DynamicMetaDataList'];
         }
@@ -218,9 +193,6 @@ class UpdateMediaInfoRequest extends Model
         }
         if (isset($map['AppendTags'])) {
             $model->appendTags = $map['AppendTags'];
-        }
-        if (isset($map['AppendSnapshots'])) {
-            $model->appendSnapshots = $map['AppendSnapshots'];
         }
         if (isset($map['AppendDynamicMeta'])) {
             $model->appendDynamicMeta = $map['AppendDynamicMeta'];

@@ -16,10 +16,10 @@ class inputConfig extends Model
     /**
      * @var string
      */
-    public $keyword;
+    public $jobParameters;
     protected $_name = [
-        'inputFile' => 'InputFile',
-        'keyword'   => 'Keyword',
+        'inputFile'     => 'InputFile',
+        'jobParameters' => 'JobParameters',
     ];
 
     public function validate()
@@ -32,8 +32,8 @@ class inputConfig extends Model
         if (null !== $this->inputFile) {
             $res['InputFile'] = $this->inputFile;
         }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
+        if (null !== $this->jobParameters) {
+            $res['JobParameters'] = $this->jobParameters;
         }
 
         return $res;
@@ -50,8 +50,8 @@ class inputConfig extends Model
         if (isset($map['InputFile'])) {
             $model->inputFile = $map['InputFile'];
         }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
+        if (isset($map['JobParameters'])) {
+            $model->jobParameters = $map['JobParameters'];
         }
 
         return $model;

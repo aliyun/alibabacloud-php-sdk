@@ -49,20 +49,6 @@ class SearchEditingProjectRequest extends Model
      * @var int
      */
     public $maxResults;
-
-    /**
-     * @description 分页参数
-     *
-     * @var int
-     */
-    public $pageNo;
-
-    /**
-     * @description 分页参数
-     *
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
         'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
@@ -70,8 +56,6 @@ class SearchEditingProjectRequest extends Model
         'sortBy'     => 'SortBy',
         'nextToken'  => 'NextToken',
         'maxResults' => 'MaxResults',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -98,12 +82,6 @@ class SearchEditingProjectRequest extends Model
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -134,12 +112,6 @@ class SearchEditingProjectRequest extends Model
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

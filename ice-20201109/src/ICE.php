@@ -6,8 +6,12 @@ namespace AlibabaCloud\SDK\ICE\V20201109;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectMaterialsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaInfosRequest;
@@ -16,6 +20,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeIceProductStatusResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeRelatedAuthorizationStatusResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoRequest;
@@ -313,6 +319,34 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param AddEditingProjectMaterialsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AddEditingProjectMaterialsResponse
+     */
+    public function addEditingProjectMaterialsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddEditingProjectMaterialsResponse::fromMap($this->doRPCRequest('AddEditingProjectMaterials', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddEditingProjectMaterialsRequest $request
+     *
+     * @return AddEditingProjectMaterialsResponse
+     */
+    public function addEditingProjectMaterials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addEditingProjectMaterialsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitASRJobRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -423,6 +457,35 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitIRJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteEditingProjectMaterialsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteEditingProjectMaterialsResponse
+     */
+    public function deleteEditingProjectMaterialsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return DeleteEditingProjectMaterialsResponse::fromMap($this->doRPCRequest('DeleteEditingProjectMaterials', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEditingProjectMaterialsRequest $request
+     *
+     * @return DeleteEditingProjectMaterialsResponse
+     */
+    public function deleteEditingProjectMaterials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEditingProjectMaterialsWithOptions($request, $runtime);
     }
 
     /**
@@ -591,6 +654,35 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listMediaProducingJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetEditingProjectMaterialsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetEditingProjectMaterialsResponse
+     */
+    public function getEditingProjectMaterialsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetEditingProjectMaterialsResponse::fromMap($this->doRPCRequest('GetEditingProjectMaterials', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetEditingProjectMaterialsRequest $request
+     *
+     * @return GetEditingProjectMaterialsResponse
+     */
+    public function getEditingProjectMaterials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEditingProjectMaterialsWithOptions($request, $runtime);
     }
 
     /**

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetEditingProjectRequest extends Model
+class AddEditingProjectMaterialsRequest extends Model
 {
     /**
      * @description 云剪辑工程ID
@@ -14,8 +14,16 @@ class GetEditingProjectRequest extends Model
      * @var string
      */
     public $projectId;
+
+    /**
+     * @description 素材ID
+     *
+     * @var string
+     */
+    public $materialMaps;
     protected $_name = [
-        'projectId' => 'ProjectId',
+        'projectId'    => 'ProjectId',
+        'materialMaps' => 'MaterialMaps',
     ];
 
     public function validate()
@@ -28,6 +36,9 @@ class GetEditingProjectRequest extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+        if (null !== $this->materialMaps) {
+            $res['MaterialMaps'] = $this->materialMaps;
+        }
 
         return $res;
     }
@@ -35,13 +46,16 @@ class GetEditingProjectRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetEditingProjectRequest
+     * @return AddEditingProjectMaterialsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['MaterialMaps'])) {
+            $model->materialMaps = $map['MaterialMaps'];
         }
 
         return $model;

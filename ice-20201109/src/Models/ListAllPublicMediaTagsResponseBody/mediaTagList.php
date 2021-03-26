@@ -14,8 +14,24 @@ class mediaTagList extends Model
      * @var string
      */
     public $mediaTagId;
+
+    /**
+     * @description 素材标签中文名
+     *
+     * @var string
+     */
+    public $mediaTagNameChinese;
+
+    /**
+     * @description 素材标签英文名
+     *
+     * @var string
+     */
+    public $mediaTagNameEnglish;
     protected $_name = [
-        'mediaTagId' => 'MediaTagId',
+        'mediaTagId'          => 'MediaTagId',
+        'mediaTagNameChinese' => 'MediaTagNameChinese',
+        'mediaTagNameEnglish' => 'MediaTagNameEnglish',
     ];
 
     public function validate()
@@ -27,6 +43,12 @@ class mediaTagList extends Model
         $res = [];
         if (null !== $this->mediaTagId) {
             $res['MediaTagId'] = $this->mediaTagId;
+        }
+        if (null !== $this->mediaTagNameChinese) {
+            $res['MediaTagNameChinese'] = $this->mediaTagNameChinese;
+        }
+        if (null !== $this->mediaTagNameEnglish) {
+            $res['MediaTagNameEnglish'] = $this->mediaTagNameEnglish;
         }
 
         return $res;
@@ -42,6 +64,12 @@ class mediaTagList extends Model
         $model = new self();
         if (isset($map['MediaTagId'])) {
             $model->mediaTagId = $map['MediaTagId'];
+        }
+        if (isset($map['MediaTagNameChinese'])) {
+            $model->mediaTagNameChinese = $map['MediaTagNameChinese'];
+        }
+        if (isset($map['MediaTagNameEnglish'])) {
+            $model->mediaTagNameEnglish = $map['MediaTagNameEnglish'];
         }
 
         return $model;

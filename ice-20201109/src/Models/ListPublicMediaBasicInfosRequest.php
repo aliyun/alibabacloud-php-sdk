@@ -30,20 +30,6 @@ class ListPublicMediaBasicInfosRequest extends Model
     public $maxResults;
 
     /**
-     * @description 页数
-     *
-     * @var int
-     */
-    public $pageNo;
-
-    /**
-     * @description 分页大小
-     *
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @description 返回值中是否包含文件基础信息
      *
      * @var bool
@@ -53,8 +39,6 @@ class ListPublicMediaBasicInfosRequest extends Model
         'mediaTagId'           => 'MediaTagId',
         'nextToken'            => 'NextToken',
         'maxResults'           => 'MaxResults',
-        'pageNo'               => 'PageNo',
-        'pageSize'             => 'PageSize',
         'includeFileBasicInfo' => 'IncludeFileBasicInfo',
     ];
 
@@ -73,12 +57,6 @@ class ListPublicMediaBasicInfosRequest extends Model
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->includeFileBasicInfo) {
             $res['IncludeFileBasicInfo'] = $this->includeFileBasicInfo;
@@ -103,12 +81,6 @@ class ListPublicMediaBasicInfosRequest extends Model
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['IncludeFileBasicInfo'])) {
             $model->includeFileBasicInfo = $map['IncludeFileBasicInfo'];

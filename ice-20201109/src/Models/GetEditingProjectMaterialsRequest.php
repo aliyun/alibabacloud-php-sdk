@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetEditingProjectRequest extends Model
+class GetEditingProjectMaterialsRequest extends Model
 {
     /**
      * @description 云剪辑工程ID
@@ -35,7 +35,7 @@ class GetEditingProjectRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetEditingProjectRequest
+     * @return GetEditingProjectMaterialsRequest
      */
     public static function fromMap($map = [])
     {

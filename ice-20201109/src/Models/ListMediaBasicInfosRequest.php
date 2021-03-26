@@ -79,32 +79,11 @@ class ListMediaBasicInfosRequest extends Model
     public $sortBy;
 
     /**
-     * @description 页数
-     *
-     * @var int
-     */
-    public $pageNo;
-
-    /**
-     * @description 分页大小
-     *
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @description 返回值中是否包含文件基础信息
      *
      * @var bool
      */
     public $includeFileBasicInfo;
-
-    /**
-     * @description 针对媒资标题进行关键词搜索
-     *
-     * @var string
-     */
-    public $keyword;
     protected $_name = [
         'startTime'            => 'StartTime',
         'endTime'              => 'EndTime',
@@ -116,10 +95,7 @@ class ListMediaBasicInfosRequest extends Model
         'nextToken'            => 'NextToken',
         'maxResults'           => 'MaxResults',
         'sortBy'               => 'SortBy',
-        'pageNo'               => 'PageNo',
-        'pageSize'             => 'PageSize',
         'includeFileBasicInfo' => 'IncludeFileBasicInfo',
-        'keyword'              => 'Keyword',
     ];
 
     public function validate()
@@ -159,17 +135,8 @@ class ListMediaBasicInfosRequest extends Model
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->includeFileBasicInfo) {
             $res['IncludeFileBasicInfo'] = $this->includeFileBasicInfo;
-        }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
         }
 
         return $res;
@@ -213,17 +180,8 @@ class ListMediaBasicInfosRequest extends Model
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['IncludeFileBasicInfo'])) {
             $model->includeFileBasicInfo = $map['IncludeFileBasicInfo'];
-        }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
         }
 
         return $model;

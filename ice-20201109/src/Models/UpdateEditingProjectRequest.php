@@ -42,20 +42,12 @@ class UpdateEditingProjectRequest extends Model
      * @var string
      */
     public $projectId;
-
-    /**
-     * @description 前端编辑器工程数据结构
-     *
-     * @var string
-     */
-    public $FEExtend;
     protected $_name = [
         'title'       => 'Title',
         'description' => 'Description',
         'timeline'    => 'Timeline',
         'coverURL'    => 'CoverURL',
         'projectId'   => 'ProjectId',
-        'FEExtend'    => 'FEExtend',
     ];
 
     public function validate()
@@ -79,9 +71,6 @@ class UpdateEditingProjectRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->FEExtend) {
-            $res['FEExtend'] = $this->FEExtend;
         }
 
         return $res;
@@ -109,9 +98,6 @@ class UpdateEditingProjectRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['FEExtend'])) {
-            $model->FEExtend = $map['FEExtend'];
         }
 
         return $model;
