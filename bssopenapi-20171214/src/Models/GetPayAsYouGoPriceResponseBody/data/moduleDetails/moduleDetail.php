@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class moduleDetail extends Model
 {
     /**
+     * @var float
+     */
+    public $costAfterDiscount;
+
+    /**
+     * @var float
+     */
+    public $invoiceDiscount;
+
+    /**
      * @var string
      */
     public $moduleCode;
@@ -21,22 +31,12 @@ class moduleDetail extends Model
     /**
      * @var float
      */
-    public $invoiceDiscount;
-
-    /**
-     * @var float
-     */
-    public $costAfterDiscount;
-
-    /**
-     * @var float
-     */
     public $unitPrice;
     protected $_name = [
+        'costAfterDiscount' => 'CostAfterDiscount',
+        'invoiceDiscount'   => 'InvoiceDiscount',
         'moduleCode'        => 'ModuleCode',
         'originalCost'      => 'OriginalCost',
-        'invoiceDiscount'   => 'InvoiceDiscount',
-        'costAfterDiscount' => 'CostAfterDiscount',
         'unitPrice'         => 'UnitPrice',
     ];
 
@@ -47,17 +47,17 @@ class moduleDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->costAfterDiscount) {
+            $res['CostAfterDiscount'] = $this->costAfterDiscount;
+        }
+        if (null !== $this->invoiceDiscount) {
+            $res['InvoiceDiscount'] = $this->invoiceDiscount;
+        }
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
         }
         if (null !== $this->originalCost) {
             $res['OriginalCost'] = $this->originalCost;
-        }
-        if (null !== $this->invoiceDiscount) {
-            $res['InvoiceDiscount'] = $this->invoiceDiscount;
-        }
-        if (null !== $this->costAfterDiscount) {
-            $res['CostAfterDiscount'] = $this->costAfterDiscount;
         }
         if (null !== $this->unitPrice) {
             $res['UnitPrice'] = $this->unitPrice;
@@ -74,17 +74,17 @@ class moduleDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CostAfterDiscount'])) {
+            $model->costAfterDiscount = $map['CostAfterDiscount'];
+        }
+        if (isset($map['InvoiceDiscount'])) {
+            $model->invoiceDiscount = $map['InvoiceDiscount'];
+        }
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
         }
         if (isset($map['OriginalCost'])) {
             $model->originalCost = $map['OriginalCost'];
-        }
-        if (isset($map['InvoiceDiscount'])) {
-            $model->invoiceDiscount = $map['InvoiceDiscount'];
-        }
-        if (isset($map['CostAfterDiscount'])) {
-            $model->costAfterDiscount = $map['CostAfterDiscount'];
         }
         if (isset($map['UnitPrice'])) {
             $model->unitPrice = $map['UnitPrice'];

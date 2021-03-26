@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $subscribeType;
+    public $bucketOwnerId;
 
     /**
      * @var string
@@ -19,9 +19,9 @@ class item extends Model
     public $subscribeBucket;
 
     /**
-     * @var int
+     * @var string
      */
-    public $bucketOwnerId;
+    public $subscribeLanguage;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class item extends Model
     /**
      * @var string
      */
-    public $subscribeLanguage;
+    public $subscribeType;
     protected $_name = [
-        'subscribeType'     => 'SubscribeType',
-        'subscribeBucket'   => 'SubscribeBucket',
         'bucketOwnerId'     => 'BucketOwnerId',
-        'subscribeTime'     => 'SubscribeTime',
+        'subscribeBucket'   => 'SubscribeBucket',
         'subscribeLanguage' => 'SubscribeLanguage',
+        'subscribeTime'     => 'SubscribeTime',
+        'subscribeType'     => 'SubscribeType',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subscribeType) {
-            $res['SubscribeType'] = $this->subscribeType;
+        if (null !== $this->bucketOwnerId) {
+            $res['BucketOwnerId'] = $this->bucketOwnerId;
         }
         if (null !== $this->subscribeBucket) {
             $res['SubscribeBucket'] = $this->subscribeBucket;
         }
-        if (null !== $this->bucketOwnerId) {
-            $res['BucketOwnerId'] = $this->bucketOwnerId;
+        if (null !== $this->subscribeLanguage) {
+            $res['SubscribeLanguage'] = $this->subscribeLanguage;
         }
         if (null !== $this->subscribeTime) {
             $res['SubscribeTime'] = $this->subscribeTime;
         }
-        if (null !== $this->subscribeLanguage) {
-            $res['SubscribeLanguage'] = $this->subscribeLanguage;
+        if (null !== $this->subscribeType) {
+            $res['SubscribeType'] = $this->subscribeType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubscribeType'])) {
-            $model->subscribeType = $map['SubscribeType'];
+        if (isset($map['BucketOwnerId'])) {
+            $model->bucketOwnerId = $map['BucketOwnerId'];
         }
         if (isset($map['SubscribeBucket'])) {
             $model->subscribeBucket = $map['SubscribeBucket'];
         }
-        if (isset($map['BucketOwnerId'])) {
-            $model->bucketOwnerId = $map['BucketOwnerId'];
+        if (isset($map['SubscribeLanguage'])) {
+            $model->subscribeLanguage = $map['SubscribeLanguage'];
         }
         if (isset($map['SubscribeTime'])) {
             $model->subscribeTime = $map['SubscribeTime'];
         }
-        if (isset($map['SubscribeLanguage'])) {
-            $model->subscribeLanguage = $map['SubscribeLanguage'];
+        if (isset($map['SubscribeType'])) {
+            $model->subscribeType = $map['SubscribeType'];
         }
 
         return $model;

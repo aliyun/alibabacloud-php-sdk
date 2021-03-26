@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $hostName;
+
+    /**
+     * @var orderList
+     */
+    public $orderList;
+
+    /**
      * @var int
      */
-    public $totalCount;
+    public $pageNum;
 
     /**
      * @var int
@@ -22,23 +32,13 @@ class data extends Model
     /**
      * @var int
      */
-    public $pageNum;
-
-    /**
-     * @var string
-     */
-    public $hostName;
-
-    /**
-     * @var orderList
-     */
-    public $orderList;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'pageSize'   => 'PageSize',
-        'pageNum'    => 'PageNum',
         'hostName'   => 'HostName',
         'orderList'  => 'OrderList',
+        'pageNum'    => 'PageNum',
+        'pageSize'   => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
-        }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
         if (null !== $this->orderList) {
             $res['OrderList'] = null !== $this->orderList ? $this->orderList->toMap() : null;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
-        }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
         if (isset($map['OrderList'])) {
             $model->orderList = orderList::fromMap($map['OrderList']);
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

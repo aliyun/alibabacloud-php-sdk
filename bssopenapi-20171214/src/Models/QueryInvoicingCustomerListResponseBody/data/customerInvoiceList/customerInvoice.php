@@ -11,32 +11,7 @@ class customerInvoice extends Model
     /**
      * @var int
      */
-    public $id;
-
-    /**
-     * @var int
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $userNick;
-
-    /**
-     * @var string
-     */
-    public $invoiceTitle;
-
-    /**
-     * @var int
-     */
-    public $customerType;
-
-    /**
-     * @var int
-     */
-    public $taxpayerType;
+    public $adjustType;
 
     /**
      * @var string
@@ -47,6 +22,41 @@ class customerInvoice extends Model
      * @var string
      */
     public $bankNo;
+
+    /**
+     * @var int
+     */
+    public $customerType;
+
+    /**
+     * @var string
+     */
+    public $defaultRemark;
+
+    /**
+     * @var int
+     */
+    public $endCycle;
+
+    /**
+     * @var string
+     */
+    public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $invoiceTitle;
+
+    /**
+     * @var int
+     */
+    public $issueType;
 
     /**
      * @var string
@@ -76,22 +86,12 @@ class customerInvoice extends Model
     /**
      * @var string
      */
-    public $gmtCreate;
-
-    /**
-     * @var string
-     */
     public $taxationLicense;
 
     /**
      * @var int
      */
-    public $adjustType;
-
-    /**
-     * @var int
-     */
-    public $endCycle;
+    public $taxpayerType;
 
     /**
      * @var string
@@ -101,39 +101,39 @@ class customerInvoice extends Model
     /**
      * @var int
      */
-    public $issueType;
+    public $type;
 
     /**
      * @var int
      */
-    public $type;
+    public $userId;
 
     /**
      * @var string
      */
-    public $defaultRemark;
+    public $userNick;
     protected $_name = [
-        'id'                      => 'Id',
-        'userId'                  => 'UserId',
-        'userNick'                => 'UserNick',
-        'invoiceTitle'            => 'InvoiceTitle',
-        'customerType'            => 'CustomerType',
-        'taxpayerType'            => 'TaxpayerType',
+        'adjustType'              => 'AdjustType',
         'bank'                    => 'Bank',
         'bankNo'                  => 'BankNo',
+        'customerType'            => 'CustomerType',
+        'defaultRemark'           => 'DefaultRemark',
+        'endCycle'                => 'EndCycle',
+        'gmtCreate'               => 'GmtCreate',
+        'id'                      => 'Id',
+        'invoiceTitle'            => 'InvoiceTitle',
+        'issueType'               => 'IssueType',
         'operatingLicenseAddress' => 'OperatingLicenseAddress',
         'operatingLicensePhone'   => 'OperatingLicensePhone',
         'registerNo'              => 'RegisterNo',
         'startCycle'              => 'StartCycle',
         'status'                  => 'Status',
-        'gmtCreate'               => 'GmtCreate',
         'taxationLicense'         => 'TaxationLicense',
-        'adjustType'              => 'AdjustType',
-        'endCycle'                => 'EndCycle',
+        'taxpayerType'            => 'TaxpayerType',
         'titleChangeInstructions' => 'TitleChangeInstructions',
-        'issueType'               => 'IssueType',
         'type'                    => 'Type',
-        'defaultRemark'           => 'DefaultRemark',
+        'userId'                  => 'UserId',
+        'userNick'                => 'UserNick',
     ];
 
     public function validate()
@@ -143,29 +143,35 @@ class customerInvoice extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->userNick) {
-            $res['UserNick'] = $this->userNick;
-        }
-        if (null !== $this->invoiceTitle) {
-            $res['InvoiceTitle'] = $this->invoiceTitle;
-        }
-        if (null !== $this->customerType) {
-            $res['CustomerType'] = $this->customerType;
-        }
-        if (null !== $this->taxpayerType) {
-            $res['TaxpayerType'] = $this->taxpayerType;
+        if (null !== $this->adjustType) {
+            $res['AdjustType'] = $this->adjustType;
         }
         if (null !== $this->bank) {
             $res['Bank'] = $this->bank;
         }
         if (null !== $this->bankNo) {
             $res['BankNo'] = $this->bankNo;
+        }
+        if (null !== $this->customerType) {
+            $res['CustomerType'] = $this->customerType;
+        }
+        if (null !== $this->defaultRemark) {
+            $res['DefaultRemark'] = $this->defaultRemark;
+        }
+        if (null !== $this->endCycle) {
+            $res['EndCycle'] = $this->endCycle;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->invoiceTitle) {
+            $res['InvoiceTitle'] = $this->invoiceTitle;
+        }
+        if (null !== $this->issueType) {
+            $res['IssueType'] = $this->issueType;
         }
         if (null !== $this->operatingLicenseAddress) {
             $res['OperatingLicenseAddress'] = $this->operatingLicenseAddress;
@@ -182,29 +188,23 @@ class customerInvoice extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
         if (null !== $this->taxationLicense) {
             $res['TaxationLicense'] = $this->taxationLicense;
         }
-        if (null !== $this->adjustType) {
-            $res['AdjustType'] = $this->adjustType;
-        }
-        if (null !== $this->endCycle) {
-            $res['EndCycle'] = $this->endCycle;
+        if (null !== $this->taxpayerType) {
+            $res['TaxpayerType'] = $this->taxpayerType;
         }
         if (null !== $this->titleChangeInstructions) {
             $res['TitleChangeInstructions'] = $this->titleChangeInstructions;
         }
-        if (null !== $this->issueType) {
-            $res['IssueType'] = $this->issueType;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->defaultRemark) {
-            $res['DefaultRemark'] = $this->defaultRemark;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->userNick) {
+            $res['UserNick'] = $this->userNick;
         }
 
         return $res;
@@ -218,29 +218,35 @@ class customerInvoice extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['UserNick'])) {
-            $model->userNick = $map['UserNick'];
-        }
-        if (isset($map['InvoiceTitle'])) {
-            $model->invoiceTitle = $map['InvoiceTitle'];
-        }
-        if (isset($map['CustomerType'])) {
-            $model->customerType = $map['CustomerType'];
-        }
-        if (isset($map['TaxpayerType'])) {
-            $model->taxpayerType = $map['TaxpayerType'];
+        if (isset($map['AdjustType'])) {
+            $model->adjustType = $map['AdjustType'];
         }
         if (isset($map['Bank'])) {
             $model->bank = $map['Bank'];
         }
         if (isset($map['BankNo'])) {
             $model->bankNo = $map['BankNo'];
+        }
+        if (isset($map['CustomerType'])) {
+            $model->customerType = $map['CustomerType'];
+        }
+        if (isset($map['DefaultRemark'])) {
+            $model->defaultRemark = $map['DefaultRemark'];
+        }
+        if (isset($map['EndCycle'])) {
+            $model->endCycle = $map['EndCycle'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['InvoiceTitle'])) {
+            $model->invoiceTitle = $map['InvoiceTitle'];
+        }
+        if (isset($map['IssueType'])) {
+            $model->issueType = $map['IssueType'];
         }
         if (isset($map['OperatingLicenseAddress'])) {
             $model->operatingLicenseAddress = $map['OperatingLicenseAddress'];
@@ -257,29 +263,23 @@ class customerInvoice extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
         if (isset($map['TaxationLicense'])) {
             $model->taxationLicense = $map['TaxationLicense'];
         }
-        if (isset($map['AdjustType'])) {
-            $model->adjustType = $map['AdjustType'];
-        }
-        if (isset($map['EndCycle'])) {
-            $model->endCycle = $map['EndCycle'];
+        if (isset($map['TaxpayerType'])) {
+            $model->taxpayerType = $map['TaxpayerType'];
         }
         if (isset($map['TitleChangeInstructions'])) {
             $model->titleChangeInstructions = $map['TitleChangeInstructions'];
         }
-        if (isset($map['IssueType'])) {
-            $model->issueType = $map['IssueType'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['DefaultRemark'])) {
-            $model->defaultRemark = $map['DefaultRemark'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserNick'])) {
+            $model->userNick = $map['UserNick'];
         }
 
         return $model;

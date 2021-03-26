@@ -12,11 +12,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $billingCycle;
-
-    /**
-     * @var string
-     */
     public $accountID;
 
     /**
@@ -25,9 +20,14 @@ class data extends Model
     public $accountName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $billingCycle;
+
+    /**
+     * @var items
+     */
+    public $items;
 
     /**
      * @var int
@@ -40,17 +40,17 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @var items
+     * @var int
      */
-    public $items;
+    public $totalCount;
     protected $_name = [
-        'billingCycle' => 'BillingCycle',
         'accountID'    => 'AccountID',
         'accountName'  => 'AccountName',
-        'totalCount'   => 'TotalCount',
+        'billingCycle' => 'BillingCycle',
+        'items'        => 'Items',
         'pageNum'      => 'PageNum',
         'pageSize'     => 'PageSize',
-        'items'        => 'Items',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -60,17 +60,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->billingCycle) {
-            $res['BillingCycle'] = $this->billingCycle;
-        }
         if (null !== $this->accountID) {
             $res['AccountID'] = $this->accountID;
         }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->billingCycle) {
+            $res['BillingCycle'] = $this->billingCycle;
+        }
+        if (null !== $this->items) {
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -78,8 +78,8 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -93,17 +93,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BillingCycle'])) {
-            $model->billingCycle = $map['BillingCycle'];
-        }
         if (isset($map['AccountID'])) {
             $model->accountID = $map['AccountID'];
         }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['BillingCycle'])) {
+            $model->billingCycle = $map['BillingCycle'];
+        }
+        if (isset($map['Items'])) {
+            $model->items = items::fromMap($map['Items']);
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
@@ -111,8 +111,8 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Items'])) {
-            $model->items = items::fromMap($map['Items']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

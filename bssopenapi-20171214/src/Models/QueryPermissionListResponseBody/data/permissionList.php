@@ -11,12 +11,7 @@ class permissionList extends Model
     /**
      * @var string
      */
-    public $permissionCode;
-
-    /**
-     * @var string
-     */
-    public $permissionName;
+    public $endTime;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class permissionList extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $permissionCode;
+
+    /**
+     * @var string
+     */
+    public $permissionName;
     protected $_name = [
+        'endTime'        => 'EndTime',
+        'startTime'      => 'StartTime',
         'permissionCode' => 'PermissionCode',
         'permissionName' => 'PermissionName',
-        'startTime'      => 'StartTime',
-        'endTime'        => 'EndTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class permissionList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->permissionCode) {
             $res['PermissionCode'] = $this->permissionCode;
         }
         if (null !== $this->permissionName) {
             $res['PermissionName'] = $this->permissionName;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class permissionList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['PermissionCode'])) {
             $model->permissionCode = $map['PermissionCode'];
         }
         if (isset($map['PermissionName'])) {
             $model->permissionName = $map['PermissionName'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

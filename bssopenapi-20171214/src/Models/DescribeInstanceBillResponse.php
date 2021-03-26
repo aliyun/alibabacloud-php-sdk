@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryResourcePackageInstancesResponse extends Model
+class DescribeInstanceBillResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class QueryResourcePackageInstancesResponse extends Model
     public $headers;
 
     /**
-     * @var QueryResourcePackageInstancesResponseBody
+     * @var DescribeInstanceBillResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class QueryResourcePackageInstancesResponse extends Model
     /**
      * @param array $map
      *
-     * @return QueryResourcePackageInstancesResponse
+     * @return DescribeInstanceBillResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class QueryResourcePackageInstancesResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = QueryResourcePackageInstancesResponseBody::fromMap($map['body']);
+            $model->body = DescribeInstanceBillResponseBody::fromMap($map['body']);
         }
 
         return $model;

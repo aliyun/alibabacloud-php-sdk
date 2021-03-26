@@ -26,18 +26,18 @@ class data extends Model
     /**
      * @var string
      */
-    public $mybankCreditAmount;
+    public $currency;
 
     /**
      * @var string
      */
-    public $currency;
+    public $mybankCreditAmount;
     protected $_name = [
         'availableAmount'     => 'AvailableAmount',
         'availableCashAmount' => 'AvailableCashAmount',
         'creditAmount'        => 'CreditAmount',
-        'mybankCreditAmount'  => 'MybankCreditAmount',
         'currency'            => 'Currency',
+        'mybankCreditAmount'  => 'MybankCreditAmount',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class data extends Model
         if (null !== $this->creditAmount) {
             $res['CreditAmount'] = $this->creditAmount;
         }
-        if (null !== $this->mybankCreditAmount) {
-            $res['MybankCreditAmount'] = $this->mybankCreditAmount;
-        }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
+        }
+        if (null !== $this->mybankCreditAmount) {
+            $res['MybankCreditAmount'] = $this->mybankCreditAmount;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class data extends Model
         if (isset($map['CreditAmount'])) {
             $model->creditAmount = $map['CreditAmount'];
         }
-        if (isset($map['MybankCreditAmount'])) {
-            $model->mybankCreditAmount = $map['MybankCreditAmount'];
-        }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
+        }
+        if (isset($map['MybankCreditAmount'])) {
+            $model->mybankCreditAmount = $map['MybankCreditAmount'];
         }
 
         return $model;

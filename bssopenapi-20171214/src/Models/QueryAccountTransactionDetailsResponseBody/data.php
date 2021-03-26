@@ -15,9 +15,14 @@ class data extends Model
     public $accountName;
 
     /**
+     * @var accountTransactionsList
+     */
+    public $accountTransactionsList;
+
+    /**
      * @var int
      */
-    public $totalCount;
+    public $maxResults;
 
     /**
      * @var string
@@ -27,18 +32,13 @@ class data extends Model
     /**
      * @var int
      */
-    public $maxResults;
-
-    /**
-     * @var accountTransactionsList
-     */
-    public $accountTransactionsList;
+    public $totalCount;
     protected $_name = [
         'accountName'             => 'AccountName',
-        'totalCount'              => 'TotalCount',
-        'nextToken'               => 'NextToken',
-        'maxResults'              => 'MaxResults',
         'accountTransactionsList' => 'AccountTransactionsList',
+        'maxResults'              => 'MaxResults',
+        'nextToken'               => 'NextToken',
+        'totalCount'              => 'TotalCount',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class data extends Model
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->accountTransactionsList) {
+            $res['AccountTransactionsList'] = null !== $this->accountTransactionsList ? $this->accountTransactionsList->toMap() : null;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-        if (null !== $this->accountTransactionsList) {
-            $res['AccountTransactionsList'] = null !== $this->accountTransactionsList ? $this->accountTransactionsList->toMap() : null;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class data extends Model
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['AccountTransactionsList'])) {
+            $model->accountTransactionsList = accountTransactionsList::fromMap($map['AccountTransactionsList']);
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-        if (isset($map['AccountTransactionsList'])) {
-            $model->accountTransactionsList = accountTransactionsList::fromMap($map['AccountTransactionsList']);
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

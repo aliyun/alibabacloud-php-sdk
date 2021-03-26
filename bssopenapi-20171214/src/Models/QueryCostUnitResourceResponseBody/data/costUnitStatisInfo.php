@@ -11,12 +11,17 @@ class costUnitStatisInfo extends Model
     /**
      * @var int
      */
-    public $subUnitCount;
+    public $resourceCount;
 
     /**
      * @var int
      */
-    public $totalResourceGroupCount;
+    public $resourceGroupCount;
+
+    /**
+     * @var int
+     */
+    public $subUnitCount;
 
     /**
      * @var int
@@ -26,12 +31,7 @@ class costUnitStatisInfo extends Model
     /**
      * @var int
      */
-    public $userCount;
-
-    /**
-     * @var int
-     */
-    public $resourceCount;
+    public $totalResourceGroupCount;
 
     /**
      * @var int
@@ -41,15 +41,15 @@ class costUnitStatisInfo extends Model
     /**
      * @var int
      */
-    public $resourceGroupCount;
+    public $userCount;
     protected $_name = [
-        'subUnitCount'            => 'SubUnitCount',
-        'totalResourceGroupCount' => 'TotalResourceGroupCount',
-        'totalResourceCount'      => 'TotalResourceCount',
-        'userCount'               => 'UserCount',
         'resourceCount'           => 'ResourceCount',
-        'totalUserCount'          => 'TotalUserCount',
         'resourceGroupCount'      => 'ResourceGroupCount',
+        'subUnitCount'            => 'SubUnitCount',
+        'totalResourceCount'      => 'TotalResourceCount',
+        'totalResourceGroupCount' => 'TotalResourceGroupCount',
+        'totalUserCount'          => 'TotalUserCount',
+        'userCount'               => 'UserCount',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class costUnitStatisInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resourceCount) {
+            $res['ResourceCount'] = $this->resourceCount;
+        }
+        if (null !== $this->resourceGroupCount) {
+            $res['ResourceGroupCount'] = $this->resourceGroupCount;
+        }
         if (null !== $this->subUnitCount) {
             $res['SubUnitCount'] = $this->subUnitCount;
-        }
-        if (null !== $this->totalResourceGroupCount) {
-            $res['TotalResourceGroupCount'] = $this->totalResourceGroupCount;
         }
         if (null !== $this->totalResourceCount) {
             $res['TotalResourceCount'] = $this->totalResourceCount;
         }
-        if (null !== $this->userCount) {
-            $res['UserCount'] = $this->userCount;
-        }
-        if (null !== $this->resourceCount) {
-            $res['ResourceCount'] = $this->resourceCount;
+        if (null !== $this->totalResourceGroupCount) {
+            $res['TotalResourceGroupCount'] = $this->totalResourceGroupCount;
         }
         if (null !== $this->totalUserCount) {
             $res['TotalUserCount'] = $this->totalUserCount;
         }
-        if (null !== $this->resourceGroupCount) {
-            $res['ResourceGroupCount'] = $this->resourceGroupCount;
+        if (null !== $this->userCount) {
+            $res['UserCount'] = $this->userCount;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class costUnitStatisInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceCount'])) {
+            $model->resourceCount = $map['ResourceCount'];
+        }
+        if (isset($map['ResourceGroupCount'])) {
+            $model->resourceGroupCount = $map['ResourceGroupCount'];
+        }
         if (isset($map['SubUnitCount'])) {
             $model->subUnitCount = $map['SubUnitCount'];
-        }
-        if (isset($map['TotalResourceGroupCount'])) {
-            $model->totalResourceGroupCount = $map['TotalResourceGroupCount'];
         }
         if (isset($map['TotalResourceCount'])) {
             $model->totalResourceCount = $map['TotalResourceCount'];
         }
-        if (isset($map['UserCount'])) {
-            $model->userCount = $map['UserCount'];
-        }
-        if (isset($map['ResourceCount'])) {
-            $model->resourceCount = $map['ResourceCount'];
+        if (isset($map['TotalResourceGroupCount'])) {
+            $model->totalResourceGroupCount = $map['TotalResourceGroupCount'];
         }
         if (isset($map['TotalUserCount'])) {
             $model->totalUserCount = $map['TotalUserCount'];
         }
-        if (isset($map['ResourceGroupCount'])) {
-            $model->resourceGroupCount = $map['ResourceGroupCount'];
+        if (isset($map['UserCount'])) {
+            $model->userCount = $map['UserCount'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class data extends Model
     /**
      * @var string
      */
-    public $marker;
+    public $hostId;
 
     /**
      * @var string
      */
-    public $hostId;
+    public $marker;
 
     /**
-     * @var string[][]
+     * @var mixed[][]
      */
     public $omsData;
     protected $_name = [
-        'marker'  => 'Marker',
         'hostId'  => 'HostId',
+        'marker'  => 'Marker',
         'omsData' => 'OmsData',
     ];
 
@@ -35,11 +35,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->marker) {
-            $res['Marker'] = $this->marker;
-        }
         if (null !== $this->hostId) {
             $res['HostId'] = $this->hostId;
+        }
+        if (null !== $this->marker) {
+            $res['Marker'] = $this->marker;
         }
         if (null !== $this->omsData) {
             $res['OmsData'] = $this->omsData;
@@ -56,11 +56,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Marker'])) {
-            $model->marker = $map['Marker'];
-        }
         if (isset($map['HostId'])) {
             $model->hostId = $map['HostId'];
+        }
+        if (isset($map['Marker'])) {
+            $model->marker = $map['Marker'];
         }
         if (isset($map['OmsData'])) {
             if (!empty($map['OmsData'])) {

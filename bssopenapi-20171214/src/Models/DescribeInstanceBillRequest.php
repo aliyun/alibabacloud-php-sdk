@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillRequest\tagFilter;
 use AlibabaCloud\Tea\Model;
 
-class DescribeSplitItemBillRequest extends Model
+class DescribeInstanceBillRequest extends Model
 {
     /**
      * @var string
@@ -35,6 +34,11 @@ class DescribeSplitItemBillRequest extends Model
     public $ownerId;
 
     /**
+     * @var bool
+     */
+    public $isBillingItem;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -45,6 +49,21 @@ class DescribeSplitItemBillRequest extends Model
     public $maxResults;
 
     /**
+     * @var bool
+     */
+    public $isHideZeroCharge;
+
+    /**
+     * @var string
+     */
+    public $billingDate;
+
+    /**
+     * @var string
+     */
+    public $granularity;
+
+    /**
      * @var int
      */
     public $billOwnerId;
@@ -53,28 +72,20 @@ class DescribeSplitItemBillRequest extends Model
      * @var string
      */
     public $instanceID;
-
-    /**
-     * @var string
-     */
-    public $splitItemID;
-
-    /**
-     * @var tagFilter[]
-     */
-    public $tagFilter;
     protected $_name = [
         'billingCycle'     => 'BillingCycle',
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
         'ownerId'          => 'OwnerId',
+        'isBillingItem'    => 'IsBillingItem',
         'nextToken'        => 'NextToken',
         'maxResults'       => 'MaxResults',
+        'isHideZeroCharge' => 'IsHideZeroCharge',
+        'billingDate'      => 'BillingDate',
+        'granularity'      => 'Granularity',
         'billOwnerId'      => 'BillOwnerId',
         'instanceID'       => 'InstanceID',
-        'splitItemID'      => 'SplitItemID',
-        'tagFilter'        => 'TagFilter',
     ];
 
     public function validate()
@@ -99,29 +110,29 @@ class DescribeSplitItemBillRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->isBillingItem) {
+            $res['IsBillingItem'] = $this->isBillingItem;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+        if (null !== $this->isHideZeroCharge) {
+            $res['IsHideZeroCharge'] = $this->isHideZeroCharge;
+        }
+        if (null !== $this->billingDate) {
+            $res['BillingDate'] = $this->billingDate;
+        }
+        if (null !== $this->granularity) {
+            $res['Granularity'] = $this->granularity;
+        }
         if (null !== $this->billOwnerId) {
             $res['BillOwnerId'] = $this->billOwnerId;
         }
         if (null !== $this->instanceID) {
             $res['InstanceID'] = $this->instanceID;
-        }
-        if (null !== $this->splitItemID) {
-            $res['SplitItemID'] = $this->splitItemID;
-        }
-        if (null !== $this->tagFilter) {
-            $res['TagFilter'] = [];
-            if (null !== $this->tagFilter && \is_array($this->tagFilter)) {
-                $n = 0;
-                foreach ($this->tagFilter as $item) {
-                    $res['TagFilter'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -130,7 +141,7 @@ class DescribeSplitItemBillRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSplitItemBillRequest
+     * @return DescribeInstanceBillRequest
      */
     public static function fromMap($map = [])
     {
@@ -150,29 +161,29 @@ class DescribeSplitItemBillRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['IsBillingItem'])) {
+            $model->isBillingItem = $map['IsBillingItem'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+        if (isset($map['IsHideZeroCharge'])) {
+            $model->isHideZeroCharge = $map['IsHideZeroCharge'];
+        }
+        if (isset($map['BillingDate'])) {
+            $model->billingDate = $map['BillingDate'];
+        }
+        if (isset($map['Granularity'])) {
+            $model->granularity = $map['Granularity'];
+        }
         if (isset($map['BillOwnerId'])) {
             $model->billOwnerId = $map['BillOwnerId'];
         }
         if (isset($map['InstanceID'])) {
             $model->instanceID = $map['InstanceID'];
-        }
-        if (isset($map['SplitItemID'])) {
-            $model->splitItemID = $map['SplitItemID'];
-        }
-        if (isset($map['TagFilter'])) {
-            if (!empty($map['TagFilter'])) {
-                $model->tagFilter = [];
-                $n                = 0;
-                foreach ($map['TagFilter'] as $item) {
-                    $model->tagFilter[$n++] = null !== $item ? tagFilter::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

@@ -11,12 +11,12 @@ class moduleList extends Model
     /**
      * @var string
      */
-    public $moduleCode;
+    public $config;
 
     /**
      * @var string
      */
-    public $config;
+    public $moduleCode;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class moduleList extends Model
      */
     public $tag;
     protected $_name = [
-        'moduleCode'   => 'ModuleCode',
         'config'       => 'Config',
+        'moduleCode'   => 'ModuleCode',
         'moduleStatus' => 'ModuleStatus',
         'tag'          => 'Tag',
     ];
@@ -41,11 +41,11 @@ class moduleList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->moduleCode) {
-            $res['ModuleCode'] = $this->moduleCode;
-        }
         if (null !== $this->config) {
             $res['Config'] = $this->config;
+        }
+        if (null !== $this->moduleCode) {
+            $res['ModuleCode'] = $this->moduleCode;
         }
         if (null !== $this->moduleStatus) {
             $res['ModuleStatus'] = $this->moduleStatus;
@@ -65,11 +65,11 @@ class moduleList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModuleCode'])) {
-            $model->moduleCode = $map['ModuleCode'];
-        }
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
+        }
+        if (isset($map['ModuleCode'])) {
+            $model->moduleCode = $map['ModuleCode'];
         }
         if (isset($map['ModuleStatus'])) {
             $model->moduleStatus = $map['ModuleStatus'];
