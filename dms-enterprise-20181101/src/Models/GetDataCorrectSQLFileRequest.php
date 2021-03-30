@@ -14,18 +14,12 @@ class GetDataCorrectSQLFileRequest extends Model
     public $orderId;
 
     /**
-     * @var string
-     */
-    public $orderActionName;
-
-    /**
      * @var int
      */
     public $tid;
     protected $_name = [
-        'orderId'         => 'OrderId',
-        'orderActionName' => 'OrderActionName',
-        'tid'             => 'Tid',
+        'orderId' => 'OrderId',
+        'tid'     => 'Tid',
     ];
 
     public function validate()
@@ -37,9 +31,6 @@ class GetDataCorrectSQLFileRequest extends Model
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->orderActionName) {
-            $res['OrderActionName'] = $this->orderActionName;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -58,9 +49,6 @@ class GetDataCorrectSQLFileRequest extends Model
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['OrderActionName'])) {
-            $model->orderActionName = $map['OrderActionName'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

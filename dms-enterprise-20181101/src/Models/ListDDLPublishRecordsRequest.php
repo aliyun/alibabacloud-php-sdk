@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetDataExportDownloadURLRequest extends Model
+class ListDDLPublishRecordsRequest extends Model
 {
     /**
      * @var int
      */
-    public $tid;
+    public $orderId;
 
     /**
      * @var int
      */
-    public $orderId;
+    public $tid;
     protected $_name = [
-        'tid'     => 'Tid',
         'orderId' => 'OrderId',
+        'tid'     => 'Tid',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetDataExportDownloadURLRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
-        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class GetDataExportDownloadURLRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetDataExportDownloadURLRequest
+     * @return ListDDLPublishRecordsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
-        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

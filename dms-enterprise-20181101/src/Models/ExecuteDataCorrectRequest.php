@@ -19,18 +19,12 @@ class ExecuteDataCorrectRequest extends Model
     public $orderId;
 
     /**
-     * @var string
-     */
-    public $actionName;
-
-    /**
      * @var mixed[]
      */
     public $actionDetail;
     protected $_name = [
         'tid'          => 'Tid',
         'orderId'      => 'OrderId',
-        'actionName'   => 'ActionName',
         'actionDetail' => 'ActionDetail',
     ];
 
@@ -46,9 +40,6 @@ class ExecuteDataCorrectRequest extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->actionName) {
-            $res['ActionName'] = $this->actionName;
         }
         if (null !== $this->actionDetail) {
             $res['ActionDetail'] = $this->actionDetail;
@@ -70,9 +61,6 @@ class ExecuteDataCorrectRequest extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['ActionName'])) {
-            $model->actionName = $map['ActionName'];
         }
         if (isset($map['ActionDetail'])) {
             $model->actionDetail = $map['ActionDetail'];

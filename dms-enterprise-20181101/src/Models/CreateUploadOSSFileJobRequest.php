@@ -20,11 +20,6 @@ class CreateUploadOSSFileJobRequest extends Model
     public $fileName;
 
     /**
-     * @var string
-     */
-    public $uploadType;
-
-    /**
      * @var uploadTarget
      */
     public $uploadTarget;
@@ -36,7 +31,6 @@ class CreateUploadOSSFileJobRequest extends Model
     protected $_name = [
         'fileSource'   => 'FileSource',
         'fileName'     => 'FileName',
-        'uploadType'   => 'UploadType',
         'uploadTarget' => 'UploadTarget',
         'tid'          => 'Tid',
     ];
@@ -53,9 +47,6 @@ class CreateUploadOSSFileJobRequest extends Model
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
-        }
-        if (null !== $this->uploadType) {
-            $res['UploadType'] = $this->uploadType;
         }
         if (null !== $this->uploadTarget) {
             $res['UploadTarget'] = null !== $this->uploadTarget ? $this->uploadTarget->toMap() : null;
@@ -80,9 +71,6 @@ class CreateUploadOSSFileJobRequest extends Model
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
-        }
-        if (isset($map['UploadType'])) {
-            $model->uploadType = $map['UploadType'];
         }
         if (isset($map['UploadTarget'])) {
             $model->uploadTarget = uploadTarget::fromMap($map['UploadTarget']);

@@ -21,16 +21,10 @@ class GetDataCorrectBackupFilesShrinkRequest extends Model
     /**
      * @var string
      */
-    public $actionName;
-
-    /**
-     * @var string
-     */
     public $actionDetailShrink;
     protected $_name = [
         'tid'                => 'Tid',
         'orderId'            => 'OrderId',
-        'actionName'         => 'ActionName',
         'actionDetailShrink' => 'ActionDetail',
     ];
 
@@ -46,9 +40,6 @@ class GetDataCorrectBackupFilesShrinkRequest extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->actionName) {
-            $res['ActionName'] = $this->actionName;
         }
         if (null !== $this->actionDetailShrink) {
             $res['ActionDetail'] = $this->actionDetailShrink;
@@ -70,9 +61,6 @@ class GetDataCorrectBackupFilesShrinkRequest extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['ActionName'])) {
-            $model->actionName = $map['ActionName'];
         }
         if (isset($map['ActionDetail'])) {
             $model->actionDetailShrink = $map['ActionDetail'];

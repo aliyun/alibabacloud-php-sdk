@@ -118,6 +118,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobDetailReques
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDDLPublishRecordsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDDLPublishRecordsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstancesRequest;
@@ -666,6 +668,34 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserUploadFileJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDDLPublishRecordsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDDLPublishRecordsResponse
+     */
+    public function listDDLPublishRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDDLPublishRecordsResponse::fromMap($this->doRPCRequest('ListDDLPublishRecords', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDDLPublishRecordsRequest $request
+     *
+     * @return ListDDLPublishRecordsResponse
+     */
+    public function listDDLPublishRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDDLPublishRecordsWithOptions($request, $runtime);
     }
 
     /**
