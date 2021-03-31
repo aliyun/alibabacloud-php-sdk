@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models\InitSmartVerifyResponseBody;
+namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models\InitSmartVerifyResponse;
 
 use AlibabaCloud\Tea\Model;
 
@@ -18,6 +18,7 @@ class resultObject extends Model
 
     public function validate()
     {
+        Model::validateRequired('certifyId', $this->certifyId, true);
     }
 
     public function toMap()

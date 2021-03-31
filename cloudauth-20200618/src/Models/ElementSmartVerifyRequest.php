@@ -47,15 +47,21 @@ class ElementSmartVerifyRequest extends Model
      * @var string
      */
     public $certFile;
+
+    /**
+     * @var string
+     */
+    public $certNationalEmblemUrl;
     protected $_name = [
-        'sceneId'      => 'SceneId',
-        'outerOrderNo' => 'OuterOrderNo',
-        'mode'         => 'Mode',
-        'certType'     => 'CertType',
-        'certName'     => 'CertName',
-        'certNo'       => 'CertNo',
-        'certUrl'      => 'CertUrl',
-        'certFile'     => 'CertFile',
+        'sceneId'               => 'SceneId',
+        'outerOrderNo'          => 'OuterOrderNo',
+        'mode'                  => 'Mode',
+        'certType'              => 'CertType',
+        'certName'              => 'CertName',
+        'certNo'                => 'CertNo',
+        'certUrl'               => 'CertUrl',
+        'certFile'              => 'CertFile',
+        'certNationalEmblemUrl' => 'CertNationalEmblemUrl',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class ElementSmartVerifyRequest extends Model
         }
         if (null !== $this->certFile) {
             $res['CertFile'] = $this->certFile;
+        }
+        if (null !== $this->certNationalEmblemUrl) {
+            $res['CertNationalEmblemUrl'] = $this->certNationalEmblemUrl;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class ElementSmartVerifyRequest extends Model
         }
         if (isset($map['CertFile'])) {
             $model->certFile = $map['CertFile'];
+        }
+        if (isset($map['CertNationalEmblemUrl'])) {
+            $model->certNationalEmblemUrl = $map['CertNationalEmblemUrl'];
         }
 
         return $model;

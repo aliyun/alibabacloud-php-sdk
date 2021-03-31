@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class ElementSmartVerifyAdvanceRequest extends Model
 {
@@ -47,15 +48,21 @@ class ElementSmartVerifyAdvanceRequest extends Model
      * @var string
      */
     public $certUrl;
+
+    /**
+     * @var string
+     */
+    public $certNationalEmblemUrl;
     protected $_name = [
-        'certFileObject' => 'CertFileObject',
-        'sceneId'        => 'SceneId',
-        'outerOrderNo'   => 'OuterOrderNo',
-        'mode'           => 'Mode',
-        'certType'       => 'CertType',
-        'certName'       => 'CertName',
-        'certNo'         => 'CertNo',
-        'certUrl'        => 'CertUrl',
+        'certFileObject'        => 'CertFileObject',
+        'sceneId'               => 'SceneId',
+        'outerOrderNo'          => 'OuterOrderNo',
+        'mode'                  => 'Mode',
+        'certType'              => 'CertType',
+        'certName'              => 'CertName',
+        'certNo'                => 'CertNo',
+        'certUrl'               => 'CertUrl',
+        'certNationalEmblemUrl' => 'CertNationalEmblemUrl',
     ];
 
     public function validate()
@@ -89,6 +96,9 @@ class ElementSmartVerifyAdvanceRequest extends Model
         }
         if (null !== $this->certUrl) {
             $res['CertUrl'] = $this->certUrl;
+        }
+        if (null !== $this->certNationalEmblemUrl) {
+            $res['CertNationalEmblemUrl'] = $this->certNationalEmblemUrl;
         }
 
         return $res;
@@ -125,6 +135,9 @@ class ElementSmartVerifyAdvanceRequest extends Model
         }
         if (isset($map['CertUrl'])) {
             $model->certUrl = $map['CertUrl'];
+        }
+        if (isset($map['CertNationalEmblemUrl'])) {
+            $model->certNationalEmblemUrl = $map['CertNationalEmblemUrl'];
         }
 
         return $model;

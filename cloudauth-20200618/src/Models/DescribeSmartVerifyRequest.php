@@ -17,9 +17,15 @@ class DescribeSmartVerifyRequest extends Model
      * @var string
      */
     public $certifyId;
+
+    /**
+     * @var string
+     */
+    public $pictureReturnType;
     protected $_name = [
-        'sceneId'   => 'SceneId',
-        'certifyId' => 'CertifyId',
+        'sceneId'           => 'SceneId',
+        'certifyId'         => 'CertifyId',
+        'pictureReturnType' => 'PictureReturnType',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DescribeSmartVerifyRequest extends Model
         }
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
+        }
+        if (null !== $this->pictureReturnType) {
+            $res['PictureReturnType'] = $this->pictureReturnType;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DescribeSmartVerifyRequest extends Model
         }
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
+        }
+        if (isset($map['PictureReturnType'])) {
+            $model->pictureReturnType = $map['PictureReturnType'];
         }
 
         return $model;
