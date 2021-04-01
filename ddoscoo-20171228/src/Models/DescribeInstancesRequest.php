@@ -91,6 +91,8 @@ class DescribeInstancesRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('pageNo', $this->pageNo, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

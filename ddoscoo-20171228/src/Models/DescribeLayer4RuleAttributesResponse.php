@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
+use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeLayer4RuleAttributesResponse\listeners;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLayer4RuleAttributesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeLayer4RuleAttributesResponseBody
+     * @var listeners[]
      */
-    public $body;
+    public $listeners;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'listeners' => 'Listeners',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('listeners', $this->listeners, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->listeners) {
+            $res['Listeners'] = [];
+            if (null !== $this->listeners && \is_array($this->listeners)) {
+                $n = 0;
+                foreach ($this->listeners as $item) {
+                    $res['Listeners'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class DescribeLayer4RuleAttributesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeLayer4RuleAttributesResponseBody::fromMap($map['body']);
+        if (isset($map['Listeners'])) {
+            if (!empty($map['Listeners'])) {
+                $model->listeners = [];
+                $n                = 0;
+                foreach ($map['Listeners'] as $item) {
+                    $model->listeners[$n++] = null !== $item ? listeners::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

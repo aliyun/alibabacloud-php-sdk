@@ -54,6 +54,8 @@ class DescribeDomainsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('offset', $this->offset, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

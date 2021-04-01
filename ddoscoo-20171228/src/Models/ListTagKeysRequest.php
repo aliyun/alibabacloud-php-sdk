@@ -11,11 +11,6 @@ class ListTagKeysRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
@@ -38,7 +33,6 @@ class ListTagKeysRequest extends Model
      */
     public $currentPage;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceType'    => 'ResourceType',
@@ -48,14 +42,13 @@ class ListTagKeysRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('resourceType', $this->resourceType, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -83,9 +76,6 @@ class ListTagKeysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

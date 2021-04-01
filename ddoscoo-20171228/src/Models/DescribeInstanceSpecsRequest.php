@@ -24,6 +24,7 @@ class DescribeInstanceSpecsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceIds', $this->instanceIds, true);
     }
 
     public function toMap()

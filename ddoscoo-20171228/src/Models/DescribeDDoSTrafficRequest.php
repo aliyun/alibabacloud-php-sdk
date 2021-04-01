@@ -48,6 +48,10 @@ class DescribeDDoSTrafficRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('startTime', $this->startTime, true);
+        Model::validateRequired('interval', $this->interval, true);
+        Model::validateRequired('endTime', $this->endTime, true);
+        Model::validateRequired('eip', $this->eip, true);
     }
 
     public function toMap()

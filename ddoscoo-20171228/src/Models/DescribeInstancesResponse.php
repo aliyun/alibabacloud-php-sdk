@@ -4,38 +4,55 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
+use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeInstancesResponse\instances;
 use AlibabaCloud\Tea\Model;
 
 class DescribeInstancesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeInstancesResponseBody
+     * @var int
      */
-    public $body;
+    public $total;
+
+    /**
+     * @var instances[]
+     */
+    public $instances;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'total'     => 'Total',
+        'instances' => 'Instances',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('total', $this->total, true);
+        Model::validateRequired('instances', $this->instances, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
+        }
+        if (null !== $this->instances) {
+            $res['Instances'] = [];
+            if (null !== $this->instances && \is_array($this->instances)) {
+                $n = 0;
+                foreach ($this->instances as $item) {
+                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +66,20 @@ class DescribeInstancesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeInstancesResponseBody::fromMap($map['body']);
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
+        }
+        if (isset($map['Instances'])) {
+            if (!empty($map['Instances'])) {
+                $model->instances = [];
+                $n                = 0;
+                foreach ($map['Instances'] as $item) {
+                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

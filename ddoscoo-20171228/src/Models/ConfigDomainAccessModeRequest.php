@@ -30,6 +30,8 @@ class ConfigDomainAccessModeRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('domain', $this->domain, true);
+        Model::validateRequired('accessMode', $this->accessMode, true);
     }
 
     public function toMap()

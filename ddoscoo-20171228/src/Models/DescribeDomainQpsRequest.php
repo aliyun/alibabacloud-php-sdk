@@ -42,6 +42,9 @@ class DescribeDomainQpsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('domain', $this->domain, true);
+        Model::validateRequired('startTime', $this->startTime, true);
+        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()

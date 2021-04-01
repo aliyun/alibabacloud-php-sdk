@@ -30,6 +30,7 @@ class DisableLayer7CCRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('domain', $this->domain, true);
     }
 
     public function toMap()

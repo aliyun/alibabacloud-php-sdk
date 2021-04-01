@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeSimpleDomainsResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeSimpleDomainsResponseBody
+     * @var string[]
      */
-    public $body;
+    public $domainList;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'  => 'RequestId',
+        'domainList' => 'DomainList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('domainList', $this->domainList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->domainList) {
+            $res['DomainList'] = $this->domainList;
         }
 
         return $res;
@@ -49,11 +49,13 @@ class DescribeSimpleDomainsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeSimpleDomainsResponseBody::fromMap($map['body']);
+        if (isset($map['DomainList'])) {
+            if (!empty($map['DomainList'])) {
+                $model->domainList = $map['DomainList'];
+            }
         }
 
         return $model;

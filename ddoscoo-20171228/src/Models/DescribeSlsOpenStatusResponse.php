@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlsOpenStatusResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeSlsOpenStatusResponseBody
+     * @var bool
      */
-    public $body;
+    public $slsOpenStatus;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'     => 'RequestId',
+        'slsOpenStatus' => 'SlsOpenStatus',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('slsOpenStatus', $this->slsOpenStatus, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->slsOpenStatus) {
+            $res['SlsOpenStatus'] = $this->slsOpenStatus;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class DescribeSlsOpenStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeSlsOpenStatusResponseBody::fromMap($map['body']);
+        if (isset($map['SlsOpenStatus'])) {
+            $model->slsOpenStatus = $map['SlsOpenStatus'];
         }
 
         return $model;

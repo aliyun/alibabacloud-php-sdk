@@ -36,6 +36,7 @@ class ModifyFullLogTtlRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('ttl', $this->ttl, true);
     }
 
     public function toMap()

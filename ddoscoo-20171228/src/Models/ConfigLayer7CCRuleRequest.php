@@ -11,11 +11,6 @@ class ConfigLayer7CCRuleRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
 
     /**
@@ -58,7 +53,6 @@ class ConfigLayer7CCRuleRequest extends Model
      */
     public $uri;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
         'name'            => 'Name',
@@ -72,14 +66,19 @@ class ConfigLayer7CCRuleRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('domain', $this->domain, true);
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('act', $this->act, true);
+        Model::validateRequired('count', $this->count, true);
+        Model::validateRequired('interval', $this->interval, true);
+        Model::validateRequired('mode', $this->mode, true);
+        Model::validateRequired('ttl', $this->ttl, true);
+        Model::validateRequired('uri', $this->uri, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -119,9 +118,6 @@ class ConfigLayer7CCRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

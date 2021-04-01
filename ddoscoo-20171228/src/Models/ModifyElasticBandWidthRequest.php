@@ -30,6 +30,8 @@ class ModifyElasticBandWidthRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('elasticBandwidth', $this->elasticBandwidth, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

@@ -54,6 +54,11 @@ class DescribeDomainAttackEventsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('startTime', $this->startTime, true);
+        Model::validateRequired('endTime', $this->endTime, true);
+        Model::validateRequired('domain', $this->domain, true);
+        Model::validateRequired('offset', $this->offset, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

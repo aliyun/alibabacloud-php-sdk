@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
+use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribleCertListResponse\certList;
 use AlibabaCloud\Tea\Model;
 
 class DescribleCertListResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribleCertListResponseBody
+     * @var certList[]
      */
-    public $body;
+    public $certList;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'certList'  => 'CertList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('certList', $this->certList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->certList) {
+            $res['CertList'] = [];
+            if (null !== $this->certList && \is_array($this->certList)) {
+                $n = 0;
+                foreach ($this->certList as $item) {
+                    $res['CertList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class DescribleCertListResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribleCertListResponseBody::fromMap($map['body']);
+        if (isset($map['CertList'])) {
+            if (!empty($map['CertList'])) {
+                $model->certList = [];
+                $n               = 0;
+                foreach ($map['CertList'] as $item) {
+                    $model->certList[$n++] = null !== $item ? certList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
