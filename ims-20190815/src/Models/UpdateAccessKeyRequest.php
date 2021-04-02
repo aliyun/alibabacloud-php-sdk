@@ -22,20 +22,16 @@ class UpdateAccessKeyRequest extends Model
      * @var string
      */
     public $status;
-
-    /**
-     * @var string
-     */
-    public $akProxySuffix;
     protected $_name = [
         'userPrincipalName' => 'UserPrincipalName',
         'userAccessKeyId'   => 'UserAccessKeyId',
         'status'            => 'Status',
-        'akProxySuffix'     => 'AkProxySuffix',
     ];
 
     public function validate()
     {
+        Model::validateRequired('userAccessKeyId', $this->userAccessKeyId, true);
+        Model::validateRequired('status', $this->status, true);
     }
 
     public function toMap()
@@ -49,9 +45,6 @@ class UpdateAccessKeyRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->akProxySuffix) {
-            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -73,9 +66,6 @@ class UpdateAccessKeyRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['AkProxySuffix'])) {
-            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

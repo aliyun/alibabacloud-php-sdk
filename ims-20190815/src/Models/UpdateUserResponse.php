@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateUserResponse\user;
 use AlibabaCloud\Tea\Model;
 
 class UpdateUserResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var UpdateUserResponseBody
+     * @var user
      */
-    public $body;
+    public $user;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'user'      => 'User',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('user', $this->user, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->user) {
+            $res['User'] = null !== $this->user ? $this->user->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class UpdateUserResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = UpdateUserResponseBody::fromMap($map['body']);
+        if (isset($map['User'])) {
+            $model->user = user::fromMap($map['User']);
         }
 
         return $model;

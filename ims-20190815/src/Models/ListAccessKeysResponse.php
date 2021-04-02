@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListAccessKeysResponse\accessKeys;
 use AlibabaCloud\Tea\Model;
 
 class ListAccessKeysResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var ListAccessKeysResponseBody
+     * @var accessKeys
      */
-    public $body;
+    public $accessKeys;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'  => 'RequestId',
+        'accessKeys' => 'AccessKeys',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('accessKeys', $this->accessKeys, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->accessKeys) {
+            $res['AccessKeys'] = null !== $this->accessKeys ? $this->accessKeys->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class ListAccessKeysResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = ListAccessKeysResponseBody::fromMap($map['body']);
+        if (isset($map['AccessKeys'])) {
+            $model->accessKeys = accessKeys::fromMap($map['AccessKeys']);
         }
 
         return $model;

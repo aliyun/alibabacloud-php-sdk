@@ -8,26 +8,13 @@ use AlibabaCloud\Tea\Model;
 
 class GetCredentialReportRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $akProxySuffix;
-    protected $_name = [
-        'akProxySuffix' => 'AkProxySuffix',
-    ];
-
     public function validate()
     {
     }
 
     public function toMap()
     {
-        $res = [];
-        if (null !== $this->akProxySuffix) {
-            $res['AkProxySuffix'] = $this->akProxySuffix;
-        }
-
-        return $res;
+        return [];
     }
 
     /**
@@ -37,11 +24,6 @@ class GetCredentialReportRequest extends Model
      */
     public static function fromMap($map = [])
     {
-        $model = new self();
-        if (isset($map['AkProxySuffix'])) {
-            $model->akProxySuffix = $map['AkProxySuffix'];
-        }
-
-        return $model;
+        return new self();
     }
 }

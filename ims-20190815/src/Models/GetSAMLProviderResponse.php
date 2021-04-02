@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetSAMLProviderResponse\SAMLProvider;
 use AlibabaCloud\Tea\Model;
 
 class GetSAMLProviderResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var GetSAMLProviderResponseBody
+     * @var SAMLProvider
      */
-    public $body;
+    public $SAMLProvider;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'    => 'RequestId',
+        'SAMLProvider' => 'SAMLProvider',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('SAMLProvider', $this->SAMLProvider, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->SAMLProvider) {
+            $res['SAMLProvider'] = null !== $this->SAMLProvider ? $this->SAMLProvider->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class GetSAMLProviderResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = GetSAMLProviderResponseBody::fromMap($map['body']);
+        if (isset($map['SAMLProvider'])) {
+            $model->SAMLProvider = SAMLProvider::fromMap($map['SAMLProvider']);
         }
 
         return $model;

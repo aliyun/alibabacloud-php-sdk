@@ -17,19 +17,14 @@ class DeleteAccessKeyRequest extends Model
      * @var string
      */
     public $userPrincipalName;
-
-    /**
-     * @var string
-     */
-    public $akProxySuffix;
     protected $_name = [
         'userAccessKeyId'   => 'UserAccessKeyId',
         'userPrincipalName' => 'UserPrincipalName',
-        'akProxySuffix'     => 'AkProxySuffix',
     ];
 
     public function validate()
     {
+        Model::validateRequired('userAccessKeyId', $this->userAccessKeyId, true);
     }
 
     public function toMap()
@@ -40,9 +35,6 @@ class DeleteAccessKeyRequest extends Model
         }
         if (null !== $this->userPrincipalName) {
             $res['UserPrincipalName'] = $this->userPrincipalName;
-        }
-        if (null !== $this->akProxySuffix) {
-            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -61,9 +53,6 @@ class DeleteAccessKeyRequest extends Model
         }
         if (isset($map['UserPrincipalName'])) {
             $model->userPrincipalName = $map['UserPrincipalName'];
-        }
-        if (isset($map['AkProxySuffix'])) {
-            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

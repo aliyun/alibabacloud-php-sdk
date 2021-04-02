@@ -16,17 +16,7 @@ class CreateSAMLProviderRequest extends Model
     /**
      * @var string
      */
-    public $SAMLMetadataDocument;
-
-    /**
-     * @var string
-     */
     public $description;
-
-    /**
-     * @var string
-     */
-    public $akProxySuffix;
 
     /**
      * @var string
@@ -34,14 +24,13 @@ class CreateSAMLProviderRequest extends Model
     public $encodedSAMLMetadataDocument;
     protected $_name = [
         'SAMLProviderName'            => 'SAMLProviderName',
-        'SAMLMetadataDocument'        => 'SAMLMetadataDocument',
         'description'                 => 'Description',
-        'akProxySuffix'               => 'AkProxySuffix',
         'encodedSAMLMetadataDocument' => 'EncodedSAMLMetadataDocument',
     ];
 
     public function validate()
     {
+        Model::validateRequired('SAMLProviderName', $this->SAMLProviderName, true);
     }
 
     public function toMap()
@@ -50,14 +39,8 @@ class CreateSAMLProviderRequest extends Model
         if (null !== $this->SAMLProviderName) {
             $res['SAMLProviderName'] = $this->SAMLProviderName;
         }
-        if (null !== $this->SAMLMetadataDocument) {
-            $res['SAMLMetadataDocument'] = $this->SAMLMetadataDocument;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->akProxySuffix) {
-            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
         if (null !== $this->encodedSAMLMetadataDocument) {
             $res['EncodedSAMLMetadataDocument'] = $this->encodedSAMLMetadataDocument;
@@ -77,14 +60,8 @@ class CreateSAMLProviderRequest extends Model
         if (isset($map['SAMLProviderName'])) {
             $model->SAMLProviderName = $map['SAMLProviderName'];
         }
-        if (isset($map['SAMLMetadataDocument'])) {
-            $model->SAMLMetadataDocument = $map['SAMLMetadataDocument'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['AkProxySuffix'])) {
-            $model->akProxySuffix = $map['AkProxySuffix'];
         }
         if (isset($map['EncodedSAMLMetadataDocument'])) {
             $model->encodedSAMLMetadataDocument = $map['EncodedSAMLMetadataDocument'];

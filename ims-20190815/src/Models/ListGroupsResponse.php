@@ -4,38 +4,59 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListGroupsResponse\groups;
 use AlibabaCloud\Tea\Model;
 
 class ListGroupsResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var ListGroupsResponseBody
+     * @var bool
      */
-    public $body;
+    public $isTruncated;
+
+    /**
+     * @var string
+     */
+    public $marker;
+
+    /**
+     * @var groups
+     */
+    public $groups;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'   => 'RequestId',
+        'isTruncated' => 'IsTruncated',
+        'marker'      => 'Marker',
+        'groups'      => 'Groups',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('isTruncated', $this->isTruncated, true);
+        Model::validateRequired('marker', $this->marker, true);
+        Model::validateRequired('groups', $this->groups, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->isTruncated) {
+            $res['IsTruncated'] = $this->isTruncated;
+        }
+        if (null !== $this->marker) {
+            $res['Marker'] = $this->marker;
+        }
+        if (null !== $this->groups) {
+            $res['Groups'] = null !== $this->groups ? $this->groups->toMap() : null;
         }
 
         return $res;
@@ -49,11 +70,17 @@ class ListGroupsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = ListGroupsResponseBody::fromMap($map['body']);
+        if (isset($map['IsTruncated'])) {
+            $model->isTruncated = $map['IsTruncated'];
+        }
+        if (isset($map['Marker'])) {
+            $model->marker = $map['Marker'];
+        }
+        if (isset($map['Groups'])) {
+            $model->groups = groups::fromMap($map['Groups']);
         }
 
         return $model;

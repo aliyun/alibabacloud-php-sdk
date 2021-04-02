@@ -32,22 +32,18 @@ class CreateUserRequest extends Model
      * @var string
      */
     public $comments;
-
-    /**
-     * @var string
-     */
-    public $akProxySuffix;
     protected $_name = [
         'userPrincipalName' => 'UserPrincipalName',
         'displayName'       => 'DisplayName',
         'mobilePhone'       => 'MobilePhone',
         'email'             => 'Email',
         'comments'          => 'Comments',
-        'akProxySuffix'     => 'AkProxySuffix',
     ];
 
     public function validate()
     {
+        Model::validateRequired('userPrincipalName', $this->userPrincipalName, true);
+        Model::validateRequired('displayName', $this->displayName, true);
     }
 
     public function toMap()
@@ -67,9 +63,6 @@ class CreateUserRequest extends Model
         }
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
-        }
-        if (null !== $this->akProxySuffix) {
-            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -97,9 +90,6 @@ class CreateUserRequest extends Model
         }
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
-        }
-        if (isset($map['AkProxySuffix'])) {
-            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

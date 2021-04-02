@@ -17,15 +17,9 @@ class ListSAMLProvidersRequest extends Model
      * @var int
      */
     public $maxItems;
-
-    /**
-     * @var string
-     */
-    public $akProxySuffix;
     protected $_name = [
-        'marker'        => 'Marker',
-        'maxItems'      => 'MaxItems',
-        'akProxySuffix' => 'AkProxySuffix',
+        'marker'   => 'Marker',
+        'maxItems' => 'MaxItems',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class ListSAMLProvidersRequest extends Model
         }
         if (null !== $this->maxItems) {
             $res['MaxItems'] = $this->maxItems;
-        }
-        if (null !== $this->akProxySuffix) {
-            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class ListSAMLProvidersRequest extends Model
         }
         if (isset($map['MaxItems'])) {
             $model->maxItems = $map['MaxItems'];
-        }
-        if (isset($map['AkProxySuffix'])) {
-            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;

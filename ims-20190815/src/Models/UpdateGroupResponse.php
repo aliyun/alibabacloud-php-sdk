@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateGroupResponse\group;
 use AlibabaCloud\Tea\Model;
 
 class UpdateGroupResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var UpdateGroupResponseBody
+     * @var group
      */
-    public $body;
+    public $group;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'group'     => 'Group',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('group', $this->group, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->group) {
+            $res['Group'] = null !== $this->group ? $this->group->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class UpdateGroupResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = UpdateGroupResponseBody::fromMap($map['body']);
+        if (isset($map['Group'])) {
+            $model->group = group::fromMap($map['Group']);
         }
 
         return $model;

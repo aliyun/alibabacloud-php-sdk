@@ -4,38 +4,39 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
+use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateApplicationResponse\application;
 use AlibabaCloud\Tea\Model;
 
 class UpdateApplicationResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var UpdateApplicationResponseBody
+     * @var application
      */
-    public $body;
+    public $application;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'   => 'RequestId',
+        'application' => 'Application',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('application', $this->application, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->application) {
+            $res['Application'] = null !== $this->application ? $this->application->toMap() : null;
         }
 
         return $res;
@@ -49,11 +50,11 @@ class UpdateApplicationResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = UpdateApplicationResponseBody::fromMap($map['body']);
+        if (isset($map['Application'])) {
+            $model->application = application::fromMap($map['Application']);
         }
 
         return $model;

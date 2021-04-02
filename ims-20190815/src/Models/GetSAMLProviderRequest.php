@@ -12,18 +12,13 @@ class GetSAMLProviderRequest extends Model
      * @var string
      */
     public $SAMLProviderName;
-
-    /**
-     * @var string
-     */
-    public $akProxySuffix;
     protected $_name = [
         'SAMLProviderName' => 'SAMLProviderName',
-        'akProxySuffix'    => 'AkProxySuffix',
     ];
 
     public function validate()
     {
+        Model::validateRequired('SAMLProviderName', $this->SAMLProviderName, true);
     }
 
     public function toMap()
@@ -31,9 +26,6 @@ class GetSAMLProviderRequest extends Model
         $res = [];
         if (null !== $this->SAMLProviderName) {
             $res['SAMLProviderName'] = $this->SAMLProviderName;
-        }
-        if (null !== $this->akProxySuffix) {
-            $res['AkProxySuffix'] = $this->akProxySuffix;
         }
 
         return $res;
@@ -49,9 +41,6 @@ class GetSAMLProviderRequest extends Model
         $model = new self();
         if (isset($map['SAMLProviderName'])) {
             $model->SAMLProviderName = $map['SAMLProviderName'];
-        }
-        if (isset($map['AkProxySuffix'])) {
-            $model->akProxySuffix = $map['AkProxySuffix'];
         }
 
         return $model;
