@@ -123,6 +123,9 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceEntitiesResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\MergeImageFaceAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\MergeImageFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\MergeImageFaceResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\MonitorExaminationAdvanceRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\MonitorExaminationRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\MonitorExaminationResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\PedestrianDetectAttributeAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\PedestrianDetectAttributeRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\PedestrianDetectAttributeResponse;
@@ -3720,6 +3723,100 @@ class Facebody extends OpenApiClient
         $bodyPostureReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
         return $this->bodyPostureWithOptions($bodyPostureReq, $runtime);
+    }
+
+    /**
+     * @param MonitorExaminationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return MonitorExaminationResponse
+     */
+    public function monitorExaminationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return MonitorExaminationResponse::fromMap($this->doRPCRequest('MonitorExamination', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param MonitorExaminationRequest $request
+     *
+     * @return MonitorExaminationResponse
+     */
+    public function monitorExamination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->monitorExaminationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MonitorExaminationAdvanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return MonitorExaminationResponse
+     */
+    public function monitorExaminationAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId     = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $authConfig      = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => 'openplatform.aliyuncs.com',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'facebody',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $monitorExaminationReq = new MonitorExaminationRequest([]);
+        OpenApiUtilClient::convert($request, $monitorExaminationReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->imageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $monitorExaminationReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->monitorExaminationWithOptions($monitorExaminationReq, $runtime);
     }
 
     /**

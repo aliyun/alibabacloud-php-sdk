@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
-use AlibabaCloud\SDK\Facebody\V20191230\Models\CompareFaceResponseBody\data;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\MonitorExaminationResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CompareFaceResponseBody extends Model
+class MonitorExaminationResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;
@@ -43,7 +45,7 @@ class CompareFaceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CompareFaceResponseBody
+     * @return MonitorExaminationResponseBody
      */
     public static function fromMap($map = [])
     {

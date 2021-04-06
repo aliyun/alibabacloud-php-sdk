@@ -12,8 +12,14 @@ class tasks extends Model
      * @var string
      */
     public $imageURL;
+
+    /**
+     * @var int[]
+     */
+    public $imageData;
     protected $_name = [
-        'imageURL' => 'ImageURL',
+        'imageURL'  => 'ImageURL',
+        'imageData' => 'ImageData',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class tasks extends Model
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->imageData) {
+            $res['ImageData'] = $this->imageData;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class tasks extends Model
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['ImageData'])) {
+            $model->imageData = $map['ImageData'];
         }
 
         return $model;

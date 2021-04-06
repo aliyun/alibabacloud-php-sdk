@@ -16,11 +16,6 @@ class CompareFaceRequest extends Model
     public $qualityScoreThreshold;
 
     /**
-     * @var int
-     */
-    public $imageType;
-
-    /**
      * @var string
      */
     public $imageURLA;
@@ -41,7 +36,6 @@ class CompareFaceRequest extends Model
     public $imageDataB;
     protected $_name = [
         'qualityScoreThreshold' => 'QualityScoreThreshold',
-        'imageType'             => 'ImageType',
         'imageURLA'             => 'ImageURLA',
         'imageURLB'             => 'ImageURLB',
         'imageDataA'            => 'ImageDataA',
@@ -57,9 +51,6 @@ class CompareFaceRequest extends Model
         $res = [];
         if (null !== $this->qualityScoreThreshold) {
             $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
-        }
-        if (null !== $this->imageType) {
-            $res['ImageType'] = $this->imageType;
         }
         if (null !== $this->imageURLA) {
             $res['ImageURLA'] = $this->imageURLA;
@@ -87,9 +78,6 @@ class CompareFaceRequest extends Model
         $model = new self();
         if (isset($map['QualityScoreThreshold'])) {
             $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
-        }
-        if (isset($map['ImageType'])) {
-            $model->imageType = $map['ImageType'];
         }
         if (isset($map['ImageURLA'])) {
             $model->imageURLA = $map['ImageURLA'];

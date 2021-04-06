@@ -15,11 +15,6 @@ class DetectIPCPedestrianAdvanceRequest extends Model
     public $imageURLObject;
 
     /**
-     * @var bool
-     */
-    public $continueOnError;
-
-    /**
      * @var string
      */
     public $imageData;
@@ -33,18 +28,11 @@ class DetectIPCPedestrianAdvanceRequest extends Model
      * @var int
      */
     public $height;
-
-    /**
-     * @var string
-     */
-    public $dataId;
     protected $_name = [
-        'imageURLObject'  => 'ImageURLObject',
-        'continueOnError' => 'ContinueOnError',
-        'imageData'       => 'ImageData',
-        'width'           => 'Width',
-        'height'          => 'Height',
-        'dataId'          => 'DataId',
+        'imageURLObject' => 'ImageURLObject',
+        'imageData'      => 'ImageData',
+        'width'          => 'Width',
+        'height'         => 'Height',
     ];
 
     public function validate()
@@ -58,9 +46,6 @@ class DetectIPCPedestrianAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
         }
-        if (null !== $this->continueOnError) {
-            $res['ContinueOnError'] = $this->continueOnError;
-        }
         if (null !== $this->imageData) {
             $res['ImageData'] = $this->imageData;
         }
@@ -69,9 +54,6 @@ class DetectIPCPedestrianAdvanceRequest extends Model
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
-        }
-        if (null !== $this->dataId) {
-            $res['DataId'] = $this->dataId;
         }
 
         return $res;
@@ -88,9 +70,6 @@ class DetectIPCPedestrianAdvanceRequest extends Model
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
         }
-        if (isset($map['ContinueOnError'])) {
-            $model->continueOnError = $map['ContinueOnError'];
-        }
         if (isset($map['ImageData'])) {
             $model->imageData = $map['ImageData'];
         }
@@ -99,9 +78,6 @@ class DetectIPCPedestrianAdvanceRequest extends Model
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
-        }
-        if (isset($map['DataId'])) {
-            $model->dataId = $map['DataId'];
         }
 
         return $model;

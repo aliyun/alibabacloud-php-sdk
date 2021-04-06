@@ -2,24 +2,26 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizePublicFaceRequest;
+namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class task extends Model
+class MonitorExaminationRequest extends Model
 {
+    /**
+     * @description A short description of struct
+     *
+     * @var int
+     */
+    public $type;
+
     /**
      * @var string
      */
     public $imageURL;
-
-    /**
-     * @var int[]
-     */
-    public $imageData;
     protected $_name = [
-        'imageURL'  => 'ImageURL',
-        'imageData' => 'ImageData',
+        'type'     => 'Type',
+        'imageURL' => 'ImageURL',
     ];
 
     public function validate()
@@ -29,11 +31,11 @@ class task extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
-        }
-        if (null !== $this->imageData) {
-            $res['ImageData'] = $this->imageData;
         }
 
         return $res;
@@ -42,16 +44,16 @@ class task extends Model
     /**
      * @param array $map
      *
-     * @return task
+     * @return MonitorExaminationRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
-        }
-        if (isset($map['ImageData'])) {
-            $model->imageData = $map['ImageData'];
         }
 
         return $model;

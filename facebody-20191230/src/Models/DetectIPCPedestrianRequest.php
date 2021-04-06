@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DetectIPCPedestrianRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $continueOnError;
-
-    /**
      * @var string
      */
     public $imageData;
@@ -32,18 +27,11 @@ class DetectIPCPedestrianRequest extends Model
      * @var string
      */
     public $imageURL;
-
-    /**
-     * @var string
-     */
-    public $dataId;
     protected $_name = [
-        'continueOnError' => 'ContinueOnError',
-        'imageData'       => 'ImageData',
-        'width'           => 'Width',
-        'height'          => 'Height',
-        'imageURL'        => 'ImageURL',
-        'dataId'          => 'DataId',
+        'imageData' => 'ImageData',
+        'width'     => 'Width',
+        'height'    => 'Height',
+        'imageURL'  => 'ImageURL',
     ];
 
     public function validate()
@@ -53,9 +41,6 @@ class DetectIPCPedestrianRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->continueOnError) {
-            $res['ContinueOnError'] = $this->continueOnError;
-        }
         if (null !== $this->imageData) {
             $res['ImageData'] = $this->imageData;
         }
@@ -67,9 +52,6 @@ class DetectIPCPedestrianRequest extends Model
         }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
-        }
-        if (null !== $this->dataId) {
-            $res['DataId'] = $this->dataId;
         }
 
         return $res;
@@ -83,9 +65,6 @@ class DetectIPCPedestrianRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ContinueOnError'])) {
-            $model->continueOnError = $map['ContinueOnError'];
-        }
         if (isset($map['ImageData'])) {
             $model->imageData = $map['ImageData'];
         }
@@ -97,9 +76,6 @@ class DetectIPCPedestrianRequest extends Model
         }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
-        }
-        if (isset($map['DataId'])) {
-            $model->dataId = $map['DataId'];
         }
 
         return $model;
