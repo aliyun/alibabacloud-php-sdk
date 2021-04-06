@@ -32,12 +32,24 @@ class detections extends Model
      * @var int[]
      */
     public $coordinateImage;
+
+    /**
+     * @var string
+     */
+    public $fractureLocation;
+
+    /**
+     * @var int
+     */
+    public $fractureSegment;
     protected $_name = [
         'fractureId'         => 'FractureId',
         'fractureConfidence' => 'FractureConfidence',
         'fractureCategory'   => 'FractureCategory',
         'coordinates'        => 'Coordinates',
         'coordinateImage'    => 'CoordinateImage',
+        'fractureLocation'   => 'FractureLocation',
+        'fractureSegment'    => 'FractureSegment',
     ];
 
     public function validate()
@@ -61,6 +73,12 @@ class detections extends Model
         }
         if (null !== $this->coordinateImage) {
             $res['CoordinateImage'] = $this->coordinateImage;
+        }
+        if (null !== $this->fractureLocation) {
+            $res['FractureLocation'] = $this->fractureLocation;
+        }
+        if (null !== $this->fractureSegment) {
+            $res['FractureSegment'] = $this->fractureSegment;
         }
 
         return $res;
@@ -92,6 +110,12 @@ class detections extends Model
             if (!empty($map['CoordinateImage'])) {
                 $model->coordinateImage = $map['CoordinateImage'];
             }
+        }
+        if (isset($map['FractureLocation'])) {
+            $model->fractureLocation = $map['FractureLocation'];
+        }
+        if (isset($map['FractureSegment'])) {
+            $model->fractureSegment = $map['FractureSegment'];
         }
 
         return $model;

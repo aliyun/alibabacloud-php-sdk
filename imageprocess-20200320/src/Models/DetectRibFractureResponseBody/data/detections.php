@@ -32,12 +32,24 @@ class detections extends Model
      * @var string
      */
     public $fractureCategory;
+
+    /**
+     * @var string
+     */
+    public $fractureLocation;
+
+    /**
+     * @var int
+     */
+    public $fractureSegment;
     protected $_name = [
         'coordinates'        => 'Coordinates',
         'fractureId'         => 'FractureId',
         'coordinateImage'    => 'CoordinateImage',
         'fractureConfidence' => 'FractureConfidence',
         'fractureCategory'   => 'FractureCategory',
+        'fractureLocation'   => 'FractureLocation',
+        'fractureSegment'    => 'FractureSegment',
     ];
 
     public function validate()
@@ -61,6 +73,12 @@ class detections extends Model
         }
         if (null !== $this->fractureCategory) {
             $res['FractureCategory'] = $this->fractureCategory;
+        }
+        if (null !== $this->fractureLocation) {
+            $res['FractureLocation'] = $this->fractureLocation;
+        }
+        if (null !== $this->fractureSegment) {
+            $res['FractureSegment'] = $this->fractureSegment;
         }
 
         return $res;
@@ -92,6 +110,12 @@ class detections extends Model
         }
         if (isset($map['FractureCategory'])) {
             $model->fractureCategory = $map['FractureCategory'];
+        }
+        if (isset($map['FractureLocation'])) {
+            $model->fractureLocation = $map['FractureLocation'];
+        }
+        if (isset($map['FractureSegment'])) {
+            $model->fractureSegment = $map['FractureSegment'];
         }
 
         return $model;
