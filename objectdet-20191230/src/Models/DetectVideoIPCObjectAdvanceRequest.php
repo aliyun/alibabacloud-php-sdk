@@ -7,26 +7,26 @@ namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class DetectVehicleAdvanceRequest extends Model
+class DetectVideoIPCObjectAdvanceRequest extends Model
 {
     /**
      * @var Stream
      */
-    public $imageURLObject;
+    public $videoURLObject;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
+        'videoURLObject' => 'VideoURLObject',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
+        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
+        if (null !== $this->videoURLObject) {
+            $res['VideoURLObject'] = $this->videoURLObject;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class DetectVehicleAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return DetectVehicleAdvanceRequest
+     * @return DetectVideoIPCObjectAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
+        if (isset($map['VideoURLObject'])) {
+            $model->videoURLObject = $map['VideoURLObject'];
         }
 
         return $model;

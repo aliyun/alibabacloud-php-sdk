@@ -5,28 +5,26 @@
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
-use GuzzleHttp\Psr7\Stream;
 
-class DetectVehicleAdvanceRequest extends Model
+class GetAsyncJobResultRequest extends Model
 {
     /**
-     * @var Stream
+     * @var string
      */
-    public $imageURLObject;
+    public $jobId;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
+        'jobId' => 'JobId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class DetectVehicleAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return DetectVehicleAdvanceRequest
+     * @return GetAsyncJobResultRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         return $model;
