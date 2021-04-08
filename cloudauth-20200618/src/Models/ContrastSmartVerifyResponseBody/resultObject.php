@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models\VerifyBankElementResponse;
+namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models\ContrastSmartVerifyResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
@@ -11,7 +11,7 @@ class resultObject extends Model
     /**
      * @var string
      */
-    public $passed;
+    public $verifyInfo;
 
     /**
      * @var string
@@ -21,41 +21,46 @@ class resultObject extends Model
     /**
      * @var string
      */
-    public $materialInfo;
+    public $certifyId;
 
     /**
      * @var string
      */
-    public $certifyId;
+    public $riskInfo;
+
+    /**
+     * @var string
+     */
+    public $passed;
     protected $_name = [
-        'passed'       => 'Passed',
-        'subCode'      => 'SubCode',
-        'materialInfo' => 'MaterialInfo',
-        'certifyId'    => 'CertifyId',
+        'verifyInfo' => 'VerifyInfo',
+        'subCode'    => 'SubCode',
+        'certifyId'  => 'CertifyId',
+        'riskInfo'   => 'RiskInfo',
+        'passed'     => 'Passed',
     ];
 
     public function validate()
     {
-        Model::validateRequired('passed', $this->passed, true);
-        Model::validateRequired('subCode', $this->subCode, true);
-        Model::validateRequired('materialInfo', $this->materialInfo, true);
-        Model::validateRequired('certifyId', $this->certifyId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->passed) {
-            $res['Passed'] = $this->passed;
+        if (null !== $this->verifyInfo) {
+            $res['VerifyInfo'] = $this->verifyInfo;
         }
         if (null !== $this->subCode) {
             $res['SubCode'] = $this->subCode;
         }
-        if (null !== $this->materialInfo) {
-            $res['MaterialInfo'] = $this->materialInfo;
-        }
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
+        }
+        if (null !== $this->riskInfo) {
+            $res['RiskInfo'] = $this->riskInfo;
+        }
+        if (null !== $this->passed) {
+            $res['Passed'] = $this->passed;
         }
 
         return $res;
@@ -69,17 +74,20 @@ class resultObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Passed'])) {
-            $model->passed = $map['Passed'];
+        if (isset($map['VerifyInfo'])) {
+            $model->verifyInfo = $map['VerifyInfo'];
         }
         if (isset($map['SubCode'])) {
             $model->subCode = $map['SubCode'];
         }
-        if (isset($map['MaterialInfo'])) {
-            $model->materialInfo = $map['MaterialInfo'];
-        }
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
+        }
+        if (isset($map['RiskInfo'])) {
+            $model->riskInfo = $map['RiskInfo'];
+        }
+        if (isset($map['Passed'])) {
+            $model->passed = $map['Passed'];
         }
 
         return $model;
