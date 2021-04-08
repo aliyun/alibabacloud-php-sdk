@@ -97,6 +97,16 @@ class InitSmartVerifyRequest extends Model
      * @var string
      */
     public $ossObjectName;
+
+    /**
+     * @var string
+     */
+    public $idNo;
+
+    /**
+     * @var string
+     */
+    public $idName;
     protected $_name = [
         'sceneId'           => 'SceneId',
         'outerOrderNo'      => 'OuterOrderNo',
@@ -116,6 +126,8 @@ class InitSmartVerifyRequest extends Model
         'certifyId'         => 'CertifyId',
         'ossBucketName'     => 'OssBucketName',
         'ossObjectName'     => 'OssObjectName',
+        'idNo'              => 'IdNo',
+        'idName'            => 'IdName',
     ];
 
     public function validate()
@@ -178,6 +190,12 @@ class InitSmartVerifyRequest extends Model
         }
         if (null !== $this->ossObjectName) {
             $res['OssObjectName'] = $this->ossObjectName;
+        }
+        if (null !== $this->idNo) {
+            $res['IdNo'] = $this->idNo;
+        }
+        if (null !== $this->idName) {
+            $res['IdName'] = $this->idName;
         }
 
         return $res;
@@ -244,6 +262,12 @@ class InitSmartVerifyRequest extends Model
         }
         if (isset($map['OssObjectName'])) {
             $model->ossObjectName = $map['OssObjectName'];
+        }
+        if (isset($map['IdNo'])) {
+            $model->idNo = $map['IdNo'];
+        }
+        if (isset($map['IdName'])) {
+            $model->idName = $map['IdName'];
         }
 
         return $model;

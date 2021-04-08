@@ -15,6 +15,9 @@ use AlibabaCloud\SDK\Cloudauth\V20200618\Models\ElementSmartVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20200618\Models\ElementSmartVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20200618\Models\InitSmartVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20200618\Models\InitSmartVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20200618\Models\VerifyBankElementAdvanceRequest;
+use AlibabaCloud\SDK\Cloudauth\V20200618\Models\VerifyBankElementRequest;
+use AlibabaCloud\SDK\Cloudauth\V20200618\Models\VerifyBankElementResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
@@ -37,6 +40,101 @@ class Cloudauth extends Rpc
         $this->_endpointRule = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloudauth', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param VerifyBankElementRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return VerifyBankElementResponse
+     */
+    public function verifyBankElement($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return VerifyBankElementResponse::fromMap($this->doRequest('VerifyBankElement', 'HTTPS', 'POST', '2020-06-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param VerifyBankElementRequest $request
+     *
+     * @return VerifyBankElementResponse
+     */
+    public function verifyBankElementSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyBankElement($request, $runtime);
+    }
+
+    /**
+     * @param VerifyBankElementAdvanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return VerifyBankElementResponse
+     */
+    public function verifyBankElementAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'Cloudauth',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        RpcUtils::convert($runtime, $ossRuntime);
+        $verifyBankElementReq = new VerifyBankElementRequest([]);
+        RpcUtils::convert($request, $verifyBankElementReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->bankCardFileObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $verifyBankElementReq->bankCardFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->verifyBankElement($verifyBankElementReq, $runtime);
     }
 
     /**
@@ -73,13 +171,17 @@ class Cloudauth extends Rpc
     public function contrastSmartVerifyAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -164,13 +266,17 @@ class Cloudauth extends Rpc
     public function elementSmartVerifyAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
