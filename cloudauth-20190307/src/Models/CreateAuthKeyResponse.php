@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateAuthKeyResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var CreateAuthKeyResponseBody
+     * @var string
      */
-    public $body;
+    public $authKey;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'authKey'   => 'AuthKey',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('authKey', $this->authKey, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->authKey) {
+            $res['AuthKey'] = $this->authKey;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class CreateAuthKeyResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = CreateAuthKeyResponseBody::fromMap($map['body']);
+        if (isset($map['AuthKey'])) {
+            $model->authKey = $map['AuthKey'];
         }
 
         return $model;

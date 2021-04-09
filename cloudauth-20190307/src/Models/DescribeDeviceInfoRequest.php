@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceInfoRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -58,9 +43,6 @@ class DescribeDeviceInfoRequest extends Model
      */
     public $expiredEndDay;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'lang'            => 'Lang',
-        'totalCount'      => 'TotalCount',
         'pageSize'        => 'PageSize',
         'currentPage'     => 'CurrentPage',
         'deviceId'        => 'DeviceId',
@@ -77,15 +59,6 @@ class DescribeDeviceInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -119,15 +92,6 @@ class DescribeDeviceInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

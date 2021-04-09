@@ -9,33 +9,63 @@ use AlibabaCloud\Tea\Model;
 class CreateVerifySettingResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var CreateVerifySettingResponseBody
+     * @var string
      */
-    public $body;
+    public $bizType;
+
+    /**
+     * @var string
+     */
+    public $bizName;
+
+    /**
+     * @var string
+     */
+    public $solution;
+
+    /**
+     * @var string[]
+     */
+    public $stepList;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'bizType'   => 'BizType',
+        'bizName'   => 'BizName',
+        'solution'  => 'Solution',
+        'stepList'  => 'StepList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('bizType', $this->bizType, true);
+        Model::validateRequired('bizName', $this->bizName, true);
+        Model::validateRequired('solution', $this->solution, true);
+        Model::validateRequired('stepList', $this->stepList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
+        if (null !== $this->bizName) {
+            $res['BizName'] = $this->bizName;
+        }
+        if (null !== $this->solution) {
+            $res['Solution'] = $this->solution;
+        }
+        if (null !== $this->stepList) {
+            $res['StepList'] = $this->stepList;
         }
 
         return $res;
@@ -49,11 +79,22 @@ class CreateVerifySettingResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = CreateVerifySettingResponseBody::fromMap($map['body']);
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
+        if (isset($map['BizName'])) {
+            $model->bizName = $map['BizName'];
+        }
+        if (isset($map['Solution'])) {
+            $model->solution = $map['Solution'];
+        }
+        if (isset($map['StepList'])) {
+            if (!empty($map['StepList'])) {
+                $model->stepList = $map['StepList'];
+            }
         }
 
         return $model;

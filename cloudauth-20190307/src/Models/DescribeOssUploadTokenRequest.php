@@ -8,26 +8,13 @@ use AlibabaCloud\Tea\Model;
 
 class DescribeOssUploadTokenRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $sourceIp;
-    protected $_name = [
-        'sourceIp' => 'SourceIp',
-    ];
-
     public function validate()
     {
     }
 
     public function toMap()
     {
-        $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-
-        return $res;
+        return [];
     }
 
     /**
@@ -37,11 +24,6 @@ class DescribeOssUploadTokenRequest extends Model
      */
     public static function fromMap($map = [])
     {
-        $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-
-        return $model;
+        return new self();
     }
 }

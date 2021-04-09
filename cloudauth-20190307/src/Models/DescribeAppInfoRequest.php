@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppInfoRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -28,7 +23,6 @@ class DescribeAppInfoRequest extends Model
      */
     public $platform;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
         'pageSize'    => 'PageSize',
         'currentPage' => 'CurrentPage',
         'platform'    => 'Platform',
@@ -41,9 +35,6 @@ class DescribeAppInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -65,9 +56,6 @@ class DescribeAppInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

@@ -27,11 +27,17 @@ class VerifyDeviceRequest extends Model
      * @var string
      */
     public $extInfo;
+
+    /**
+     * @var string
+     */
+    public $deviceToken;
     protected $_name = [
         'certifyId'   => 'CertifyId',
         'certifyData' => 'CertifyData',
         'appVersion'  => 'AppVersion',
         'extInfo'     => 'ExtInfo',
+        'deviceToken' => 'DeviceToken',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class VerifyDeviceRequest extends Model
         }
         if (null !== $this->extInfo) {
             $res['ExtInfo'] = $this->extInfo;
+        }
+        if (null !== $this->deviceToken) {
+            $res['DeviceToken'] = $this->deviceToken;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class VerifyDeviceRequest extends Model
         }
         if (isset($map['ExtInfo'])) {
             $model->extInfo = $map['ExtInfo'];
+        }
+        if (isset($map['DeviceToken'])) {
+            $model->deviceToken = $map['DeviceToken'];
         }
 
         return $model;

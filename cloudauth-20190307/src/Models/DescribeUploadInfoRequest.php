@@ -11,15 +11,9 @@ class DescribeUploadInfoRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $biz;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'biz'      => 'Biz',
+        'biz' => 'Biz',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class DescribeUploadInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->biz) {
             $res['Biz'] = $this->biz;
         }
@@ -47,9 +38,6 @@ class DescribeUploadInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Biz'])) {
             $model->biz = $map['Biz'];
         }

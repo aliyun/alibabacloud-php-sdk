@@ -4,38 +4,59 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20190307\Models;
 
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VerifyDeviceResponse\resultObject;
 use AlibabaCloud\Tea\Model;
 
 class VerifyDeviceResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var VerifyDeviceResponseBody
+     * @var string
      */
-    public $body;
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var resultObject
+     */
+    public $resultObject;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'    => 'RequestId',
+        'code'         => 'Code',
+        'message'      => 'Message',
+        'resultObject' => 'ResultObject',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('code', $this->code, true);
+        Model::validateRequired('message', $this->message, true);
+        Model::validateRequired('resultObject', $this->resultObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->resultObject) {
+            $res['ResultObject'] = null !== $this->resultObject ? $this->resultObject->toMap() : null;
         }
 
         return $res;
@@ -49,11 +70,17 @@ class VerifyDeviceResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = VerifyDeviceResponseBody::fromMap($map['body']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['ResultObject'])) {
+            $model->resultObject = resultObject::fromMap($map['ResultObject']);
         }
 
         return $model;

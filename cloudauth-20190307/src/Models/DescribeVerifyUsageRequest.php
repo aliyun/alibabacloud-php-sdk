@@ -11,11 +11,6 @@ class DescribeVerifyUsageRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $bizType;
 
     /**
@@ -28,7 +23,6 @@ class DescribeVerifyUsageRequest extends Model
      */
     public $endDate;
     protected $_name = [
-        'sourceIp'  => 'SourceIp',
         'bizType'   => 'BizType',
         'startDate' => 'StartDate',
         'endDate'   => 'EndDate',
@@ -36,14 +30,13 @@ class DescribeVerifyUsageRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('startDate', $this->startDate, true);
+        Model::validateRequired('endDate', $this->endDate, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
@@ -65,9 +58,6 @@ class DescribeVerifyUsageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
