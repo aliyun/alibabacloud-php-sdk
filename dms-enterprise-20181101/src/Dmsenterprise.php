@@ -72,6 +72,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportDownloadURLRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportDownloadURLResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportOrderDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportOrderDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTopologyRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTopologyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetLogicDatabaseRequest;
@@ -785,6 +787,34 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDBTopologyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDBTopologyResponse
+     */
+    public function getDBTopologyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDBTopologyResponse::fromMap($this->doRPCRequest('GetDBTopology', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDBTopologyRequest $request
+     *
+     * @return GetDBTopologyResponse
+     */
+    public function getDBTopology($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDBTopologyWithOptions($request, $runtime);
     }
 
     /**
