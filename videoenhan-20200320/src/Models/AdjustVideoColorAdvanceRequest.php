@@ -15,7 +15,7 @@ class AdjustVideoColorAdvanceRequest extends Model
     public $videoUrlObject;
 
     /**
-     * @var string
+     * @var int
      */
     public $videoBitrate;
 

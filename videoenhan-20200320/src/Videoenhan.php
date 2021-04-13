@@ -18,6 +18,9 @@ use AlibabaCloud\SDK\Videoenhan\V20200320\Models\AbstractEcommerceVideoResponse;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\AbstractFilmVideoAdvanceRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\AbstractFilmVideoRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\AbstractFilmVideoResponse;
+use AlibabaCloud\SDK\Videoenhan\V20200320\Models\AddFaceVideoTemplateAdvanceRequest;
+use AlibabaCloud\SDK\Videoenhan\V20200320\Models\AddFaceVideoTemplateRequest;
+use AlibabaCloud\SDK\Videoenhan\V20200320\Models\AddFaceVideoTemplateResponse;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\AdjustVideoColorAdvanceRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\AdjustVideoColorRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\AdjustVideoColorResponse;
@@ -27,6 +30,8 @@ use AlibabaCloud\SDK\Videoenhan\V20200320\Models\ChangeVideoSizeResponse;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\ConvertHdrVideoAdvanceRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\ConvertHdrVideoRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\ConvertHdrVideoResponse;
+use AlibabaCloud\SDK\Videoenhan\V20200320\Models\DeleteFaceVideoTemplateRequest;
+use AlibabaCloud\SDK\Videoenhan\V20200320\Models\DeleteFaceVideoTemplateResponse;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\EnhanceVideoQualityAdvanceRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\EnhanceVideoQualityRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\EnhanceVideoQualityResponse;
@@ -46,6 +51,11 @@ use AlibabaCloud\SDK\Videoenhan\V20200320\Models\InterpolateVideoFrameResponse;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\MergeVideoFaceAdvanceRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\MergeVideoFaceRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\MergeVideoFaceResponse;
+use AlibabaCloud\SDK\Videoenhan\V20200320\Models\MergeVideoModelFaceAdvanceRequest;
+use AlibabaCloud\SDK\Videoenhan\V20200320\Models\MergeVideoModelFaceRequest;
+use AlibabaCloud\SDK\Videoenhan\V20200320\Models\MergeVideoModelFaceResponse;
+use AlibabaCloud\SDK\Videoenhan\V20200320\Models\QueryFaceVideoTemplateRequest;
+use AlibabaCloud\SDK\Videoenhan\V20200320\Models\QueryFaceVideoTemplateResponse;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\SuperResolveVideoAdvanceRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\SuperResolveVideoRequest;
 use AlibabaCloud\SDK\Videoenhan\V20200320\Models\SuperResolveVideoResponse;
@@ -93,49 +103,445 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param AbstractEcommerceVideoRequest $request
+     * @param ToneSdrVideoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ToneSdrVideoResponse
+     */
+    public function toneSdrVideoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ToneSdrVideoResponse::fromMap($this->doRPCRequest('ToneSdrVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ToneSdrVideoRequest $request
+     *
+     * @return ToneSdrVideoResponse
+     */
+    public function toneSdrVideo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->toneSdrVideoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ToneSdrVideoAdvanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ToneSdrVideoResponse
+     */
+    public function toneSdrVideoAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'videoenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $toneSdrVideoReq = new ToneSdrVideoRequest([]);
+        OpenApiUtilClient::convert($request, $toneSdrVideoReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->videoURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $toneSdrVideoReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->toneSdrVideoWithOptions($toneSdrVideoReq, $runtime);
+    }
+
+    /**
+     * @param EnhanceVideoQualityRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return EnhanceVideoQualityResponse
+     */
+    public function enhanceVideoQualityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EnhanceVideoQualityResponse::fromMap($this->doRPCRequest('EnhanceVideoQuality', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EnhanceVideoQualityRequest $request
+     *
+     * @return EnhanceVideoQualityResponse
+     */
+    public function enhanceVideoQuality($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enhanceVideoQualityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnhanceVideoQualityAdvanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return EnhanceVideoQualityResponse
+     */
+    public function enhanceVideoQualityAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'videoenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $enhanceVideoQualityReq = new EnhanceVideoQualityRequest([]);
+        OpenApiUtilClient::convert($request, $enhanceVideoQualityReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->videoURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $enhanceVideoQualityReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->enhanceVideoQualityWithOptions($enhanceVideoQualityReq, $runtime);
+    }
+
+    /**
+     * @param InterpolateVideoFrameRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return InterpolateVideoFrameResponse
+     */
+    public function interpolateVideoFrameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return InterpolateVideoFrameResponse::fromMap($this->doRPCRequest('InterpolateVideoFrame', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param InterpolateVideoFrameRequest $request
+     *
+     * @return InterpolateVideoFrameResponse
+     */
+    public function interpolateVideoFrame($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->interpolateVideoFrameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InterpolateVideoFrameAdvanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return InterpolateVideoFrameResponse
+     */
+    public function interpolateVideoFrameAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'videoenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $interpolateVideoFrameReq = new InterpolateVideoFrameRequest([]);
+        OpenApiUtilClient::convert($request, $interpolateVideoFrameReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->videoURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $interpolateVideoFrameReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->interpolateVideoFrameWithOptions($interpolateVideoFrameReq, $runtime);
+    }
+
+    /**
+     * @param EraseVideoLogoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return EraseVideoLogoResponse
+     */
+    public function eraseVideoLogoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EraseVideoLogoResponse::fromMap($this->doRPCRequest('EraseVideoLogo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EraseVideoLogoRequest $request
+     *
+     * @return EraseVideoLogoResponse
+     */
+    public function eraseVideoLogo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->eraseVideoLogoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EraseVideoLogoAdvanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return EraseVideoLogoResponse
+     */
+    public function eraseVideoLogoAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'videoenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $eraseVideoLogoReq = new EraseVideoLogoRequest([]);
+        OpenApiUtilClient::convert($request, $eraseVideoLogoReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->videoUrlObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $eraseVideoLogoReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->eraseVideoLogoWithOptions($eraseVideoLogoReq, $runtime);
+    }
+
+    /**
+     * @param ConvertHdrVideoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConvertHdrVideoResponse
+     */
+    public function convertHdrVideoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ConvertHdrVideoResponse::fromMap($this->doRPCRequest('ConvertHdrVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ConvertHdrVideoRequest $request
+     *
+     * @return ConvertHdrVideoResponse
+     */
+    public function convertHdrVideo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->convertHdrVideoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConvertHdrVideoAdvanceRequest $request
      * @param RuntimeOptions                $runtime
      *
-     * @return AbstractEcommerceVideoResponse
+     * @return ConvertHdrVideoResponse
      */
-    public function abstractEcommerceVideoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AbstractEcommerceVideoResponse::fromMap($this->doRPCRequest('AbstractEcommerceVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AbstractEcommerceVideoRequest $request
-     *
-     * @return AbstractEcommerceVideoResponse
-     */
-    public function abstractEcommerceVideo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->abstractEcommerceVideoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AbstractEcommerceVideoAdvanceRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return AbstractEcommerceVideoResponse
-     */
-    public function abstractEcommerceVideoAdvance($request, $runtime)
+    public function convertHdrVideoAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -157,15 +563,15 @@ class Videoenhan extends OpenApiClient
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $abstractEcommerceVideoReq = new AbstractEcommerceVideoRequest([]);
-        OpenApiUtilClient::convert($request, $abstractEcommerceVideoReq);
+        $convertHdrVideoReq = new ConvertHdrVideoRequest([]);
+        OpenApiUtilClient::convert($request, $convertHdrVideoReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
         $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
         $ossClient              = new OSS($ossConfig);
         $fileObj                = new FileField([
             'filename'    => $authResponse->objectKey,
-            'content'     => $request->videoUrlObject,
+            'content'     => $request->videoURLObject,
             'contentType' => '',
         ]);
         $ossHeader = new header([
@@ -181,103 +587,9 @@ class Videoenhan extends OpenApiClient
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $abstractEcommerceVideoReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $convertHdrVideoReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->abstractEcommerceVideoWithOptions($abstractEcommerceVideoReq, $runtime);
-    }
-
-    /**
-     * @param AbstractFilmVideoRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return AbstractFilmVideoResponse
-     */
-    public function abstractFilmVideoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AbstractFilmVideoResponse::fromMap($this->doRPCRequest('AbstractFilmVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AbstractFilmVideoRequest $request
-     *
-     * @return AbstractFilmVideoResponse
-     */
-    public function abstractFilmVideo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->abstractFilmVideoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AbstractFilmVideoAdvanceRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return AbstractFilmVideoResponse
-     */
-    public function abstractFilmVideoAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'videoenhan',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $abstractFilmVideoReq = new AbstractFilmVideoRequest([]);
-        OpenApiUtilClient::convert($request, $abstractFilmVideoReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->videoUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $abstractFilmVideoReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->abstractFilmVideoWithOptions($abstractFilmVideoReq, $runtime);
+        return $this->convertHdrVideoWithOptions($convertHdrVideoReq, $runtime);
     }
 
     /**
@@ -317,13 +629,17 @@ class Videoenhan extends OpenApiClient
     public function adjustVideoColorAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -411,13 +727,17 @@ class Videoenhan extends OpenApiClient
     public function changeVideoSizeAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -469,626 +789,6 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param ConvertHdrVideoRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ConvertHdrVideoResponse
-     */
-    public function convertHdrVideoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ConvertHdrVideoResponse::fromMap($this->doRPCRequest('ConvertHdrVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ConvertHdrVideoRequest $request
-     *
-     * @return ConvertHdrVideoResponse
-     */
-    public function convertHdrVideo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->convertHdrVideoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ConvertHdrVideoAdvanceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ConvertHdrVideoResponse
-     */
-    public function convertHdrVideoAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'videoenhan',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $convertHdrVideoReq = new ConvertHdrVideoRequest([]);
-        OpenApiUtilClient::convert($request, $convertHdrVideoReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->videoURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $convertHdrVideoReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->convertHdrVideoWithOptions($convertHdrVideoReq, $runtime);
-    }
-
-    /**
-     * @param EnhanceVideoQualityRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return EnhanceVideoQualityResponse
-     */
-    public function enhanceVideoQualityWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return EnhanceVideoQualityResponse::fromMap($this->doRPCRequest('EnhanceVideoQuality', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param EnhanceVideoQualityRequest $request
-     *
-     * @return EnhanceVideoQualityResponse
-     */
-    public function enhanceVideoQuality($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->enhanceVideoQualityWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EnhanceVideoQualityAdvanceRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return EnhanceVideoQualityResponse
-     */
-    public function enhanceVideoQualityAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'videoenhan',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $enhanceVideoQualityReq = new EnhanceVideoQualityRequest([]);
-        OpenApiUtilClient::convert($request, $enhanceVideoQualityReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->videoURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $enhanceVideoQualityReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->enhanceVideoQualityWithOptions($enhanceVideoQualityReq, $runtime);
-    }
-
-    /**
-     * @param EraseVideoLogoRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return EraseVideoLogoResponse
-     */
-    public function eraseVideoLogoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return EraseVideoLogoResponse::fromMap($this->doRPCRequest('EraseVideoLogo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param EraseVideoLogoRequest $request
-     *
-     * @return EraseVideoLogoResponse
-     */
-    public function eraseVideoLogo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->eraseVideoLogoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EraseVideoLogoAdvanceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return EraseVideoLogoResponse
-     */
-    public function eraseVideoLogoAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'videoenhan',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $eraseVideoLogoReq = new EraseVideoLogoRequest([]);
-        OpenApiUtilClient::convert($request, $eraseVideoLogoReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->videoUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $eraseVideoLogoReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->eraseVideoLogoWithOptions($eraseVideoLogoReq, $runtime);
-    }
-
-    /**
-     * @param EraseVideoSubtitlesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return EraseVideoSubtitlesResponse
-     */
-    public function eraseVideoSubtitlesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return EraseVideoSubtitlesResponse::fromMap($this->doRPCRequest('EraseVideoSubtitles', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param EraseVideoSubtitlesRequest $request
-     *
-     * @return EraseVideoSubtitlesResponse
-     */
-    public function eraseVideoSubtitles($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->eraseVideoSubtitlesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EraseVideoSubtitlesAdvanceRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return EraseVideoSubtitlesResponse
-     */
-    public function eraseVideoSubtitlesAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'videoenhan',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $eraseVideoSubtitlesReq = new EraseVideoSubtitlesRequest([]);
-        OpenApiUtilClient::convert($request, $eraseVideoSubtitlesReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->videoUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $eraseVideoSubtitlesReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->eraseVideoSubtitlesWithOptions($eraseVideoSubtitlesReq, $runtime);
-    }
-
-    /**
-     * @param GenerateVideoRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GenerateVideoResponse
-     */
-    public function generateVideoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GenerateVideoResponse::fromMap($this->doRPCRequest('GenerateVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GenerateVideoRequest $request
-     *
-     * @return GenerateVideoResponse
-     */
-    public function generateVideo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateVideoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAsyncJobResultRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetAsyncJobResultResponse
-     */
-    public function getAsyncJobResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetAsyncJobResultResponse::fromMap($this->doRPCRequest('GetAsyncJobResult', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAsyncJobResultRequest $request
-     *
-     * @return GetAsyncJobResultResponse
-     */
-    public function getAsyncJobResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAsyncJobResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param InterpolateVideoFrameRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return InterpolateVideoFrameResponse
-     */
-    public function interpolateVideoFrameWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return InterpolateVideoFrameResponse::fromMap($this->doRPCRequest('InterpolateVideoFrame', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param InterpolateVideoFrameRequest $request
-     *
-     * @return InterpolateVideoFrameResponse
-     */
-    public function interpolateVideoFrame($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->interpolateVideoFrameWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param InterpolateVideoFrameAdvanceRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return InterpolateVideoFrameResponse
-     */
-    public function interpolateVideoFrameAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'videoenhan',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $interpolateVideoFrameReq = new InterpolateVideoFrameRequest([]);
-        OpenApiUtilClient::convert($request, $interpolateVideoFrameReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->videoURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $interpolateVideoFrameReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->interpolateVideoFrameWithOptions($interpolateVideoFrameReq, $runtime);
-    }
-
-    /**
-     * @param MergeVideoFaceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return MergeVideoFaceResponse
-     */
-    public function mergeVideoFaceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return MergeVideoFaceResponse::fromMap($this->doRPCRequest('MergeVideoFace', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param MergeVideoFaceRequest $request
-     *
-     * @return MergeVideoFaceResponse
-     */
-    public function mergeVideoFace($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->mergeVideoFaceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param MergeVideoFaceAdvanceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return MergeVideoFaceResponse
-     */
-    public function mergeVideoFaceAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'videoenhan',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $mergeVideoFaceReq = new MergeVideoFaceRequest([]);
-        OpenApiUtilClient::convert($request, $mergeVideoFaceReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->videoURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $mergeVideoFaceReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
-
-        return $this->mergeVideoFaceWithOptions($mergeVideoFaceReq, $runtime);
-    }
-
-    /**
      * @param SuperResolveVideoRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1125,13 +825,17 @@ class Videoenhan extends OpenApiClient
     public function superResolveVideoAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -1183,49 +887,81 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param ToneSdrVideoRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param GetAsyncJobResultRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return ToneSdrVideoResponse
+     * @return GetAsyncJobResultResponse
      */
-    public function toneSdrVideoWithOptions($request, $runtime)
+    public function getAsyncJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ToneSdrVideoResponse::fromMap($this->doRPCRequest('ToneSdrVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAsyncJobResultResponse::fromMap($this->doRPCRequest('GetAsyncJobResult', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ToneSdrVideoRequest $request
+     * @param GetAsyncJobResultRequest $request
      *
-     * @return ToneSdrVideoResponse
+     * @return GetAsyncJobResultResponse
      */
-    public function toneSdrVideo($request)
+    public function getAsyncJobResult($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->toneSdrVideoWithOptions($request, $runtime);
+        return $this->getAsyncJobResultWithOptions($request, $runtime);
     }
 
     /**
-     * @param ToneSdrVideoAdvanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param AddFaceVideoTemplateRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return ToneSdrVideoResponse
+     * @return AddFaceVideoTemplateResponse
      */
-    public function toneSdrVideoAdvance($request, $runtime)
+    public function addFaceVideoTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddFaceVideoTemplateResponse::fromMap($this->doRPCRequest('AddFaceVideoTemplate', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddFaceVideoTemplateRequest $request
+     *
+     * @return AddFaceVideoTemplateResponse
+     */
+    public function addFaceVideoTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addFaceVideoTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddFaceVideoTemplateAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddFaceVideoTemplateResponse
+     */
+    public function addFaceVideoTemplateAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -1247,8 +983,8 @@ class Videoenhan extends OpenApiClient
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $toneSdrVideoReq = new ToneSdrVideoRequest([]);
-        OpenApiUtilClient::convert($request, $toneSdrVideoReq);
+        $addFaceVideoTemplateReq = new AddFaceVideoTemplateRequest([]);
+        OpenApiUtilClient::convert($request, $addFaceVideoTemplateReq);
         $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
         $ossConfig->accessKeyId = $authResponse->accessKeyId;
         $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
@@ -1271,8 +1007,582 @@ class Videoenhan extends OpenApiClient
             'header'     => $ossHeader,
         ]);
         $ossClient->postObject($uploadRequest, $ossRuntime);
-        $toneSdrVideoReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $addFaceVideoTemplateReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
 
-        return $this->toneSdrVideoWithOptions($toneSdrVideoReq, $runtime);
+        return $this->addFaceVideoTemplateWithOptions($addFaceVideoTemplateReq, $runtime);
+    }
+
+    /**
+     * @param GenerateVideoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GenerateVideoResponse
+     */
+    public function generateVideoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenerateVideoResponse::fromMap($this->doRPCRequest('GenerateVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenerateVideoRequest $request
+     *
+     * @return GenerateVideoResponse
+     */
+    public function generateVideo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateVideoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryFaceVideoTemplateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryFaceVideoTemplateResponse
+     */
+    public function queryFaceVideoTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryFaceVideoTemplateResponse::fromMap($this->doRPCRequest('QueryFaceVideoTemplate', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryFaceVideoTemplateRequest $request
+     *
+     * @return QueryFaceVideoTemplateResponse
+     */
+    public function queryFaceVideoTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryFaceVideoTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteFaceVideoTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteFaceVideoTemplateResponse
+     */
+    public function deleteFaceVideoTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteFaceVideoTemplateResponse::fromMap($this->doRPCRequest('DeleteFaceVideoTemplate', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteFaceVideoTemplateRequest $request
+     *
+     * @return DeleteFaceVideoTemplateResponse
+     */
+    public function deleteFaceVideoTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFaceVideoTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AbstractEcommerceVideoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AbstractEcommerceVideoResponse
+     */
+    public function abstractEcommerceVideoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AbstractEcommerceVideoResponse::fromMap($this->doRPCRequest('AbstractEcommerceVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AbstractEcommerceVideoRequest $request
+     *
+     * @return AbstractEcommerceVideoResponse
+     */
+    public function abstractEcommerceVideo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->abstractEcommerceVideoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AbstractEcommerceVideoAdvanceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return AbstractEcommerceVideoResponse
+     */
+    public function abstractEcommerceVideoAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'videoenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $abstractEcommerceVideoReq = new AbstractEcommerceVideoRequest([]);
+        OpenApiUtilClient::convert($request, $abstractEcommerceVideoReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->videoUrlObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $abstractEcommerceVideoReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->abstractEcommerceVideoWithOptions($abstractEcommerceVideoReq, $runtime);
+    }
+
+    /**
+     * @param AbstractFilmVideoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AbstractFilmVideoResponse
+     */
+    public function abstractFilmVideoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AbstractFilmVideoResponse::fromMap($this->doRPCRequest('AbstractFilmVideo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AbstractFilmVideoRequest $request
+     *
+     * @return AbstractFilmVideoResponse
+     */
+    public function abstractFilmVideo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->abstractFilmVideoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AbstractFilmVideoAdvanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AbstractFilmVideoResponse
+     */
+    public function abstractFilmVideoAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'videoenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $abstractFilmVideoReq = new AbstractFilmVideoRequest([]);
+        OpenApiUtilClient::convert($request, $abstractFilmVideoReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->videoUrlObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $abstractFilmVideoReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->abstractFilmVideoWithOptions($abstractFilmVideoReq, $runtime);
+    }
+
+    /**
+     * @param EraseVideoSubtitlesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return EraseVideoSubtitlesResponse
+     */
+    public function eraseVideoSubtitlesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EraseVideoSubtitlesResponse::fromMap($this->doRPCRequest('EraseVideoSubtitles', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EraseVideoSubtitlesRequest $request
+     *
+     * @return EraseVideoSubtitlesResponse
+     */
+    public function eraseVideoSubtitles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->eraseVideoSubtitlesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EraseVideoSubtitlesAdvanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return EraseVideoSubtitlesResponse
+     */
+    public function eraseVideoSubtitlesAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'videoenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $eraseVideoSubtitlesReq = new EraseVideoSubtitlesRequest([]);
+        OpenApiUtilClient::convert($request, $eraseVideoSubtitlesReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->videoUrlObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $eraseVideoSubtitlesReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->eraseVideoSubtitlesWithOptions($eraseVideoSubtitlesReq, $runtime);
+    }
+
+    /**
+     * @param MergeVideoModelFaceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return MergeVideoModelFaceResponse
+     */
+    public function mergeVideoModelFaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return MergeVideoModelFaceResponse::fromMap($this->doRPCRequest('MergeVideoModelFace', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param MergeVideoModelFaceRequest $request
+     *
+     * @return MergeVideoModelFaceResponse
+     */
+    public function mergeVideoModelFace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mergeVideoModelFaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MergeVideoModelFaceAdvanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return MergeVideoModelFaceResponse
+     */
+    public function mergeVideoModelFaceAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'videoenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $mergeVideoModelFaceReq = new MergeVideoModelFaceRequest([]);
+        OpenApiUtilClient::convert($request, $mergeVideoModelFaceReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->faceImageURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $mergeVideoModelFaceReq->faceImageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->mergeVideoModelFaceWithOptions($mergeVideoModelFaceReq, $runtime);
+    }
+
+    /**
+     * @param MergeVideoFaceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return MergeVideoFaceResponse
+     */
+    public function mergeVideoFaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return MergeVideoFaceResponse::fromMap($this->doRPCRequest('MergeVideoFace', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param MergeVideoFaceRequest $request
+     *
+     * @return MergeVideoFaceResponse
+     */
+    public function mergeVideoFace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mergeVideoFaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MergeVideoFaceAdvanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return MergeVideoFaceResponse
+     */
+    public function mergeVideoFaceAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'videoenhan',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $mergeVideoFaceReq = new MergeVideoFaceRequest([]);
+        OpenApiUtilClient::convert($request, $mergeVideoFaceReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->videoURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $mergeVideoFaceReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->mergeVideoFaceWithOptions($mergeVideoFaceReq, $runtime);
     }
 }

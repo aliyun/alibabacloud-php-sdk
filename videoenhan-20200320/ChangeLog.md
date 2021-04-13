@@ -1,3 +1,6 @@
+2021-04-13 Version: 1.0.2
+- Release AddFaceVideoTemplate DeleteFaceVideoTemplate QueryFaceVideoTemplate MergeVideoModelFace.
+
 2021-03-25 Version: 2.0.1
 - Generated php 2020-03-20 for videoenhan.
 
