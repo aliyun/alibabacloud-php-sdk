@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PvrCallbackFCUResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPhoneNumberAttributeRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\QueryPhoneNumberAttributeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -21,7 +22,7 @@ class Dytnsapi extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dytnsapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -103,6 +104,28 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePhoneNumberStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return PvrCallbackFCUResponse
+     */
+    public function pvrCallbackFCUWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return PvrCallbackFCUResponse::fromMap($this->doRPCRequest('PvrCallbackFCU', '2020-02-17', 'HTTPS', 'POST', 'AK', 'none', $req, $runtime));
+    }
+
+    /**
+     * @return PvrCallbackFCUResponse
+     */
+    public function pvrCallbackFCU()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pvrCallbackFCUWithOptions($runtime);
     }
 
     /**
