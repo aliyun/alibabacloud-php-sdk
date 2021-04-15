@@ -4,35 +4,42 @@
 
 namespace AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models;
 
-use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\RefreshUsersPermissionsResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
 class RefreshUsersPermissionsResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description 请求ID
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 请求结果
+     *
      * @var bool
      */
     public $responseSuccess;
 
     /**
+     * @description 错误码
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description 错误信息
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @var result
+     * @description 返回结果
+     *
+     * @var bool
      */
     public $result;
     protected $_name = [
@@ -63,7 +70,7 @@ class RefreshUsersPermissionsResponseBody extends Model
             $res['ErrorMsg'] = $this->errorMsg;
         }
         if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['Result'] = $this->result;
         }
 
         return $res;
@@ -90,7 +97,7 @@ class RefreshUsersPermissionsResponseBody extends Model
             $model->errorMsg = $map['ErrorMsg'];
         }
         if (isset($map['Result'])) {
-            $model->result = result::fromMap($map['Result']);
+            $model->result = $map['Result'];
         }
 
         return $model;

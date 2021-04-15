@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppRequest extends Model
 {
     /**
+     * @description 白板应用名，由不超过32位的中文、英文、数字或下划线组成
+     *
      * @var string
      */
     public $appName;

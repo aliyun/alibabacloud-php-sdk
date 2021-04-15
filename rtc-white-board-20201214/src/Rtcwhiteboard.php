@@ -5,18 +5,14 @@
 namespace AlibabaCloud\SDK\Rtcwhiteboard\V20201214;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\CheckWhiteBoardHostRequest;
-use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\CheckWhiteBoardHostResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\CreateAppRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\CreateAppResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\CreateWhiteBoardRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\CreateWhiteBoardResponse;
-use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\GetUserPermissionCallbackRequest;
-use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\GetUserPermissionCallbackResponse;
-use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\GetUserProfileCallbackRequest;
-use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\GetUserProfileCallbackResponse;
-use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\GetWhiteBoardProfileCallbackRequest;
-use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\GetWhiteBoardProfileCallbackResponse;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeAppsRequest;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeAppsResponse;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeWhiteBoardsRequest;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeWhiteBoardsResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\OpenWhiteBoardRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\OpenWhiteBoardResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\RefreshUsersPermissionsRequest;
@@ -68,171 +64,143 @@ class Rtcwhiteboard extends OpenApiClient
     }
 
     /**
-     * @param CheckWhiteBoardHostRequest $request
+     * @param DescribeAppsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeAppsResponse
+     */
+    public function describeAppsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAppsResponse::fromMap($this->doRPCRequest('DescribeApps', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAppsRequest $request
+     *
+     * @return DescribeAppsResponse
+     */
+    public function describeApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetAppCallbackUrlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SetAppCallbackUrlResponse
+     */
+    public function setAppCallbackUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetAppCallbackUrlResponse::fromMap($this->doRPCRequest('SetAppCallbackUrl', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetAppCallbackUrlRequest $request
+     *
+     * @return SetAppCallbackUrlResponse
+     */
+    public function setAppCallbackUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAppCallbackUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetAppNameRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SetAppNameResponse
+     */
+    public function setAppNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetAppNameResponse::fromMap($this->doRPCRequest('SetAppName', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetAppNameRequest $request
+     *
+     * @return SetAppNameResponse
+     */
+    public function setAppName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAppNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWhiteBoardsRequest $request
      * @param RuntimeOptions             $runtime
      *
-     * @return CheckWhiteBoardHostResponse
+     * @return DescribeWhiteBoardsResponse
      */
-    public function checkWhiteBoardHostWithOptions($request, $runtime)
+    public function describeWhiteBoardsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return CheckWhiteBoardHostResponse::fromMap($this->doRPCRequest('CheckWhiteBoardHost', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWhiteBoardsResponse::fromMap($this->doRPCRequest('DescribeWhiteBoards', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CheckWhiteBoardHostRequest $request
+     * @param DescribeWhiteBoardsRequest $request
      *
-     * @return CheckWhiteBoardHostResponse
+     * @return DescribeWhiteBoardsResponse
      */
-    public function checkWhiteBoardHost($request)
+    public function describeWhiteBoards($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->checkWhiteBoardHostWithOptions($request, $runtime);
+        return $this->describeWhiteBoardsWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateAppRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param SetAppDomainNamesRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateAppResponse
+     * @return SetAppDomainNamesResponse
      */
-    public function createAppWithOptions($request, $runtime)
+    public function setAppDomainNamesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return CreateAppResponse::fromMap($this->doRPCRequest('CreateApp', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetAppDomainNamesResponse::fromMap($this->doRPCRequest('SetAppDomainNames', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateAppRequest $request
+     * @param SetAppDomainNamesRequest $request
      *
-     * @return CreateAppResponse
+     * @return SetAppDomainNamesResponse
      */
-    public function createApp($request)
+    public function setAppDomainNames($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createAppWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateWhiteBoardRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateWhiteBoardResponse
-     */
-    public function createWhiteBoardWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateWhiteBoardResponse::fromMap($this->doRPCRequest('CreateWhiteBoard', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateWhiteBoardRequest $request
-     *
-     * @return CreateWhiteBoardResponse
-     */
-    public function createWhiteBoard($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createWhiteBoardWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetUserPermissionCallbackRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GetUserPermissionCallbackResponse
-     */
-    public function getUserPermissionCallbackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetUserPermissionCallbackResponse::fromMap($this->doRPCRequest('GetUserPermissionCallback', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetUserPermissionCallbackRequest $request
-     *
-     * @return GetUserPermissionCallbackResponse
-     */
-    public function getUserPermissionCallback($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getUserPermissionCallbackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetUserProfileCallbackRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetUserProfileCallbackResponse
-     */
-    public function getUserProfileCallbackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetUserProfileCallbackResponse::fromMap($this->doRPCRequest('GetUserProfileCallback', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetUserProfileCallbackRequest $request
-     *
-     * @return GetUserProfileCallbackResponse
-     */
-    public function getUserProfileCallback($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getUserProfileCallbackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetWhiteBoardProfileCallbackRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return GetWhiteBoardProfileCallbackResponse
-     */
-    public function getWhiteBoardProfileCallbackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetWhiteBoardProfileCallbackResponse::fromMap($this->doRPCRequest('GetWhiteBoardProfileCallback', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetWhiteBoardProfileCallbackRequest $request
-     *
-     * @return GetWhiteBoardProfileCallbackResponse
-     */
-    public function getWhiteBoardProfileCallback($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getWhiteBoardProfileCallbackWithOptions($request, $runtime);
+        return $this->setAppDomainNamesWithOptions($request, $runtime);
     }
 
     /**
@@ -292,87 +260,59 @@ class Rtcwhiteboard extends OpenApiClient
     }
 
     /**
-     * @param SetAppCallbackUrlRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateAppRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return SetAppCallbackUrlResponse
+     * @return CreateAppResponse
      */
-    public function setAppCallbackUrlWithOptions($request, $runtime)
+    public function createAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return SetAppCallbackUrlResponse::fromMap($this->doRPCRequest('SetAppCallbackUrl', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAppResponse::fromMap($this->doRPCRequest('CreateApp', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param SetAppCallbackUrlRequest $request
+     * @param CreateAppRequest $request
      *
-     * @return SetAppCallbackUrlResponse
+     * @return CreateAppResponse
      */
-    public function setAppCallbackUrl($request)
+    public function createApp($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->setAppCallbackUrlWithOptions($request, $runtime);
+        return $this->createAppWithOptions($request, $runtime);
     }
 
     /**
-     * @param SetAppDomainNamesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateWhiteBoardRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return SetAppDomainNamesResponse
+     * @return CreateWhiteBoardResponse
      */
-    public function setAppDomainNamesWithOptions($request, $runtime)
+    public function createWhiteBoardWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return SetAppDomainNamesResponse::fromMap($this->doRPCRequest('SetAppDomainNames', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateWhiteBoardResponse::fromMap($this->doRPCRequest('CreateWhiteBoard', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param SetAppDomainNamesRequest $request
+     * @param CreateWhiteBoardRequest $request
      *
-     * @return SetAppDomainNamesResponse
+     * @return CreateWhiteBoardResponse
      */
-    public function setAppDomainNames($request)
+    public function createWhiteBoard($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->setAppDomainNamesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetAppNameRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return SetAppNameResponse
-     */
-    public function setAppNameWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SetAppNameResponse::fromMap($this->doRPCRequest('SetAppName', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SetAppNameRequest $request
-     *
-     * @return SetAppNameResponse
-     */
-    public function setAppName($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setAppNameWithOptions($request, $runtime);
+        return $this->createWhiteBoardWithOptions($request, $runtime);
     }
 
     /**

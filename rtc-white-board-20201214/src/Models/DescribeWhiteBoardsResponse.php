@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetWhiteBoardProfileCallbackResponse extends Model
+class DescribeWhiteBoardsResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class GetWhiteBoardProfileCallbackResponse extends Model
     public $headers;
 
     /**
-     * @var GetWhiteBoardProfileCallbackResponseBody
+     * @var DescribeWhiteBoardsResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class GetWhiteBoardProfileCallbackResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetWhiteBoardProfileCallbackResponse
+     * @return DescribeWhiteBoardsResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class GetWhiteBoardProfileCallbackResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetWhiteBoardProfileCallbackResponseBody::fromMap($map['body']);
+            $model->body = DescribeWhiteBoardsResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetAppCallbackUrlRequest extends Model
 {
     /**
+     * @description 白板应用唯一标识符
+     *
      * @var string
      */
     public $appID;
 
     /**
+     * @description 白板应用回调地址URL
+     *
      * @var string
      */
     public $appCallbackUrl;
 
     /**
+     * @description 白板应用回调鉴权码，由8~20位大小写字母、数字或下划线组成
+     *
      * @var string
      */
     public $appCallbackAuthKey;

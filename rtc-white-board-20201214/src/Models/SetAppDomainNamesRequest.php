@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetAppDomainNamesRequest extends Model
 {
     /**
+     * @description 白板应用唯一标识符
+     *
      * @var string
      */
     public $appID;
 
     /**
+     * @description 所有会使用到白板应用的客户网站域名，多个使用英文逗号(,)分隔，最多传10个
+     *
      * @var string
      */
     public $appDomainNames;

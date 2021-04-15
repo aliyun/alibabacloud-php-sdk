@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RefreshUsersPermissionsRequest extends Model
 {
     /**
+     * @description 需要刷新权限的用户ID，多个用英文逗号（,）分隔，最多30个，每个ID由纯数字组成
+     *
      * @var string
      */
     public $userIds;
 
     /**
+     * @description 白板文档唯一标识符
+     *
      * @var string
      */
     public $docKey;
 
     /**
+     * @description 白板应用唯一标识符
+     *
      * @var string
      */
     public $appID;

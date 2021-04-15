@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateWhiteBoardRequest extends Model
 {
     /**
+     * @description 创建白板的用户ID（客户业务用户），由纯数字组成。
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description 白板应用唯一标识符
+     *
      * @var string
      */
     public $appID;

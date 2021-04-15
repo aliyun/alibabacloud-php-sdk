@@ -4,34 +4,43 @@
 
 namespace AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models;
 
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeAppsResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class GetUserPermissionCallbackResponseBody extends Model
+class DescribeAppsResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description 请求ID
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 请求结果
+     *
      * @var bool
      */
     public $responseSuccess;
 
     /**
+     * @description 错误码
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description 错误信息
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @var bool
+     * @description 返回结果体
+     *
+     * @var result
      */
     public $result;
     protected $_name = [
@@ -62,7 +71,7 @@ class GetUserPermissionCallbackResponseBody extends Model
             $res['ErrorMsg'] = $this->errorMsg;
         }
         if (null !== $this->result) {
-            $res['Result'] = $this->result;
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
 
         return $res;
@@ -71,7 +80,7 @@ class GetUserPermissionCallbackResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetUserPermissionCallbackResponseBody
+     * @return DescribeAppsResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -89,7 +98,7 @@ class GetUserPermissionCallbackResponseBody extends Model
             $model->errorMsg = $map['ErrorMsg'];
         }
         if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+            $model->result = result::fromMap($map['Result']);
         }
 
         return $model;

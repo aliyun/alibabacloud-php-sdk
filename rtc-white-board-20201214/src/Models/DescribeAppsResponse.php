@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetUserPermissionCallbackResponse extends Model
+class DescribeAppsResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class GetUserPermissionCallbackResponse extends Model
     public $headers;
 
     /**
-     * @var GetUserPermissionCallbackResponseBody
+     * @var DescribeAppsResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class GetUserPermissionCallbackResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetUserPermissionCallbackResponse
+     * @return DescribeAppsResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class GetUserPermissionCallbackResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetUserPermissionCallbackResponseBody::fromMap($map['body']);
+            $model->body = DescribeAppsResponseBody::fromMap($map['body']);
         }
 
         return $model;

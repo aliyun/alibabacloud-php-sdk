@@ -10,29 +10,45 @@ use AlibabaCloud\Tea\Model;
 class documentAccessInfo extends Model
 {
     /**
+     * @description 连接签名
+     *
      * @var string
      */
     public $accessToken;
 
     /**
+     * @description 白板长连接地址
+     *
      * @var string
      */
     public $collabHost;
 
     /**
+     * @description 权限码，取值：0:无权限，1:只读，2:读写
+     *
      * @var int
      */
     public $permission;
 
     /**
+     * @description 用户信息
+     *
      * @var userInfo
      */
     public $userInfo;
+
+    /**
+     * @description 新协议长连接服务域名
+     *
+     * @var string
+     */
+    public $wsDomain;
     protected $_name = [
         'accessToken' => 'AccessToken',
         'collabHost'  => 'CollabHost',
         'permission'  => 'Permission',
         'userInfo'    => 'UserInfo',
+        'wsDomain'    => 'WsDomain',
     ];
 
     public function validate()
@@ -53,6 +69,9 @@ class documentAccessInfo extends Model
         }
         if (null !== $this->userInfo) {
             $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+        }
+        if (null !== $this->wsDomain) {
+            $res['WsDomain'] = $this->wsDomain;
         }
 
         return $res;
@@ -77,6 +96,9 @@ class documentAccessInfo extends Model
         }
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
+        }
+        if (isset($map['WsDomain'])) {
+            $model->wsDomain = $map['WsDomain'];
         }
 
         return $model;

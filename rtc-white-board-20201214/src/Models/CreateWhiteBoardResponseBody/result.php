@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description 文档唯一标识符，由大小写字母和数字组成
+     *
      * @var string
      */
     public $docKey;

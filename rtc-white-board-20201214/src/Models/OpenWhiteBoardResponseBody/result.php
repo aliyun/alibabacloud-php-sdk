@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description 白板连接信息
+     *
      * @var documentAccessInfo
      */
     public $documentAccessInfo;

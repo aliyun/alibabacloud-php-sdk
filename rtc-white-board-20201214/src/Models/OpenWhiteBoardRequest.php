@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class OpenWhiteBoardRequest extends Model
 {
     /**
+     * @description 白板应用唯一标识符
+     *
      * @var string
      */
     public $appID;
 
     /**
+     * @description 打开白板的用户ID（客户业务用户），由纯数字组成
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description 白板文档唯一标识符
+     *
      * @var string
      */
     public $docKey;

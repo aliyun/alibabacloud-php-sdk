@@ -9,28 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SetAppNameResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description 请求ID
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 请求结果
+     *
      * @var bool
      */
     public $responseSuccess;
 
     /**
+     * @description 错误码
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description 错误信息
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description 返回结果
+     *
      * @var bool
      */
     public $result;

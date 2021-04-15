@@ -4,34 +4,42 @@
 
 namespace AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models;
 
-use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\GetWhiteBoardProfileCallbackResponseBody\result;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeWhiteBoardsResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class GetWhiteBoardProfileCallbackResponseBody extends Model
+class DescribeWhiteBoardsResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description 请求ID
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 请求结果
+     *
      * @var bool
      */
     public $responseSuccess;
 
     /**
+     * @description 错误码
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description 错误信息
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description 返回结果体
+     *
      * @var result
      */
     public $result;
@@ -72,7 +80,7 @@ class GetWhiteBoardProfileCallbackResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetWhiteBoardProfileCallbackResponseBody
+     * @return DescribeWhiteBoardsResponseBody
      */
     public static function fromMap($map = [])
     {

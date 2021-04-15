@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SetAppNameRequest extends Model
 {
     /**
+     * @description 白板应用唯一标识符
+     *
      * @var string
      */
     public $appID;
 
     /**
+     * @description 白板应用名，由不超过32位的中文、英文、数字或下划线组成
+     *
      * @var string
      */
     public $appName;
