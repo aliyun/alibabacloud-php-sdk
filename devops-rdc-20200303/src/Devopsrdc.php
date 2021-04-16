@@ -53,6 +53,8 @@ use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\GetDevopsProjectSprintInfoReques
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\GetDevopsProjectSprintInfoResponse;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\GetDevopsProjectTaskInfoRequest;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\GetDevopsProjectTaskInfoResponse;
+use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\GetLastWorkspaceRequest;
+use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\GetLastWorkspaceResponse;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\GetPipelineInstanceBuildNumberStatusRequest;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\GetPipelineInstanceBuildNumberStatusResponse;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\GetPipelineInstanceGroupStatusRequest;
@@ -835,6 +837,34 @@ class Devopsrdc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDevopsProjectTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLastWorkspaceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetLastWorkspaceResponse
+     */
+    public function getLastWorkspaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetLastWorkspaceResponse::fromMap($this->doRPCRequest('GetLastWorkspace', '2020-03-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetLastWorkspaceRequest $request
+     *
+     * @return GetLastWorkspaceResponse
+     */
+    public function getLastWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLastWorkspaceWithOptions($request, $runtime);
     }
 
     /**

@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Devopsrdc\V20200303\Models;
 
-use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\ListUserOrganizationResponseBody\object;
 use AlibabaCloud\Tea\Model;
 
-class ListUserOrganizationResponseBody extends Model
+class GetLastWorkspaceResponseBody extends Model
 {
     /**
      * @var string
@@ -15,7 +14,7 @@ class ListUserOrganizationResponseBody extends Model
     public $requestId;
 
     /**
-     * @var object[]
+     * @var string
      */
     public $object;
 
@@ -52,13 +51,7 @@ class ListUserOrganizationResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->object) {
-            $res['Object'] = [];
-            if (null !== $this->object && \is_array($this->object)) {
-                $n = 0;
-                foreach ($this->object as $item) {
-                    $res['Object'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Object'] = $this->object;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -76,7 +69,7 @@ class ListUserOrganizationResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListUserOrganizationResponseBody
+     * @return GetLastWorkspaceResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -85,13 +78,7 @@ class ListUserOrganizationResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Object'])) {
-            if (!empty($map['Object'])) {
-                $model->object = [];
-                $n             = 0;
-                foreach ($map['Object'] as $item) {
-                    $model->object[$n++] = null !== $item ? object::fromMap($item) : $item;
-                }
-            }
+            $model->object = $map['Object'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
