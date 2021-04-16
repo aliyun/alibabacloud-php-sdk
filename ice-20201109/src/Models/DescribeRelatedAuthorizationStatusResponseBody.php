@@ -29,11 +29,17 @@ class DescribeRelatedAuthorizationStatusResponseBody extends Model
      * @var bool
      */
     public $MNSAuthorized;
+
+    /**
+     * @var bool
+     */
+    public $authorized;
     protected $_name = [
         'requestId'     => 'RequestId',
         'OSSAuthorized' => 'OSSAuthorized',
         'MTSAuthorized' => 'MTSAuthorized',
         'MNSAuthorized' => 'MNSAuthorized',
+        'authorized'    => 'Authorized',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class DescribeRelatedAuthorizationStatusResponseBody extends Model
         }
         if (null !== $this->MNSAuthorized) {
             $res['MNSAuthorized'] = $this->MNSAuthorized;
+        }
+        if (null !== $this->authorized) {
+            $res['Authorized'] = $this->authorized;
         }
 
         return $res;
@@ -78,6 +87,9 @@ class DescribeRelatedAuthorizationStatusResponseBody extends Model
         }
         if (isset($map['MNSAuthorized'])) {
             $model->MNSAuthorized = $map['MNSAuthorized'];
+        }
+        if (isset($map['Authorized'])) {
+            $model->authorized = $map['Authorized'];
         }
 
         return $model;

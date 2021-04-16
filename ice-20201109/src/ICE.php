@@ -46,10 +46,20 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCoverJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCoverJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDelogoJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDelogoJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitH2VJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitH2VJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitIRJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitIRJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitKeyWordCutJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitKeyWordCutJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMattingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMattingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaProducingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaProducingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPPTCutJobRequest;
@@ -629,6 +639,34 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param SubmitDelogoJobRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SubmitDelogoJobResponse
+     */
+    public function submitDelogoJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitDelogoJobResponse::fromMap($this->doRPCRequest('SubmitDelogoJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitDelogoJobRequest $request
+     *
+     * @return SubmitDelogoJobResponse
+     */
+    public function submitDelogoJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDelogoJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListMediaProducingJobsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -683,6 +721,34 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getEditingProjectMaterialsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitAudioProduceJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitAudioProduceJobResponse
+     */
+    public function submitAudioProduceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitAudioProduceJobResponse::fromMap($this->doRPCRequest('SubmitAudioProduceJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitAudioProduceJobRequest $request
+     *
+     * @return SubmitAudioProduceJobResponse
+     */
+    public function submitAudioProduceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAudioProduceJobWithOptions($request, $runtime);
     }
 
     /**
@@ -798,6 +864,34 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param SubmitMattingJobRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SubmitMattingJobResponse
+     */
+    public function submitMattingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitMattingJobResponse::fromMap($this->doRPCRequest('SubmitMattingJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitMattingJobRequest $request
+     *
+     * @return SubmitMattingJobResponse
+     */
+    public function submitMattingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitMattingJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RegisterMediaInfoRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -879,6 +973,34 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPublicMediaBasicInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitCoverJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitCoverJobResponse
+     */
+    public function submitCoverJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitCoverJobResponse::fromMap($this->doRPCRequest('SubmitCoverJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitCoverJobRequest $request
+     *
+     * @return SubmitCoverJobResponse
+     */
+    public function submitCoverJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitCoverJobWithOptions($request, $runtime);
     }
 
     /**
@@ -965,6 +1087,34 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSmartHandleJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitH2VJobRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SubmitH2VJobResponse
+     */
+    public function submitH2VJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitH2VJobResponse::fromMap($this->doRPCRequest('SubmitH2VJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitH2VJobRequest $request
+     *
+     * @return SubmitH2VJobResponse
+     */
+    public function submitH2VJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitH2VJobWithOptions($request, $runtime);
     }
 
     /**

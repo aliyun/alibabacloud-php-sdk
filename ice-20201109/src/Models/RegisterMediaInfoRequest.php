@@ -91,6 +91,13 @@ class RegisterMediaInfoRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @description 注册媒资的配置
+     *
+     * @var string
+     */
+    public $registerConfig;
     protected $_name = [
         'inputURL'            => 'InputURL',
         'mediaType'           => 'MediaType',
@@ -104,6 +111,7 @@ class RegisterMediaInfoRequest extends Model
         'userData'            => 'UserData',
         'overwrite'           => 'Overwrite',
         'clientToken'         => 'ClientToken',
+        'registerConfig'      => 'RegisterConfig',
     ];
 
     public function validate()
@@ -148,6 +156,9 @@ class RegisterMediaInfoRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->registerConfig) {
+            $res['RegisterConfig'] = $this->registerConfig;
         }
 
         return $res;
@@ -196,6 +207,9 @@ class RegisterMediaInfoRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['RegisterConfig'])) {
+            $model->registerConfig = $map['RegisterConfig'];
         }
 
         return $model;

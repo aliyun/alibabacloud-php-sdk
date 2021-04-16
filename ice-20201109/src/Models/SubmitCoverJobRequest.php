@@ -6,9 +6,11 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SubmitASRJobRequest extends Model
+class SubmitCoverJobRequest extends Model
 {
     /**
+     * @description 输入文件
+     *
      * @var string
      */
     public $inputFile;
@@ -29,25 +31,17 @@ class SubmitASRJobRequest extends Model
     public $description;
 
     /**
-     * @description 开始时间
+     * @description 输出bucket
      *
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @description 持续时间
-     *
-     * @var string
-     */
-    public $duration;
+    public $outputConfig;
     protected $_name = [
-        'inputFile'   => 'InputFile',
-        'userData'    => 'UserData',
-        'title'       => 'Title',
-        'description' => 'Description',
-        'startTime'   => 'StartTime',
-        'duration'    => 'Duration',
+        'inputFile'    => 'InputFile',
+        'userData'     => 'UserData',
+        'title'        => 'Title',
+        'description'  => 'Description',
+        'outputConfig' => 'OutputConfig',
     ];
 
     public function validate()
@@ -69,11 +63,8 @@ class SubmitASRJobRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->outputConfig) {
+            $res['OutputConfig'] = $this->outputConfig;
         }
 
         return $res;
@@ -82,7 +73,7 @@ class SubmitASRJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return SubmitASRJobRequest
+     * @return SubmitCoverJobRequest
      */
     public static function fromMap($map = [])
     {
@@ -99,11 +90,8 @@ class SubmitASRJobRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['OutputConfig'])) {
+            $model->outputConfig = $map['OutputConfig'];
         }
 
         return $model;

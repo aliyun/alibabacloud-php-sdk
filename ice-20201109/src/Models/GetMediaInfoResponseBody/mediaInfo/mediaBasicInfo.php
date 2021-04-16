@@ -112,6 +112,13 @@ class mediaBasicInfo extends Model
      * @var string
      */
     public $deletedTime;
+
+    /**
+     * @description 雪碧图
+     *
+     * @var string
+     */
+    public $spriteImages;
     protected $_name = [
         'mediaId'      => 'MediaId',
         'inputURL'     => 'InputURL',
@@ -128,6 +135,7 @@ class mediaBasicInfo extends Model
         'createTime'   => 'CreateTime',
         'modifiedTime' => 'ModifiedTime',
         'deletedTime'  => 'DeletedTime',
+        'spriteImages' => 'SpriteImages',
     ];
 
     public function validate()
@@ -181,6 +189,9 @@ class mediaBasicInfo extends Model
         }
         if (null !== $this->deletedTime) {
             $res['DeletedTime'] = $this->deletedTime;
+        }
+        if (null !== $this->spriteImages) {
+            $res['SpriteImages'] = $this->spriteImages;
         }
 
         return $res;
@@ -238,6 +249,9 @@ class mediaBasicInfo extends Model
         }
         if (isset($map['DeletedTime'])) {
             $model->deletedTime = $map['DeletedTime'];
+        }
+        if (isset($map['SpriteImages'])) {
+            $model->spriteImages = $map['SpriteImages'];
         }
 
         return $model;

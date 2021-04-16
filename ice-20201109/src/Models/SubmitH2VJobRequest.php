@@ -6,9 +6,11 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SubmitASRJobRequest extends Model
+class SubmitH2VJobRequest extends Model
 {
     /**
+     * @description 输入文件
+     *
      * @var string
      */
     public $inputFile;
@@ -29,25 +31,25 @@ class SubmitASRJobRequest extends Model
     public $description;
 
     /**
-     * @description 开始时间
+     * @description 输出bucket
      *
      * @var string
      */
-    public $startTime;
+    public $outputConfig;
 
     /**
-     * @description 持续时间
+     * @description 输入文件类型
      *
      * @var string
      */
-    public $duration;
+    public $inputType;
     protected $_name = [
-        'inputFile'   => 'InputFile',
-        'userData'    => 'UserData',
-        'title'       => 'Title',
-        'description' => 'Description',
-        'startTime'   => 'StartTime',
-        'duration'    => 'Duration',
+        'inputFile'    => 'InputFile',
+        'userData'     => 'UserData',
+        'title'        => 'Title',
+        'description'  => 'Description',
+        'outputConfig' => 'OutputConfig',
+        'inputType'    => 'InputType',
     ];
 
     public function validate()
@@ -69,11 +71,11 @@ class SubmitASRJobRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->outputConfig) {
+            $res['OutputConfig'] = $this->outputConfig;
         }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->inputType) {
+            $res['InputType'] = $this->inputType;
         }
 
         return $res;
@@ -82,7 +84,7 @@ class SubmitASRJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return SubmitASRJobRequest
+     * @return SubmitH2VJobRequest
      */
     public static function fromMap($map = [])
     {
@@ -99,11 +101,11 @@ class SubmitASRJobRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['OutputConfig'])) {
+            $model->outputConfig = $map['OutputConfig'];
         }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['InputType'])) {
+            $model->inputType = $map['InputType'];
         }
 
         return $model;
