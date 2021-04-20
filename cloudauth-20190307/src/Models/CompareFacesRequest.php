@@ -27,17 +27,11 @@ class CompareFacesRequest extends Model
      * @var string
      */
     public $targetImageValue;
-
-    /**
-     * @var string
-     */
-    public $bizType;
     protected $_name = [
         'targetImageType'  => 'TargetImageType',
         'sourceImageType'  => 'SourceImageType',
         'sourceImageValue' => 'SourceImageValue',
         'targetImageValue' => 'TargetImageValue',
-        'bizType'          => 'BizType',
     ];
 
     public function validate()
@@ -58,9 +52,6 @@ class CompareFacesRequest extends Model
         }
         if (null !== $this->targetImageValue) {
             $res['TargetImageValue'] = $this->targetImageValue;
-        }
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
         }
 
         return $res;
@@ -85,9 +76,6 @@ class CompareFacesRequest extends Model
         }
         if (isset($map['TargetImageValue'])) {
             $model->targetImageValue = $map['TargetImageValue'];
-        }
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
         }
 
         return $model;

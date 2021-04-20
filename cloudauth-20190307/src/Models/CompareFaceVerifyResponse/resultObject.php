@@ -17,15 +17,22 @@ class resultObject extends Model
      * @var float
      */
     public $verifyScore;
+
+    /**
+     * @var string
+     */
+    public $certifyId;
     protected $_name = [
         'passed'      => 'Passed',
         'verifyScore' => 'VerifyScore',
+        'certifyId'   => 'CertifyId',
     ];
 
     public function validate()
     {
         Model::validateRequired('passed', $this->passed, true);
         Model::validateRequired('verifyScore', $this->verifyScore, true);
+        Model::validateRequired('certifyId', $this->certifyId, true);
     }
 
     public function toMap()
@@ -36,6 +43,9 @@ class resultObject extends Model
         }
         if (null !== $this->verifyScore) {
             $res['VerifyScore'] = $this->verifyScore;
+        }
+        if (null !== $this->certifyId) {
+            $res['CertifyId'] = $this->certifyId;
         }
 
         return $res;
@@ -54,6 +64,9 @@ class resultObject extends Model
         }
         if (isset($map['VerifyScore'])) {
             $model->verifyScore = $map['VerifyScore'];
+        }
+        if (isset($map['CertifyId'])) {
+            $model->certifyId = $map['CertifyId'];
         }
 
         return $model;

@@ -27,11 +27,17 @@ class resultObject extends Model
      * @var string
      */
     public $subCode;
+
+    /**
+     * @var string
+     */
+    public $certifyId;
     protected $_name = [
         'passed'       => 'Passed',
         'identityInfo' => 'IdentityInfo',
         'materialInfo' => 'MaterialInfo',
         'subCode'      => 'SubCode',
+        'certifyId'    => 'CertifyId',
     ];
 
     public function validate()
@@ -40,6 +46,7 @@ class resultObject extends Model
         Model::validateRequired('identityInfo', $this->identityInfo, true);
         Model::validateRequired('materialInfo', $this->materialInfo, true);
         Model::validateRequired('subCode', $this->subCode, true);
+        Model::validateRequired('certifyId', $this->certifyId, true);
     }
 
     public function toMap()
@@ -56,6 +63,9 @@ class resultObject extends Model
         }
         if (null !== $this->subCode) {
             $res['SubCode'] = $this->subCode;
+        }
+        if (null !== $this->certifyId) {
+            $res['CertifyId'] = $this->certifyId;
         }
 
         return $res;
@@ -80,6 +90,9 @@ class resultObject extends Model
         }
         if (isset($map['SubCode'])) {
             $model->subCode = $map['SubCode'];
+        }
+        if (isset($map['CertifyId'])) {
+            $model->certifyId = $map['CertifyId'];
         }
 
         return $model;
