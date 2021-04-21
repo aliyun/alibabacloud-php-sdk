@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppNameRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppNameResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppStatusRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppStatusResponse;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetUsersPermissionsRequest;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetUsersPermissionsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -285,6 +287,34 @@ class Rtcwhiteboard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetUsersPermissionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetUsersPermissionsResponse
+     */
+    public function setUsersPermissionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetUsersPermissionsResponse::fromMap($this->doRPCRequest('SetUsersPermissions', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetUsersPermissionsRequest $request
+     *
+     * @return SetUsersPermissionsResponse
+     */
+    public function setUsersPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setUsersPermissionsWithOptions($request, $runtime);
     }
 
     /**
