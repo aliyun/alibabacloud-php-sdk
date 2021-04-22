@@ -90,6 +90,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOwnerApplyOrderDetailRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOwnerApplyOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncExecSqlDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncExecSqlDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncJobAnalyzeResultRequest;
@@ -2374,6 +2376,34 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPhysicalDatabaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetPhysicalDatabaseResponse
+     */
+    public function getPhysicalDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetPhysicalDatabaseResponse::fromMap($this->doRPCRequest('GetPhysicalDatabase', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetPhysicalDatabaseRequest $request
+     *
+     * @return GetPhysicalDatabaseResponse
+     */
+    public function getPhysicalDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPhysicalDatabaseWithOptions($request, $runtime);
     }
 
     /**
