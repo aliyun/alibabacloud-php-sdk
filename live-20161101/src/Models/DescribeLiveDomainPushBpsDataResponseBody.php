@@ -12,6 +12,11 @@ class DescribeLiveDomainPushBpsDataResponseBody extends Model
     /**
      * @var string
      */
+    public $endTime;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -27,11 +32,6 @@ class DescribeLiveDomainPushBpsDataResponseBody extends Model
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
     public $dataInterval;
 
     /**
@@ -39,10 +39,10 @@ class DescribeLiveDomainPushBpsDataResponseBody extends Model
      */
     public $bpsDataPerInterval;
     protected $_name = [
+        'endTime'            => 'EndTime',
         'requestId'          => 'RequestId',
         'domainName'         => 'DomainName',
         'startTime'          => 'StartTime',
-        'endTime'            => 'EndTime',
         'dataInterval'       => 'DataInterval',
         'bpsDataPerInterval' => 'BpsDataPerInterval',
     ];
@@ -54,6 +54,9 @@ class DescribeLiveDomainPushBpsDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,9 +65,6 @@ class DescribeLiveDomainPushBpsDataResponseBody extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
@@ -84,6 +84,9 @@ class DescribeLiveDomainPushBpsDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -92,9 +95,6 @@ class DescribeLiveDomainPushBpsDataResponseBody extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];

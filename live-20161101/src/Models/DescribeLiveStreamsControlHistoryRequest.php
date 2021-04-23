@@ -32,24 +32,12 @@ class DescribeLiveStreamsControlHistoryRequest extends Model
      * @var string
      */
     public $endTime;
-
-    /**
-     * @var int
-     */
-    public $page;
-
-    /**
-     * @var int
-     */
-    public $rows;
     protected $_name = [
         'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
         'appName'    => 'AppName',
         'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
-        'page'       => 'Page',
-        'rows'       => 'Rows',
     ];
 
     public function validate()
@@ -73,12 +61,6 @@ class DescribeLiveStreamsControlHistoryRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->page) {
-            $res['Page'] = $this->page;
-        }
-        if (null !== $this->rows) {
-            $res['Rows'] = $this->rows;
         }
 
         return $res;
@@ -106,12 +88,6 @@ class DescribeLiveStreamsControlHistoryRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Page'])) {
-            $model->page = $map['Page'];
-        }
-        if (isset($map['Rows'])) {
-            $model->rows = $map['Rows'];
         }
 
         return $model;

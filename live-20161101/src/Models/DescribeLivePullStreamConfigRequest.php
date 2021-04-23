@@ -17,15 +17,9 @@ class DescribeLivePullStreamConfigRequest extends Model
      * @var string
      */
     public $domainName;
-
-    /**
-     * @var string
-     */
-    public $liveapiRequestFrom;
     protected $_name = [
-        'ownerId'            => 'OwnerId',
-        'domainName'         => 'DomainName',
-        'liveapiRequestFrom' => 'LiveapiRequestFrom',
+        'ownerId'    => 'OwnerId',
+        'domainName' => 'DomainName',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class DescribeLivePullStreamConfigRequest extends Model
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->liveapiRequestFrom) {
-            $res['LiveapiRequestFrom'] = $this->liveapiRequestFrom;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class DescribeLivePullStreamConfigRequest extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['LiveapiRequestFrom'])) {
-            $model->liveapiRequestFrom = $map['LiveapiRequestFrom'];
         }
 
         return $model;

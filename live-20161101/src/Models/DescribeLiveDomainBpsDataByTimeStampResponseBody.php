@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainBpsDataByTimeStampResponseBody extends Model
 {
     /**
+     * @var bpsDataList
+     */
+    public $bpsDataList;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -23,16 +28,11 @@ class DescribeLiveDomainBpsDataByTimeStampResponseBody extends Model
      * @var string
      */
     public $timeStamp;
-
-    /**
-     * @var bpsDataList
-     */
-    public $bpsDataList;
     protected $_name = [
+        'bpsDataList' => 'BpsDataList',
         'requestId'   => 'RequestId',
         'domainName'  => 'DomainName',
         'timeStamp'   => 'TimeStamp',
-        'bpsDataList' => 'BpsDataList',
     ];
 
     public function validate()
@@ -42,6 +42,9 @@ class DescribeLiveDomainBpsDataByTimeStampResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bpsDataList) {
+            $res['BpsDataList'] = null !== $this->bpsDataList ? $this->bpsDataList->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,9 +53,6 @@ class DescribeLiveDomainBpsDataByTimeStampResponseBody extends Model
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
-        }
-        if (null !== $this->bpsDataList) {
-            $res['BpsDataList'] = null !== $this->bpsDataList ? $this->bpsDataList->toMap() : null;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class DescribeLiveDomainBpsDataByTimeStampResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BpsDataList'])) {
+            $model->bpsDataList = bpsDataList::fromMap($map['BpsDataList']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -74,9 +77,6 @@ class DescribeLiveDomainBpsDataByTimeStampResponseBody extends Model
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
-        }
-        if (isset($map['BpsDataList'])) {
-            $model->bpsDataList = bpsDataList::fromMap($map['BpsDataList']);
         }
 
         return $model;

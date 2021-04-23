@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class liveStreamRtmpDelayConfig extends Model
 {
     /**
-     * @var string
-     */
-    public $level;
-
-    /**
      * @var int
      */
     public $delay;
+
+    /**
+     * @var string
+     */
+    public $level;
     protected $_name = [
-        'level' => 'Level',
         'delay' => 'Delay',
+        'level' => 'Level',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class liveStreamRtmpDelayConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
-        }
         if (null !== $this->delay) {
             $res['Delay'] = $this->delay;
+        }
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class liveStreamRtmpDelayConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
-        }
         if (isset($map['Delay'])) {
             $model->delay = $map['Delay'];
+        }
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
 
         return $model;

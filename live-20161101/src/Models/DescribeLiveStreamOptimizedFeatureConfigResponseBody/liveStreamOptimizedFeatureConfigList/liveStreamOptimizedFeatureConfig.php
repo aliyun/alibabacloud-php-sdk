@@ -11,12 +11,12 @@ class liveStreamOptimizedFeatureConfig extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $configName;
 
     /**
      * @var string
      */
-    public $configName;
+    public $configValue;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class liveStreamOptimizedFeatureConfig extends Model
     /**
      * @var string
      */
-    public $configValue;
+    public $domainName;
     protected $_name = [
-        'domainName'   => 'DomainName',
         'configName'   => 'ConfigName',
-        'configStatus' => 'ConfigStatus',
         'configValue'  => 'ConfigValue',
+        'configStatus' => 'ConfigStatus',
+        'domainName'   => 'DomainName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class liveStreamOptimizedFeatureConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->configName) {
             $res['ConfigName'] = $this->configName;
+        }
+        if (null !== $this->configValue) {
+            $res['ConfigValue'] = $this->configValue;
         }
         if (null !== $this->configStatus) {
             $res['ConfigStatus'] = $this->configStatus;
         }
-        if (null !== $this->configValue) {
-            $res['ConfigValue'] = $this->configValue;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class liveStreamOptimizedFeatureConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['ConfigName'])) {
             $model->configName = $map['ConfigName'];
+        }
+        if (isset($map['ConfigValue'])) {
+            $model->configValue = $map['ConfigValue'];
         }
         if (isset($map['ConfigStatus'])) {
             $model->configStatus = $map['ConfigStatus'];
         }
-        if (isset($map['ConfigValue'])) {
-            $model->configValue = $map['ConfigValue'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
 
         return $model;

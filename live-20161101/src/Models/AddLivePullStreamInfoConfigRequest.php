@@ -42,11 +42,6 @@ class AddLivePullStreamInfoConfigRequest extends Model
      * @var string
      */
     public $endTime;
-
-    /**
-     * @var string
-     */
-    public $pullAlways;
     protected $_name = [
         'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
@@ -55,7 +50,6 @@ class AddLivePullStreamInfoConfigRequest extends Model
         'sourceUrl'  => 'SourceUrl',
         'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
-        'pullAlways' => 'PullAlways',
     ];
 
     public function validate()
@@ -85,9 +79,6 @@ class AddLivePullStreamInfoConfigRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->pullAlways) {
-            $res['PullAlways'] = $this->pullAlways;
         }
 
         return $res;
@@ -121,9 +112,6 @@ class AddLivePullStreamInfoConfigRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['PullAlways'])) {
-            $model->pullAlways = $map['PullAlways'];
         }
 
         return $model;

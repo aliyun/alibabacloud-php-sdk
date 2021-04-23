@@ -11,12 +11,12 @@ class bpsDataModel extends Model
     /**
      * @var string
      */
-    public $timeStamp;
+    public $locationName;
 
     /**
      * @var string
      */
-    public $locationName;
+    public $timeStamp;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class bpsDataModel extends Model
      */
     public $bps;
     protected $_name = [
-        'timeStamp'    => 'TimeStamp',
         'locationName' => 'LocationName',
+        'timeStamp'    => 'TimeStamp',
         'ispName'      => 'IspName',
         'bps'          => 'Bps',
     ];
@@ -41,11 +41,11 @@ class bpsDataModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
         if (null !== $this->locationName) {
             $res['LocationName'] = $this->locationName;
+        }
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
         }
         if (null !== $this->ispName) {
             $res['IspName'] = $this->ispName;
@@ -65,11 +65,11 @@ class bpsDataModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
         if (isset($map['LocationName'])) {
             $model->locationName = $map['LocationName'];
+        }
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
         }
         if (isset($map['IspName'])) {
             $model->ispName = $map['IspName'];

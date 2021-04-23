@@ -11,22 +11,7 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var string
-     */
-    public $certName;
-
-    /**
-     * @var string
-     */
-    public $certDomainName;
-
-    /**
-     * @var string
-     */
-    public $certExpireTime;
+    public $status;
 
     /**
      * @var string
@@ -36,12 +21,12 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $certOrg;
+    public $certExpireTime;
 
     /**
      * @var string
      */
-    public $certType;
+    public $SSLPub;
 
     /**
      * @var string
@@ -51,23 +36,38 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $status;
+    public $certType;
 
     /**
      * @var string
      */
-    public $SSLPub;
+    public $certDomainName;
+
+    /**
+     * @var string
+     */
+    public $certName;
+
+    /**
+     * @var string
+     */
+    public $certOrg;
+
+    /**
+     * @var string
+     */
+    public $domainName;
     protected $_name = [
-        'domainName'     => 'DomainName',
-        'certName'       => 'CertName',
-        'certDomainName' => 'CertDomainName',
-        'certExpireTime' => 'CertExpireTime',
-        'certLife'       => 'CertLife',
-        'certOrg'        => 'CertOrg',
-        'certType'       => 'CertType',
-        'SSLProtocol'    => 'SSLProtocol',
         'status'         => 'Status',
+        'certLife'       => 'CertLife',
+        'certExpireTime' => 'CertExpireTime',
         'SSLPub'         => 'SSLPub',
+        'SSLProtocol'    => 'SSLProtocol',
+        'certType'       => 'CertType',
+        'certDomainName' => 'CertDomainName',
+        'certName'       => 'CertName',
+        'certOrg'        => 'CertOrg',
+        'domainName'     => 'DomainName',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class certInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->certName) {
-            $res['CertName'] = $this->certName;
-        }
-        if (null !== $this->certDomainName) {
-            $res['CertDomainName'] = $this->certDomainName;
-        }
-        if (null !== $this->certExpireTime) {
-            $res['CertExpireTime'] = $this->certExpireTime;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->certLife) {
             $res['CertLife'] = $this->certLife;
         }
-        if (null !== $this->certOrg) {
-            $res['CertOrg'] = $this->certOrg;
+        if (null !== $this->certExpireTime) {
+            $res['CertExpireTime'] = $this->certExpireTime;
         }
-        if (null !== $this->certType) {
-            $res['CertType'] = $this->certType;
+        if (null !== $this->SSLPub) {
+            $res['SSLPub'] = $this->SSLPub;
         }
         if (null !== $this->SSLProtocol) {
             $res['SSLProtocol'] = $this->SSLProtocol;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->certType) {
+            $res['CertType'] = $this->certType;
         }
-        if (null !== $this->SSLPub) {
-            $res['SSLPub'] = $this->SSLPub;
+        if (null !== $this->certDomainName) {
+            $res['CertDomainName'] = $this->certDomainName;
+        }
+        if (null !== $this->certName) {
+            $res['CertName'] = $this->certName;
+        }
+        if (null !== $this->certOrg) {
+            $res['CertOrg'] = $this->certOrg;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class certInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['CertName'])) {
-            $model->certName = $map['CertName'];
-        }
-        if (isset($map['CertDomainName'])) {
-            $model->certDomainName = $map['CertDomainName'];
-        }
-        if (isset($map['CertExpireTime'])) {
-            $model->certExpireTime = $map['CertExpireTime'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['CertLife'])) {
             $model->certLife = $map['CertLife'];
         }
-        if (isset($map['CertOrg'])) {
-            $model->certOrg = $map['CertOrg'];
+        if (isset($map['CertExpireTime'])) {
+            $model->certExpireTime = $map['CertExpireTime'];
         }
-        if (isset($map['CertType'])) {
-            $model->certType = $map['CertType'];
+        if (isset($map['SSLPub'])) {
+            $model->SSLPub = $map['SSLPub'];
         }
         if (isset($map['SSLProtocol'])) {
             $model->SSLProtocol = $map['SSLProtocol'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CertType'])) {
+            $model->certType = $map['CertType'];
         }
-        if (isset($map['SSLPub'])) {
-            $model->SSLPub = $map['SSLPub'];
+        if (isset($map['CertDomainName'])) {
+            $model->certDomainName = $map['CertDomainName'];
+        }
+        if (isset($map['CertName'])) {
+            $model->certName = $map['CertName'];
+        }
+        if (isset($map['CertOrg'])) {
+            $model->certOrg = $map['CertOrg'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
 
         return $model;

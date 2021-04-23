@@ -11,7 +11,7 @@ class realtimeLogDeliveryInfos extends Model
     /**
      * @var string
      */
-    public $project;
+    public $region;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class realtimeLogDeliveryInfos extends Model
     /**
      * @var string
      */
-    public $region;
+    public $project;
     protected $_name = [
-        'project'  => 'Project',
-        'logstore' => 'Logstore',
         'region'   => 'Region',
+        'logstore' => 'Logstore',
+        'project'  => 'Project',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class realtimeLogDeliveryInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
         if (null !== $this->logstore) {
             $res['Logstore'] = $this->logstore;
         }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class realtimeLogDeliveryInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
         if (isset($map['Logstore'])) {
             $model->logstore = $map['Logstore'];
         }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
 
         return $model;

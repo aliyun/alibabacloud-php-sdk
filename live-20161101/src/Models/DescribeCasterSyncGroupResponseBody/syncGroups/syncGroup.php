@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class syncGroup extends Model
 {
     /**
-     * @var int
-     */
-    public $mode;
-
-    /**
      * @var string
      */
     public $hostResourceId;
@@ -23,10 +18,15 @@ class syncGroup extends Model
      * @var resourceIds
      */
     public $resourceIds;
+
+    /**
+     * @var int
+     */
+    public $mode;
     protected $_name = [
-        'mode'           => 'Mode',
         'hostResourceId' => 'HostResourceId',
         'resourceIds'    => 'ResourceIds',
+        'mode'           => 'Mode',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class syncGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
         if (null !== $this->hostResourceId) {
             $res['HostResourceId'] = $this->hostResourceId;
         }
         if (null !== $this->resourceIds) {
             $res['ResourceIds'] = null !== $this->resourceIds ? $this->resourceIds->toMap() : null;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class syncGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
         if (isset($map['HostResourceId'])) {
             $model->hostResourceId = $map['HostResourceId'];
         }
         if (isset($map['ResourceIds'])) {
             $model->resourceIds = resourceIds::fromMap($map['ResourceIds']);
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
 
         return $model;

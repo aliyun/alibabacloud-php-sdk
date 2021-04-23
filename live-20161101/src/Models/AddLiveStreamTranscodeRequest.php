@@ -37,26 +37,6 @@ class AddLiveStreamTranscodeRequest extends Model
      * @var string
      */
     public $lazy;
-
-    /**
-     * @var string
-     */
-    public $watermark;
-
-    /**
-     * @var string
-     */
-    public $mix;
-
-    /**
-     * @var string
-     */
-    public $onlyAudio;
-
-    /**
-     * @var string
-     */
-    public $waterPattern;
     protected $_name = [
         'ownerId'           => 'OwnerId',
         'domain'            => 'Domain',
@@ -64,10 +44,6 @@ class AddLiveStreamTranscodeRequest extends Model
         'template'          => 'Template',
         'encryptParameters' => 'EncryptParameters',
         'lazy'              => 'Lazy',
-        'watermark'         => 'Watermark',
-        'mix'               => 'Mix',
-        'onlyAudio'         => 'OnlyAudio',
-        'waterPattern'      => 'WaterPattern',
     ];
 
     public function validate()
@@ -94,18 +70,6 @@ class AddLiveStreamTranscodeRequest extends Model
         }
         if (null !== $this->lazy) {
             $res['Lazy'] = $this->lazy;
-        }
-        if (null !== $this->watermark) {
-            $res['Watermark'] = $this->watermark;
-        }
-        if (null !== $this->mix) {
-            $res['Mix'] = $this->mix;
-        }
-        if (null !== $this->onlyAudio) {
-            $res['OnlyAudio'] = $this->onlyAudio;
-        }
-        if (null !== $this->waterPattern) {
-            $res['WaterPattern'] = $this->waterPattern;
         }
 
         return $res;
@@ -136,18 +100,6 @@ class AddLiveStreamTranscodeRequest extends Model
         }
         if (isset($map['Lazy'])) {
             $model->lazy = $map['Lazy'];
-        }
-        if (isset($map['Watermark'])) {
-            $model->watermark = $map['Watermark'];
-        }
-        if (isset($map['Mix'])) {
-            $model->mix = $map['Mix'];
-        }
-        if (isset($map['OnlyAudio'])) {
-            $model->onlyAudio = $map['OnlyAudio'];
-        }
-        if (isset($map['WaterPattern'])) {
-            $model->waterPattern = $map['WaterPattern'];
         }
 
         return $model;

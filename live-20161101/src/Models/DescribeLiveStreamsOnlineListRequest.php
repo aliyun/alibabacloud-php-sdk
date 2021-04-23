@@ -46,22 +46,7 @@ class DescribeLiveStreamsOnlineListRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
     public $queryType;
-
-    /**
-     * @var string
-     */
-    public $orderBy;
     protected $_name = [
         'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
@@ -70,10 +55,7 @@ class DescribeLiveStreamsOnlineListRequest extends Model
         'pageSize'   => 'PageSize',
         'pageNum'    => 'PageNum',
         'streamType' => 'StreamType',
-        'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
         'queryType'  => 'QueryType',
-        'orderBy'    => 'OrderBy',
     ];
 
     public function validate()
@@ -104,17 +86,8 @@ class DescribeLiveStreamsOnlineListRequest extends Model
         if (null !== $this->streamType) {
             $res['StreamType'] = $this->streamType;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
-        }
-        if (null !== $this->orderBy) {
-            $res['OrderBy'] = $this->orderBy;
         }
 
         return $res;
@@ -149,17 +122,8 @@ class DescribeLiveStreamsOnlineListRequest extends Model
         if (isset($map['StreamType'])) {
             $model->streamType = $map['StreamType'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
-        }
-        if (isset($map['OrderBy'])) {
-            $model->orderBy = $map['OrderBy'];
         }
 
         return $model;

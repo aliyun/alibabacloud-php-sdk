@@ -41,21 +41,15 @@ class ForbidLiveStreamRequest extends Model
     /**
      * @var string
      */
-    public $controlStreamAction;
-
-    /**
-     * @var string
-     */
     public $resumeTime;
     protected $_name = [
-        'ownerId'             => 'OwnerId',
-        'domainName'          => 'DomainName',
-        'appName'             => 'AppName',
-        'streamName'          => 'StreamName',
-        'liveStreamType'      => 'LiveStreamType',
-        'oneshot'             => 'Oneshot',
-        'controlStreamAction' => 'ControlStreamAction',
-        'resumeTime'          => 'ResumeTime',
+        'ownerId'        => 'OwnerId',
+        'domainName'     => 'DomainName',
+        'appName'        => 'AppName',
+        'streamName'     => 'StreamName',
+        'liveStreamType' => 'LiveStreamType',
+        'oneshot'        => 'Oneshot',
+        'resumeTime'     => 'ResumeTime',
     ];
 
     public function validate()
@@ -82,9 +76,6 @@ class ForbidLiveStreamRequest extends Model
         }
         if (null !== $this->oneshot) {
             $res['Oneshot'] = $this->oneshot;
-        }
-        if (null !== $this->controlStreamAction) {
-            $res['ControlStreamAction'] = $this->controlStreamAction;
         }
         if (null !== $this->resumeTime) {
             $res['ResumeTime'] = $this->resumeTime;
@@ -118,9 +109,6 @@ class ForbidLiveStreamRequest extends Model
         }
         if (isset($map['Oneshot'])) {
             $model->oneshot = $map['Oneshot'];
-        }
-        if (isset($map['ControlStreamAction'])) {
-            $model->controlStreamAction = $map['ControlStreamAction'];
         }
         if (isset($map['ResumeTime'])) {
             $model->resumeTime = $map['ResumeTime'];

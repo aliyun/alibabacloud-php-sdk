@@ -11,15 +11,15 @@ class ControlHtmlResourceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $streamId;
 
     /**
      * @var string
      */
-    public $streamId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'streamId'  => 'StreamId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ControlHtmlResourceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->streamId) {
             $res['StreamId'] = $this->streamId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ControlHtmlResourceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['StreamId'])) {
             $model->streamId = $map['StreamId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

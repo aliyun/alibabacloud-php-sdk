@@ -11,15 +11,15 @@ class DescribeLiveRealtimeLogAuthorizedResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $authorizedStatus;
 
     /**
      * @var string
      */
-    public $authorizedStatus;
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'authorizedStatus' => 'AuthorizedStatus',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeLiveRealtimeLogAuthorizedResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->authorizedStatus) {
             $res['AuthorizedStatus'] = $this->authorizedStatus;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeLiveRealtimeLogAuthorizedResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AuthorizedStatus'])) {
             $model->authorizedStatus = $map['AuthorizedStatus'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

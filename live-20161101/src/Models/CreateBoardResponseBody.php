@@ -11,15 +11,15 @@ class CreateBoardResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $boardId;
 
     /**
      * @var string
      */
-    public $boardId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'boardId'   => 'BoardId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateBoardResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->boardId) {
             $res['BoardId'] = $this->boardId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateBoardResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BoardId'])) {
             $model->boardId = $map['BoardId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

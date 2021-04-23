@@ -12,16 +12,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamDelayConfigResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var liveStreamHlsDelayConfig
-     */
-    public $liveStreamHlsDelayConfig;
-
-    /**
      * @var liveStreamFlvDelayConfig
      */
     public $liveStreamFlvDelayConfig;
@@ -30,11 +20,21 @@ class DescribeLiveStreamDelayConfigResponseBody extends Model
      * @var liveStreamRtmpDelayConfig
      */
     public $liveStreamRtmpDelayConfig;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var liveStreamHlsDelayConfig
+     */
+    public $liveStreamHlsDelayConfig;
     protected $_name = [
-        'requestId'                 => 'RequestId',
-        'liveStreamHlsDelayConfig'  => 'LiveStreamHlsDelayConfig',
         'liveStreamFlvDelayConfig'  => 'LiveStreamFlvDelayConfig',
         'liveStreamRtmpDelayConfig' => 'LiveStreamRtmpDelayConfig',
+        'requestId'                 => 'RequestId',
+        'liveStreamHlsDelayConfig'  => 'LiveStreamHlsDelayConfig',
     ];
 
     public function validate()
@@ -44,17 +44,17 @@ class DescribeLiveStreamDelayConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->liveStreamHlsDelayConfig) {
-            $res['LiveStreamHlsDelayConfig'] = null !== $this->liveStreamHlsDelayConfig ? $this->liveStreamHlsDelayConfig->toMap() : null;
-        }
         if (null !== $this->liveStreamFlvDelayConfig) {
             $res['LiveStreamFlvDelayConfig'] = null !== $this->liveStreamFlvDelayConfig ? $this->liveStreamFlvDelayConfig->toMap() : null;
         }
         if (null !== $this->liveStreamRtmpDelayConfig) {
             $res['LiveStreamRtmpDelayConfig'] = null !== $this->liveStreamRtmpDelayConfig ? $this->liveStreamRtmpDelayConfig->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->liveStreamHlsDelayConfig) {
+            $res['LiveStreamHlsDelayConfig'] = null !== $this->liveStreamHlsDelayConfig ? $this->liveStreamHlsDelayConfig->toMap() : null;
         }
 
         return $res;
@@ -68,17 +68,17 @@ class DescribeLiveStreamDelayConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LiveStreamHlsDelayConfig'])) {
-            $model->liveStreamHlsDelayConfig = liveStreamHlsDelayConfig::fromMap($map['LiveStreamHlsDelayConfig']);
-        }
         if (isset($map['LiveStreamFlvDelayConfig'])) {
             $model->liveStreamFlvDelayConfig = liveStreamFlvDelayConfig::fromMap($map['LiveStreamFlvDelayConfig']);
         }
         if (isset($map['LiveStreamRtmpDelayConfig'])) {
             $model->liveStreamRtmpDelayConfig = liveStreamRtmpDelayConfig::fromMap($map['LiveStreamRtmpDelayConfig']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['LiveStreamHlsDelayConfig'])) {
+            $model->liveStreamHlsDelayConfig = liveStreamHlsDelayConfig::fromMap($map['LiveStreamHlsDelayConfig']);
         }
 
         return $model;

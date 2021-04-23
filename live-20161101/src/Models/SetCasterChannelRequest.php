@@ -37,11 +37,6 @@ class SetCasterChannelRequest extends Model
      * @var int
      */
     public $playStatus;
-
-    /**
-     * @var int
-     */
-    public $reloadFlag;
     protected $_name = [
         'ownerId'    => 'OwnerId',
         'casterId'   => 'CasterId',
@@ -49,7 +44,6 @@ class SetCasterChannelRequest extends Model
         'resourceId' => 'ResourceId',
         'seekOffset' => 'SeekOffset',
         'playStatus' => 'PlayStatus',
-        'reloadFlag' => 'ReloadFlag',
     ];
 
     public function validate()
@@ -76,9 +70,6 @@ class SetCasterChannelRequest extends Model
         }
         if (null !== $this->playStatus) {
             $res['PlayStatus'] = $this->playStatus;
-        }
-        if (null !== $this->reloadFlag) {
-            $res['ReloadFlag'] = $this->reloadFlag;
         }
 
         return $res;
@@ -109,9 +100,6 @@ class SetCasterChannelRequest extends Model
         }
         if (isset($map['PlayStatus'])) {
             $model->playStatus = $map['PlayStatus'];
-        }
-        if (isset($map['ReloadFlag'])) {
-            $model->reloadFlag = $map['ReloadFlag'];
         }
 
         return $model;

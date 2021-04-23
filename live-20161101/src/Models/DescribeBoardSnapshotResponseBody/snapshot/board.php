@@ -11,14 +11,29 @@ use AlibabaCloud\Tea\Model;
 class board extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $boardId;
+    public $updateTimestamp;
 
     /**
      * @var string
      */
     public $appUid;
+
+    /**
+     * @var string
+     */
+    public $boardId;
+
+    /**
+     * @var configs[]
+     */
+    public $configs;
+
+    /**
+     * @var pages[]
+     */
+    public $pages;
 
     /**
      * @var int
@@ -29,29 +44,14 @@ class board extends Model
      * @var int
      */
     public $createTimestamp;
-
-    /**
-     * @var int
-     */
-    public $updateTimestamp;
-
-    /**
-     * @var pages[]
-     */
-    public $pages;
-
-    /**
-     * @var configs[]
-     */
-    public $configs;
     protected $_name = [
-        'boardId'         => 'BoardId',
+        'updateTimestamp' => 'UpdateTimestamp',
         'appUid'          => 'AppUid',
+        'boardId'         => 'BoardId',
+        'configs'         => 'Configs',
+        'pages'           => 'Pages',
         'eventTimestamp'  => 'EventTimestamp',
         'createTimestamp' => 'CreateTimestamp',
-        'updateTimestamp' => 'UpdateTimestamp',
-        'pages'           => 'Pages',
-        'configs'         => 'Configs',
     ];
 
     public function validate()
@@ -61,20 +61,23 @@ class board extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->boardId) {
-            $res['BoardId'] = $this->boardId;
+        if (null !== $this->updateTimestamp) {
+            $res['UpdateTimestamp'] = $this->updateTimestamp;
         }
         if (null !== $this->appUid) {
             $res['AppUid'] = $this->appUid;
         }
-        if (null !== $this->eventTimestamp) {
-            $res['EventTimestamp'] = $this->eventTimestamp;
+        if (null !== $this->boardId) {
+            $res['BoardId'] = $this->boardId;
         }
-        if (null !== $this->createTimestamp) {
-            $res['CreateTimestamp'] = $this->createTimestamp;
-        }
-        if (null !== $this->updateTimestamp) {
-            $res['UpdateTimestamp'] = $this->updateTimestamp;
+        if (null !== $this->configs) {
+            $res['Configs'] = [];
+            if (null !== $this->configs && \is_array($this->configs)) {
+                $n = 0;
+                foreach ($this->configs as $item) {
+                    $res['Configs'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->pages) {
             $res['Pages'] = [];
@@ -85,14 +88,11 @@ class board extends Model
                 }
             }
         }
-        if (null !== $this->configs) {
-            $res['Configs'] = [];
-            if (null !== $this->configs && \is_array($this->configs)) {
-                $n = 0;
-                foreach ($this->configs as $item) {
-                    $res['Configs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->eventTimestamp) {
+            $res['EventTimestamp'] = $this->eventTimestamp;
+        }
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
         }
 
         return $res;
@@ -106,20 +106,23 @@ class board extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BoardId'])) {
-            $model->boardId = $map['BoardId'];
+        if (isset($map['UpdateTimestamp'])) {
+            $model->updateTimestamp = $map['UpdateTimestamp'];
         }
         if (isset($map['AppUid'])) {
             $model->appUid = $map['AppUid'];
         }
-        if (isset($map['EventTimestamp'])) {
-            $model->eventTimestamp = $map['EventTimestamp'];
+        if (isset($map['BoardId'])) {
+            $model->boardId = $map['BoardId'];
         }
-        if (isset($map['CreateTimestamp'])) {
-            $model->createTimestamp = $map['CreateTimestamp'];
-        }
-        if (isset($map['UpdateTimestamp'])) {
-            $model->updateTimestamp = $map['UpdateTimestamp'];
+        if (isset($map['Configs'])) {
+            if (!empty($map['Configs'])) {
+                $model->configs = [];
+                $n              = 0;
+                foreach ($map['Configs'] as $item) {
+                    $model->configs[$n++] = null !== $item ? configs::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Pages'])) {
             if (!empty($map['Pages'])) {
@@ -130,14 +133,11 @@ class board extends Model
                 }
             }
         }
-        if (isset($map['Configs'])) {
-            if (!empty($map['Configs'])) {
-                $model->configs = [];
-                $n              = 0;
-                foreach ($map['Configs'] as $item) {
-                    $model->configs[$n++] = null !== $item ? configs::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['EventTimestamp'])) {
+            $model->eventTimestamp = $map['EventTimestamp'];
+        }
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
         }
 
         return $model;

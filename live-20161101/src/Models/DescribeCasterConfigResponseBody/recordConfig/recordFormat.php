@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\recordConfig;
 
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\recordConfig\recordFormat\recordFormat;
 use AlibabaCloud\Tea\Model;
 
 class recordFormat extends Model
 {
     /**
-     * @var recordFormat[]
+     * @var \AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\recordConfig\recordFormat\recordFormat[]
      */
     public $recordFormat;
     protected $_name = [
@@ -50,7 +49,7 @@ class recordFormat extends Model
                 $model->recordFormat = [];
                 $n                   = 0;
                 foreach ($map['RecordFormat'] as $item) {
-                    $model->recordFormat[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->recordFormat[$n++] = null !== $item ? \AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\recordConfig\recordFormat\recordFormat::fromMap($item) : $item;
                 }
             }
         }

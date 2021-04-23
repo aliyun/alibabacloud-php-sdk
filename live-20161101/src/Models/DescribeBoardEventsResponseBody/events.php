@@ -14,6 +14,11 @@ class events extends Model
     public $eventId;
 
     /**
+     * @var string
+     */
+    public $data;
+
+    /**
      * @var int
      */
     public $eventType;
@@ -24,19 +29,14 @@ class events extends Model
     public $userId;
 
     /**
-     * @var string
-     */
-    public $data;
-
-    /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
         'eventId'   => 'EventId',
+        'data'      => 'Data',
         'eventType' => 'EventType',
         'userId'    => 'UserId',
-        'data'      => 'Data',
         'timestamp' => 'Timestamp',
     ];
 
@@ -50,14 +50,14 @@ class events extends Model
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
         }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
@@ -77,14 +77,14 @@ class events extends Model
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
         }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];

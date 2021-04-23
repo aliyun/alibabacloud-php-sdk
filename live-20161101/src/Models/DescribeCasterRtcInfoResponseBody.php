@@ -16,16 +16,16 @@ class DescribeCasterRtcInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $casterId;
+    public $authToken;
 
     /**
      * @var string
      */
-    public $authToken;
+    public $casterId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'casterId'  => 'CasterId',
         'authToken' => 'AuthToken',
+        'casterId'  => 'CasterId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeCasterRtcInfoResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->casterId) {
-            $res['CasterId'] = $this->casterId;
-        }
         if (null !== $this->authToken) {
             $res['AuthToken'] = $this->authToken;
+        }
+        if (null !== $this->casterId) {
+            $res['CasterId'] = $this->casterId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeCasterRtcInfoResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['CasterId'])) {
-            $model->casterId = $map['CasterId'];
-        }
         if (isset($map['AuthToken'])) {
             $model->authToken = $map['AuthToken'];
+        }
+        if (isset($map['CasterId'])) {
+            $model->casterId = $map['CasterId'];
         }
 
         return $model;

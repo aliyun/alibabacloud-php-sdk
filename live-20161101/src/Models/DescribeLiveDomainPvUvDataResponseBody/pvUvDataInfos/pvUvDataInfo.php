@@ -16,16 +16,16 @@ class pvUvDataInfo extends Model
     /**
      * @var string
      */
-    public $UV;
+    public $timeStamp;
 
     /**
      * @var string
      */
-    public $timeStamp;
+    public $UV;
     protected $_name = [
         'PV'        => 'PV',
-        'UV'        => 'UV',
         'timeStamp' => 'TimeStamp',
+        'UV'        => 'UV',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class pvUvDataInfo extends Model
         if (null !== $this->PV) {
             $res['PV'] = $this->PV;
         }
-        if (null !== $this->UV) {
-            $res['UV'] = $this->UV;
-        }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
+        }
+        if (null !== $this->UV) {
+            $res['UV'] = $this->UV;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class pvUvDataInfo extends Model
         if (isset($map['PV'])) {
             $model->PV = $map['PV'];
         }
-        if (isset($map['UV'])) {
-            $model->UV = $map['UV'];
-        }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
+        }
+        if (isset($map['UV'])) {
+            $model->UV = $map['UV'];
         }
 
         return $model;

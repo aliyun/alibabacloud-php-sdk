@@ -11,17 +11,7 @@ class htmlResource extends Model
     /**
      * @var string
      */
-    public $htmlResourceId;
-
-    /**
-     * @var string
-     */
     public $htmlUrl;
-
-    /**
-     * @var string
-     */
-    public $htmlContent;
 
     /**
      * @var string
@@ -31,19 +21,29 @@ class htmlResource extends Model
     /**
      * @var string
      */
+    public $streamId;
+
+    /**
+     * @var string
+     */
     public $config;
 
     /**
      * @var string
      */
-    public $streamId;
+    public $htmlResourceId;
+
+    /**
+     * @var string
+     */
+    public $htmlContent;
     protected $_name = [
-        'htmlResourceId' => 'HtmlResourceId',
         'htmlUrl'        => 'HtmlUrl',
-        'htmlContent'    => 'HtmlContent',
         'casterId'       => 'CasterId',
-        'config'         => 'Config',
         'streamId'       => 'StreamId',
+        'config'         => 'Config',
+        'htmlResourceId' => 'HtmlResourceId',
+        'htmlContent'    => 'HtmlContent',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class htmlResource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->htmlResourceId) {
-            $res['HtmlResourceId'] = $this->htmlResourceId;
-        }
         if (null !== $this->htmlUrl) {
             $res['HtmlUrl'] = $this->htmlUrl;
-        }
-        if (null !== $this->htmlContent) {
-            $res['HtmlContent'] = $this->htmlContent;
         }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
+        if (null !== $this->streamId) {
+            $res['StreamId'] = $this->streamId;
+        }
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
-        if (null !== $this->streamId) {
-            $res['StreamId'] = $this->streamId;
+        if (null !== $this->htmlResourceId) {
+            $res['HtmlResourceId'] = $this->htmlResourceId;
+        }
+        if (null !== $this->htmlContent) {
+            $res['HtmlContent'] = $this->htmlContent;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class htmlResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HtmlResourceId'])) {
-            $model->htmlResourceId = $map['HtmlResourceId'];
-        }
         if (isset($map['HtmlUrl'])) {
             $model->htmlUrl = $map['HtmlUrl'];
-        }
-        if (isset($map['HtmlContent'])) {
-            $model->htmlContent = $map['HtmlContent'];
         }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
+        if (isset($map['StreamId'])) {
+            $model->streamId = $map['StreamId'];
+        }
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
-        if (isset($map['StreamId'])) {
-            $model->streamId = $map['StreamId'];
+        if (isset($map['HtmlResourceId'])) {
+            $model->htmlResourceId = $map['HtmlResourceId'];
+        }
+        if (isset($map['HtmlContent'])) {
+            $model->htmlContent = $map['HtmlContent'];
         }
 
         return $model;

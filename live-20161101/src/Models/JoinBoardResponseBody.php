@@ -11,17 +11,17 @@ class JoinBoardResponseBody extends Model
     /**
      * @var string
      */
+    public $boardId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var string
      */
     public $token;
-
-    /**
-     * @var string
-     */
-    public $boardId;
 
     /**
      * @var string
@@ -38,9 +38,9 @@ class JoinBoardResponseBody extends Model
      */
     public $keepaliveInterval;
     protected $_name = [
+        'boardId'           => 'BoardId',
         'requestId'         => 'RequestId',
         'token'             => 'Token',
-        'boardId'           => 'BoardId',
         'topicId'           => 'TopicId',
         'keepaliveTopic'    => 'KeepaliveTopic',
         'keepaliveInterval' => 'KeepaliveInterval',
@@ -53,14 +53,14 @@ class JoinBoardResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->boardId) {
+            $res['BoardId'] = $this->boardId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
-        }
-        if (null !== $this->boardId) {
-            $res['BoardId'] = $this->boardId;
         }
         if (null !== $this->topicId) {
             $res['TopicId'] = $this->topicId;
@@ -83,14 +83,14 @@ class JoinBoardResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BoardId'])) {
+            $model->boardId = $map['BoardId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
-        }
-        if (isset($map['BoardId'])) {
-            $model->boardId = $map['BoardId'];
         }
         if (isset($map['TopicId'])) {
             $model->topicId = $map['TopicId'];

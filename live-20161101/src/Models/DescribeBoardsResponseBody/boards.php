@@ -14,11 +14,6 @@ class boards extends Model
     public $boardId;
 
     /**
-     * @var string
-     */
-    public $topic;
-
-    /**
      * @var int
      */
     public $state;
@@ -27,11 +22,16 @@ class boards extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @var string
+     */
+    public $topic;
     protected $_name = [
         'boardId' => 'BoardId',
-        'topic'   => 'Topic',
         'state'   => 'State',
         'userId'  => 'UserId',
+        'topic'   => 'Topic',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class boards extends Model
         if (null !== $this->boardId) {
             $res['BoardId'] = $this->boardId;
         }
-        if (null !== $this->topic) {
-            $res['Topic'] = $this->topic;
-        }
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = $this->topic;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class boards extends Model
         if (isset($map['BoardId'])) {
             $model->boardId = $map['BoardId'];
         }
-        if (isset($map['Topic'])) {
-            $model->topic = $map['Topic'];
-        }
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = $map['Topic'];
         }
 
         return $model;

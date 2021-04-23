@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $boardId;
+
+    /**
+     * @var int
+     */
+    public $endTime;
 
     /**
      * @var string
      */
-    public $recordId;
+    public $requestId;
 
     /**
      * @var string
@@ -26,22 +31,12 @@ class DescribeRecordResponseBody extends Model
     /**
      * @var int
      */
-    public $boardId;
-
-    /**
-     * @var int
-     */
     public $recordStartTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $endTime;
+    public $ossEndpoint;
 
     /**
      * @var int
@@ -54,6 +49,11 @@ class DescribeRecordResponseBody extends Model
     public $ossPath;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @var string
      */
     public $ossBucket;
@@ -61,19 +61,19 @@ class DescribeRecordResponseBody extends Model
     /**
      * @var string
      */
-    public $ossEndpoint;
+    public $recordId;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'recordId'        => 'RecordId',
-        'appId'           => 'AppId',
         'boardId'         => 'BoardId',
-        'recordStartTime' => 'RecordStartTime',
-        'startTime'       => 'StartTime',
         'endTime'         => 'EndTime',
+        'requestId'       => 'RequestId',
+        'appId'           => 'AppId',
+        'recordStartTime' => 'RecordStartTime',
+        'ossEndpoint'     => 'OssEndpoint',
         'state'           => 'State',
         'ossPath'         => 'OssPath',
+        'startTime'       => 'StartTime',
         'ossBucket'       => 'OssBucket',
-        'ossEndpoint'     => 'OssEndpoint',
+        'recordId'        => 'RecordId',
     ];
 
     public function validate()
@@ -83,26 +83,23 @@ class DescribeRecordResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->boardId) {
+            $res['BoardId'] = $this->boardId;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->recordId) {
-            $res['RecordId'] = $this->recordId;
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->boardId) {
-            $res['BoardId'] = $this->boardId;
-        }
         if (null !== $this->recordStartTime) {
             $res['RecordStartTime'] = $this->recordStartTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->ossEndpoint) {
+            $res['OssEndpoint'] = $this->ossEndpoint;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -110,11 +107,14 @@ class DescribeRecordResponseBody extends Model
         if (null !== $this->ossPath) {
             $res['OssPath'] = $this->ossPath;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->ossBucket) {
             $res['OssBucket'] = $this->ossBucket;
         }
-        if (null !== $this->ossEndpoint) {
-            $res['OssEndpoint'] = $this->ossEndpoint;
+        if (null !== $this->recordId) {
+            $res['RecordId'] = $this->recordId;
         }
 
         return $res;
@@ -128,26 +128,23 @@ class DescribeRecordResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BoardId'])) {
+            $model->boardId = $map['BoardId'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['RecordId'])) {
-            $model->recordId = $map['RecordId'];
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['BoardId'])) {
-            $model->boardId = $map['BoardId'];
-        }
         if (isset($map['RecordStartTime'])) {
             $model->recordStartTime = $map['RecordStartTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['OssEndpoint'])) {
+            $model->ossEndpoint = $map['OssEndpoint'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
@@ -155,11 +152,14 @@ class DescribeRecordResponseBody extends Model
         if (isset($map['OssPath'])) {
             $model->ossPath = $map['OssPath'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['OssBucket'])) {
             $model->ossBucket = $map['OssBucket'];
         }
-        if (isset($map['OssEndpoint'])) {
-            $model->ossEndpoint = $map['OssEndpoint'];
+        if (isset($map['RecordId'])) {
+            $model->recordId = $map['RecordId'];
         }
 
         return $model;

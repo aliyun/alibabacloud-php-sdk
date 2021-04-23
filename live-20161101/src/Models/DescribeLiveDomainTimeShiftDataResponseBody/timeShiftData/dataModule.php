@@ -11,7 +11,7 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $timeStamp;
+    public $type;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $type;
+    public $timeStamp;
     protected $_name = [
-        'timeStamp' => 'TimeStamp',
-        'size'      => 'Size',
         'type'      => 'Type',
+        'size'      => 'Size',
+        'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class dataModule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class dataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
         }
 
         return $model;

@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveTopDomainsByFlowResponseBody extends Model
 {
     /**
-     * @var string
+     * @var topDomains
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $startTime;
+    public $topDomains;
 
     /**
      * @var string
@@ -25,9 +20,9 @@ class DescribeLiveTopDomainsByFlowResponseBody extends Model
     public $endTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $domainCount;
+    public $requestId;
 
     /**
      * @var int
@@ -35,16 +30,21 @@ class DescribeLiveTopDomainsByFlowResponseBody extends Model
     public $domainOnlineCount;
 
     /**
-     * @var topDomains
+     * @var string
      */
-    public $topDomains;
+    public $startTime;
+
+    /**
+     * @var int
+     */
+    public $domainCount;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'startTime'         => 'StartTime',
-        'endTime'           => 'EndTime',
-        'domainCount'       => 'DomainCount',
-        'domainOnlineCount' => 'DomainOnlineCount',
         'topDomains'        => 'TopDomains',
+        'endTime'           => 'EndTime',
+        'requestId'         => 'RequestId',
+        'domainOnlineCount' => 'DomainOnlineCount',
+        'startTime'         => 'StartTime',
+        'domainCount'       => 'DomainCount',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeLiveTopDomainsByFlowResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->topDomains) {
+            $res['TopDomains'] = null !== $this->topDomains ? $this->topDomains->toMap() : null;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->domainCount) {
-            $res['DomainCount'] = $this->domainCount;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->domainOnlineCount) {
             $res['DomainOnlineCount'] = $this->domainOnlineCount;
         }
-        if (null !== $this->topDomains) {
-            $res['TopDomains'] = null !== $this->topDomains ? $this->topDomains->toMap() : null;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->domainCount) {
+            $res['DomainCount'] = $this->domainCount;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeLiveTopDomainsByFlowResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['TopDomains'])) {
+            $model->topDomains = topDomains::fromMap($map['TopDomains']);
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['DomainCount'])) {
-            $model->domainCount = $map['DomainCount'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['DomainOnlineCount'])) {
             $model->domainOnlineCount = $map['DomainOnlineCount'];
         }
-        if (isset($map['TopDomains'])) {
-            $model->topDomains = topDomains::fromMap($map['TopDomains']);
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['DomainCount'])) {
+            $model->domainCount = $map['DomainCount'];
         }
 
         return $model;

@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\AddCasterVideoResourceRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddCasterVideoResourceResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddCustomLiveStreamTranscodeRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddCustomLiveStreamTranscodeResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\AddDRMCertificateRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\AddDRMCertificateResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveAppRecordConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveAppRecordConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveAppSnapshotConfigRequest;
@@ -50,8 +52,14 @@ use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveSnapshotDetectPornConfigReques
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveSnapshotDetectPornConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveStreamTranscodeRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveStreamTranscodeResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\AddMultiRateConfigRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\AddMultiRateConfigResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\AddPlaylistItemsRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\AddPlaylistItemsResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddRtsLiveStreamTranscodeRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddRtsLiveStreamTranscodeResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\AddStudioLayoutRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\AddStudioLayoutResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddTrancodeSEIRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddTrancodeSEIResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\AllowPushStreamRequest;
@@ -64,6 +72,10 @@ use AlibabaCloud\SDK\Live\V20161101\Models\BatchDeleteLiveDomainConfigsRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\BatchDeleteLiveDomainConfigsResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\BatchSetLiveDomainConfigsRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\BatchSetLiveDomainConfigsResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\CheckServiceForRoleRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\CheckServiceForRoleResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\CloseLiveShiftRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\CloseLiveShiftResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\CompleteBoardRecordRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\CompleteBoardRecordResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\CompleteBoardRequest;
@@ -144,8 +156,16 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveStreamTranscodeRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveStreamTranscodeResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteMixStreamRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteMixStreamResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DeleteMultiRateConfigRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DeleteMultiRateConfigResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DeletePlaylistItemsRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DeletePlaylistItemsResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DeletePlaylistRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DeletePlaylistResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteRoomRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteRoomResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DeleteStudioLayoutRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DeleteStudioLayoutResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeBoardEventsRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeBoardEventsResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeBoardSnapshotRequest;
@@ -178,6 +198,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterVideoResourcesRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterVideoResourcesResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeDomainUsageDataRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeDomainUsageDataResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeDRMCertListRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeDRMCertListResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeForbidPushStreamRoomListRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeForbidPushStreamRoomListResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeHlsLiveStreamRealTimeBpsDataRequest;
@@ -234,6 +256,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainRecordDataRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainRecordDataResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainSnapshotDataRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainSnapshotDataResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainStreamTranscodeDataRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainStreamTranscodeDataResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainTimeShiftDataRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainTimeShiftDataResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainTrafficDataRequest;
@@ -254,6 +278,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveRecordNotifyConfigRequest
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveRecordNotifyConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveRecordVodConfigsRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveRecordVodConfigsResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveShiftConfigsRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveShiftConfigsResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotDetectPornConfigRequest;
@@ -266,8 +292,6 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamDelayConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamDelayConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamHistoryUserNumRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamHistoryUserNumResponse;
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamOnlineUserNumRequest;
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamOnlineUserNumResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamOptimizedFeatureConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamOptimizedFeatureConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamRecordContentRequest;
@@ -280,8 +304,6 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsBlockListRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsBlockListResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsControlHistoryRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsControlHistoryResponse;
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsFrameRateAndBitRateDataRequest;
-use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsFrameRateAndBitRateDataResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamSnapshotInfoRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamSnapshotInfoResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsNotifyUrlConfigRequest;
@@ -316,6 +338,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRoomListRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRoomListResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRoomStatusRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRoomStatusResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeStudioLayoutsRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeStudioLayoutsResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeUpBpsPeakDataRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeUpBpsPeakDataResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeUpBpsPeakOfLineRequest;
@@ -326,6 +350,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DisableLiveRealtimeLogDeliveryRequest
 use AlibabaCloud\SDK\Live\V20161101\Models\DisableLiveRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\EditHtmlResourceRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\EditHtmlResourceResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\EditPlaylistRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\EditPlaylistResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\EffectCasterUrgentRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\EffectCasterUrgentResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\EffectCasterVideoResourceRequest;
@@ -336,6 +362,10 @@ use AlibabaCloud\SDK\Live\V20161101\Models\ForbidLiveStreamRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ForbidLiveStreamResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ForbidPushStreamRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ForbidPushStreamResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\GetMultiRateConfigListRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\GetMultiRateConfigListResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\GetMultiRateConfigRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\GetMultiRateConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\JoinBoardRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\JoinBoardResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryDomainsRequest;
@@ -344,6 +374,10 @@ use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryInfosReque
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryInfosResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListPlaylistItemsRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListPlaylistItemsResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListPlaylistRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListPlaylistResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ModifyCasterComponentRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ModifyCasterComponentResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ModifyCasterEpisodeRequest;
@@ -358,6 +392,10 @@ use AlibabaCloud\SDK\Live\V20161101\Models\ModifyLiveDomainSchdmByPropertyReques
 use AlibabaCloud\SDK\Live\V20161101\Models\ModifyLiveDomainSchdmByPropertyResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ModifyLiveRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ModifyLiveRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\ModifyStudioLayoutRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\ModifyStudioLayoutResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\OpenLiveShiftRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\OpenLiveShiftResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\RealTimeRecordCommandRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\RealTimeRecordCommandResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\RealTimeSnapshotCommandRequest;
@@ -398,6 +436,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\StartLiveDomainRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartLiveDomainResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartLiveIndexRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartLiveIndexResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\StartPlaylistRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\StartPlaylistResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopCasterRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopCasterResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopCasterSceneRequest;
@@ -406,6 +446,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\StopLiveDomainRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopLiveDomainResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopLiveIndexRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopLiveIndexResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\StopPlaylistRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\StopPlaylistResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\TagLiveResourcesRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\TagLiveResourcesResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\UnTagLiveResourcesRequest;
@@ -754,6 +796,34 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addCustomLiveStreamTranscodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddDRMCertificateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AddDRMCertificateResponse
+     */
+    public function addDRMCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddDRMCertificateResponse::fromMap($this->doRPCRequest('AddDRMCertificate', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddDRMCertificateRequest $request
+     *
+     * @return AddDRMCertificateResponse
+     */
+    public function addDRMCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDRMCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -1149,6 +1219,62 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param AddMultiRateConfigRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddMultiRateConfigResponse
+     */
+    public function addMultiRateConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddMultiRateConfigResponse::fromMap($this->doRPCRequest('AddMultiRateConfig', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddMultiRateConfigRequest $request
+     *
+     * @return AddMultiRateConfigResponse
+     */
+    public function addMultiRateConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMultiRateConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddPlaylistItemsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddPlaylistItemsResponse
+     */
+    public function addPlaylistItemsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddPlaylistItemsResponse::fromMap($this->doRPCRequest('AddPlaylistItems', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddPlaylistItemsRequest $request
+     *
+     * @return AddPlaylistItemsResponse
+     */
+    public function addPlaylistItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addPlaylistItemsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AddRtsLiveStreamTranscodeRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1174,6 +1300,34 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addRtsLiveStreamTranscodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddStudioLayoutRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddStudioLayoutResponse
+     */
+    public function addStudioLayoutWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddStudioLayoutResponse::fromMap($this->doRPCRequest('AddStudioLayout', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddStudioLayoutRequest $request
+     *
+     * @return AddStudioLayoutResponse
+     */
+    public function addStudioLayout($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addStudioLayoutWithOptions($request, $runtime);
     }
 
     /**
@@ -1342,6 +1496,62 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchSetLiveDomainConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckServiceForRoleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CheckServiceForRoleResponse
+     */
+    public function checkServiceForRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckServiceForRoleResponse::fromMap($this->doRPCRequest('CheckServiceForRole', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckServiceForRoleRequest $request
+     *
+     * @return CheckServiceForRoleResponse
+     */
+    public function checkServiceForRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkServiceForRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CloseLiveShiftRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CloseLiveShiftResponse
+     */
+    public function closeLiveShiftWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CloseLiveShiftResponse::fromMap($this->doRPCRequest('CloseLiveShift', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CloseLiveShiftRequest $request
+     *
+     * @return CloseLiveShiftResponse
+     */
+    public function closeLiveShift($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeLiveShiftWithOptions($request, $runtime);
     }
 
     /**
@@ -2468,6 +2678,90 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param DeleteMultiRateConfigRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteMultiRateConfigResponse
+     */
+    public function deleteMultiRateConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteMultiRateConfigResponse::fromMap($this->doRPCRequest('DeleteMultiRateConfig', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMultiRateConfigRequest $request
+     *
+     * @return DeleteMultiRateConfigResponse
+     */
+    public function deleteMultiRateConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMultiRateConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePlaylistRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeletePlaylistResponse
+     */
+    public function deletePlaylistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeletePlaylistResponse::fromMap($this->doRPCRequest('DeletePlaylist', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeletePlaylistRequest $request
+     *
+     * @return DeletePlaylistResponse
+     */
+    public function deletePlaylist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePlaylistWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePlaylistItemsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeletePlaylistItemsResponse
+     */
+    public function deletePlaylistItemsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeletePlaylistItemsResponse::fromMap($this->doRPCRequest('DeletePlaylistItems', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeletePlaylistItemsRequest $request
+     *
+     * @return DeletePlaylistItemsResponse
+     */
+    public function deletePlaylistItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePlaylistItemsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteRoomRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -2493,6 +2787,34 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteStudioLayoutRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteStudioLayoutResponse
+     */
+    public function deleteStudioLayoutWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteStudioLayoutResponse::fromMap($this->doRPCRequest('DeleteStudioLayout', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteStudioLayoutRequest $request
+     *
+     * @return DeleteStudioLayoutResponse
+     */
+    public function deleteStudioLayout($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStudioLayoutWithOptions($request, $runtime);
     }
 
     /**
@@ -2941,6 +3263,34 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDomainUsageDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDRMCertListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDRMCertListResponse
+     */
+    public function describeDRMCertListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDRMCertListResponse::fromMap($this->doRPCRequest('DescribeDRMCertList', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDRMCertListRequest $request
+     *
+     * @return DescribeDRMCertListResponse
+     */
+    public function describeDRMCertList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDRMCertListWithOptions($request, $runtime);
     }
 
     /**
@@ -3732,6 +4082,34 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param DescribeLiveDomainStreamTranscodeDataRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeLiveDomainStreamTranscodeDataResponse
+     */
+    public function describeLiveDomainStreamTranscodeDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeLiveDomainStreamTranscodeDataResponse::fromMap($this->doRPCRequest('DescribeLiveDomainStreamTranscodeData', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLiveDomainStreamTranscodeDataRequest $request
+     *
+     * @return DescribeLiveDomainStreamTranscodeDataResponse
+     */
+    public function describeLiveDomainStreamTranscodeData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLiveDomainStreamTranscodeDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeLiveDomainTimeShiftDataRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -4013,6 +4391,34 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param DescribeLiveShiftConfigsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeLiveShiftConfigsResponse
+     */
+    public function describeLiveShiftConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeLiveShiftConfigsResponse::fromMap($this->doRPCRequest('DescribeLiveShiftConfigs', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLiveShiftConfigsRequest $request
+     *
+     * @return DescribeLiveShiftConfigsResponse
+     */
+    public function describeLiveShiftConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLiveShiftConfigsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeLiveSnapshotConfigRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -4182,34 +4588,6 @@ class Live extends OpenApiClient
     }
 
     /**
-     * @param DescribeLiveStreamOnlineUserNumRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeLiveStreamOnlineUserNumResponse
-     */
-    public function describeLiveStreamOnlineUserNumWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeLiveStreamOnlineUserNumResponse::fromMap($this->doRPCRequest('DescribeLiveStreamOnlineUserNum', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLiveStreamOnlineUserNumRequest $request
-     *
-     * @return DescribeLiveStreamOnlineUserNumResponse
-     */
-    public function describeLiveStreamOnlineUserNum($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLiveStreamOnlineUserNumWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeLiveStreamOptimizedFeatureConfigRequest $request
      * @param RuntimeOptions                                  $runtime
      *
@@ -4375,34 +4753,6 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLiveStreamsControlHistoryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeLiveStreamsFrameRateAndBitRateDataRequest $request
-     * @param RuntimeOptions                                    $runtime
-     *
-     * @return DescribeLiveStreamsFrameRateAndBitRateDataResponse
-     */
-    public function describeLiveStreamsFrameRateAndBitRateDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeLiveStreamsFrameRateAndBitRateDataResponse::fromMap($this->doRPCRequest('DescribeLiveStreamsFrameRateAndBitRateData', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLiveStreamsFrameRateAndBitRateDataRequest $request
-     *
-     * @return DescribeLiveStreamsFrameRateAndBitRateDataResponse
-     */
-    public function describeLiveStreamsFrameRateAndBitRateData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLiveStreamsFrameRateAndBitRateDataWithOptions($request, $runtime);
     }
 
     /**
@@ -4882,6 +5232,34 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param DescribeStudioLayoutsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeStudioLayoutsResponse
+     */
+    public function describeStudioLayoutsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeStudioLayoutsResponse::fromMap($this->doRPCRequest('DescribeStudioLayouts', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeStudioLayoutsRequest $request
+     *
+     * @return DescribeStudioLayoutsResponse
+     */
+    public function describeStudioLayouts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStudioLayoutsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeUpBpsPeakDataRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -5020,6 +5398,34 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->editHtmlResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EditPlaylistRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EditPlaylistResponse
+     */
+    public function editPlaylistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EditPlaylistResponse::fromMap($this->doRPCRequest('EditPlaylist', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EditPlaylistRequest $request
+     *
+     * @return EditPlaylistResponse
+     */
+    public function editPlaylist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->editPlaylistWithOptions($request, $runtime);
     }
 
     /**
@@ -5164,6 +5570,62 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param GetMultiRateConfigRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMultiRateConfigResponse
+     */
+    public function getMultiRateConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMultiRateConfigResponse::fromMap($this->doRPCRequest('GetMultiRateConfig', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMultiRateConfigRequest $request
+     *
+     * @return GetMultiRateConfigResponse
+     */
+    public function getMultiRateConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMultiRateConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMultiRateConfigListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetMultiRateConfigListResponse
+     */
+    public function getMultiRateConfigListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMultiRateConfigListResponse::fromMap($this->doRPCRequest('GetMultiRateConfigList', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMultiRateConfigListRequest $request
+     *
+     * @return GetMultiRateConfigListResponse
+     */
+    public function getMultiRateConfigList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMultiRateConfigListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param JoinBoardRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -5276,6 +5738,62 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listLiveRealtimeLogDeliveryInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPlaylistRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListPlaylistResponse
+     */
+    public function listPlaylistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListPlaylistResponse::fromMap($this->doRPCRequest('ListPlaylist', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListPlaylistRequest $request
+     *
+     * @return ListPlaylistResponse
+     */
+    public function listPlaylist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPlaylistWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPlaylistItemsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListPlaylistItemsResponse
+     */
+    public function listPlaylistItemsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListPlaylistItemsResponse::fromMap($this->doRPCRequest('ListPlaylistItems', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListPlaylistItemsRequest $request
+     *
+     * @return ListPlaylistItemsResponse
+     */
+    public function listPlaylistItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPlaylistItemsWithOptions($request, $runtime);
     }
 
     /**
@@ -5473,6 +5991,62 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyLiveRealtimeLogDeliveryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyStudioLayoutRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyStudioLayoutResponse
+     */
+    public function modifyStudioLayoutWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyStudioLayoutResponse::fromMap($this->doRPCRequest('ModifyStudioLayout', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyStudioLayoutRequest $request
+     *
+     * @return ModifyStudioLayoutResponse
+     */
+    public function modifyStudioLayout($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyStudioLayoutWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OpenLiveShiftRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return OpenLiveShiftResponse
+     */
+    public function openLiveShiftWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return OpenLiveShiftResponse::fromMap($this->doRPCRequest('OpenLiveShift', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param OpenLiveShiftRequest $request
+     *
+     * @return OpenLiveShiftResponse
+     */
+    public function openLiveShift($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openLiveShiftWithOptions($request, $runtime);
     }
 
     /**
@@ -6036,6 +6610,34 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param StartPlaylistRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartPlaylistResponse
+     */
+    public function startPlaylistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartPlaylistResponse::fromMap($this->doRPCRequest('StartPlaylist', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartPlaylistRequest $request
+     *
+     * @return StartPlaylistResponse
+     */
+    public function startPlaylist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startPlaylistWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StopCasterRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -6145,6 +6747,34 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopLiveIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopPlaylistRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopPlaylistResponse
+     */
+    public function stopPlaylistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StopPlaylistResponse::fromMap($this->doRPCRequest('StopPlaylist', '2016-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StopPlaylistRequest $request
+     *
+     * @return StopPlaylistResponse
+     */
+    public function stopPlaylist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopPlaylistWithOptions($request, $runtime);
     }
 
     /**

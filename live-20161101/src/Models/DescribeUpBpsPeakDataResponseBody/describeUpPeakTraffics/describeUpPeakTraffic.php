@@ -11,11 +11,6 @@ class describeUpPeakTraffic extends Model
     /**
      * @var string
      */
-    public $peakTime;
-
-    /**
-     * @var string
-     */
     public $queryTime;
 
     /**
@@ -26,11 +21,16 @@ class describeUpPeakTraffic extends Model
     /**
      * @var string
      */
+    public $peakTime;
+
+    /**
+     * @var string
+     */
     public $bandWidth;
     protected $_name = [
-        'peakTime'  => 'PeakTime',
         'queryTime' => 'QueryTime',
         'statName'  => 'StatName',
+        'peakTime'  => 'PeakTime',
         'bandWidth' => 'BandWidth',
     ];
 
@@ -41,14 +41,14 @@ class describeUpPeakTraffic extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->peakTime) {
-            $res['PeakTime'] = $this->peakTime;
-        }
         if (null !== $this->queryTime) {
             $res['QueryTime'] = $this->queryTime;
         }
         if (null !== $this->statName) {
             $res['StatName'] = $this->statName;
+        }
+        if (null !== $this->peakTime) {
+            $res['PeakTime'] = $this->peakTime;
         }
         if (null !== $this->bandWidth) {
             $res['BandWidth'] = $this->bandWidth;
@@ -65,14 +65,14 @@ class describeUpPeakTraffic extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PeakTime'])) {
-            $model->peakTime = $map['PeakTime'];
-        }
         if (isset($map['QueryTime'])) {
             $model->queryTime = $map['QueryTime'];
         }
         if (isset($map['StatName'])) {
             $model->statName = $map['StatName'];
+        }
+        if (isset($map['PeakTime'])) {
+            $model->peakTime = $map['PeakTime'];
         }
         if (isset($map['BandWidth'])) {
             $model->bandWidth = $map['BandWidth'];

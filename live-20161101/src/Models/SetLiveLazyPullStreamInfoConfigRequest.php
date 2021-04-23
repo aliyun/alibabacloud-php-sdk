@@ -37,37 +37,13 @@ class SetLiveLazyPullStreamInfoConfigRequest extends Model
      * @var string
      */
     public $pullProtocol;
-
-    /**
-     * @var string
-     */
-    public $pullAuthType;
-
-    /**
-     * @var string
-     */
-    public $pullAuthKey;
-
-    /**
-     * @var string
-     */
-    public $pullArgs;
-
-    /**
-     * @var string
-     */
-    public $liveapiRequestFrom;
     protected $_name = [
-        'ownerId'            => 'OwnerId',
-        'domainName'         => 'DomainName',
-        'appName'            => 'AppName',
-        'pullDomainName'     => 'PullDomainName',
-        'pullAppName'        => 'PullAppName',
-        'pullProtocol'       => 'PullProtocol',
-        'pullAuthType'       => 'PullAuthType',
-        'pullAuthKey'        => 'PullAuthKey',
-        'pullArgs'           => 'PullArgs',
-        'liveapiRequestFrom' => 'LiveapiRequestFrom',
+        'ownerId'        => 'OwnerId',
+        'domainName'     => 'DomainName',
+        'appName'        => 'AppName',
+        'pullDomainName' => 'PullDomainName',
+        'pullAppName'    => 'PullAppName',
+        'pullProtocol'   => 'PullProtocol',
     ];
 
     public function validate()
@@ -94,18 +70,6 @@ class SetLiveLazyPullStreamInfoConfigRequest extends Model
         }
         if (null !== $this->pullProtocol) {
             $res['PullProtocol'] = $this->pullProtocol;
-        }
-        if (null !== $this->pullAuthType) {
-            $res['PullAuthType'] = $this->pullAuthType;
-        }
-        if (null !== $this->pullAuthKey) {
-            $res['PullAuthKey'] = $this->pullAuthKey;
-        }
-        if (null !== $this->pullArgs) {
-            $res['PullArgs'] = $this->pullArgs;
-        }
-        if (null !== $this->liveapiRequestFrom) {
-            $res['LiveapiRequestFrom'] = $this->liveapiRequestFrom;
         }
 
         return $res;
@@ -136,18 +100,6 @@ class SetLiveLazyPullStreamInfoConfigRequest extends Model
         }
         if (isset($map['PullProtocol'])) {
             $model->pullProtocol = $map['PullProtocol'];
-        }
-        if (isset($map['PullAuthType'])) {
-            $model->pullAuthType = $map['PullAuthType'];
-        }
-        if (isset($map['PullAuthKey'])) {
-            $model->pullAuthKey = $map['PullAuthKey'];
-        }
-        if (isset($map['PullArgs'])) {
-            $model->pullArgs = $map['PullArgs'];
-        }
-        if (isset($map['LiveapiRequestFrom'])) {
-            $model->liveapiRequestFrom = $map['LiveapiRequestFrom'];
         }
 
         return $model;

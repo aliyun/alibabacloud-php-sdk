@@ -22,16 +22,10 @@ class DescribeLiveLazyPullStreamConfigRequest extends Model
      * @var string
      */
     public $appName;
-
-    /**
-     * @var string
-     */
-    public $liveapiRequestFrom;
     protected $_name = [
-        'ownerId'            => 'OwnerId',
-        'domainName'         => 'DomainName',
-        'appName'            => 'AppName',
-        'liveapiRequestFrom' => 'LiveapiRequestFrom',
+        'ownerId'    => 'OwnerId',
+        'domainName' => 'DomainName',
+        'appName'    => 'AppName',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class DescribeLiveLazyPullStreamConfigRequest extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->liveapiRequestFrom) {
-            $res['LiveapiRequestFrom'] = $this->liveapiRequestFrom;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class DescribeLiveLazyPullStreamConfigRequest extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
-        }
-        if (isset($map['LiveapiRequestFrom'])) {
-            $model->liveapiRequestFrom = $map['LiveapiRequestFrom'];
         }
 
         return $model;
