@@ -17,6 +17,9 @@ use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularImageDepthRe
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularImageDepthResponse;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoImageDepthRequest;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoImageDepthResponse;
+use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoVideoDepthAdvanceRequest;
+use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoVideoDepthRequest;
+use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoVideoDepthResponse;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\GetAsyncJobResultRequest;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\GetAsyncJobResultResponse;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\ReconstructBodyBySingleImageAdvanceRequest;
@@ -102,13 +105,17 @@ class Threedvision extends OpenApiClient
     public function reconstructBodyBySingleImageAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -196,13 +203,17 @@ class Threedvision extends OpenApiClient
     public function reconstructThreeDMultiViewAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -318,13 +329,17 @@ class Threedvision extends OpenApiClient
     public function estimateMonocularImageDepthAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -401,5 +416,103 @@ class Threedvision extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->estimateStereoImageDepthWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EstimateStereoVideoDepthRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return EstimateStereoVideoDepthResponse
+     */
+    public function estimateStereoVideoDepthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EstimateStereoVideoDepthResponse::fromMap($this->doRPCRequest('EstimateStereoVideoDepth', '2021-01-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EstimateStereoVideoDepthRequest $request
+     *
+     * @return EstimateStereoVideoDepthResponse
+     */
+    public function estimateStereoVideoDepth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->estimateStereoVideoDepthWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EstimateStereoVideoDepthAdvanceRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return EstimateStereoVideoDepthResponse
+     */
+    public function estimateStereoVideoDepthAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'threedvision',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $estimateStereoVideoDepthReq = new EstimateStereoVideoDepthRequest([]);
+        OpenApiUtilClient::convert($request, $estimateStereoVideoDepthReq);
+        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        $ossConfig->accessKeyId = $authResponse->accessKeyId;
+        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+        $ossClient              = new OSS($ossConfig);
+        $fileObj                = new FileField([
+            'filename'    => $authResponse->objectKey,
+            'content'     => $request->videoURLObject,
+            'contentType' => '',
+        ]);
+        $ossHeader = new header([
+            'accessKeyId'         => $authResponse->accessKeyId,
+            'policy'              => $authResponse->encodedPolicy,
+            'signature'           => $authResponse->signature,
+            'key'                 => $authResponse->objectKey,
+            'file'                => $fileObj,
+            'successActionStatus' => '201',
+        ]);
+        $uploadRequest = new PostObjectRequest([
+            'bucketName' => $authResponse->bucket,
+            'header'     => $ossHeader,
+        ]);
+        $ossClient->postObject($uploadRequest, $ossRuntime);
+        $estimateStereoVideoDepthReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+
+        return $this->estimateStereoVideoDepthWithOptions($estimateStereoVideoDepthReq, $runtime);
     }
 }
