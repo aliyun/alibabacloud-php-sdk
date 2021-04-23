@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Videosearch\V20200225\Models\GetTaskStatusResponse;
+namespace AlibabaCloud\SDK\Videosearch\V20200225\Models\GetAudioTaskStatusResponse;
 
 use AlibabaCloud\Tea\Model;
 
@@ -22,11 +22,6 @@ class taskInfo extends Model
      * @var string
      */
     public $processResultOss;
-
-    /**
-     * @var string
-     */
-    public $resolution;
 
     /**
      * @var int
@@ -66,17 +61,17 @@ class taskInfo extends Model
     /**
      * @var string
      */
-    public $videoId;
+    public $audioId;
 
     /**
      * @var string
      */
-    public $videoTags;
+    public $audioTags;
 
     /**
      * @var string
      */
-    public $videoUrl;
+    public $audioUrl;
 
     /**
      * @var string
@@ -92,16 +87,10 @@ class taskInfo extends Model
      * @var string
      */
     public $replaceStorageThreshold;
-
-    /**
-     * @var int
-     */
-    public $storageType;
     protected $_name = [
         'analysisUseTime'         => 'AnalysisUseTime',
         'duration'                => 'Duration',
         'processResultOss'        => 'ProcessResultOss',
-        'resolution'              => 'Resolution',
         'status'                  => 'Status',
         'submitTime'              => 'SubmitTime',
         'finishTime'              => 'FinishTime',
@@ -109,13 +98,12 @@ class taskInfo extends Model
         'errorInfo'               => 'ErrorInfo',
         'storageInfo'             => 'StorageInfo',
         'description'             => 'Description',
-        'videoId'                 => 'VideoId',
-        'videoTags'               => 'VideoTags',
-        'videoUrl'                => 'VideoUrl',
+        'audioId'                 => 'AudioId',
+        'audioTags'               => 'AudioTags',
+        'audioUrl'                => 'AudioUrl',
         'queryTags'               => 'QueryTags',
         'resourceType'            => 'ResourceType',
         'replaceStorageThreshold' => 'ReplaceStorageThreshold',
-        'storageType'             => 'StorageType',
     ];
 
     public function validate()
@@ -123,7 +111,6 @@ class taskInfo extends Model
         Model::validateRequired('analysisUseTime', $this->analysisUseTime, true);
         Model::validateRequired('duration', $this->duration, true);
         Model::validateRequired('processResultOss', $this->processResultOss, true);
-        Model::validateRequired('resolution', $this->resolution, true);
         Model::validateRequired('status', $this->status, true);
         Model::validateRequired('submitTime', $this->submitTime, true);
         Model::validateRequired('finishTime', $this->finishTime, true);
@@ -131,13 +118,12 @@ class taskInfo extends Model
         Model::validateRequired('errorInfo', $this->errorInfo, true);
         Model::validateRequired('storageInfo', $this->storageInfo, true);
         Model::validateRequired('description', $this->description, true);
-        Model::validateRequired('videoId', $this->videoId, true);
-        Model::validateRequired('videoTags', $this->videoTags, true);
-        Model::validateRequired('videoUrl', $this->videoUrl, true);
+        Model::validateRequired('audioId', $this->audioId, true);
+        Model::validateRequired('audioTags', $this->audioTags, true);
+        Model::validateRequired('audioUrl', $this->audioUrl, true);
         Model::validateRequired('queryTags', $this->queryTags, true);
         Model::validateRequired('resourceType', $this->resourceType, true);
         Model::validateRequired('replaceStorageThreshold', $this->replaceStorageThreshold, true);
-        Model::validateRequired('storageType', $this->storageType, true);
     }
 
     public function toMap()
@@ -151,9 +137,6 @@ class taskInfo extends Model
         }
         if (null !== $this->processResultOss) {
             $res['ProcessResultOss'] = $this->processResultOss;
-        }
-        if (null !== $this->resolution) {
-            $res['Resolution'] = $this->resolution;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -176,14 +159,14 @@ class taskInfo extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
+        if (null !== $this->audioId) {
+            $res['AudioId'] = $this->audioId;
         }
-        if (null !== $this->videoTags) {
-            $res['VideoTags'] = $this->videoTags;
+        if (null !== $this->audioTags) {
+            $res['AudioTags'] = $this->audioTags;
         }
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
+        if (null !== $this->audioUrl) {
+            $res['AudioUrl'] = $this->audioUrl;
         }
         if (null !== $this->queryTags) {
             $res['QueryTags'] = $this->queryTags;
@@ -193,9 +176,6 @@ class taskInfo extends Model
         }
         if (null !== $this->replaceStorageThreshold) {
             $res['ReplaceStorageThreshold'] = $this->replaceStorageThreshold;
-        }
-        if (null !== $this->storageType) {
-            $res['StorageType'] = $this->storageType;
         }
 
         return $res;
@@ -218,9 +198,6 @@ class taskInfo extends Model
         if (isset($map['ProcessResultOss'])) {
             $model->processResultOss = $map['ProcessResultOss'];
         }
-        if (isset($map['Resolution'])) {
-            $model->resolution = $map['Resolution'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
@@ -242,14 +219,14 @@ class taskInfo extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
+        if (isset($map['AudioId'])) {
+            $model->audioId = $map['AudioId'];
         }
-        if (isset($map['VideoTags'])) {
-            $model->videoTags = $map['VideoTags'];
+        if (isset($map['AudioTags'])) {
+            $model->audioTags = $map['AudioTags'];
         }
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
+        if (isset($map['AudioUrl'])) {
+            $model->audioUrl = $map['AudioUrl'];
         }
         if (isset($map['QueryTags'])) {
             $model->queryTags = $map['QueryTags'];
@@ -259,9 +236,6 @@ class taskInfo extends Model
         }
         if (isset($map['ReplaceStorageThreshold'])) {
             $model->replaceStorageThreshold = $map['ReplaceStorageThreshold'];
-        }
-        if (isset($map['StorageType'])) {
-            $model->storageType = $map['StorageType'];
         }
 
         return $model;

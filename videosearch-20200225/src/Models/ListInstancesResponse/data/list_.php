@@ -25,7 +25,7 @@ class list_ extends Model
     public $instanceStatus;
 
     /**
-     * @var int
+     * @var string
      */
     public $createTime;
 
@@ -91,7 +91,7 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {

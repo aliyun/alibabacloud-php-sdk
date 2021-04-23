@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $taskId;
 
@@ -52,6 +52,16 @@ class list_ extends Model
      * @var string
      */
     public $processMessage;
+
+    /**
+     * @var string
+     */
+    public $subTaskDetail;
+
+    /**
+     * @var string
+     */
+    public $arn;
     protected $_name = [
         'taskId'         => 'TaskId',
         'status'         => 'Status',
@@ -62,6 +72,8 @@ class list_ extends Model
         'metaFile'       => 'MetaFile',
         'modifiedTime'   => 'ModifiedTime',
         'processMessage' => 'ProcessMessage',
+        'subTaskDetail'  => 'SubTaskDetail',
+        'arn'            => 'Arn',
     ];
 
     public function validate()
@@ -75,6 +87,8 @@ class list_ extends Model
         Model::validateRequired('metaFile', $this->metaFile, true);
         Model::validateRequired('modifiedTime', $this->modifiedTime, true);
         Model::validateRequired('processMessage', $this->processMessage, true);
+        Model::validateRequired('subTaskDetail', $this->subTaskDetail, true);
+        Model::validateRequired('arn', $this->arn, true);
     }
 
     public function toMap()
@@ -107,6 +121,12 @@ class list_ extends Model
         if (null !== $this->processMessage) {
             $res['ProcessMessage'] = $this->processMessage;
         }
+        if (null !== $this->subTaskDetail) {
+            $res['SubTaskDetail'] = $this->subTaskDetail;
+        }
+        if (null !== $this->arn) {
+            $res['Arn'] = $this->arn;
+        }
 
         return $res;
     }
@@ -114,7 +134,7 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {
@@ -145,6 +165,12 @@ class list_ extends Model
         }
         if (isset($map['ProcessMessage'])) {
             $model->processMessage = $map['ProcessMessage'];
+        }
+        if (isset($map['SubTaskDetail'])) {
+            $model->subTaskDetail = $map['SubTaskDetail'];
+        }
+        if (isset($map['Arn'])) {
+            $model->arn = $map['Arn'];
         }
 
         return $model;

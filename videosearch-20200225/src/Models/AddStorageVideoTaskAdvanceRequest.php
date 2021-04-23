@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Videosearch\V20200225\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class AddStorageVideoTaskRequest extends Model
+class AddStorageVideoTaskAdvanceRequest extends Model
 {
+    /**
+     * @var Stream
+     */
+    public $videoFileObject;
+
     /**
      * @var string
      */
@@ -52,26 +58,22 @@ class AddStorageVideoTaskRequest extends Model
      * @var int
      */
     public $sort;
-
-    /**
-     * @var string
-     */
-    public $videoFile;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'videoUrl'    => 'VideoUrl',
-        'videoId'     => 'VideoId',
-        'videoTags'   => 'VideoTags',
-        'callbackUrl' => 'CallbackUrl',
-        'description' => 'Description',
-        'storageInfo' => 'StorageInfo',
-        'clientToken' => 'ClientToken',
-        'sort'        => 'Sort',
-        'videoFile'   => 'VideoFile',
+        'videoFileObject' => 'VideoFileObject',
+        'instanceId'      => 'InstanceId',
+        'videoUrl'        => 'VideoUrl',
+        'videoId'         => 'VideoId',
+        'videoTags'       => 'VideoTags',
+        'callbackUrl'     => 'CallbackUrl',
+        'description'     => 'Description',
+        'storageInfo'     => 'StorageInfo',
+        'clientToken'     => 'ClientToken',
+        'sort'            => 'Sort',
     ];
 
     public function validate()
     {
+        Model::validateRequired('videoFileObject', $this->videoFileObject, true);
         Model::validateRequired('instanceId', $this->instanceId, true);
         Model::validateRequired('videoId', $this->videoId, true);
     }
@@ -79,6 +81,9 @@ class AddStorageVideoTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->videoFileObject) {
+            $res['VideoFileObject'] = $this->videoFileObject;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -106,9 +111,6 @@ class AddStorageVideoTaskRequest extends Model
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
         }
-        if (null !== $this->videoFile) {
-            $res['VideoFile'] = $this->videoFile;
-        }
 
         return $res;
     }
@@ -116,11 +118,14 @@ class AddStorageVideoTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return AddStorageVideoTaskRequest
+     * @return AddStorageVideoTaskAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['VideoFileObject'])) {
+            $model->videoFileObject = $map['VideoFileObject'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -147,9 +152,6 @@ class AddStorageVideoTaskRequest extends Model
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
-        }
-        if (isset($map['VideoFile'])) {
-            $model->videoFile = $map['VideoFile'];
         }
 
         return $model;

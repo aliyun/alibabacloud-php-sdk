@@ -57,6 +57,11 @@ class ListStorageVideoTasksRequest extends Model
      * @var string
      */
     public $storageInfoList;
+
+    /**
+     * @var string
+     */
+    public $sortList;
     protected $_name = [
         'clientToken'     => 'ClientToken',
         'taskId'          => 'TaskId',
@@ -68,6 +73,7 @@ class ListStorageVideoTasksRequest extends Model
         'statusList'      => 'StatusList',
         'description'     => 'Description',
         'storageInfoList' => 'StorageInfoList',
+        'sortList'        => 'SortList',
     ];
 
     public function validate()
@@ -107,6 +113,9 @@ class ListStorageVideoTasksRequest extends Model
         }
         if (null !== $this->storageInfoList) {
             $res['StorageInfoList'] = $this->storageInfoList;
+        }
+        if (null !== $this->sortList) {
+            $res['SortList'] = $this->sortList;
         }
 
         return $res;
@@ -149,6 +158,9 @@ class ListStorageVideoTasksRequest extends Model
         }
         if (isset($map['StorageInfoList'])) {
             $model->storageInfoList = $map['StorageInfoList'];
+        }
+        if (isset($map['SortList'])) {
+            $model->sortList = $map['SortList'];
         }
 
         return $model;

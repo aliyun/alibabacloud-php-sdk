@@ -37,6 +37,11 @@ class ListInstancesRequest extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var int
+     */
+    public $instanceType;
     protected $_name = [
         'clientToken'  => 'ClientToken',
         'instanceName' => 'InstanceName',
@@ -44,6 +49,7 @@ class ListInstancesRequest extends Model
         'pageSize'     => 'PageSize',
         'tags'         => 'Tags',
         'status'       => 'Status',
+        'instanceType' => 'InstanceType',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         return $model;

@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Videosearch\V20200225\Models\GetStorageHistoryResponse\data;
+namespace AlibabaCloud\SDK\Videosearch\V20200225\Models\GetAudioStorageHistoryResponse\data;
 
 use AlibabaCloud\Tea\Model;
 
@@ -11,7 +11,7 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $videoId;
+    public $audioId;
 
     /**
      * @var string
@@ -36,31 +36,31 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $videoUrl;
+    public $audioUrl;
     protected $_name = [
-        'videoId'      => 'VideoId',
+        'audioId'      => 'AudioId',
         'description'  => 'Description',
         'storageType'  => 'StorageType',
         'storageInfo'  => 'StorageInfo',
         'modifiedTime' => 'ModifiedTime',
-        'videoUrl'     => 'VideoUrl',
+        'audioUrl'     => 'AudioUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoId', $this->videoId, true);
+        Model::validateRequired('audioId', $this->audioId, true);
         Model::validateRequired('description', $this->description, true);
         Model::validateRequired('storageType', $this->storageType, true);
         Model::validateRequired('storageInfo', $this->storageInfo, true);
         Model::validateRequired('modifiedTime', $this->modifiedTime, true);
-        Model::validateRequired('videoUrl', $this->videoUrl, true);
+        Model::validateRequired('audioUrl', $this->audioUrl, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
+        if (null !== $this->audioId) {
+            $res['AudioId'] = $this->audioId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -74,8 +74,8 @@ class list_ extends Model
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
+        if (null !== $this->audioUrl) {
+            $res['AudioUrl'] = $this->audioUrl;
         }
 
         return $res;
@@ -89,8 +89,8 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
+        if (isset($map['AudioId'])) {
+            $model->audioId = $map['AudioId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -104,8 +104,8 @@ class list_ extends Model
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
+        if (isset($map['AudioUrl'])) {
+            $model->audioUrl = $map['AudioUrl'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Videosearch\V20200225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListSearchVideoTasksRequest extends Model
+class ListSearchAudioTasksRequest extends Model
 {
     /**
      * @var string
@@ -17,11 +17,6 @@ class ListSearchVideoTasksRequest extends Model
      * @var string
      */
     public $taskId;
-
-    /**
-     * @var string
-     */
-    public $videoName;
 
     /**
      * @var int
@@ -46,34 +41,21 @@ class ListSearchVideoTasksRequest extends Model
     /**
      * @var string
      */
-    public $searchTypeList;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
      * @var string
      */
     public $sortList;
-
-    /**
-     * @var string
-     */
-    public $videoId;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'taskId'         => 'TaskId',
-        'videoName'      => 'VideoName',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'instanceId'     => 'InstanceId',
-        'statusList'     => 'StatusList',
-        'searchTypeList' => 'SearchTypeList',
-        'description'    => 'Description',
-        'sortList'       => 'SortList',
-        'videoId'        => 'VideoId',
+        'clientToken' => 'ClientToken',
+        'taskId'      => 'TaskId',
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
+        'instanceId'  => 'InstanceId',
+        'statusList'  => 'StatusList',
+        'description' => 'Description',
+        'sortList'    => 'SortList',
     ];
 
     public function validate()
@@ -90,9 +72,6 @@ class ListSearchVideoTasksRequest extends Model
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->videoName) {
-            $res['VideoName'] = $this->videoName;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -105,17 +84,11 @@ class ListSearchVideoTasksRequest extends Model
         if (null !== $this->statusList) {
             $res['StatusList'] = $this->statusList;
         }
-        if (null !== $this->searchTypeList) {
-            $res['SearchTypeList'] = $this->searchTypeList;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->sortList) {
             $res['SortList'] = $this->sortList;
-        }
-        if (null !== $this->videoId) {
-            $res['VideoId'] = $this->videoId;
         }
 
         return $res;
@@ -124,7 +97,7 @@ class ListSearchVideoTasksRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListSearchVideoTasksRequest
+     * @return ListSearchAudioTasksRequest
      */
     public static function fromMap($map = [])
     {
@@ -134,9 +107,6 @@ class ListSearchVideoTasksRequest extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['VideoName'])) {
-            $model->videoName = $map['VideoName'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -150,17 +120,11 @@ class ListSearchVideoTasksRequest extends Model
         if (isset($map['StatusList'])) {
             $model->statusList = $map['StatusList'];
         }
-        if (isset($map['SearchTypeList'])) {
-            $model->searchTypeList = $map['SearchTypeList'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['SortList'])) {
             $model->sortList = $map['SortList'];
-        }
-        if (isset($map['VideoId'])) {
-            $model->videoId = $map['VideoId'];
         }
 
         return $model;

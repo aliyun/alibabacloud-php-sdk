@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Videosearch\V20200225\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class AddSearchVideoTaskRequest extends Model
+class AddSearchVideoTaskAdvanceRequest extends Model
 {
+    /**
+     * @var Stream
+     */
+    public $videoFileObject;
+
     /**
      * @var string
      */
@@ -69,11 +75,6 @@ class AddSearchVideoTaskRequest extends Model
     public $searchType;
 
     /**
-     * @var string
-     */
-    public $videoFile;
-
-    /**
      * @var int
      */
     public $sort;
@@ -83,6 +84,7 @@ class AddSearchVideoTaskRequest extends Model
      */
     public $needFeatureFile;
     protected $_name = [
+        'videoFileObject'         => 'VideoFileObject',
         'clientToken'             => 'ClientToken',
         'videoUrl'                => 'VideoUrl',
         'videoId'                 => 'VideoId',
@@ -95,19 +97,22 @@ class AddSearchVideoTaskRequest extends Model
         'instanceId'              => 'InstanceId',
         'description'             => 'Description',
         'searchType'              => 'SearchType',
-        'videoFile'               => 'VideoFile',
         'sort'                    => 'Sort',
         'needFeatureFile'         => 'NeedFeatureFile',
     ];
 
     public function validate()
     {
+        Model::validateRequired('videoFileObject', $this->videoFileObject, true);
         Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->videoFileObject) {
+            $res['VideoFileObject'] = $this->videoFileObject;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -144,9 +149,6 @@ class AddSearchVideoTaskRequest extends Model
         if (null !== $this->searchType) {
             $res['SearchType'] = $this->searchType;
         }
-        if (null !== $this->videoFile) {
-            $res['VideoFile'] = $this->videoFile;
-        }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
         }
@@ -160,11 +162,14 @@ class AddSearchVideoTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return AddSearchVideoTaskRequest
+     * @return AddSearchVideoTaskAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['VideoFileObject'])) {
+            $model->videoFileObject = $map['VideoFileObject'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -200,9 +205,6 @@ class AddSearchVideoTaskRequest extends Model
         }
         if (isset($map['SearchType'])) {
             $model->searchType = $map['SearchType'];
-        }
-        if (isset($map['VideoFile'])) {
-            $model->videoFile = $map['VideoFile'];
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];

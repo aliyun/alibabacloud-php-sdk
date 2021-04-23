@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Videosearch\V20200225\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class CreateBatchTaskRequest extends Model
+class CreateBatchTaskAdvanceRequest extends Model
 {
+    /**
+     * @var Stream
+     */
+    public $fileUrlObject;
+
     /**
      * @var int
      */
@@ -31,11 +37,6 @@ class CreateBatchTaskRequest extends Model
     /**
      * @var string
      */
-    public $fileUrl;
-
-    /**
-     * @var string
-     */
     public $roleArn;
 
     /**
@@ -53,11 +54,11 @@ class CreateBatchTaskRequest extends Model
      */
     public $callbackUrl;
     protected $_name = [
+        'fileUrlObject' => 'FileUrlObject',
         'batchTaskType' => 'BatchTaskType',
         'ossBucketName' => 'OssBucketName',
         'ossDataPath'   => 'OssDataPath',
         'ossMetaFile'   => 'OssMetaFile',
-        'fileUrl'       => 'FileUrl',
         'roleArn'       => 'RoleArn',
         'instanceId'    => 'InstanceId',
         'clientToken'   => 'ClientToken',
@@ -66,11 +67,15 @@ class CreateBatchTaskRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('fileUrlObject', $this->fileUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileUrlObject) {
+            $res['FileUrlObject'] = $this->fileUrlObject;
+        }
         if (null !== $this->batchTaskType) {
             $res['BatchTaskType'] = $this->batchTaskType;
         }
@@ -82,9 +87,6 @@ class CreateBatchTaskRequest extends Model
         }
         if (null !== $this->ossMetaFile) {
             $res['OssMetaFile'] = $this->ossMetaFile;
-        }
-        if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
         }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
@@ -105,11 +107,14 @@ class CreateBatchTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateBatchTaskRequest
+     * @return CreateBatchTaskAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileUrlObject'])) {
+            $model->fileUrlObject = $map['FileUrlObject'];
+        }
         if (isset($map['BatchTaskType'])) {
             $model->batchTaskType = $map['BatchTaskType'];
         }
@@ -121,9 +126,6 @@ class CreateBatchTaskRequest extends Model
         }
         if (isset($map['OssMetaFile'])) {
             $model->ossMetaFile = $map['OssMetaFile'];
-        }
-        if (isset($map['FileUrl'])) {
-            $model->fileUrl = $map['FileUrl'];
         }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
