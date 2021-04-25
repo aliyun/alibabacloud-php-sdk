@@ -11,16 +11,6 @@ class ModifyDomainRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -69,24 +59,9 @@ class ModifyDomainRequest extends Model
     public $isAccessProduct;
 
     /**
-     * @var int
-     */
-    public $xffHeaderMode;
-
-    /**
-     * @var string
-     */
-    public $xffHeaders;
-
-    /**
      * @var string
      */
     public $logHeaders;
-
-    /**
-     * @var int
-     */
-    public $bindingIpv6;
 
     /**
      * @var int
@@ -123,8 +98,6 @@ class ModifyDomainRequest extends Model
      */
     public $ipFollowStatus;
     protected $_name = [
-        'sourceIp'             => 'SourceIp',
-        'lang'                 => 'Lang',
         'instanceId'           => 'InstanceId',
         'domain'               => 'Domain',
         'sourceIps'            => 'SourceIps',
@@ -135,10 +108,7 @@ class ModifyDomainRequest extends Model
         'httpsRedirect'        => 'HttpsRedirect',
         'httpToUserIp'         => 'HttpToUserIp',
         'isAccessProduct'      => 'IsAccessProduct',
-        'xffHeaderMode'        => 'XffHeaderMode',
-        'xffHeaders'           => 'XffHeaders',
         'logHeaders'           => 'LogHeaders',
-        'bindingIpv6'          => 'BindingIpv6',
         'clusterType'          => 'ClusterType',
         'connectionTime'       => 'ConnectionTime',
         'readTime'             => 'ReadTime',
@@ -155,12 +125,6 @@ class ModifyDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -191,17 +155,8 @@ class ModifyDomainRequest extends Model
         if (null !== $this->isAccessProduct) {
             $res['IsAccessProduct'] = $this->isAccessProduct;
         }
-        if (null !== $this->xffHeaderMode) {
-            $res['XffHeaderMode'] = $this->xffHeaderMode;
-        }
-        if (null !== $this->xffHeaders) {
-            $res['XffHeaders'] = $this->xffHeaders;
-        }
         if (null !== $this->logHeaders) {
             $res['LogHeaders'] = $this->logHeaders;
-        }
-        if (null !== $this->bindingIpv6) {
-            $res['BindingIpv6'] = $this->bindingIpv6;
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
@@ -236,12 +191,6 @@ class ModifyDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -272,17 +221,8 @@ class ModifyDomainRequest extends Model
         if (isset($map['IsAccessProduct'])) {
             $model->isAccessProduct = $map['IsAccessProduct'];
         }
-        if (isset($map['XffHeaderMode'])) {
-            $model->xffHeaderMode = $map['XffHeaderMode'];
-        }
-        if (isset($map['XffHeaders'])) {
-            $model->xffHeaders = $map['XffHeaders'];
-        }
         if (isset($map['LogHeaders'])) {
             $model->logHeaders = $map['LogHeaders'];
-        }
-        if (isset($map['BindingIpv6'])) {
-            $model->bindingIpv6 = $map['BindingIpv6'];
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];

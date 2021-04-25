@@ -11,16 +11,6 @@ class SetDomainRuleGroupRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $domains;
 
     /**
@@ -43,8 +33,6 @@ class SetDomainRuleGroupRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'lang'            => 'Lang',
         'domains'         => 'Domains',
         'ruleGroupId'     => 'RuleGroupId',
         'wafVersion'      => 'WafVersion',
@@ -59,12 +47,6 @@ class SetDomainRuleGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->domains) {
             $res['Domains'] = $this->domains;
         }
@@ -92,12 +74,6 @@ class SetDomainRuleGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['Domains'])) {
             $model->domains = $map['Domains'];
         }

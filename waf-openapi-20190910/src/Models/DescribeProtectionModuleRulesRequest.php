@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeProtectionModuleRulesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -53,7 +48,6 @@ class DescribeProtectionModuleRulesRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'pageSize'        => 'PageSize',
         'pageNumber'      => 'PageNumber',
         'domain'          => 'Domain',
@@ -71,9 +65,6 @@ class DescribeProtectionModuleRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -110,9 +101,6 @@ class DescribeProtectionModuleRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

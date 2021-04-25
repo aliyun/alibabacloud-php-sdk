@@ -11,16 +11,6 @@ class ModifyDomainIpv6StatusRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -32,18 +22,10 @@ class ModifyDomainIpv6StatusRequest extends Model
      * @var string
      */
     public $enabled;
-
-    /**
-     * @var string
-     */
-    public $wafVersion;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
-        'lang'       => 'Lang',
         'instanceId' => 'InstanceId',
         'domain'     => 'Domain',
         'enabled'    => 'Enabled',
-        'wafVersion' => 'WafVersion',
     ];
 
     public function validate()
@@ -53,12 +35,6 @@ class ModifyDomainIpv6StatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -67,9 +43,6 @@ class ModifyDomainIpv6StatusRequest extends Model
         }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
-        }
-        if (null !== $this->wafVersion) {
-            $res['WafVersion'] = $this->wafVersion;
         }
 
         return $res;
@@ -83,12 +56,6 @@ class ModifyDomainIpv6StatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -97,9 +64,6 @@ class ModifyDomainIpv6StatusRequest extends Model
         }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
-        }
-        if (isset($map['WafVersion'])) {
-            $model->wafVersion = $map['WafVersion'];
         }
 
         return $model;

@@ -11,21 +11,6 @@ class DescribeInstanceInfoRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $instanceSource;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -33,9 +18,6 @@ class DescribeInstanceInfoRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'lang'            => 'Lang',
-        'instanceSource'  => 'InstanceSource',
         'instanceId'      => 'InstanceId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
@@ -47,15 +29,6 @@ class DescribeInstanceInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->instanceSource) {
-            $res['InstanceSource'] = $this->instanceSource;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -74,15 +47,6 @@ class DescribeInstanceInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['InstanceSource'])) {
-            $model->instanceSource = $map['InstanceSource'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

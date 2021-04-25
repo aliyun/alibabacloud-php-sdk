@@ -41,6 +41,16 @@ class domain extends Model
     public $isAccessProduct;
 
     /**
+     * @var string[]
+     */
+    public $accessHeaders;
+
+    /**
+     * @var int
+     */
+    public $accessHeaderMode;
+
+    /**
      * @var int
      */
     public $httpsRedirect;
@@ -73,12 +83,12 @@ class domain extends Model
     /**
      * @var int
      */
-    public $writeTime;
+    public $readTime;
 
     /**
      * @var int
      */
-    public $readTime;
+    public $writeTime;
 
     /**
      * @var string
@@ -111,14 +121,16 @@ class domain extends Model
         'httpPort'             => 'HttpPort',
         'logHeaders'           => 'LogHeaders',
         'isAccessProduct'      => 'IsAccessProduct',
+        'accessHeaders'        => 'AccessHeaders',
+        'accessHeaderMode'     => 'AccessHeaderMode',
         'httpsRedirect'        => 'HttpsRedirect',
         'loadBalancing'        => 'LoadBalancing',
         'ipFollowStatus'       => 'IpFollowStatus',
         'accessType'           => 'AccessType',
         'version'              => 'Version',
         'clusterType'          => 'ClusterType',
-        'writeTime'            => 'WriteTime',
         'readTime'             => 'ReadTime',
+        'writeTime'            => 'WriteTime',
         'resourceGroupId'      => 'ResourceGroupId',
         'cname'                => 'Cname',
         'sourceIps'            => 'SourceIps',
@@ -163,6 +175,12 @@ class domain extends Model
         if (null !== $this->isAccessProduct) {
             $res['IsAccessProduct'] = $this->isAccessProduct;
         }
+        if (null !== $this->accessHeaders) {
+            $res['AccessHeaders'] = $this->accessHeaders;
+        }
+        if (null !== $this->accessHeaderMode) {
+            $res['AccessHeaderMode'] = $this->accessHeaderMode;
+        }
         if (null !== $this->httpsRedirect) {
             $res['HttpsRedirect'] = $this->httpsRedirect;
         }
@@ -181,11 +199,11 @@ class domain extends Model
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
-        if (null !== $this->writeTime) {
-            $res['WriteTime'] = $this->writeTime;
-        }
         if (null !== $this->readTime) {
             $res['ReadTime'] = $this->readTime;
+        }
+        if (null !== $this->writeTime) {
+            $res['WriteTime'] = $this->writeTime;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -248,6 +266,14 @@ class domain extends Model
         if (isset($map['IsAccessProduct'])) {
             $model->isAccessProduct = $map['IsAccessProduct'];
         }
+        if (isset($map['AccessHeaders'])) {
+            if (!empty($map['AccessHeaders'])) {
+                $model->accessHeaders = $map['AccessHeaders'];
+            }
+        }
+        if (isset($map['AccessHeaderMode'])) {
+            $model->accessHeaderMode = $map['AccessHeaderMode'];
+        }
         if (isset($map['HttpsRedirect'])) {
             $model->httpsRedirect = $map['HttpsRedirect'];
         }
@@ -266,11 +292,11 @@ class domain extends Model
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }
-        if (isset($map['WriteTime'])) {
-            $model->writeTime = $map['WriteTime'];
-        }
         if (isset($map['ReadTime'])) {
             $model->readTime = $map['ReadTime'];
+        }
+        if (isset($map['WriteTime'])) {
+            $model->writeTime = $map['WriteTime'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

@@ -11,16 +11,6 @@ class CreateDomainRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -37,6 +27,16 @@ class CreateDomainRequest extends Model
      * @var int
      */
     public $isAccessProduct;
+
+    /**
+     * @var int
+     */
+    public $accessHeaderMode;
+
+    /**
+     * @var string
+     */
+    public $accessHeaders;
 
     /**
      * @var int
@@ -113,12 +113,12 @@ class CreateDomainRequest extends Model
      */
     public $ipFollowStatus;
     protected $_name = [
-        'sourceIp'             => 'SourceIp',
-        'lang'                 => 'Lang',
         'instanceId'           => 'InstanceId',
         'domain'               => 'Domain',
         'sourceIps'            => 'SourceIps',
         'isAccessProduct'      => 'IsAccessProduct',
+        'accessHeaderMode'     => 'AccessHeaderMode',
+        'accessHeaders'        => 'AccessHeaders',
         'loadBalancing'        => 'LoadBalancing',
         'logHeaders'           => 'LogHeaders',
         'httpPort'             => 'HttpPort',
@@ -143,12 +143,6 @@ class CreateDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -160,6 +154,12 @@ class CreateDomainRequest extends Model
         }
         if (null !== $this->isAccessProduct) {
             $res['IsAccessProduct'] = $this->isAccessProduct;
+        }
+        if (null !== $this->accessHeaderMode) {
+            $res['AccessHeaderMode'] = $this->accessHeaderMode;
+        }
+        if (null !== $this->accessHeaders) {
+            $res['AccessHeaders'] = $this->accessHeaders;
         }
         if (null !== $this->loadBalancing) {
             $res['LoadBalancing'] = $this->loadBalancing;
@@ -218,12 +218,6 @@ class CreateDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -235,6 +229,12 @@ class CreateDomainRequest extends Model
         }
         if (isset($map['IsAccessProduct'])) {
             $model->isAccessProduct = $map['IsAccessProduct'];
+        }
+        if (isset($map['AccessHeaderMode'])) {
+            $model->accessHeaderMode = $map['AccessHeaderMode'];
+        }
+        if (isset($map['AccessHeaders'])) {
+            $model->accessHeaders = $map['AccessHeaders'];
         }
         if (isset($map['LoadBalancing'])) {
             $model->loadBalancing = $map['LoadBalancing'];

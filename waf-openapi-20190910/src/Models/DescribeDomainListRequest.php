@@ -11,11 +11,6 @@ class DescribeDomainListRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
 
     /**
@@ -48,7 +43,6 @@ class DescribeDomainListRequest extends Model
      */
     public $domainNames;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'resourceGroupId' => 'ResourceGroupId',
         'instanceId'      => 'InstanceId',
         'domainName'      => 'DomainName',
@@ -65,9 +59,6 @@ class DescribeDomainListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -101,9 +92,6 @@ class DescribeDomainListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
