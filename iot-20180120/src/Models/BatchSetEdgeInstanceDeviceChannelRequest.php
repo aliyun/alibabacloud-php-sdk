@@ -42,10 +42,6 @@ class BatchSetEdgeInstanceDeviceChannelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('driverId', $this->driverId, true);
-        Model::validateRequired('channelId', $this->channelId, true);
-        Model::validateRequired('iotIds', $this->iotIds, true);
     }
 
     public function toMap()

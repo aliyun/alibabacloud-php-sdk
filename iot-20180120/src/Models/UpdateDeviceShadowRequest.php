@@ -42,9 +42,6 @@ class UpdateDeviceShadowRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('shadowMessage', $this->shadowMessage, true);
     }
 
     public function toMap()

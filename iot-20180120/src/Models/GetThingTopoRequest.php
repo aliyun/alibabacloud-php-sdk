@@ -48,8 +48,6 @@ class GetThingTopoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('pageNo', $this->pageNo, true);
     }
 
     public function toMap()

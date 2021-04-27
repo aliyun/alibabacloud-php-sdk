@@ -42,9 +42,6 @@ class CreateProductTopicRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('topicShortName', $this->topicShortName, true);
-        Model::validateRequired('operation', $this->operation, true);
     }
 
     public function toMap()

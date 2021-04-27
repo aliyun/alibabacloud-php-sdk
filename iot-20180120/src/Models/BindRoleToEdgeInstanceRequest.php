@@ -36,9 +36,6 @@ class BindRoleToEdgeInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('roleArn', $this->roleArn, true);
-        Model::validateRequired('roleName', $this->roleName, true);
     }
 
     public function toMap()

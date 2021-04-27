@@ -42,10 +42,6 @@ class InvokeThingsServiceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('identifier', $this->identifier, true);
-        Model::validateRequired('args', $this->args, true);
     }
 
     public function toMap()

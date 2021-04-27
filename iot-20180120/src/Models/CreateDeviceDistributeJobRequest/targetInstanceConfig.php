@@ -18,7 +18,6 @@ class targetInstanceConfig extends Model
 
     public function validate()
     {
-        Model::validateRequired('targetInstanceId', $this->targetInstanceId, true);
     }
 
     public function toMap()

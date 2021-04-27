@@ -36,9 +36,6 @@ class UpdateProductFilterConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('propertyTimestampFilter', $this->propertyTimestampFilter, true);
-        Model::validateRequired('propertyValueFilter', $this->propertyValueFilter, true);
     }
 
     public function toMap()

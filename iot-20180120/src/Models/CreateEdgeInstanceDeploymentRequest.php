@@ -30,8 +30,6 @@ class CreateEdgeInstanceDeploymentRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

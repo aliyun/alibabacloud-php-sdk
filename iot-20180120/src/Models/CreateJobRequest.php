@@ -29,7 +29,7 @@ class CreateJobRequest extends Model
     public $type;
 
     /**
-     * @var mixed[]
+     * @var string
      */
     public $jobFile;
 
@@ -39,17 +39,17 @@ class CreateJobRequest extends Model
     public $jobName;
 
     /**
-     * @var mixed[]
+     * @var string
      */
     public $timeoutConfig;
 
     /**
-     * @var mixed[]
+     * @var string
      */
     public $rolloutConfig;
 
     /**
-     * @var mixed[]
+     * @var string
      */
     public $targetConfig;
     protected $_name = [
@@ -66,10 +66,6 @@ class CreateJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('jobDocument', $this->jobDocument, true);
-        Model::validateRequired('type', $this->type, true);
-        Model::validateRequired('jobName', $this->jobName, true);
-        Model::validateRequired('targetConfig', $this->targetConfig, true);
     }
 
     public function toMap()

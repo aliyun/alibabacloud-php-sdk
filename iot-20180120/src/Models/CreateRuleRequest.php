@@ -78,7 +78,6 @@ class CreateRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

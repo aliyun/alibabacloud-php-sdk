@@ -31,8 +31,6 @@ class CreateLoRaNodesTaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('deviceInfo', $this->deviceInfo, true);
     }
 
     public function toMap()

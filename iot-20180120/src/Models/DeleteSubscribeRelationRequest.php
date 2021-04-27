@@ -30,8 +30,6 @@ class DeleteSubscribeRelationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

@@ -61,9 +61,6 @@ class PubRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('topicFullName', $this->topicFullName, true);
-        Model::validateRequired('messageContent', $this->messageContent, true);
     }
 
     public function toMap()

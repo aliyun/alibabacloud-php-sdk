@@ -37,9 +37,6 @@ class BatchAddThingTopoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('topoAddItem', $this->topoAddItem, true);
-        Model::validateRequired('gwProductKey', $this->gwProductKey, true);
-        Model::validateRequired('gwDeviceName', $this->gwDeviceName, true);
     }
 
     public function toMap()

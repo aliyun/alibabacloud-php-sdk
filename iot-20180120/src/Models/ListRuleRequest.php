@@ -36,8 +36,6 @@ class ListRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

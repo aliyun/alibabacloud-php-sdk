@@ -24,7 +24,6 @@ class DeleteOTAFirmwareRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('firmwareId', $this->firmwareId, true);
     }
 
     public function toMap()

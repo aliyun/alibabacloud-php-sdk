@@ -30,7 +30,6 @@ class TriggerSceneRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('ruleId', $this->ruleId, true);
     }
 
     public function toMap()

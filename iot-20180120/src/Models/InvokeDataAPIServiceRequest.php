@@ -31,7 +31,6 @@ class InvokeDataAPIServiceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('apiSrn', $this->apiSrn, true);
     }
 
     public function toMap()

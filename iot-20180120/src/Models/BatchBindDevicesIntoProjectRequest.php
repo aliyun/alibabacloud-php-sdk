@@ -31,8 +31,6 @@ class BatchBindDevicesIntoProjectRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('devices', $this->devices, true);
-        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

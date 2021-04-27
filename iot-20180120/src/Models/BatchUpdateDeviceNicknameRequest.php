@@ -25,7 +25,6 @@ class BatchUpdateDeviceNicknameRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceNicknameInfo', $this->deviceNicknameInfo, true);
     }
 
     public function toMap()

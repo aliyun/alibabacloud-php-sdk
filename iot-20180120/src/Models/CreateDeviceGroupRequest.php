@@ -36,7 +36,6 @@ class CreateDeviceGroupRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('groupName', $this->groupName, true);
     }
 
     public function toMap()

@@ -54,12 +54,6 @@ class QuerySummarySceneRuleLogRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('ruleId', $this->ruleId, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
-        Model::validateRequired('status', $this->status, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('currentPage', $this->currentPage, true);
     }
 
     public function toMap()

@@ -42,9 +42,6 @@ class CreateProductDistributeJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('sourceInstanceId', $this->sourceInstanceId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('targetInstanceId', $this->targetInstanceId, true);
     }
 
     public function toMap()

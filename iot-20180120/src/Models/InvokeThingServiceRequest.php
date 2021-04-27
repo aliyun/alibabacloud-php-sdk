@@ -48,8 +48,6 @@ class InvokeThingServiceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('identifier', $this->identifier, true);
-        Model::validateRequired('args', $this->args, true);
     }
 
     public function toMap()

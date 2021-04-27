@@ -49,8 +49,6 @@ class ListAnalyticsDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
-        Model::validateRequired('apiPath', $this->apiPath, true);
     }
 
     public function toMap()

@@ -30,8 +30,6 @@ class DeleteEdgeDriverVersionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('driverId', $this->driverId, true);
-        Model::validateRequired('driverVersion', $this->driverVersion, true);
     }
 
     public function toMap()

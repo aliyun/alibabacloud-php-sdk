@@ -42,8 +42,6 @@ class CopyThingModelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('sourceProductKey', $this->sourceProductKey, true);
-        Model::validateRequired('targetProductKey', $this->targetProductKey, true);
     }
 
     public function toMap()

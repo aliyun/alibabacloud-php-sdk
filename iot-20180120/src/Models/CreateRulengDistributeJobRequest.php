@@ -30,9 +30,6 @@ class CreateRulengDistributeJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('sourceInstanceId', $this->sourceInstanceId, true);
-        Model::validateRequired('targetInstanceId', $this->targetInstanceId, true);
     }
 
     public function toMap()

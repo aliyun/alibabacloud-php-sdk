@@ -72,9 +72,6 @@ class UpdateEdgeDriverVersionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('driverId', $this->driverId, true);
-        Model::validateRequired('driverVersion', $this->driverVersion, true);
-        Model::validateRequired('edgeVersion', $this->edgeVersion, true);
     }
 
     public function toMap()

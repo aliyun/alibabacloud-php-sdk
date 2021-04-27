@@ -30,8 +30,6 @@ class UpdateThingModelValidationConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('validateType', $this->validateType, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

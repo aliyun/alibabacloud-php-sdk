@@ -30,8 +30,6 @@ class BatchGetEdgeInstanceDriverConfigsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('driverIds', $this->driverIds, true);
     }
 
     public function toMap()

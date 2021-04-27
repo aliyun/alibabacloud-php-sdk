@@ -42,9 +42,6 @@ class CancelOTATaskByDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('firmwareId', $this->firmwareId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('deviceName', $this->deviceName, true);
     }
 
     public function toMap()

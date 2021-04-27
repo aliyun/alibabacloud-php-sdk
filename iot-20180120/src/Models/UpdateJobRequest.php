@@ -19,12 +19,12 @@ class UpdateJobRequest extends Model
     public $description;
 
     /**
-     * @var mixed[]
+     * @var string
      */
     public $timeoutConfig;
 
     /**
-     * @var mixed[]
+     * @var string
      */
     public $rolloutConfig;
 
@@ -42,7 +42,6 @@ class UpdateJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('jobId', $this->jobId, true);
     }
 
     public function toMap()

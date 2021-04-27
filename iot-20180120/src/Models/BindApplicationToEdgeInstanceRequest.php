@@ -36,9 +36,6 @@ class BindApplicationToEdgeInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('applicationId', $this->applicationId, true);
-        Model::validateRequired('applicationVersion', $this->applicationVersion, true);
     }
 
     public function toMap()

@@ -24,7 +24,6 @@ class DeleteEdgeDriverRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('driverId', $this->driverId, true);
     }
 
     public function toMap()

@@ -48,9 +48,6 @@ class CreateEdgeDriverRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('driverName', $this->driverName, true);
-        Model::validateRequired('driverProtocol', $this->driverProtocol, true);
-        Model::validateRequired('runtime', $this->runtime, true);
     }
 
     public function toMap()

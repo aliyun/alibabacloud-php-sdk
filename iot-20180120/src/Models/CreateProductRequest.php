@@ -44,11 +44,6 @@ class CreateProductRequest extends Model
     public $id2;
 
     /**
-     * @var int
-     */
-    public $categoryId;
-
-    /**
      * @var string
      */
     public $protocolType;
@@ -95,7 +90,6 @@ class CreateProductRequest extends Model
         'description'         => 'Description',
         'aliyunCommodityCode' => 'AliyunCommodityCode',
         'id2'                 => 'Id2',
-        'categoryId'          => 'CategoryId',
         'protocolType'        => 'ProtocolType',
         'netType'             => 'NetType',
         'joinPermissionId'    => 'JoinPermissionId',
@@ -108,8 +102,6 @@ class CreateProductRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productName', $this->productName, true);
-        Model::validateRequired('nodeType', $this->nodeType, true);
     }
 
     public function toMap()
@@ -135,9 +127,6 @@ class CreateProductRequest extends Model
         }
         if (null !== $this->id2) {
             $res['Id2'] = $this->id2;
-        }
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
@@ -195,9 +184,6 @@ class CreateProductRequest extends Model
         }
         if (isset($map['Id2'])) {
             $model->id2 = $map['Id2'];
-        }
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];

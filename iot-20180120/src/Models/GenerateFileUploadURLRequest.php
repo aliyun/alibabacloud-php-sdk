@@ -22,16 +22,20 @@ class GenerateFileUploadURLRequest extends Model
      * @var string
      */
     public $bizCode;
+
+    /**
+     * @var string
+     */
+    public $fileName;
     protected $_name = [
         'iotInstanceId' => 'IotInstanceId',
         'fileSuffix'    => 'FileSuffix',
         'bizCode'       => 'BizCode',
+        'fileName'      => 'FileName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('fileSuffix', $this->fileSuffix, true);
-        Model::validateRequired('bizCode', $this->bizCode, true);
     }
 
     public function toMap()
@@ -45,6 +49,9 @@ class GenerateFileUploadURLRequest extends Model
         }
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
+        }
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
 
         return $res;
@@ -66,6 +73,9 @@ class GenerateFileUploadURLRequest extends Model
         }
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
+        }
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
 
         return $model;

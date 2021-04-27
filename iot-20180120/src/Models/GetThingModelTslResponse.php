@@ -4,69 +4,38 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\SDK\Iot\V20180120\Models\GetThingModelTslResponse\data;
 use AlibabaCloud\Tea\Model;
 
 class GetThingModelTslResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bool
+     * @var GetThingModelTslResponseBody
      */
-    public $success;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var data
-     */
-    public $data;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
-        'code'         => 'Code',
-        'errorMessage' => 'ErrorMessage',
-        'data'         => 'Data',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('success', $this->success, true);
-        Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('errorMessage', $this->errorMessage, true);
-        Model::validateRequired('data', $this->data, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -80,20 +49,11 @@ class GetThingModelTslResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['body'])) {
+            $model->body = GetThingModelTslResponseBody::fromMap($map['body']);
         }
 
         return $model;

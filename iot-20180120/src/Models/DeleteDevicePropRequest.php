@@ -42,7 +42,6 @@ class DeleteDevicePropRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('propKey', $this->propKey, true);
     }
 
     public function toMap()

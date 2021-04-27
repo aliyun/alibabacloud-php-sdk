@@ -16,11 +16,6 @@ class GetThingModelTslRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $productKey;
 
     /**
@@ -39,7 +34,6 @@ class GetThingModelTslRequest extends Model
     public $functionBlockId;
     protected $_name = [
         'iotInstanceId'   => 'IotInstanceId',
-        'resourceGroupId' => 'ResourceGroupId',
         'productKey'      => 'ProductKey',
         'modelVersion'    => 'ModelVersion',
         'simple'          => 'Simple',
@@ -48,7 +42,6 @@ class GetThingModelTslRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()
@@ -56,9 +49,6 @@ class GetThingModelTslRequest extends Model
         $res = [];
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -86,9 +76,6 @@ class GetThingModelTslRequest extends Model
         $model = new self();
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];

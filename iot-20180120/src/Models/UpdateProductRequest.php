@@ -36,8 +36,6 @@ class UpdateProductRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('productName', $this->productName, true);
     }
 
     public function toMap()

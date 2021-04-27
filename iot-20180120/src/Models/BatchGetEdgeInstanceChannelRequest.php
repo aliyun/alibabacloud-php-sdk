@@ -36,9 +36,6 @@ class BatchGetEdgeInstanceChannelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('driverId', $this->driverId, true);
-        Model::validateRequired('channelIds', $this->channelIds, true);
     }
 
     public function toMap()

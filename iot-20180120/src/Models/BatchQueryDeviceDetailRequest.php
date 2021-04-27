@@ -30,8 +30,6 @@ class BatchQueryDeviceDetailRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

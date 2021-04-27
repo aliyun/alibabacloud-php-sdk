@@ -42,9 +42,6 @@ class UpdateProductTopicRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('operation', $this->operation, true);
-        Model::validateRequired('topicShortName', $this->topicShortName, true);
-        Model::validateRequired('topicId', $this->topicId, true);
     }
 
     public function toMap()

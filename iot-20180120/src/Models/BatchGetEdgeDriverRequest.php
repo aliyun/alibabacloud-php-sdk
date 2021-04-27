@@ -24,7 +24,6 @@ class BatchGetEdgeDriverRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('driverIds', $this->driverIds, true);
     }
 
     public function toMap()

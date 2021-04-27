@@ -48,10 +48,6 @@ class RRpcRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('timeout', $this->timeout, true);
-        Model::validateRequired('requestBase64Byte', $this->requestBase64Byte, true);
     }
 
     public function toMap()

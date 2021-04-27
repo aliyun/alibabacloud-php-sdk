@@ -24,8 +24,6 @@ class deviceConfigs extends Model
 
     public function validate()
     {
-        Model::validateRequired('iotId', $this->iotId, true);
-        Model::validateRequired('content', $this->content, true);
     }
 
     public function toMap()

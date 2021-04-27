@@ -55,11 +55,6 @@ class CreateDeviceDistributeJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('sourceInstanceId', $this->sourceInstanceId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('targetInstanceConfig', $this->targetInstanceConfig, true);
-        Model::validateRequired('strategy', $this->strategy, true);
     }
 
     public function toMap()

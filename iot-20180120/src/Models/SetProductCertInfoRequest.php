@@ -30,8 +30,6 @@ class SetProductCertInfoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('issueModel', $this->issueModel, true);
     }
 
     public function toMap()

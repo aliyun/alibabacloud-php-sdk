@@ -24,7 +24,6 @@ class DeleteRuleActionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('actionId', $this->actionId, true);
     }
 
     public function toMap()

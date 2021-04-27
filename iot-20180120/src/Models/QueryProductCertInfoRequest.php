@@ -24,7 +24,6 @@ class QueryProductCertInfoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

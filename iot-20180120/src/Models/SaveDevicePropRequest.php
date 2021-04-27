@@ -42,7 +42,6 @@ class SaveDevicePropRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('props', $this->props, true);
     }
 
     public function toMap()

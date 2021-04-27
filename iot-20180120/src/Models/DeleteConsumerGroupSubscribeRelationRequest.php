@@ -30,8 +30,6 @@ class DeleteConsumerGroupSubscribeRelationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('consumerGroupId', $this->consumerGroupId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

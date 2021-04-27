@@ -109,9 +109,6 @@ class CreateOTAStaticUpgradeJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('firmwareId', $this->firmwareId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('targetSelection', $this->targetSelection, true);
     }
 
     public function toMap()

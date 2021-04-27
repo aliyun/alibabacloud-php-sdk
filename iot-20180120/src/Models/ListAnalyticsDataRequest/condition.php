@@ -42,8 +42,6 @@ class condition extends Model
 
     public function validate()
     {
-        Model::validateRequired('fieldName', $this->fieldName, true);
-        Model::validateRequired('operate', $this->operate, true);
     }
 
     public function toMap()

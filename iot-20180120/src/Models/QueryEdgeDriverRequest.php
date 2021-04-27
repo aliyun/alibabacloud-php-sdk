@@ -42,9 +42,6 @@ class QueryEdgeDriverRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

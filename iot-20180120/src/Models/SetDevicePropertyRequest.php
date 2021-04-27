@@ -42,7 +42,6 @@ class SetDevicePropertyRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('items', $this->items, true);
     }
 
     public function toMap()

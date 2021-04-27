@@ -48,10 +48,6 @@ class BatchPubRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('topicShortName', $this->topicShortName, true);
-        Model::validateRequired('messageContent', $this->messageContent, true);
     }
 
     public function toMap()

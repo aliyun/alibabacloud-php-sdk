@@ -24,8 +24,6 @@ class QueryDeviceBySQLRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
-        Model::validateRequired('SQL', $this->SQL, true);
     }
 
     public function toMap()

@@ -24,7 +24,6 @@ class CancelOTAStrategyByJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('jobId', $this->jobId, true);
     }
 
     public function toMap()

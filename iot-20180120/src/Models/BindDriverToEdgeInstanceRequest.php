@@ -42,8 +42,6 @@ class BindDriverToEdgeInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('driverId', $this->driverId, true);
     }
 
     public function toMap()

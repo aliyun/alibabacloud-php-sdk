@@ -48,10 +48,6 @@ class topoAddItem extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('sign', $this->sign, true);
-        Model::validateRequired('signMethod', $this->signMethod, true);
     }
 
     public function toMap()

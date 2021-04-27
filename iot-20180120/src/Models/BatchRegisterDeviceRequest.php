@@ -30,8 +30,6 @@ class BatchRegisterDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('count', $this->count, true);
     }
 
     public function toMap()

@@ -36,9 +36,6 @@ class ListOTAJobByFirmwareRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('firmwareId', $this->firmwareId, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('currentPage', $this->currentPage, true);
     }
 
     public function toMap()

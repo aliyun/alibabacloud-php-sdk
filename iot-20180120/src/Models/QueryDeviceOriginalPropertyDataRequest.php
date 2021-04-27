@@ -72,11 +72,6 @@ class QueryDeviceOriginalPropertyDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('identifier', $this->identifier, true);
-        Model::validateRequired('asc', $this->asc, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()

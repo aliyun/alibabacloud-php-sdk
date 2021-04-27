@@ -62,10 +62,6 @@ class CreateDataAPIServiceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('displayName', $this->displayName, true);
-        Model::validateRequired('originSql', $this->originSql, true);
-        Model::validateRequired('templateSql', $this->templateSql, true);
-        Model::validateRequired('apiPath', $this->apiPath, true);
     }
 
     public function toMap()

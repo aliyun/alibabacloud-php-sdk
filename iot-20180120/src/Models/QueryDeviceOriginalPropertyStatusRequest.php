@@ -54,8 +54,6 @@ class QueryDeviceOriginalPropertyStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('asc', $this->asc, true);
     }
 
     public function toMap()

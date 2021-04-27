@@ -31,8 +31,6 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('deviceConfigs', $this->deviceConfigs, true);
     }
 
     public function toMap()

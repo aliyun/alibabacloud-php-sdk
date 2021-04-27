@@ -79,8 +79,6 @@ class CreateOTADynamicUpgradeJobRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('firmwareId', $this->firmwareId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

@@ -24,7 +24,6 @@ class QueryCertUrlByApplyIdRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('applyId', $this->applyId, true);
     }
 
     public function toMap()

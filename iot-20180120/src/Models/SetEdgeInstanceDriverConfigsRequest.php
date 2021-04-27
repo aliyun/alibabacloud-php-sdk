@@ -37,9 +37,6 @@ class SetEdgeInstanceDriverConfigsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('driverId', $this->driverId, true);
-        Model::validateRequired('configs', $this->configs, true);
     }
 
     public function toMap()

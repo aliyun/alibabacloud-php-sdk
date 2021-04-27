@@ -12,14 +12,8 @@ class ListThingTemplatesRequest extends Model
      * @var string
      */
     public $iotInstanceId;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
     protected $_name = [
-        'iotInstanceId'   => 'IotInstanceId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class ListThingTemplatesRequest extends Model
         $res = [];
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class ListThingTemplatesRequest extends Model
         $model = new self();
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

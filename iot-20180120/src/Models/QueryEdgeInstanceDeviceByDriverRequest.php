@@ -48,10 +48,6 @@ class QueryEdgeInstanceDeviceByDriverRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('driverId', $this->driverId, true);
-        Model::validateRequired('currentPage', $this->currentPage, true);
     }
 
     public function toMap()
