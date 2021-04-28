@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySavingsPlansInstanceResponseBody\data;
 
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySavingsPlansInstanceResponseBody\data\items\tags;
 use AlibabaCloud\Tea\Model;
 
 class items extends Model
@@ -14,14 +15,14 @@ class items extends Model
     public $status;
 
     /**
-     * @var bool
-     */
-    public $share;
-
-    /**
      * @var string
      */
     public $savingsType;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -61,6 +62,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $allocationStatus;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
@@ -78,20 +84,21 @@ class items extends Model
      */
     public $payMode;
     protected $_name = [
-        'status'         => 'Status',
-        'share'          => 'Share',
-        'savingsType'    => 'SavingsType',
-        'prepayFee'      => 'PrepayFee',
-        'utilization'    => 'Utilization',
-        'instanceId'     => 'InstanceId',
-        'currency'       => 'Currency',
-        'endTime'        => 'EndTime',
-        'startTime'      => 'StartTime',
-        'instanceFamily' => 'InstanceFamily',
-        'region'         => 'Region',
-        'totalSave'      => 'TotalSave',
-        'poolValue'      => 'PoolValue',
-        'payMode'        => 'PayMode',
+        'status'           => 'Status',
+        'savingsType'      => 'SavingsType',
+        'tags'             => 'Tags',
+        'prepayFee'        => 'PrepayFee',
+        'utilization'      => 'Utilization',
+        'instanceId'       => 'InstanceId',
+        'currency'         => 'Currency',
+        'endTime'          => 'EndTime',
+        'startTime'        => 'StartTime',
+        'instanceFamily'   => 'InstanceFamily',
+        'allocationStatus' => 'AllocationStatus',
+        'region'           => 'Region',
+        'totalSave'        => 'TotalSave',
+        'poolValue'        => 'PoolValue',
+        'payMode'          => 'PayMode',
     ];
 
     public function validate()
@@ -104,11 +111,17 @@ class items extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->share) {
-            $res['Share'] = $this->share;
-        }
         if (null !== $this->savingsType) {
             $res['SavingsType'] = $this->savingsType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->prepayFee) {
             $res['PrepayFee'] = $this->prepayFee;
@@ -130,6 +143,9 @@ class items extends Model
         }
         if (null !== $this->instanceFamily) {
             $res['InstanceFamily'] = $this->instanceFamily;
+        }
+        if (null !== $this->allocationStatus) {
+            $res['AllocationStatus'] = $this->allocationStatus;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -158,11 +174,17 @@ class items extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['Share'])) {
-            $model->share = $map['Share'];
-        }
         if (isset($map['SavingsType'])) {
             $model->savingsType = $map['SavingsType'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['PrepayFee'])) {
             $model->prepayFee = $map['PrepayFee'];
@@ -184,6 +206,9 @@ class items extends Model
         }
         if (isset($map['InstanceFamily'])) {
             $model->instanceFamily = $map['InstanceFamily'];
+        }
+        if (isset($map['AllocationStatus'])) {
+            $model->allocationStatus = $map['AllocationStatus'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySavingsPlansInstanceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class QuerySavingsPlansInstanceRequest extends Model
@@ -37,6 +38,11 @@ class QuerySavingsPlansInstanceRequest extends Model
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'pageSize'   => 'PageSize',
         'locale'     => 'Locale',
@@ -44,6 +50,7 @@ class QuerySavingsPlansInstanceRequest extends Model
         'instanceId' => 'InstanceId',
         'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
+        'tag'        => 'Tag',
     ];
 
     public function validate()
@@ -70,6 +77,15 @@ class QuerySavingsPlansInstanceRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -100,6 +116,15 @@ class QuerySavingsPlansInstanceRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
