@@ -11,22 +11,7 @@ class ModifyDBInstancePayTypeRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
 
     /**
      * @var string
@@ -47,45 +32,12 @@ class ModifyDBInstancePayTypeRequest extends Model
      * @var string
      */
     public $period;
-
-    /**
-     * @var bool
-     */
-    public $autoPay;
-
-    /**
-     * @var string
-     */
-    public $resource;
-
-    /**
-     * @var string
-     */
-    public $agentId;
-
-    /**
-     * @var string
-     */
-    public $businessInfo;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'usedTime'             => 'UsedTime',
-        'payType'              => 'PayType',
-        'period'               => 'Period',
-        'autoPay'              => 'AutoPay',
-        'resource'             => 'Resource',
-        'agentId'              => 'AgentId',
-        'businessInfo'         => 'BusinessInfo',
-        'ownerAccount'         => 'OwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'DBInstanceId'    => 'DBInstanceId',
+        'usedTime'        => 'UsedTime',
+        'payType'         => 'PayType',
+        'period'          => 'Period',
     ];
 
     public function validate()
@@ -95,17 +47,8 @@ class ModifyDBInstancePayTypeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -119,21 +62,6 @@ class ModifyDBInstancePayTypeRequest extends Model
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
-        }
-        if (null !== $this->resource) {
-            $res['Resource'] = $this->resource;
-        }
-        if (null !== $this->agentId) {
-            $res['AgentId'] = $this->agentId;
-        }
-        if (null !== $this->businessInfo) {
-            $res['BusinessInfo'] = $this->businessInfo;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
 
         return $res;
     }
@@ -146,17 +74,8 @@ class ModifyDBInstancePayTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
@@ -169,21 +88,6 @@ class ModifyDBInstancePayTypeRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
-        }
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
-        }
-        if (isset($map['Resource'])) {
-            $model->resource = $map['Resource'];
-        }
-        if (isset($map['AgentId'])) {
-            $model->agentId = $map['AgentId'];
-        }
-        if (isset($map['BusinessInfo'])) {
-            $model->businessInfo = $map['BusinessInfo'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

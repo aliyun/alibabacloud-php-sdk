@@ -11,6 +11,11 @@ class CreateMigrateTaskResponseBody extends Model
     /**
      * @var string
      */
+    public $taskId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -21,29 +26,24 @@ class CreateMigrateTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
-
-    /**
-     * @var string
-     */
-    public $DBName;
-
-    /**
-     * @var string
-     */
     public $migrateTaskId;
 
     /**
      * @var string
      */
     public $backupMode;
+
+    /**
+     * @var string
+     */
+    public $DBName;
     protected $_name = [
+        'taskId'        => 'TaskId',
         'requestId'     => 'RequestId',
         'DBInstanceId'  => 'DBInstanceId',
-        'taskId'        => 'TaskId',
-        'DBName'        => 'DBName',
         'migrateTaskId' => 'MigrateTaskId',
         'backupMode'    => 'BackupMode',
+        'DBName'        => 'DBName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateMigrateTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->DBName) {
-            $res['DBName'] = $this->DBName;
-        }
         if (null !== $this->migrateTaskId) {
             $res['MigrateTaskId'] = $this->migrateTaskId;
         }
         if (null !== $this->backupMode) {
             $res['BackupMode'] = $this->backupMode;
+        }
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateMigrateTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['DBName'])) {
-            $model->DBName = $map['DBName'];
-        }
         if (isset($map['MigrateTaskId'])) {
             $model->migrateTaskId = $map['MigrateTaskId'];
         }
         if (isset($map['BackupMode'])) {
             $model->backupMode = $map['BackupMode'];
+        }
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
         }
 
         return $model;

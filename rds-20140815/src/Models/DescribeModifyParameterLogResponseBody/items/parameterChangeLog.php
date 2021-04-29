@@ -11,7 +11,12 @@ class parameterChangeLog extends Model
     /**
      * @var string
      */
-    public $modifyTime;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $parameterName;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class parameterChangeLog extends Model
     /**
      * @var string
      */
-    public $parameterName;
-
-    /**
-     * @var string
-     */
-    public $status;
+    public $modifyTime;
     protected $_name = [
-        'modifyTime'        => 'ModifyTime',
+        'status'            => 'Status',
+        'parameterName'     => 'ParameterName',
         'oldParameterValue' => 'OldParameterValue',
         'newParameterValue' => 'NewParameterValue',
-        'parameterName'     => 'ParameterName',
-        'status'            => 'Status',
+        'modifyTime'        => 'ModifyTime',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class parameterChangeLog extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->parameterName) {
+            $res['ParameterName'] = $this->parameterName;
         }
         if (null !== $this->oldParameterValue) {
             $res['OldParameterValue'] = $this->oldParameterValue;
@@ -56,11 +59,8 @@ class parameterChangeLog extends Model
         if (null !== $this->newParameterValue) {
             $res['NewParameterValue'] = $this->newParameterValue;
         }
-        if (null !== $this->parameterName) {
-            $res['ParameterName'] = $this->parameterName;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class parameterChangeLog extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['ParameterName'])) {
+            $model->parameterName = $map['ParameterName'];
         }
         if (isset($map['OldParameterValue'])) {
             $model->oldParameterValue = $map['OldParameterValue'];
@@ -83,11 +86,8 @@ class parameterChangeLog extends Model
         if (isset($map['NewParameterValue'])) {
             $model->newParameterValue = $map['NewParameterValue'];
         }
-        if (isset($map['ParameterName'])) {
-            $model->parameterName = $map['ParameterName'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedCategorys extends Model
 {
     /**
-     * @var string
-     */
-    public $category;
-
-    /**
      * @var supportedStorageTypes[]
      */
     public $supportedStorageTypes;
+
+    /**
+     * @var string
+     */
+    public $category;
     protected $_name = [
-        'category'              => 'Category',
         'supportedStorageTypes' => 'SupportedStorageTypes',
+        'category'              => 'Category',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class supportedCategorys extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
         if (null !== $this->supportedStorageTypes) {
             $res['SupportedStorageTypes'] = [];
             if (null !== $this->supportedStorageTypes && \is_array($this->supportedStorageTypes)) {
@@ -41,6 +38,9 @@ class supportedCategorys extends Model
                     $res['SupportedStorageTypes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class supportedCategorys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
         if (isset($map['SupportedStorageTypes'])) {
             if (!empty($map['SupportedStorageTypes'])) {
                 $model->supportedStorageTypes = [];
@@ -65,6 +62,9 @@ class supportedCategorys extends Model
                     $model->supportedStorageTypes[$n++] = null !== $item ? supportedStorageTypes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
 
         return $model;

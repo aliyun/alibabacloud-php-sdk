@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostImageCategoriesResponseBody;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostImageCategoriesResponseBody\images\images;
 use AlibabaCloud\Tea\Model;
 
 class images extends Model
 {
     /**
-     * @var images[]
+     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostImageCategoriesResponseBody\images\images[]
      */
     public $images;
     protected $_name = [
@@ -50,7 +49,7 @@ class images extends Model
                 $model->images = [];
                 $n             = 0;
                 foreach ($map['Images'] as $item) {
-                    $model->images[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->images[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostImageCategoriesResponseBody\images\images::fromMap($item) : $item;
                 }
             }
         }

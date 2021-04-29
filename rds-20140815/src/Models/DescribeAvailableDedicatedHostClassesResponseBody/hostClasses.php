@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostClassesResponseBody;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostClassesResponseBody\hostClasses\hostClasses;
 use AlibabaCloud\Tea\Model;
 
 class hostClasses extends Model
 {
     /**
-     * @var hostClasses[]
+     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostClassesResponseBody\hostClasses\hostClasses[]
      */
     public $hostClasses;
     protected $_name = [
@@ -50,7 +49,7 @@ class hostClasses extends Model
                 $model->hostClasses = [];
                 $n                  = 0;
                 foreach ($map['HostClasses'] as $item) {
-                    $model->hostClasses[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->hostClasses[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostClassesResponseBody\hostClasses\hostClasses::fromMap($item) : $item;
                 }
             }
         }

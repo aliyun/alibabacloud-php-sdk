@@ -11,7 +11,7 @@ class DescribeAvailableRecoveryTimeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $recoveryEndTime;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class DescribeAvailableRecoveryTimeResponseBody extends Model
     /**
      * @var string
      */
-    public $recoveryEndTime;
+    public $requestId;
 
     /**
      * @var string
@@ -33,9 +33,9 @@ class DescribeAvailableRecoveryTimeResponseBody extends Model
      */
     public $crossBackupId;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'recoveryBeginTime' => 'RecoveryBeginTime',
         'recoveryEndTime'   => 'RecoveryEndTime',
+        'recoveryBeginTime' => 'RecoveryBeginTime',
+        'requestId'         => 'RequestId',
         'regionId'          => 'RegionId',
         'crossBackupId'     => 'CrossBackupId',
     ];
@@ -47,14 +47,14 @@ class DescribeAvailableRecoveryTimeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->recoveryEndTime) {
+            $res['RecoveryEndTime'] = $this->recoveryEndTime;
         }
         if (null !== $this->recoveryBeginTime) {
             $res['RecoveryBeginTime'] = $this->recoveryBeginTime;
         }
-        if (null !== $this->recoveryEndTime) {
-            $res['RecoveryEndTime'] = $this->recoveryEndTime;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -74,14 +74,14 @@ class DescribeAvailableRecoveryTimeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['RecoveryEndTime'])) {
+            $model->recoveryEndTime = $map['RecoveryEndTime'];
         }
         if (isset($map['RecoveryBeginTime'])) {
             $model->recoveryBeginTime = $map['RecoveryBeginTime'];
         }
-        if (isset($map['RecoveryEndTime'])) {
-            $model->recoveryEndTime = $map['RecoveryEndTime'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

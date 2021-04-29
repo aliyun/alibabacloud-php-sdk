@@ -61,16 +61,6 @@ class CheckCreateDdrDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $backupSetType;
-
-    /**
-     * @var string
-     */
-    public $backupSetRegion;
-
-    /**
-     * @var string
-     */
     public $restoreTime;
 
     /**
@@ -82,21 +72,6 @@ class CheckCreateDdrDBInstanceRequest extends Model
      * @var string
      */
     public $sourceDBInstanceName;
-
-    /**
-     * @var string
-     */
-    public $userBakSetURL;
-
-    /**
-     * @var string
-     */
-    public $bakSetName;
-
-    /**
-     * @var string
-     */
-    public $hostType;
 
     /**
      * @var string
@@ -123,14 +98,9 @@ class CheckCreateDdrDBInstanceRequest extends Model
         'DBInstanceStorage'    => 'DBInstanceStorage',
         'restoreType'          => 'RestoreType',
         'backupSetId'          => 'BackupSetId',
-        'backupSetType'        => 'BackupSetType',
-        'backupSetRegion'      => 'BackupSetRegion',
         'restoreTime'          => 'RestoreTime',
         'sourceRegion'         => 'SourceRegion',
         'sourceDBInstanceName' => 'SourceDBInstanceName',
-        'userBakSetURL'        => 'UserBakSetURL',
-        'bakSetName'           => 'BakSetName',
-        'hostType'             => 'HostType',
         'binlogName'           => 'BinlogName',
         'binlogPosition'       => 'BinlogPosition',
         'binlogRole'           => 'BinlogRole',
@@ -173,12 +143,6 @@ class CheckCreateDdrDBInstanceRequest extends Model
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
         }
-        if (null !== $this->backupSetType) {
-            $res['BackupSetType'] = $this->backupSetType;
-        }
-        if (null !== $this->backupSetRegion) {
-            $res['BackupSetRegion'] = $this->backupSetRegion;
-        }
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
         }
@@ -187,15 +151,6 @@ class CheckCreateDdrDBInstanceRequest extends Model
         }
         if (null !== $this->sourceDBInstanceName) {
             $res['SourceDBInstanceName'] = $this->sourceDBInstanceName;
-        }
-        if (null !== $this->userBakSetURL) {
-            $res['UserBakSetURL'] = $this->userBakSetURL;
-        }
-        if (null !== $this->bakSetName) {
-            $res['BakSetName'] = $this->bakSetName;
-        }
-        if (null !== $this->hostType) {
-            $res['HostType'] = $this->hostType;
         }
         if (null !== $this->binlogName) {
             $res['BinlogName'] = $this->binlogName;
@@ -248,12 +203,6 @@ class CheckCreateDdrDBInstanceRequest extends Model
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
         }
-        if (isset($map['BackupSetType'])) {
-            $model->backupSetType = $map['BackupSetType'];
-        }
-        if (isset($map['BackupSetRegion'])) {
-            $model->backupSetRegion = $map['BackupSetRegion'];
-        }
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
         }
@@ -262,15 +211,6 @@ class CheckCreateDdrDBInstanceRequest extends Model
         }
         if (isset($map['SourceDBInstanceName'])) {
             $model->sourceDBInstanceName = $map['SourceDBInstanceName'];
-        }
-        if (isset($map['UserBakSetURL'])) {
-            $model->userBakSetURL = $map['UserBakSetURL'];
-        }
-        if (isset($map['BakSetName'])) {
-            $model->bakSetName = $map['BakSetName'];
-        }
-        if (isset($map['HostType'])) {
-            $model->hostType = $map['HostType'];
         }
         if (isset($map['BinlogName'])) {
             $model->binlogName = $map['BinlogName'];

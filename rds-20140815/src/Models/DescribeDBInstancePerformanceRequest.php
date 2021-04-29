@@ -11,21 +11,6 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
     public $resourceOwnerId;
 
     /**
@@ -47,27 +32,12 @@ class DescribeDBInstancePerformanceRequest extends Model
      * @var string
      */
     public $endTime;
-
-    /**
-     * @var bool
-     */
-    public $useNullWhenMissingPoint;
-
-    /**
-     * @var string
-     */
-    public $roleId;
     protected $_name = [
-        'ownerId'                 => 'OwnerId',
-        'ownerAccount'            => 'OwnerAccount',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
-        'DBInstanceId'            => 'DBInstanceId',
-        'key'                     => 'Key',
-        'startTime'               => 'StartTime',
-        'endTime'                 => 'EndTime',
-        'useNullWhenMissingPoint' => 'UseNullWhenMissingPoint',
-        'roleId'                  => 'RoleId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'DBInstanceId'    => 'DBInstanceId',
+        'key'             => 'Key',
+        'startTime'       => 'StartTime',
+        'endTime'         => 'EndTime',
     ];
 
     public function validate()
@@ -77,15 +47,6 @@ class DescribeDBInstancePerformanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -101,12 +62,6 @@ class DescribeDBInstancePerformanceRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->useNullWhenMissingPoint) {
-            $res['UseNullWhenMissingPoint'] = $this->useNullWhenMissingPoint;
-        }
-        if (null !== $this->roleId) {
-            $res['RoleId'] = $this->roleId;
-        }
 
         return $res;
     }
@@ -119,15 +74,6 @@ class DescribeDBInstancePerformanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
@@ -142,12 +88,6 @@ class DescribeDBInstancePerformanceRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['UseNullWhenMissingPoint'])) {
-            $model->useNullWhenMissingPoint = $map['UseNullWhenMissingPoint'];
-        }
-        if (isset($map['RoleId'])) {
-            $model->roleId = $map['RoleId'];
         }
 
         return $model;

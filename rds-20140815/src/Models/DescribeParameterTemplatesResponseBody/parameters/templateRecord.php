@@ -11,6 +11,11 @@ class templateRecord extends Model
     /**
      * @var string
      */
+    public $checkingCode;
+
+    /**
+     * @var string
+     */
     public $parameterName;
 
     /**
@@ -31,18 +36,13 @@ class templateRecord extends Model
     /**
      * @var string
      */
-    public $checkingCode;
-
-    /**
-     * @var string
-     */
     public $parameterDescription;
     protected $_name = [
+        'checkingCode'         => 'CheckingCode',
         'parameterName'        => 'ParameterName',
         'parameterValue'       => 'ParameterValue',
         'forceModify'          => 'ForceModify',
         'forceRestart'         => 'ForceRestart',
-        'checkingCode'         => 'CheckingCode',
         'parameterDescription' => 'ParameterDescription',
     ];
 
@@ -53,6 +53,9 @@ class templateRecord extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkingCode) {
+            $res['CheckingCode'] = $this->checkingCode;
+        }
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
         }
@@ -64,9 +67,6 @@ class templateRecord extends Model
         }
         if (null !== $this->forceRestart) {
             $res['ForceRestart'] = $this->forceRestart;
-        }
-        if (null !== $this->checkingCode) {
-            $res['CheckingCode'] = $this->checkingCode;
         }
         if (null !== $this->parameterDescription) {
             $res['ParameterDescription'] = $this->parameterDescription;
@@ -83,6 +83,9 @@ class templateRecord extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckingCode'])) {
+            $model->checkingCode = $map['CheckingCode'];
+        }
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
         }
@@ -94,9 +97,6 @@ class templateRecord extends Model
         }
         if (isset($map['ForceRestart'])) {
             $model->forceRestart = $map['ForceRestart'];
-        }
-        if (isset($map['CheckingCode'])) {
-            $model->checkingCode = $map['CheckingCode'];
         }
         if (isset($map['ParameterDescription'])) {
             $model->parameterDescription = $map['ParameterDescription'];

@@ -11,17 +11,7 @@ class DBProxyConnectStringItems extends Model
     /**
      * @var string
      */
-    public $DBProxyEndpointId;
-
-    /**
-     * @var string
-     */
-    public $DBProxyConnectString;
-
-    /**
-     * @var string
-     */
-    public $DBProxyConnectStringPort;
+    public $DBProxyConnectStringNetWorkType;
 
     /**
      * @var string
@@ -41,15 +31,25 @@ class DBProxyConnectStringItems extends Model
     /**
      * @var string
      */
-    public $DBProxyConnectStringNetWorkType;
+    public $DBProxyEndpointId;
+
+    /**
+     * @var string
+     */
+    public $DBProxyConnectStringPort;
+
+    /**
+     * @var string
+     */
+    public $DBProxyConnectString;
     protected $_name = [
-        'DBProxyEndpointId'               => 'DBProxyEndpointId',
-        'DBProxyConnectString'            => 'DBProxyConnectString',
-        'DBProxyConnectStringPort'        => 'DBProxyConnectStringPort',
+        'DBProxyConnectStringNetWorkType' => 'DBProxyConnectStringNetWorkType',
         'DBProxyConnectStringNetType'     => 'DBProxyConnectStringNetType',
         'DBProxyVpcInstanceId'            => 'DBProxyVpcInstanceId',
         'DBProxyEndpointName'             => 'DBProxyEndpointName',
-        'DBProxyConnectStringNetWorkType' => 'DBProxyConnectStringNetWorkType',
+        'DBProxyEndpointId'               => 'DBProxyEndpointId',
+        'DBProxyConnectStringPort'        => 'DBProxyConnectStringPort',
+        'DBProxyConnectString'            => 'DBProxyConnectString',
     ];
 
     public function validate()
@@ -59,14 +59,8 @@ class DBProxyConnectStringItems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBProxyEndpointId) {
-            $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
-        }
-        if (null !== $this->DBProxyConnectString) {
-            $res['DBProxyConnectString'] = $this->DBProxyConnectString;
-        }
-        if (null !== $this->DBProxyConnectStringPort) {
-            $res['DBProxyConnectStringPort'] = $this->DBProxyConnectStringPort;
+        if (null !== $this->DBProxyConnectStringNetWorkType) {
+            $res['DBProxyConnectStringNetWorkType'] = $this->DBProxyConnectStringNetWorkType;
         }
         if (null !== $this->DBProxyConnectStringNetType) {
             $res['DBProxyConnectStringNetType'] = $this->DBProxyConnectStringNetType;
@@ -77,8 +71,14 @@ class DBProxyConnectStringItems extends Model
         if (null !== $this->DBProxyEndpointName) {
             $res['DBProxyEndpointName'] = $this->DBProxyEndpointName;
         }
-        if (null !== $this->DBProxyConnectStringNetWorkType) {
-            $res['DBProxyConnectStringNetWorkType'] = $this->DBProxyConnectStringNetWorkType;
+        if (null !== $this->DBProxyEndpointId) {
+            $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
+        }
+        if (null !== $this->DBProxyConnectStringPort) {
+            $res['DBProxyConnectStringPort'] = $this->DBProxyConnectStringPort;
+        }
+        if (null !== $this->DBProxyConnectString) {
+            $res['DBProxyConnectString'] = $this->DBProxyConnectString;
         }
 
         return $res;
@@ -92,14 +92,8 @@ class DBProxyConnectStringItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBProxyEndpointId'])) {
-            $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
-        }
-        if (isset($map['DBProxyConnectString'])) {
-            $model->DBProxyConnectString = $map['DBProxyConnectString'];
-        }
-        if (isset($map['DBProxyConnectStringPort'])) {
-            $model->DBProxyConnectStringPort = $map['DBProxyConnectStringPort'];
+        if (isset($map['DBProxyConnectStringNetWorkType'])) {
+            $model->DBProxyConnectStringNetWorkType = $map['DBProxyConnectStringNetWorkType'];
         }
         if (isset($map['DBProxyConnectStringNetType'])) {
             $model->DBProxyConnectStringNetType = $map['DBProxyConnectStringNetType'];
@@ -110,8 +104,14 @@ class DBProxyConnectStringItems extends Model
         if (isset($map['DBProxyEndpointName'])) {
             $model->DBProxyEndpointName = $map['DBProxyEndpointName'];
         }
-        if (isset($map['DBProxyConnectStringNetWorkType'])) {
-            $model->DBProxyConnectStringNetWorkType = $map['DBProxyConnectStringNetWorkType'];
+        if (isset($map['DBProxyEndpointId'])) {
+            $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
+        }
+        if (isset($map['DBProxyConnectStringPort'])) {
+            $model->DBProxyConnectStringPort = $map['DBProxyConnectStringPort'];
+        }
+        if (isset($map['DBProxyConnectString'])) {
+            $model->DBProxyConnectString = $map['DBProxyConnectString'];
         }
 
         return $model;

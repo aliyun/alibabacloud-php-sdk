@@ -36,11 +36,6 @@ class SwitchDBInstanceHARequest extends Model
     /**
      * @var string
      */
-    public $operation;
-
-    /**
-     * @var string
-     */
     public $force;
 
     /**
@@ -58,7 +53,6 @@ class SwitchDBInstanceHARequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'DBInstanceId'         => 'DBInstanceId',
         'nodeId'               => 'NodeId',
-        'operation'            => 'Operation',
         'force'                => 'Force',
         'ownerAccount'         => 'OwnerAccount',
         'effectiveTime'        => 'EffectiveTime',
@@ -85,9 +79,6 @@ class SwitchDBInstanceHARequest extends Model
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
-        }
-        if (null !== $this->operation) {
-            $res['Operation'] = $this->operation;
         }
         if (null !== $this->force) {
             $res['Force'] = $this->force;
@@ -124,9 +115,6 @@ class SwitchDBInstanceHARequest extends Model
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
-        }
-        if (isset($map['Operation'])) {
-            $model->operation = $map['Operation'];
         }
         if (isset($map['Force'])) {
             $model->force = $map['Force'];

@@ -11,17 +11,7 @@ class taskProgressInfo extends Model
     /**
      * @var string
      */
-    public $DBName;
-
-    /**
-     * @var string
-     */
-    public $beginTime;
-
-    /**
-     * @var string
-     */
-    public $progressInfo;
+    public $status;
 
     /**
      * @var string
@@ -31,12 +21,7 @@ class taskProgressInfo extends Model
     /**
      * @var string
      */
-    public $taskAction;
-
-    /**
-     * @var string
-     */
-    public $taskId;
+    public $stepsInfo;
 
     /**
      * @var string
@@ -51,7 +36,7 @@ class taskProgressInfo extends Model
     /**
      * @var string
      */
-    public $status;
+    public $beginTime;
 
     /**
      * @var string
@@ -61,17 +46,12 @@ class taskProgressInfo extends Model
     /**
      * @var string
      */
-    public $taskErrorMessage;
+    public $progressInfo;
 
     /**
      * @var string
      */
-    public $stepsInfo;
-
-    /**
-     * @var int
-     */
-    public $remain;
+    public $currentStepName;
 
     /**
      * @var string
@@ -81,23 +61,43 @@ class taskProgressInfo extends Model
     /**
      * @var string
      */
-    public $currentStepName;
+    public $taskErrorMessage;
+
+    /**
+     * @var string
+     */
+    public $taskAction;
+
+    /**
+     * @var int
+     */
+    public $remain;
+
+    /**
+     * @var string
+     */
+    public $DBName;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
-        'DBName'             => 'DBName',
-        'beginTime'          => 'BeginTime',
-        'progressInfo'       => 'ProgressInfo',
+        'status'             => 'Status',
         'finishTime'         => 'FinishTime',
-        'taskAction'         => 'TaskAction',
-        'taskId'             => 'TaskId',
+        'stepsInfo'          => 'StepsInfo',
         'progress'           => 'Progress',
         'expectedFinishTime' => 'ExpectedFinishTime',
-        'status'             => 'Status',
+        'beginTime'          => 'BeginTime',
         'taskErrorCode'      => 'TaskErrorCode',
-        'taskErrorMessage'   => 'TaskErrorMessage',
-        'stepsInfo'          => 'StepsInfo',
-        'remain'             => 'Remain',
-        'stepProgressInfo'   => 'StepProgressInfo',
+        'progressInfo'       => 'ProgressInfo',
         'currentStepName'    => 'CurrentStepName',
+        'stepProgressInfo'   => 'StepProgressInfo',
+        'taskErrorMessage'   => 'TaskErrorMessage',
+        'taskAction'         => 'TaskAction',
+        'remain'             => 'Remain',
+        'DBName'             => 'DBName',
+        'taskId'             => 'TaskId',
     ];
 
     public function validate()
@@ -107,23 +107,14 @@ class taskProgressInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBName) {
-            $res['DBName'] = $this->DBName;
-        }
-        if (null !== $this->beginTime) {
-            $res['BeginTime'] = $this->beginTime;
-        }
-        if (null !== $this->progressInfo) {
-            $res['ProgressInfo'] = $this->progressInfo;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
         }
-        if (null !== $this->taskAction) {
-            $res['TaskAction'] = $this->taskAction;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->stepsInfo) {
+            $res['StepsInfo'] = $this->stepsInfo;
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
@@ -131,26 +122,35 @@ class taskProgressInfo extends Model
         if (null !== $this->expectedFinishTime) {
             $res['ExpectedFinishTime'] = $this->expectedFinishTime;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->beginTime) {
+            $res['BeginTime'] = $this->beginTime;
         }
         if (null !== $this->taskErrorCode) {
             $res['TaskErrorCode'] = $this->taskErrorCode;
         }
-        if (null !== $this->taskErrorMessage) {
-            $res['TaskErrorMessage'] = $this->taskErrorMessage;
+        if (null !== $this->progressInfo) {
+            $res['ProgressInfo'] = $this->progressInfo;
         }
-        if (null !== $this->stepsInfo) {
-            $res['StepsInfo'] = $this->stepsInfo;
-        }
-        if (null !== $this->remain) {
-            $res['Remain'] = $this->remain;
+        if (null !== $this->currentStepName) {
+            $res['CurrentStepName'] = $this->currentStepName;
         }
         if (null !== $this->stepProgressInfo) {
             $res['StepProgressInfo'] = $this->stepProgressInfo;
         }
-        if (null !== $this->currentStepName) {
-            $res['CurrentStepName'] = $this->currentStepName;
+        if (null !== $this->taskErrorMessage) {
+            $res['TaskErrorMessage'] = $this->taskErrorMessage;
+        }
+        if (null !== $this->taskAction) {
+            $res['TaskAction'] = $this->taskAction;
+        }
+        if (null !== $this->remain) {
+            $res['Remain'] = $this->remain;
+        }
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -164,23 +164,14 @@ class taskProgressInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBName'])) {
-            $model->DBName = $map['DBName'];
-        }
-        if (isset($map['BeginTime'])) {
-            $model->beginTime = $map['BeginTime'];
-        }
-        if (isset($map['ProgressInfo'])) {
-            $model->progressInfo = $map['ProgressInfo'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
         }
-        if (isset($map['TaskAction'])) {
-            $model->taskAction = $map['TaskAction'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['StepsInfo'])) {
+            $model->stepsInfo = $map['StepsInfo'];
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
@@ -188,26 +179,35 @@ class taskProgressInfo extends Model
         if (isset($map['ExpectedFinishTime'])) {
             $model->expectedFinishTime = $map['ExpectedFinishTime'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['BeginTime'])) {
+            $model->beginTime = $map['BeginTime'];
         }
         if (isset($map['TaskErrorCode'])) {
             $model->taskErrorCode = $map['TaskErrorCode'];
         }
-        if (isset($map['TaskErrorMessage'])) {
-            $model->taskErrorMessage = $map['TaskErrorMessage'];
+        if (isset($map['ProgressInfo'])) {
+            $model->progressInfo = $map['ProgressInfo'];
         }
-        if (isset($map['StepsInfo'])) {
-            $model->stepsInfo = $map['StepsInfo'];
-        }
-        if (isset($map['Remain'])) {
-            $model->remain = $map['Remain'];
+        if (isset($map['CurrentStepName'])) {
+            $model->currentStepName = $map['CurrentStepName'];
         }
         if (isset($map['StepProgressInfo'])) {
             $model->stepProgressInfo = $map['StepProgressInfo'];
         }
-        if (isset($map['CurrentStepName'])) {
-            $model->currentStepName = $map['CurrentStepName'];
+        if (isset($map['TaskErrorMessage'])) {
+            $model->taskErrorMessage = $map['TaskErrorMessage'];
+        }
+        if (isset($map['TaskAction'])) {
+            $model->taskAction = $map['TaskAction'];
+        }
+        if (isset($map['Remain'])) {
+            $model->remain = $map['Remain'];
+        }
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

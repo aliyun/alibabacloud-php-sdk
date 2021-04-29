@@ -11,16 +11,6 @@ class DescribeAvailableZonesRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
     public $resourceOwnerId;
 
     /**
@@ -44,16 +34,6 @@ class DescribeAvailableZonesRequest extends Model
     public $engineVersion;
 
     /**
-     * @var bool
-     */
-    public $evaluateResource;
-
-    /**
-     * @var string
-     */
-    public $instanceChargeType;
-
-    /**
      * @var string
      */
     public $commodityCode;
@@ -62,18 +42,20 @@ class DescribeAvailableZonesRequest extends Model
      * @var string
      */
     public $dispenseMode;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceName;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'engine'               => 'Engine',
-        'zoneId'               => 'ZoneId',
-        'engineVersion'        => 'EngineVersion',
-        'evaluateResource'     => 'EvaluateResource',
-        'instanceChargeType'   => 'InstanceChargeType',
-        'commodityCode'        => 'CommodityCode',
-        'dispenseMode'         => 'DispenseMode',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'regionId'        => 'RegionId',
+        'engine'          => 'Engine',
+        'zoneId'          => 'ZoneId',
+        'engineVersion'   => 'EngineVersion',
+        'commodityCode'   => 'CommodityCode',
+        'dispenseMode'    => 'DispenseMode',
+        'DBInstanceName'  => 'DBInstanceName',
     ];
 
     public function validate()
@@ -83,12 +65,6 @@ class DescribeAvailableZonesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -104,17 +80,14 @@ class DescribeAvailableZonesRequest extends Model
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
-        if (null !== $this->evaluateResource) {
-            $res['EvaluateResource'] = $this->evaluateResource;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
         if (null !== $this->dispenseMode) {
             $res['DispenseMode'] = $this->dispenseMode;
+        }
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
         return $res;
@@ -128,12 +101,6 @@ class DescribeAvailableZonesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
@@ -149,17 +116,14 @@ class DescribeAvailableZonesRequest extends Model
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
-        if (isset($map['EvaluateResource'])) {
-            $model->evaluateResource = $map['EvaluateResource'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
         if (isset($map['DispenseMode'])) {
             $model->dispenseMode = $map['DispenseMode'];
+        }
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
         }
 
         return $model;

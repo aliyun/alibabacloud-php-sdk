@@ -11,15 +11,15 @@ class securityIPGroup extends Model
     /**
      * @var string
      */
-    public $securityIPGroupName;
+    public $securityIPs;
 
     /**
      * @var string
      */
-    public $securityIPs;
+    public $securityIPGroupName;
     protected $_name = [
-        'securityIPGroupName' => 'SecurityIPGroupName',
         'securityIPs'         => 'SecurityIPs',
+        'securityIPGroupName' => 'SecurityIPGroupName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class securityIPGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityIPGroupName) {
-            $res['SecurityIPGroupName'] = $this->securityIPGroupName;
-        }
         if (null !== $this->securityIPs) {
             $res['SecurityIPs'] = $this->securityIPs;
+        }
+        if (null !== $this->securityIPGroupName) {
+            $res['SecurityIPGroupName'] = $this->securityIPGroupName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class securityIPGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityIPGroupName'])) {
-            $model->securityIPGroupName = $map['SecurityIPGroupName'];
-        }
         if (isset($map['SecurityIPs'])) {
             $model->securityIPs = $map['SecurityIPs'];
+        }
+        if (isset($map['SecurityIPGroupName'])) {
+            $model->securityIPGroupName = $map['SecurityIPGroupName'];
         }
 
         return $model;

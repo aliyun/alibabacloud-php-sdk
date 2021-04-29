@@ -11,15 +11,21 @@ class ModifyDBInstanceNetworkTypeResponseBody extends Model
     /**
      * @var string
      */
+    public $taskId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var string
      */
-    public $taskId;
+    public $connectionString;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'taskId'    => 'TaskId',
+        'taskId'           => 'TaskId',
+        'requestId'        => 'RequestId',
+        'connectionString' => 'ConnectionString',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class ModifyDBInstanceNetworkTypeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
         }
 
         return $res;
@@ -47,11 +56,14 @@ class ModifyDBInstanceNetworkTypeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
         }
 
         return $model;

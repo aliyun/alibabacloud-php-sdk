@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class availableZones extends Model
 {
     /**
-     * @var string
+     * @var supportedEngines[]
      */
-    public $regionId;
+    public $supportedEngines;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class availableZones extends Model
     public $zoneId;
 
     /**
-     * @var supportedEngines[]
+     * @var string
      */
-    public $supportedEngines;
+    public $regionId;
     protected $_name = [
-        'regionId'         => 'RegionId',
-        'zoneId'           => 'ZoneId',
         'supportedEngines' => 'SupportedEngines',
+        'zoneId'           => 'ZoneId',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class availableZones extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->supportedEngines) {
             $res['SupportedEngines'] = [];
             if (null !== $this->supportedEngines && \is_array($this->supportedEngines)) {
@@ -50,6 +44,12 @@ class availableZones extends Model
                     $res['SupportedEngines'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class availableZones extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['SupportedEngines'])) {
             if (!empty($map['SupportedEngines'])) {
                 $model->supportedEngines = [];
@@ -77,6 +71,12 @@ class availableZones extends Model
                     $model->supportedEngines[$n++] = null !== $item ? supportedEngines::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

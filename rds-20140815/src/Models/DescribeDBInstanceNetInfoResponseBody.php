@@ -15,9 +15,9 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var DBInstanceNetInfos
      */
-    public $instanceNetworkType;
+    public $DBInstanceNetInfos;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public $securityIPMode;
 
     /**
-     * @var DBInstanceNetInfos
+     * @var string
      */
-    public $DBInstanceNetInfos;
+    public $instanceNetworkType;
     protected $_name = [
         'requestId'           => 'RequestId',
-        'instanceNetworkType' => 'InstanceNetworkType',
-        'securityIPMode'      => 'SecurityIPMode',
         'DBInstanceNetInfos'  => 'DBInstanceNetInfos',
+        'securityIPMode'      => 'SecurityIPMode',
+        'instanceNetworkType' => 'InstanceNetworkType',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->instanceNetworkType) {
-            $res['InstanceNetworkType'] = $this->instanceNetworkType;
+        if (null !== $this->DBInstanceNetInfos) {
+            $res['DBInstanceNetInfos'] = null !== $this->DBInstanceNetInfos ? $this->DBInstanceNetInfos->toMap() : null;
         }
         if (null !== $this->securityIPMode) {
             $res['SecurityIPMode'] = $this->securityIPMode;
         }
-        if (null !== $this->DBInstanceNetInfos) {
-            $res['DBInstanceNetInfos'] = null !== $this->DBInstanceNetInfos ? $this->DBInstanceNetInfos->toMap() : null;
+        if (null !== $this->instanceNetworkType) {
+            $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['InstanceNetworkType'])) {
-            $model->instanceNetworkType = $map['InstanceNetworkType'];
+        if (isset($map['DBInstanceNetInfos'])) {
+            $model->DBInstanceNetInfos = DBInstanceNetInfos::fromMap($map['DBInstanceNetInfos']);
         }
         if (isset($map['SecurityIPMode'])) {
             $model->securityIPMode = $map['SecurityIPMode'];
         }
-        if (isset($map['DBInstanceNetInfos'])) {
-            $model->DBInstanceNetInfos = DBInstanceNetInfos::fromMap($map['DBInstanceNetInfos']);
+        if (isset($map['InstanceNetworkType'])) {
+            $model->instanceNetworkType = $map['InstanceNetworkType'];
         }
 
         return $model;

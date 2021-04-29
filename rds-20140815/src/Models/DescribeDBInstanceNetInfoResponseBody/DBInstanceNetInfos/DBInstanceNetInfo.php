@@ -11,24 +11,14 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceNetInfo extends Model
 {
     /**
+     * @var securityIPGroups
+     */
+    public $securityIPGroups;
+
+    /**
      * @var string
      */
     public $upgradeable;
-
-    /**
-     * @var string
-     */
-    public $expiredTime;
-
-    /**
-     * @var string
-     */
-    public $connectionString;
-
-    /**
-     * @var string
-     */
-    public $IPAddress;
 
     /**
      * @var string
@@ -58,36 +48,46 @@ class DBInstanceNetInfo extends Model
     /**
      * @var string
      */
-    public $maxDelayTime;
+    public $connectionString;
 
     /**
      * @var string
      */
-    public $distributionType;
+    public $expiredTime;
 
     /**
-     * @var securityIPGroups
+     * @var string
      */
-    public $securityIPGroups;
+    public $maxDelayTime;
 
     /**
      * @var DBInstanceWeights
      */
     public $DBInstanceWeights;
+
+    /**
+     * @var string
+     */
+    public $IPAddress;
+
+    /**
+     * @var string
+     */
+    public $distributionType;
     protected $_name = [
+        'securityIPGroups'     => 'SecurityIPGroups',
         'upgradeable'          => 'Upgradeable',
-        'expiredTime'          => 'ExpiredTime',
-        'connectionString'     => 'ConnectionString',
-        'IPAddress'            => 'IPAddress',
         'IPType'               => 'IPType',
         'port'                 => 'Port',
         'VPCId'                => 'VPCId',
         'vSwitchId'            => 'VSwitchId',
         'connectionStringType' => 'ConnectionStringType',
+        'connectionString'     => 'ConnectionString',
+        'expiredTime'          => 'ExpiredTime',
         'maxDelayTime'         => 'MaxDelayTime',
-        'distributionType'     => 'DistributionType',
-        'securityIPGroups'     => 'SecurityIPGroups',
         'DBInstanceWeights'    => 'DBInstanceWeights',
+        'IPAddress'            => 'IPAddress',
+        'distributionType'     => 'DistributionType',
     ];
 
     public function validate()
@@ -97,17 +97,11 @@ class DBInstanceNetInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->securityIPGroups) {
+            $res['SecurityIPGroups'] = null !== $this->securityIPGroups ? $this->securityIPGroups->toMap() : null;
+        }
         if (null !== $this->upgradeable) {
             $res['Upgradeable'] = $this->upgradeable;
-        }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
-        }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
-        }
-        if (null !== $this->IPAddress) {
-            $res['IPAddress'] = $this->IPAddress;
         }
         if (null !== $this->IPType) {
             $res['IPType'] = $this->IPType;
@@ -124,17 +118,23 @@ class DBInstanceNetInfo extends Model
         if (null !== $this->connectionStringType) {
             $res['ConnectionStringType'] = $this->connectionStringType;
         }
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
+        }
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
+        }
         if (null !== $this->maxDelayTime) {
             $res['MaxDelayTime'] = $this->maxDelayTime;
         }
-        if (null !== $this->distributionType) {
-            $res['DistributionType'] = $this->distributionType;
-        }
-        if (null !== $this->securityIPGroups) {
-            $res['SecurityIPGroups'] = null !== $this->securityIPGroups ? $this->securityIPGroups->toMap() : null;
-        }
         if (null !== $this->DBInstanceWeights) {
             $res['DBInstanceWeights'] = null !== $this->DBInstanceWeights ? $this->DBInstanceWeights->toMap() : null;
+        }
+        if (null !== $this->IPAddress) {
+            $res['IPAddress'] = $this->IPAddress;
+        }
+        if (null !== $this->distributionType) {
+            $res['DistributionType'] = $this->distributionType;
         }
 
         return $res;
@@ -148,17 +148,11 @@ class DBInstanceNetInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SecurityIPGroups'])) {
+            $model->securityIPGroups = securityIPGroups::fromMap($map['SecurityIPGroups']);
+        }
         if (isset($map['Upgradeable'])) {
             $model->upgradeable = $map['Upgradeable'];
-        }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
-        }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
-        }
-        if (isset($map['IPAddress'])) {
-            $model->IPAddress = $map['IPAddress'];
         }
         if (isset($map['IPType'])) {
             $model->IPType = $map['IPType'];
@@ -175,17 +169,23 @@ class DBInstanceNetInfo extends Model
         if (isset($map['ConnectionStringType'])) {
             $model->connectionStringType = $map['ConnectionStringType'];
         }
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
+        }
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
+        }
         if (isset($map['MaxDelayTime'])) {
             $model->maxDelayTime = $map['MaxDelayTime'];
         }
-        if (isset($map['DistributionType'])) {
-            $model->distributionType = $map['DistributionType'];
-        }
-        if (isset($map['SecurityIPGroups'])) {
-            $model->securityIPGroups = securityIPGroups::fromMap($map['SecurityIPGroups']);
-        }
         if (isset($map['DBInstanceWeights'])) {
             $model->DBInstanceWeights = DBInstanceWeights::fromMap($map['DBInstanceWeights']);
+        }
+        if (isset($map['IPAddress'])) {
+            $model->IPAddress = $map['IPAddress'];
+        }
+        if (isset($map['DistributionType'])) {
+            $model->distributionType = $map['DistributionType'];
         }
 
         return $model;

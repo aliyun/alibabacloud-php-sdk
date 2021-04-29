@@ -15,18 +15,18 @@ class CreateDedicatedHostResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $orderId;
-
-    /**
      * @var dedicateHostList
      */
     public $dedicateHostList;
+
+    /**
+     * @var int
+     */
+    public $orderId;
     protected $_name = [
         'requestId'        => 'RequestId',
-        'orderId'          => 'OrderId',
         'dedicateHostList' => 'DedicateHostList',
+        'orderId'          => 'OrderId',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class CreateDedicatedHostResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
         if (null !== $this->dedicateHostList) {
             $res['DedicateHostList'] = null !== $this->dedicateHostList ? $this->dedicateHostList->toMap() : null;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class CreateDedicatedHostResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['DedicateHostList'])) {
             $model->dedicateHostList = dedicateHostList::fromMap($map['DedicateHostList']);
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         return $model;

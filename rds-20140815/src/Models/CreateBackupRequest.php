@@ -11,16 +11,6 @@ class CreateBackupRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
     public $resourceOwnerId;
 
     /**
@@ -47,21 +37,13 @@ class CreateBackupRequest extends Model
      * @var string
      */
     public $backupType;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBName'               => 'DBName',
-        'backupStrategy'       => 'BackupStrategy',
-        'backupMethod'         => 'BackupMethod',
-        'backupType'           => 'BackupType',
-        'ownerAccount'         => 'OwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'DBInstanceId'    => 'DBInstanceId',
+        'DBName'          => 'DBName',
+        'backupStrategy'  => 'BackupStrategy',
+        'backupMethod'    => 'BackupMethod',
+        'backupType'      => 'BackupType',
     ];
 
     public function validate()
@@ -71,12 +53,6 @@ class CreateBackupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -95,9 +71,6 @@ class CreateBackupRequest extends Model
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
 
         return $res;
     }
@@ -110,12 +83,6 @@ class CreateBackupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
@@ -133,9 +100,6 @@ class CreateBackupRequest extends Model
         }
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

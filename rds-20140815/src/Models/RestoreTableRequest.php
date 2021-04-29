@@ -52,11 +52,6 @@ class RestoreTableRequest extends Model
      * @var string
      */
     public $tableMeta;
-
-    /**
-     * @var string
-     */
-    public $restoreTableMode;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -67,7 +62,6 @@ class RestoreTableRequest extends Model
         'restoreTime'          => 'RestoreTime',
         'ownerAccount'         => 'OwnerAccount',
         'tableMeta'            => 'TableMeta',
-        'restoreTableMode'     => 'RestoreTableMode',
     ];
 
     public function validate()
@@ -103,9 +97,6 @@ class RestoreTableRequest extends Model
         }
         if (null !== $this->tableMeta) {
             $res['TableMeta'] = $this->tableMeta;
-        }
-        if (null !== $this->restoreTableMode) {
-            $res['RestoreTableMode'] = $this->restoreTableMode;
         }
 
         return $res;
@@ -145,9 +136,6 @@ class RestoreTableRequest extends Model
         }
         if (isset($map['TableMeta'])) {
             $model->tableMeta = $map['TableMeta'];
-        }
-        if (isset($map['RestoreTableMode'])) {
-            $model->restoreTableMode = $map['RestoreTableMode'];
         }
 
         return $model;

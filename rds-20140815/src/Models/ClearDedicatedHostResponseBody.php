@@ -11,7 +11,7 @@ class ClearDedicatedHostResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $dedicatedHostId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class ClearDedicatedHostResponseBody extends Model
     /**
      * @var string
      */
-    public $dedicatedHostId;
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'taskId'          => 'TaskId',
         'dedicatedHostId' => 'DedicatedHostId',
+        'taskId'          => 'TaskId',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ClearDedicatedHostResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->dedicatedHostId) {
+            $res['DedicatedHostId'] = $this->dedicatedHostId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->dedicatedHostId) {
-            $res['DedicatedHostId'] = $this->dedicatedHostId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ClearDedicatedHostResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DedicatedHostId'])) {
+            $model->dedicatedHostId = $map['DedicatedHostId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-        if (isset($map['DedicatedHostId'])) {
-            $model->dedicatedHostId = $map['DedicatedHostId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

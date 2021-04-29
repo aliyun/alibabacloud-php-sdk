@@ -42,16 +42,6 @@ class DescribeCrossRegionBackupDBInstanceRequest extends Model
      * @var int
      */
     public $pageNumber;
-
-    /**
-     * @var string
-     */
-    public $product;
-
-    /**
-     * @var int
-     */
-    public $notEnabled;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -60,8 +50,6 @@ class DescribeCrossRegionBackupDBInstanceRequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'pageSize'             => 'PageSize',
         'pageNumber'           => 'PageNumber',
-        'product'              => 'Product',
-        'notEnabled'           => 'NotEnabled',
     ];
 
     public function validate()
@@ -91,12 +79,6 @@ class DescribeCrossRegionBackupDBInstanceRequest extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
-        }
-        if (null !== $this->notEnabled) {
-            $res['NotEnabled'] = $this->notEnabled;
         }
 
         return $res;
@@ -130,12 +112,6 @@ class DescribeCrossRegionBackupDBInstanceRequest extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
-        }
-        if (isset($map['NotEnabled'])) {
-            $model->notEnabled = $map['NotEnabled'];
         }
 
         return $model;

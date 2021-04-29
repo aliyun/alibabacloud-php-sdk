@@ -11,22 +11,7 @@ class CloneDBInstanceRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
 
     /**
      * @var string
@@ -47,11 +32,6 @@ class CloneDBInstanceRequest extends Model
      * @var int
      */
     public $DBInstanceStorage;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceDescription;
 
     /**
      * @var string
@@ -99,11 +79,6 @@ class CloneDBInstanceRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
      * @var int
      */
     public $usedTime;
@@ -116,22 +91,7 @@ class CloneDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $category;
-
-    /**
-     * @var string
-     */
-    public $zoneIdSlave1;
-
-    /**
-     * @var string
-     */
-    public $zoneIdSlave2;
 
     /**
      * @var string
@@ -158,15 +118,11 @@ class CloneDBInstanceRequest extends Model
      */
     public $backupType;
     protected $_name = [
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'clientToken'           => 'ClientToken',
         'regionId'              => 'RegionId',
         'zoneId'                => 'ZoneId',
         'DBInstanceClass'       => 'DBInstanceClass',
         'DBInstanceStorage'     => 'DBInstanceStorage',
-        'DBInstanceDescription' => 'DBInstanceDescription',
         'dbNames'               => 'DbNames',
         'payType'               => 'PayType',
         'instanceNetworkType'   => 'InstanceNetworkType',
@@ -176,13 +132,9 @@ class CloneDBInstanceRequest extends Model
         'VPCId'                 => 'VPCId',
         'vSwitchId'             => 'VSwitchId',
         'privateIpAddress'      => 'PrivateIpAddress',
-        'ownerAccount'          => 'OwnerAccount',
         'usedTime'              => 'UsedTime',
         'period'                => 'Period',
-        'resourceGroupId'       => 'ResourceGroupId',
         'category'              => 'Category',
-        'zoneIdSlave1'          => 'ZoneIdSlave1',
-        'zoneIdSlave2'          => 'ZoneIdSlave2',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
         'restoreTable'          => 'RestoreTable',
         'tableMeta'             => 'TableMeta',
@@ -197,17 +149,8 @@ class CloneDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -220,9 +163,6 @@ class CloneDBInstanceRequest extends Model
         }
         if (null !== $this->DBInstanceStorage) {
             $res['DBInstanceStorage'] = $this->DBInstanceStorage;
-        }
-        if (null !== $this->DBInstanceDescription) {
-            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
         if (null !== $this->dbNames) {
             $res['DbNames'] = $this->dbNames;
@@ -251,26 +191,14 @@ class CloneDBInstanceRequest extends Model
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
-        }
-        if (null !== $this->zoneIdSlave1) {
-            $res['ZoneIdSlave1'] = $this->zoneIdSlave1;
-        }
-        if (null !== $this->zoneIdSlave2) {
-            $res['ZoneIdSlave2'] = $this->zoneIdSlave2;
         }
         if (null !== $this->DBInstanceStorageType) {
             $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
@@ -299,17 +227,8 @@ class CloneDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -322,9 +241,6 @@ class CloneDBInstanceRequest extends Model
         }
         if (isset($map['DBInstanceStorage'])) {
             $model->DBInstanceStorage = $map['DBInstanceStorage'];
-        }
-        if (isset($map['DBInstanceDescription'])) {
-            $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
         if (isset($map['DbNames'])) {
             $model->dbNames = $map['DbNames'];
@@ -353,26 +269,14 @@ class CloneDBInstanceRequest extends Model
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
-        }
-        if (isset($map['ZoneIdSlave1'])) {
-            $model->zoneIdSlave1 = $map['ZoneIdSlave1'];
-        }
-        if (isset($map['ZoneIdSlave2'])) {
-            $model->zoneIdSlave2 = $map['ZoneIdSlave2'];
         }
         if (isset($map['DBInstanceStorageType'])) {
             $model->DBInstanceStorageType = $map['DBInstanceStorageType'];

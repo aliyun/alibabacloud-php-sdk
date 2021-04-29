@@ -11,12 +11,7 @@ class DescribeLocalAvailableRecoveryTimeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
+    public $recoveryEndTime;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class DescribeLocalAvailableRecoveryTimeResponseBody extends Model
     /**
      * @var string
      */
-    public $recoveryEndTime;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
     protected $_name = [
+        'recoveryEndTime'   => 'RecoveryEndTime',
+        'recoveryBeginTime' => 'RecoveryBeginTime',
         'requestId'         => 'RequestId',
         'DBInstanceId'      => 'DBInstanceId',
-        'recoveryBeginTime' => 'RecoveryBeginTime',
-        'recoveryEndTime'   => 'RecoveryEndTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeLocalAvailableRecoveryTimeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->recoveryEndTime) {
+            $res['RecoveryEndTime'] = $this->recoveryEndTime;
+        }
+        if (null !== $this->recoveryBeginTime) {
+            $res['RecoveryBeginTime'] = $this->recoveryBeginTime;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->recoveryBeginTime) {
-            $res['RecoveryBeginTime'] = $this->recoveryBeginTime;
-        }
-        if (null !== $this->recoveryEndTime) {
-            $res['RecoveryEndTime'] = $this->recoveryEndTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeLocalAvailableRecoveryTimeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RecoveryEndTime'])) {
+            $model->recoveryEndTime = $map['RecoveryEndTime'];
+        }
+        if (isset($map['RecoveryBeginTime'])) {
+            $model->recoveryBeginTime = $map['RecoveryBeginTime'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['RecoveryBeginTime'])) {
-            $model->recoveryBeginTime = $map['RecoveryBeginTime'];
-        }
-        if (isset($map['RecoveryEndTime'])) {
-            $model->recoveryEndTime = $map['RecoveryEndTime'];
         }
 
         return $model;

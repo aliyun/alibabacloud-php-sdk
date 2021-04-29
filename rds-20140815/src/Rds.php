@@ -9,10 +9,16 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\AddTagsToResourceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AddTagsToResourceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateInstancePublicConnectionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateReadWriteSplittingConnectionRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateReadWriteSplittingConnectionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CalculateDBInstanceWeightRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CalculateDBInstanceWeightResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CancelImportRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CancelImportResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CheckAccountNameAvailableRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CheckAccountNameAvailableResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CheckCloudResourceAuthorizedRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CheckCloudResourceAuthorizedResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckCreateDdrDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckCreateDdrDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckDBNameAvailableRequest;
@@ -51,8 +57,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDedicatedHostUserRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDedicatedHostUserResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDiagnosticReportRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDiagnosticReportResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CreateHostAccountRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CreateHostAccountResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskForSQLServerRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskForSQLServerResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOnlineDatabaseTaskRequest;
@@ -79,8 +85,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDedicatedHostAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDedicatedHostAccountResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDedicatedHostGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDedicatedHostGroupResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteHostAccountRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteHostAccountResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescibeImportsFromDatabaseRequest;
@@ -89,6 +93,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActionEventPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActionEventPolicyResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableClassesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableClassesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableCrossRegionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableCrossRegionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostClassesRequest;
@@ -97,6 +103,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostZonesReq
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableDedicatedHostZonesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableRecoveryTimeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableRecoveryTimeResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableResourceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableResourceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeBackupDatabaseRequest;
@@ -179,10 +187,10 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeErrorLogsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeErrorLogsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHADiagnoseConfigRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHADiagnoseConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHASwitchConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHASwitchConfigResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHostAccountsRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHostAccountsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceAutoRenewalAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceCrossBackupPolicyRequest;
@@ -193,14 +201,18 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLocalAvailableRecoveryTimeRequ
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLocalAvailableRecoveryTimeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLogBackupFilesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLogBackupFilesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMetaListRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMetaListResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMigrateTaskByIdRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMigrateTaskByIdResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMigrateTasksForSQLServerRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMigrateTasksForSQLServerResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMigrateTasksRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeMigrateTasksResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeModifyParameterLogRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeModifyParameterLogResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeNextEventForSignRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeNextEventForSignResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeOssDownloadsForSQLServerRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeOssDownloadsForSQLServerResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeOssDownloadsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeOssDownloadsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterGroupRequest;
@@ -225,8 +237,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceUsageRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceUsageResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSecurityGroupConfigurationRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSecurityGroupConfigurationResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSignedEventActionsRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSignedEventActionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSlowLogRecordsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSlowLogsRequest;
@@ -243,8 +253,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLLogReportListRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLLogReportListResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLLogReportsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLLogReportsResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLReportsRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLReportsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTasksRequest;
@@ -255,8 +263,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DropDedicatedHostUserRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DropDedicatedHostUserResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\EvaluateDedicatedHostInstanceResourceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\EvaluateDedicatedHostInstanceResourceResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\GetDBInstanceTopologyRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\GetDBInstanceTopologyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GetDbProxyInstanceSslRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GetDbProxyInstanceSslResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GrantAccountPrivilegeRequest;
@@ -269,8 +275,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\LockAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\LockAccountResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateConnectionToOtherZoneRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateConnectionToOtherZoneResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateSecurityIPModeRequest;
@@ -281,8 +285,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActionEventPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActionEventPolicyResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActionEventVerifyPolicyRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActionEventVerifyPolicyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyCollationTimeZoneRequest;
@@ -293,6 +295,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBDescriptionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBDescriptionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceAutoUpgradeMinorVersionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceAutoUpgradeMinorVersionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionModeRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionModeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionStringRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionStringResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceDescriptionRequest;
@@ -337,14 +341,14 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDedicatedHostUserRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDedicatedHostUserResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDTCSecurityIpHostsForSQLServerRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDTCSecurityIpHostsForSQLServerResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyHADiagnoseConfigRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyHADiagnoseConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyHASwitchConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyHASwitchConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyInstanceAutoRenewalAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyInstanceAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyInstanceCrossBackupPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyInstanceCrossBackupPolicyResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyLicenseInfoRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyLicenseInfoResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterRequest;
@@ -381,14 +385,10 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ReplaceDedicatedHostRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ReplaceDedicatedHostResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountForPGRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountForPGResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ResetHostAccountPasswordRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ResetHostAccountPasswordResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RestartDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RestartDedicatedHostRequest;
@@ -401,8 +401,10 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\RevokeAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RevokeAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RevokeOperatorPermissionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RevokeOperatorPermissionResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\SignEventActionRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\SignEventActionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\StartDBInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\StartDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\StopDBInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\StopDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceHARequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceHAResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceNetTypeRequest;
@@ -442,6 +444,7 @@ class Rds extends OpenApiClient
             'cn-hangzhou'                 => 'rds.aliyuncs.com',
             'cn-shanghai'                 => 'rds.aliyuncs.com',
             'cn-shenzhen'                 => 'rds.aliyuncs.com',
+            'cn-heyuan'                   => 'rds.aliyuncs.com',
             'cn-hongkong'                 => 'rds.aliyuncs.com',
             'ap-southeast-1'              => 'rds.aliyuncs.com',
             'us-west-1'                   => 'rds.aliyuncs.com',
@@ -449,7 +452,7 @@ class Rds extends OpenApiClient
             'cn-shanghai-finance-1'       => 'rds.aliyuncs.com',
             'cn-shenzhen-finance-1'       => 'rds.aliyuncs.com',
             'cn-north-2-gov-1'            => 'rds.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'rds.ap-northeast-1.aliyuncs.com',
+            'ap-northeast-2-pop'          => 'rds.aliyuncs.com',
             'cn-beijing-finance-1'        => 'rds.aliyuncs.com',
             'cn-beijing-finance-pop'      => 'rds.aliyuncs.com',
             'cn-beijing-gov-1'            => 'rds.aliyuncs.com',
@@ -475,11 +478,12 @@ class Rds extends OpenApiClient
             'cn-shenzhen-su18-b01'        => 'rds.aliyuncs.com',
             'cn-wuhan'                    => 'rds.aliyuncs.com',
             'cn-yushanfang'               => 'rds.aliyuncs.com',
+            'cn-zhangbei'                 => 'rds.aliyuncs.com',
             'cn-zhangbei-na61-b01'        => 'rds.aliyuncs.com',
             'cn-zhangjiakou-na62-a01'     => 'rds.aliyuncs.com',
             'cn-zhengzhou-nebula-1'       => 'rds.aliyuncs.com',
-            'eu-west-1-oxs'               => 'rds.ap-northeast-1.aliyuncs.com',
-            'rus-west-1-pop'              => 'rds.ap-northeast-1.aliyuncs.com',
+            'eu-west-1-oxs'               => 'rds.aliyuncs.com',
+            'rus-west-1-pop'              => 'rds.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('rds', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -565,6 +569,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param AllocateReadWriteSplittingConnectionRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return AllocateReadWriteSplittingConnectionResponse
+     */
+    public function allocateReadWriteSplittingConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AllocateReadWriteSplittingConnectionResponse::fromMap($this->doRPCRequest('AllocateReadWriteSplittingConnection', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AllocateReadWriteSplittingConnectionRequest $request
+     *
+     * @return AllocateReadWriteSplittingConnectionResponse
+     */
+    public function allocateReadWriteSplittingConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->allocateReadWriteSplittingConnectionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CalculateDBInstanceWeightRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -618,6 +650,62 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelImportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckAccountNameAvailableRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CheckAccountNameAvailableResponse
+     */
+    public function checkAccountNameAvailableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckAccountNameAvailableResponse::fromMap($this->doRPCRequest('CheckAccountNameAvailable', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckAccountNameAvailableRequest $request
+     *
+     * @return CheckAccountNameAvailableResponse
+     */
+    public function checkAccountNameAvailable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkAccountNameAvailableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckCloudResourceAuthorizedRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CheckCloudResourceAuthorizedResponse
+     */
+    public function checkCloudResourceAuthorizedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckCloudResourceAuthorizedResponse::fromMap($this->doRPCRequest('CheckCloudResourceAuthorized', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckCloudResourceAuthorizedRequest $request
+     *
+     * @return CheckCloudResourceAuthorizedResponse
+     */
+    public function checkCloudResourceAuthorized($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkCloudResourceAuthorizedWithOptions($request, $runtime);
     }
 
     /**
@@ -1153,34 +1241,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateHostAccountRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateHostAccountResponse
-     */
-    public function createHostAccountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateHostAccountResponse::fromMap($this->doRPCRequest('CreateHostAccount', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateHostAccountRequest $request
-     *
-     * @return CreateHostAccountResponse
-     */
-    public function createHostAccount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createHostAccountWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateMigrateTaskRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1206,6 +1266,34 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMigrateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateMigrateTaskForSQLServerRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateMigrateTaskForSQLServerResponse
+     */
+    public function createMigrateTaskForSQLServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateMigrateTaskForSQLServerResponse::fromMap($this->doRPCRequest('CreateMigrateTaskForSQLServer', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateMigrateTaskForSQLServerRequest $request
+     *
+     * @return CreateMigrateTaskForSQLServerResponse
+     */
+    public function createMigrateTaskForSQLServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMigrateTaskForSQLServerWithOptions($request, $runtime);
     }
 
     /**
@@ -1545,34 +1633,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DeleteHostAccountRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteHostAccountResponse
-     */
-    public function deleteHostAccountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteHostAccountResponse::fromMap($this->doRPCRequest('DeleteHostAccount', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteHostAccountRequest $request
-     *
-     * @return DeleteHostAccountResponse
-     */
-    public function deleteHostAccount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteHostAccountWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteParameterGroupRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1685,6 +1745,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeAvailableClassesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAvailableClassesResponse
+     */
+    public function describeAvailableClassesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAvailableClassesResponse::fromMap($this->doRPCRequest('DescribeAvailableClasses', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAvailableClassesRequest $request
+     *
+     * @return DescribeAvailableClassesResponse
+     */
+    public function describeAvailableClasses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableClassesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAvailableCrossRegionRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1794,6 +1882,34 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAvailableRecoveryTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAvailableResourceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAvailableResourceResponse
+     */
+    public function describeAvailableResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAvailableResourceResponse::fromMap($this->doRPCRequest('DescribeAvailableResource', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAvailableResourceRequest $request
+     *
+     * @return DescribeAvailableResourceResponse
+     */
+    public function describeAvailableResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -2945,6 +3061,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeHADiagnoseConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeHADiagnoseConfigResponse
+     */
+    public function describeHADiagnoseConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeHADiagnoseConfigResponse::fromMap($this->doRPCRequest('DescribeHADiagnoseConfig', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHADiagnoseConfigRequest $request
+     *
+     * @return DescribeHADiagnoseConfigResponse
+     */
+    public function describeHADiagnoseConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHADiagnoseConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeHASwitchConfigRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2970,34 +3114,6 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHASwitchConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeHostAccountsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeHostAccountsResponse
-     */
-    public function describeHostAccountsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeHostAccountsResponse::fromMap($this->doRPCRequest('DescribeHostAccounts', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeHostAccountsRequest $request
-     *
-     * @return DescribeHostAccountsResponse
-     */
-    public function describeHostAccounts($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeHostAccountsWithOptions($request, $runtime);
     }
 
     /**
@@ -3141,6 +3257,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeMetaListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeMetaListResponse
+     */
+    public function describeMetaListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeMetaListResponse::fromMap($this->doRPCRequest('DescribeMetaList', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMetaListRequest $request
+     *
+     * @return DescribeMetaListResponse
+     */
+    public function describeMetaList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetaListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeMigrateTaskByIdRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -3197,6 +3341,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeMigrateTasksForSQLServerRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeMigrateTasksForSQLServerResponse
+     */
+    public function describeMigrateTasksForSQLServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeMigrateTasksForSQLServerResponse::fromMap($this->doRPCRequest('DescribeMigrateTasksForSQLServer', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMigrateTasksForSQLServerRequest $request
+     *
+     * @return DescribeMigrateTasksForSQLServerResponse
+     */
+    public function describeMigrateTasksForSQLServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMigrateTasksForSQLServerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeModifyParameterLogRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -3225,34 +3397,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeNextEventForSignRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeNextEventForSignResponse
-     */
-    public function describeNextEventForSignWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeNextEventForSignResponse::fromMap($this->doRPCRequest('DescribeNextEventForSign', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeNextEventForSignRequest $request
-     *
-     * @return DescribeNextEventForSignResponse
-     */
-    public function describeNextEventForSign($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeNextEventForSignWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeOssDownloadsRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3278,6 +3422,34 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeOssDownloadsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOssDownloadsForSQLServerRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeOssDownloadsForSQLServerResponse
+     */
+    public function describeOssDownloadsForSQLServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeOssDownloadsForSQLServerResponse::fromMap($this->doRPCRequest('DescribeOssDownloadsForSQLServer', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOssDownloadsForSQLServerRequest $request
+     *
+     * @return DescribeOssDownloadsForSQLServerResponse
+     */
+    public function describeOssDownloadsForSQLServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOssDownloadsForSQLServerWithOptions($request, $runtime);
     }
 
     /**
@@ -3589,34 +3761,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeSignedEventActionsRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeSignedEventActionsResponse
-     */
-    public function describeSignedEventActionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSignedEventActionsResponse::fromMap($this->doRPCRequest('DescribeSignedEventActions', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSignedEventActionsRequest $request
-     *
-     * @return DescribeSignedEventActionsResponse
-     */
-    public function describeSignedEventActions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSignedEventActionsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeSlowLogRecordsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3841,34 +3985,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLReportsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeSQLReportsResponse
-     */
-    public function describeSQLReportsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSQLReportsResponse::fromMap($this->doRPCRequest('DescribeSQLReports', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLReportsRequest $request
-     *
-     * @return DescribeSQLReportsResponse
-     */
-    public function describeSQLReports($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLReportsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeTagsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -4006,34 +4122,6 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->evaluateDedicatedHostInstanceResourceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDBInstanceTopologyRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetDBInstanceTopologyResponse
-     */
-    public function getDBInstanceTopologyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetDBInstanceTopologyResponse::fromMap($this->doRPCRequest('GetDBInstanceTopology', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDBInstanceTopologyRequest $request
-     *
-     * @return GetDBInstanceTopologyResponse
-     */
-    public function getDBInstanceTopology($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDBInstanceTopologyWithOptions($request, $runtime);
     }
 
     /**
@@ -4205,34 +4293,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param MigrateConnectionToOtherZoneRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return MigrateConnectionToOtherZoneResponse
-     */
-    public function migrateConnectionToOtherZoneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return MigrateConnectionToOtherZoneResponse::fromMap($this->doRPCRequest('MigrateConnectionToOtherZone', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param MigrateConnectionToOtherZoneRequest $request
-     *
-     * @return MigrateConnectionToOtherZoneResponse
-     */
-    public function migrateConnectionToOtherZone($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->migrateConnectionToOtherZoneWithOptions($request, $runtime);
-    }
-
-    /**
      * @param MigrateDBInstanceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4373,34 +4433,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyActionEventVerifyPolicyRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ModifyActionEventVerifyPolicyResponse
-     */
-    public function modifyActionEventVerifyPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyActionEventVerifyPolicyResponse::fromMap($this->doRPCRequest('ModifyActionEventVerifyPolicy', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyActionEventVerifyPolicyRequest $request
-     *
-     * @return ModifyActionEventVerifyPolicyResponse
-     */
-    public function modifyActionEventVerifyPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyActionEventVerifyPolicyWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyBackupPolicyRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4538,6 +4570,34 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceAutoUpgradeMinorVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBInstanceConnectionModeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyDBInstanceConnectionModeResponse
+     */
+    public function modifyDBInstanceConnectionModeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyDBInstanceConnectionModeResponse::fromMap($this->doRPCRequest('ModifyDBInstanceConnectionMode', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBInstanceConnectionModeRequest $request
+     *
+     * @return ModifyDBInstanceConnectionModeResponse
+     */
+    public function modifyDBInstanceConnectionMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceConnectionModeWithOptions($request, $runtime);
     }
 
     /**
@@ -5157,6 +5217,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param ModifyHADiagnoseConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyHADiagnoseConfigResponse
+     */
+    public function modifyHADiagnoseConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyHADiagnoseConfigResponse::fromMap($this->doRPCRequest('ModifyHADiagnoseConfig', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyHADiagnoseConfigRequest $request
+     *
+     * @return ModifyHADiagnoseConfigResponse
+     */
+    public function modifyHADiagnoseConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHADiagnoseConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyHASwitchConfigRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -5238,34 +5326,6 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceCrossBackupPolicyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyLicenseInfoRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyLicenseInfoResponse
-     */
-    public function modifyLicenseInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyLicenseInfoResponse::fromMap($this->doRPCRequest('ModifyLicenseInfo', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyLicenseInfoRequest $request
-     *
-     * @return ModifyLicenseInfoResponse
-     */
-    public function modifyLicenseInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyLicenseInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -5801,34 +5861,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountForPGRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ResetAccountForPGResponse
-     */
-    public function resetAccountForPGWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ResetAccountForPGResponse::fromMap($this->doRPCRequest('ResetAccountForPG', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ResetAccountForPGRequest $request
-     *
-     * @return ResetAccountForPGResponse
-     */
-    public function resetAccountForPG($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->resetAccountForPGWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ResetAccountPasswordRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -5854,34 +5886,6 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetAccountPasswordWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ResetHostAccountPasswordRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ResetHostAccountPasswordResponse
-     */
-    public function resetHostAccountPasswordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ResetHostAccountPasswordResponse::fromMap($this->doRPCRequest('ResetHostAccountPassword', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ResetHostAccountPasswordRequest $request
-     *
-     * @return ResetHostAccountPasswordResponse
-     */
-    public function resetHostAccountPassword($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->resetHostAccountPasswordWithOptions($request, $runtime);
     }
 
     /**
@@ -6053,31 +6057,59 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param SignEventActionRequest $request
+     * @param StartDBInstanceRequest $request
      * @param RuntimeOptions         $runtime
      *
-     * @return SignEventActionResponse
+     * @return StartDBInstanceResponse
      */
-    public function signEventActionWithOptions($request, $runtime)
+    public function startDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return SignEventActionResponse::fromMap($this->doRPCRequest('SignEventAction', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartDBInstanceResponse::fromMap($this->doRPCRequest('StartDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param SignEventActionRequest $request
+     * @param StartDBInstanceRequest $request
      *
-     * @return SignEventActionResponse
+     * @return StartDBInstanceResponse
      */
-    public function signEventAction($request)
+    public function startDBInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->signEventActionWithOptions($request, $runtime);
+        return $this->startDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopDBInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StopDBInstanceResponse
+     */
+    public function stopDBInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StopDBInstanceResponse::fromMap($this->doRPCRequest('StopDBInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StopDBInstanceRequest $request
+     *
+     * @return StopDBInstanceResponse
+     */
+    public function stopDBInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDBInstanceWithOptions($request, $runtime);
     }
 
     /**

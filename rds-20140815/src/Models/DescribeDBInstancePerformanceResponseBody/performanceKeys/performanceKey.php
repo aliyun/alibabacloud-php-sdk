@@ -20,19 +20,19 @@ class performanceKey extends Model
     public $unit;
 
     /**
-     * @var string
-     */
-    public $valueFormat;
-
-    /**
      * @var values
      */
     public $values;
+
+    /**
+     * @var string
+     */
+    public $valueFormat;
     protected $_name = [
         'key'         => 'Key',
         'unit'        => 'Unit',
-        'valueFormat' => 'ValueFormat',
         'values'      => 'Values',
+        'valueFormat' => 'ValueFormat',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class performanceKey extends Model
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
-        if (null !== $this->valueFormat) {
-            $res['ValueFormat'] = $this->valueFormat;
-        }
         if (null !== $this->values) {
             $res['Values'] = null !== $this->values ? $this->values->toMap() : null;
+        }
+        if (null !== $this->valueFormat) {
+            $res['ValueFormat'] = $this->valueFormat;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class performanceKey extends Model
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
-        if (isset($map['ValueFormat'])) {
-            $model->valueFormat = $map['ValueFormat'];
-        }
         if (isset($map['Values'])) {
             $model->values = values::fromMap($map['Values']);
+        }
+        if (isset($map['ValueFormat'])) {
+            $model->valueFormat = $map['ValueFormat'];
         }
 
         return $model;

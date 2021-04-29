@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class binLogFile extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $fileSize;
+    public $intranetDownloadLink;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class binLogFile extends Model
     /**
      * @var string
      */
-    public $logEndTime;
+    public $linkExpiredTime;
 
     /**
      * @var string
@@ -31,12 +31,7 @@ class binLogFile extends Model
     /**
      * @var string
      */
-    public $intranetDownloadLink;
-
-    /**
-     * @var string
-     */
-    public $linkExpiredTime;
+    public $logFileName;
 
     /**
      * @var string
@@ -46,22 +41,27 @@ class binLogFile extends Model
     /**
      * @var string
      */
-    public $hostInstanceID;
+    public $logEndTime;
 
     /**
      * @var string
      */
-    public $logFileName;
+    public $hostInstanceID;
+
+    /**
+     * @var int
+     */
+    public $fileSize;
     protected $_name = [
-        'fileSize'             => 'FileSize',
-        'logBeginTime'         => 'LogBeginTime',
-        'logEndTime'           => 'LogEndTime',
-        'downloadLink'         => 'DownloadLink',
         'intranetDownloadLink' => 'IntranetDownloadLink',
+        'logBeginTime'         => 'LogBeginTime',
         'linkExpiredTime'      => 'LinkExpiredTime',
-        'checksum'             => 'Checksum',
-        'hostInstanceID'       => 'HostInstanceID',
+        'downloadLink'         => 'DownloadLink',
         'logFileName'          => 'LogFileName',
+        'checksum'             => 'Checksum',
+        'logEndTime'           => 'LogEndTime',
+        'hostInstanceID'       => 'HostInstanceID',
+        'fileSize'             => 'FileSize',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class binLogFile extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileSize) {
-            $res['FileSize'] = $this->fileSize;
+        if (null !== $this->intranetDownloadLink) {
+            $res['IntranetDownloadLink'] = $this->intranetDownloadLink;
         }
         if (null !== $this->logBeginTime) {
             $res['LogBeginTime'] = $this->logBeginTime;
         }
-        if (null !== $this->logEndTime) {
-            $res['LogEndTime'] = $this->logEndTime;
+        if (null !== $this->linkExpiredTime) {
+            $res['LinkExpiredTime'] = $this->linkExpiredTime;
         }
         if (null !== $this->downloadLink) {
             $res['DownloadLink'] = $this->downloadLink;
         }
-        if (null !== $this->intranetDownloadLink) {
-            $res['IntranetDownloadLink'] = $this->intranetDownloadLink;
-        }
-        if (null !== $this->linkExpiredTime) {
-            $res['LinkExpiredTime'] = $this->linkExpiredTime;
+        if (null !== $this->logFileName) {
+            $res['LogFileName'] = $this->logFileName;
         }
         if (null !== $this->checksum) {
             $res['Checksum'] = $this->checksum;
         }
+        if (null !== $this->logEndTime) {
+            $res['LogEndTime'] = $this->logEndTime;
+        }
         if (null !== $this->hostInstanceID) {
             $res['HostInstanceID'] = $this->hostInstanceID;
         }
-        if (null !== $this->logFileName) {
-            $res['LogFileName'] = $this->logFileName;
+        if (null !== $this->fileSize) {
+            $res['FileSize'] = $this->fileSize;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class binLogFile extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileSize'])) {
-            $model->fileSize = $map['FileSize'];
+        if (isset($map['IntranetDownloadLink'])) {
+            $model->intranetDownloadLink = $map['IntranetDownloadLink'];
         }
         if (isset($map['LogBeginTime'])) {
             $model->logBeginTime = $map['LogBeginTime'];
         }
-        if (isset($map['LogEndTime'])) {
-            $model->logEndTime = $map['LogEndTime'];
+        if (isset($map['LinkExpiredTime'])) {
+            $model->linkExpiredTime = $map['LinkExpiredTime'];
         }
         if (isset($map['DownloadLink'])) {
             $model->downloadLink = $map['DownloadLink'];
         }
-        if (isset($map['IntranetDownloadLink'])) {
-            $model->intranetDownloadLink = $map['IntranetDownloadLink'];
-        }
-        if (isset($map['LinkExpiredTime'])) {
-            $model->linkExpiredTime = $map['LinkExpiredTime'];
+        if (isset($map['LogFileName'])) {
+            $model->logFileName = $map['LogFileName'];
         }
         if (isset($map['Checksum'])) {
             $model->checksum = $map['Checksum'];
         }
+        if (isset($map['LogEndTime'])) {
+            $model->logEndTime = $map['LogEndTime'];
+        }
         if (isset($map['HostInstanceID'])) {
             $model->hostInstanceID = $map['HostInstanceID'];
         }
-        if (isset($map['LogFileName'])) {
-            $model->logFileName = $map['LogFileName'];
+        if (isset($map['FileSize'])) {
+            $model->fileSize = $map['FileSize'];
         }
 
         return $model;

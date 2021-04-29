@@ -25,20 +25,20 @@ class DescribeReadDBInstanceDelayResponseBody extends Model
     public $readDBInstanceId;
 
     /**
-     * @var int
-     */
-    public $delayTime;
-
-    /**
      * @var items
      */
     public $items;
+
+    /**
+     * @var int
+     */
+    public $delayTime;
     protected $_name = [
         'requestId'        => 'RequestId',
         'DBInstanceId'     => 'DBInstanceId',
         'readDBInstanceId' => 'ReadDBInstanceId',
-        'delayTime'        => 'DelayTime',
         'items'            => 'Items',
+        'delayTime'        => 'DelayTime',
     ];
 
     public function validate()
@@ -57,11 +57,11 @@ class DescribeReadDBInstanceDelayResponseBody extends Model
         if (null !== $this->readDBInstanceId) {
             $res['ReadDBInstanceId'] = $this->readDBInstanceId;
         }
-        if (null !== $this->delayTime) {
-            $res['DelayTime'] = $this->delayTime;
-        }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+        }
+        if (null !== $this->delayTime) {
+            $res['DelayTime'] = $this->delayTime;
         }
 
         return $res;
@@ -84,11 +84,11 @@ class DescribeReadDBInstanceDelayResponseBody extends Model
         if (isset($map['ReadDBInstanceId'])) {
             $model->readDBInstanceId = $map['ReadDBInstanceId'];
         }
-        if (isset($map['DelayTime'])) {
-            $model->delayTime = $map['DelayTime'];
-        }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
+        }
+        if (isset($map['DelayTime'])) {
+            $model->delayTime = $map['DelayTime'];
         }
 
         return $model;

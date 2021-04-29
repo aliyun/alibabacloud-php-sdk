@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\GetDbProxyInstanceSslResponseBody;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\GetDbProxyInstanceSslResponseBody\dbProxyCertListItems\dbProxyCertListItems;
 use AlibabaCloud\Tea\Model;
 
 class dbProxyCertListItems extends Model
 {
     /**
-     * @var dbProxyCertListItems[]
+     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\GetDbProxyInstanceSslResponseBody\dbProxyCertListItems\dbProxyCertListItems[]
      */
     public $dbProxyCertListItems;
     protected $_name = [
@@ -50,7 +49,7 @@ class dbProxyCertListItems extends Model
                 $model->dbProxyCertListItems = [];
                 $n                           = 0;
                 foreach ($map['DbProxyCertListItems'] as $item) {
-                    $model->dbProxyCertListItems[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->dbProxyCertListItems[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\GetDbProxyInstanceSslResponseBody\dbProxyCertListItems\dbProxyCertListItems::fromMap($item) : $item;
                 }
             }
         }

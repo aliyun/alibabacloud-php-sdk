@@ -15,18 +15,18 @@ class DescribeInstanceKeywordsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $key;
-
-    /**
      * @var words
      */
     public $words;
+
+    /**
+     * @var string
+     */
+    public $key;
     protected $_name = [
         'requestId' => 'RequestId',
-        'key'       => 'Key',
         'words'     => 'Words',
+        'key'       => 'Key',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class DescribeInstanceKeywordsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
         if (null !== $this->words) {
             $res['Words'] = null !== $this->words ? $this->words->toMap() : null;
+        }
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class DescribeInstanceKeywordsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
         if (isset($map['Words'])) {
             $model->words = words::fromMap($map['Words']);
+        }
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
 
         return $model;

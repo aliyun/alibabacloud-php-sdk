@@ -54,21 +54,6 @@ class ModifyInstanceCrossBackupPolicyRequest extends Model
     public $crossBackupRegion;
 
     /**
-     * @var string
-     */
-    public $storageOwner;
-
-    /**
-     * @var string
-     */
-    public $storageType;
-
-    /**
-     * @var string
-     */
-    public $endpoint;
-
-    /**
      * @var int
      */
     public $retentType;
@@ -77,11 +62,6 @@ class ModifyInstanceCrossBackupPolicyRequest extends Model
      * @var int
      */
     public $retention;
-
-    /**
-     * @var string
-     */
-    public $relService;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -92,12 +72,8 @@ class ModifyInstanceCrossBackupPolicyRequest extends Model
         'logBackupEnabled'     => 'LogBackupEnabled',
         'backupEnabled'        => 'BackupEnabled',
         'crossBackupRegion'    => 'CrossBackupRegion',
-        'storageOwner'         => 'StorageOwner',
-        'storageType'          => 'StorageType',
-        'endpoint'             => 'Endpoint',
         'retentType'           => 'RetentType',
         'retention'            => 'Retention',
-        'relService'           => 'RelService',
     ];
 
     public function validate()
@@ -134,23 +110,11 @@ class ModifyInstanceCrossBackupPolicyRequest extends Model
         if (null !== $this->crossBackupRegion) {
             $res['CrossBackupRegion'] = $this->crossBackupRegion;
         }
-        if (null !== $this->storageOwner) {
-            $res['StorageOwner'] = $this->storageOwner;
-        }
-        if (null !== $this->storageType) {
-            $res['StorageType'] = $this->storageType;
-        }
-        if (null !== $this->endpoint) {
-            $res['Endpoint'] = $this->endpoint;
-        }
         if (null !== $this->retentType) {
             $res['RetentType'] = $this->retentType;
         }
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
-        }
-        if (null !== $this->relService) {
-            $res['RelService'] = $this->relService;
         }
 
         return $res;
@@ -191,23 +155,11 @@ class ModifyInstanceCrossBackupPolicyRequest extends Model
         if (isset($map['CrossBackupRegion'])) {
             $model->crossBackupRegion = $map['CrossBackupRegion'];
         }
-        if (isset($map['StorageOwner'])) {
-            $model->storageOwner = $map['StorageOwner'];
-        }
-        if (isset($map['StorageType'])) {
-            $model->storageType = $map['StorageType'];
-        }
-        if (isset($map['Endpoint'])) {
-            $model->endpoint = $map['Endpoint'];
-        }
         if (isset($map['RetentType'])) {
             $model->retentType = $map['RetentType'];
         }
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
-        }
-        if (isset($map['RelService'])) {
-            $model->relService = $map['RelService'];
         }
 
         return $model;

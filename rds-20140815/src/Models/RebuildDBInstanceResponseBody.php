@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RebuildDBInstanceResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $taskId;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -16,15 +21,10 @@ class RebuildDBInstanceResponseBody extends Model
     /**
      * @var int
      */
-    public $taskId;
-
-    /**
-     * @var int
-     */
     public $migrationId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'taskId'      => 'TaskId',
+        'requestId'   => 'RequestId',
         'migrationId' => 'MigrationId',
     ];
 
@@ -35,11 +35,11 @@ class RebuildDBInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->migrationId) {
             $res['MigrationId'] = $this->migrationId;
@@ -56,11 +56,11 @@ class RebuildDBInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['MigrationId'])) {
             $model->migrationId = $map['MigrationId'];

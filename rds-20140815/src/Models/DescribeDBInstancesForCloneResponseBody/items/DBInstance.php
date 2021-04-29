@@ -10,19 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $insId;
+    public $vpcId;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $replicateId;
 
     /**
      * @var string
      */
-    public $DBInstanceDescription;
+    public $tempDBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceStorageType;
+
+    /**
+     * @var string
+     */
+    public $createTime;
 
     /**
      * @var string
@@ -30,39 +40,9 @@ class DBInstance extends Model
     public $payType;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $DBInstanceType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $expireTime;
-
-    /**
-     * @var string
-     */
-    public $destroyTime;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceStatus;
-
-    /**
-     * @var string
-     */
-    public $engine;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceNetType;
+    public $mutriORsignle;
 
     /**
      * @var string
@@ -77,17 +57,17 @@ class DBInstance extends Model
     /**
      * @var string
      */
-    public $category;
+    public $engineVersion;
 
     /**
      * @var string
      */
-    public $DBInstanceStorageType;
+    public $vpcCloudInstanceId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $DBInstanceClass;
+    public $insId;
 
     /**
      * @var string
@@ -97,7 +77,32 @@ class DBInstance extends Model
     /**
      * @var string
      */
-    public $vpcCloudInstanceId;
+    public $masterInstanceId;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceDescription;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceNetType;
+
+    /**
+     * @var string
+     */
+    public $expireTime;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceType;
+
+    /**
+     * @var string
+     */
+    public $destroyTime;
 
     /**
      * @var string
@@ -107,22 +112,12 @@ class DBInstance extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $DBInstanceStatus;
 
     /**
-     * @var bool
+     * @var readOnlyDBInstanceIds
      */
-    public $mutriORsignle;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $engineVersion;
+    public $readOnlyDBInstanceIds;
 
     /**
      * @var string
@@ -132,17 +127,7 @@ class DBInstance extends Model
     /**
      * @var string
      */
-    public $tempDBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $masterInstanceId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
+    public $regionId;
 
     /**
      * @var string
@@ -152,49 +137,64 @@ class DBInstance extends Model
     /**
      * @var string
      */
-    public $replicateId;
+    public $resourceGroupId;
 
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $zoneId;
 
     /**
-     * @var readOnlyDBInstanceIds
+     * @var string
      */
-    public $readOnlyDBInstanceIds;
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $category;
+
+    /**
+     * @var string
+     */
+    public $engine;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceClass;
     protected $_name = [
-        'insId'                 => 'InsId',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceDescription' => 'DBInstanceDescription',
+        'vpcId'                 => 'VpcId',
+        'replicateId'           => 'ReplicateId',
+        'tempDBInstanceId'      => 'TempDBInstanceId',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'createTime'            => 'CreateTime',
         'payType'               => 'PayType',
-        'DBInstanceType'        => 'DBInstanceType',
-        'regionId'              => 'RegionId',
-        'expireTime'            => 'ExpireTime',
-        'destroyTime'           => 'DestroyTime',
-        'DBInstanceStatus'      => 'DBInstanceStatus',
-        'engine'                => 'Engine',
-        'DBInstanceNetType'     => 'DBInstanceNetType',
+        'mutriORsignle'         => 'MutriORsignle',
         'connectionMode'        => 'ConnectionMode',
         'lockMode'              => 'LockMode',
-        'category'              => 'Category',
-        'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'DBInstanceClass'       => 'DBInstanceClass',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'vpcCloudInstanceId'    => 'VpcCloudInstanceId',
-        'lockReason'            => 'LockReason',
-        'zoneId'                => 'ZoneId',
-        'mutriORsignle'         => 'MutriORsignle',
-        'createTime'            => 'CreateTime',
         'engineVersion'         => 'EngineVersion',
-        'guardDBInstanceId'     => 'GuardDBInstanceId',
-        'tempDBInstanceId'      => 'TempDBInstanceId',
+        'vpcCloudInstanceId'    => 'VpcCloudInstanceId',
+        'insId'                 => 'InsId',
+        'instanceNetworkType'   => 'InstanceNetworkType',
         'masterInstanceId'      => 'MasterInstanceId',
-        'vpcId'                 => 'VpcId',
-        'vSwitchId'             => 'VSwitchId',
-        'replicateId'           => 'ReplicateId',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceNetType'     => 'DBInstanceNetType',
+        'expireTime'            => 'ExpireTime',
+        'DBInstanceType'        => 'DBInstanceType',
+        'destroyTime'           => 'DestroyTime',
+        'lockReason'            => 'LockReason',
+        'DBInstanceStatus'      => 'DBInstanceStatus',
         'readOnlyDBInstanceIds' => 'ReadOnlyDBInstanceIds',
+        'guardDBInstanceId'     => 'GuardDBInstanceId',
+        'regionId'              => 'RegionId',
+        'vSwitchId'             => 'VSwitchId',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'zoneId'                => 'ZoneId',
+        'DBInstanceId'          => 'DBInstanceId',
+        'category'              => 'Category',
+        'engine'                => 'Engine',
+        'DBInstanceClass'       => 'DBInstanceClass',
     ];
 
     public function validate()
@@ -204,38 +204,26 @@ class DBInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->insId) {
-            $res['InsId'] = $this->insId;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->replicateId) {
+            $res['ReplicateId'] = $this->replicateId;
         }
-        if (null !== $this->DBInstanceDescription) {
-            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        if (null !== $this->tempDBInstanceId) {
+            $res['TempDBInstanceId'] = $this->tempDBInstanceId;
+        }
+        if (null !== $this->DBInstanceStorageType) {
+            $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
-        if (null !== $this->DBInstanceType) {
-            $res['DBInstanceType'] = $this->DBInstanceType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
-        }
-        if (null !== $this->destroyTime) {
-            $res['DestroyTime'] = $this->destroyTime;
-        }
-        if (null !== $this->DBInstanceStatus) {
-            $res['DBInstanceStatus'] = $this->DBInstanceStatus;
-        }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
-        }
-        if (null !== $this->DBInstanceNetType) {
-            $res['DBInstanceNetType'] = $this->DBInstanceNetType;
+        if (null !== $this->mutriORsignle) {
+            $res['MutriORsignle'] = $this->mutriORsignle;
         }
         if (null !== $this->connectionMode) {
             $res['ConnectionMode'] = $this->connectionMode;
@@ -243,59 +231,71 @@ class DBInstance extends Model
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
-        if (null !== $this->DBInstanceStorageType) {
-            $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
-        }
-        if (null !== $this->DBInstanceClass) {
-            $res['DBInstanceClass'] = $this->DBInstanceClass;
-        }
-        if (null !== $this->instanceNetworkType) {
-            $res['InstanceNetworkType'] = $this->instanceNetworkType;
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->vpcCloudInstanceId) {
             $res['VpcCloudInstanceId'] = $this->vpcCloudInstanceId;
         }
-        if (null !== $this->lockReason) {
-            $res['LockReason'] = $this->lockReason;
+        if (null !== $this->insId) {
+            $res['InsId'] = $this->insId;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->mutriORsignle) {
-            $res['MutriORsignle'] = $this->mutriORsignle;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->engineVersion) {
-            $res['EngineVersion'] = $this->engineVersion;
-        }
-        if (null !== $this->guardDBInstanceId) {
-            $res['GuardDBInstanceId'] = $this->guardDBInstanceId;
-        }
-        if (null !== $this->tempDBInstanceId) {
-            $res['TempDBInstanceId'] = $this->tempDBInstanceId;
+        if (null !== $this->instanceNetworkType) {
+            $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
         if (null !== $this->masterInstanceId) {
             $res['MasterInstanceId'] = $this->masterInstanceId;
         }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->DBInstanceDescription) {
+            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        }
+        if (null !== $this->DBInstanceNetType) {
+            $res['DBInstanceNetType'] = $this->DBInstanceNetType;
+        }
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->DBInstanceType) {
+            $res['DBInstanceType'] = $this->DBInstanceType;
+        }
+        if (null !== $this->destroyTime) {
+            $res['DestroyTime'] = $this->destroyTime;
+        }
+        if (null !== $this->lockReason) {
+            $res['LockReason'] = $this->lockReason;
+        }
+        if (null !== $this->DBInstanceStatus) {
+            $res['DBInstanceStatus'] = $this->DBInstanceStatus;
+        }
+        if (null !== $this->readOnlyDBInstanceIds) {
+            $res['ReadOnlyDBInstanceIds'] = null !== $this->readOnlyDBInstanceIds ? $this->readOnlyDBInstanceIds->toMap() : null;
+        }
+        if (null !== $this->guardDBInstanceId) {
+            $res['GuardDBInstanceId'] = $this->guardDBInstanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->replicateId) {
-            $res['ReplicateId'] = $this->replicateId;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->readOnlyDBInstanceIds) {
-            $res['ReadOnlyDBInstanceIds'] = null !== $this->readOnlyDBInstanceIds ? $this->readOnlyDBInstanceIds->toMap() : null;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->DBInstanceClass) {
+            $res['DBInstanceClass'] = $this->DBInstanceClass;
         }
 
         return $res;
@@ -309,38 +309,26 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InsId'])) {
-            $model->insId = $map['InsId'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['ReplicateId'])) {
+            $model->replicateId = $map['ReplicateId'];
         }
-        if (isset($map['DBInstanceDescription'])) {
-            $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        if (isset($map['TempDBInstanceId'])) {
+            $model->tempDBInstanceId = $map['TempDBInstanceId'];
+        }
+        if (isset($map['DBInstanceStorageType'])) {
+            $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
-        if (isset($map['DBInstanceType'])) {
-            $model->DBInstanceType = $map['DBInstanceType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
-        }
-        if (isset($map['DestroyTime'])) {
-            $model->destroyTime = $map['DestroyTime'];
-        }
-        if (isset($map['DBInstanceStatus'])) {
-            $model->DBInstanceStatus = $map['DBInstanceStatus'];
-        }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
-        }
-        if (isset($map['DBInstanceNetType'])) {
-            $model->DBInstanceNetType = $map['DBInstanceNetType'];
+        if (isset($map['MutriORsignle'])) {
+            $model->mutriORsignle = $map['MutriORsignle'];
         }
         if (isset($map['ConnectionMode'])) {
             $model->connectionMode = $map['ConnectionMode'];
@@ -348,59 +336,71 @@ class DBInstance extends Model
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
-        if (isset($map['DBInstanceStorageType'])) {
-            $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
-        }
-        if (isset($map['DBInstanceClass'])) {
-            $model->DBInstanceClass = $map['DBInstanceClass'];
-        }
-        if (isset($map['InstanceNetworkType'])) {
-            $model->instanceNetworkType = $map['InstanceNetworkType'];
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['VpcCloudInstanceId'])) {
             $model->vpcCloudInstanceId = $map['VpcCloudInstanceId'];
         }
-        if (isset($map['LockReason'])) {
-            $model->lockReason = $map['LockReason'];
+        if (isset($map['InsId'])) {
+            $model->insId = $map['InsId'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['MutriORsignle'])) {
-            $model->mutriORsignle = $map['MutriORsignle'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['EngineVersion'])) {
-            $model->engineVersion = $map['EngineVersion'];
-        }
-        if (isset($map['GuardDBInstanceId'])) {
-            $model->guardDBInstanceId = $map['GuardDBInstanceId'];
-        }
-        if (isset($map['TempDBInstanceId'])) {
-            $model->tempDBInstanceId = $map['TempDBInstanceId'];
+        if (isset($map['InstanceNetworkType'])) {
+            $model->instanceNetworkType = $map['InstanceNetworkType'];
         }
         if (isset($map['MasterInstanceId'])) {
             $model->masterInstanceId = $map['MasterInstanceId'];
         }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['DBInstanceDescription'])) {
+            $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        }
+        if (isset($map['DBInstanceNetType'])) {
+            $model->DBInstanceNetType = $map['DBInstanceNetType'];
+        }
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['DBInstanceType'])) {
+            $model->DBInstanceType = $map['DBInstanceType'];
+        }
+        if (isset($map['DestroyTime'])) {
+            $model->destroyTime = $map['DestroyTime'];
+        }
+        if (isset($map['LockReason'])) {
+            $model->lockReason = $map['LockReason'];
+        }
+        if (isset($map['DBInstanceStatus'])) {
+            $model->DBInstanceStatus = $map['DBInstanceStatus'];
+        }
+        if (isset($map['ReadOnlyDBInstanceIds'])) {
+            $model->readOnlyDBInstanceIds = readOnlyDBInstanceIds::fromMap($map['ReadOnlyDBInstanceIds']);
+        }
+        if (isset($map['GuardDBInstanceId'])) {
+            $model->guardDBInstanceId = $map['GuardDBInstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['ReplicateId'])) {
-            $model->replicateId = $map['ReplicateId'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['ReadOnlyDBInstanceIds'])) {
-            $model->readOnlyDBInstanceIds = readOnlyDBInstanceIds::fromMap($map['ReadOnlyDBInstanceIds']);
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['DBInstanceClass'])) {
+            $model->DBInstanceClass = $map['DBInstanceClass'];
         }
 
         return $model;

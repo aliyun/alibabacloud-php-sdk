@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterGroupsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var parameterGroups
      */
-    public $requestId;
+    public $parameterGroups;
 
     /**
      * @var bool
@@ -20,13 +20,13 @@ class DescribeParameterGroupsResponseBody extends Model
     public $signalForOptimizeParams;
 
     /**
-     * @var parameterGroups
+     * @var string
      */
-    public $parameterGroups;
+    public $requestId;
     protected $_name = [
-        'requestId'               => 'RequestId',
-        'signalForOptimizeParams' => 'SignalForOptimizeParams',
         'parameterGroups'         => 'ParameterGroups',
+        'signalForOptimizeParams' => 'SignalForOptimizeParams',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeParameterGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->parameterGroups) {
+            $res['ParameterGroups'] = null !== $this->parameterGroups ? $this->parameterGroups->toMap() : null;
         }
         if (null !== $this->signalForOptimizeParams) {
             $res['SignalForOptimizeParams'] = $this->signalForOptimizeParams;
         }
-        if (null !== $this->parameterGroups) {
-            $res['ParameterGroups'] = null !== $this->parameterGroups ? $this->parameterGroups->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeParameterGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ParameterGroups'])) {
+            $model->parameterGroups = parameterGroups::fromMap($map['ParameterGroups']);
         }
         if (isset($map['SignalForOptimizeParams'])) {
             $model->signalForOptimizeParams = $map['SignalForOptimizeParams'];
         }
-        if (isset($map['ParameterGroups'])) {
-            $model->parameterGroups = parameterGroups::fromMap($map['ParameterGroups']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -26,22 +26,12 @@ class ModifySQLCollectorPolicyRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $DBInstanceId;
 
     /**
      * @var string
      */
     public $SQLCollectorStatus;
-
-    /**
-     * @var int
-     */
-    public $storagePeriod;
 
     /**
      * @var string
@@ -56,10 +46,8 @@ class ModifySQLCollectorPolicyRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'clientToken'          => 'ClientToken',
         'DBInstanceId'         => 'DBInstanceId',
         'SQLCollectorStatus'   => 'SQLCollectorStatus',
-        'storagePeriod'        => 'StoragePeriod',
         'ownerAccount'         => 'OwnerAccount',
         'resourceGroupId'      => 'ResourceGroupId',
     ];
@@ -80,17 +68,11 @@ class ModifySQLCollectorPolicyRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->SQLCollectorStatus) {
             $res['SQLCollectorStatus'] = $this->SQLCollectorStatus;
-        }
-        if (null !== $this->storagePeriod) {
-            $res['StoragePeriod'] = $this->storagePeriod;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -119,17 +101,11 @@ class ModifySQLCollectorPolicyRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['SQLCollectorStatus'])) {
             $model->SQLCollectorStatus = $map['SQLCollectorStatus'];
-        }
-        if (isset($map['StoragePeriod'])) {
-            $model->storagePeriod = $map['StoragePeriod'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

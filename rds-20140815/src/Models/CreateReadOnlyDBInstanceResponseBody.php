@@ -21,7 +21,7 @@ class CreateReadOnlyDBInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $orderId;
+    public $port;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class CreateReadOnlyDBInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $port;
+    public $orderId;
     protected $_name = [
         'requestId'        => 'RequestId',
         'DBInstanceId'     => 'DBInstanceId',
-        'orderId'          => 'OrderId',
-        'connectionString' => 'ConnectionString',
         'port'             => 'Port',
+        'connectionString' => 'ConnectionString',
+        'orderId'          => 'OrderId',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class CreateReadOnlyDBInstanceResponseBody extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class CreateReadOnlyDBInstanceResponseBody extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         return $model;

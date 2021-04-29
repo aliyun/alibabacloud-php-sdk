@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostGroupsResponseBody;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostGroupsResponseBody\dedicatedHostGroups\dedicatedHostGroups;
 use AlibabaCloud\Tea\Model;
 
 class dedicatedHostGroups extends Model
 {
     /**
-     * @var dedicatedHostGroups[]
+     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostGroupsResponseBody\dedicatedHostGroups\dedicatedHostGroups[]
      */
     public $dedicatedHostGroups;
     protected $_name = [
@@ -50,7 +49,7 @@ class dedicatedHostGroups extends Model
                 $model->dedicatedHostGroups = [];
                 $n                          = 0;
                 foreach ($map['DedicatedHostGroups'] as $item) {
-                    $model->dedicatedHostGroups[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->dedicatedHostGroups[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostGroupsResponseBody\dedicatedHostGroups\dedicatedHostGroups::fromMap($item) : $item;
                 }
             }
         }

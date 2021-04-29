@@ -137,6 +137,21 @@ class CreateReadOnlyDBInstanceRequest extends Model
      * @var string
      */
     public $instructionSetArch;
+
+    /**
+     * @var string
+     */
+    public $usedTime;
+
+    /**
+     * @var string
+     */
+    public $period;
+
+    /**
+     * @var string
+     */
+    public $autoRenew;
     protected $_name = [
         'ownerId'                        => 'OwnerId',
         'resourceOwnerAccount'           => 'ResourceOwnerAccount',
@@ -164,6 +179,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
         'tddlBizType'                    => 'TddlBizType',
         'tddlRegionConfig'               => 'TddlRegionConfig',
         'instructionSetArch'             => 'InstructionSetArch',
+        'usedTime'                       => 'UsedTime',
+        'period'                         => 'Period',
+        'autoRenew'                      => 'AutoRenew',
     ];
 
     public function validate()
@@ -250,6 +268,15 @@ class CreateReadOnlyDBInstanceRequest extends Model
         }
         if (null !== $this->instructionSetArch) {
             $res['InstructionSetArch'] = $this->instructionSetArch;
+        }
+        if (null !== $this->usedTime) {
+            $res['UsedTime'] = $this->usedTime;
+        }
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
 
         return $res;
@@ -340,6 +367,15 @@ class CreateReadOnlyDBInstanceRequest extends Model
         }
         if (isset($map['InstructionSetArch'])) {
             $model->instructionSetArch = $map['InstructionSetArch'];
+        }
+        if (isset($map['UsedTime'])) {
+            $model->usedTime = $map['UsedTime'];
+        }
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
 
         return $model;

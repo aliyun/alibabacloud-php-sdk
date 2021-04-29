@@ -11,22 +11,7 @@ class RecoveryDBInstanceRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
 
     /**
      * @var string
@@ -37,11 +22,6 @@ class RecoveryDBInstanceRequest extends Model
      * @var int
      */
     public $DBInstanceStorage;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceDescription;
 
     /**
      * @var string
@@ -96,11 +76,6 @@ class RecoveryDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
     public $usedTime;
 
     /**
@@ -111,20 +86,11 @@ class RecoveryDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $DBInstanceStorageType;
     protected $_name = [
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'clientToken'           => 'ClientToken',
         'DBInstanceClass'       => 'DBInstanceClass',
         'DBInstanceStorage'     => 'DBInstanceStorage',
-        'DBInstanceDescription' => 'DBInstanceDescription',
         'payType'               => 'PayType',
         'instanceNetworkType'   => 'InstanceNetworkType',
         'DBInstanceId'          => 'DBInstanceId',
@@ -135,10 +101,8 @@ class RecoveryDBInstanceRequest extends Model
         'VPCId'                 => 'VPCId',
         'vSwitchId'             => 'VSwitchId',
         'privateIpAddress'      => 'PrivateIpAddress',
-        'ownerAccount'          => 'OwnerAccount',
         'usedTime'              => 'UsedTime',
         'period'                => 'Period',
-        'resourceGroupId'       => 'ResourceGroupId',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
     ];
 
@@ -149,26 +113,14 @@ class RecoveryDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
         }
         if (null !== $this->DBInstanceStorage) {
             $res['DBInstanceStorage'] = $this->DBInstanceStorage;
-        }
-        if (null !== $this->DBInstanceDescription) {
-            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -200,17 +152,11 @@ class RecoveryDBInstanceRequest extends Model
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->DBInstanceStorageType) {
             $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
@@ -227,26 +173,14 @@ class RecoveryDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
         }
         if (isset($map['DBInstanceStorage'])) {
             $model->DBInstanceStorage = $map['DBInstanceStorage'];
-        }
-        if (isset($map['DBInstanceDescription'])) {
-            $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
@@ -278,17 +212,11 @@ class RecoveryDBInstanceRequest extends Model
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['DBInstanceStorageType'])) {
             $model->DBInstanceStorageType = $map['DBInstanceStorageType'];

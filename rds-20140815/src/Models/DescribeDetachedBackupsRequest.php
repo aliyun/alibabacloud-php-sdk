@@ -11,16 +11,6 @@ class DescribeDetachedBackupsRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
     public $resourceOwnerId;
 
     /**
@@ -32,11 +22,6 @@ class DescribeDetachedBackupsRequest extends Model
      * @var string
      */
     public $backupId;
-
-    /**
-     * @var string
-     */
-    public $backupLocation;
 
     /**
      * @var string
@@ -71,27 +56,18 @@ class DescribeDetachedBackupsRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
     public $region;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'DBInstanceId'         => 'DBInstanceId',
-        'backupId'             => 'BackupId',
-        'backupLocation'       => 'BackupLocation',
-        'backupStatus'         => 'BackupStatus',
-        'backupMode'           => 'BackupMode',
-        'startTime'            => 'StartTime',
-        'endTime'              => 'EndTime',
-        'pageSize'             => 'PageSize',
-        'pageNumber'           => 'PageNumber',
-        'ownerAccount'         => 'OwnerAccount',
-        'region'               => 'Region',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'DBInstanceId'    => 'DBInstanceId',
+        'backupId'        => 'BackupId',
+        'backupStatus'    => 'BackupStatus',
+        'backupMode'      => 'BackupMode',
+        'startTime'       => 'StartTime',
+        'endTime'         => 'EndTime',
+        'pageSize'        => 'PageSize',
+        'pageNumber'      => 'PageNumber',
+        'region'          => 'Region',
     ];
 
     public function validate()
@@ -101,12 +77,6 @@ class DescribeDetachedBackupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -115,9 +85,6 @@ class DescribeDetachedBackupsRequest extends Model
         }
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
-        }
-        if (null !== $this->backupLocation) {
-            $res['BackupLocation'] = $this->backupLocation;
         }
         if (null !== $this->backupStatus) {
             $res['BackupStatus'] = $this->backupStatus;
@@ -137,9 +104,6 @@ class DescribeDetachedBackupsRequest extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -155,12 +119,6 @@ class DescribeDetachedBackupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
@@ -169,9 +127,6 @@ class DescribeDetachedBackupsRequest extends Model
         }
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
-        }
-        if (isset($map['BackupLocation'])) {
-            $model->backupLocation = $map['BackupLocation'];
         }
         if (isset($map['BackupStatus'])) {
             $model->backupStatus = $map['BackupStatus'];
@@ -190,9 +145,6 @@ class DescribeDetachedBackupsRequest extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

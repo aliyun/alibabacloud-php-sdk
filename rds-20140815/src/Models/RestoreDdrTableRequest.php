@@ -51,16 +51,6 @@ class RestoreDdrTableRequest extends Model
     /**
      * @var string
      */
-    public $backupSetType;
-
-    /**
-     * @var string
-     */
-    public $backupSetRegion;
-
-    /**
-     * @var string
-     */
     public $restoreTime;
 
     /**
@@ -76,16 +66,6 @@ class RestoreDdrTableRequest extends Model
     /**
      * @var string
      */
-    public $userBakSetURL;
-
-    /**
-     * @var string
-     */
-    public $bakSetName;
-
-    /**
-     * @var string
-     */
     public $tableMeta;
     protected $_name = [
         'ownerId'              => 'OwnerId',
@@ -96,13 +76,9 @@ class RestoreDdrTableRequest extends Model
         'clientToken'          => 'ClientToken',
         'restoreType'          => 'RestoreType',
         'backupId'             => 'BackupId',
-        'backupSetType'        => 'BackupSetType',
-        'backupSetRegion'      => 'BackupSetRegion',
         'restoreTime'          => 'RestoreTime',
         'sourceRegion'         => 'SourceRegion',
         'sourceDBInstanceName' => 'SourceDBInstanceName',
-        'userBakSetURL'        => 'UserBakSetURL',
-        'bakSetName'           => 'BakSetName',
         'tableMeta'            => 'TableMeta',
     ];
 
@@ -137,12 +113,6 @@ class RestoreDdrTableRequest extends Model
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
         }
-        if (null !== $this->backupSetType) {
-            $res['BackupSetType'] = $this->backupSetType;
-        }
-        if (null !== $this->backupSetRegion) {
-            $res['BackupSetRegion'] = $this->backupSetRegion;
-        }
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
         }
@@ -151,12 +121,6 @@ class RestoreDdrTableRequest extends Model
         }
         if (null !== $this->sourceDBInstanceName) {
             $res['SourceDBInstanceName'] = $this->sourceDBInstanceName;
-        }
-        if (null !== $this->userBakSetURL) {
-            $res['UserBakSetURL'] = $this->userBakSetURL;
-        }
-        if (null !== $this->bakSetName) {
-            $res['BakSetName'] = $this->bakSetName;
         }
         if (null !== $this->tableMeta) {
             $res['TableMeta'] = $this->tableMeta;
@@ -197,12 +161,6 @@ class RestoreDdrTableRequest extends Model
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
         }
-        if (isset($map['BackupSetType'])) {
-            $model->backupSetType = $map['BackupSetType'];
-        }
-        if (isset($map['BackupSetRegion'])) {
-            $model->backupSetRegion = $map['BackupSetRegion'];
-        }
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
         }
@@ -211,12 +169,6 @@ class RestoreDdrTableRequest extends Model
         }
         if (isset($map['SourceDBInstanceName'])) {
             $model->sourceDBInstanceName = $map['SourceDBInstanceName'];
-        }
-        if (isset($map['UserBakSetURL'])) {
-            $model->userBakSetURL = $map['UserBakSetURL'];
-        }
-        if (isset($map['BakSetName'])) {
-            $model->bakSetName = $map['BakSetName'];
         }
         if (isset($map['TableMeta'])) {
             $model->tableMeta = $map['TableMeta'];

@@ -86,21 +86,6 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @var string
      */
-    public $duplication;
-
-    /**
-     * @var string
-     */
-    public $duplicationContent;
-
-    /**
-     * @var string
-     */
-    public $duplicationLocation;
-
-    /**
-     * @var string
-     */
     public $logBackupFrequency;
 
     /**
@@ -119,7 +104,7 @@ class ModifyBackupPolicyRequest extends Model
     public $archiveBackupKeepPolicy;
 
     /**
-     * @var string
+     * @var int
      */
     public $archiveBackupKeepCount;
 
@@ -142,6 +127,11 @@ class ModifyBackupPolicyRequest extends Model
      * @var string
      */
     public $backupInterval;
+
+    /**
+     * @var string
+     */
+    public $backupMethod;
     protected $_name = [
         'ownerId'                       => 'OwnerId',
         'resourceOwnerAccount'          => 'ResourceOwnerAccount',
@@ -158,9 +148,6 @@ class ModifyBackupPolicyRequest extends Model
         'localLogRetentionHours'        => 'LocalLogRetentionHours',
         'localLogRetentionSpace'        => 'LocalLogRetentionSpace',
         'highSpaceUsageProtection'      => 'HighSpaceUsageProtection',
-        'duplication'                   => 'Duplication',
-        'duplicationContent'            => 'DuplicationContent',
-        'duplicationLocation'           => 'DuplicationLocation',
         'logBackupFrequency'            => 'LogBackupFrequency',
         'compressType'                  => 'CompressType',
         'archiveBackupRetentionPeriod'  => 'ArchiveBackupRetentionPeriod',
@@ -170,6 +157,7 @@ class ModifyBackupPolicyRequest extends Model
         'logBackupLocalRetentionNumber' => 'LogBackupLocalRetentionNumber',
         'category'                      => 'Category',
         'backupInterval'                => 'BackupInterval',
+        'backupMethod'                  => 'BackupMethod',
     ];
 
     public function validate()
@@ -224,15 +212,6 @@ class ModifyBackupPolicyRequest extends Model
         if (null !== $this->highSpaceUsageProtection) {
             $res['HighSpaceUsageProtection'] = $this->highSpaceUsageProtection;
         }
-        if (null !== $this->duplication) {
-            $res['Duplication'] = $this->duplication;
-        }
-        if (null !== $this->duplicationContent) {
-            $res['DuplicationContent'] = $this->duplicationContent;
-        }
-        if (null !== $this->duplicationLocation) {
-            $res['DuplicationLocation'] = $this->duplicationLocation;
-        }
         if (null !== $this->logBackupFrequency) {
             $res['LogBackupFrequency'] = $this->logBackupFrequency;
         }
@@ -259,6 +238,9 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (null !== $this->backupInterval) {
             $res['BackupInterval'] = $this->backupInterval;
+        }
+        if (null !== $this->backupMethod) {
+            $res['BackupMethod'] = $this->backupMethod;
         }
 
         return $res;
@@ -317,15 +299,6 @@ class ModifyBackupPolicyRequest extends Model
         if (isset($map['HighSpaceUsageProtection'])) {
             $model->highSpaceUsageProtection = $map['HighSpaceUsageProtection'];
         }
-        if (isset($map['Duplication'])) {
-            $model->duplication = $map['Duplication'];
-        }
-        if (isset($map['DuplicationContent'])) {
-            $model->duplicationContent = $map['DuplicationContent'];
-        }
-        if (isset($map['DuplicationLocation'])) {
-            $model->duplicationLocation = $map['DuplicationLocation'];
-        }
         if (isset($map['LogBackupFrequency'])) {
             $model->logBackupFrequency = $map['LogBackupFrequency'];
         }
@@ -352,6 +325,9 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (isset($map['BackupInterval'])) {
             $model->backupInterval = $map['BackupInterval'];
+        }
+        if (isset($map['BackupMethod'])) {
+            $model->backupMethod = $map['BackupMethod'];
         }
 
         return $model;

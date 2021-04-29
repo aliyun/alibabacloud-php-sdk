@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $totalRecordCount;
+
+    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
 
     /**
      * @var string
@@ -20,19 +30,21 @@ class DescribeAccountsResponseBody extends Model
     public $systemAdminAccountStatus;
 
     /**
-     * @var string
-     */
-    public $systemAdminAccountFirstActivationTime;
-
-    /**
      * @var accounts
      */
     public $accounts;
+
+    /**
+     * @var string
+     */
+    public $systemAdminAccountFirstActivationTime;
     protected $_name = [
+        'totalRecordCount'                      => 'TotalRecordCount',
         'requestId'                             => 'RequestId',
+        'pageNumber'                            => 'PageNumber',
         'systemAdminAccountStatus'              => 'SystemAdminAccountStatus',
-        'systemAdminAccountFirstActivationTime' => 'SystemAdminAccountFirstActivationTime',
         'accounts'                              => 'Accounts',
+        'systemAdminAccountFirstActivationTime' => 'SystemAdminAccountFirstActivationTime',
     ];
 
     public function validate()
@@ -42,17 +54,23 @@ class DescribeAccountsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->systemAdminAccountStatus) {
             $res['SystemAdminAccountStatus'] = $this->systemAdminAccountStatus;
         }
-        if (null !== $this->systemAdminAccountFirstActivationTime) {
-            $res['SystemAdminAccountFirstActivationTime'] = $this->systemAdminAccountFirstActivationTime;
-        }
         if (null !== $this->accounts) {
             $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
+        }
+        if (null !== $this->systemAdminAccountFirstActivationTime) {
+            $res['SystemAdminAccountFirstActivationTime'] = $this->systemAdminAccountFirstActivationTime;
         }
 
         return $res;
@@ -66,17 +84,23 @@ class DescribeAccountsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['SystemAdminAccountStatus'])) {
             $model->systemAdminAccountStatus = $map['SystemAdminAccountStatus'];
         }
-        if (isset($map['SystemAdminAccountFirstActivationTime'])) {
-            $model->systemAdminAccountFirstActivationTime = $map['SystemAdminAccountFirstActivationTime'];
-        }
         if (isset($map['Accounts'])) {
             $model->accounts = accounts::fromMap($map['Accounts']);
+        }
+        if (isset($map['SystemAdminAccountFirstActivationTime'])) {
+            $model->systemAdminAccountFirstActivationTime = $map['SystemAdminAccountFirstActivationTime'];
         }
 
         return $model;

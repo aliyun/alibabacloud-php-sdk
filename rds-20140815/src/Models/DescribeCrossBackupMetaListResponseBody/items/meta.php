@@ -16,16 +16,16 @@ class meta extends Model
     /**
      * @var string
      */
-    public $tables;
+    public $size;
 
     /**
      * @var string
      */
-    public $size;
+    public $tables;
     protected $_name = [
         'database' => 'Database',
-        'tables'   => 'Tables',
         'size'     => 'Size',
+        'tables'   => 'Tables',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class meta extends Model
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
-        if (null !== $this->tables) {
-            $res['Tables'] = $this->tables;
-        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+        if (null !== $this->tables) {
+            $res['Tables'] = $this->tables;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class meta extends Model
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }
-        if (isset($map['Tables'])) {
-            $model->tables = $map['Tables'];
-        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+        if (isset($map['Tables'])) {
+            $model->tables = $map['Tables'];
         }
 
         return $model;

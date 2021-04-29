@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items\readonlyInstanceDelay\readonlyInstanceDelay;
 use AlibabaCloud\Tea\Model;
 
 class readonlyInstanceDelay extends Model
 {
     /**
-     * @var readonlyInstanceDelay[]
+     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items\readonlyInstanceDelay\readonlyInstanceDelay[]
      */
     public $readonlyInstanceDelay;
     protected $_name = [
@@ -50,7 +49,7 @@ class readonlyInstanceDelay extends Model
                 $model->readonlyInstanceDelay = [];
                 $n                            = 0;
                 foreach ($map['ReadonlyInstanceDelay'] as $item) {
-                    $model->readonlyInstanceDelay[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->readonlyInstanceDelay[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items\readonlyInstanceDelay\readonlyInstanceDelay::fromMap($item) : $item;
                 }
             }
         }

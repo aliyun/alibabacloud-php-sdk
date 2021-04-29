@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ruleId;
+    public $description;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class rule extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $description;
+    public $ruleId;
     protected $_name = [
-        'ruleId'      => 'RuleId',
-        'name'        => 'Name',
         'description' => 'Description',
+        'name'        => 'Name',
+        'ruleId'      => 'RuleId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class rule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class rule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

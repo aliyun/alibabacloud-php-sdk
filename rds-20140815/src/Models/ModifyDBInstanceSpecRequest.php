@@ -26,11 +26,6 @@ class ModifyDBInstanceSpecRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $DBInstanceId;
 
     /**
@@ -91,7 +86,6 @@ class ModifyDBInstanceSpecRequest extends Model
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'clientToken'           => 'ClientToken',
         'DBInstanceId'          => 'DBInstanceId',
         'DBInstanceClass'       => 'DBInstanceClass',
         'DBInstanceStorage'     => 'DBInstanceStorage',
@@ -121,9 +115,6 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -181,9 +172,6 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];

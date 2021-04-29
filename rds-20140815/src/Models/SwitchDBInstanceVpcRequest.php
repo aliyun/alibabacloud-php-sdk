@@ -11,16 +11,6 @@ class SwitchDBInstanceVpcRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
     public $resourceOwnerId;
 
     /**
@@ -42,20 +32,12 @@ class SwitchDBInstanceVpcRequest extends Model
      * @var string
      */
     public $privateIpAddress;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'DBInstanceId'         => 'DBInstanceId',
-        'VPCId'                => 'VPCId',
-        'vSwitchId'            => 'VSwitchId',
-        'privateIpAddress'     => 'PrivateIpAddress',
-        'ownerAccount'         => 'OwnerAccount',
+        'resourceOwnerId'  => 'ResourceOwnerId',
+        'DBInstanceId'     => 'DBInstanceId',
+        'VPCId'            => 'VPCId',
+        'vSwitchId'        => 'VSwitchId',
+        'privateIpAddress' => 'PrivateIpAddress',
     ];
 
     public function validate()
@@ -65,12 +47,6 @@ class SwitchDBInstanceVpcRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -86,9 +62,6 @@ class SwitchDBInstanceVpcRequest extends Model
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
 
         return $res;
     }
@@ -101,12 +74,6 @@ class SwitchDBInstanceVpcRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
@@ -121,9 +88,6 @@ class SwitchDBInstanceVpcRequest extends Model
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

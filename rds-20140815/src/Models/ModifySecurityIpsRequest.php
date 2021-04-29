@@ -11,27 +11,7 @@ class ModifySecurityIpsRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
 
     /**
      * @var string
@@ -66,25 +46,15 @@ class ModifySecurityIpsRequest extends Model
     /**
      * @var string
      */
-    public $securityGroupId;
-
-    /**
-     * @var string
-     */
     public $modifyMode;
     protected $_name = [
-        'ownerId'                    => 'OwnerId',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
         'resourceOwnerId'            => 'ResourceOwnerId',
-        'clientToken'                => 'ClientToken',
-        'ownerAccount'               => 'OwnerAccount',
         'DBInstanceId'               => 'DBInstanceId',
         'securityIps'                => 'SecurityIps',
         'DBInstanceIPArrayName'      => 'DBInstanceIPArrayName',
         'DBInstanceIPArrayAttribute' => 'DBInstanceIPArrayAttribute',
         'securityIPType'             => 'SecurityIPType',
         'whitelistNetworkType'       => 'WhitelistNetworkType',
-        'securityGroupId'            => 'SecurityGroupId',
         'modifyMode'                 => 'ModifyMode',
     ];
 
@@ -95,20 +65,8 @@ class ModifySecurityIpsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -128,9 +86,6 @@ class ModifySecurityIpsRequest extends Model
         if (null !== $this->whitelistNetworkType) {
             $res['WhitelistNetworkType'] = $this->whitelistNetworkType;
         }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
         if (null !== $this->modifyMode) {
             $res['ModifyMode'] = $this->modifyMode;
         }
@@ -146,20 +101,8 @@ class ModifySecurityIpsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
@@ -178,9 +121,6 @@ class ModifySecurityIpsRequest extends Model
         }
         if (isset($map['WhitelistNetworkType'])) {
             $model->whitelistNetworkType = $map['WhitelistNetworkType'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
         }
         if (isset($map['ModifyMode'])) {
             $model->modifyMode = $map['ModifyMode'];

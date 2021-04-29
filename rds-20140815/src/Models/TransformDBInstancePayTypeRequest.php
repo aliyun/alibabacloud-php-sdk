@@ -56,11 +56,6 @@ class TransformDBInstancePayTypeRequest extends Model
     /**
      * @var string
      */
-    public $resource;
-
-    /**
-     * @var string
-     */
     public $businessInfo;
     protected $_name = [
         'ownerId'              => 'OwnerId',
@@ -72,7 +67,6 @@ class TransformDBInstancePayTypeRequest extends Model
         'usedTime'             => 'UsedTime',
         'payType'              => 'PayType',
         'period'               => 'Period',
-        'resource'             => 'Resource',
         'businessInfo'         => 'BusinessInfo',
     ];
 
@@ -109,9 +103,6 @@ class TransformDBInstancePayTypeRequest extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
-        }
-        if (null !== $this->resource) {
-            $res['Resource'] = $this->resource;
         }
         if (null !== $this->businessInfo) {
             $res['BusinessInfo'] = $this->businessInfo;
@@ -154,9 +145,6 @@ class TransformDBInstancePayTypeRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
-        }
-        if (isset($map['Resource'])) {
-            $model->resource = $map['Resource'];
         }
         if (isset($map['BusinessInfo'])) {
             $model->businessInfo = $map['BusinessInfo'];

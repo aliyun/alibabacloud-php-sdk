@@ -57,6 +57,26 @@ class ModifyDBProxyEndpointRequest extends Model
      * @var string
      */
     public $readOnlyInstanceWeight;
+
+    /**
+     * @var string
+     */
+    public $dbEndpointOperator;
+
+    /**
+     * @var string
+     */
+    public $dbEndpointAliases;
+
+    /**
+     * @var string
+     */
+    public $dbEndpointType;
+
+    /**
+     * @var string
+     */
+    public $dbEndpointReadWriteMode;
     protected $_name = [
         'ownerId'                          => 'OwnerId',
         'resourceOwnerAccount'             => 'ResourceOwnerAccount',
@@ -68,6 +88,10 @@ class ModifyDBProxyEndpointRequest extends Model
         'readOnlyInstanceMaxDelayTime'     => 'ReadOnlyInstanceMaxDelayTime',
         'readOnlyInstanceDistributionType' => 'ReadOnlyInstanceDistributionType',
         'readOnlyInstanceWeight'           => 'ReadOnlyInstanceWeight',
+        'dbEndpointOperator'               => 'DbEndpointOperator',
+        'dbEndpointAliases'                => 'DbEndpointAliases',
+        'dbEndpointType'                   => 'DbEndpointType',
+        'dbEndpointReadWriteMode'          => 'DbEndpointReadWriteMode',
     ];
 
     public function validate()
@@ -106,6 +130,18 @@ class ModifyDBProxyEndpointRequest extends Model
         }
         if (null !== $this->readOnlyInstanceWeight) {
             $res['ReadOnlyInstanceWeight'] = $this->readOnlyInstanceWeight;
+        }
+        if (null !== $this->dbEndpointOperator) {
+            $res['DbEndpointOperator'] = $this->dbEndpointOperator;
+        }
+        if (null !== $this->dbEndpointAliases) {
+            $res['DbEndpointAliases'] = $this->dbEndpointAliases;
+        }
+        if (null !== $this->dbEndpointType) {
+            $res['DbEndpointType'] = $this->dbEndpointType;
+        }
+        if (null !== $this->dbEndpointReadWriteMode) {
+            $res['DbEndpointReadWriteMode'] = $this->dbEndpointReadWriteMode;
         }
 
         return $res;
@@ -148,6 +184,18 @@ class ModifyDBProxyEndpointRequest extends Model
         }
         if (isset($map['ReadOnlyInstanceWeight'])) {
             $model->readOnlyInstanceWeight = $map['ReadOnlyInstanceWeight'];
+        }
+        if (isset($map['DbEndpointOperator'])) {
+            $model->dbEndpointOperator = $map['DbEndpointOperator'];
+        }
+        if (isset($map['DbEndpointAliases'])) {
+            $model->dbEndpointAliases = $map['DbEndpointAliases'];
+        }
+        if (isset($map['DbEndpointType'])) {
+            $model->dbEndpointType = $map['DbEndpointType'];
+        }
+        if (isset($map['DbEndpointReadWriteMode'])) {
+            $model->dbEndpointReadWriteMode = $map['DbEndpointReadWriteMode'];
         }
 
         return $model;

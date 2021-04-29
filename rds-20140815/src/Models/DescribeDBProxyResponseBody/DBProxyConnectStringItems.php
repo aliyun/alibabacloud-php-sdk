@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyConnectStringItems\DBProxyConnectStringItems;
 use AlibabaCloud\Tea\Model;
 
 class DBProxyConnectStringItems extends Model
 {
     /**
-     * @var DBProxyConnectStringItems[]
+     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyConnectStringItems\DBProxyConnectStringItems[]
      */
     public $DBProxyConnectStringItems;
     protected $_name = [
@@ -50,7 +49,7 @@ class DBProxyConnectStringItems extends Model
                 $model->DBProxyConnectStringItems = [];
                 $n                                = 0;
                 foreach ($map['DBProxyConnectStringItems'] as $item) {
-                    $model->DBProxyConnectStringItems[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->DBProxyConnectStringItems[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyConnectStringItems\DBProxyConnectStringItems::fromMap($item) : $item;
                 }
             }
         }

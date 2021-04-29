@@ -11,6 +11,11 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
     /**
      * @var string
      */
+    public $taskId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -22,16 +27,11 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
      * @var string
      */
     public $readSQLReplicationTime;
-
-    /**
-     * @var string
-     */
-    public $taskId;
     protected $_name = [
+        'taskId'                 => 'TaskId',
         'requestId'              => 'RequestId',
         'DBInstanceId'           => 'DBInstanceId',
         'readSQLReplicationTime' => 'ReadSQLReplicationTime',
-        'taskId'                 => 'TaskId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,9 +52,6 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
         }
         if (null !== $this->readSQLReplicationTime) {
             $res['ReadSQLReplicationTime'] = $this->readSQLReplicationTime;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -73,9 +76,6 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
         }
         if (isset($map['ReadSQLReplicationTime'])) {
             $model->readSQLReplicationTime = $map['ReadSQLReplicationTime'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
         }
 
         return $model;

@@ -36,11 +36,6 @@ class DescribeRenewalPriceRequest extends Model
     /**
      * @var string
      */
-    public $commodityCode;
-
-    /**
-     * @var string
-     */
     public $DBInstanceId;
 
     /**
@@ -81,11 +76,6 @@ class DescribeRenewalPriceRequest extends Model
     /**
      * @var string
      */
-    public $promotionCode;
-
-    /**
-     * @var string
-     */
     public $businessInfo;
     protected $_name = [
         'ownerId'              => 'OwnerId',
@@ -93,7 +83,6 @@ class DescribeRenewalPriceRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'clientToken'          => 'ClientToken',
         'ownerAccount'         => 'OwnerAccount',
-        'commodityCode'        => 'CommodityCode',
         'DBInstanceId'         => 'DBInstanceId',
         'regionId'             => 'RegionId',
         'payType'              => 'PayType',
@@ -102,7 +91,6 @@ class DescribeRenewalPriceRequest extends Model
         'timeType'             => 'TimeType',
         'quantity'             => 'Quantity',
         'orderType'            => 'OrderType',
-        'promotionCode'        => 'PromotionCode',
         'businessInfo'         => 'BusinessInfo',
     ];
 
@@ -128,9 +116,6 @@ class DescribeRenewalPriceRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->commodityCode) {
-            $res['CommodityCode'] = $this->commodityCode;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -154,9 +139,6 @@ class DescribeRenewalPriceRequest extends Model
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
-        }
-        if (null !== $this->promotionCode) {
-            $res['PromotionCode'] = $this->promotionCode;
         }
         if (null !== $this->businessInfo) {
             $res['BusinessInfo'] = $this->businessInfo;
@@ -188,9 +170,6 @@ class DescribeRenewalPriceRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['CommodityCode'])) {
-            $model->commodityCode = $map['CommodityCode'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
@@ -214,9 +193,6 @@ class DescribeRenewalPriceRequest extends Model
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
-        }
-        if (isset($map['PromotionCode'])) {
-            $model->promotionCode = $map['PromotionCode'];
         }
         if (isset($map['BusinessInfo'])) {
             $model->businessInfo = $map['BusinessInfo'];

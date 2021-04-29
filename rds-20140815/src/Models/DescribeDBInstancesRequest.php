@@ -4,16 +4,10 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstancesRequest extends Model
 {
-    /**
-     * @var tag[]
-     */
-    public $tag;
-
     /**
      * @var int
      */
@@ -155,11 +149,10 @@ class DescribeDBInstancesRequest extends Model
     public $instanceLevel;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $needVpcName;
+    public $connectionString;
     protected $_name = [
-        'tag'                  => 'Tag',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -188,7 +181,7 @@ class DescribeDBInstancesRequest extends Model
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
         'dedicatedHostId'      => 'DedicatedHostId',
         'instanceLevel'        => 'InstanceLevel',
-        'needVpcName'          => 'NeedVpcName',
+        'connectionString'     => 'ConnectionString',
     ];
 
     public function validate()
@@ -198,15 +191,6 @@ class DescribeDBInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -291,8 +275,8 @@ class DescribeDBInstancesRequest extends Model
         if (null !== $this->instanceLevel) {
             $res['InstanceLevel'] = $this->instanceLevel;
         }
-        if (null !== $this->needVpcName) {
-            $res['NeedVpcName'] = $this->needVpcName;
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
         }
 
         return $res;
@@ -306,15 +290,6 @@ class DescribeDBInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -399,8 +374,8 @@ class DescribeDBInstancesRequest extends Model
         if (isset($map['InstanceLevel'])) {
             $model->instanceLevel = $map['InstanceLevel'];
         }
-        if (isset($map['NeedVpcName'])) {
-            $model->needVpcName = $map['NeedVpcName'];
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
         }
 
         return $model;

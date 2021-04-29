@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogBackupFilesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $totalRecordCount;
@@ -22,12 +17,17 @@ class DescribeLogBackupFilesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $pageRecordCount;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
      */
-    public $pageRecordCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -39,10 +39,10 @@ class DescribeLogBackupFilesResponseBody extends Model
      */
     public $items;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
-        'pageNumber'       => 'PageNumber',
         'pageRecordCount'  => 'PageRecordCount',
+        'requestId'        => 'RequestId',
+        'pageNumber'       => 'PageNumber',
         'totalFileSize'    => 'TotalFileSize',
         'items'            => 'Items',
     ];
@@ -54,17 +54,17 @@ class DescribeLogBackupFilesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->totalFileSize) {
             $res['TotalFileSize'] = $this->totalFileSize;
@@ -84,17 +84,17 @@ class DescribeLogBackupFilesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['TotalFileSize'])) {
             $model->totalFileSize = $map['TotalFileSize'];

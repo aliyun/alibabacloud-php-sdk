@@ -16,16 +16,16 @@ class latencyTopNItem extends Model
     /**
      * @var int
      */
-    public $avgLatency;
+    public $SQLExecuteTimes;
 
     /**
      * @var int
      */
-    public $SQLExecuteTimes;
+    public $avgLatency;
     protected $_name = [
         'SQLText'         => 'SQLText',
-        'avgLatency'      => 'AvgLatency',
         'SQLExecuteTimes' => 'SQLExecuteTimes',
+        'avgLatency'      => 'AvgLatency',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class latencyTopNItem extends Model
         if (null !== $this->SQLText) {
             $res['SQLText'] = $this->SQLText;
         }
-        if (null !== $this->avgLatency) {
-            $res['AvgLatency'] = $this->avgLatency;
-        }
         if (null !== $this->SQLExecuteTimes) {
             $res['SQLExecuteTimes'] = $this->SQLExecuteTimes;
+        }
+        if (null !== $this->avgLatency) {
+            $res['AvgLatency'] = $this->avgLatency;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class latencyTopNItem extends Model
         if (isset($map['SQLText'])) {
             $model->SQLText = $map['SQLText'];
         }
-        if (isset($map['AvgLatency'])) {
-            $model->avgLatency = $map['AvgLatency'];
-        }
         if (isset($map['SQLExecuteTimes'])) {
             $model->SQLExecuteTimes = $map['SQLExecuteTimes'];
+        }
+        if (isset($map['AvgLatency'])) {
+            $model->avgLatency = $map['AvgLatency'];
         }
 
         return $model;

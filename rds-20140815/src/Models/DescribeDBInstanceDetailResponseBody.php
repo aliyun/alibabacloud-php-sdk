@@ -21,23 +21,23 @@ class DescribeDBInstanceDetailResponseBody extends Model
     /**
      * @var string
      */
+    public $activationState;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
      * @var string
      */
     public $licenseType;
-
-    /**
-     * @var string
-     */
-    public $activationState;
     protected $_name = [
         'requestId'       => 'RequestId',
         'DBInstanceId'    => 'DBInstanceId',
+        'activationState' => 'ActivationState',
         'regionId'        => 'RegionId',
         'licenseType'     => 'LicenseType',
-        'activationState' => 'ActivationState',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class DescribeDBInstanceDetailResponseBody extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->activationState) {
+            $res['ActivationState'] = $this->activationState;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->licenseType) {
             $res['LicenseType'] = $this->licenseType;
-        }
-        if (null !== $this->activationState) {
-            $res['ActivationState'] = $this->activationState;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class DescribeDBInstanceDetailResponseBody extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['ActivationState'])) {
+            $model->activationState = $map['ActivationState'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['LicenseType'])) {
             $model->licenseType = $map['LicenseType'];
-        }
-        if (isset($map['ActivationState'])) {
-            $model->activationState = $map['ActivationState'];
         }
 
         return $model;

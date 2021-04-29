@@ -11,27 +11,7 @@ class CopyDatabaseBetweenInstancesRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $payType;
 
     /**
      * @var string
@@ -62,30 +42,14 @@ class CopyDatabaseBetweenInstancesRequest extends Model
      * @var string
      */
     public $syncUserPrivilege;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'clientToken'          => 'ClientToken',
-        'payType'              => 'PayType',
-        'DBInstanceId'         => 'DBInstanceId',
-        'targetDBInstanceId'   => 'TargetDBInstanceId',
-        'dbNames'              => 'DbNames',
-        'backupId'             => 'BackupId',
-        'restoreTime'          => 'RestoreTime',
-        'syncUserPrivilege'    => 'SyncUserPrivilege',
-        'ownerAccount'         => 'OwnerAccount',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'resourceOwnerId'    => 'ResourceOwnerId',
+        'DBInstanceId'       => 'DBInstanceId',
+        'targetDBInstanceId' => 'TargetDBInstanceId',
+        'dbNames'            => 'DbNames',
+        'backupId'           => 'BackupId',
+        'restoreTime'        => 'RestoreTime',
+        'syncUserPrivilege'  => 'SyncUserPrivilege',
     ];
 
     public function validate()
@@ -95,20 +59,8 @@ class CopyDatabaseBetweenInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->payType) {
-            $res['PayType'] = $this->payType;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -128,12 +80,6 @@ class CopyDatabaseBetweenInstancesRequest extends Model
         if (null !== $this->syncUserPrivilege) {
             $res['SyncUserPrivilege'] = $this->syncUserPrivilege;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
 
         return $res;
     }
@@ -146,20 +92,8 @@ class CopyDatabaseBetweenInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['PayType'])) {
-            $model->payType = $map['PayType'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
@@ -178,12 +112,6 @@ class CopyDatabaseBetweenInstancesRequest extends Model
         }
         if (isset($map['SyncUserPrivilege'])) {
             $model->syncUserPrivilege = $map['SyncUserPrivilege'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

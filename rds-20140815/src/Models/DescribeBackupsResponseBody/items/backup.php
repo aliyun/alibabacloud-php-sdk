@@ -11,12 +11,12 @@ class backup extends Model
     /**
      * @var string
      */
-    public $backupId;
+    public $storageClass;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $encryption;
 
     /**
      * @var string
@@ -26,57 +26,7 @@ class backup extends Model
     /**
      * @var string
      */
-    public $backupStartTime;
-
-    /**
-     * @var string
-     */
-    public $backupEndTime;
-
-    /**
-     * @var string
-     */
-    public $backupType;
-
-    /**
-     * @var string
-     */
-    public $backupMode;
-
-    /**
-     * @var string
-     */
-    public $backupMethod;
-
-    /**
-     * @var string
-     */
-    public $backupDownloadURL;
-
-    /**
-     * @var string
-     */
-    public $backupIntranetDownloadURL;
-
-    /**
-     * @var int
-     */
-    public $backupSize;
-
-    /**
-     * @var string
-     */
-    public $hostInstanceID;
-
-    /**
-     * @var string
-     */
     public $storeStatus;
-
-    /**
-     * @var string
-     */
-    public $metaStatus;
 
     /**
      * @var int
@@ -86,7 +36,7 @@ class backup extends Model
     /**
      * @var string
      */
-    public $backupInitiator;
+    public $backupType;
 
     /**
      * @var string
@@ -96,7 +46,37 @@ class backup extends Model
     /**
      * @var string
      */
-    public $storageClass;
+    public $backupEndTime;
+
+    /**
+     * @var string
+     */
+    public $metaStatus;
+
+    /**
+     * @var string
+     */
+    public $backupInitiator;
+
+    /**
+     * @var string
+     */
+    public $backupIntranetDownloadURL;
+
+    /**
+     * @var string
+     */
+    public $backupMethod;
+
+    /**
+     * @var string
+     */
+    public $backupStartTime;
+
+    /**
+     * @var string
+     */
+    public $backupDownloadURL;
 
     /**
      * @var int
@@ -106,28 +86,48 @@ class backup extends Model
     /**
      * @var string
      */
-    public $encryption;
+    public $backupId;
+
+    /**
+     * @var string
+     */
+    public $hostInstanceID;
+
+    /**
+     * @var int
+     */
+    public $backupSize;
+
+    /**
+     * @var string
+     */
+    public $backupMode;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
     protected $_name = [
-        'backupId'                  => 'BackupId',
-        'DBInstanceId'              => 'DBInstanceId',
-        'backupStatus'              => 'BackupStatus',
-        'backupStartTime'           => 'BackupStartTime',
-        'backupEndTime'             => 'BackupEndTime',
-        'backupType'                => 'BackupType',
-        'backupMode'                => 'BackupMode',
-        'backupMethod'              => 'BackupMethod',
-        'backupDownloadURL'         => 'BackupDownloadURL',
-        'backupIntranetDownloadURL' => 'BackupIntranetDownloadURL',
-        'backupSize'                => 'BackupSize',
-        'hostInstanceID'            => 'HostInstanceID',
-        'storeStatus'               => 'StoreStatus',
-        'metaStatus'                => 'MetaStatus',
-        'consistentTime'            => 'ConsistentTime',
-        'backupInitiator'           => 'BackupInitiator',
-        'copyOnlyBackup'            => 'CopyOnlyBackup',
         'storageClass'              => 'StorageClass',
-        'isAvail'                   => 'IsAvail',
         'encryption'                => 'Encryption',
+        'backupStatus'              => 'BackupStatus',
+        'storeStatus'               => 'StoreStatus',
+        'consistentTime'            => 'ConsistentTime',
+        'backupType'                => 'BackupType',
+        'copyOnlyBackup'            => 'CopyOnlyBackup',
+        'backupEndTime'             => 'BackupEndTime',
+        'metaStatus'                => 'MetaStatus',
+        'backupInitiator'           => 'BackupInitiator',
+        'backupIntranetDownloadURL' => 'BackupIntranetDownloadURL',
+        'backupMethod'              => 'BackupMethod',
+        'backupStartTime'           => 'BackupStartTime',
+        'backupDownloadURL'         => 'BackupDownloadURL',
+        'isAvail'                   => 'IsAvail',
+        'backupId'                  => 'BackupId',
+        'hostInstanceID'            => 'HostInstanceID',
+        'backupSize'                => 'BackupSize',
+        'backupMode'                => 'BackupMode',
+        'DBInstanceId'              => 'DBInstanceId',
     ];
 
     public function validate()
@@ -137,65 +137,65 @@ class backup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
+        if (null !== $this->storageClass) {
+            $res['StorageClass'] = $this->storageClass;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->encryption) {
+            $res['Encryption'] = $this->encryption;
         }
         if (null !== $this->backupStatus) {
             $res['BackupStatus'] = $this->backupStatus;
         }
-        if (null !== $this->backupStartTime) {
-            $res['BackupStartTime'] = $this->backupStartTime;
-        }
-        if (null !== $this->backupEndTime) {
-            $res['BackupEndTime'] = $this->backupEndTime;
-        }
-        if (null !== $this->backupType) {
-            $res['BackupType'] = $this->backupType;
-        }
-        if (null !== $this->backupMode) {
-            $res['BackupMode'] = $this->backupMode;
-        }
-        if (null !== $this->backupMethod) {
-            $res['BackupMethod'] = $this->backupMethod;
-        }
-        if (null !== $this->backupDownloadURL) {
-            $res['BackupDownloadURL'] = $this->backupDownloadURL;
-        }
-        if (null !== $this->backupIntranetDownloadURL) {
-            $res['BackupIntranetDownloadURL'] = $this->backupIntranetDownloadURL;
-        }
-        if (null !== $this->backupSize) {
-            $res['BackupSize'] = $this->backupSize;
-        }
-        if (null !== $this->hostInstanceID) {
-            $res['HostInstanceID'] = $this->hostInstanceID;
-        }
         if (null !== $this->storeStatus) {
             $res['StoreStatus'] = $this->storeStatus;
-        }
-        if (null !== $this->metaStatus) {
-            $res['MetaStatus'] = $this->metaStatus;
         }
         if (null !== $this->consistentTime) {
             $res['ConsistentTime'] = $this->consistentTime;
         }
-        if (null !== $this->backupInitiator) {
-            $res['BackupInitiator'] = $this->backupInitiator;
+        if (null !== $this->backupType) {
+            $res['BackupType'] = $this->backupType;
         }
         if (null !== $this->copyOnlyBackup) {
             $res['CopyOnlyBackup'] = $this->copyOnlyBackup;
         }
-        if (null !== $this->storageClass) {
-            $res['StorageClass'] = $this->storageClass;
+        if (null !== $this->backupEndTime) {
+            $res['BackupEndTime'] = $this->backupEndTime;
+        }
+        if (null !== $this->metaStatus) {
+            $res['MetaStatus'] = $this->metaStatus;
+        }
+        if (null !== $this->backupInitiator) {
+            $res['BackupInitiator'] = $this->backupInitiator;
+        }
+        if (null !== $this->backupIntranetDownloadURL) {
+            $res['BackupIntranetDownloadURL'] = $this->backupIntranetDownloadURL;
+        }
+        if (null !== $this->backupMethod) {
+            $res['BackupMethod'] = $this->backupMethod;
+        }
+        if (null !== $this->backupStartTime) {
+            $res['BackupStartTime'] = $this->backupStartTime;
+        }
+        if (null !== $this->backupDownloadURL) {
+            $res['BackupDownloadURL'] = $this->backupDownloadURL;
         }
         if (null !== $this->isAvail) {
             $res['IsAvail'] = $this->isAvail;
         }
-        if (null !== $this->encryption) {
-            $res['Encryption'] = $this->encryption;
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->hostInstanceID) {
+            $res['HostInstanceID'] = $this->hostInstanceID;
+        }
+        if (null !== $this->backupSize) {
+            $res['BackupSize'] = $this->backupSize;
+        }
+        if (null !== $this->backupMode) {
+            $res['BackupMode'] = $this->backupMode;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
 
         return $res;
@@ -209,65 +209,65 @@ class backup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
+        if (isset($map['StorageClass'])) {
+            $model->storageClass = $map['StorageClass'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['Encryption'])) {
+            $model->encryption = $map['Encryption'];
         }
         if (isset($map['BackupStatus'])) {
             $model->backupStatus = $map['BackupStatus'];
         }
-        if (isset($map['BackupStartTime'])) {
-            $model->backupStartTime = $map['BackupStartTime'];
-        }
-        if (isset($map['BackupEndTime'])) {
-            $model->backupEndTime = $map['BackupEndTime'];
-        }
-        if (isset($map['BackupType'])) {
-            $model->backupType = $map['BackupType'];
-        }
-        if (isset($map['BackupMode'])) {
-            $model->backupMode = $map['BackupMode'];
-        }
-        if (isset($map['BackupMethod'])) {
-            $model->backupMethod = $map['BackupMethod'];
-        }
-        if (isset($map['BackupDownloadURL'])) {
-            $model->backupDownloadURL = $map['BackupDownloadURL'];
-        }
-        if (isset($map['BackupIntranetDownloadURL'])) {
-            $model->backupIntranetDownloadURL = $map['BackupIntranetDownloadURL'];
-        }
-        if (isset($map['BackupSize'])) {
-            $model->backupSize = $map['BackupSize'];
-        }
-        if (isset($map['HostInstanceID'])) {
-            $model->hostInstanceID = $map['HostInstanceID'];
-        }
         if (isset($map['StoreStatus'])) {
             $model->storeStatus = $map['StoreStatus'];
-        }
-        if (isset($map['MetaStatus'])) {
-            $model->metaStatus = $map['MetaStatus'];
         }
         if (isset($map['ConsistentTime'])) {
             $model->consistentTime = $map['ConsistentTime'];
         }
-        if (isset($map['BackupInitiator'])) {
-            $model->backupInitiator = $map['BackupInitiator'];
+        if (isset($map['BackupType'])) {
+            $model->backupType = $map['BackupType'];
         }
         if (isset($map['CopyOnlyBackup'])) {
             $model->copyOnlyBackup = $map['CopyOnlyBackup'];
         }
-        if (isset($map['StorageClass'])) {
-            $model->storageClass = $map['StorageClass'];
+        if (isset($map['BackupEndTime'])) {
+            $model->backupEndTime = $map['BackupEndTime'];
+        }
+        if (isset($map['MetaStatus'])) {
+            $model->metaStatus = $map['MetaStatus'];
+        }
+        if (isset($map['BackupInitiator'])) {
+            $model->backupInitiator = $map['BackupInitiator'];
+        }
+        if (isset($map['BackupIntranetDownloadURL'])) {
+            $model->backupIntranetDownloadURL = $map['BackupIntranetDownloadURL'];
+        }
+        if (isset($map['BackupMethod'])) {
+            $model->backupMethod = $map['BackupMethod'];
+        }
+        if (isset($map['BackupStartTime'])) {
+            $model->backupStartTime = $map['BackupStartTime'];
+        }
+        if (isset($map['BackupDownloadURL'])) {
+            $model->backupDownloadURL = $map['BackupDownloadURL'];
         }
         if (isset($map['IsAvail'])) {
             $model->isAvail = $map['IsAvail'];
         }
-        if (isset($map['Encryption'])) {
-            $model->encryption = $map['Encryption'];
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
+        if (isset($map['HostInstanceID'])) {
+            $model->hostInstanceID = $map['HostInstanceID'];
+        }
+        if (isset($map['BackupSize'])) {
+            $model->backupSize = $map['BackupSize'];
+        }
+        if (isset($map['BackupMode'])) {
+            $model->backupMode = $map['BackupMode'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
 
         return $model;

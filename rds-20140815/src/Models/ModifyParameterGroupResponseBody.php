@@ -11,9 +11,15 @@ class ModifyParameterGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $parameterGroupId;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'parameterGroupId' => 'ParameterGroupId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class ModifyParameterGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->parameterGroupId) {
+            $res['ParameterGroupId'] = $this->parameterGroupId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -38,6 +47,9 @@ class ModifyParameterGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ParameterGroupId'])) {
+            $model->parameterGroupId = $map['ParameterGroupId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

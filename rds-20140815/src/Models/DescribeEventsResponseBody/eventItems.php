@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsResponseBody;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsResponseBody\eventItems\eventItems;
 use AlibabaCloud\Tea\Model;
 
 class eventItems extends Model
 {
     /**
-     * @var eventItems[]
+     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsResponseBody\eventItems\eventItems[]
      */
     public $eventItems;
     protected $_name = [
@@ -50,7 +49,7 @@ class eventItems extends Model
                 $model->eventItems = [];
                 $n                 = 0;
                 foreach ($map['EventItems'] as $item) {
-                    $model->eventItems[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->eventItems[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsResponseBody\eventItems\eventItems::fromMap($item) : $item;
                 }
             }
         }

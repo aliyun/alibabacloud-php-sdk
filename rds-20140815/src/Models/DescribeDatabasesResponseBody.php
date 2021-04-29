@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var databases
      */
     public $databases;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'databases' => 'Databases',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeDatabasesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->databases) {
             $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeDatabasesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Databases'])) {
             $model->databases = databases::fromMap($map['Databases']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

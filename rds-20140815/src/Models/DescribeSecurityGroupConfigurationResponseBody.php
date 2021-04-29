@@ -15,18 +15,18 @@ class DescribeSecurityGroupConfigurationResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $DBInstanceName;
-
-    /**
      * @var items
      */
     public $items;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceName;
     protected $_name = [
         'requestId'      => 'RequestId',
-        'DBInstanceName' => 'DBInstanceName',
         'items'          => 'Items',
+        'DBInstanceName' => 'DBInstanceName',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class DescribeSecurityGroupConfigurationResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
-        }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+        }
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class DescribeSecurityGroupConfigurationResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
-        }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
+        }
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
         }
 
         return $model;

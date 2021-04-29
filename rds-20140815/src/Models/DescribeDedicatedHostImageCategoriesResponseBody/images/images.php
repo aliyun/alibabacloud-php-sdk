@@ -11,15 +11,15 @@ class images extends Model
     /**
      * @var string
      */
-    public $imageName;
+    public $imageCode;
 
     /**
      * @var string
      */
-    public $imageCode;
+    public $imageName;
     protected $_name = [
-        'imageName' => 'ImageName',
         'imageCode' => 'ImageCode',
+        'imageName' => 'ImageName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class images extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageName) {
-            $res['ImageName'] = $this->imageName;
-        }
         if (null !== $this->imageCode) {
             $res['ImageCode'] = $this->imageCode;
+        }
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class images extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageName'])) {
-            $model->imageName = $map['ImageName'];
-        }
         if (isset($map['ImageCode'])) {
             $model->imageCode = $map['ImageCode'];
+        }
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
         }
 
         return $model;

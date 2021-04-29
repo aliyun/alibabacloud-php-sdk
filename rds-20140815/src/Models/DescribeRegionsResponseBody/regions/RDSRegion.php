@@ -11,15 +11,15 @@ class RDSRegion extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $zoneId;
 
     /**
      * @var string
      */
-    public $zoneId;
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
         'zoneId'   => 'ZoneId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RDSRegion extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RDSRegion extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

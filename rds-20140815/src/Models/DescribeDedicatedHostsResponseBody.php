@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsResponseBody extends Model
 {
     /**
+     * @var dedicatedHosts
+     */
+    public $dedicatedHosts;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,15 +23,10 @@ class DescribeDedicatedHostsResponseBody extends Model
      * @var string
      */
     public $dedicatedHostGroupId;
-
-    /**
-     * @var dedicatedHosts
-     */
-    public $dedicatedHosts;
     protected $_name = [
+        'dedicatedHosts'       => 'DedicatedHosts',
         'requestId'            => 'RequestId',
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'dedicatedHosts'       => 'DedicatedHosts',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeDedicatedHostsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dedicatedHosts) {
+            $res['DedicatedHosts'] = null !== $this->dedicatedHosts ? $this->dedicatedHosts->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->dedicatedHostGroupId) {
             $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
-        }
-        if (null !== $this->dedicatedHosts) {
-            $res['DedicatedHosts'] = null !== $this->dedicatedHosts ? $this->dedicatedHosts->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeDedicatedHostsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DedicatedHosts'])) {
+            $model->dedicatedHosts = dedicatedHosts::fromMap($map['DedicatedHosts']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DedicatedHostGroupId'])) {
             $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
-        }
-        if (isset($map['DedicatedHosts'])) {
-            $model->dedicatedHosts = dedicatedHosts::fromMap($map['DedicatedHosts']);
         }
 
         return $model;

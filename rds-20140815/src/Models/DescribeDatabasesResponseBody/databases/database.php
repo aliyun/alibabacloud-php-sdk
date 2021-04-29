@@ -12,6 +12,16 @@ class database extends Model
     /**
      * @var string
      */
+    public $DBDescription;
+
+    /**
+     * @var string
+     */
+    public $DBStatus;
+
+    /**
+     * @var string
+     */
     public $DBName;
 
     /**
@@ -27,29 +37,19 @@ class database extends Model
     /**
      * @var string
      */
-    public $DBStatus;
-
-    /**
-     * @var string
-     */
     public $characterSetName;
-
-    /**
-     * @var string
-     */
-    public $DBDescription;
 
     /**
      * @var accounts
      */
     public $accounts;
     protected $_name = [
+        'DBDescription'    => 'DBDescription',
+        'DBStatus'         => 'DBStatus',
         'DBName'           => 'DBName',
         'DBInstanceId'     => 'DBInstanceId',
         'engine'           => 'Engine',
-        'DBStatus'         => 'DBStatus',
         'characterSetName' => 'CharacterSetName',
-        'DBDescription'    => 'DBDescription',
         'accounts'         => 'Accounts',
     ];
 
@@ -60,6 +60,12 @@ class database extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBDescription) {
+            $res['DBDescription'] = $this->DBDescription;
+        }
+        if (null !== $this->DBStatus) {
+            $res['DBStatus'] = $this->DBStatus;
+        }
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
         }
@@ -69,14 +75,8 @@ class database extends Model
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
-        if (null !== $this->DBStatus) {
-            $res['DBStatus'] = $this->DBStatus;
-        }
         if (null !== $this->characterSetName) {
             $res['CharacterSetName'] = $this->characterSetName;
-        }
-        if (null !== $this->DBDescription) {
-            $res['DBDescription'] = $this->DBDescription;
         }
         if (null !== $this->accounts) {
             $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
@@ -93,6 +93,12 @@ class database extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBDescription'])) {
+            $model->DBDescription = $map['DBDescription'];
+        }
+        if (isset($map['DBStatus'])) {
+            $model->DBStatus = $map['DBStatus'];
+        }
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
         }
@@ -102,14 +108,8 @@ class database extends Model
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
-        if (isset($map['DBStatus'])) {
-            $model->DBStatus = $map['DBStatus'];
-        }
         if (isset($map['CharacterSetName'])) {
             $model->characterSetName = $map['CharacterSetName'];
-        }
-        if (isset($map['DBDescription'])) {
-            $model->DBDescription = $map['DBDescription'];
         }
         if (isset($map['Accounts'])) {
             $model->accounts = accounts::fromMap($map['Accounts']);

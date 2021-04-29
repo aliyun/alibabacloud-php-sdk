@@ -14,9 +14,14 @@ class SQLSlowRecord extends Model
     public $hostAddress;
 
     /**
-     * @var string
+     * @var int
      */
-    public $DBName;
+    public $queryTimes;
+
+    /**
+     * @var int
+     */
+    public $rowsAffectedCount;
 
     /**
      * @var string
@@ -26,27 +31,7 @@ class SQLSlowRecord extends Model
     /**
      * @var int
      */
-    public $queryTimes;
-
-    /**
-     * @var int
-     */
-    public $lockTimes;
-
-    /**
-     * @var int
-     */
-    public $parseRowCounts;
-
-    /**
-     * @var int
-     */
-    public $returnRowCounts;
-
-    /**
-     * @var string
-     */
-    public $executionStartTime;
+    public $cpuTime;
 
     /**
      * @var int
@@ -54,9 +39,19 @@ class SQLSlowRecord extends Model
     public $queryTimeMS;
 
     /**
+     * @var string
+     */
+    public $applicationName;
+
+    /**
      * @var int
      */
-    public $cpuTime;
+    public $lockTimes;
+
+    /**
+     * @var string
+     */
+    public $executionStartTime;
 
     /**
      * @var int
@@ -76,12 +71,22 @@ class SQLSlowRecord extends Model
     /**
      * @var int
      */
-    public $rowsAffectedCount;
+    public $returnRowCounts;
 
     /**
      * @var int
      */
-    public $lastRowsAffectedCount;
+    public $parseRowCounts;
+
+    /**
+     * @var string
+     */
+    public $DBName;
+
+    /**
+     * @var string
+     */
+    public $clientHostName;
 
     /**
      * @var string
@@ -89,33 +94,28 @@ class SQLSlowRecord extends Model
     public $userName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $applicationName;
-
-    /**
-     * @var string
-     */
-    public $clientHostName;
+    public $lastRowsAffectedCount;
     protected $_name = [
         'hostAddress'           => 'HostAddress',
-        'DBName'                => 'DBName',
-        'SQLText'               => 'SQLText',
         'queryTimes'            => 'QueryTimes',
-        'lockTimes'             => 'LockTimes',
-        'parseRowCounts'        => 'ParseRowCounts',
-        'returnRowCounts'       => 'ReturnRowCounts',
-        'executionStartTime'    => 'ExecutionStartTime',
-        'queryTimeMS'           => 'QueryTimeMS',
+        'rowsAffectedCount'     => 'RowsAffectedCount',
+        'SQLText'               => 'SQLText',
         'cpuTime'               => 'CpuTime',
+        'queryTimeMS'           => 'QueryTimeMS',
+        'applicationName'       => 'ApplicationName',
+        'lockTimes'             => 'LockTimes',
+        'executionStartTime'    => 'ExecutionStartTime',
         'logicalIORead'         => 'LogicalIORead',
         'physicalIORead'        => 'PhysicalIORead',
         'writeIOCount'          => 'WriteIOCount',
-        'rowsAffectedCount'     => 'RowsAffectedCount',
-        'lastRowsAffectedCount' => 'LastRowsAffectedCount',
-        'userName'              => 'UserName',
-        'applicationName'       => 'ApplicationName',
+        'returnRowCounts'       => 'ReturnRowCounts',
+        'parseRowCounts'        => 'ParseRowCounts',
+        'DBName'                => 'DBName',
         'clientHostName'        => 'ClientHostName',
+        'userName'              => 'UserName',
+        'lastRowsAffectedCount' => 'LastRowsAffectedCount',
     ];
 
     public function validate()
@@ -128,32 +128,29 @@ class SQLSlowRecord extends Model
         if (null !== $this->hostAddress) {
             $res['HostAddress'] = $this->hostAddress;
         }
-        if (null !== $this->DBName) {
-            $res['DBName'] = $this->DBName;
+        if (null !== $this->queryTimes) {
+            $res['QueryTimes'] = $this->queryTimes;
+        }
+        if (null !== $this->rowsAffectedCount) {
+            $res['RowsAffectedCount'] = $this->rowsAffectedCount;
         }
         if (null !== $this->SQLText) {
             $res['SQLText'] = $this->SQLText;
         }
-        if (null !== $this->queryTimes) {
-            $res['QueryTimes'] = $this->queryTimes;
-        }
-        if (null !== $this->lockTimes) {
-            $res['LockTimes'] = $this->lockTimes;
-        }
-        if (null !== $this->parseRowCounts) {
-            $res['ParseRowCounts'] = $this->parseRowCounts;
-        }
-        if (null !== $this->returnRowCounts) {
-            $res['ReturnRowCounts'] = $this->returnRowCounts;
-        }
-        if (null !== $this->executionStartTime) {
-            $res['ExecutionStartTime'] = $this->executionStartTime;
+        if (null !== $this->cpuTime) {
+            $res['CpuTime'] = $this->cpuTime;
         }
         if (null !== $this->queryTimeMS) {
             $res['QueryTimeMS'] = $this->queryTimeMS;
         }
-        if (null !== $this->cpuTime) {
-            $res['CpuTime'] = $this->cpuTime;
+        if (null !== $this->applicationName) {
+            $res['ApplicationName'] = $this->applicationName;
+        }
+        if (null !== $this->lockTimes) {
+            $res['LockTimes'] = $this->lockTimes;
+        }
+        if (null !== $this->executionStartTime) {
+            $res['ExecutionStartTime'] = $this->executionStartTime;
         }
         if (null !== $this->logicalIORead) {
             $res['LogicalIORead'] = $this->logicalIORead;
@@ -164,20 +161,23 @@ class SQLSlowRecord extends Model
         if (null !== $this->writeIOCount) {
             $res['WriteIOCount'] = $this->writeIOCount;
         }
-        if (null !== $this->rowsAffectedCount) {
-            $res['RowsAffectedCount'] = $this->rowsAffectedCount;
+        if (null !== $this->returnRowCounts) {
+            $res['ReturnRowCounts'] = $this->returnRowCounts;
         }
-        if (null !== $this->lastRowsAffectedCount) {
-            $res['LastRowsAffectedCount'] = $this->lastRowsAffectedCount;
+        if (null !== $this->parseRowCounts) {
+            $res['ParseRowCounts'] = $this->parseRowCounts;
+        }
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
+        }
+        if (null !== $this->clientHostName) {
+            $res['ClientHostName'] = $this->clientHostName;
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
-        if (null !== $this->applicationName) {
-            $res['ApplicationName'] = $this->applicationName;
-        }
-        if (null !== $this->clientHostName) {
-            $res['ClientHostName'] = $this->clientHostName;
+        if (null !== $this->lastRowsAffectedCount) {
+            $res['LastRowsAffectedCount'] = $this->lastRowsAffectedCount;
         }
 
         return $res;
@@ -194,32 +194,29 @@ class SQLSlowRecord extends Model
         if (isset($map['HostAddress'])) {
             $model->hostAddress = $map['HostAddress'];
         }
-        if (isset($map['DBName'])) {
-            $model->DBName = $map['DBName'];
+        if (isset($map['QueryTimes'])) {
+            $model->queryTimes = $map['QueryTimes'];
+        }
+        if (isset($map['RowsAffectedCount'])) {
+            $model->rowsAffectedCount = $map['RowsAffectedCount'];
         }
         if (isset($map['SQLText'])) {
             $model->SQLText = $map['SQLText'];
         }
-        if (isset($map['QueryTimes'])) {
-            $model->queryTimes = $map['QueryTimes'];
-        }
-        if (isset($map['LockTimes'])) {
-            $model->lockTimes = $map['LockTimes'];
-        }
-        if (isset($map['ParseRowCounts'])) {
-            $model->parseRowCounts = $map['ParseRowCounts'];
-        }
-        if (isset($map['ReturnRowCounts'])) {
-            $model->returnRowCounts = $map['ReturnRowCounts'];
-        }
-        if (isset($map['ExecutionStartTime'])) {
-            $model->executionStartTime = $map['ExecutionStartTime'];
+        if (isset($map['CpuTime'])) {
+            $model->cpuTime = $map['CpuTime'];
         }
         if (isset($map['QueryTimeMS'])) {
             $model->queryTimeMS = $map['QueryTimeMS'];
         }
-        if (isset($map['CpuTime'])) {
-            $model->cpuTime = $map['CpuTime'];
+        if (isset($map['ApplicationName'])) {
+            $model->applicationName = $map['ApplicationName'];
+        }
+        if (isset($map['LockTimes'])) {
+            $model->lockTimes = $map['LockTimes'];
+        }
+        if (isset($map['ExecutionStartTime'])) {
+            $model->executionStartTime = $map['ExecutionStartTime'];
         }
         if (isset($map['LogicalIORead'])) {
             $model->logicalIORead = $map['LogicalIORead'];
@@ -230,20 +227,23 @@ class SQLSlowRecord extends Model
         if (isset($map['WriteIOCount'])) {
             $model->writeIOCount = $map['WriteIOCount'];
         }
-        if (isset($map['RowsAffectedCount'])) {
-            $model->rowsAffectedCount = $map['RowsAffectedCount'];
+        if (isset($map['ReturnRowCounts'])) {
+            $model->returnRowCounts = $map['ReturnRowCounts'];
         }
-        if (isset($map['LastRowsAffectedCount'])) {
-            $model->lastRowsAffectedCount = $map['LastRowsAffectedCount'];
+        if (isset($map['ParseRowCounts'])) {
+            $model->parseRowCounts = $map['ParseRowCounts'];
+        }
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
+        }
+        if (isset($map['ClientHostName'])) {
+            $model->clientHostName = $map['ClientHostName'];
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
-        if (isset($map['ApplicationName'])) {
-            $model->applicationName = $map['ApplicationName'];
-        }
-        if (isset($map['ClientHostName'])) {
-            $model->clientHostName = $map['ClientHostName'];
+        if (isset($map['LastRowsAffectedCount'])) {
+            $model->lastRowsAffectedCount = $map['LastRowsAffectedCount'];
         }
 
         return $model;

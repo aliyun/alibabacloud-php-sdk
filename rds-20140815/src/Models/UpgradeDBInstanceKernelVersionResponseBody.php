@@ -11,27 +11,27 @@ class UpgradeDBInstanceKernelVersionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceName;
-
-    /**
-     * @var string
-     */
     public $taskId;
 
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $targetMinorVersion;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceName;
     protected $_name = [
-        'requestId'          => 'RequestId',
-        'DBInstanceName'     => 'DBInstanceName',
         'taskId'             => 'TaskId',
+        'requestId'          => 'RequestId',
         'targetMinorVersion' => 'TargetMinorVersion',
+        'DBInstanceName'     => 'DBInstanceName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpgradeDBInstanceKernelVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->targetMinorVersion) {
             $res['TargetMinorVersion'] = $this->targetMinorVersion;
+        }
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpgradeDBInstanceKernelVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TargetMinorVersion'])) {
             $model->targetMinorVersion = $map['TargetMinorVersion'];
+        }
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
         }
 
         return $model;

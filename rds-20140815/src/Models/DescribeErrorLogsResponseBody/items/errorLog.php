@@ -11,15 +11,15 @@ class errorLog extends Model
     /**
      * @var string
      */
-    public $createTime;
+    public $errorInfo;
 
     /**
      * @var string
      */
-    public $errorInfo;
+    public $createTime;
     protected $_name = [
-        'createTime' => 'CreateTime',
         'errorInfo'  => 'ErrorInfo',
+        'createTime' => 'CreateTime',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class errorLog extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->errorInfo) {
             $res['ErrorInfo'] = $this->errorInfo;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class errorLog extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['ErrorInfo'])) {
             $model->errorInfo = $map['ErrorInfo'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
 
         return $model;

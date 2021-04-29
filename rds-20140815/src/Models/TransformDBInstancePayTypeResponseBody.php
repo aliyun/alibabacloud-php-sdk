@@ -14,9 +14,9 @@ class TransformDBInstancePayTypeResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $orderId;
+    public $DBInstanceId;
 
     /**
      * @var string
@@ -29,15 +29,15 @@ class TransformDBInstancePayTypeResponseBody extends Model
     public $expiredTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $DBInstanceId;
+    public $orderId;
     protected $_name = [
         'requestId'    => 'RequestId',
-        'orderId'      => 'OrderId',
+        'DBInstanceId' => 'DBInstanceId',
         'chargeType'   => 'ChargeType',
         'expiredTime'  => 'ExpiredTime',
-        'DBInstanceId' => 'DBInstanceId',
+        'orderId'      => 'OrderId',
     ];
 
     public function validate()
@@ -50,8 +50,8 @@ class TransformDBInstancePayTypeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
@@ -59,8 +59,8 @@ class TransformDBInstancePayTypeResponseBody extends Model
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -77,8 +77,8 @@ class TransformDBInstancePayTypeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
@@ -86,8 +86,8 @@ class TransformDBInstancePayTypeResponseBody extends Model
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         return $model;

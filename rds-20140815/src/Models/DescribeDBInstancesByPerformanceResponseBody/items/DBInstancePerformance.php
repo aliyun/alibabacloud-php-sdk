@@ -16,16 +16,6 @@ class DBInstancePerformance extends Model
     /**
      * @var string
      */
-    public $IOPSUsage;
-
-    /**
-     * @var string
-     */
-    public $diskUsage;
-
-    /**
-     * @var string
-     */
     public $sessionUsage;
 
     /**
@@ -37,13 +27,23 @@ class DBInstancePerformance extends Model
      * @var string
      */
     public $DBInstanceDescription;
+
+    /**
+     * @var string
+     */
+    public $IOPSUsage;
+
+    /**
+     * @var string
+     */
+    public $diskUsage;
     protected $_name = [
         'CPUUsage'              => 'CPUUsage',
-        'IOPSUsage'             => 'IOPSUsage',
-        'diskUsage'             => 'DiskUsage',
         'sessionUsage'          => 'SessionUsage',
         'DBInstanceId'          => 'DBInstanceId',
         'DBInstanceDescription' => 'DBInstanceDescription',
+        'IOPSUsage'             => 'IOPSUsage',
+        'diskUsage'             => 'DiskUsage',
     ];
 
     public function validate()
@@ -56,12 +56,6 @@ class DBInstancePerformance extends Model
         if (null !== $this->CPUUsage) {
             $res['CPUUsage'] = $this->CPUUsage;
         }
-        if (null !== $this->IOPSUsage) {
-            $res['IOPSUsage'] = $this->IOPSUsage;
-        }
-        if (null !== $this->diskUsage) {
-            $res['DiskUsage'] = $this->diskUsage;
-        }
         if (null !== $this->sessionUsage) {
             $res['SessionUsage'] = $this->sessionUsage;
         }
@@ -70,6 +64,12 @@ class DBInstancePerformance extends Model
         }
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        }
+        if (null !== $this->IOPSUsage) {
+            $res['IOPSUsage'] = $this->IOPSUsage;
+        }
+        if (null !== $this->diskUsage) {
+            $res['DiskUsage'] = $this->diskUsage;
         }
 
         return $res;
@@ -86,12 +86,6 @@ class DBInstancePerformance extends Model
         if (isset($map['CPUUsage'])) {
             $model->CPUUsage = $map['CPUUsage'];
         }
-        if (isset($map['IOPSUsage'])) {
-            $model->IOPSUsage = $map['IOPSUsage'];
-        }
-        if (isset($map['DiskUsage'])) {
-            $model->diskUsage = $map['DiskUsage'];
-        }
         if (isset($map['SessionUsage'])) {
             $model->sessionUsage = $map['SessionUsage'];
         }
@@ -100,6 +94,12 @@ class DBInstancePerformance extends Model
         }
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        }
+        if (isset($map['IOPSUsage'])) {
+            $model->IOPSUsage = $map['IOPSUsage'];
+        }
+        if (isset($map['DiskUsage'])) {
+            $model->diskUsage = $map['DiskUsage'];
         }
 
         return $model;

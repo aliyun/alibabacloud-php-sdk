@@ -11,15 +11,15 @@ class dedicatedHostZones extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $zoneId;
     protected $_name = [
-        'zoneId'      => 'ZoneId',
         'description' => 'Description',
+        'zoneId'      => 'ZoneId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class dedicatedHostZones extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class dedicatedHostZones extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

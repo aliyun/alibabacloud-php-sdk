@@ -22,16 +22,10 @@ class CreateDiagnosticReportRequest extends Model
      * @var string
      */
     public $endTime;
-
-    /**
-     * @var string
-     */
-    public $category;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'startTime'    => 'StartTime',
         'endTime'      => 'EndTime',
-        'category'     => 'Category',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class CreateDiagnosticReportRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class CreateDiagnosticReportRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
         }
 
         return $model;

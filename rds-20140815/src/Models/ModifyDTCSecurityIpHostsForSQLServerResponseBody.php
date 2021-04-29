@@ -11,12 +11,7 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
+    public $taskId;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
     protected $_name = [
+        'taskId'       => 'TaskId',
+        'DTCSetResult' => 'DTCSetResult',
         'requestId'    => 'RequestId',
         'DBInstanceId' => 'DBInstanceId',
-        'DTCSetResult' => 'DTCSetResult',
-        'taskId'       => 'TaskId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->DTCSetResult) {
+            $res['DTCSetResult'] = $this->DTCSetResult;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->DTCSetResult) {
-            $res['DTCSetResult'] = $this->DTCSetResult;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['DTCSetResult'])) {
+            $model->DTCSetResult = $map['DTCSetResult'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['DTCSetResult'])) {
-            $model->DTCSetResult = $map['DTCSetResult'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
         }
 
         return $model;

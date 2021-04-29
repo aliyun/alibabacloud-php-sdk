@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -34,11 +29,6 @@ class DescribeAccountsRequest extends Model
     public $accountName;
 
     /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -48,12 +38,10 @@ class DescribeAccountsRequest extends Model
      */
     public $pageNumber;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'DBInstanceId'         => 'DBInstanceId',
         'accountName'          => 'AccountName',
-        'ownerAccount'         => 'OwnerAccount',
         'pageSize'             => 'PageSize',
         'pageNumber'           => 'PageNumber',
     ];
@@ -65,9 +53,6 @@ class DescribeAccountsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -79,9 +64,6 @@ class DescribeAccountsRequest extends Model
         }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -101,9 +83,6 @@ class DescribeAccountsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -115,9 +94,6 @@ class DescribeAccountsRequest extends Model
         }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

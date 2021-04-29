@@ -42,11 +42,6 @@ class RenewInstanceRequest extends Model
      * @var string
      */
     public $autoPay;
-
-    /**
-     * @var string
-     */
-    public $businessInfo;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -55,7 +50,6 @@ class RenewInstanceRequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'period'               => 'Period',
         'autoPay'              => 'AutoPay',
-        'businessInfo'         => 'BusinessInfo',
     ];
 
     public function validate()
@@ -85,9 +79,6 @@ class RenewInstanceRequest extends Model
         }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
-        }
-        if (null !== $this->businessInfo) {
-            $res['BusinessInfo'] = $this->businessInfo;
         }
 
         return $res;
@@ -121,9 +112,6 @@ class RenewInstanceRequest extends Model
         }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
-        }
-        if (isset($map['BusinessInfo'])) {
-            $model->businessInfo = $map['BusinessInfo'];
         }
 
         return $model;

@@ -12,19 +12,9 @@ use AlibabaCloud\Tea\Model;
 class priceInfo extends Model
 {
     /**
-     * @var string
+     * @var coupons
      */
-    public $currency;
-
-    /**
-     * @var float
-     */
-    public $originalPrice;
-
-    /**
-     * @var float
-     */
-    public $tradePrice;
+    public $coupons;
 
     /**
      * @var float
@@ -37,22 +27,32 @@ class priceInfo extends Model
     public $ruleIds;
 
     /**
-     * @var coupons
+     * @var float
      */
-    public $coupons;
+    public $tradePrice;
 
     /**
      * @var activityInfo
      */
     public $activityInfo;
+
+    /**
+     * @var float
+     */
+    public $originalPrice;
+
+    /**
+     * @var string
+     */
+    public $currency;
     protected $_name = [
-        'currency'      => 'Currency',
-        'originalPrice' => 'OriginalPrice',
-        'tradePrice'    => 'TradePrice',
+        'coupons'       => 'Coupons',
         'discountPrice' => 'DiscountPrice',
         'ruleIds'       => 'RuleIds',
-        'coupons'       => 'Coupons',
+        'tradePrice'    => 'TradePrice',
         'activityInfo'  => 'ActivityInfo',
+        'originalPrice' => 'OriginalPrice',
+        'currency'      => 'Currency',
     ];
 
     public function validate()
@@ -62,14 +62,8 @@ class priceInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->currency) {
-            $res['Currency'] = $this->currency;
-        }
-        if (null !== $this->originalPrice) {
-            $res['OriginalPrice'] = $this->originalPrice;
-        }
-        if (null !== $this->tradePrice) {
-            $res['TradePrice'] = $this->tradePrice;
+        if (null !== $this->coupons) {
+            $res['Coupons'] = null !== $this->coupons ? $this->coupons->toMap() : null;
         }
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
@@ -77,11 +71,17 @@ class priceInfo extends Model
         if (null !== $this->ruleIds) {
             $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
         }
-        if (null !== $this->coupons) {
-            $res['Coupons'] = null !== $this->coupons ? $this->coupons->toMap() : null;
+        if (null !== $this->tradePrice) {
+            $res['TradePrice'] = $this->tradePrice;
         }
         if (null !== $this->activityInfo) {
             $res['ActivityInfo'] = null !== $this->activityInfo ? $this->activityInfo->toMap() : null;
+        }
+        if (null !== $this->originalPrice) {
+            $res['OriginalPrice'] = $this->originalPrice;
+        }
+        if (null !== $this->currency) {
+            $res['Currency'] = $this->currency;
         }
 
         return $res;
@@ -95,14 +95,8 @@ class priceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Currency'])) {
-            $model->currency = $map['Currency'];
-        }
-        if (isset($map['OriginalPrice'])) {
-            $model->originalPrice = $map['OriginalPrice'];
-        }
-        if (isset($map['TradePrice'])) {
-            $model->tradePrice = $map['TradePrice'];
+        if (isset($map['Coupons'])) {
+            $model->coupons = coupons::fromMap($map['Coupons']);
         }
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
@@ -110,11 +104,17 @@ class priceInfo extends Model
         if (isset($map['RuleIds'])) {
             $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
         }
-        if (isset($map['Coupons'])) {
-            $model->coupons = coupons::fromMap($map['Coupons']);
+        if (isset($map['TradePrice'])) {
+            $model->tradePrice = $map['TradePrice'];
         }
         if (isset($map['ActivityInfo'])) {
             $model->activityInfo = activityInfo::fromMap($map['ActivityInfo']);
+        }
+        if (isset($map['OriginalPrice'])) {
+            $model->originalPrice = $map['OriginalPrice'];
+        }
+        if (isset($map['Currency'])) {
+            $model->currency = $map['Currency'];
         }
 
         return $model;

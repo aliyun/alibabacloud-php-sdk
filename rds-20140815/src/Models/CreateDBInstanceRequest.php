@@ -11,16 +11,6 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
     public $resourceOwnerId;
 
     /**
@@ -121,11 +111,6 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
     public $usedTime;
 
     /**
@@ -142,11 +127,6 @@ class CreateDBInstanceRequest extends Model
      * @var string
      */
     public $DBInstanceStorageType;
-
-    /**
-     * @var string
-     */
-    public $tunnelId;
 
     /**
      * @var string
@@ -228,8 +208,6 @@ class CreateDBInstanceRequest extends Model
      */
     public $storageUpperBound;
     protected $_name = [
-        'ownerId'                        => 'OwnerId',
-        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
         'resourceOwnerId'                => 'ResourceOwnerId',
         'regionId'                       => 'RegionId',
         'engine'                         => 'Engine',
@@ -250,12 +228,10 @@ class CreateDBInstanceRequest extends Model
         'VPCId'                          => 'VPCId',
         'vSwitchId'                      => 'VSwitchId',
         'privateIpAddress'               => 'PrivateIpAddress',
-        'ownerAccount'                   => 'OwnerAccount',
         'usedTime'                       => 'UsedTime',
         'period'                         => 'Period',
         'resourceGroupId'                => 'ResourceGroupId',
         'DBInstanceStorageType'          => 'DBInstanceStorageType',
-        'tunnelId'                       => 'TunnelId',
         'businessInfo'                   => 'BusinessInfo',
         'encryptionKey'                  => 'EncryptionKey',
         'roleARN'                        => 'RoleARN',
@@ -281,12 +257,6 @@ class CreateDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -347,9 +317,6 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
         }
@@ -361,9 +328,6 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->DBInstanceStorageType) {
             $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
-        }
-        if (null !== $this->tunnelId) {
-            $res['TunnelId'] = $this->tunnelId;
         }
         if (null !== $this->businessInfo) {
             $res['BusinessInfo'] = $this->businessInfo;
@@ -425,12 +389,6 @@ class CreateDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
@@ -491,9 +449,6 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];
         }
@@ -505,9 +460,6 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['DBInstanceStorageType'])) {
             $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
-        }
-        if (isset($map['TunnelId'])) {
-            $model->tunnelId = $map['TunnelId'];
         }
         if (isset($map['BusinessInfo'])) {
             $model->businessInfo = $map['BusinessInfo'];

@@ -15,18 +15,18 @@ class DescribeCharacterSetNameResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $engine;
-
-    /**
      * @var characterSetNameItems
      */
     public $characterSetNameItems;
+
+    /**
+     * @var string
+     */
+    public $engine;
     protected $_name = [
         'requestId'             => 'RequestId',
-        'engine'                => 'Engine',
         'characterSetNameItems' => 'CharacterSetNameItems',
+        'engine'                => 'Engine',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class DescribeCharacterSetNameResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
-        }
         if (null !== $this->characterSetNameItems) {
             $res['CharacterSetNameItems'] = null !== $this->characterSetNameItems ? $this->characterSetNameItems->toMap() : null;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class DescribeCharacterSetNameResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
-        }
         if (isset($map['CharacterSetNameItems'])) {
             $model->characterSetNameItems = characterSetNameItems::fromMap($map['CharacterSetNameItems']);
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
 
         return $model;

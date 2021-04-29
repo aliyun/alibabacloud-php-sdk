@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBProxyPerformanceResponseBody extends Model
 {
     /**
+     * @var performanceKeys
+     */
+    public $performanceKeys;
+
+    /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -23,22 +33,12 @@ class DescribeDBProxyPerformanceResponseBody extends Model
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var performanceKeys
-     */
-    public $performanceKeys;
     protected $_name = [
+        'performanceKeys' => 'PerformanceKeys',
+        'endTime'         => 'EndTime',
         'requestId'       => 'RequestId',
         'DBInstanceId'    => 'DBInstanceId',
         'startTime'       => 'StartTime',
-        'endTime'         => 'EndTime',
-        'performanceKeys' => 'PerformanceKeys',
     ];
 
     public function validate()
@@ -48,6 +48,12 @@ class DescribeDBProxyPerformanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->performanceKeys) {
+            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toMap() : null;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,12 +62,6 @@ class DescribeDBProxyPerformanceResponseBody extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->performanceKeys) {
-            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toMap() : null;
         }
 
         return $res;
@@ -75,6 +75,12 @@ class DescribeDBProxyPerformanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PerformanceKeys'])) {
+            $model->performanceKeys = performanceKeys::fromMap($map['PerformanceKeys']);
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -83,12 +89,6 @@ class DescribeDBProxyPerformanceResponseBody extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['PerformanceKeys'])) {
-            $model->performanceKeys = performanceKeys::fromMap($map['PerformanceKeys']);
         }
 
         return $model;

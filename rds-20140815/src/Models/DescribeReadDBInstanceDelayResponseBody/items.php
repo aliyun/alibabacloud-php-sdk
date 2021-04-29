@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items;
 use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
-     * @var items[]
+     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items[]
      */
     public $items;
     protected $_name = [
@@ -50,7 +49,7 @@ class items extends Model
                 $model->items = [];
                 $n            = 0;
                 foreach ($map['Items'] as $item) {
-                    $model->items[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->items[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items::fromMap($item) : $item;
                 }
             }
         }

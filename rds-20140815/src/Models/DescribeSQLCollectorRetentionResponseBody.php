@@ -11,15 +11,15 @@ class DescribeSQLCollectorRetentionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $configValue;
 
     /**
      * @var string
      */
-    public $configValue;
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'configValue' => 'ConfigValue',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeSQLCollectorRetentionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->configValue) {
             $res['ConfigValue'] = $this->configValue;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeSQLCollectorRetentionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ConfigValue'])) {
             $model->configValue = $map['ConfigValue'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

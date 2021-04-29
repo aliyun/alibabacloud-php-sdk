@@ -26,11 +26,6 @@ class DeleteDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $DBInstanceId;
 
     /**
@@ -46,7 +41,6 @@ class DeleteDBInstanceRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'clientToken'          => 'ClientToken',
         'DBInstanceId'         => 'DBInstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'releasedKeepPolicy'   => 'ReleasedKeepPolicy',
@@ -67,9 +61,6 @@ class DeleteDBInstanceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -100,9 +91,6 @@ class DeleteDBInstanceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];

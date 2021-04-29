@@ -37,21 +37,6 @@ class RestartDBInstanceRequest extends Model
      * @var string
      */
     public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $restartMethod;
-
-    /**
-     * @var string
-     */
-    public $effectiveTime;
-
-    /**
-     * @var string
-     */
-    public $switchTime;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -59,9 +44,6 @@ class RestartDBInstanceRequest extends Model
         'clientToken'          => 'ClientToken',
         'DBInstanceId'         => 'DBInstanceId',
         'ownerAccount'         => 'OwnerAccount',
-        'restartMethod'        => 'RestartMethod',
-        'effectiveTime'        => 'EffectiveTime',
-        'switchTime'           => 'SwitchTime',
     ];
 
     public function validate()
@@ -88,15 +70,6 @@ class RestartDBInstanceRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->restartMethod) {
-            $res['RestartMethod'] = $this->restartMethod;
-        }
-        if (null !== $this->effectiveTime) {
-            $res['EffectiveTime'] = $this->effectiveTime;
-        }
-        if (null !== $this->switchTime) {
-            $res['SwitchTime'] = $this->switchTime;
         }
 
         return $res;
@@ -127,15 +100,6 @@ class RestartDBInstanceRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RestartMethod'])) {
-            $model->restartMethod = $map['RestartMethod'];
-        }
-        if (isset($map['EffectiveTime'])) {
-            $model->effectiveTime = $map['EffectiveTime'];
-        }
-        if (isset($map['SwitchTime'])) {
-            $model->switchTime = $map['SwitchTime'];
         }
 
         return $model;

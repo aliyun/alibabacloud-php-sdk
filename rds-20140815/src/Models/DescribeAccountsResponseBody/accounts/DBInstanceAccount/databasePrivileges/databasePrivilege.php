@@ -11,21 +11,21 @@ class databasePrivilege extends Model
     /**
      * @var string
      */
+    public $accountPrivilegeDetail;
+
+    /**
+     * @var string
+     */
     public $DBName;
 
     /**
      * @var string
      */
     public $accountPrivilege;
-
-    /**
-     * @var string
-     */
-    public $accountPrivilegeDetail;
     protected $_name = [
+        'accountPrivilegeDetail' => 'AccountPrivilegeDetail',
         'DBName'                 => 'DBName',
         'accountPrivilege'       => 'AccountPrivilege',
-        'accountPrivilegeDetail' => 'AccountPrivilegeDetail',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class databasePrivilege extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountPrivilegeDetail) {
+            $res['AccountPrivilegeDetail'] = $this->accountPrivilegeDetail;
+        }
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
         }
         if (null !== $this->accountPrivilege) {
             $res['AccountPrivilege'] = $this->accountPrivilege;
-        }
-        if (null !== $this->accountPrivilegeDetail) {
-            $res['AccountPrivilegeDetail'] = $this->accountPrivilegeDetail;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class databasePrivilege extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountPrivilegeDetail'])) {
+            $model->accountPrivilegeDetail = $map['AccountPrivilegeDetail'];
+        }
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
         }
         if (isset($map['AccountPrivilege'])) {
             $model->accountPrivilege = $map['AccountPrivilege'];
-        }
-        if (isset($map['AccountPrivilegeDetail'])) {
-            $model->accountPrivilegeDetail = $map['AccountPrivilegeDetail'];
         }
 
         return $model;
