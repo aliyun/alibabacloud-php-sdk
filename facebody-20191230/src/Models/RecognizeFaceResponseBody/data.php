@@ -52,7 +52,7 @@ class data extends Model
     /**
      * @var float[]
      */
-    public $beuatyList;
+    public $beautyList;
 
     /**
      * @var int[]
@@ -88,6 +88,11 @@ class data extends Model
      * @var int
      */
     public $denseFeatureLength;
+
+    /**
+     * @var int[]
+     */
+    public $masks;
     protected $_name = [
         'pupils'              => 'Pupils',
         'genderList'          => 'GenderList',
@@ -97,7 +102,7 @@ class data extends Model
         'landmarks'           => 'Landmarks',
         'landmarkCount'       => 'LandmarkCount',
         'qualities'           => 'Qualities',
-        'beuatyList'          => 'BeuatyList',
+        'beautyList'          => 'BeautyList',
         'hatList'             => 'HatList',
         'faceProbabilityList' => 'FaceProbabilityList',
         'glasses'             => 'Glasses',
@@ -105,6 +110,7 @@ class data extends Model
         'poseList'            => 'PoseList',
         'ageList'             => 'AgeList',
         'denseFeatureLength'  => 'DenseFeatureLength',
+        'masks'               => 'Masks',
     ];
 
     public function validate()
@@ -138,8 +144,8 @@ class data extends Model
         if (null !== $this->qualities) {
             $res['Qualities'] = null !== $this->qualities ? $this->qualities->toMap() : null;
         }
-        if (null !== $this->beuatyList) {
-            $res['BeuatyList'] = $this->beuatyList;
+        if (null !== $this->beautyList) {
+            $res['BeautyList'] = $this->beautyList;
         }
         if (null !== $this->hatList) {
             $res['HatList'] = $this->hatList;
@@ -161,6 +167,9 @@ class data extends Model
         }
         if (null !== $this->denseFeatureLength) {
             $res['DenseFeatureLength'] = $this->denseFeatureLength;
+        }
+        if (null !== $this->masks) {
+            $res['Masks'] = $this->masks;
         }
 
         return $res;
@@ -208,9 +217,9 @@ class data extends Model
         if (isset($map['Qualities'])) {
             $model->qualities = qualities::fromMap($map['Qualities']);
         }
-        if (isset($map['BeuatyList'])) {
-            if (!empty($map['BeuatyList'])) {
-                $model->beuatyList = $map['BeuatyList'];
+        if (isset($map['BeautyList'])) {
+            if (!empty($map['BeautyList'])) {
+                $model->beautyList = $map['BeautyList'];
             }
         }
         if (isset($map['HatList'])) {
@@ -245,6 +254,11 @@ class data extends Model
         }
         if (isset($map['DenseFeatureLength'])) {
             $model->denseFeatureLength = $map['DenseFeatureLength'];
+        }
+        if (isset($map['Masks'])) {
+            if (!empty($map['Masks'])) {
+                $model->masks = $map['Masks'];
+            }
         }
 
         return $model;

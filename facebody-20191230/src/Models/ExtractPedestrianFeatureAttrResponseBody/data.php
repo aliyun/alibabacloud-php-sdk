@@ -97,25 +97,37 @@ class data extends Model
      * @var float
      */
     public $upperColorScore;
+
+    /**
+     * @var string
+     */
+    public $orientation;
+
+    /**
+     * @var float
+     */
+    public $orientationScore;
     protected $_name = [
-        'qualityScore'    => 'QualityScore',
-        'objType'         => 'ObjType',
-        'feature'         => 'Feature',
-        'gender'          => 'Gender',
-        'lowerColorScore' => 'LowerColorScore',
-        'objTypeScore'    => 'ObjTypeScore',
-        'age'             => 'Age',
-        'ageScore'        => 'AgeScore',
-        'upperTypeScore'  => 'UpperTypeScore',
-        'lowerTypeScore'  => 'LowerTypeScore',
-        'lowerColor'      => 'LowerColor',
-        'hair'            => 'Hair',
-        'upperColor'      => 'UpperColor',
-        'genderScore'     => 'GenderScore',
-        'upperType'       => 'UpperType',
-        'hairScore'       => 'HairScore',
-        'lowerType'       => 'LowerType',
-        'upperColorScore' => 'UpperColorScore',
+        'qualityScore'     => 'QualityScore',
+        'objType'          => 'ObjType',
+        'feature'          => 'Feature',
+        'gender'           => 'Gender',
+        'lowerColorScore'  => 'LowerColorScore',
+        'objTypeScore'     => 'ObjTypeScore',
+        'age'              => 'Age',
+        'ageScore'         => 'AgeScore',
+        'upperTypeScore'   => 'UpperTypeScore',
+        'lowerTypeScore'   => 'LowerTypeScore',
+        'lowerColor'       => 'LowerColor',
+        'hair'             => 'Hair',
+        'upperColor'       => 'UpperColor',
+        'genderScore'      => 'GenderScore',
+        'upperType'        => 'UpperType',
+        'hairScore'        => 'HairScore',
+        'lowerType'        => 'LowerType',
+        'upperColorScore'  => 'UpperColorScore',
+        'orientation'      => 'Orientation',
+        'orientationScore' => 'OrientationScore',
     ];
 
     public function validate()
@@ -178,6 +190,12 @@ class data extends Model
         }
         if (null !== $this->upperColorScore) {
             $res['UpperColorScore'] = $this->upperColorScore;
+        }
+        if (null !== $this->orientation) {
+            $res['Orientation'] = $this->orientation;
+        }
+        if (null !== $this->orientationScore) {
+            $res['OrientationScore'] = $this->orientationScore;
         }
 
         return $res;
@@ -244,6 +262,12 @@ class data extends Model
         }
         if (isset($map['UpperColorScore'])) {
             $model->upperColorScore = $map['UpperColorScore'];
+        }
+        if (isset($map['Orientation'])) {
+            $model->orientation = $map['Orientation'];
+        }
+        if (isset($map['OrientationScore'])) {
+            $model->orientationScore = $map['OrientationScore'];
         }
 
         return $model;
