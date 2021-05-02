@@ -32,12 +32,18 @@ class data extends Model
      * @var int
      */
     public $retryCount;
+
+    /**
+     * @var int
+     */
+    public $maxRetryCount;
     protected $_name = [
         'success'            => 'Success',
         'deviceErrorCode'    => 'DeviceErrorCode',
         'deviceErrorMessage' => 'DeviceErrorMessage',
         'id'                 => 'Id',
         'retryCount'         => 'RetryCount',
+        'maxRetryCount'      => 'MaxRetryCount',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class data extends Model
         }
         if (null !== $this->retryCount) {
             $res['RetryCount'] = $this->retryCount;
+        }
+        if (null !== $this->maxRetryCount) {
+            $res['MaxRetryCount'] = $this->maxRetryCount;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class data extends Model
         }
         if (isset($map['RetryCount'])) {
             $model->retryCount = $map['RetryCount'];
+        }
+        if (isset($map['MaxRetryCount'])) {
+            $model->maxRetryCount = $map['MaxRetryCount'];
         }
 
         return $model;

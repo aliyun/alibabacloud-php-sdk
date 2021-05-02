@@ -78,6 +78,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CancelOTATaskByDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CancelOTATaskByDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CancelOTATaskByJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CancelOTATaskByJobResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CancelReleaseProductRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CancelReleaseProductResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ClearEdgeInstanceDriverConfigsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ClearEdgeInstanceDriverConfigsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CloseEdgeInstanceDeploymentRequest;
@@ -186,6 +188,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSceneRuleResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSpeechRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSpeechResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSubscribeRelationRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteSubscribeRelationResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteThingModelRequest;
@@ -452,6 +456,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\RegisterDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RegisterDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ReleaseEdgeDriverVersionRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ReleaseEdgeDriverVersionResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ReleaseProductRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ReleaseProductResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RemoveThingTopoRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RemoveThingTopoResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ReplaceEdgeInstanceGatewayRequest;
@@ -1629,6 +1635,34 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelOTATaskByJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelReleaseProductRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CancelReleaseProductResponse
+     */
+    public function cancelReleaseProductWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelReleaseProductResponse::fromMap($this->doRPCRequest('CancelReleaseProduct', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelReleaseProductRequest $request
+     *
+     * @return CancelReleaseProductResponse
+     */
+    public function cancelReleaseProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelReleaseProductWithOptions($request, $runtime);
     }
 
     /**
@@ -3141,6 +3175,34 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSceneRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSpeechRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteSpeechResponse
+     */
+    public function deleteSpeechWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteSpeechResponse::fromMap($this->doRPCRequest('DeleteSpeech', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSpeechRequest $request
+     *
+     * @return DeleteSpeechResponse
+     */
+    public function deleteSpeech($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSpeechWithOptions($request, $runtime);
     }
 
     /**
@@ -6867,6 +6929,34 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseEdgeDriverVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReleaseProductRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ReleaseProductResponse
+     */
+    public function releaseProductWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ReleaseProductResponse::fromMap($this->doRPCRequest('ReleaseProduct', '2018-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseProductRequest $request
+     *
+     * @return ReleaseProductResponse
+     */
+    public function releaseProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseProductWithOptions($request, $runtime);
     }
 
     /**

@@ -55,6 +55,16 @@ class items extends Model
     public $strategy;
 
     /**
+     * @var string
+     */
+    public $sourceRegion;
+
+    /**
+     * @var string
+     */
+    public $sourceInstanceName;
+
+    /**
      * @var targetInstanceConfigs
      */
     public $targetInstanceConfigs;
@@ -68,6 +78,8 @@ class items extends Model
         'total'                 => 'Total',
         'status'                => 'Status',
         'strategy'              => 'Strategy',
+        'sourceRegion'          => 'SourceRegion',
+        'sourceInstanceName'    => 'SourceInstanceName',
         'targetInstanceConfigs' => 'TargetInstanceConfigs',
     ];
 
@@ -104,6 +116,12 @@ class items extends Model
         }
         if (null !== $this->strategy) {
             $res['Strategy'] = $this->strategy;
+        }
+        if (null !== $this->sourceRegion) {
+            $res['SourceRegion'] = $this->sourceRegion;
+        }
+        if (null !== $this->sourceInstanceName) {
+            $res['SourceInstanceName'] = $this->sourceInstanceName;
         }
         if (null !== $this->targetInstanceConfigs) {
             $res['TargetInstanceConfigs'] = null !== $this->targetInstanceConfigs ? $this->targetInstanceConfigs->toMap() : null;
@@ -146,6 +164,12 @@ class items extends Model
         }
         if (isset($map['Strategy'])) {
             $model->strategy = $map['Strategy'];
+        }
+        if (isset($map['SourceRegion'])) {
+            $model->sourceRegion = $map['SourceRegion'];
+        }
+        if (isset($map['SourceInstanceName'])) {
+            $model->sourceInstanceName = $map['SourceInstanceName'];
         }
         if (isset($map['TargetInstanceConfigs'])) {
             $model->targetInstanceConfigs = targetInstanceConfigs::fromMap($map['TargetInstanceConfigs']);

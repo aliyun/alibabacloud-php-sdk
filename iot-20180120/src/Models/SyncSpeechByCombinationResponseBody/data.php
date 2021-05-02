@@ -17,9 +17,33 @@ class data extends Model
      * @var int
      */
     public $retryCount;
+
+    /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var int
+     */
+    public $maxRetryCount;
+
+    /**
+     * @var string
+     */
+    public $deviceErrorCode;
+
+    /**
+     * @var string
+     */
+    public $deviceErrorMessage;
     protected $_name = [
-        'id'         => 'Id',
-        'retryCount' => 'RetryCount',
+        'id'                 => 'Id',
+        'retryCount'         => 'RetryCount',
+        'success'            => 'Success',
+        'maxRetryCount'      => 'MaxRetryCount',
+        'deviceErrorCode'    => 'DeviceErrorCode',
+        'deviceErrorMessage' => 'DeviceErrorMessage',
     ];
 
     public function validate()
@@ -34,6 +58,18 @@ class data extends Model
         }
         if (null !== $this->retryCount) {
             $res['RetryCount'] = $this->retryCount;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->maxRetryCount) {
+            $res['MaxRetryCount'] = $this->maxRetryCount;
+        }
+        if (null !== $this->deviceErrorCode) {
+            $res['DeviceErrorCode'] = $this->deviceErrorCode;
+        }
+        if (null !== $this->deviceErrorMessage) {
+            $res['DeviceErrorMessage'] = $this->deviceErrorMessage;
         }
 
         return $res;
@@ -52,6 +88,18 @@ class data extends Model
         }
         if (isset($map['RetryCount'])) {
             $model->retryCount = $map['RetryCount'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['MaxRetryCount'])) {
+            $model->maxRetryCount = $map['MaxRetryCount'];
+        }
+        if (isset($map['DeviceErrorCode'])) {
+            $model->deviceErrorCode = $map['DeviceErrorCode'];
+        }
+        if (isset($map['DeviceErrorMessage'])) {
+            $model->deviceErrorMessage = $map['DeviceErrorMessage'];
         }
 
         return $model;

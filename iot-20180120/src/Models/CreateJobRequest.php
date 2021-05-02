@@ -52,6 +52,11 @@ class CreateJobRequest extends Model
      * @var string
      */
     public $targetConfig;
+
+    /**
+     * @var int
+     */
+    public $scheduledTime;
     protected $_name = [
         'iotInstanceId' => 'IotInstanceId',
         'description'   => 'Description',
@@ -62,6 +67,7 @@ class CreateJobRequest extends Model
         'timeoutConfig' => 'TimeoutConfig',
         'rolloutConfig' => 'RolloutConfig',
         'targetConfig'  => 'TargetConfig',
+        'scheduledTime' => 'ScheduledTime',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class CreateJobRequest extends Model
         }
         if (null !== $this->targetConfig) {
             $res['TargetConfig'] = $this->targetConfig;
+        }
+        if (null !== $this->scheduledTime) {
+            $res['ScheduledTime'] = $this->scheduledTime;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class CreateJobRequest extends Model
         }
         if (isset($map['TargetConfig'])) {
             $model->targetConfig = $map['TargetConfig'];
+        }
+        if (isset($map['ScheduledTime'])) {
+            $model->scheduledTime = $map['ScheduledTime'];
         }
 
         return $model;

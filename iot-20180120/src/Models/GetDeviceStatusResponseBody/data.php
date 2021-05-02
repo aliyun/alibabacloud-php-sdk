@@ -12,8 +12,14 @@ class data extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var int
+     */
+    public $timestamp;
     protected $_name = [
-        'status' => 'Status',
+        'status'    => 'Status',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class data extends Model
         $res = [];
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class data extends Model
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
         }
 
         return $model;

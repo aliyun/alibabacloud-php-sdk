@@ -77,6 +77,11 @@ class simpleOTATaskInfo extends Model
      * @var string
      */
     public $utcCreate;
+
+    /**
+     * @var string
+     */
+    public $timeout;
     protected $_name = [
         'taskId'      => 'TaskId',
         'utcModified' => 'UtcModified',
@@ -92,6 +97,7 @@ class simpleOTATaskInfo extends Model
         'progress'    => 'Progress',
         'iotId'       => 'IotId',
         'utcCreate'   => 'UtcCreate',
+        'timeout'     => 'Timeout',
     ];
 
     public function validate()
@@ -142,6 +148,9 @@ class simpleOTATaskInfo extends Model
         }
         if (null !== $this->utcCreate) {
             $res['UtcCreate'] = $this->utcCreate;
+        }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -196,6 +205,9 @@ class simpleOTATaskInfo extends Model
         }
         if (isset($map['UtcCreate'])) {
             $model->utcCreate = $map['UtcCreate'];
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;

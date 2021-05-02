@@ -42,14 +42,20 @@ class data extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var int
+     */
+    public $scheduledTime;
     protected $_name = [
-        'jobId'       => 'JobId',
-        'jobName'     => 'JobName',
-        'utcCreate'   => 'UtcCreate',
-        'utcModified' => 'UtcModified',
-        'status'      => 'Status',
-        'description' => 'Description',
-        'type'        => 'Type',
+        'jobId'         => 'JobId',
+        'jobName'       => 'JobName',
+        'utcCreate'     => 'UtcCreate',
+        'utcModified'   => 'UtcModified',
+        'status'        => 'Status',
+        'description'   => 'Description',
+        'type'          => 'Type',
+        'scheduledTime' => 'ScheduledTime',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class data extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->scheduledTime) {
+            $res['ScheduledTime'] = $this->scheduledTime;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class data extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['ScheduledTime'])) {
+            $model->scheduledTime = $map['ScheduledTime'];
         }
 
         return $model;

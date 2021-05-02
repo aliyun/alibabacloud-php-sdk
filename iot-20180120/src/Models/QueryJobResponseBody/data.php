@@ -53,6 +53,11 @@ class data extends Model
     public $utcModified;
 
     /**
+     * @var int
+     */
+    public $scheduledTime;
+
+    /**
      * @var rolloutConfig
      */
     public $rolloutConfig;
@@ -80,6 +85,7 @@ class data extends Model
         'type'          => 'Type',
         'jobDocument'   => 'JobDocument',
         'utcModified'   => 'UtcModified',
+        'scheduledTime' => 'ScheduledTime',
         'rolloutConfig' => 'RolloutConfig',
         'timeoutConfig' => 'TimeoutConfig',
         'jobFile'       => 'JobFile',
@@ -116,6 +122,9 @@ class data extends Model
         }
         if (null !== $this->utcModified) {
             $res['UtcModified'] = $this->utcModified;
+        }
+        if (null !== $this->scheduledTime) {
+            $res['ScheduledTime'] = $this->scheduledTime;
         }
         if (null !== $this->rolloutConfig) {
             $res['RolloutConfig'] = null !== $this->rolloutConfig ? $this->rolloutConfig->toMap() : null;
@@ -164,6 +173,9 @@ class data extends Model
         }
         if (isset($map['UtcModified'])) {
             $model->utcModified = $map['UtcModified'];
+        }
+        if (isset($map['ScheduledTime'])) {
+            $model->scheduledTime = $map['ScheduledTime'];
         }
         if (isset($map['RolloutConfig'])) {
             $model->rolloutConfig = rolloutConfig::fromMap($map['RolloutConfig']);

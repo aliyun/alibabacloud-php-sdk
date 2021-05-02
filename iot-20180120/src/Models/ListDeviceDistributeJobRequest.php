@@ -27,11 +27,17 @@ class ListDeviceDistributeJobRequest extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $jobId;
     protected $_name = [
         'targetUid'   => 'TargetUid',
         'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
         'status'      => 'Status',
+        'jobId'       => 'JobId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class ListDeviceDistributeJobRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class ListDeviceDistributeJobRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         return $model;

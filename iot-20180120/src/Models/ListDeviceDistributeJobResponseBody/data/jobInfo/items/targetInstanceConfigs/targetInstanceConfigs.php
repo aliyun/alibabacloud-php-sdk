@@ -12,8 +12,20 @@ class targetInstanceConfigs extends Model
      * @var string
      */
     public $targetInstanceId;
+
+    /**
+     * @var string
+     */
+    public $targetRegion;
+
+    /**
+     * @var string
+     */
+    public $targetInstanceName;
     protected $_name = [
-        'targetInstanceId' => 'TargetInstanceId',
+        'targetInstanceId'   => 'TargetInstanceId',
+        'targetRegion'       => 'TargetRegion',
+        'targetInstanceName' => 'TargetInstanceName',
     ];
 
     public function validate()
@@ -25,6 +37,12 @@ class targetInstanceConfigs extends Model
         $res = [];
         if (null !== $this->targetInstanceId) {
             $res['TargetInstanceId'] = $this->targetInstanceId;
+        }
+        if (null !== $this->targetRegion) {
+            $res['TargetRegion'] = $this->targetRegion;
+        }
+        if (null !== $this->targetInstanceName) {
+            $res['TargetInstanceName'] = $this->targetInstanceName;
         }
 
         return $res;
@@ -40,6 +58,12 @@ class targetInstanceConfigs extends Model
         $model = new self();
         if (isset($map['TargetInstanceId'])) {
             $model->targetInstanceId = $map['TargetInstanceId'];
+        }
+        if (isset($map['TargetRegion'])) {
+            $model->targetRegion = $map['TargetRegion'];
+        }
+        if (isset($map['TargetInstanceName'])) {
+            $model->targetInstanceName = $map['TargetInstanceName'];
         }
 
         return $model;

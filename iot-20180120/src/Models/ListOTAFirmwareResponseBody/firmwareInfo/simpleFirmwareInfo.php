@@ -61,11 +61,6 @@ class simpleFirmwareInfo extends Model
     /**
      * @var string
      */
-    public $firmwareUrl;
-
-    /**
-     * @var string
-     */
     public $productKey;
 
     /**
@@ -98,7 +93,6 @@ class simpleFirmwareInfo extends Model
         'firmwareDesc' => 'FirmwareDesc',
         'firmwareSign' => 'FirmwareSign',
         'firmwareSize' => 'FirmwareSize',
-        'firmwareUrl'  => 'FirmwareUrl',
         'productKey'   => 'ProductKey',
         'signMethod'   => 'SignMethod',
         'productName'  => 'ProductName',
@@ -142,9 +136,6 @@ class simpleFirmwareInfo extends Model
         }
         if (null !== $this->firmwareSize) {
             $res['FirmwareSize'] = $this->firmwareSize;
-        }
-        if (null !== $this->firmwareUrl) {
-            $res['FirmwareUrl'] = $this->firmwareUrl;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -202,9 +193,6 @@ class simpleFirmwareInfo extends Model
         }
         if (isset($map['FirmwareSize'])) {
             $model->firmwareSize = $map['FirmwareSize'];
-        }
-        if (isset($map['FirmwareUrl'])) {
-            $model->firmwareUrl = $map['FirmwareUrl'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
