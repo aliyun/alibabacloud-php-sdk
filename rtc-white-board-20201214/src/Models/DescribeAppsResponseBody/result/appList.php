@@ -49,13 +49,21 @@ class appList extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @description 白板应用回调类型
+     *
+     * @var string
+     */
+    public $callbackType;
     protected $_name = [
-        'appID'       => 'AppID',
-        'appName'     => 'AppName',
-        'status'      => 'Status',
-        'callbackUrl' => 'CallbackUrl',
-        'domainNames' => 'DomainNames',
-        'createTime'  => 'CreateTime',
+        'appID'        => 'AppID',
+        'appName'      => 'AppName',
+        'status'       => 'Status',
+        'callbackUrl'  => 'CallbackUrl',
+        'domainNames'  => 'DomainNames',
+        'createTime'   => 'CreateTime',
+        'callbackType' => 'CallbackType',
     ];
 
     public function validate()
@@ -82,6 +90,9 @@ class appList extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->callbackType) {
+            $res['CallbackType'] = $this->callbackType;
         }
 
         return $res;
@@ -112,6 +123,9 @@ class appList extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CallbackType'])) {
+            $model->callbackType = $map['CallbackType'];
         }
 
         return $model;

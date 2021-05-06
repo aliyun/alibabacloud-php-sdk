@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\OpenWhiteBoardRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\OpenWhiteBoardResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\RefreshUsersPermissionsRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\RefreshUsersPermissionsResponse;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppCallbackTypeRequest;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppCallbackTypeResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppCallbackUrlRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppCallbackUrlResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppDomainNamesRequest;
@@ -259,6 +261,34 @@ class Rtcwhiteboard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->refreshUsersPermissionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetAppCallbackTypeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetAppCallbackTypeResponse
+     */
+    public function setAppCallbackTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetAppCallbackTypeResponse::fromMap($this->doRPCRequest('SetAppCallbackType', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetAppCallbackTypeRequest $request
+     *
+     * @return SetAppCallbackTypeResponse
+     */
+    public function setAppCallbackType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAppCallbackTypeWithOptions($request, $runtime);
     }
 
     /**
