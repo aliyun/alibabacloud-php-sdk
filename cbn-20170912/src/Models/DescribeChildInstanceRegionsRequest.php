@@ -32,18 +32,12 @@ class DescribeChildInstanceRegionsRequest extends Model
      * @var string
      */
     public $productType;
-
-    /**
-     * @var int
-     */
-    public $childInstanceOwnerId;
     protected $_name = [
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'productType'          => 'ProductType',
-        'childInstanceOwnerId' => 'ChildInstanceOwnerId',
     ];
 
     public function validate()
@@ -67,9 +61,6 @@ class DescribeChildInstanceRegionsRequest extends Model
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
-        }
-        if (null !== $this->childInstanceOwnerId) {
-            $res['ChildInstanceOwnerId'] = $this->childInstanceOwnerId;
         }
 
         return $res;
@@ -97,9 +88,6 @@ class DescribeChildInstanceRegionsRequest extends Model
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
-        }
-        if (isset($map['ChildInstanceOwnerId'])) {
-            $model->childInstanceOwnerId = $map['ChildInstanceOwnerId'];
         }
 
         return $model;

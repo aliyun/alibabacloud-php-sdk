@@ -12,11 +12,6 @@ class DescribeGeographicRegionMembershipResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -25,20 +20,25 @@ class DescribeGeographicRegionMembershipResponseBody extends Model
     public $requestId;
 
     /**
-     * @var regionIds[]
+     * @var int
      */
-    public $regionIds;
+    public $pageNumber;
 
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalCount;
+
+    /**
+     * @var regionIds
+     */
+    public $regionIds;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'regionIds'  => 'RegionIds',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
+        'regionIds'  => 'RegionIds',
     ];
 
     public function validate()
@@ -48,26 +48,20 @@ class DescribeGeographicRegionMembershipResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->regionIds) {
-            $res['RegionIds'] = [];
-            if (null !== $this->regionIds && \is_array($this->regionIds)) {
-                $n = 0;
-                foreach ($this->regionIds as $item) {
-                    $res['RegionIds'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->regionIds) {
+            $res['RegionIds'] = null !== $this->regionIds ? $this->regionIds->toMap() : null;
         }
 
         return $res;
@@ -81,26 +75,20 @@ class DescribeGeographicRegionMembershipResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['RegionIds'])) {
-            if (!empty($map['RegionIds'])) {
-                $model->regionIds = [];
-                $n                = 0;
-                foreach ($map['RegionIds'] as $item) {
-                    $model->regionIds[$n++] = null !== $item ? regionIds::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['RegionIds'])) {
+            $model->regionIds = regionIds::fromMap($map['RegionIds']);
         }
 
         return $model;

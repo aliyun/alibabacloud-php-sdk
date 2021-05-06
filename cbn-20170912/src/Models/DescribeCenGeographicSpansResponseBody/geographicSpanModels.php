@@ -4,28 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenGeographicSpansResponseBody;
 
+use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenGeographicSpansResponseBody\geographicSpanModels\geographicSpanModel;
 use AlibabaCloud\Tea\Model;
 
 class geographicSpanModels extends Model
 {
     /**
-     * @var string
+     * @var geographicSpanModel[]
      */
-    public $geographicSpanId;
-
-    /**
-     * @var string
-     */
-    public $oppositeGeoRegionId;
-
-    /**
-     * @var string
-     */
-    public $localGeoRegionId;
+    public $geographicSpanModel;
     protected $_name = [
-        'geographicSpanId'    => 'GeographicSpanId',
-        'oppositeGeoRegionId' => 'OppositeGeoRegionId',
-        'localGeoRegionId'    => 'LocalGeoRegionId',
+        'geographicSpanModel' => 'GeographicSpanModel',
     ];
 
     public function validate()
@@ -35,14 +24,14 @@ class geographicSpanModels extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->geographicSpanId) {
-            $res['GeographicSpanId'] = $this->geographicSpanId;
-        }
-        if (null !== $this->oppositeGeoRegionId) {
-            $res['OppositeGeoRegionId'] = $this->oppositeGeoRegionId;
-        }
-        if (null !== $this->localGeoRegionId) {
-            $res['LocalGeoRegionId'] = $this->localGeoRegionId;
+        if (null !== $this->geographicSpanModel) {
+            $res['GeographicSpanModel'] = [];
+            if (null !== $this->geographicSpanModel && \is_array($this->geographicSpanModel)) {
+                $n = 0;
+                foreach ($this->geographicSpanModel as $item) {
+                    $res['GeographicSpanModel'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -56,14 +45,14 @@ class geographicSpanModels extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GeographicSpanId'])) {
-            $model->geographicSpanId = $map['GeographicSpanId'];
-        }
-        if (isset($map['OppositeGeoRegionId'])) {
-            $model->oppositeGeoRegionId = $map['OppositeGeoRegionId'];
-        }
-        if (isset($map['LocalGeoRegionId'])) {
-            $model->localGeoRegionId = $map['LocalGeoRegionId'];
+        if (isset($map['GeographicSpanModel'])) {
+            if (!empty($map['GeographicSpanModel'])) {
+                $model->geographicSpanModel = [];
+                $n                          = 0;
+                foreach ($map['GeographicSpanModel'] as $item) {
+                    $model->geographicSpanModel[$n++] = null !== $item ? geographicSpanModel::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

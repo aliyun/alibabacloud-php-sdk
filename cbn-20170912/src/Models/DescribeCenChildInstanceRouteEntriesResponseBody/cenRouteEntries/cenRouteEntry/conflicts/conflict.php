@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribePublishedRouteEntriesResponseBody\publishedRouteEntries;
+namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenChildInstanceRouteEntriesResponseBody\cenRouteEntries\cenRouteEntry\conflicts;
 
 use AlibabaCloud\Tea\Model;
 
-class conflicts extends Model
+class conflict extends Model
 {
     /**
      * @var string
@@ -69,7 +69,7 @@ class conflicts extends Model
     /**
      * @param array $map
      *
-     * @return conflicts
+     * @return conflict
      */
     public static function fromMap($map = [])
     {

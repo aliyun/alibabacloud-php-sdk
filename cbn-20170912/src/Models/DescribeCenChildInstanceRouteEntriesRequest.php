@@ -62,30 +62,18 @@ class DescribeCenChildInstanceRouteEntriesRequest extends Model
      * @var string
      */
     public $childInstanceRegionId;
-
-    /**
-     * @var string
-     */
-    public $childInstanceRouteTableId;
-
-    /**
-     * @var string
-     */
-    public $destinationCidrBlock;
     protected $_name = [
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'cenId'                     => 'CenId',
-        'childInstanceId'           => 'ChildInstanceId',
-        'childInstanceType'         => 'ChildInstanceType',
-        'status'                    => 'Status',
-        'pageNumber'                => 'PageNumber',
-        'pageSize'                  => 'PageSize',
-        'childInstanceRegionId'     => 'ChildInstanceRegionId',
-        'childInstanceRouteTableId' => 'ChildInstanceRouteTableId',
-        'destinationCidrBlock'      => 'DestinationCidrBlock',
+        'ownerAccount'          => 'OwnerAccount',
+        'ownerId'               => 'OwnerId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
+        'cenId'                 => 'CenId',
+        'childInstanceId'       => 'ChildInstanceId',
+        'childInstanceType'     => 'ChildInstanceType',
+        'status'                => 'Status',
+        'pageNumber'            => 'PageNumber',
+        'pageSize'              => 'PageSize',
+        'childInstanceRegionId' => 'ChildInstanceRegionId',
     ];
 
     public function validate()
@@ -127,12 +115,6 @@ class DescribeCenChildInstanceRouteEntriesRequest extends Model
         }
         if (null !== $this->childInstanceRegionId) {
             $res['ChildInstanceRegionId'] = $this->childInstanceRegionId;
-        }
-        if (null !== $this->childInstanceRouteTableId) {
-            $res['ChildInstanceRouteTableId'] = $this->childInstanceRouteTableId;
-        }
-        if (null !== $this->destinationCidrBlock) {
-            $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
 
         return $res;
@@ -178,12 +160,6 @@ class DescribeCenChildInstanceRouteEntriesRequest extends Model
         }
         if (isset($map['ChildInstanceRegionId'])) {
             $model->childInstanceRegionId = $map['ChildInstanceRegionId'];
-        }
-        if (isset($map['ChildInstanceRouteTableId'])) {
-            $model->childInstanceRouteTableId = $map['ChildInstanceRouteTableId'];
-        }
-        if (isset($map['DestinationCidrBlock'])) {
-            $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
 
         return $model;

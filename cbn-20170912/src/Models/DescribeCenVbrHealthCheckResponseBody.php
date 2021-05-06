@@ -12,11 +12,6 @@ class DescribeCenVbrHealthCheckResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribeCenVbrHealthCheckResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var vbrHealthChecks[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var vbrHealthChecks
      */
     public $vbrHealthChecks;
     protected $_name = [
-        'totalCount'      => 'TotalCount',
         'pageSize'        => 'PageSize',
         'requestId'       => 'RequestId',
         'pageNumber'      => 'PageNumber',
+        'totalCount'      => 'TotalCount',
         'vbrHealthChecks' => 'VbrHealthChecks',
     ];
 
@@ -48,9 +48,6 @@ class DescribeCenVbrHealthCheckResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class DescribeCenVbrHealthCheckResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->vbrHealthChecks) {
-            $res['VbrHealthChecks'] = [];
-            if (null !== $this->vbrHealthChecks && \is_array($this->vbrHealthChecks)) {
-                $n = 0;
-                foreach ($this->vbrHealthChecks as $item) {
-                    $res['VbrHealthChecks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['VbrHealthChecks'] = null !== $this->vbrHealthChecks ? $this->vbrHealthChecks->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class DescribeCenVbrHealthCheckResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class DescribeCenVbrHealthCheckResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['VbrHealthChecks'])) {
-            if (!empty($map['VbrHealthChecks'])) {
-                $model->vbrHealthChecks = [];
-                $n                      = 0;
-                foreach ($map['VbrHealthChecks'] as $item) {
-                    $model->vbrHealthChecks[$n++] = null !== $item ? vbrHealthChecks::fromMap($item) : $item;
-                }
-            }
+            $model->vbrHealthChecks = vbrHealthChecks::fromMap($map['VbrHealthChecks']);
         }
 
         return $model;

@@ -47,11 +47,6 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
      * @var int
      */
     public $bandwidthLimit;
-
-    /**
-     * @var string
-     */
-    public $bandwidthPackageId;
     protected $_name = [
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -61,7 +56,6 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
         'localRegionId'        => 'LocalRegionId',
         'oppositeRegionId'     => 'OppositeRegionId',
         'bandwidthLimit'       => 'BandwidthLimit',
-        'bandwidthPackageId'   => 'BandwidthPackageId',
     ];
 
     public function validate()
@@ -94,9 +88,6 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
         }
         if (null !== $this->bandwidthLimit) {
             $res['BandwidthLimit'] = $this->bandwidthLimit;
-        }
-        if (null !== $this->bandwidthPackageId) {
-            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
 
         return $res;
@@ -133,9 +124,6 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
         }
         if (isset($map['BandwidthLimit'])) {
             $model->bandwidthLimit = $map['BandwidthLimit'];
-        }
-        if (isset($map['BandwidthPackageId'])) {
-            $model->bandwidthPackageId = $map['BandwidthPackageId'];
         }
 
         return $model;

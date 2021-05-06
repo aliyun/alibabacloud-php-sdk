@@ -2,12 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenBandwidthPackagesResponseBody\cenBandwidthPackages;
+namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenBandwidthPackagesResponseBody\cenBandwidthPackages\cenBandwidthPackage\orginInterRegionBandwidthLimits;
 
 use AlibabaCloud\Tea\Model;
 
-class orginInterRegionBandwidthLimits extends Model
+class orginInterRegionBandwidthLimit extends Model
 {
+    /**
+     * @var string
+     */
+    public $bandwidthLimit;
+
     /**
      * @var string
      */
@@ -22,16 +27,11 @@ class orginInterRegionBandwidthLimits extends Model
      * @var string
      */
     public $localRegionId;
-
-    /**
-     * @var string
-     */
-    public $bandwidthLimit;
     protected $_name = [
+        'bandwidthLimit'   => 'BandwidthLimit',
         'oppositeRegionId' => 'OppositeRegionId',
         'geographicSpanId' => 'GeographicSpanId',
         'localRegionId'    => 'LocalRegionId',
-        'bandwidthLimit'   => 'BandwidthLimit',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class orginInterRegionBandwidthLimits extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidthLimit) {
+            $res['BandwidthLimit'] = $this->bandwidthLimit;
+        }
         if (null !== $this->oppositeRegionId) {
             $res['OppositeRegionId'] = $this->oppositeRegionId;
         }
@@ -50,9 +53,6 @@ class orginInterRegionBandwidthLimits extends Model
         if (null !== $this->localRegionId) {
             $res['LocalRegionId'] = $this->localRegionId;
         }
-        if (null !== $this->bandwidthLimit) {
-            $res['BandwidthLimit'] = $this->bandwidthLimit;
-        }
 
         return $res;
     }
@@ -60,11 +60,14 @@ class orginInterRegionBandwidthLimits extends Model
     /**
      * @param array $map
      *
-     * @return orginInterRegionBandwidthLimits
+     * @return orginInterRegionBandwidthLimit
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BandwidthLimit'])) {
+            $model->bandwidthLimit = $map['BandwidthLimit'];
+        }
         if (isset($map['OppositeRegionId'])) {
             $model->oppositeRegionId = $map['OppositeRegionId'];
         }
@@ -73,9 +76,6 @@ class orginInterRegionBandwidthLimits extends Model
         }
         if (isset($map['LocalRegionId'])) {
             $model->localRegionId = $map['LocalRegionId'];
-        }
-        if (isset($map['BandwidthLimit'])) {
-            $model->bandwidthLimit = $map['BandwidthLimit'];
         }
 
         return $model;

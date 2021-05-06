@@ -12,11 +12,6 @@ class DescribePublishedRouteEntriesResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribePublishedRouteEntriesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var publishedRouteEntries[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var publishedRouteEntries
      */
     public $publishedRouteEntries;
     protected $_name = [
-        'totalCount'            => 'TotalCount',
         'pageSize'              => 'PageSize',
         'requestId'             => 'RequestId',
         'pageNumber'            => 'PageNumber',
+        'totalCount'            => 'TotalCount',
         'publishedRouteEntries' => 'PublishedRouteEntries',
     ];
 
@@ -48,9 +48,6 @@ class DescribePublishedRouteEntriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class DescribePublishedRouteEntriesResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->publishedRouteEntries) {
-            $res['PublishedRouteEntries'] = [];
-            if (null !== $this->publishedRouteEntries && \is_array($this->publishedRouteEntries)) {
-                $n = 0;
-                foreach ($this->publishedRouteEntries as $item) {
-                    $res['PublishedRouteEntries'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['PublishedRouteEntries'] = null !== $this->publishedRouteEntries ? $this->publishedRouteEntries->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class DescribePublishedRouteEntriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class DescribePublishedRouteEntriesResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['PublishedRouteEntries'])) {
-            if (!empty($map['PublishedRouteEntries'])) {
-                $model->publishedRouteEntries = [];
-                $n                            = 0;
-                foreach ($map['PublishedRouteEntries'] as $item) {
-                    $model->publishedRouteEntries[$n++] = null !== $item ? publishedRouteEntries::fromMap($item) : $item;
-                }
-            }
+            $model->publishedRouteEntries = publishedRouteEntries::fromMap($map['PublishedRouteEntries']);
         }
 
         return $model;

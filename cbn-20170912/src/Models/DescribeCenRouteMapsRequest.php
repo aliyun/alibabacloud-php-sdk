@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsRequest\filter;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCenRouteMapsRequest extends Model
@@ -58,11 +57,6 @@ class DescribeCenRouteMapsRequest extends Model
      * @var string
      */
     public $transmitDirection;
-
-    /**
-     * @var filter[]
-     */
-    public $filter;
     protected $_name = [
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -74,7 +68,6 @@ class DescribeCenRouteMapsRequest extends Model
         'routeMapId'           => 'RouteMapId',
         'cenRegionId'          => 'CenRegionId',
         'transmitDirection'    => 'TransmitDirection',
-        'filter'               => 'Filter',
     ];
 
     public function validate()
@@ -113,15 +106,6 @@ class DescribeCenRouteMapsRequest extends Model
         }
         if (null !== $this->transmitDirection) {
             $res['TransmitDirection'] = $this->transmitDirection;
-        }
-        if (null !== $this->filter) {
-            $res['Filter'] = [];
-            if (null !== $this->filter && \is_array($this->filter)) {
-                $n = 0;
-                foreach ($this->filter as $item) {
-                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -164,15 +148,6 @@ class DescribeCenRouteMapsRequest extends Model
         }
         if (isset($map['TransmitDirection'])) {
             $model->transmitDirection = $map['TransmitDirection'];
-        }
-        if (isset($map['Filter'])) {
-            if (!empty($map['Filter'])) {
-                $model->filter = [];
-                $n             = 0;
-                foreach ($map['Filter'] as $item) {
-                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

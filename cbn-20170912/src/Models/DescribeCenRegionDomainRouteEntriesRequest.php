@@ -52,11 +52,6 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
      * @var string
      */
     public $status;
-
-    /**
-     * @var string
-     */
-    public $destinationCidrBlock;
     protected $_name = [
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -67,7 +62,6 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'status'               => 'Status',
-        'destinationCidrBlock' => 'DestinationCidrBlock',
     ];
 
     public function validate()
@@ -103,9 +97,6 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->destinationCidrBlock) {
-            $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
 
         return $res;
@@ -145,9 +136,6 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['DestinationCidrBlock'])) {
-            $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
 
         return $model;

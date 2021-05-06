@@ -4,40 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeGrantRulesToCenResponseBody;
 
+use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeGrantRulesToCenResponseBody\grantRules\grantRule;
 use AlibabaCloud\Tea\Model;
 
 class grantRules extends Model
 {
     /**
-     * @var string
+     * @var grantRule[]
      */
-    public $childInstanceType;
-
-    /**
-     * @var string
-     */
-    public $childInstanceRegionId;
-
-    /**
-     * @var int
-     */
-    public $childInstanceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $childInstanceId;
-
-    /**
-     * @var string
-     */
-    public $cenId;
+    public $grantRule;
     protected $_name = [
-        'childInstanceType'     => 'ChildInstanceType',
-        'childInstanceRegionId' => 'ChildInstanceRegionId',
-        'childInstanceOwnerId'  => 'ChildInstanceOwnerId',
-        'childInstanceId'       => 'ChildInstanceId',
-        'cenId'                 => 'CenId',
+        'grantRule' => 'GrantRule',
     ];
 
     public function validate()
@@ -47,20 +24,14 @@ class grantRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->childInstanceType) {
-            $res['ChildInstanceType'] = $this->childInstanceType;
-        }
-        if (null !== $this->childInstanceRegionId) {
-            $res['ChildInstanceRegionId'] = $this->childInstanceRegionId;
-        }
-        if (null !== $this->childInstanceOwnerId) {
-            $res['ChildInstanceOwnerId'] = $this->childInstanceOwnerId;
-        }
-        if (null !== $this->childInstanceId) {
-            $res['ChildInstanceId'] = $this->childInstanceId;
-        }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
+        if (null !== $this->grantRule) {
+            $res['GrantRule'] = [];
+            if (null !== $this->grantRule && \is_array($this->grantRule)) {
+                $n = 0;
+                foreach ($this->grantRule as $item) {
+                    $res['GrantRule'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -74,20 +45,14 @@ class grantRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ChildInstanceType'])) {
-            $model->childInstanceType = $map['ChildInstanceType'];
-        }
-        if (isset($map['ChildInstanceRegionId'])) {
-            $model->childInstanceRegionId = $map['ChildInstanceRegionId'];
-        }
-        if (isset($map['ChildInstanceOwnerId'])) {
-            $model->childInstanceOwnerId = $map['ChildInstanceOwnerId'];
-        }
-        if (isset($map['ChildInstanceId'])) {
-            $model->childInstanceId = $map['ChildInstanceId'];
-        }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
+        if (isset($map['GrantRule'])) {
+            if (!empty($map['GrantRule'])) {
+                $model->grantRule = [];
+                $n                = 0;
+                foreach ($map['GrantRule'] as $item) {
+                    $model->grantRule[$n++] = null !== $item ? grantRule::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

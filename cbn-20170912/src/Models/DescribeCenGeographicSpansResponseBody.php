@@ -12,11 +12,6 @@ class DescribeCenGeographicSpansResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribeCenGeographicSpansResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var geographicSpanModels[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var geographicSpanModels
      */
     public $geographicSpanModels;
     protected $_name = [
-        'totalCount'           => 'TotalCount',
         'pageSize'             => 'PageSize',
         'requestId'            => 'RequestId',
         'pageNumber'           => 'PageNumber',
+        'totalCount'           => 'TotalCount',
         'geographicSpanModels' => 'GeographicSpanModels',
     ];
 
@@ -48,9 +48,6 @@ class DescribeCenGeographicSpansResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class DescribeCenGeographicSpansResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->geographicSpanModels) {
-            $res['GeographicSpanModels'] = [];
-            if (null !== $this->geographicSpanModels && \is_array($this->geographicSpanModels)) {
-                $n = 0;
-                foreach ($this->geographicSpanModels as $item) {
-                    $res['GeographicSpanModels'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['GeographicSpanModels'] = null !== $this->geographicSpanModels ? $this->geographicSpanModels->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class DescribeCenGeographicSpansResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class DescribeCenGeographicSpansResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['GeographicSpanModels'])) {
-            if (!empty($map['GeographicSpanModels'])) {
-                $model->geographicSpanModels = [];
-                $n                           = 0;
-                foreach ($map['GeographicSpanModels'] as $item) {
-                    $model->geographicSpanModels[$n++] = null !== $item ? geographicSpanModels::fromMap($item) : $item;
-                }
-            }
+            $model->geographicSpanModels = geographicSpanModels::fromMap($map['GeographicSpanModels']);
         }
 
         return $model;

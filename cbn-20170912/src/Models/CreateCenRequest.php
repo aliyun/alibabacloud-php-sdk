@@ -47,11 +47,6 @@ class CreateCenRequest extends Model
      * @var string
      */
     public $protectionLevel;
-
-    /**
-     * @var string
-     */
-    public $ipv6Level;
     protected $_name = [
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -61,7 +56,6 @@ class CreateCenRequest extends Model
         'name'                 => 'Name',
         'description'          => 'Description',
         'protectionLevel'      => 'ProtectionLevel',
-        'ipv6Level'            => 'Ipv6Level',
     ];
 
     public function validate()
@@ -94,9 +88,6 @@ class CreateCenRequest extends Model
         }
         if (null !== $this->protectionLevel) {
             $res['ProtectionLevel'] = $this->protectionLevel;
-        }
-        if (null !== $this->ipv6Level) {
-            $res['Ipv6Level'] = $this->ipv6Level;
         }
 
         return $res;
@@ -133,9 +124,6 @@ class CreateCenRequest extends Model
         }
         if (isset($map['ProtectionLevel'])) {
             $model->protectionLevel = $map['ProtectionLevel'];
-        }
-        if (isset($map['Ipv6Level'])) {
-            $model->ipv6Level = $map['Ipv6Level'];
         }
 
         return $model;

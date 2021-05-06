@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRegionDomainRouteEntriesResponseBody\cenRouteEntries;
+namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeChildInstanceRegionsResponseBody\regions;
 
 use AlibabaCloud\Tea\Model;
 
-class cenRouteMapRecords extends Model
+class region extends Model
 {
     /**
      * @var string
      */
-    public $routeMapId;
+    public $localName;
 
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'routeMapId' => 'RouteMapId',
-        'regionId'   => 'RegionId',
+        'localName' => 'LocalName',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -29,8 +29,8 @@ class cenRouteMapRecords extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->routeMapId) {
-            $res['RouteMapId'] = $this->routeMapId;
+        if (null !== $this->localName) {
+            $res['LocalName'] = $this->localName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -42,13 +42,13 @@ class cenRouteMapRecords extends Model
     /**
      * @param array $map
      *
-     * @return cenRouteMapRecords
+     * @return region
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RouteMapId'])) {
-            $model->routeMapId = $map['RouteMapId'];
+        if (isset($map['LocalName'])) {
+            $model->localName = $map['LocalName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

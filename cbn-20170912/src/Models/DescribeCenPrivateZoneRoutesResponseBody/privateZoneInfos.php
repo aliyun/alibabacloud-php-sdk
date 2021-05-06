@@ -4,34 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenPrivateZoneRoutesResponseBody;
 
+use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenPrivateZoneRoutesResponseBody\privateZoneInfos\privateZoneInfo;
 use AlibabaCloud\Tea\Model;
 
 class privateZoneInfos extends Model
 {
     /**
-     * @var string
+     * @var privateZoneInfo[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $hostVpcId;
-
-    /**
-     * @var string
-     */
-    public $accessRegionId;
-
-    /**
-     * @var string
-     */
-    public $hostRegionId;
+    public $privateZoneInfo;
     protected $_name = [
-        'status'         => 'Status',
-        'hostVpcId'      => 'HostVpcId',
-        'accessRegionId' => 'AccessRegionId',
-        'hostRegionId'   => 'HostRegionId',
+        'privateZoneInfo' => 'PrivateZoneInfo',
     ];
 
     public function validate()
@@ -41,17 +24,14 @@ class privateZoneInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->hostVpcId) {
-            $res['HostVpcId'] = $this->hostVpcId;
-        }
-        if (null !== $this->accessRegionId) {
-            $res['AccessRegionId'] = $this->accessRegionId;
-        }
-        if (null !== $this->hostRegionId) {
-            $res['HostRegionId'] = $this->hostRegionId;
+        if (null !== $this->privateZoneInfo) {
+            $res['PrivateZoneInfo'] = [];
+            if (null !== $this->privateZoneInfo && \is_array($this->privateZoneInfo)) {
+                $n = 0;
+                foreach ($this->privateZoneInfo as $item) {
+                    $res['PrivateZoneInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -65,17 +45,14 @@ class privateZoneInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['HostVpcId'])) {
-            $model->hostVpcId = $map['HostVpcId'];
-        }
-        if (isset($map['AccessRegionId'])) {
-            $model->accessRegionId = $map['AccessRegionId'];
-        }
-        if (isset($map['HostRegionId'])) {
-            $model->hostRegionId = $map['HostRegionId'];
+        if (isset($map['PrivateZoneInfo'])) {
+            if (!empty($map['PrivateZoneInfo'])) {
+                $model->privateZoneInfo = [];
+                $n                      = 0;
+                foreach ($map['PrivateZoneInfo'] as $item) {
+                    $model->privateZoneInfo[$n++] = null !== $item ? privateZoneInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

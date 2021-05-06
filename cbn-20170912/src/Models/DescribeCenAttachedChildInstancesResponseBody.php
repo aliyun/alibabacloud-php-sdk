@@ -12,11 +12,6 @@ class DescribeCenAttachedChildInstancesResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribeCenAttachedChildInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var childInstances[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var childInstances
      */
     public $childInstances;
     protected $_name = [
-        'totalCount'     => 'TotalCount',
         'pageSize'       => 'PageSize',
         'requestId'      => 'RequestId',
         'pageNumber'     => 'PageNumber',
+        'totalCount'     => 'TotalCount',
         'childInstances' => 'ChildInstances',
     ];
 
@@ -48,9 +48,6 @@ class DescribeCenAttachedChildInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class DescribeCenAttachedChildInstancesResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->childInstances) {
-            $res['ChildInstances'] = [];
-            if (null !== $this->childInstances && \is_array($this->childInstances)) {
-                $n = 0;
-                foreach ($this->childInstances as $item) {
-                    $res['ChildInstances'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['ChildInstances'] = null !== $this->childInstances ? $this->childInstances->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class DescribeCenAttachedChildInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class DescribeCenAttachedChildInstancesResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['ChildInstances'])) {
-            if (!empty($map['ChildInstances'])) {
-                $model->childInstances = [];
-                $n                     = 0;
-                foreach ($map['ChildInstances'] as $item) {
-                    $model->childInstances[$n++] = null !== $item ? childInstances::fromMap($item) : $item;
-                }
-            }
+            $model->childInstances = childInstances::fromMap($map['ChildInstances']);
         }
 
         return $model;

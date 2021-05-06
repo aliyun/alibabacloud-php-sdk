@@ -12,11 +12,6 @@ class DescribeCenRouteMapsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribeCenRouteMapsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var routeMaps[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var routeMaps
      */
     public $routeMaps;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
         'routeMaps'  => 'RouteMaps',
     ];
 
@@ -48,9 +48,6 @@ class DescribeCenRouteMapsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class DescribeCenRouteMapsResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->routeMaps) {
-            $res['RouteMaps'] = [];
-            if (null !== $this->routeMaps && \is_array($this->routeMaps)) {
-                $n = 0;
-                foreach ($this->routeMaps as $item) {
-                    $res['RouteMaps'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['RouteMaps'] = null !== $this->routeMaps ? $this->routeMaps->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class DescribeCenRouteMapsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class DescribeCenRouteMapsResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['RouteMaps'])) {
-            if (!empty($map['RouteMaps'])) {
-                $model->routeMaps = [];
-                $n                = 0;
-                foreach ($map['RouteMaps'] as $item) {
-                    $model->routeMaps[$n++] = null !== $item ? routeMaps::fromMap($item) : $item;
-                }
-            }
+            $model->routeMaps = routeMaps::fromMap($map['RouteMaps']);
         }
 
         return $model;

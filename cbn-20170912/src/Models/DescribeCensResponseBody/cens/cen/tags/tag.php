@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCensResponseBody\cens;
+namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCensResponseBody\cens\cen\tags;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class tag extends Model
 {
     /**
      * @var string
@@ -42,7 +42,7 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return tag
      */
     public static function fromMap($map = [])
     {

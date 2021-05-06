@@ -2,24 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRegionDomainRouteEntriesResponseBody\cenRouteEntries;
+namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeGeographicRegionMembershipResponseBody\regionIds;
 
 use AlibabaCloud\Tea\Model;
 
-class cenOutRouteMapRecords extends Model
+class regionId extends Model
 {
-    /**
-     * @var string
-     */
-    public $routeMapId;
-
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'routeMapId' => 'RouteMapId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class cenOutRouteMapRecords extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->routeMapId) {
-            $res['RouteMapId'] = $this->routeMapId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -42,14 +33,11 @@ class cenOutRouteMapRecords extends Model
     /**
      * @param array $map
      *
-     * @return cenOutRouteMapRecords
+     * @return regionId
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RouteMapId'])) {
-            $model->routeMapId = $map['RouteMapId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -12,11 +12,6 @@ class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var cenRouteEntries[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var cenRouteEntries
      */
     public $cenRouteEntries;
     protected $_name = [
-        'totalCount'      => 'TotalCount',
         'pageSize'        => 'PageSize',
         'requestId'       => 'RequestId',
         'pageNumber'      => 'PageNumber',
+        'totalCount'      => 'TotalCount',
         'cenRouteEntries' => 'CenRouteEntries',
     ];
 
@@ -48,9 +48,6 @@ class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->cenRouteEntries) {
-            $res['CenRouteEntries'] = [];
-            if (null !== $this->cenRouteEntries && \is_array($this->cenRouteEntries)) {
-                $n = 0;
-                foreach ($this->cenRouteEntries as $item) {
-                    $res['CenRouteEntries'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['CenRouteEntries'] = null !== $this->cenRouteEntries ? $this->cenRouteEntries->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class DescribeCenRegionDomainRouteEntriesResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['CenRouteEntries'])) {
-            if (!empty($map['CenRouteEntries'])) {
-                $model->cenRouteEntries = [];
-                $n                      = 0;
-                foreach ($map['CenRouteEntries'] as $item) {
-                    $model->cenRouteEntries[$n++] = null !== $item ? cenRouteEntries::fromMap($item) : $item;
-                }
-            }
+            $model->cenRouteEntries = cenRouteEntries::fromMap($map['CenRouteEntries']);
         }
 
         return $model;

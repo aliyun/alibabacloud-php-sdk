@@ -12,22 +12,7 @@ class DescribeFlowlogsResponseBody extends Model
     /**
      * @var string
      */
-    public $totalCount;
-
-    /**
-     * @var flowLogs[]
-     */
-    public $flowLogs;
-
-    /**
-     * @var string
-     */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @var string
@@ -37,14 +22,29 @@ class DescribeFlowlogsResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $totalCount;
+
+    /**
+     * @var string
+     */
     public $success;
+
+    /**
+     * @var flowLogs
+     */
+    public $flowLogs;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'flowLogs'   => 'FlowLogs',
         'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
         'success'    => 'Success',
+        'flowLogs'   => 'FlowLogs',
     ];
 
     public function validate()
@@ -54,29 +54,23 @@ class DescribeFlowlogsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->flowLogs) {
-            $res['FlowLogs'] = [];
-            if (null !== $this->flowLogs && \is_array($this->flowLogs)) {
-                $n = 0;
-                foreach ($this->flowLogs as $item) {
-                    $res['FlowLogs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->flowLogs) {
+            $res['FlowLogs'] = null !== $this->flowLogs ? $this->flowLogs->toMap() : null;
         }
 
         return $res;
@@ -90,29 +84,23 @@ class DescribeFlowlogsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['FlowLogs'])) {
-            if (!empty($map['FlowLogs'])) {
-                $model->flowLogs = [];
-                $n               = 0;
-                foreach ($map['FlowLogs'] as $item) {
-                    $model->flowLogs[$n++] = null !== $item ? flowLogs::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['FlowLogs'])) {
+            $model->flowLogs = flowLogs::fromMap($map['FlowLogs']);
         }
 
         return $model;

@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenChildInstanceRouteEntriesResponseBody\cenRouteEntries;
+namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRegionDomainRouteEntriesResponseBody\cenRouteEntries\cenRouteEntry\cenOutRouteMapRecords;
 
 use AlibabaCloud\Tea\Model;
 
-class cenRouteMapRecords extends Model
+class cenOutRouteMapRecord extends Model
 {
     /**
      * @var string
@@ -42,7 +42,7 @@ class cenRouteMapRecords extends Model
     /**
      * @param array $map
      *
-     * @return cenRouteMapRecords
+     * @return cenOutRouteMapRecord
      */
     public static function fromMap($map = [])
     {

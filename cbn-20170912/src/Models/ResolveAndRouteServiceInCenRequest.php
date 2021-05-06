@@ -49,11 +49,6 @@ class ResolveAndRouteServiceInCenRequest extends Model
     public $hostRegionId;
 
     /**
-     * @var int
-     */
-    public $updateInterval;
-
-    /**
      * @var string
      */
     public $hostVpcId;
@@ -76,7 +71,6 @@ class ResolveAndRouteServiceInCenRequest extends Model
         'cenId'                => 'CenId',
         'host'                 => 'Host',
         'hostRegionId'         => 'HostRegionId',
-        'updateInterval'       => 'UpdateInterval',
         'hostVpcId'            => 'HostVpcId',
         'description'          => 'Description',
         'accessRegionIds'      => 'AccessRegionIds',
@@ -112,9 +106,6 @@ class ResolveAndRouteServiceInCenRequest extends Model
         }
         if (null !== $this->hostRegionId) {
             $res['HostRegionId'] = $this->hostRegionId;
-        }
-        if (null !== $this->updateInterval) {
-            $res['UpdateInterval'] = $this->updateInterval;
         }
         if (null !== $this->hostVpcId) {
             $res['HostVpcId'] = $this->hostVpcId;
@@ -160,9 +151,6 @@ class ResolveAndRouteServiceInCenRequest extends Model
         }
         if (isset($map['HostRegionId'])) {
             $model->hostRegionId = $map['HostRegionId'];
-        }
-        if (isset($map['UpdateInterval'])) {
-            $model->updateInterval = $map['UpdateInterval'];
         }
         if (isset($map['HostVpcId'])) {
             $model->hostVpcId = $map['HostVpcId'];

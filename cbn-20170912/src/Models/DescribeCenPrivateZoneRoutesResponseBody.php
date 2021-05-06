@@ -10,29 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenPrivateZoneRoutesResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
-
-    /**
-     * @var privateZoneInfos[]
-     */
-    public $privateZoneInfos;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
+    public $privateZoneDnsServers;
 
     /**
      * @var string
@@ -40,17 +25,32 @@ class DescribeCenPrivateZoneRoutesResponseBody extends Model
     public $cenId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $privateZoneDnsServers;
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var privateZoneInfos
+     */
+    public $privateZoneInfos;
     protected $_name = [
-        'totalCount'            => 'TotalCount',
         'requestId'             => 'RequestId',
-        'pageSize'              => 'PageSize',
-        'privateZoneInfos'      => 'PrivateZoneInfos',
-        'pageNumber'            => 'PageNumber',
-        'cenId'                 => 'CenId',
         'privateZoneDnsServers' => 'PrivateZoneDnsServers',
+        'cenId'                 => 'CenId',
+        'pageNumber'            => 'PageNumber',
+        'pageSize'              => 'PageSize',
+        'totalCount'            => 'TotalCount',
+        'privateZoneInfos'      => 'PrivateZoneInfos',
     ];
 
     public function validate()
@@ -60,32 +60,26 @@ class DescribeCenPrivateZoneRoutesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->privateZoneInfos) {
-            $res['PrivateZoneInfos'] = [];
-            if (null !== $this->privateZoneInfos && \is_array($this->privateZoneInfos)) {
-                $n = 0;
-                foreach ($this->privateZoneInfos as $item) {
-                    $res['PrivateZoneInfos'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->privateZoneDnsServers) {
+            $res['PrivateZoneDnsServers'] = $this->privateZoneDnsServers;
         }
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
         }
-        if (null !== $this->privateZoneDnsServers) {
-            $res['PrivateZoneDnsServers'] = $this->privateZoneDnsServers;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->privateZoneInfos) {
+            $res['PrivateZoneInfos'] = null !== $this->privateZoneInfos ? $this->privateZoneInfos->toMap() : null;
         }
 
         return $res;
@@ -99,32 +93,26 @@ class DescribeCenPrivateZoneRoutesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PrivateZoneInfos'])) {
-            if (!empty($map['PrivateZoneInfos'])) {
-                $model->privateZoneInfos = [];
-                $n                       = 0;
-                foreach ($map['PrivateZoneInfos'] as $item) {
-                    $model->privateZoneInfos[$n++] = null !== $item ? privateZoneInfos::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['PrivateZoneDnsServers'])) {
+            $model->privateZoneDnsServers = $map['PrivateZoneDnsServers'];
         }
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
         }
-        if (isset($map['PrivateZoneDnsServers'])) {
-            $model->privateZoneDnsServers = $map['PrivateZoneDnsServers'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['PrivateZoneInfos'])) {
+            $model->privateZoneInfos = privateZoneInfos::fromMap($map['PrivateZoneInfos']);
         }
 
         return $model;

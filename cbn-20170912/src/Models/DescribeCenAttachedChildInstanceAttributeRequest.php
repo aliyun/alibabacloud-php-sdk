@@ -47,11 +47,6 @@ class DescribeCenAttachedChildInstanceAttributeRequest extends Model
      * @var string
      */
     public $childInstanceRegionId;
-
-    /**
-     * @var bool
-     */
-    public $includeRouteTable;
     protected $_name = [
         'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
@@ -61,7 +56,6 @@ class DescribeCenAttachedChildInstanceAttributeRequest extends Model
         'childInstanceId'       => 'ChildInstanceId',
         'childInstanceType'     => 'ChildInstanceType',
         'childInstanceRegionId' => 'ChildInstanceRegionId',
-        'includeRouteTable'     => 'IncludeRouteTable',
     ];
 
     public function validate()
@@ -94,9 +88,6 @@ class DescribeCenAttachedChildInstanceAttributeRequest extends Model
         }
         if (null !== $this->childInstanceRegionId) {
             $res['ChildInstanceRegionId'] = $this->childInstanceRegionId;
-        }
-        if (null !== $this->includeRouteTable) {
-            $res['IncludeRouteTable'] = $this->includeRouteTable;
         }
 
         return $res;
@@ -133,9 +124,6 @@ class DescribeCenAttachedChildInstanceAttributeRequest extends Model
         }
         if (isset($map['ChildInstanceRegionId'])) {
             $model->childInstanceRegionId = $map['ChildInstanceRegionId'];
-        }
-        if (isset($map['IncludeRouteTable'])) {
-            $model->includeRouteTable = $map['IncludeRouteTable'];
         }
 
         return $model;

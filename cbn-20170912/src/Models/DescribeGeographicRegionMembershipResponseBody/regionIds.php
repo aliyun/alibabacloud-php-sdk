@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeGeographicRegionMembershipResponseBody;
 
+use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeGeographicRegionMembershipResponseBody\regionIds\regionId;
 use AlibabaCloud\Tea\Model;
 
 class regionIds extends Model
 {
     /**
-     * @var string
+     * @var regionId[]
      */
     public $regionId;
     protected $_name = [
@@ -24,7 +25,13 @@ class regionIds extends Model
     {
         $res = [];
         if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+            $res['RegionId'] = [];
+            if (null !== $this->regionId && \is_array($this->regionId)) {
+                $n = 0;
+                foreach ($this->regionId as $item) {
+                    $res['RegionId'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -39,7 +46,13 @@ class regionIds extends Model
     {
         $model = new self();
         if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+            if (!empty($map['RegionId'])) {
+                $model->regionId = [];
+                $n               = 0;
+                foreach ($map['RegionId'] as $item) {
+                    $model->regionId[$n++] = null !== $item ? regionId::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

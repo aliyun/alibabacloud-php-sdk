@@ -16,16 +16,16 @@ class CreateFlowlogResponseBody extends Model
     /**
      * @var string
      */
-    public $flowLogId;
+    public $success;
 
     /**
      * @var string
      */
-    public $success;
+    public $flowLogId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'flowLogId' => 'FlowLogId',
         'success'   => 'Success',
+        'flowLogId' => 'FlowLogId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class CreateFlowlogResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->flowLogId) {
-            $res['FlowLogId'] = $this->flowLogId;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->flowLogId) {
+            $res['FlowLogId'] = $this->flowLogId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class CreateFlowlogResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['FlowLogId'])) {
-            $model->flowLogId = $map['FlowLogId'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['FlowLogId'])) {
+            $model->flowLogId = $map['FlowLogId'];
         }
 
         return $model;

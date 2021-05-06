@@ -99,21 +99,6 @@ class CreateCenRouteMapRequest extends Model
     public $destinationInstanceIdsReverseMatch;
 
     /**
-     * @var string
-     */
-    public $gatewayZoneId;
-
-    /**
-     * @var bool
-     */
-    public $systemPolicy;
-
-    /**
-     * @var string
-     */
-    public $matchAddressType;
-
-    /**
      * @var string[]
      */
     public $sourceInstanceIds;
@@ -177,21 +162,6 @@ class CreateCenRouteMapRequest extends Model
      * @var int[]
      */
     public $prependAsPath;
-
-    /**
-     * @var string[]
-     */
-    public $destinationRegionIds;
-
-    /**
-     * @var string[]
-     */
-    public $sourceZoneIds;
-
-    /**
-     * @var string[]
-     */
-    public $originalRouteTableIds;
     protected $_name = [
         'ownerAccount'                       => 'OwnerAccount',
         'ownerId'                            => 'OwnerId',
@@ -211,9 +181,6 @@ class CreateCenRouteMapRequest extends Model
         'preference'                         => 'Preference',
         'sourceInstanceIdsReverseMatch'      => 'SourceInstanceIdsReverseMatch',
         'destinationInstanceIdsReverseMatch' => 'DestinationInstanceIdsReverseMatch',
-        'gatewayZoneId'                      => 'GatewayZoneId',
-        'systemPolicy'                       => 'SystemPolicy',
-        'matchAddressType'                   => 'MatchAddressType',
         'sourceInstanceIds'                  => 'SourceInstanceIds',
         'destinationInstanceIds'             => 'DestinationInstanceIds',
         'sourceRouteTableIds'                => 'SourceRouteTableIds',
@@ -227,9 +194,6 @@ class CreateCenRouteMapRequest extends Model
         'matchCommunitySet'                  => 'MatchCommunitySet',
         'operateCommunitySet'                => 'OperateCommunitySet',
         'prependAsPath'                      => 'PrependAsPath',
-        'destinationRegionIds'               => 'DestinationRegionIds',
-        'sourceZoneIds'                      => 'SourceZoneIds',
-        'originalRouteTableIds'              => 'OriginalRouteTableIds',
     ];
 
     public function validate()
@@ -293,15 +257,6 @@ class CreateCenRouteMapRequest extends Model
         if (null !== $this->destinationInstanceIdsReverseMatch) {
             $res['DestinationInstanceIdsReverseMatch'] = $this->destinationInstanceIdsReverseMatch;
         }
-        if (null !== $this->gatewayZoneId) {
-            $res['GatewayZoneId'] = $this->gatewayZoneId;
-        }
-        if (null !== $this->systemPolicy) {
-            $res['SystemPolicy'] = $this->systemPolicy;
-        }
-        if (null !== $this->matchAddressType) {
-            $res['MatchAddressType'] = $this->matchAddressType;
-        }
         if (null !== $this->sourceInstanceIds) {
             $res['SourceInstanceIds'] = $this->sourceInstanceIds;
         }
@@ -340,15 +295,6 @@ class CreateCenRouteMapRequest extends Model
         }
         if (null !== $this->prependAsPath) {
             $res['PrependAsPath'] = $this->prependAsPath;
-        }
-        if (null !== $this->destinationRegionIds) {
-            $res['DestinationRegionIds'] = $this->destinationRegionIds;
-        }
-        if (null !== $this->sourceZoneIds) {
-            $res['SourceZoneIds'] = $this->sourceZoneIds;
-        }
-        if (null !== $this->originalRouteTableIds) {
-            $res['OriginalRouteTableIds'] = $this->originalRouteTableIds;
         }
 
         return $res;
@@ -416,15 +362,6 @@ class CreateCenRouteMapRequest extends Model
         if (isset($map['DestinationInstanceIdsReverseMatch'])) {
             $model->destinationInstanceIdsReverseMatch = $map['DestinationInstanceIdsReverseMatch'];
         }
-        if (isset($map['GatewayZoneId'])) {
-            $model->gatewayZoneId = $map['GatewayZoneId'];
-        }
-        if (isset($map['SystemPolicy'])) {
-            $model->systemPolicy = $map['SystemPolicy'];
-        }
-        if (isset($map['MatchAddressType'])) {
-            $model->matchAddressType = $map['MatchAddressType'];
-        }
         if (isset($map['SourceInstanceIds'])) {
             if (!empty($map['SourceInstanceIds'])) {
                 $model->sourceInstanceIds = $map['SourceInstanceIds'];
@@ -488,21 +425,6 @@ class CreateCenRouteMapRequest extends Model
         if (isset($map['PrependAsPath'])) {
             if (!empty($map['PrependAsPath'])) {
                 $model->prependAsPath = $map['PrependAsPath'];
-            }
-        }
-        if (isset($map['DestinationRegionIds'])) {
-            if (!empty($map['DestinationRegionIds'])) {
-                $model->destinationRegionIds = $map['DestinationRegionIds'];
-            }
-        }
-        if (isset($map['SourceZoneIds'])) {
-            if (!empty($map['SourceZoneIds'])) {
-                $model->sourceZoneIds = $map['SourceZoneIds'];
-            }
-        }
-        if (isset($map['OriginalRouteTableIds'])) {
-            if (!empty($map['OriginalRouteTableIds'])) {
-                $model->originalRouteTableIds = $map['OriginalRouteTableIds'];
             }
         }
 

@@ -4,52 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenInterRegionBandwidthLimitsResponseBody;
 
+use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenInterRegionBandwidthLimitsResponseBody\cenInterRegionBandwidthLimits\cenInterRegionBandwidthLimit;
 use AlibabaCloud\Tea\Model;
 
 class cenInterRegionBandwidthLimits extends Model
 {
     /**
-     * @var string
+     * @var cenInterRegionBandwidthLimit[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $bandwidthPackageId;
-
-    /**
-     * @var string
-     */
-    public $oppositeRegionId;
-
-    /**
-     * @var string
-     */
-    public $geographicSpanId;
-
-    /**
-     * @var string
-     */
-    public $cenId;
-
-    /**
-     * @var string
-     */
-    public $localRegionId;
-
-    /**
-     * @var int
-     */
-    public $bandwidthLimit;
+    public $cenInterRegionBandwidthLimit;
     protected $_name = [
-        'status'             => 'Status',
-        'bandwidthPackageId' => 'BandwidthPackageId',
-        'oppositeRegionId'   => 'OppositeRegionId',
-        'geographicSpanId'   => 'GeographicSpanId',
-        'cenId'              => 'CenId',
-        'localRegionId'      => 'LocalRegionId',
-        'bandwidthLimit'     => 'BandwidthLimit',
+        'cenInterRegionBandwidthLimit' => 'CenInterRegionBandwidthLimit',
     ];
 
     public function validate()
@@ -59,26 +24,14 @@ class cenInterRegionBandwidthLimits extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->bandwidthPackageId) {
-            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
-        }
-        if (null !== $this->oppositeRegionId) {
-            $res['OppositeRegionId'] = $this->oppositeRegionId;
-        }
-        if (null !== $this->geographicSpanId) {
-            $res['GeographicSpanId'] = $this->geographicSpanId;
-        }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
-        }
-        if (null !== $this->localRegionId) {
-            $res['LocalRegionId'] = $this->localRegionId;
-        }
-        if (null !== $this->bandwidthLimit) {
-            $res['BandwidthLimit'] = $this->bandwidthLimit;
+        if (null !== $this->cenInterRegionBandwidthLimit) {
+            $res['CenInterRegionBandwidthLimit'] = [];
+            if (null !== $this->cenInterRegionBandwidthLimit && \is_array($this->cenInterRegionBandwidthLimit)) {
+                $n = 0;
+                foreach ($this->cenInterRegionBandwidthLimit as $item) {
+                    $res['CenInterRegionBandwidthLimit'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -92,26 +45,14 @@ class cenInterRegionBandwidthLimits extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['BandwidthPackageId'])) {
-            $model->bandwidthPackageId = $map['BandwidthPackageId'];
-        }
-        if (isset($map['OppositeRegionId'])) {
-            $model->oppositeRegionId = $map['OppositeRegionId'];
-        }
-        if (isset($map['GeographicSpanId'])) {
-            $model->geographicSpanId = $map['GeographicSpanId'];
-        }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
-        }
-        if (isset($map['LocalRegionId'])) {
-            $model->localRegionId = $map['LocalRegionId'];
-        }
-        if (isset($map['BandwidthLimit'])) {
-            $model->bandwidthLimit = $map['BandwidthLimit'];
+        if (isset($map['CenInterRegionBandwidthLimit'])) {
+            if (!empty($map['CenInterRegionBandwidthLimit'])) {
+                $model->cenInterRegionBandwidthLimit = [];
+                $n                                   = 0;
+                foreach ($map['CenInterRegionBandwidthLimit'] as $item) {
+                    $model->cenInterRegionBandwidthLimit[$n++] = null !== $item ? cenInterRegionBandwidthLimit::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

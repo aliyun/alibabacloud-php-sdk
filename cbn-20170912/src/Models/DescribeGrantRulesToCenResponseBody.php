@@ -15,7 +15,7 @@ class DescribeGrantRulesToCenResponseBody extends Model
     public $requestId;
 
     /**
-     * @var grantRules[]
+     * @var grantRules
      */
     public $grantRules;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeGrantRulesToCenResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->grantRules) {
-            $res['GrantRules'] = [];
-            if (null !== $this->grantRules && \is_array($this->grantRules)) {
-                $n = 0;
-                foreach ($this->grantRules as $item) {
-                    $res['GrantRules'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['GrantRules'] = null !== $this->grantRules ? $this->grantRules->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeGrantRulesToCenResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['GrantRules'])) {
-            if (!empty($map['GrantRules'])) {
-                $model->grantRules = [];
-                $n                 = 0;
-                foreach ($map['GrantRules'] as $item) {
-                    $model->grantRules[$n++] = null !== $item ? grantRules::fromMap($item) : $item;
-                }
-            }
+            $model->grantRules = grantRules::fromMap($map['GrantRules']);
         }
 
         return $model;

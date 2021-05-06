@@ -12,11 +12,6 @@ class DescribeCensResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribeCensResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var cens[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var cens
      */
     public $cens;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
         'cens'       => 'Cens',
     ];
 
@@ -48,9 +48,6 @@ class DescribeCensResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class DescribeCensResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->cens) {
-            $res['Cens'] = [];
-            if (null !== $this->cens && \is_array($this->cens)) {
-                $n = 0;
-                foreach ($this->cens as $item) {
-                    $res['Cens'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Cens'] = null !== $this->cens ? $this->cens->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class DescribeCensResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class DescribeCensResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['Cens'])) {
-            if (!empty($map['Cens'])) {
-                $model->cens = [];
-                $n           = 0;
-                foreach ($map['Cens'] as $item) {
-                    $model->cens[$n++] = null !== $item ? cens::fromMap($item) : $item;
-                }
-            }
+            $model->cens = cens::fromMap($map['Cens']);
         }
 
         return $model;

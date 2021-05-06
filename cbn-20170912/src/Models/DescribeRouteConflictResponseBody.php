@@ -12,11 +12,6 @@ class DescribeRouteConflictResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
@@ -30,14 +25,19 @@ class DescribeRouteConflictResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var routeConflicts[]
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var routeConflicts
      */
     public $routeConflicts;
     protected $_name = [
-        'totalCount'     => 'TotalCount',
         'pageSize'       => 'PageSize',
         'requestId'      => 'RequestId',
         'pageNumber'     => 'PageNumber',
+        'totalCount'     => 'TotalCount',
         'routeConflicts' => 'RouteConflicts',
     ];
 
@@ -48,9 +48,6 @@ class DescribeRouteConflictResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -60,14 +57,11 @@ class DescribeRouteConflictResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->routeConflicts) {
-            $res['RouteConflicts'] = [];
-            if (null !== $this->routeConflicts && \is_array($this->routeConflicts)) {
-                $n = 0;
-                foreach ($this->routeConflicts as $item) {
-                    $res['RouteConflicts'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['RouteConflicts'] = null !== $this->routeConflicts ? $this->routeConflicts->toMap() : null;
         }
 
         return $res;
@@ -81,9 +75,6 @@ class DescribeRouteConflictResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -93,14 +84,11 @@ class DescribeRouteConflictResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['RouteConflicts'])) {
-            if (!empty($map['RouteConflicts'])) {
-                $model->routeConflicts = [];
-                $n                     = 0;
-                foreach ($map['RouteConflicts'] as $item) {
-                    $model->routeConflicts[$n++] = null !== $item ? routeConflicts::fromMap($item) : $item;
-                }
-            }
+            $model->routeConflicts = routeConflicts::fromMap($map['RouteConflicts']);
         }
 
         return $model;
