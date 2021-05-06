@@ -9,16 +9,36 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteInstanceMembersRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteInstanceMembersResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeControlPolicyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRdAccountsRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRdAccountsResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyAdvancedConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAclGroupListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAclGroupListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallPolicyPriorUsedRequest;
@@ -27,8 +47,12 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPriorityRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPriorityResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallControlPolicyPositionRequest;
@@ -144,6 +168,34 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param AddInstanceMembersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddInstanceMembersResponse
+     */
+    public function addInstanceMembersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddInstanceMembersResponse::fromMap($this->doRPCRequest('AddInstanceMembers', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddInstanceMembersRequest $request
+     *
+     * @return AddInstanceMembersResponse
+     */
+    public function addInstanceMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addInstanceMembersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateVpcFirewallControlPolicyRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -228,6 +280,34 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DeleteInstanceMembersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteInstanceMembersResponse
+     */
+    public function deleteInstanceMembersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteInstanceMembersResponse::fromMap($this->doRPCRequest('DeleteInstanceMembers', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteInstanceMembersRequest $request
+     *
+     * @return DeleteInstanceMembersResponse
+     */
+    public function deleteInstanceMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInstanceMembersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteVpcFirewallControlPolicyRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -256,6 +336,202 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DescribeAddressBookRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeAddressBookResponse
+     */
+    public function describeAddressBookWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAddressBookResponse::fromMap($this->doRPCRequest('DescribeAddressBook', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAddressBookRequest $request
+     *
+     * @return DescribeAddressBookResponse
+     */
+    public function describeAddressBook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAddressBookWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAssetListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeAssetListResponse
+     */
+    public function describeAssetListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAssetListResponse::fromMap($this->doRPCRequest('DescribeAssetList', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAssetListRequest $request
+     *
+     * @return DescribeAssetListResponse
+     */
+    public function describeAssetList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAssetListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeControlPolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeControlPolicyResponse
+     */
+    public function describeControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeControlPolicyResponse::fromMap($this->doRPCRequest('DescribeControlPolicy', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeControlPolicyRequest $request
+     *
+     * @return DescribeControlPolicyResponse
+     */
+    public function describeControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDomainResolveRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDomainResolveResponse
+     */
+    public function describeDomainResolveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDomainResolveResponse::fromMap($this->doRPCRequest('DescribeDomainResolve', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainResolveRequest $request
+     *
+     * @return DescribeDomainResolveResponse
+     */
+    public function describeDomainResolve($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainResolveWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceMembersRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInstanceMembersResponse
+     */
+    public function describeInstanceMembersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeInstanceMembersResponse::fromMap($this->doRPCRequest('DescribeInstanceMembers', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceMembersRequest $request
+     *
+     * @return DescribeInstanceMembersResponse
+     */
+    public function describeInstanceMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeInstanceRdAccountsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeInstanceRdAccountsResponse
+     */
+    public function describeInstanceRdAccountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeInstanceRdAccountsResponse::fromMap($this->doRPCRequest('DescribeInstanceRdAccounts', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceRdAccountsRequest $request
+     *
+     * @return DescribeInstanceRdAccountsResponse
+     */
+    public function describeInstanceRdAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceRdAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePolicyAdvancedConfigRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribePolicyAdvancedConfigResponse
+     */
+    public function describePolicyAdvancedConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePolicyAdvancedConfigResponse::fromMap($this->doRPCRequest('DescribePolicyAdvancedConfig', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePolicyAdvancedConfigRequest $request
+     *
+     * @return DescribePolicyAdvancedConfigResponse
+     */
+    public function describePolicyAdvancedConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolicyAdvancedConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePolicyPriorUsedRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -281,6 +557,34 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolicyPriorUsedWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpcFirewallAclGroupListRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeVpcFirewallAclGroupListResponse
+     */
+    public function describeVpcFirewallAclGroupListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVpcFirewallAclGroupListResponse::fromMap($this->doRPCRequest('DescribeVpcFirewallAclGroupList', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpcFirewallAclGroupListRequest $request
+     *
+     * @return DescribeVpcFirewallAclGroupListResponse
+     */
+    public function describeVpcFirewallAclGroupList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallAclGroupListWithOptions($request, $runtime);
     }
 
     /**
@@ -421,6 +725,62 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyControlPolicyPositionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyControlPolicyPriorityRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyControlPolicyPriorityResponse
+     */
+    public function modifyControlPolicyPriorityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyControlPolicyPriorityResponse::fromMap($this->doRPCRequest('ModifyControlPolicyPriority', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyControlPolicyPriorityRequest $request
+     *
+     * @return ModifyControlPolicyPriorityResponse
+     */
+    public function modifyControlPolicyPriority($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyControlPolicyPriorityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyInstanceMemberAttributesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyInstanceMemberAttributesResponse
+     */
+    public function modifyInstanceMemberAttributesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyInstanceMemberAttributesResponse::fromMap($this->doRPCRequest('ModifyInstanceMemberAttributes', '2017-12-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceMemberAttributesRequest $request
+     *
+     * @return ModifyInstanceMemberAttributesResponse
+     */
+    public function modifyInstanceMemberAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceMemberAttributesWithOptions($request, $runtime);
     }
 
     /**

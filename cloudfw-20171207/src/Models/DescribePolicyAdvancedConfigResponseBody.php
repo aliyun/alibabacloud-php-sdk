@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateVpcFirewallControlPolicyResponseBody extends Model
+class DescribePolicyAdvancedConfigResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $aclUuid;
+    public $internetSwitch;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'aclUuid'   => 'AclUuid',
-        'requestId' => 'RequestId',
+        'internetSwitch' => 'InternetSwitch',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -29,8 +29,8 @@ class CreateVpcFirewallControlPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclUuid) {
-            $res['AclUuid'] = $this->aclUuid;
+        if (null !== $this->internetSwitch) {
+            $res['InternetSwitch'] = $this->internetSwitch;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -42,13 +42,13 @@ class CreateVpcFirewallControlPolicyResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateVpcFirewallControlPolicyResponseBody
+     * @return DescribePolicyAdvancedConfigResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclUuid'])) {
-            $model->aclUuid = $map['AclUuid'];
+        if (isset($map['InternetSwitch'])) {
+            $model->internetSwitch = $map['InternetSwitch'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

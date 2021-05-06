@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AddControlPolicyResponseBody extends Model
+class DescribePolicyAdvancedConfigRequest extends Model
 {
     /**
      * @var string
      */
-    public $aclUuid;
+    public $sourceIp;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $lang;
     protected $_name = [
-        'aclUuid'   => 'AclUuid',
-        'requestId' => 'RequestId',
+        'sourceIp' => 'SourceIp',
+        'lang'     => 'Lang',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AddControlPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclUuid) {
-            $res['AclUuid'] = $this->aclUuid;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class AddControlPolicyResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AddControlPolicyResponseBody
+     * @return DescribePolicyAdvancedConfigRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclUuid'])) {
-            $model->aclUuid = $map['AclUuid'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

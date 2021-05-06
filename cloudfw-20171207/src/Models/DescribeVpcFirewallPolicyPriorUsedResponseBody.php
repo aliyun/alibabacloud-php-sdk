@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallPolicyPriorUsedResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $end;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class DescribeVpcFirewallPolicyPriorUsedResponseBody extends Model
     public $start;
 
     /**
-     * @var int
+     * @var string
      */
-    public $end;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'start'     => 'Start',
         'end'       => 'End',
+        'start'     => 'Start',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeVpcFirewallPolicyPriorUsedResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->end) {
+            $res['End'] = $this->end;
         }
         if (null !== $this->start) {
             $res['Start'] = $this->start;
         }
-        if (null !== $this->end) {
-            $res['End'] = $this->end;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeVpcFirewallPolicyPriorUsedResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['End'])) {
+            $model->end = $map['End'];
         }
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
         }
-        if (isset($map['End'])) {
-            $model->end = $map['End'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

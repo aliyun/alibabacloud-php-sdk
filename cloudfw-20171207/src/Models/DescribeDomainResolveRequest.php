@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribePolicyPriorUsedRequest extends Model
+class DescribeDomainResolveRequest extends Model
 {
     /**
      * @var string
@@ -21,7 +21,7 @@ class DescribePolicyPriorUsedRequest extends Model
     /**
      * @var string
      */
-    public $direction;
+    public $domain;
 
     /**
      * @var string
@@ -30,7 +30,7 @@ class DescribePolicyPriorUsedRequest extends Model
     protected $_name = [
         'sourceIp'  => 'SourceIp',
         'lang'      => 'Lang',
-        'direction' => 'Direction',
+        'domain'    => 'Domain',
         'ipVersion' => 'IpVersion',
     ];
 
@@ -47,8 +47,8 @@ class DescribePolicyPriorUsedRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
@@ -60,7 +60,7 @@ class DescribePolicyPriorUsedRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribePolicyPriorUsedRequest
+     * @return DescribeDomainResolveRequest
      */
     public static function fromMap($map = [])
     {
@@ -71,8 +71,8 @@ class DescribePolicyPriorUsedRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];

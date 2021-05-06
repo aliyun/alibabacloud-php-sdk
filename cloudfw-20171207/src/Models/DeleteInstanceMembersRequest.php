@@ -6,26 +6,26 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteVpcFirewallControlPolicyRequest extends Model
+class DeleteInstanceMembersRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $sourceIp;
+
     /**
      * @var string
      */
     public $lang;
 
     /**
-     * @var string
+     * @var int[]
      */
-    public $aclUuid;
-
-    /**
-     * @var string
-     */
-    public $vpcFirewallId;
+    public $memberUids;
     protected $_name = [
-        'lang'          => 'Lang',
-        'aclUuid'       => 'AclUuid',
-        'vpcFirewallId' => 'VpcFirewallId',
+        'sourceIp'   => 'SourceIp',
+        'lang'       => 'Lang',
+        'memberUids' => 'MemberUids',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteVpcFirewallControlPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->aclUuid) {
-            $res['AclUuid'] = $this->aclUuid;
-        }
-        if (null !== $this->vpcFirewallId) {
-            $res['VpcFirewallId'] = $this->vpcFirewallId;
+        if (null !== $this->memberUids) {
+            $res['MemberUids'] = $this->memberUids;
         }
 
         return $res;
@@ -51,19 +51,21 @@ class DeleteVpcFirewallControlPolicyRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteVpcFirewallControlPolicyRequest
+     * @return DeleteInstanceMembersRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['AclUuid'])) {
-            $model->aclUuid = $map['AclUuid'];
-        }
-        if (isset($map['VpcFirewallId'])) {
-            $model->vpcFirewallId = $map['VpcFirewallId'];
+        if (isset($map['MemberUids'])) {
+            if (!empty($map['MemberUids'])) {
+                $model->memberUids = $map['MemberUids'];
+            }
         }
 
         return $model;

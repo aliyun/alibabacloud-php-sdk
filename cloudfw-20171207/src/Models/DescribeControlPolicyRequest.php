@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeVpcFirewallControlPolicyRequest extends Model
+class DescribeControlPolicyRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $sourceIp;
+
     /**
      * @var string
      */
@@ -16,7 +21,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $vpcFirewallId;
+    public $direction;
 
     /**
      * @var string
@@ -52,16 +57,35 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
      * @var string
      */
     public $aclAction;
+
+    /**
+     * @var string
+     */
+    public $release;
+
+    /**
+     * @var string
+     */
+    public $aclUuid;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
     protected $_name = [
-        'lang'          => 'Lang',
-        'vpcFirewallId' => 'VpcFirewallId',
-        'currentPage'   => 'CurrentPage',
-        'pageSize'      => 'PageSize',
-        'source'        => 'Source',
-        'destination'   => 'Destination',
-        'description'   => 'Description',
-        'proto'         => 'Proto',
-        'aclAction'     => 'AclAction',
+        'sourceIp'    => 'SourceIp',
+        'lang'        => 'Lang',
+        'direction'   => 'Direction',
+        'currentPage' => 'CurrentPage',
+        'pageSize'    => 'PageSize',
+        'source'      => 'Source',
+        'destination' => 'Destination',
+        'description' => 'Description',
+        'proto'       => 'Proto',
+        'aclAction'   => 'AclAction',
+        'release'     => 'Release',
+        'aclUuid'     => 'AclUuid',
+        'ipVersion'   => 'IpVersion',
     ];
 
     public function validate()
@@ -71,11 +95,14 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->vpcFirewallId) {
-            $res['VpcFirewallId'] = $this->vpcFirewallId;
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -98,6 +125,15 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
         if (null !== $this->aclAction) {
             $res['AclAction'] = $this->aclAction;
         }
+        if (null !== $this->release) {
+            $res['Release'] = $this->release;
+        }
+        if (null !== $this->aclUuid) {
+            $res['AclUuid'] = $this->aclUuid;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
+        }
 
         return $res;
     }
@@ -105,16 +141,19 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeVpcFirewallControlPolicyRequest
+     * @return DescribeControlPolicyRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['VpcFirewallId'])) {
-            $model->vpcFirewallId = $map['VpcFirewallId'];
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
@@ -136,6 +175,15 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
         }
         if (isset($map['AclAction'])) {
             $model->aclAction = $map['AclAction'];
+        }
+        if (isset($map['Release'])) {
+            $model->release = $map['Release'];
+        }
+        if (isset($map['AclUuid'])) {
+            $model->aclUuid = $map['AclUuid'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
 
         return $model;

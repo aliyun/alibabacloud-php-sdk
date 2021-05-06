@@ -87,6 +87,11 @@ class AddControlPolicyRequest extends Model
      * @var string
      */
     public $release;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
     protected $_name = [
         'sourceIp'        => 'SourceIp',
         'lang'            => 'Lang',
@@ -104,6 +109,7 @@ class AddControlPolicyRequest extends Model
         'destPortType'    => 'DestPortType',
         'destPortGroup'   => 'DestPortGroup',
         'release'         => 'Release',
+        'ipVersion'       => 'IpVersion',
     ];
 
     public function validate()
@@ -160,6 +166,9 @@ class AddControlPolicyRequest extends Model
         }
         if (null !== $this->release) {
             $res['Release'] = $this->release;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
 
         return $res;
@@ -220,6 +229,9 @@ class AddControlPolicyRequest extends Model
         }
         if (isset($map['Release'])) {
             $model->release = $map['Release'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
 
         return $model;
