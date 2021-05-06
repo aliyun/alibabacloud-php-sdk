@@ -42,6 +42,8 @@ class DescribeResourcePackUsageRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('endTime', $this->endTime, true);
+        Model::validateRequired('startTime', $this->startTime, true);
     }
 
     public function toMap()

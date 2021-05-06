@@ -11,11 +11,6 @@ class ConfigSchedruleOnDemandRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -73,7 +68,6 @@ class ConfigSchedruleOnDemandRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'sourceIp'          => 'SourceIp',
         'instanceId'        => 'InstanceId',
         'ruleName'          => 'RuleName',
         'ruleConditionMbps' => 'RuleConditionMbps',
@@ -90,14 +84,21 @@ class ConfigSchedruleOnDemandRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('ruleName', $this->ruleName, true);
+        Model::validateRequired('ruleConditionMbps', $this->ruleConditionMbps, true);
+        Model::validateRequired('ruleConditionKpps', $this->ruleConditionKpps, true);
+        Model::validateRequired('ruleConditionCnt', $this->ruleConditionCnt, true);
+        Model::validateRequired('ruleAction', $this->ruleAction, true);
+        Model::validateRequired('ruleSwitch', $this->ruleSwitch, true);
+        Model::validateRequired('ruleUndoMode', $this->ruleUndoMode, true);
+        Model::validateRequired('ruleUndoBeginTime', $this->ruleUndoBeginTime, true);
+        Model::validateRequired('timeZone', $this->timeZone, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -146,9 +147,6 @@ class ConfigSchedruleOnDemandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

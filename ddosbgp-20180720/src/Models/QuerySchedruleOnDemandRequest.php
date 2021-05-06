@@ -11,11 +11,6 @@ class QuerySchedruleOnDemandRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -23,21 +18,18 @@ class QuerySchedruleOnDemandRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
         'instanceId' => 'InstanceId',
         'regionId'   => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -56,9 +48,6 @@ class QuerySchedruleOnDemandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

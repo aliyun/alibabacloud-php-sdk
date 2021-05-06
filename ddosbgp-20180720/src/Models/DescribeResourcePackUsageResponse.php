@@ -4,38 +4,75 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeResourcePackUsageResponse\packUsages;
 use AlibabaCloud\Tea\Model;
 
 class DescribeResourcePackUsageResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeResourcePackUsageResponseBody
+     * @var int
      */
-    public $body;
+    public $interval;
+
+    /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @var packUsages[]
+     */
+    public $packUsages;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'  => 'RequestId',
+        'interval'   => 'Interval',
+        'startTime'  => 'StartTime',
+        'endTime'    => 'EndTime',
+        'packUsages' => 'PackUsages',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('interval', $this->interval, true);
+        Model::validateRequired('startTime', $this->startTime, true);
+        Model::validateRequired('endTime', $this->endTime, true);
+        Model::validateRequired('packUsages', $this->packUsages, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->packUsages) {
+            $res['PackUsages'] = [];
+            if (null !== $this->packUsages && \is_array($this->packUsages)) {
+                $n = 0;
+                foreach ($this->packUsages as $item) {
+                    $res['PackUsages'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +86,26 @@ class DescribeResourcePackUsageResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeResourcePackUsageResponseBody::fromMap($map['body']);
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['PackUsages'])) {
+            if (!empty($map['PackUsages'])) {
+                $model->packUsages = [];
+                $n                 = 0;
+                foreach ($map['PackUsages'] as $item) {
+                    $model->packUsages[$n++] = null !== $item ? packUsages::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

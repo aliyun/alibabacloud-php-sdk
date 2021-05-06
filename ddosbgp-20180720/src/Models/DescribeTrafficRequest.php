@@ -11,11 +11,6 @@ class DescribeTrafficRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -46,6 +41,11 @@ class DescribeTrafficRequest extends Model
     /**
      * @var string
      */
+    public $flowType;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -53,27 +53,25 @@ class DescribeTrafficRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'instanceId'      => 'InstanceId',
         'ipnet'           => 'Ipnet',
         'ip'              => 'Ip',
         'startTime'       => 'StartTime',
         'endTime'         => 'EndTime',
         'interval'        => 'Interval',
+        'flowType'        => 'FlowType',
         'resourceGroupId' => 'ResourceGroupId',
         'regionId'        => 'RegionId',
     ];
 
     public function validate()
     {
+        Model::validateRequired('startTime', $this->startTime, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -91,6 +89,9 @@ class DescribeTrafficRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->flowType) {
+            $res['FlowType'] = $this->flowType;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -110,9 +111,6 @@ class DescribeTrafficRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -130,6 +128,9 @@ class DescribeTrafficRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['FlowType'])) {
+            $model->flowType = $map['FlowType'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

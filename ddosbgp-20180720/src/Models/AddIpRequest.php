@@ -11,11 +11,6 @@ class AddIpRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $ipList;
 
     /**
@@ -33,7 +28,6 @@ class AddIpRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'ipList'          => 'IpList',
         'instanceId'      => 'InstanceId',
         'regionId'        => 'RegionId',
@@ -42,14 +36,13 @@ class AddIpRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('ipList', $this->ipList, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->ipList) {
             $res['IpList'] = $this->ipList;
         }
@@ -74,9 +67,6 @@ class AddIpRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['IpList'])) {
             $model->ipList = $map['IpList'];
         }

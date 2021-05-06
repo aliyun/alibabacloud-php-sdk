@@ -12,11 +12,6 @@ class ListTagResourcesRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
 
     /**
@@ -27,27 +22,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @var string
      */
-    public $tagOwnerUid;
-
-    /**
-     * @var string
-     */
-    public $tagOwnerBid;
-
-    /**
-     * @var string
-     */
     public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $scope;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
 
     /**
      * @var string[]
@@ -58,49 +33,37 @@ class ListTagResourcesRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'resourceGroupId' => 'ResourceGroupId',
         'regionId'        => 'RegionId',
-        'tagOwnerUid'     => 'TagOwnerUid',
-        'tagOwnerBid'     => 'TagOwnerBid',
         'resourceType'    => 'ResourceType',
-        'scope'           => 'Scope',
-        'nextToken'       => 'NextToken',
         'resourceId'      => 'ResourceId',
         'tag'             => 'Tag',
+        'nextToken'       => 'NextToken',
     ];
 
     public function validate()
     {
+        Model::validateRequired('regionId', $this->regionId, true);
+        Model::validateRequired('resourceType', $this->resourceType, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->tagOwnerUid) {
-            $res['TagOwnerUid'] = $this->tagOwnerUid;
-        }
-        if (null !== $this->tagOwnerBid) {
-            $res['TagOwnerBid'] = $this->tagOwnerBid;
-        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->scope) {
-            $res['Scope'] = $this->scope;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -114,6 +77,9 @@ class ListTagResourcesRequest extends Model
                 }
             }
         }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
 
         return $res;
     }
@@ -126,29 +92,14 @@ class ListTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['TagOwnerUid'])) {
-            $model->tagOwnerUid = $map['TagOwnerUid'];
-        }
-        if (isset($map['TagOwnerBid'])) {
-            $model->tagOwnerBid = $map['TagOwnerBid'];
-        }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['Scope'])) {
-            $model->scope = $map['Scope'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
@@ -163,6 +114,9 @@ class ListTagResourcesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

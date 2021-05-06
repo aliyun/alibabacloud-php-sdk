@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeTrafficResponse\flowList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeTrafficResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeTrafficResponseBody
+     * @var flowList[]
      */
-    public $body;
+    public $flowList;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'flowList'  => 'FlowList',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('flowList', $this->flowList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->flowList) {
+            $res['FlowList'] = [];
+            if (null !== $this->flowList && \is_array($this->flowList)) {
+                $n = 0;
+                foreach ($this->flowList as $item) {
+                    $res['FlowList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +56,17 @@ class DescribeTrafficResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeTrafficResponseBody::fromMap($map['body']);
+        if (isset($map['FlowList'])) {
+            if (!empty($map['FlowList'])) {
+                $model->flowList = [];
+                $n               = 0;
+                foreach ($map['FlowList'] as $item) {
+                    $model->flowList[$n++] = null !== $item ? flowList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

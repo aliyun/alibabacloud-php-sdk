@@ -54,6 +54,10 @@ class DescribePackPaidTrafficRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('startTime', $this->startTime, true);
+        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()

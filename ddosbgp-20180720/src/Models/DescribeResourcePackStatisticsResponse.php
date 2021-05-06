@@ -9,33 +9,63 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourcePackStatisticsResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeResourcePackStatisticsResponseBody
+     * @var int
      */
-    public $body;
+    public $availablePackNum;
+
+    /**
+     * @var int
+     */
+    public $totalCurrCapacity;
+
+    /**
+     * @var int
+     */
+    public $totalUsedCapacity;
+
+    /**
+     * @var int
+     */
+    public $totalInitCapacity;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'         => 'RequestId',
+        'availablePackNum'  => 'AvailablePackNum',
+        'totalCurrCapacity' => 'TotalCurrCapacity',
+        'totalUsedCapacity' => 'TotalUsedCapacity',
+        'totalInitCapacity' => 'TotalInitCapacity',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('availablePackNum', $this->availablePackNum, true);
+        Model::validateRequired('totalCurrCapacity', $this->totalCurrCapacity, true);
+        Model::validateRequired('totalUsedCapacity', $this->totalUsedCapacity, true);
+        Model::validateRequired('totalInitCapacity', $this->totalInitCapacity, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->availablePackNum) {
+            $res['AvailablePackNum'] = $this->availablePackNum;
+        }
+        if (null !== $this->totalCurrCapacity) {
+            $res['TotalCurrCapacity'] = $this->totalCurrCapacity;
+        }
+        if (null !== $this->totalUsedCapacity) {
+            $res['TotalUsedCapacity'] = $this->totalUsedCapacity;
+        }
+        if (null !== $this->totalInitCapacity) {
+            $res['TotalInitCapacity'] = $this->totalInitCapacity;
         }
 
         return $res;
@@ -49,11 +79,20 @@ class DescribeResourcePackStatisticsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeResourcePackStatisticsResponseBody::fromMap($map['body']);
+        if (isset($map['AvailablePackNum'])) {
+            $model->availablePackNum = $map['AvailablePackNum'];
+        }
+        if (isset($map['TotalCurrCapacity'])) {
+            $model->totalCurrCapacity = $map['TotalCurrCapacity'];
+        }
+        if (isset($map['TotalUsedCapacity'])) {
+            $model->totalUsedCapacity = $map['TotalUsedCapacity'];
+        }
+        if (isset($map['TotalInitCapacity'])) {
+            $model->totalInitCapacity = $map['TotalInitCapacity'];
         }
 
         return $model;

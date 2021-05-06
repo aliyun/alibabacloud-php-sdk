@@ -4,38 +4,65 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRegionsResponse\regions;
 use AlibabaCloud\Tea\Model;
 
 class DescribeRegionsResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeRegionsResponseBody
+     * @var bool
      */
-    public $body;
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var regions[]
+     */
+    public $regions;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
+        'code'      => 'Code',
+        'regions'   => 'Regions',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('success', $this->success, true);
+        Model::validateRequired('code', $this->code, true);
+        Model::validateRequired('regions', $this->regions, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->regions) {
+            $res['Regions'] = [];
+            if (null !== $this->regions && \is_array($this->regions)) {
+                $n = 0;
+                foreach ($this->regions as $item) {
+                    $res['Regions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +76,23 @@ class DescribeRegionsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeRegionsResponseBody::fromMap($map['body']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Regions'])) {
+            if (!empty($map['Regions'])) {
+                $model->regions = [];
+                $n              = 0;
+                foreach ($map['Regions'] as $item) {
+                    $model->regions[$n++] = null !== $item ? regions::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -11,11 +11,6 @@ class DeleteBlackholeRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $ip;
 
     /**
@@ -33,7 +28,6 @@ class DeleteBlackholeRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'ip'              => 'Ip',
         'instanceId'      => 'InstanceId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -42,14 +36,13 @@ class DeleteBlackholeRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('ip', $this->ip, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
@@ -74,9 +67,6 @@ class DeleteBlackholeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }

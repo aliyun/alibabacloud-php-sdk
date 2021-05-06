@@ -4,38 +4,55 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeOpEntitiesResponse\opEntities;
 use AlibabaCloud\Tea\Model;
 
 class DescribeOpEntitiesResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var DescribeOpEntitiesResponseBody
+     * @var int
      */
-    public $body;
+    public $totalCount;
+
+    /**
+     * @var opEntities[]
+     */
+    public $opEntities;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
+        'opEntities' => 'OpEntities',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('totalCount', $this->totalCount, true);
+        Model::validateRequired('opEntities', $this->opEntities, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->opEntities) {
+            $res['OpEntities'] = [];
+            if (null !== $this->opEntities && \is_array($this->opEntities)) {
+                $n = 0;
+                foreach ($this->opEntities as $item) {
+                    $res['OpEntities'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -49,11 +66,20 @@ class DescribeOpEntitiesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = DescribeOpEntitiesResponseBody::fromMap($map['body']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['OpEntities'])) {
+            if (!empty($map['OpEntities'])) {
+                $model->opEntities = [];
+                $n                 = 0;
+                foreach ($map['OpEntities'] as $item) {
+                    $model->opEntities[$n++] = null !== $item ? opEntities::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
