@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class request extends Model
 {
     /**
+     * @description 应用appKey
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description 房间id
+     *
      * @var string
      */
     public $roomId;
 
     /**
+     * @description 操作人id
+     *
      * @var string
      */
     public $openId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DestroyRoomResponseBody extends Model
 {
     /**
+     * @description 错误码
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description 错误信息
+     *
      * @var string
      */
     public $errorMsg;
@@ -24,6 +28,8 @@ class DestroyRoomResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 是否销毁成功
+     *
      * @var bool
      */
     public $result;
@@ -31,13 +37,13 @@ class DestroyRoomResponseBody extends Model
     /**
      * @var bool
      */
-    public $success;
+    public $responseSuccess;
     protected $_name = [
-        'errorCode' => 'errorCode',
-        'errorMsg'  => 'errorMsg',
-        'requestId' => 'RequestId',
-        'result'    => 'result',
-        'success'   => 'Success',
+        'errorCode'       => 'errorCode',
+        'errorMsg'        => 'errorMsg',
+        'requestId'       => 'RequestId',
+        'result'          => 'result',
+        'responseSuccess' => 'ResponseSuccess',
     ];
 
     public function validate()
@@ -59,8 +65,8 @@ class DestroyRoomResponseBody extends Model
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->responseSuccess) {
+            $res['ResponseSuccess'] = $this->responseSuccess;
         }
 
         return $res;
@@ -86,8 +92,8 @@ class DestroyRoomResponseBody extends Model
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['ResponseSuccess'])) {
+            $model->responseSuccess = $map['ResponseSuccess'];
         }
 
         return $model;

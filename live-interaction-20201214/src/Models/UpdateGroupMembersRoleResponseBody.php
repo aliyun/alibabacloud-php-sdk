@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateGroupMembersRoleResponseBody extends Model
 {
     /**
+     * @description 请求ID。
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 错误码。
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description 错误信息。
+     *
      * @var string
      */
     public $message;

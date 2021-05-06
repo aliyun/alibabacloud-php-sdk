@@ -23,14 +23,23 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\CreateGroupShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\CreateRoomRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\CreateRoomResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\DeleteAppRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\DeleteAppResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\DestroyRoomRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\DestroyRoomResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\DismissGroupRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\DismissGroupResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\DismissGroupShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetCommonConfigRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetCommonConfigResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetGroupByIdRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetGroupByIdResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetGroupByIdShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetGroupMemberByIdsRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetGroupMemberByIdsResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetGroupMemberByIdsShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetIMConfigRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetIMConfigResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetLoginTokenRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetLoginTokenResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetLoginTokenShrinkRequest;
@@ -43,6 +52,9 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetMediaUrlShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetMessageByIdRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetMessageByIdResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetMessageByIdShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetUserMuteSettingRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetUserMuteSettingResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetUserMuteSettingShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ImportGroupChatConversationRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ImportGroupChatConversationResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ImportGroupChatConversationShrinkRequest;
@@ -60,9 +72,21 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\InitTenantResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\KickOffRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\KickOffResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\KickOffShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListAppInfosRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListAppInfosResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListAppInfosShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListDetailReportStatisticsRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListDetailReportStatisticsResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListDetailReportStatisticsShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListGroupAllMembersRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListGroupAllMembersResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListGroupAllMembersShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListGroupSilenceMembersRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListGroupSilenceMembersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListGroupSilenceMembersShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageShrinkRequest;
@@ -71,6 +95,9 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveExtensionByKeysRespo
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupExtensionByKeysRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupExtensionByKeysResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupExtensionByKeysShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupMemberExtensionByKeysRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupMemberExtensionByKeysResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupMemberExtensionByKeysShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupMembersRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupMembersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupMembersShrinkRequest;
@@ -99,6 +126,12 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetExtensionByKeysResponse
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupExtensionByKeysRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupExtensionByKeysResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupExtensionByKeysShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupMemberExtensionByKeysRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupMemberExtensionByKeysResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupMemberExtensionByKeysShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupOwnerRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupOwnerResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupOwnerShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetMessageExtensionByKeysRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetMessageExtensionByKeysResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetMessageExtensionByKeysShrinkRequest;
@@ -113,6 +146,15 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetUserExtensionByKeysResp
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SilenceAllGroupMembersRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SilenceAllGroupMembersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SilenceAllGroupMembersShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateAppNameRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateAppNameResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateAppNameShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateAppStatusRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateAppStatusResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateAppStatusShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateCallbackConfigRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateCallbackConfigResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateCallbackConfigShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateGroupIconRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateGroupIconResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateGroupIconShrinkRequest;
@@ -122,6 +164,9 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateGroupMembersRoleShri
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateGroupTitleRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateGroupTitleResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateGroupTitleShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateMsgRecallIntervalRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateMsgRecallIntervalResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateMsgRecallIntervalShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateTenantStatusRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\UpdateTenantStatusResponse;
 use AlibabaCloud\Tea\Tea;
@@ -357,6 +402,34 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
+     * @param DeleteAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteAppResponse
+     */
+    public function deleteAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteAppResponse::fromMap($this->doRPCRequest('DeleteApp', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAppRequest $request
+     *
+     * @return DeleteAppResponse
+     */
+    public function deleteApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DestroyRoomRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -418,6 +491,67 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
+     * @param GetCommonConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetCommonConfigResponse
+     */
+    public function getCommonConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetCommonConfigResponse::fromMap($this->doRPCRequest('GetCommonConfig', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetCommonConfigRequest $request
+     *
+     * @return GetCommonConfigResponse
+     */
+    public function getCommonConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCommonConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetGroupByIdRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetGroupByIdResponse
+     */
+    public function getGroupByIdWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetGroupByIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetGroupByIdResponse::fromMap($this->doRPCRequest('GetGroupById', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetGroupByIdRequest $request
+     *
+     * @return GetGroupByIdResponse
+     */
+    public function getGroupById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGroupByIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetGroupMemberByIdsRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
@@ -448,6 +582,34 @@ class Liveinteraction extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getGroupMemberByIdsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetIMConfigRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetIMConfigResponse
+     */
+    public function getIMConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetIMConfigResponse::fromMap($this->doRPCRequest('GetIMConfig', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetIMConfigRequest $request
+     *
+     * @return GetIMConfigResponse
+     */
+    public function getIMConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIMConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -580,6 +742,39 @@ class Liveinteraction extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMessageByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserMuteSettingRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetUserMuteSettingResponse
+     */
+    public function getUserMuteSettingWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetUserMuteSettingShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetUserMuteSettingResponse::fromMap($this->doRPCRequest('GetUserMuteSetting', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetUserMuteSettingRequest $request
+     *
+     * @return GetUserMuteSettingResponse
+     */
+    public function getUserMuteSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserMuteSettingWithOptions($request, $runtime);
     }
 
     /**
@@ -776,6 +971,105 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
+     * @param ListAppInfosRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAppInfosResponse
+     */
+    public function listAppInfosWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListAppInfosShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListAppInfosResponse::fromMap($this->doRPCRequest('ListAppInfos', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAppInfosRequest $request
+     *
+     * @return ListAppInfosResponse
+     */
+    public function listAppInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDetailReportStatisticsRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListDetailReportStatisticsResponse
+     */
+    public function listDetailReportStatisticsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListDetailReportStatisticsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDetailReportStatisticsResponse::fromMap($this->doRPCRequest('ListDetailReportStatistics', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDetailReportStatisticsRequest $request
+     *
+     * @return ListDetailReportStatisticsResponse
+     */
+    public function listDetailReportStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDetailReportStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListGroupAllMembersRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListGroupAllMembersResponse
+     */
+    public function listGroupAllMembersWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListGroupAllMembersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListGroupAllMembersResponse::fromMap($this->doRPCRequest('ListGroupAllMembers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListGroupAllMembersRequest $request
+     *
+     * @return ListGroupAllMembersResponse
+     */
+    public function listGroupAllMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGroupAllMembersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListGroupSilenceMembersRequest $tmpReq
      * @param RuntimeOptions                 $runtime
      *
@@ -806,6 +1100,39 @@ class Liveinteraction extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGroupSilenceMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MuteUsersRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return MuteUsersResponse
+     */
+    public function muteUsersWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new MuteUsersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return MuteUsersResponse::fromMap($this->doRPCRequest('MuteUsers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param MuteUsersRequest $request
+     *
+     * @return MuteUsersResponse
+     */
+    public function muteUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->muteUsersWithOptions($request, $runtime);
     }
 
     /**
@@ -900,6 +1227,39 @@ class Liveinteraction extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeGroupExtensionByKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveGroupMemberExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RemoveGroupMemberExtensionByKeysResponse
+     */
+    public function removeGroupMemberExtensionByKeysWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveGroupMemberExtensionByKeysShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveGroupMemberExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveGroupMemberExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveGroupMemberExtensionByKeysRequest $request
+     *
+     * @return RemoveGroupMemberExtensionByKeysResponse
+     */
+    public function removeGroupMemberExtensionByKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeGroupMemberExtensionByKeysWithOptions($request, $runtime);
     }
 
     /**
@@ -1223,6 +1583,72 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
+     * @param SetGroupMemberExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SetGroupMemberExtensionByKeysResponse
+     */
+    public function setGroupMemberExtensionByKeysWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetGroupMemberExtensionByKeysShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetGroupMemberExtensionByKeysResponse::fromMap($this->doRPCRequest('SetGroupMemberExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetGroupMemberExtensionByKeysRequest $request
+     *
+     * @return SetGroupMemberExtensionByKeysResponse
+     */
+    public function setGroupMemberExtensionByKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setGroupMemberExtensionByKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetGroupOwnerRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SetGroupOwnerResponse
+     */
+    public function setGroupOwnerWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetGroupOwnerShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetGroupOwnerResponse::fromMap($this->doRPCRequest('SetGroupOwner', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetGroupOwnerRequest $request
+     *
+     * @return SetGroupOwnerResponse
+     */
+    public function setGroupOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setGroupOwnerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetMessageExtensionByKeysRequest $tmpReq
      * @param RuntimeOptions                   $runtime
      *
@@ -1383,6 +1809,105 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
+     * @param UpdateAppNameRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateAppNameResponse
+     */
+    public function updateAppNameWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateAppNameShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateAppNameResponse::fromMap($this->doRPCRequest('UpdateAppName', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAppNameRequest $request
+     *
+     * @return UpdateAppNameResponse
+     */
+    public function updateAppName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAppStatusRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAppStatusResponse
+     */
+    public function updateAppStatusWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateAppStatusShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateAppStatusResponse::fromMap($this->doRPCRequest('UpdateAppStatus', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAppStatusRequest $request
+     *
+     * @return UpdateAppStatusResponse
+     */
+    public function updateAppStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCallbackConfigRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateCallbackConfigResponse
+     */
+    public function updateCallbackConfigWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateCallbackConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateCallbackConfigResponse::fromMap($this->doRPCRequest('UpdateCallbackConfig', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCallbackConfigRequest $request
+     *
+     * @return UpdateCallbackConfigResponse
+     */
+    public function updateCallbackConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCallbackConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateGroupIconRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
@@ -1479,6 +2004,39 @@ class Liveinteraction extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateGroupTitleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMsgRecallIntervalRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateMsgRecallIntervalResponse
+     */
+    public function updateMsgRecallIntervalWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateMsgRecallIntervalShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateMsgRecallIntervalResponse::fromMap($this->doRPCRequest('UpdateMsgRecallInterval', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMsgRecallIntervalRequest $request
+     *
+     * @return UpdateMsgRecallIntervalResponse
+     */
+    public function updateMsgRecallInterval($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMsgRecallIntervalWithOptions($request, $runtime);
     }
 
     /**

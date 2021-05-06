@@ -16,18 +16,18 @@ class requestParams extends Model
     public $appCid;
 
     /**
-     * @description 操作者uid
+     * @description 操作用户ID。
      *
      * @var string
      */
     public $operatorAppUid;
 
     /**
-     * @description 角色
+     * @description 更新后的成员角色。取值： 2：管理员。 3：普通。 100~127：自定义。 不能为1。
      *
      * @var int
      */
-    public $rrole;
+    public $role;
 
     /**
      * @description 需要更改的uids
@@ -38,7 +38,7 @@ class requestParams extends Model
     protected $_name = [
         'appCid'         => 'AppCid',
         'operatorAppUid' => 'OperatorAppUid',
-        'rrole'          => 'Rrole',
+        'role'           => 'Role',
         'appUids'        => 'AppUids',
     ];
 
@@ -55,8 +55,8 @@ class requestParams extends Model
         if (null !== $this->operatorAppUid) {
             $res['OperatorAppUid'] = $this->operatorAppUid;
         }
-        if (null !== $this->rrole) {
-            $res['Rrole'] = $this->rrole;
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
         if (null !== $this->appUids) {
             $res['AppUids'] = $this->appUids;
@@ -79,8 +79,8 @@ class requestParams extends Model
         if (isset($map['OperatorAppUid'])) {
             $model->operatorAppUid = $map['OperatorAppUid'];
         }
-        if (isset($map['Rrole'])) {
-            $model->rrole = $map['Rrole'];
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
         if (isset($map['AppUids'])) {
             if (!empty($map['AppUids'])) {

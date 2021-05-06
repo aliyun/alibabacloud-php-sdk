@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class requestParams extends Model
 {
     /**
-     * @description 多媒体资源类型(取值参照文档中类型枚举值)
+     * @description 多媒体资源类型(文件后缀名)
      *
-     * @var int
+     * @var string
      */
-    public $type;
+    public $mimeType;
     protected $_name = [
-        'type' => 'Type',
+        'mimeType' => 'MimeType',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class requestParams extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->mimeType) {
+            $res['MimeType'] = $this->mimeType;
         }
 
         return $res;
@@ -40,8 +40,8 @@ class requestParams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['MimeType'])) {
+            $model->mimeType = $map['MimeType'];
         }
 
         return $model;

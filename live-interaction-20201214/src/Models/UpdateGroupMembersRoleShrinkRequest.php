@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateGroupMembersRoleShrinkRequest extends Model
 {
     /**
-     * @description AppId
+     * @description App ID。IMPaaS租户的ID。
      *
      * @var string
      */
     public $appId;
 
     /**
+     * @description 更新群成员角色请求体。
+     *
      * @var string
      */
     public $requestParamsShrink;

@@ -25,7 +25,7 @@ class result extends Model
     /**
      * @description 禁言黑名单用户及对应禁言时长
      *
-     * @var string[]
+     * @var int[]
      */
     public $blacklist;
     protected $_name = [

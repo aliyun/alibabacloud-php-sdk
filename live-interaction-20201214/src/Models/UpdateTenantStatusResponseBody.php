@@ -13,19 +13,25 @@ class UpdateTenantStatusResponseBody extends Model
      *
      * @var bool
      */
-    public $success;
+    public $responseSuccess;
 
     /**
+     * @description 错误码
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description 错误信息
+     *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description 是否更新成功
+     *
      * @var bool
      */
     public $result;
@@ -35,11 +41,11 @@ class UpdateTenantStatusResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'success'   => 'success',
-        'errorCode' => 'errorCode',
-        'errorMsg'  => 'errorMsg',
-        'result'    => 'result',
-        'requestId' => 'RequestId',
+        'responseSuccess' => 'ResponseSuccess',
+        'errorCode'       => 'errorCode',
+        'errorMsg'        => 'errorMsg',
+        'result'          => 'result',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -49,8 +55,8 @@ class UpdateTenantStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
+        if (null !== $this->responseSuccess) {
+            $res['ResponseSuccess'] = $this->responseSuccess;
         }
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
@@ -76,8 +82,8 @@ class UpdateTenantStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
+        if (isset($map['ResponseSuccess'])) {
+            $model->responseSuccess = $map['ResponseSuccess'];
         }
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
