@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class resultObject extends Model
 {
     /**
+     * @var string
+     */
+    public $subCode;
+
+    /**
      * @var float
      */
     public $passedScore;
@@ -21,16 +26,11 @@ class resultObject extends Model
     /**
      * @var string
      */
-    public $subCode;
-
-    /**
-     * @var string
-     */
     public $passed;
     protected $_name = [
+        'subCode'      => 'SubCode',
         'passedScore'  => 'PassedScore',
         'materialInfo' => 'MaterialInfo',
-        'subCode'      => 'SubCode',
         'passed'       => 'Passed',
     ];
 
@@ -41,14 +41,14 @@ class resultObject extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->subCode) {
+            $res['SubCode'] = $this->subCode;
+        }
         if (null !== $this->passedScore) {
             $res['PassedScore'] = $this->passedScore;
         }
         if (null !== $this->materialInfo) {
             $res['MaterialInfo'] = $this->materialInfo;
-        }
-        if (null !== $this->subCode) {
-            $res['SubCode'] = $this->subCode;
         }
         if (null !== $this->passed) {
             $res['Passed'] = $this->passed;
@@ -65,14 +65,14 @@ class resultObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SubCode'])) {
+            $model->subCode = $map['SubCode'];
+        }
         if (isset($map['PassedScore'])) {
             $model->passedScore = $map['PassedScore'];
         }
         if (isset($map['MaterialInfo'])) {
             $model->materialInfo = $map['MaterialInfo'];
-        }
-        if (isset($map['SubCode'])) {
-            $model->subCode = $map['SubCode'];
         }
         if (isset($map['Passed'])) {
             $model->passed = $map['Passed'];

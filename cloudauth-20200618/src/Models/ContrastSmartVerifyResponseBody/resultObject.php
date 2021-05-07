@@ -11,17 +11,17 @@ class resultObject extends Model
     /**
      * @var string
      */
-    public $verifyInfo;
-
-    /**
-     * @var string
-     */
     public $subCode;
 
     /**
      * @var string
      */
     public $certifyId;
+
+    /**
+     * @var string
+     */
+    public $verifyInfo;
 
     /**
      * @var string
@@ -33,9 +33,9 @@ class resultObject extends Model
      */
     public $passed;
     protected $_name = [
-        'verifyInfo' => 'VerifyInfo',
         'subCode'    => 'SubCode',
         'certifyId'  => 'CertifyId',
+        'verifyInfo' => 'VerifyInfo',
         'riskInfo'   => 'RiskInfo',
         'passed'     => 'Passed',
     ];
@@ -47,14 +47,14 @@ class resultObject extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->verifyInfo) {
-            $res['VerifyInfo'] = $this->verifyInfo;
-        }
         if (null !== $this->subCode) {
             $res['SubCode'] = $this->subCode;
         }
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
+        }
+        if (null !== $this->verifyInfo) {
+            $res['VerifyInfo'] = $this->verifyInfo;
         }
         if (null !== $this->riskInfo) {
             $res['RiskInfo'] = $this->riskInfo;
@@ -74,14 +74,14 @@ class resultObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VerifyInfo'])) {
-            $model->verifyInfo = $map['VerifyInfo'];
-        }
         if (isset($map['SubCode'])) {
             $model->subCode = $map['SubCode'];
         }
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
+        }
+        if (isset($map['VerifyInfo'])) {
+            $model->verifyInfo = $map['VerifyInfo'];
         }
         if (isset($map['RiskInfo'])) {
             $model->riskInfo = $map['RiskInfo'];

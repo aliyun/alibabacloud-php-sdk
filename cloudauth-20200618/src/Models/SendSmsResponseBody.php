@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20200618\Models;
 
-use AlibabaCloud\SDK\Cloudauth\V20200618\Models\ElementSmartVerifyResponseBody\resultObject;
+use AlibabaCloud\SDK\Cloudauth\V20200618\Models\SendSmsResponseBody\resultObject;
 use AlibabaCloud\Tea\Model;
 
-class ElementSmartVerifyResponseBody extends Model
+class SendSmsResponseBody extends Model
 {
     /**
      * @var string
@@ -61,7 +61,7 @@ class ElementSmartVerifyResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ElementSmartVerifyResponseBody
+     * @return SendSmsResponseBody
      */
     public static function fromMap($map = [])
     {

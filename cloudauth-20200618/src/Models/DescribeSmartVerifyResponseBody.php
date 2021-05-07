@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSmartVerifyResponseBody extends Model
 {
     /**
-     * @var resultObject
+     * @var string
      */
-    public $resultObject;
+    public $code;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class DescribeSmartVerifyResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var resultObject
      */
-    public $code;
+    public $resultObject;
     protected $_name = [
-        'resultObject' => 'ResultObject',
+        'code'         => 'Code',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
-        'code'         => 'Code',
+        'resultObject' => 'ResultObject',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class DescribeSmartVerifyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resultObject) {
-            $res['ResultObject'] = null !== $this->resultObject ? $this->resultObject->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -51,8 +51,8 @@ class DescribeSmartVerifyResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->resultObject) {
+            $res['ResultObject'] = null !== $this->resultObject ? $this->resultObject->toMap() : null;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class DescribeSmartVerifyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResultObject'])) {
-            $model->resultObject = resultObject::fromMap($map['ResultObject']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -75,8 +75,8 @@ class DescribeSmartVerifyResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['ResultObject'])) {
+            $model->resultObject = resultObject::fromMap($map['ResultObject']);
         }
 
         return $model;
