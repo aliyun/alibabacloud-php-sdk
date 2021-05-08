@@ -43,8 +43,6 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditPolicyRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditPolicyResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditRecordsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditRecordsResponse;
-use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceRequest;
-use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableTimeRangeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableTimeRangeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupDBsRequest;
@@ -800,34 +798,6 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAuditRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAvailableResourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeAvailableResourceResponse
-     */
-    public function describeAvailableResourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeAvailableResourceResponse::fromMap($this->doRPCRequest('DescribeAvailableResource', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAvailableResourceRequest $request
-     *
-     * @return DescribeAvailableResourceResponse
-     */
-    public function describeAvailableResource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAvailableResourceWithOptions($request, $runtime);
     }
 
     /**

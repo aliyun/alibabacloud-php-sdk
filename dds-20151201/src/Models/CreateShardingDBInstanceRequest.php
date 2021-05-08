@@ -14,6 +14,11 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $securityToken;
 
     /**
@@ -136,6 +141,7 @@ class CreateShardingDBInstanceRequest extends Model
      */
     public $configServer;
     protected $_name = [
+        'regionId'              => 'RegionId',
         'securityToken'         => 'SecurityToken',
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
@@ -170,6 +176,9 @@ class CreateShardingDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -275,6 +284,9 @@ class CreateShardingDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

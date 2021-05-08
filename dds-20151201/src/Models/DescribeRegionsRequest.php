@@ -37,11 +37,6 @@ class DescribeRegionsRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -49,7 +44,6 @@ class DescribeRegionsRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -76,9 +70,6 @@ class DescribeRegionsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -109,9 +100,6 @@ class DescribeRegionsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

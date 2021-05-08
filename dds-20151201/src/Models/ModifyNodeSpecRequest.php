@@ -76,12 +76,27 @@ class ModifyNodeSpecRequest extends Model
     /**
      * @var string
      */
+    public $switchTime;
+
+    /**
+     * @var string
+     */
     public $orderType;
 
     /**
      * @var int
      */
     public $readonlyReplicas;
+
+    /**
+     * @var string
+     */
+    public $businessInfo;
+
+    /**
+     * @var string
+     */
+    public $couponNo;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
@@ -96,8 +111,11 @@ class ModifyNodeSpecRequest extends Model
         'fromApp'              => 'FromApp',
         'autoPay'              => 'AutoPay',
         'effectiveTime'        => 'EffectiveTime',
+        'switchTime'           => 'SwitchTime',
         'orderType'            => 'OrderType',
         'readonlyReplicas'     => 'ReadonlyReplicas',
+        'businessInfo'         => 'BusinessInfo',
+        'couponNo'             => 'CouponNo',
     ];
 
     public function validate()
@@ -146,11 +164,20 @@ class ModifyNodeSpecRequest extends Model
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
         }
+        if (null !== $this->switchTime) {
+            $res['SwitchTime'] = $this->switchTime;
+        }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
         if (null !== $this->readonlyReplicas) {
             $res['ReadonlyReplicas'] = $this->readonlyReplicas;
+        }
+        if (null !== $this->businessInfo) {
+            $res['BusinessInfo'] = $this->businessInfo;
+        }
+        if (null !== $this->couponNo) {
+            $res['CouponNo'] = $this->couponNo;
         }
 
         return $res;
@@ -203,11 +230,20 @@ class ModifyNodeSpecRequest extends Model
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];
         }
+        if (isset($map['SwitchTime'])) {
+            $model->switchTime = $map['SwitchTime'];
+        }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
         if (isset($map['ReadonlyReplicas'])) {
             $model->readonlyReplicas = $map['ReadonlyReplicas'];
+        }
+        if (isset($map['BusinessInfo'])) {
+            $model->businessInfo = $map['BusinessInfo'];
+        }
+        if (isset($map['CouponNo'])) {
+            $model->couponNo = $map['CouponNo'];
         }
 
         return $model;

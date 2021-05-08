@@ -41,11 +41,6 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
     /**
      * @var string
      */
-    public $region;
-
-    /**
-     * @var string
-     */
     public $zoneId;
 
     /**
@@ -99,7 +94,6 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'region'               => 'Region',
         'zoneId'               => 'ZoneId',
         'instanceId'           => 'InstanceId',
         'instanceStatus'       => 'InstanceStatus',
@@ -136,9 +130,6 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -199,9 +190,6 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

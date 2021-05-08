@@ -36,6 +36,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -168,6 +173,7 @@ class CreateDBInstanceRequest extends Model
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
         'ownerAccount'          => 'OwnerAccount',
+        'regionId'              => 'RegionId',
         'clientToken'           => 'ClientToken',
         'zoneId'                => 'ZoneId',
         'engine'                => 'Engine',
@@ -217,6 +223,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -322,6 +331,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

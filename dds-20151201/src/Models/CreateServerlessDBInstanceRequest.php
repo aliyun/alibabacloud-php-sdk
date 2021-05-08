@@ -74,19 +74,9 @@ class CreateServerlessDBInstanceRequest extends Model
     public $accountPassword;
 
     /**
-     * @var string
-     */
-    public $chargeType;
-
-    /**
      * @var int
      */
     public $period;
-
-    /**
-     * @var string
-     */
-    public $networkType;
 
     /**
      * @var string
@@ -136,9 +126,7 @@ class CreateServerlessDBInstanceRequest extends Model
         'DBInstanceDescription' => 'DBInstanceDescription',
         'securityIPList'        => 'SecurityIPList',
         'accountPassword'       => 'AccountPassword',
-        'chargeType'            => 'ChargeType',
         'period'                => 'Period',
-        'networkType'           => 'NetworkType',
         'vpcId'                 => 'VpcId',
         'vSwitchId'             => 'VSwitchId',
         'clientToken'           => 'ClientToken',
@@ -194,14 +182,8 @@ class CreateServerlessDBInstanceRequest extends Model
         if (null !== $this->accountPassword) {
             $res['AccountPassword'] = $this->accountPassword;
         }
-        if (null !== $this->chargeType) {
-            $res['ChargeType'] = $this->chargeType;
-        }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
-        }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -275,14 +257,8 @@ class CreateServerlessDBInstanceRequest extends Model
         if (isset($map['AccountPassword'])) {
             $model->accountPassword = $map['AccountPassword'];
         }
-        if (isset($map['ChargeType'])) {
-            $model->chargeType = $map['ChargeType'];
-        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
-        }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

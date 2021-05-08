@@ -61,11 +61,6 @@ class ModifyDBInstanceSpecRequest extends Model
     /**
      * @var string
      */
-    public $fromApp;
-
-    /**
-     * @var string
-     */
     public $businessInfo;
 
     /**
@@ -98,7 +93,6 @@ class ModifyDBInstanceSpecRequest extends Model
         'DBInstanceStorage'    => 'DBInstanceStorage',
         'orderType'            => 'OrderType',
         'autoPay'              => 'AutoPay',
-        'fromApp'              => 'FromApp',
         'businessInfo'         => 'BusinessInfo',
         'replicationFactor'    => 'ReplicationFactor',
         'readonlyReplicas'     => 'ReadonlyReplicas',
@@ -142,9 +136,6 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
-        }
-        if (null !== $this->fromApp) {
-            $res['FromApp'] = $this->fromApp;
         }
         if (null !== $this->businessInfo) {
             $res['BusinessInfo'] = $this->businessInfo;
@@ -202,9 +193,6 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
-        }
-        if (isset($map['FromApp'])) {
-            $model->fromApp = $map['FromApp'];
         }
         if (isset($map['BusinessInfo'])) {
             $model->businessInfo = $map['BusinessInfo'];
