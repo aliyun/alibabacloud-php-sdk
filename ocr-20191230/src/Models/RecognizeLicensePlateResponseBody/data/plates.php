@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeLicensePlateResponseBody\data;
 
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeLicensePlateResponseBody\data\plates\positions;
 use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeLicensePlateResponseBody\data\plates\roi;
 use AlibabaCloud\Tea\Model;
 
@@ -33,12 +34,18 @@ class plates extends Model
      * @var roi
      */
     public $roi;
+
+    /**
+     * @var positions[]
+     */
+    public $positions;
     protected $_name = [
         'plateTypeConfidence' => 'PlateTypeConfidence',
         'plateType'           => 'PlateType',
         'confidence'          => 'Confidence',
         'plateNumber'         => 'PlateNumber',
         'roi'                 => 'Roi',
+        'positions'           => 'Positions',
     ];
 
     public function validate()
@@ -62,6 +69,15 @@ class plates extends Model
         }
         if (null !== $this->roi) {
             $res['Roi'] = null !== $this->roi ? $this->roi->toMap() : null;
+        }
+        if (null !== $this->positions) {
+            $res['Positions'] = [];
+            if (null !== $this->positions && \is_array($this->positions)) {
+                $n = 0;
+                foreach ($this->positions as $item) {
+                    $res['Positions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -89,6 +105,15 @@ class plates extends Model
         }
         if (isset($map['Roi'])) {
             $model->roi = roi::fromMap($map['Roi']);
+        }
+        if (isset($map['Positions'])) {
+            if (!empty($map['Positions'])) {
+                $model->positions = [];
+                $n                = 0;
+                foreach ($map['Positions'] as $item) {
+                    $model->positions[$n++] = null !== $item ? positions::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

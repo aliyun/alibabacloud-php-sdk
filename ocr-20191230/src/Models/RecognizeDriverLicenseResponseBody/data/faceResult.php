@@ -47,6 +47,11 @@ class faceResult extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $issueUnit;
     protected $_name = [
         'vehicleType'   => 'VehicleType',
         'issueDate'     => 'IssueDate',
@@ -56,6 +61,7 @@ class faceResult extends Model
         'startDate'     => 'StartDate',
         'licenseNumber' => 'LicenseNumber',
         'name'          => 'Name',
+        'issueUnit'     => 'IssueUnit',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class faceResult extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->issueUnit) {
+            $res['IssueUnit'] = $this->issueUnit;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class faceResult extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['IssueUnit'])) {
+            $model->issueUnit = $map['IssueUnit'];
         }
 
         return $model;

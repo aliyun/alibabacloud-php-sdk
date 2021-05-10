@@ -12,8 +12,26 @@ class backResult extends Model
      * @var string
      */
     public $archiveNumber;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $cardNumber;
+
+    /**
+     * @var string
+     */
+    public $record;
     protected $_name = [
         'archiveNumber' => 'ArchiveNumber',
+        'name'          => 'Name',
+        'cardNumber'    => 'CardNumber',
+        'record'        => 'Record',
     ];
 
     public function validate()
@@ -25,6 +43,15 @@ class backResult extends Model
         $res = [];
         if (null !== $this->archiveNumber) {
             $res['ArchiveNumber'] = $this->archiveNumber;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->cardNumber) {
+            $res['CardNumber'] = $this->cardNumber;
+        }
+        if (null !== $this->record) {
+            $res['Record'] = $this->record;
         }
 
         return $res;
@@ -40,6 +67,15 @@ class backResult extends Model
         $model = new self();
         if (isset($map['ArchiveNumber'])) {
             $model->archiveNumber = $map['ArchiveNumber'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['CardNumber'])) {
+            $model->cardNumber = $map['CardNumber'];
+        }
+        if (isset($map['Record'])) {
+            $model->record = $map['Record'];
         }
 
         return $model;

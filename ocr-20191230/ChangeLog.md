@@ -1,3 +1,6 @@
+2021-05-10 Version: 1.0.3
+- Update RecognizeDriverLicense RecognizeLicensePlate.
+
 2021-03-25 Version: 1.0.2
 - Generated php 2019-12-30 for ocr.
 
