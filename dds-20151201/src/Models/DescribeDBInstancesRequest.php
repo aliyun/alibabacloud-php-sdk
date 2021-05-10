@@ -35,6 +35,11 @@ class DescribeDBInstancesRequest extends Model
     public $ownerAccount;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -139,6 +144,7 @@ class DescribeDBInstancesRequest extends Model
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
         'ownerAccount'          => 'OwnerAccount',
+        'regionId'              => 'RegionId',
         'pageNumber'            => 'PageNumber',
         'pageSize'              => 'PageSize',
         'DBInstanceId'          => 'DBInstanceId',
@@ -182,6 +188,9 @@ class DescribeDBInstancesRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -275,6 +284,9 @@ class DescribeDBInstancesRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

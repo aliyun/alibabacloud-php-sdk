@@ -36,6 +36,11 @@ class DescribePriceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $orderType;
 
     /**
@@ -78,6 +83,7 @@ class DescribePriceRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
         'orderType'            => 'OrderType',
         'DBInstances'          => 'DBInstances',
         'commodityCode'        => 'CommodityCode',
@@ -109,6 +115,9 @@ class DescribePriceRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
@@ -160,6 +169,9 @@ class DescribePriceRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];

@@ -36,6 +36,11 @@ class DescribeParameterTemplatesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $engine;
 
     /**
@@ -48,6 +53,7 @@ class DescribeParameterTemplatesRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
         'engine'               => 'Engine',
         'engineVersion'        => 'EngineVersion',
     ];
@@ -73,6 +79,9 @@ class DescribeParameterTemplatesRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -106,6 +115,9 @@ class DescribeParameterTemplatesRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
