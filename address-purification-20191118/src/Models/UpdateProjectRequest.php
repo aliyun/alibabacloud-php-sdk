@@ -24,8 +24,6 @@ class UpdateProjectRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('serviceCode', $this->serviceCode, true);
-        Model::validateRequired('parameters', $this->parameters, true);
     }
 
     public function toMap()

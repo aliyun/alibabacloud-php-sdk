@@ -48,9 +48,6 @@ class GetAddressDivisionCodeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('serviceCode', $this->serviceCode, true);
-        Model::validateRequired('text', $this->text, true);
-        Model::validateRequired('appKey', $this->appKey, true);
     }
 
     public function toMap()

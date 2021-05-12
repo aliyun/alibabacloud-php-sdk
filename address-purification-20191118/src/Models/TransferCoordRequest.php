@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Addresspurification\V20191118\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CorrectAddressRequest extends Model
+class TransferCoordRequest extends Model
 {
     /**
      * @var string
@@ -17,6 +17,11 @@ class CorrectAddressRequest extends Model
      * @var string
      */
     public $text;
+
+    /**
+     * @var string
+     */
+    public $srcCoord;
 
     /**
      * @var string
@@ -40,6 +45,7 @@ class CorrectAddressRequest extends Model
     protected $_name = [
         'serviceCode'     => 'ServiceCode',
         'text'            => 'Text',
+        'srcCoord'        => 'SrcCoord',
         'defaultProvince' => 'DefaultProvince',
         'defaultCity'     => 'DefaultCity',
         'defaultDistrict' => 'DefaultDistrict',
@@ -58,6 +64,9 @@ class CorrectAddressRequest extends Model
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
+        }
+        if (null !== $this->srcCoord) {
+            $res['SrcCoord'] = $this->srcCoord;
         }
         if (null !== $this->defaultProvince) {
             $res['DefaultProvince'] = $this->defaultProvince;
@@ -78,7 +87,7 @@ class CorrectAddressRequest extends Model
     /**
      * @param array $map
      *
-     * @return CorrectAddressRequest
+     * @return TransferCoordRequest
      */
     public static function fromMap($map = [])
     {
@@ -88,6 +97,9 @@ class CorrectAddressRequest extends Model
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+        if (isset($map['SrcCoord'])) {
+            $model->srcCoord = $map['SrcCoord'];
         }
         if (isset($map['DefaultProvince'])) {
             $model->defaultProvince = $map['DefaultProvince'];

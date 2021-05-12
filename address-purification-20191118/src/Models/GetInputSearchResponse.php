@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Addresspurification\V20191118\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CorrectAddressResponse extends Model
+class GetInputSearchResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class CorrectAddressResponse extends Model
     public $headers;
 
     /**
-     * @var CorrectAddressResponseBody
+     * @var GetInputSearchResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class CorrectAddressResponse extends Model
     /**
      * @param array $map
      *
-     * @return CorrectAddressResponse
+     * @return GetInputSearchResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class CorrectAddressResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = CorrectAddressResponseBody::fromMap($map['body']);
+            $model->body = GetInputSearchResponseBody::fromMap($map['body']);
         }
 
         return $model;

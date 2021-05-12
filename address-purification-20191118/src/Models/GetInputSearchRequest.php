@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Addresspurification\V20191118\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CorrectAddressRequest extends Model
+class GetInputSearchRequest extends Model
 {
     /**
      * @var string
@@ -78,7 +78,7 @@ class CorrectAddressRequest extends Model
     /**
      * @param array $map
      *
-     * @return CorrectAddressRequest
+     * @return GetInputSearchRequest
      */
     public static function fromMap($map = [])
     {
