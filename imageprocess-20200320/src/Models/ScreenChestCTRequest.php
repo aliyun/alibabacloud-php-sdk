@@ -28,11 +28,17 @@ class ScreenChestCTRequest extends Model
      * @var URLList[]
      */
     public $URLList;
+
+    /**
+     * @var int
+     */
+    public $mask;
     protected $_name = [
         'dataFormat' => 'DataFormat',
         'orgName'    => 'OrgName',
         'orgId'      => 'OrgId',
         'URLList'    => 'URLList',
+        'mask'       => 'Mask',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class ScreenChestCTRequest extends Model
                     $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->mask) {
+            $res['Mask'] = $this->mask;
         }
 
         return $res;
@@ -89,6 +98,9 @@ class ScreenChestCTRequest extends Model
                     $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Mask'])) {
+            $model->mask = $map['Mask'];
         }
 
         return $model;

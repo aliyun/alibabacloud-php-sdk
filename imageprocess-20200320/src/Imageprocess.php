@@ -158,29 +158,31 @@ class Imageprocess extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $classifyFNFReq = new ClassifyFNFRequest([]);
         OpenApiUtilClient::convert($request, $classifyFNFReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $classifyFNFReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $classifyFNFReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
         return $this->classifyFNFWithOptions($classifyFNFReq, $runtime);
     }
@@ -396,29 +398,31 @@ class Imageprocess extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $detectHipKeypointXRayReq = new DetectHipKeypointXRayRequest([]);
         OpenApiUtilClient::convert($request, $detectHipKeypointXRayReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectHipKeypointXRayReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $detectHipKeypointXRayReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
         return $this->detectHipKeypointXRayWithOptions($detectHipKeypointXRayReq, $runtime);
     }
@@ -494,29 +498,31 @@ class Imageprocess extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $detectKneeKeypointXRayReq = new DetectKneeKeypointXRayRequest([]);
         OpenApiUtilClient::convert($request, $detectKneeKeypointXRayReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectKneeKeypointXRayReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $detectKneeKeypointXRayReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
         return $this->detectKneeKeypointXRayWithOptions($detectKneeKeypointXRayReq, $runtime);
     }
@@ -620,29 +626,31 @@ class Imageprocess extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $detectKneeXRayReq = new DetectKneeXRayRequest([]);
         OpenApiUtilClient::convert($request, $detectKneeXRayReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->urlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectKneeXRayReq->url = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->urlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->urlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $detectKneeXRayReq->url = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
         return $this->detectKneeXRayWithOptions($detectKneeXRayReq, $runtime);
     }
@@ -830,29 +838,31 @@ class Imageprocess extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $detectSkinDiseaseReq = new DetectSkinDiseaseRequest([]);
         OpenApiUtilClient::convert($request, $detectSkinDiseaseReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->urlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $detectSkinDiseaseReq->url = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->urlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->urlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $detectSkinDiseaseReq->url = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
         return $this->detectSkinDiseaseWithOptions($detectSkinDiseaseReq, $runtime);
     }

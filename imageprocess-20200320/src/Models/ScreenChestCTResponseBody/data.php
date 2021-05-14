@@ -31,11 +31,17 @@ class data extends Model
      * @var detectRibFracture
      */
     public $detectRibFracture;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
     protected $_name = [
         'lungNodule'        => 'LungNodule',
         'CACS'              => 'CACS',
         'covid'             => 'Covid',
         'detectRibFracture' => 'DetectRibFracture',
+        'errorMessage'      => 'ErrorMessage',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class data extends Model
         }
         if (null !== $this->detectRibFracture) {
             $res['DetectRibFracture'] = null !== $this->detectRibFracture ? $this->detectRibFracture->toMap() : null;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
 
         return $res;
@@ -80,6 +89,9 @@ class data extends Model
         }
         if (isset($map['DetectRibFracture'])) {
             $model->detectRibFracture = detectRibFracture::fromMap($map['DetectRibFracture']);
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
 
         return $model;
