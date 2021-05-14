@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
+     * @var int
+     */
+    public $remainingTime;
+
+    /**
      * @var string
      */
     public $status;
@@ -20,16 +25,6 @@ class groups extends Model
     public $sort;
 
     /**
-     * @var int
-     */
-    public $remainingTime;
-
-    /**
-     * @var countByStatus[]
-     */
-    public $countByStatus;
-
-    /**
      * @var string
      */
     public $title;
@@ -38,13 +33,18 @@ class groups extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var countByStatus[]
+     */
+    public $countByStatus;
     protected $_name = [
+        'remainingTime' => 'RemainingTime',
         'status'        => 'Status',
         'sort'          => 'Sort',
-        'remainingTime' => 'RemainingTime',
-        'countByStatus' => 'CountByStatus',
         'title'         => 'Title',
         'id'            => 'Id',
+        'countByStatus' => 'CountByStatus',
     ];
 
     public function validate()
@@ -54,14 +54,20 @@ class groups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->remainingTime) {
+            $res['RemainingTime'] = $this->remainingTime;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
         }
-        if (null !== $this->remainingTime) {
-            $res['RemainingTime'] = $this->remainingTime;
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->countByStatus) {
             $res['CountByStatus'] = [];
@@ -71,12 +77,6 @@ class groups extends Model
                     $res['CountByStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -90,14 +90,20 @@ class groups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RemainingTime'])) {
+            $model->remainingTime = $map['RemainingTime'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
         }
-        if (isset($map['RemainingTime'])) {
-            $model->remainingTime = $map['RemainingTime'];
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['CountByStatus'])) {
             if (!empty($map['CountByStatus'])) {
@@ -107,12 +113,6 @@ class groups extends Model
                     $model->countByStatus[$n++] = null !== $item ? countByStatus::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

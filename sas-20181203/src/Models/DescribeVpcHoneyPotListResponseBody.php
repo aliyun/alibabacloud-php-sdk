@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcHoneyPotListResponseBody extends Model
 {
     /**
-     * @var vpcHoneyPotDTOList[]
+     * @var string
      */
-    public $vpcHoneyPotDTOList;
+    public $requestId;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribeVpcHoneyPotListResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var string
+     * @var vpcHoneyPotDTOList[]
      */
-    public $requestId;
+    public $vpcHoneyPotDTOList;
     protected $_name = [
-        'vpcHoneyPotDTOList' => 'VpcHoneyPotDTOList',
-        'pageInfo'           => 'PageInfo',
         'requestId'          => 'RequestId',
+        'pageInfo'           => 'PageInfo',
+        'vpcHoneyPotDTOList' => 'VpcHoneyPotDTOList',
     ];
 
     public function validate()
@@ -37,6 +37,12 @@ class DescribeVpcHoneyPotListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
         if (null !== $this->vpcHoneyPotDTOList) {
             $res['VpcHoneyPotDTOList'] = [];
             if (null !== $this->vpcHoneyPotDTOList && \is_array($this->vpcHoneyPotDTOList)) {
@@ -45,12 +51,6 @@ class DescribeVpcHoneyPotListResponseBody extends Model
                     $res['VpcHoneyPotDTOList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,6 +64,12 @@ class DescribeVpcHoneyPotListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
         if (isset($map['VpcHoneyPotDTOList'])) {
             if (!empty($map['VpcHoneyPotDTOList'])) {
                 $model->vpcHoneyPotDTOList = [];
@@ -72,12 +78,6 @@ class DescribeVpcHoneyPotListResponseBody extends Model
                     $model->vpcHoneyPotDTOList[$n++] = null !== $item ? vpcHoneyPotDTOList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

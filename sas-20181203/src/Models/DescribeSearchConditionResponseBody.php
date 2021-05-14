@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSearchConditionResponseBody extends Model
 {
     /**
-     * @var conditionList[]
-     */
-    public $conditionList;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var conditionList[]
+     */
+    public $conditionList;
     protected $_name = [
-        'conditionList' => 'ConditionList',
         'requestId'     => 'RequestId',
+        'conditionList' => 'ConditionList',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class DescribeSearchConditionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->conditionList) {
             $res['ConditionList'] = [];
             if (null !== $this->conditionList && \is_array($this->conditionList)) {
@@ -38,9 +41,6 @@ class DescribeSearchConditionResponseBody extends Model
                     $res['ConditionList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class DescribeSearchConditionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['ConditionList'])) {
             if (!empty($map['ConditionList'])) {
                 $model->conditionList = [];
@@ -62,9 +65,6 @@ class DescribeSearchConditionResponseBody extends Model
                     $model->conditionList[$n++] = null !== $item ? conditionList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

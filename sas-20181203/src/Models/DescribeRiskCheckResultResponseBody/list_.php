@@ -12,7 +12,7 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $type;
+    public $riskLevel;
 
     /**
      * @var string
@@ -22,7 +22,7 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $riskLevel;
+    public $type;
 
     /**
      * @var int
@@ -60,11 +60,6 @@ class list_ extends Model
     public $riskAssertType;
 
     /**
-     * @var riskItemResources[]
-     */
-    public $riskItemResources;
-
-    /**
      * @var string
      */
     public $title;
@@ -78,10 +73,15 @@ class list_ extends Model
      * @var int
      */
     public $checkTime;
+
+    /**
+     * @var riskItemResources[]
+     */
+    public $riskItemResources;
     protected $_name = [
-        'type'              => 'Type',
-        'status'            => 'Status',
         'riskLevel'         => 'RiskLevel',
+        'status'            => 'Status',
+        'type'              => 'Type',
         'sort'              => 'Sort',
         'repairStatus'      => 'RepairStatus',
         'remainingTime'     => 'RemainingTime',
@@ -89,10 +89,10 @@ class list_ extends Model
         'startStatus'       => 'StartStatus',
         'affectedCount'     => 'AffectedCount',
         'riskAssertType'    => 'RiskAssertType',
-        'riskItemResources' => 'RiskItemResources',
         'title'             => 'Title',
         'taskId'            => 'TaskId',
         'checkTime'         => 'CheckTime',
+        'riskItemResources' => 'RiskItemResources',
     ];
 
     public function validate()
@@ -102,14 +102,14 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
@@ -132,15 +132,6 @@ class list_ extends Model
         if (null !== $this->riskAssertType) {
             $res['RiskAssertType'] = $this->riskAssertType;
         }
-        if (null !== $this->riskItemResources) {
-            $res['RiskItemResources'] = [];
-            if (null !== $this->riskItemResources && \is_array($this->riskItemResources)) {
-                $n = 0;
-                foreach ($this->riskItemResources as $item) {
-                    $res['RiskItemResources'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -150,6 +141,15 @@ class list_ extends Model
         if (null !== $this->checkTime) {
             $res['CheckTime'] = $this->checkTime;
         }
+        if (null !== $this->riskItemResources) {
+            $res['RiskItemResources'] = [];
+            if (null !== $this->riskItemResources && \is_array($this->riskItemResources)) {
+                $n = 0;
+                foreach ($this->riskItemResources as $item) {
+                    $res['RiskItemResources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -157,19 +157,19 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['RiskLevel'])) {
-            $model->riskLevel = $map['RiskLevel'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
@@ -192,15 +192,6 @@ class list_ extends Model
         if (isset($map['RiskAssertType'])) {
             $model->riskAssertType = $map['RiskAssertType'];
         }
-        if (isset($map['RiskItemResources'])) {
-            if (!empty($map['RiskItemResources'])) {
-                $model->riskItemResources = [];
-                $n                        = 0;
-                foreach ($map['RiskItemResources'] as $item) {
-                    $model->riskItemResources[$n++] = null !== $item ? riskItemResources::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
@@ -209,6 +200,15 @@ class list_ extends Model
         }
         if (isset($map['CheckTime'])) {
             $model->checkTime = $map['CheckTime'];
+        }
+        if (isset($map['RiskItemResources'])) {
+            if (!empty($map['RiskItemResources'])) {
+                $model->riskItemResources = [];
+                $n                        = 0;
+                foreach ($map['RiskItemResources'] as $item) {
+                    $model->riskItemResources[$n++] = null !== $item ? riskItemResources::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

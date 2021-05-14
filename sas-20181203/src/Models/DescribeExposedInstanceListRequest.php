@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceListRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $from;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -27,11 +17,6 @@ class DescribeExposedInstanceListRequest extends Model
      * @var int
      */
     public $currentPage;
-
-    /**
-     * @var string
-     */
-    public $uuid;
 
     /**
      * @var int
@@ -44,14 +29,14 @@ class DescribeExposedInstanceListRequest extends Model
     public $vulStatus;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $exposureComponent;
+    public $healthStatus;
 
     /**
      * @var string
      */
-    public $exposureType;
+    public $exposureComponent;
 
     /**
      * @var string
@@ -73,15 +58,12 @@ class DescribeExposedInstanceListRequest extends Model
      */
     public $instanceName;
     protected $_name = [
-        'sourceIp'          => 'SourceIp',
-        'from'              => 'From',
         'pageSize'          => 'PageSize',
         'currentPage'       => 'CurrentPage',
-        'uuid'              => 'Uuid',
         'groupId'           => 'GroupId',
         'vulStatus'         => 'VulStatus',
+        'healthStatus'      => 'HealthStatus',
         'exposureComponent' => 'ExposureComponent',
-        'exposureType'      => 'ExposureType',
         'exposurePort'      => 'ExposurePort',
         'exposureIp'        => 'ExposureIp',
         'instanceId'        => 'InstanceId',
@@ -95,20 +77,11 @@ class DescribeExposedInstanceListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->from) {
-            $res['From'] = $this->from;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -116,11 +89,11 @@ class DescribeExposedInstanceListRequest extends Model
         if (null !== $this->vulStatus) {
             $res['VulStatus'] = $this->vulStatus;
         }
+        if (null !== $this->healthStatus) {
+            $res['HealthStatus'] = $this->healthStatus;
+        }
         if (null !== $this->exposureComponent) {
             $res['ExposureComponent'] = $this->exposureComponent;
-        }
-        if (null !== $this->exposureType) {
-            $res['ExposureType'] = $this->exposureType;
         }
         if (null !== $this->exposurePort) {
             $res['ExposurePort'] = $this->exposurePort;
@@ -146,20 +119,11 @@ class DescribeExposedInstanceListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['From'])) {
-            $model->from = $map['From'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -167,11 +131,11 @@ class DescribeExposedInstanceListRequest extends Model
         if (isset($map['VulStatus'])) {
             $model->vulStatus = $map['VulStatus'];
         }
+        if (isset($map['HealthStatus'])) {
+            $model->healthStatus = $map['HealthStatus'];
+        }
         if (isset($map['ExposureComponent'])) {
             $model->exposureComponent = $map['ExposureComponent'];
-        }
-        if (isset($map['ExposureType'])) {
-            $model->exposureType = $map['ExposureType'];
         }
         if (isset($map['ExposurePort'])) {
             $model->exposurePort = $map['ExposurePort'];

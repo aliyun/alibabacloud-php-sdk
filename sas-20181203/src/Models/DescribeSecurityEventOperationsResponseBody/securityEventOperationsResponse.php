@@ -21,14 +21,14 @@ class securityEventOperationsResponse extends Model
     public $operationCode;
 
     /**
-     * @var markField[]
-     */
-    public $markField;
-
-    /**
      * @var bool
      */
     public $userCanOperate;
+
+    /**
+     * @var markField[]
+     */
+    public $markField;
 
     /**
      * @var markFieldsSource[]
@@ -37,8 +37,8 @@ class securityEventOperationsResponse extends Model
     protected $_name = [
         'operationParams'  => 'OperationParams',
         'operationCode'    => 'OperationCode',
-        'markField'        => 'MarkField',
         'userCanOperate'   => 'UserCanOperate',
+        'markField'        => 'MarkField',
         'markFieldsSource' => 'MarkFieldsSource',
     ];
 
@@ -55,6 +55,9 @@ class securityEventOperationsResponse extends Model
         if (null !== $this->operationCode) {
             $res['OperationCode'] = $this->operationCode;
         }
+        if (null !== $this->userCanOperate) {
+            $res['UserCanOperate'] = $this->userCanOperate;
+        }
         if (null !== $this->markField) {
             $res['MarkField'] = [];
             if (null !== $this->markField && \is_array($this->markField)) {
@@ -63,9 +66,6 @@ class securityEventOperationsResponse extends Model
                     $res['MarkField'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->userCanOperate) {
-            $res['UserCanOperate'] = $this->userCanOperate;
         }
         if (null !== $this->markFieldsSource) {
             $res['MarkFieldsSource'] = [];
@@ -94,6 +94,9 @@ class securityEventOperationsResponse extends Model
         if (isset($map['OperationCode'])) {
             $model->operationCode = $map['OperationCode'];
         }
+        if (isset($map['UserCanOperate'])) {
+            $model->userCanOperate = $map['UserCanOperate'];
+        }
         if (isset($map['MarkField'])) {
             if (!empty($map['MarkField'])) {
                 $model->markField = [];
@@ -102,9 +105,6 @@ class securityEventOperationsResponse extends Model
                     $model->markField[$n++] = null !== $item ? markField::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['UserCanOperate'])) {
-            $model->userCanOperate = $map['UserCanOperate'];
         }
         if (isset($map['MarkFieldsSource'])) {
             if (!empty($map['MarkFieldsSource'])) {

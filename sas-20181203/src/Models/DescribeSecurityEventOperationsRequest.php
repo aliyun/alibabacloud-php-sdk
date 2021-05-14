@@ -19,12 +19,18 @@ class DescribeSecurityEventOperationsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @var int
      */
     public $securityEventId;
     protected $_name = [
         'sourceIp'        => 'SourceIp',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'lang'            => 'Lang',
         'securityEventId' => 'SecurityEventId',
     ];
 
@@ -40,6 +46,9 @@ class DescribeSecurityEventOperationsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->securityEventId) {
             $res['SecurityEventId'] = $this->securityEventId;
@@ -61,6 +70,9 @@ class DescribeSecurityEventOperationsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['SecurityEventId'])) {
             $model->securityEventId = $map['SecurityEventId'];

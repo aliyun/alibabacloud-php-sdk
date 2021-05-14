@@ -5,16 +5,31 @@
 namespace AlibabaCloud\SDK\Sas\V20181203;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CheckSecurityEventIdRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CheckSecurityEventIdResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRestoreJobRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRestoreJobResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSasOrderRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSasOrderResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteGroupResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteLoginBaseConfigRequest;
@@ -31,7 +46,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventListResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllEntityRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventStackInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAlarmEventStackInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllEntityResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllGroupsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllGroupsResponse;
@@ -43,8 +59,19 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAutoDelConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAutoDelConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupDirsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupDirsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupFilesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupFilesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupMachineStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupMachineStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPoliciesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPoliciesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPolicyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupRestoreCountRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupRestoreCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckEcsWarningsRequest;
@@ -57,7 +84,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckWarningSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckWarningSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudCenterInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudCenterInstancesResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudProductFieldStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudProductFieldStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeConcernNecessityRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeConcernNecessityResponse;
@@ -75,8 +101,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainListResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeEmgVulGroupRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeEmgVulGroupResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeEmgVulItemRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeEmgVulItemResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExcludeSystemPathRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExcludeSystemPathResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExportInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExportInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceCriteriaRequest;
@@ -85,27 +113,30 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceListResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFieldStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFieldStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFrontVulPatchListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFrontVulPatchListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGraph4InvestigationOnlineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGraph4InvestigationOnlineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedContainerInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedContainerInstancesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedInstancesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedMaliciousFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedMaliciousFilesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedTagsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedTagsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedVulRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedVulResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotAuthRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotAuthResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotSuspStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotSuspStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageGroupedVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageGroupedVulListResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListResponse;
@@ -117,7 +148,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIpInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeIpInfoResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNoticeConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNoticeConfigResponse;
@@ -145,6 +177,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserItemResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeQuaraFileDownloadInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeQuaraFileDownloadInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestoreJobsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestoreJobsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckItemResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckItemResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckResultRequest;
@@ -157,6 +193,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskListCheckResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskListCheckResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSasAssetStatisticsColumnRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSasAssetStatisticsColumnResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeScanTaskProgressRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeScanTaskProgressResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSearchConditionRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSearchConditionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecureSuggestionRequest;
@@ -169,35 +207,40 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationStatusRe
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityStatInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityStatInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeServiceLinkedRoleStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarEventScenariosRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarEventScenariosResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarSecurityEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarSecurityEventsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSnapshotsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSnapshotsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyExecDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyExecDetailResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStratetyRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStratetyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSummaryInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSummaryInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSupportRegionRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSupportRegionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBackupMachinesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBackupMachinesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidsByVulNamesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidsByVulNamesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVolDingdingMessageRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVolDingdingMessageResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotCriteriaRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotCriteriaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotListResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsResponse;
@@ -215,18 +258,33 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupStorageCountRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupStorageCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetIncIOCsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetIncIOCsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetIOCsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetIOCsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetVulStatisticsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetVulStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSecurityEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSecurityEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarSecurityEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarSecurityEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetGroupRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetGroupResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyShrinkRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCreateVulWhitelistRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCreateVulWhitelistResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyEmgVulSubmitRequest;
@@ -241,6 +299,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyLoginSwitchConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyLoginSwitchConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyNoticeConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyNoticeConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOpenLogShipperRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOpenLogShipperResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOperateVulRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyOperateVulResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPushAllTaskRequest;
@@ -265,12 +325,16 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockDeleteConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockDeleteConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStartRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStartResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUnbindRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUnbindResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousTargetConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousTargetConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperateVulsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperateVulsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientRequest;
@@ -285,6 +349,12 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartImageVulScanRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartImageVulScanResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ValidateHcWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ValidateHcWarningsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -297,11 +367,65 @@ class Sas extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'central';
+        $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
-            'cn-hangzhou'         => 'tds.aliyuncs.com',
-            'ap-southeast-3'      => 'tds.ap-southeast-3.aliyuncs.com',
-            'cn-shanghai-et2-b01' => 'tds.cn-shanghai-et2-b01.aliyuncs.com',
+            'cn-hangzhou'                 => 'tds.aliyuncs.com',
+            'ap-southeast-3'              => 'tds.ap-southeast-3.aliyuncs.com',
+            'ap-northeast-1'              => 'sas.aliyuncs.com',
+            'ap-northeast-2-pop'          => 'sas.aliyuncs.com',
+            'ap-south-1'                  => 'sas.aliyuncs.com',
+            'ap-southeast-1'              => 'sas.aliyuncs.com',
+            'ap-southeast-2'              => 'sas.aliyuncs.com',
+            'ap-southeast-5'              => 'sas.aliyuncs.com',
+            'cn-beijing'                  => 'sas.aliyuncs.com',
+            'cn-beijing-finance-1'        => 'sas.aliyuncs.com',
+            'cn-beijing-finance-pop'      => 'sas.aliyuncs.com',
+            'cn-beijing-gov-1'            => 'sas.aliyuncs.com',
+            'cn-beijing-nu16-b01'         => 'sas.aliyuncs.com',
+            'cn-chengdu'                  => 'sas.aliyuncs.com',
+            'cn-edge-1'                   => 'sas.aliyuncs.com',
+            'cn-fujian'                   => 'sas.aliyuncs.com',
+            'cn-haidian-cm12-c01'         => 'sas.aliyuncs.com',
+            'cn-hangzhou-bj-b01'          => 'sas.aliyuncs.com',
+            'cn-hangzhou-finance'         => 'sas.aliyuncs.com',
+            'cn-hangzhou-internal-prod-1' => 'sas.aliyuncs.com',
+            'cn-hangzhou-internal-test-1' => 'sas.aliyuncs.com',
+            'cn-hangzhou-internal-test-2' => 'sas.aliyuncs.com',
+            'cn-hangzhou-internal-test-3' => 'sas.aliyuncs.com',
+            'cn-hangzhou-test-306'        => 'sas.aliyuncs.com',
+            'cn-hongkong'                 => 'sas.aliyuncs.com',
+            'cn-hongkong-finance-pop'     => 'sas.aliyuncs.com',
+            'cn-huhehaote'                => 'sas.aliyuncs.com',
+            'cn-huhehaote-nebula-1'       => 'sas.aliyuncs.com',
+            'cn-north-2-gov-1'            => 'sas.aliyuncs.com',
+            'cn-qingdao'                  => 'sas.aliyuncs.com',
+            'cn-qingdao-nebula'           => 'sas.aliyuncs.com',
+            'cn-shanghai'                 => 'sas.aliyuncs.com',
+            'cn-shanghai-et15-b01'        => 'sas.aliyuncs.com',
+            'cn-shanghai-et2-b01'         => 'sas.aliyuncs.com',
+            'cn-shanghai-finance-1'       => 'sas.aliyuncs.com',
+            'cn-shanghai-inner'           => 'sas.aliyuncs.com',
+            'cn-shanghai-internal-test-1' => 'sas.aliyuncs.com',
+            'cn-shenzhen'                 => 'sas.aliyuncs.com',
+            'cn-shenzhen-finance-1'       => 'sas.aliyuncs.com',
+            'cn-shenzhen-inner'           => 'sas.aliyuncs.com',
+            'cn-shenzhen-st4-d01'         => 'sas.aliyuncs.com',
+            'cn-shenzhen-su18-b01'        => 'sas.aliyuncs.com',
+            'cn-wuhan'                    => 'sas.aliyuncs.com',
+            'cn-wulanchabu'               => 'sas.aliyuncs.com',
+            'cn-yushanfang'               => 'sas.aliyuncs.com',
+            'cn-zhangbei'                 => 'sas.aliyuncs.com',
+            'cn-zhangbei-na61-b01'        => 'sas.aliyuncs.com',
+            'cn-zhangjiakou'              => 'sas.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01'     => 'sas.aliyuncs.com',
+            'cn-zhengzhou-nebula-1'       => 'sas.aliyuncs.com',
+            'eu-central-1'                => 'sas.aliyuncs.com',
+            'eu-west-1'                   => 'sas.aliyuncs.com',
+            'eu-west-1-oxs'               => 'sas.aliyuncs.com',
+            'me-east-1'                   => 'sas.aliyuncs.com',
+            'rus-west-1-pop'              => 'sas.aliyuncs.com',
+            'us-east-1'                   => 'sas.aliyuncs.com',
+            'us-west-1'                   => 'sas.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('sas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -359,6 +483,62 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param CheckQuaraFileIdRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CheckQuaraFileIdResponse
+     */
+    public function checkQuaraFileIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckQuaraFileIdResponse::fromMap($this->doRPCRequest('CheckQuaraFileId', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckQuaraFileIdRequest $request
+     *
+     * @return CheckQuaraFileIdResponse
+     */
+    public function checkQuaraFileId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkQuaraFileIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckSecurityEventIdRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CheckSecurityEventIdResponse
+     */
+    public function checkSecurityEventIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckSecurityEventIdResponse::fromMap($this->doRPCRequest('CheckSecurityEventId', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckSecurityEventIdRequest $request
+     *
+     * @return CheckSecurityEventIdResponse
+     */
+    public function checkSecurityEventId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkSecurityEventIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateAntiBruteForceRuleRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -384,6 +564,39 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAntiBruteForceRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBackupPolicyRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateBackupPolicyResponse
+     */
+    public function createBackupPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateBackupPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->policy)) {
+            $request->policyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateBackupPolicyResponse::fromMap($this->doRPCRequest('CreateBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateBackupPolicyRequest $request
+     *
+     * @return CreateBackupPolicyResponse
+     */
+    public function createBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBackupPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -415,6 +628,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param CreateRestoreJobRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateRestoreJobResponse
+     */
+    public function createRestoreJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateRestoreJobResponse::fromMap($this->doRPCRequest('CreateRestoreJob', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRestoreJobRequest $request
+     *
+     * @return CreateRestoreJobResponse
+     */
+    public function createRestoreJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRestoreJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateSasOrderRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -443,6 +684,28 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return CreateServiceLinkedRoleResponse
+     */
+    public function createServiceLinkedRoleWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return CreateServiceLinkedRoleResponse::fromMap($this->doRPCRequest('CreateServiceLinkedRole', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return CreateServiceLinkedRoleResponse
+     */
+    public function createServiceLinkedRole()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceLinkedRoleWithOptions($runtime);
+    }
+
+    /**
      * @param CreateSimilarSecurityEventsQueryTaskRequest $request
      * @param RuntimeOptions                              $runtime
      *
@@ -468,6 +731,62 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSimilarSecurityEventsQueryTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBackupPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteBackupPolicyResponse
+     */
+    public function deleteBackupPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteBackupPolicyResponse::fromMap($this->doRPCRequest('DeleteBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBackupPolicyRequest $request
+     *
+     * @return DeleteBackupPolicyResponse
+     */
+    public function deleteBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBackupPolicyMachineRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteBackupPolicyMachineResponse
+     */
+    public function deleteBackupPolicyMachineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteBackupPolicyMachineResponse::fromMap($this->doRPCRequest('DeleteBackupPolicyMachine', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBackupPolicyMachineRequest $request
+     *
+     * @return DeleteBackupPolicyMachineResponse
+     */
+    public function deleteBackupPolicyMachine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackupPolicyMachineWithOptions($request, $runtime);
     }
 
     /**
@@ -695,31 +1014,53 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllEntityRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeAlarmEventStackInfoRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return DescribeAllEntityResponse
+     * @return DescribeAlarmEventStackInfoResponse
      */
-    public function describeAllEntityWithOptions($request, $runtime)
+    public function describeAlarmEventStackInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
+        return DescribeAlarmEventStackInfoResponse::fromMap($this->doRPCRequest('DescribeAlarmEventStackInfo', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAlarmEventStackInfoRequest $request
+     *
+     * @return DescribeAlarmEventStackInfoResponse
+     */
+    public function describeAlarmEventStackInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAlarmEventStackInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeAllEntityResponse
+     */
+    public function describeAllEntityWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
         return DescribeAllEntityResponse::fromMap($this->doRPCRequest('DescribeAllEntity', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeAllEntityRequest $request
-     *
      * @return DescribeAllEntityResponse
      */
-    public function describeAllEntity($request)
+    public function describeAllEntity()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeAllEntityWithOptions($request, $runtime);
+        return $this->describeAllEntityWithOptions($runtime);
     }
 
     /**
@@ -863,31 +1204,193 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutoDelConfigRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeAutoDelConfigResponse
      */
-    public function describeAutoDelConfigWithOptions($request, $runtime)
+    public function describeAutoDelConfigWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return DescribeAutoDelConfigResponse::fromMap($this->doRPCRequest('DescribeAutoDelConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return DescribeAutoDelConfigResponse
+     */
+    public function describeAutoDelConfig()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAutoDelConfigWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeBackupDirsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeBackupDirsResponse
+     */
+    public function describeBackupDirsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeAutoDelConfigResponse::fromMap($this->doRPCRequest('DescribeAutoDelConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupDirsResponse::fromMap($this->doRPCRequest('DescribeBackupDirs', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeAutoDelConfigRequest $request
+     * @param DescribeBackupDirsRequest $request
      *
-     * @return DescribeAutoDelConfigResponse
+     * @return DescribeBackupDirsResponse
      */
-    public function describeAutoDelConfig($request)
+    public function describeBackupDirs($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeAutoDelConfigWithOptions($request, $runtime);
+        return $this->describeBackupDirsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackupFilesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeBackupFilesResponse
+     */
+    public function describeBackupFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeBackupFilesResponse::fromMap($this->doRPCRequest('DescribeBackupFiles', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupFilesRequest $request
+     *
+     * @return DescribeBackupFilesResponse
+     */
+    public function describeBackupFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackupMachineStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeBackupMachineStatusResponse
+     */
+    public function describeBackupMachineStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeBackupMachineStatusResponse::fromMap($this->doRPCRequest('DescribeBackupMachineStatus', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupMachineStatusRequest $request
+     *
+     * @return DescribeBackupMachineStatusResponse
+     */
+    public function describeBackupMachineStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupMachineStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackupPoliciesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeBackupPoliciesResponse
+     */
+    public function describeBackupPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeBackupPoliciesResponse::fromMap($this->doRPCRequest('DescribeBackupPolicies', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupPoliciesRequest $request
+     *
+     * @return DescribeBackupPoliciesResponse
+     */
+    public function describeBackupPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackupPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBackupPolicyResponse
+     */
+    public function describeBackupPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeBackupPolicyResponse::fromMap($this->doRPCRequest('DescribeBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupPolicyRequest $request
+     *
+     * @return DescribeBackupPolicyResponse
+     */
+    public function describeBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackupRestoreCountRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeBackupRestoreCountResponse
+     */
+    public function describeBackupRestoreCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeBackupRestoreCountResponse::fromMap($this->doRPCRequest('DescribeBackupRestoreCount', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupRestoreCountRequest $request
+     *
+     * @return DescribeBackupRestoreCountResponse
+     */
+    public function describeBackupRestoreCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupRestoreCountWithOptions($request, $runtime);
     }
 
     /**
@@ -1059,31 +1562,25 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudProductFieldStatisticsRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeCloudProductFieldStatisticsResponse
      */
-    public function describeCloudProductFieldStatisticsWithOptions($request, $runtime)
+    public function describeCloudProductFieldStatisticsWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
         return DescribeCloudProductFieldStatisticsResponse::fromMap($this->doRPCRequest('DescribeCloudProductFieldStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeCloudProductFieldStatisticsRequest $request
-     *
      * @return DescribeCloudProductFieldStatisticsResponse
      */
-    public function describeCloudProductFieldStatistics($request)
+    public function describeCloudProductFieldStatistics()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeCloudProductFieldStatisticsWithOptions($request, $runtime);
+        return $this->describeCloudProductFieldStatisticsWithOptions($runtime);
     }
 
     /**
@@ -1311,31 +1808,59 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeEmgVulGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeEmgVulItemRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return DescribeEmgVulGroupResponse
+     * @return DescribeEmgVulItemResponse
      */
-    public function describeEmgVulGroupWithOptions($request, $runtime)
+    public function describeEmgVulItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeEmgVulGroupResponse::fromMap($this->doRPCRequest('DescribeEmgVulGroup', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEmgVulItemResponse::fromMap($this->doRPCRequest('DescribeEmgVulItem', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeEmgVulGroupRequest $request
+     * @param DescribeEmgVulItemRequest $request
      *
-     * @return DescribeEmgVulGroupResponse
+     * @return DescribeEmgVulItemResponse
      */
-    public function describeEmgVulGroup($request)
+    public function describeEmgVulItem($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeEmgVulGroupWithOptions($request, $runtime);
+        return $this->describeEmgVulItemWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeExcludeSystemPathRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeExcludeSystemPathResponse
+     */
+    public function describeExcludeSystemPathWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeExcludeSystemPathResponse::fromMap($this->doRPCRequest('DescribeExcludeSystemPath', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeExcludeSystemPathRequest $request
+     *
+     * @return DescribeExcludeSystemPathResponse
+     */
+    public function describeExcludeSystemPath($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExcludeSystemPathWithOptions($request, $runtime);
     }
 
     /**
@@ -1451,31 +1976,53 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeExposedStatisticsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeExposedStatisticsResponse
      */
-    public function describeExposedStatisticsWithOptions($request, $runtime)
+    public function describeExposedStatisticsWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return DescribeExposedStatisticsResponse::fromMap($this->doRPCRequest('DescribeExposedStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return DescribeExposedStatisticsResponse
+     */
+    public function describeExposedStatistics()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExposedStatisticsWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeExposedStatisticsDetailRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeExposedStatisticsDetailResponse
+     */
+    public function describeExposedStatisticsDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeExposedStatisticsResponse::fromMap($this->doRPCRequest('DescribeExposedStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExposedStatisticsDetailResponse::fromMap($this->doRPCRequest('DescribeExposedStatisticsDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeExposedStatisticsRequest $request
+     * @param DescribeExposedStatisticsDetailRequest $request
      *
-     * @return DescribeExposedStatisticsResponse
+     * @return DescribeExposedStatisticsDetailResponse
      */
-    public function describeExposedStatistics($request)
+    public function describeExposedStatisticsDetail($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeExposedStatisticsWithOptions($request, $runtime);
+        return $this->describeExposedStatisticsDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -1504,6 +2051,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeFieldStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeFrontVulPatchListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeFrontVulPatchListResponse
+     */
+    public function describeFrontVulPatchListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeFrontVulPatchListResponse::fromMap($this->doRPCRequest('DescribeFrontVulPatchList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeFrontVulPatchListRequest $request
+     *
+     * @return DescribeFrontVulPatchListResponse
+     */
+    public function describeFrontVulPatchList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFrontVulPatchListWithOptions($request, $runtime);
     }
 
     /**
@@ -1560,6 +2135,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeGroupedContainerInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeGroupedInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeGroupedInstancesResponse
+     */
+    public function describeGroupedInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeGroupedInstancesResponse::fromMap($this->doRPCRequest('DescribeGroupedInstances', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeGroupedInstancesRequest $request
+     *
+     * @return DescribeGroupedInstancesResponse
+     */
+    public function describeGroupedInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGroupedInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -1647,31 +2250,25 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeHoneyPotAuthRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeHoneyPotAuthResponse
      */
-    public function describeHoneyPotAuthWithOptions($request, $runtime)
+    public function describeHoneyPotAuthWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
         return DescribeHoneyPotAuthResponse::fromMap($this->doRPCRequest('DescribeHoneyPotAuth', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeHoneyPotAuthRequest $request
-     *
      * @return DescribeHoneyPotAuthResponse
      */
-    public function describeHoneyPotAuth($request)
+    public function describeHoneyPotAuth()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeHoneyPotAuthWithOptions($request, $runtime);
+        return $this->describeHoneyPotAuthWithOptions($runtime);
     }
 
     /**
@@ -1731,31 +2328,25 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageStatisticsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeImageStatisticsResponse
      */
-    public function describeImageStatisticsWithOptions($request, $runtime)
+    public function describeImageStatisticsWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
         return DescribeImageStatisticsResponse::fromMap($this->doRPCRequest('DescribeImageStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeImageStatisticsRequest $request
-     *
      * @return DescribeImageStatisticsResponse
      */
-    public function describeImageStatistics($request)
+    public function describeImageStatistics()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeImageStatisticsWithOptions($request, $runtime);
+        return $this->describeImageStatisticsWithOptions($runtime);
     }
 
     /**
@@ -1899,31 +2490,53 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeModuleConfigRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeLogstoreStorageRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DescribeModuleConfigResponse
+     * @return DescribeLogstoreStorageResponse
      */
-    public function describeModuleConfigWithOptions($request, $runtime)
+    public function describeLogstoreStorageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
+        return DescribeLogstoreStorageResponse::fromMap($this->doRPCRequest('DescribeLogstoreStorage', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLogstoreStorageRequest $request
+     *
+     * @return DescribeLogstoreStorageResponse
+     */
+    public function describeLogstoreStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLogstoreStorageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeModuleConfigResponse
+     */
+    public function describeModuleConfigWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
         return DescribeModuleConfigResponse::fromMap($this->doRPCRequest('DescribeModuleConfig', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeModuleConfigRequest $request
-     *
      * @return DescribeModuleConfigResponse
      */
-    public function describeModuleConfig($request)
+    public function describeModuleConfig()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeModuleConfigWithOptions($request, $runtime);
+        return $this->describeModuleConfigWithOptions($runtime);
     }
 
     /**
@@ -2291,6 +2904,62 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeQuaraFileDownloadInfoRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeQuaraFileDownloadInfoResponse
+     */
+    public function describeQuaraFileDownloadInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeQuaraFileDownloadInfoResponse::fromMap($this->doRPCRequest('DescribeQuaraFileDownloadInfo', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeQuaraFileDownloadInfoRequest $request
+     *
+     * @return DescribeQuaraFileDownloadInfoResponse
+     */
+    public function describeQuaraFileDownloadInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeQuaraFileDownloadInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRestoreJobsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeRestoreJobsResponse
+     */
+    public function describeRestoreJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRestoreJobsResponse::fromMap($this->doRPCRequest('DescribeRestoreJobs', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRestoreJobsRequest $request
+     *
+     * @return DescribeRestoreJobsResponse
+     */
+    public function describeRestoreJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRestoreJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRiskCheckItemResultRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2456,6 +3125,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSasAssetStatisticsColumnWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeScanTaskProgressRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeScanTaskProgressResponse
+     */
+    public function describeScanTaskProgressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeScanTaskProgressResponse::fromMap($this->doRPCRequest('DescribeScanTaskProgress', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeScanTaskProgressRequest $request
+     *
+     * @return DescribeScanTaskProgressResponse
+     */
+    public function describeScanTaskProgress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeScanTaskProgressWithOptions($request, $runtime);
     }
 
     /**
@@ -2627,6 +3324,28 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeServiceLinkedRoleStatusResponse
+     */
+    public function describeServiceLinkedRoleStatusWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return DescribeServiceLinkedRoleStatusResponse::fromMap($this->doRPCRequest('DescribeServiceLinkedRoleStatus', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return DescribeServiceLinkedRoleStatusResponse
+     */
+    public function describeServiceLinkedRoleStatus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeServiceLinkedRoleStatusWithOptions($runtime);
+    }
+
+    /**
      * @param DescribeSimilarEventScenariosRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2683,6 +3402,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeSnapshotsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeSnapshotsResponse
+     */
+    public function describeSnapshotsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSnapshotsResponse::fromMap($this->doRPCRequest('DescribeSnapshots', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSnapshotsRequest $request
+     *
+     * @return DescribeSnapshotsResponse
+     */
+    public function describeSnapshots($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSnapshotsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeStrategyExecDetailRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -2711,34 +3458,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeStratetyRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeStratetyResponse
-     */
-    public function describeStratetyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeStratetyResponse::fromMap($this->doRPCRequest('DescribeStratety', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeStratetyRequest $request
-     *
-     * @return DescribeStratetyResponse
-     */
-    public function describeStratety($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeStratetyWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeSummaryInfoRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2764,6 +3483,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSummaryInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSupportRegionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSupportRegionResponse
+     */
+    public function describeSupportRegionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSupportRegionResponse::fromMap($this->doRPCRequest('DescribeSupportRegion', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSupportRegionRequest $request
+     *
+     * @return DescribeSupportRegionResponse
+     */
+    public function describeSupportRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSupportRegionWithOptions($request, $runtime);
     }
 
     /**
@@ -2851,6 +3598,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeUserBackupMachinesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeUserBackupMachinesResponse
+     */
+    public function describeUserBackupMachinesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeUserBackupMachinesResponse::fromMap($this->doRPCRequest('DescribeUserBackupMachines', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserBackupMachinesRequest $request
+     *
+     * @return DescribeUserBackupMachinesResponse
+     */
+    public function describeUserBackupMachines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserBackupMachinesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeUserBaselineAuthorizationRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -2904,6 +3679,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUserLayoutAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUuidsByVulNamesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeUuidsByVulNamesResponse
+     */
+    public function describeUuidsByVulNamesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeUuidsByVulNamesResponse::fromMap($this->doRPCRequest('DescribeUuidsByVulNames', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUuidsByVulNamesRequest $request
+     *
+     * @return DescribeUuidsByVulNamesResponse
+     */
+    public function describeUuidsByVulNames($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUuidsByVulNamesWithOptions($request, $runtime);
     }
 
     /**
@@ -2963,31 +3766,25 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcHoneyPotCriteriaRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeVpcHoneyPotCriteriaResponse
      */
-    public function describeVpcHoneyPotCriteriaWithOptions($request, $runtime)
+    public function describeVpcHoneyPotCriteriaWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
         return DescribeVpcHoneyPotCriteriaResponse::fromMap($this->doRPCRequest('DescribeVpcHoneyPotCriteria', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeVpcHoneyPotCriteriaRequest $request
-     *
      * @return DescribeVpcHoneyPotCriteriaResponse
      */
-    public function describeVpcHoneyPotCriteria($request)
+    public function describeVpcHoneyPotCriteria()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVpcHoneyPotCriteriaWithOptions($request, $runtime);
+        return $this->describeVpcHoneyPotCriteriaWithOptions($runtime);
     }
 
     /**
@@ -3019,31 +3816,25 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcListRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeVpcListResponse
      */
-    public function describeVpcListWithOptions($request, $runtime)
+    public function describeVpcListWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
         return DescribeVpcListResponse::fromMap($this->doRPCRequest('DescribeVpcList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeVpcListRequest $request
-     *
      * @return DescribeVpcListResponse
      */
-    public function describeVpcList($request)
+    public function describeVpcList()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeVpcListWithOptions($request, $runtime);
+        return $this->describeVpcListWithOptions($runtime);
     }
 
     /**
@@ -3271,6 +4062,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param GetBackupStorageCountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetBackupStorageCountResponse
+     */
+    public function getBackupStorageCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetBackupStorageCountResponse::fromMap($this->doRPCRequest('GetBackupStorageCount', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetBackupStorageCountRequest $request
+     *
+     * @return GetBackupStorageCountResponse
+     */
+    public function getBackupStorageCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBackupStorageCountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetIncIOCsRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -3324,6 +4143,62 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getIOCsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSuspiciousStatisticsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetSuspiciousStatisticsResponse
+     */
+    public function getSuspiciousStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSuspiciousStatisticsResponse::fromMap($this->doRPCRequest('GetSuspiciousStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSuspiciousStatisticsRequest $request
+     *
+     * @return GetSuspiciousStatisticsResponse
+     */
+    public function getSuspiciousStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSuspiciousStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetVulStatisticsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetVulStatisticsResponse
+     */
+    public function getVulStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetVulStatisticsResponse::fromMap($this->doRPCRequest('GetVulStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetVulStatisticsRequest $request
+     *
+     * @return GetVulStatisticsResponse
+     */
+    public function getVulStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVulStatisticsWithOptions($request, $runtime);
     }
 
     /**
@@ -3411,6 +4286,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param InstallBackupClientRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return InstallBackupClientResponse
+     */
+    public function installBackupClientWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return InstallBackupClientResponse::fromMap($this->doRPCRequest('InstallBackupClient', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param InstallBackupClientRequest $request
+     *
+     * @return InstallBackupClientResponse
+     */
+    public function installBackupClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installBackupClientWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyAntiBruteForceRuleRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -3436,6 +4339,95 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAntiBruteForceRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAssetGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyAssetGroupResponse
+     */
+    public function modifyAssetGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyAssetGroupResponse::fromMap($this->doRPCRequest('ModifyAssetGroup', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAssetGroupRequest $request
+     *
+     * @return ModifyAssetGroupResponse
+     */
+    public function modifyAssetGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAssetGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyBackupPolicyRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyBackupPolicyResponse
+     */
+    public function modifyBackupPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyBackupPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->policy)) {
+            $request->policyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyBackupPolicyResponse::fromMap($this->doRPCRequest('ModifyBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyBackupPolicyRequest $request
+     *
+     * @return ModifyBackupPolicyResponse
+     */
+    public function modifyBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyBackupPolicyStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyBackupPolicyStatusResponse
+     */
+    public function modifyBackupPolicyStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyBackupPolicyStatusResponse::fromMap($this->doRPCRequest('ModifyBackupPolicyStatus', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyBackupPolicyStatusRequest $request
+     *
+     * @return ModifyBackupPolicyStatusResponse
+     */
+    public function modifyBackupPolicyStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBackupPolicyStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -3632,6 +4624,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyNoticeConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyOpenLogShipperRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyOpenLogShipperResponse
+     */
+    public function modifyOpenLogShipperWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyOpenLogShipperResponse::fromMap($this->doRPCRequest('ModifyOpenLogShipper', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyOpenLogShipperRequest $request
+     *
+     * @return ModifyOpenLogShipperResponse
+     */
+    public function modifyOpenLogShipper($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyOpenLogShipperWithOptions($request, $runtime);
     }
 
     /**
@@ -3971,6 +4991,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ModifyWebLockStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyWebLockStatusResponse
+     */
+    public function modifyWebLockStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyWebLockStatusResponse::fromMap($this->doRPCRequest('ModifyWebLockStatus', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyWebLockStatusRequest $request
+     *
+     * @return ModifyWebLockStatusResponse
+     */
+    public function modifyWebLockStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyWebLockStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyWebLockUnbindRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -4052,6 +5100,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->operateSuspiciousTargetConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OperateVulsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return OperateVulsResponse
+     */
+    public function operateVulsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return OperateVulsResponse::fromMap($this->doRPCRequest('OperateVuls', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param OperateVulsRequest $request
+     *
+     * @return OperateVulsResponse
+     */
+    public function operateVuls($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateVulsWithOptions($request, $runtime);
     }
 
     /**
@@ -4248,6 +5324,90 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startImageVulScanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartVirusScanTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StartVirusScanTaskResponse
+     */
+    public function startVirusScanTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartVirusScanTaskResponse::fromMap($this->doRPCRequest('StartVirusScanTask', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartVirusScanTaskRequest $request
+     *
+     * @return StartVirusScanTaskResponse
+     */
+    public function startVirusScanTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startVirusScanTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnbindAegisRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UnbindAegisResponse
+     */
+    public function unbindAegisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UnbindAegisResponse::fromMap($this->doRPCRequest('UnbindAegis', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UnbindAegisRequest $request
+     *
+     * @return UnbindAegisResponse
+     */
+    public function unbindAegis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindAegisWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UninstallBackupClientRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UninstallBackupClientResponse
+     */
+    public function uninstallBackupClientWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UninstallBackupClientResponse::fromMap($this->doRPCRequest('UninstallBackupClient', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UninstallBackupClientRequest $request
+     *
+     * @return UninstallBackupClientResponse
+     */
+    public function uninstallBackupClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uninstallBackupClientWithOptions($request, $runtime);
     }
 
     /**

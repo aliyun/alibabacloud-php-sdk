@@ -11,22 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlarmEventListResponseBody extends Model
 {
     /**
-     * @var pageInfo
-     */
-    public $pageInfo;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var pageInfo
+     */
+    public $pageInfo;
 
     /**
      * @var suspEvents[]
      */
     public $suspEvents;
     protected $_name = [
-        'pageInfo'   => 'PageInfo',
         'requestId'  => 'RequestId',
+        'pageInfo'   => 'PageInfo',
         'suspEvents' => 'SuspEvents',
     ];
 
@@ -37,11 +37,11 @@ class DescribeAlarmEventListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
         if (null !== $this->suspEvents) {
             $res['SuspEvents'] = [];
@@ -64,11 +64,11 @@ class DescribeAlarmEventListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
         if (isset($map['SuspEvents'])) {
             if (!empty($map['SuspEvents'])) {

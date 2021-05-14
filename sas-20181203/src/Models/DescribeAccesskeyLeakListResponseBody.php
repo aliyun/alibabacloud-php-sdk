@@ -12,17 +12,7 @@ class DescribeAccesskeyLeakListResponseBody extends Model
     /**
      * @var int
      */
-    public $akLeakCount;
-
-    /**
-     * @var accessKeyLeakList[]
-     */
-    public $accessKeyLeakList;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
+    public $currentPage;
 
     /**
      * @var string
@@ -32,25 +22,35 @@ class DescribeAccesskeyLeakListResponseBody extends Model
     /**
      * @var int
      */
+    public $gmtLast;
+
+    /**
+     * @var int
+     */
+    public $akLeakCount;
+
+    /**
+     * @var int
+     */
     public $pageSize;
 
     /**
      * @var int
      */
-    public $currentPage;
+    public $totalCount;
 
     /**
-     * @var int
+     * @var accessKeyLeakList[]
      */
-    public $gmtLast;
+    public $accessKeyLeakList;
     protected $_name = [
-        'akLeakCount'       => 'AkLeakCount',
-        'accessKeyLeakList' => 'AccessKeyLeakList',
-        'totalCount'        => 'TotalCount',
-        'requestId'         => 'RequestId',
-        'pageSize'          => 'PageSize',
         'currentPage'       => 'CurrentPage',
+        'requestId'         => 'RequestId',
         'gmtLast'           => 'GmtLast',
+        'akLeakCount'       => 'AkLeakCount',
+        'pageSize'          => 'PageSize',
+        'totalCount'        => 'TotalCount',
+        'accessKeyLeakList' => 'AccessKeyLeakList',
     ];
 
     public function validate()
@@ -60,8 +60,23 @@ class DescribeAccesskeyLeakListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->gmtLast) {
+            $res['GmtLast'] = $this->gmtLast;
+        }
         if (null !== $this->akLeakCount) {
             $res['AkLeakCount'] = $this->akLeakCount;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->accessKeyLeakList) {
             $res['AccessKeyLeakList'] = [];
@@ -71,21 +86,6 @@ class DescribeAccesskeyLeakListResponseBody extends Model
                     $res['AccessKeyLeakList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->gmtLast) {
-            $res['GmtLast'] = $this->gmtLast;
         }
 
         return $res;
@@ -99,8 +99,23 @@ class DescribeAccesskeyLeakListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['GmtLast'])) {
+            $model->gmtLast = $map['GmtLast'];
+        }
         if (isset($map['AkLeakCount'])) {
             $model->akLeakCount = $map['AkLeakCount'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['AccessKeyLeakList'])) {
             if (!empty($map['AccessKeyLeakList'])) {
@@ -110,21 +125,6 @@ class DescribeAccesskeyLeakListResponseBody extends Model
                     $model->accessKeyLeakList[$n++] = null !== $item ? accessKeyLeakList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['GmtLast'])) {
-            $model->gmtLast = $map['GmtLast'];
         }
 
         return $model;

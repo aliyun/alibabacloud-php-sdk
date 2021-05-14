@@ -11,11 +11,6 @@ class DescribeImageGroupedVulListRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $type;
 
     /**
@@ -157,8 +152,12 @@ class DescribeImageGroupedVulListRequest extends Model
      * @var string
      */
     public $imageLayer;
+
+    /**
+     * @var string
+     */
+    public $lang;
     protected $_name = [
-        'sourceIp'       => 'SourceIp',
         'type'           => 'Type',
         'groupId'        => 'GroupId',
         'cveId'          => 'CveId',
@@ -188,6 +187,7 @@ class DescribeImageGroupedVulListRequest extends Model
         'imageTag'       => 'ImageTag',
         'imageDigest'    => 'ImageDigest',
         'imageLayer'     => 'ImageLayer',
+        'lang'           => 'Lang',
     ];
 
     public function validate()
@@ -197,9 +197,6 @@ class DescribeImageGroupedVulListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -287,6 +284,9 @@ class DescribeImageGroupedVulListRequest extends Model
         if (null !== $this->imageLayer) {
             $res['ImageLayer'] = $this->imageLayer;
         }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
 
         return $res;
     }
@@ -299,9 +299,6 @@ class DescribeImageGroupedVulListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
@@ -388,6 +385,9 @@ class DescribeImageGroupedVulListRequest extends Model
         }
         if (isset($map['ImageLayer'])) {
             $model->imageLayer = $map['ImageLayer'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

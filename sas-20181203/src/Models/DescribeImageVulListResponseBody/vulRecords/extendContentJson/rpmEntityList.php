@@ -11,6 +11,11 @@ class rpmEntityList extends Model
     /**
      * @var string
      */
+    public $matchList;
+
+    /**
+     * @var string
+     */
     public $layer;
 
     /**
@@ -43,6 +48,7 @@ class rpmEntityList extends Model
      */
     public $updateCmd;
     protected $_name = [
+        'matchList'   => 'MatchList',
         'layer'       => 'Layer',
         'fullVersion' => 'FullVersion',
         'version'     => 'Version',
@@ -59,6 +65,9 @@ class rpmEntityList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->matchList) {
+            $res['MatchList'] = $this->matchList;
+        }
         if (null !== $this->layer) {
             $res['Layer'] = $this->layer;
         }
@@ -92,6 +101,9 @@ class rpmEntityList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MatchList'])) {
+            $model->matchList = $map['MatchList'];
+        }
         if (isset($map['Layer'])) {
             $model->layer = $map['Layer'];
         }

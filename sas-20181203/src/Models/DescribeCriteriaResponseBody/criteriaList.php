@@ -16,16 +16,16 @@ class criteriaList extends Model
     /**
      * @var string
      */
-    public $values;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $values;
     protected $_name = [
         'type'   => 'Type',
-        'values' => 'Values',
         'name'   => 'Name',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class criteriaList extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->values) {
-            $res['Values'] = $this->values;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->values) {
+            $res['Values'] = $this->values;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class criteriaList extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['Values'])) {
-            $model->values = $map['Values'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Values'])) {
+            $model->values = $map['Values'];
         }
 
         return $model;

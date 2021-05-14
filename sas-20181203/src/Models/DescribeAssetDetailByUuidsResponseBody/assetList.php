@@ -46,12 +46,12 @@ class assetList extends Model
     /**
      * @var string
      */
-    public $assetType;
+    public $intranetIp;
 
     /**
      * @var string
      */
-    public $intranetIp;
+    public $assetType;
 
     /**
      * @var string
@@ -85,8 +85,8 @@ class assetList extends Model
         'instanceId'    => 'InstanceId',
         'clientStatus'  => 'ClientStatus',
         'vpcInstanceId' => 'VpcInstanceId',
-        'assetType'     => 'AssetType',
         'intranetIp'    => 'IntranetIp',
+        'assetType'     => 'AssetType',
         'regionId'      => 'RegionId',
         'uuid'          => 'Uuid',
         'regionName'    => 'RegionName',
@@ -122,11 +122,11 @@ class assetList extends Model
         if (null !== $this->vpcInstanceId) {
             $res['VpcInstanceId'] = $this->vpcInstanceId;
         }
-        if (null !== $this->assetType) {
-            $res['AssetType'] = $this->assetType;
-        }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
+        }
+        if (null !== $this->assetType) {
+            $res['AssetType'] = $this->assetType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -176,11 +176,11 @@ class assetList extends Model
         if (isset($map['VpcInstanceId'])) {
             $model->vpcInstanceId = $map['VpcInstanceId'];
         }
-        if (isset($map['AssetType'])) {
-            $model->assetType = $map['AssetType'];
-        }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
+        }
+        if (isset($map['AssetType'])) {
+            $model->assetType = $map['AssetType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

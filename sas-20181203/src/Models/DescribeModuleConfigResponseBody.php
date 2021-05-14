@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeModuleConfigResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $httpStatusCode;
+    public $success;
 
     /**
      * @var int
@@ -28,17 +33,12 @@ class DescribeModuleConfigResponseBody extends Model
      * @var moduleConfigList[]
      */
     public $moduleConfigList;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'httpStatusCode'   => 'HttpStatusCode',
+        'requestId'        => 'RequestId',
+        'success'          => 'Success',
         'count'            => 'Count',
         'moduleConfigList' => 'ModuleConfigList',
-        'success'          => 'Success',
     ];
 
     public function validate()
@@ -48,11 +48,14 @@ class DescribeModuleConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
@@ -66,9 +69,6 @@ class DescribeModuleConfigResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
 
         return $res;
     }
@@ -81,11 +81,14 @@ class DescribeModuleConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
@@ -98,9 +101,6 @@ class DescribeModuleConfigResponseBody extends Model
                     $model->moduleConfigList[$n++] = null !== $item ? moduleConfigList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

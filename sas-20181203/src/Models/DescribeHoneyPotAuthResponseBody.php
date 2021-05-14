@@ -16,16 +16,16 @@ class DescribeHoneyPotAuthResponseBody extends Model
     /**
      * @var int
      */
-    public $honeyPotAuthCount;
+    public $honeyPotCount;
 
     /**
      * @var int
      */
-    public $honeyPotCount;
+    public $honeyPotAuthCount;
     protected $_name = [
         'requestId'         => 'RequestId',
-        'honeyPotAuthCount' => 'HoneyPotAuthCount',
         'honeyPotCount'     => 'HoneyPotCount',
+        'honeyPotAuthCount' => 'HoneyPotAuthCount',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeHoneyPotAuthResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->honeyPotAuthCount) {
-            $res['HoneyPotAuthCount'] = $this->honeyPotAuthCount;
-        }
         if (null !== $this->honeyPotCount) {
             $res['HoneyPotCount'] = $this->honeyPotCount;
+        }
+        if (null !== $this->honeyPotAuthCount) {
+            $res['HoneyPotAuthCount'] = $this->honeyPotAuthCount;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeHoneyPotAuthResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['HoneyPotAuthCount'])) {
-            $model->honeyPotAuthCount = $map['HoneyPotAuthCount'];
-        }
         if (isset($map['HoneyPotCount'])) {
             $model->honeyPotCount = $map['HoneyPotCount'];
+        }
+        if (isset($map['HoneyPotAuthCount'])) {
+            $model->honeyPotAuthCount = $map['HoneyPotAuthCount'];
         }
 
         return $model;

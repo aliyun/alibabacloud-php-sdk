@@ -40,11 +40,6 @@ class data extends Model
     public $alarmUniqueInfo;
 
     /**
-     * @var causeDetails[]
-     */
-    public $causeDetails;
-
-    /**
      * @var bool
      */
     public $canCancelFault;
@@ -77,12 +72,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $k8sNodeId;
+    public $instanceName;
 
     /**
      * @var string
      */
-    public $instanceName;
+    public $k8sNodeId;
 
     /**
      * @var string
@@ -100,6 +95,11 @@ class data extends Model
     public $intranetIp;
 
     /**
+     * @var string
+     */
+    public $alarmEventAliasName;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -107,7 +107,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $alarmEventAliasName;
+    public $uuid;
 
     /**
      * @var int
@@ -117,17 +117,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $uuid;
+    public $containerId;
 
     /**
      * @var string
      */
     public $k8sPodName;
-
-    /**
-     * @var string
-     */
-    public $containerId;
 
     /**
      * @var string
@@ -143,6 +138,11 @@ class data extends Model
      * @var string
      */
     public $level;
+
+    /**
+     * @var causeDetails[]
+     */
+    public $causeDetails;
     protected $_name = [
         'type'                => 'Type',
         'internetIp'          => 'InternetIp',
@@ -150,27 +150,27 @@ class data extends Model
         'containerImageId'    => 'ContainerImageId',
         'alarmEventDesc'      => 'AlarmEventDesc',
         'alarmUniqueInfo'     => 'AlarmUniqueInfo',
-        'causeDetails'        => 'CauseDetails',
         'canCancelFault'      => 'CanCancelFault',
         'appName'             => 'AppName',
         'canBeDealOnLine'     => 'CanBeDealOnLine',
         'containerImageName'  => 'ContainerImageName',
         'k8sClusterId'        => 'K8sClusterId',
         'containHwMode'       => 'ContainHwMode',
-        'k8sNodeId'           => 'K8sNodeId',
         'instanceName'        => 'InstanceName',
+        'k8sNodeId'           => 'K8sNodeId',
         'solution'            => 'Solution',
         'dataSource'          => 'DataSource',
         'intranetIp'          => 'IntranetIp',
-        'endTime'             => 'EndTime',
         'alarmEventAliasName' => 'AlarmEventAliasName',
-        'startTime'           => 'StartTime',
+        'endTime'             => 'EndTime',
         'uuid'                => 'Uuid',
-        'k8sPodName'          => 'K8sPodName',
+        'startTime'           => 'StartTime',
         'containerId'         => 'ContainerId',
+        'k8sPodName'          => 'K8sPodName',
         'k8sNamespace'        => 'K8sNamespace',
         'k8sNodeName'         => 'K8sNodeName',
         'level'               => 'Level',
+        'causeDetails'        => 'CauseDetails',
     ];
 
     public function validate()
@@ -198,15 +198,6 @@ class data extends Model
         if (null !== $this->alarmUniqueInfo) {
             $res['AlarmUniqueInfo'] = $this->alarmUniqueInfo;
         }
-        if (null !== $this->causeDetails) {
-            $res['CauseDetails'] = [];
-            if (null !== $this->causeDetails && \is_array($this->causeDetails)) {
-                $n = 0;
-                foreach ($this->causeDetails as $item) {
-                    $res['CauseDetails'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->canCancelFault) {
             $res['CanCancelFault'] = $this->canCancelFault;
         }
@@ -225,11 +216,11 @@ class data extends Model
         if (null !== $this->containHwMode) {
             $res['ContainHwMode'] = $this->containHwMode;
         }
-        if (null !== $this->k8sNodeId) {
-            $res['K8sNodeId'] = $this->k8sNodeId;
-        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->k8sNodeId) {
+            $res['K8sNodeId'] = $this->k8sNodeId;
         }
         if (null !== $this->solution) {
             $res['Solution'] = $this->solution;
@@ -240,23 +231,23 @@ class data extends Model
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
         if (null !== $this->alarmEventAliasName) {
             $res['AlarmEventAliasName'] = $this->alarmEventAliasName;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
-        if (null !== $this->k8sPodName) {
-            $res['K8sPodName'] = $this->k8sPodName;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->containerId) {
             $res['ContainerId'] = $this->containerId;
+        }
+        if (null !== $this->k8sPodName) {
+            $res['K8sPodName'] = $this->k8sPodName;
         }
         if (null !== $this->k8sNamespace) {
             $res['K8sNamespace'] = $this->k8sNamespace;
@@ -266,6 +257,15 @@ class data extends Model
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
+        }
+        if (null !== $this->causeDetails) {
+            $res['CauseDetails'] = [];
+            if (null !== $this->causeDetails && \is_array($this->causeDetails)) {
+                $n = 0;
+                foreach ($this->causeDetails as $item) {
+                    $res['CauseDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -297,15 +297,6 @@ class data extends Model
         if (isset($map['AlarmUniqueInfo'])) {
             $model->alarmUniqueInfo = $map['AlarmUniqueInfo'];
         }
-        if (isset($map['CauseDetails'])) {
-            if (!empty($map['CauseDetails'])) {
-                $model->causeDetails = [];
-                $n                   = 0;
-                foreach ($map['CauseDetails'] as $item) {
-                    $model->causeDetails[$n++] = null !== $item ? causeDetails::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['CanCancelFault'])) {
             $model->canCancelFault = $map['CanCancelFault'];
         }
@@ -324,11 +315,11 @@ class data extends Model
         if (isset($map['ContainHwMode'])) {
             $model->containHwMode = $map['ContainHwMode'];
         }
-        if (isset($map['K8sNodeId'])) {
-            $model->k8sNodeId = $map['K8sNodeId'];
-        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['K8sNodeId'])) {
+            $model->k8sNodeId = $map['K8sNodeId'];
         }
         if (isset($map['Solution'])) {
             $model->solution = $map['Solution'];
@@ -339,23 +330,23 @@ class data extends Model
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
         if (isset($map['AlarmEventAliasName'])) {
             $model->alarmEventAliasName = $map['AlarmEventAliasName'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }
-        if (isset($map['K8sPodName'])) {
-            $model->k8sPodName = $map['K8sPodName'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['ContainerId'])) {
             $model->containerId = $map['ContainerId'];
+        }
+        if (isset($map['K8sPodName'])) {
+            $model->k8sPodName = $map['K8sPodName'];
         }
         if (isset($map['K8sNamespace'])) {
             $model->k8sNamespace = $map['K8sNamespace'];
@@ -365,6 +356,15 @@ class data extends Model
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
+        }
+        if (isset($map['CauseDetails'])) {
+            if (!empty($map['CauseDetails'])) {
+                $model->causeDetails = [];
+                $n                   = 0;
+                foreach ($map['CauseDetails'] as $item) {
+                    $model->causeDetails[$n++] = null !== $item ? causeDetails::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

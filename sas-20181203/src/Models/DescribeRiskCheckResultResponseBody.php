@@ -12,7 +12,7 @@ class DescribeRiskCheckResultResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $currentPage;
 
     /**
      * @var string
@@ -27,30 +27,30 @@ class DescribeRiskCheckResultResponseBody extends Model
     /**
      * @var int
      */
+    public $totalCount;
+
+    /**
+     * @var int
+     */
     public $pageCount;
 
     /**
      * @var int
      */
-    public $currentPage;
+    public $count;
 
     /**
      * @var list_[]
      */
     public $list;
-
-    /**
-     * @var int
-     */
-    public $count;
     protected $_name = [
-        'totalCount'  => 'TotalCount',
+        'currentPage' => 'CurrentPage',
         'requestId'   => 'RequestId',
         'pageSize'    => 'PageSize',
+        'totalCount'  => 'TotalCount',
         'pageCount'   => 'PageCount',
-        'currentPage' => 'CurrentPage',
-        'list'        => 'List',
         'count'       => 'Count',
+        'list'        => 'List',
     ];
 
     public function validate()
@@ -60,8 +60,8 @@ class DescribeRiskCheckResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -69,11 +69,14 @@ class DescribeRiskCheckResultResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->list) {
             $res['List'] = [];
@@ -83,9 +86,6 @@ class DescribeRiskCheckResultResponseBody extends Model
                     $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -99,8 +99,8 @@ class DescribeRiskCheckResultResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -108,11 +108,14 @@ class DescribeRiskCheckResultResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
@@ -122,9 +125,6 @@ class DescribeRiskCheckResultResponseBody extends Model
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

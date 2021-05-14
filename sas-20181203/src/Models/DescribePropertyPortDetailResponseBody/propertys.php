@@ -21,22 +21,22 @@ class propertys extends Model
     /**
      * @var string
      */
-    public $ip;
-
-    /**
-     * @var string
-     */
     public $bindIp;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $ip;
 
     /**
      * @var string
      */
     public $procName;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -59,27 +59,27 @@ class propertys extends Model
     public $instanceName;
 
     /**
-     * @var int
-     */
-    public $createTimestamp;
-
-    /**
      * @var string
      */
     public $proto;
+
+    /**
+     * @var int
+     */
+    public $createTimestamp;
     protected $_name = [
         'create'          => 'Create',
         'internetIp'      => 'InternetIp',
-        'ip'              => 'Ip',
         'bindIp'          => 'BindIp',
-        'instanceId'      => 'InstanceId',
+        'ip'              => 'Ip',
         'procName'        => 'ProcName',
+        'instanceId'      => 'InstanceId',
         'port'            => 'Port',
         'intranetIp'      => 'IntranetIp',
         'uuid'            => 'Uuid',
         'instanceName'    => 'InstanceName',
-        'createTimestamp' => 'CreateTimestamp',
         'proto'           => 'Proto',
+        'createTimestamp' => 'CreateTimestamp',
     ];
 
     public function validate()
@@ -95,17 +95,17 @@ class propertys extends Model
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
         if (null !== $this->bindIp) {
             $res['BindIp'] = $this->bindIp;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
         if (null !== $this->procName) {
             $res['ProcName'] = $this->procName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -119,11 +119,11 @@ class propertys extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->createTimestamp) {
-            $res['CreateTimestamp'] = $this->createTimestamp;
-        }
         if (null !== $this->proto) {
             $res['Proto'] = $this->proto;
+        }
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
         }
 
         return $res;
@@ -143,17 +143,17 @@ class propertys extends Model
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
         if (isset($map['BindIp'])) {
             $model->bindIp = $map['BindIp'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
         if (isset($map['ProcName'])) {
             $model->procName = $map['ProcName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
@@ -167,11 +167,11 @@ class propertys extends Model
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['CreateTimestamp'])) {
-            $model->createTimestamp = $map['CreateTimestamp'];
-        }
         if (isset($map['Proto'])) {
             $model->proto = $map['Proto'];
+        }
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
         }
 
         return $model;

@@ -30,11 +30,6 @@ class vulRecords extends Model
     public $internetIp;
 
     /**
-     * @var string
-     */
-    public $containerImageId;
-
-    /**
      * @var int
      */
     public $primaryId;
@@ -43,21 +38,6 @@ class vulRecords extends Model
      * @var string
      */
     public $tag;
-
-    /**
-     * @var string
-     */
-    public $k8sClusterId;
-
-    /**
-     * @var string
-     */
-    public $containerImageName;
-
-    /**
-     * @var string
-     */
-    public $k8sNodeId;
 
     /**
      * @var string
@@ -72,22 +52,12 @@ class vulRecords extends Model
     /**
      * @var string
      */
-    public $containerInnerPath;
-
-    /**
-     * @var string
-     */
     public $osVersion;
 
     /**
      * @var string
      */
     public $name;
-
-    /**
-     * @var extendContentJson
-     */
-    public $extendContentJson;
 
     /**
      * @var string
@@ -135,16 +105,6 @@ class vulRecords extends Model
     public $uuid;
 
     /**
-     * @var string
-     */
-    public $k8sPodName;
-
-    /**
-     * @var string
-     */
-    public $containerId;
-
-    /**
      * @var int
      */
     public $groupId;
@@ -157,56 +117,36 @@ class vulRecords extends Model
     /**
      * @var string
      */
-    public $k8sNamespace;
-
-    /**
-     * @var string
-     */
     public $aliasName;
 
     /**
-     * @var string
+     * @var extendContentJson
      */
-    public $k8sNodeName;
-
-    /**
-     * @var string
-     */
-    public $containerName;
+    public $extendContentJson;
     protected $_name = [
-        'status'             => 'Status',
-        'type'               => 'Type',
-        'modifyTs'           => 'ModifyTs',
-        'internetIp'         => 'InternetIp',
-        'containerImageId'   => 'ContainerImageId',
-        'primaryId'          => 'PrimaryId',
-        'tag'                => 'Tag',
-        'k8sClusterId'       => 'K8sClusterId',
-        'containerImageName' => 'ContainerImageName',
-        'k8sNodeId'          => 'K8sNodeId',
-        'instanceName'       => 'InstanceName',
-        'online'             => 'Online',
-        'containerInnerPath' => 'ContainerInnerPath',
-        'osVersion'          => 'OsVersion',
-        'name'               => 'Name',
-        'extendContentJson'  => 'ExtendContentJson',
-        'resultCode'         => 'ResultCode',
-        'instanceId'         => 'InstanceId',
-        'related'            => 'Related',
-        'intranetIp'         => 'IntranetIp',
-        'lastTs'             => 'LastTs',
-        'firstTs'            => 'FirstTs',
-        'necessity'          => 'Necessity',
-        'repairTs'           => 'RepairTs',
-        'uuid'               => 'Uuid',
-        'k8sPodName'         => 'K8sPodName',
-        'containerId'        => 'ContainerId',
-        'groupId'            => 'GroupId',
-        'resultMessage'      => 'ResultMessage',
-        'k8sNamespace'       => 'K8sNamespace',
-        'aliasName'          => 'AliasName',
-        'k8sNodeName'        => 'K8sNodeName',
-        'containerName'      => 'ContainerName',
+        'status'            => 'Status',
+        'type'              => 'Type',
+        'modifyTs'          => 'ModifyTs',
+        'internetIp'        => 'InternetIp',
+        'primaryId'         => 'PrimaryId',
+        'tag'               => 'Tag',
+        'instanceName'      => 'InstanceName',
+        'online'            => 'Online',
+        'osVersion'         => 'OsVersion',
+        'name'              => 'Name',
+        'resultCode'        => 'ResultCode',
+        'instanceId'        => 'InstanceId',
+        'related'           => 'Related',
+        'intranetIp'        => 'IntranetIp',
+        'lastTs'            => 'LastTs',
+        'firstTs'           => 'FirstTs',
+        'necessity'         => 'Necessity',
+        'repairTs'          => 'RepairTs',
+        'uuid'              => 'Uuid',
+        'groupId'           => 'GroupId',
+        'resultMessage'     => 'ResultMessage',
+        'aliasName'         => 'AliasName',
+        'extendContentJson' => 'ExtendContentJson',
     ];
 
     public function validate()
@@ -228,23 +168,11 @@ class vulRecords extends Model
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
-        if (null !== $this->containerImageId) {
-            $res['ContainerImageId'] = $this->containerImageId;
-        }
         if (null !== $this->primaryId) {
             $res['PrimaryId'] = $this->primaryId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->k8sClusterId) {
-            $res['K8sClusterId'] = $this->k8sClusterId;
-        }
-        if (null !== $this->containerImageName) {
-            $res['ContainerImageName'] = $this->containerImageName;
-        }
-        if (null !== $this->k8sNodeId) {
-            $res['K8sNodeId'] = $this->k8sNodeId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -252,17 +180,11 @@ class vulRecords extends Model
         if (null !== $this->online) {
             $res['Online'] = $this->online;
         }
-        if (null !== $this->containerInnerPath) {
-            $res['ContainerInnerPath'] = $this->containerInnerPath;
-        }
         if (null !== $this->osVersion) {
             $res['OsVersion'] = $this->osVersion;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->extendContentJson) {
-            $res['ExtendContentJson'] = null !== $this->extendContentJson ? $this->extendContentJson->toMap() : null;
         }
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
@@ -291,29 +213,17 @@ class vulRecords extends Model
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
-        if (null !== $this->k8sPodName) {
-            $res['K8sPodName'] = $this->k8sPodName;
-        }
-        if (null !== $this->containerId) {
-            $res['ContainerId'] = $this->containerId;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
-        if (null !== $this->k8sNamespace) {
-            $res['K8sNamespace'] = $this->k8sNamespace;
-        }
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
-        if (null !== $this->k8sNodeName) {
-            $res['K8sNodeName'] = $this->k8sNodeName;
-        }
-        if (null !== $this->containerName) {
-            $res['ContainerName'] = $this->containerName;
+        if (null !== $this->extendContentJson) {
+            $res['ExtendContentJson'] = null !== $this->extendContentJson ? $this->extendContentJson->toMap() : null;
         }
 
         return $res;
@@ -339,23 +249,11 @@ class vulRecords extends Model
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
-        if (isset($map['ContainerImageId'])) {
-            $model->containerImageId = $map['ContainerImageId'];
-        }
         if (isset($map['PrimaryId'])) {
             $model->primaryId = $map['PrimaryId'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
-        }
-        if (isset($map['K8sClusterId'])) {
-            $model->k8sClusterId = $map['K8sClusterId'];
-        }
-        if (isset($map['ContainerImageName'])) {
-            $model->containerImageName = $map['ContainerImageName'];
-        }
-        if (isset($map['K8sNodeId'])) {
-            $model->k8sNodeId = $map['K8sNodeId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
@@ -363,17 +261,11 @@ class vulRecords extends Model
         if (isset($map['Online'])) {
             $model->online = $map['Online'];
         }
-        if (isset($map['ContainerInnerPath'])) {
-            $model->containerInnerPath = $map['ContainerInnerPath'];
-        }
         if (isset($map['OsVersion'])) {
             $model->osVersion = $map['OsVersion'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['ExtendContentJson'])) {
-            $model->extendContentJson = extendContentJson::fromMap($map['ExtendContentJson']);
         }
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
@@ -402,29 +294,17 @@ class vulRecords extends Model
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }
-        if (isset($map['K8sPodName'])) {
-            $model->k8sPodName = $map['K8sPodName'];
-        }
-        if (isset($map['ContainerId'])) {
-            $model->containerId = $map['ContainerId'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }
-        if (isset($map['K8sNamespace'])) {
-            $model->k8sNamespace = $map['K8sNamespace'];
-        }
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
-        if (isset($map['K8sNodeName'])) {
-            $model->k8sNodeName = $map['K8sNodeName'];
-        }
-        if (isset($map['ContainerName'])) {
-            $model->containerName = $map['ContainerName'];
+        if (isset($map['ExtendContentJson'])) {
+            $model->extendContentJson = extendContentJson::fromMap($map['ExtendContentJson']);
         }
 
         return $model;

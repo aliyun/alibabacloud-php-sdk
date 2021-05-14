@@ -11,11 +11,6 @@ class DescribePropertyProcDetailRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $remark;
 
     /**
@@ -48,7 +43,6 @@ class DescribePropertyProcDetailRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
         'remark'      => 'Remark',
         'name'        => 'Name',
         'user'        => 'User',
@@ -65,9 +59,6 @@ class DescribePropertyProcDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -101,9 +92,6 @@ class DescribePropertyProcDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

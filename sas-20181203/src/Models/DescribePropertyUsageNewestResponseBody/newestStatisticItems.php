@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class newestStatisticItems extends Model
 {
     /**
-     * @var int
-     */
-    public $create;
-
-    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $create;
     protected $_name = [
-        'create' => 'Create',
         'name'   => 'Name',
+        'create' => 'Create',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class newestStatisticItems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->create) {
-            $res['Create'] = $this->create;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->create) {
+            $res['Create'] = $this->create;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class newestStatisticItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Create'])) {
-            $model->create = $map['Create'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Create'])) {
+            $model->create = $map['Create'];
         }
 
         return $model;

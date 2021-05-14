@@ -37,11 +37,6 @@ class DescribeRiskCheckItemResultRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
     protected $_name = [
         'sourceIp'        => 'SourceIp',
         'resourceOwnerId' => 'ResourceOwnerId',
@@ -49,7 +44,6 @@ class DescribeRiskCheckItemResultRequest extends Model
         'itemId'          => 'ItemId',
         'currentPage'     => 'CurrentPage',
         'pageSize'        => 'PageSize',
-        'instanceId'      => 'InstanceId',
     ];
 
     public function validate()
@@ -76,9 +70,6 @@ class DescribeRiskCheckItemResultRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -109,9 +100,6 @@ class DescribeRiskCheckItemResultRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

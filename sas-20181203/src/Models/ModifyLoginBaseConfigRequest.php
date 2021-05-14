@@ -11,11 +11,6 @@ class ModifyLoginBaseConfigRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $type;
 
     /**
@@ -28,10 +23,9 @@ class ModifyLoginBaseConfigRequest extends Model
      */
     public $target;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
-        'config'   => 'Config',
-        'target'   => 'Target',
+        'type'   => 'Type',
+        'config' => 'Config',
+        'target' => 'Target',
     ];
 
     public function validate()
@@ -41,9 +35,6 @@ class ModifyLoginBaseConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -65,9 +56,6 @@ class ModifyLoginBaseConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

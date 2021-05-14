@@ -12,7 +12,42 @@ class DescribeSuspEventDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $eventDesc;
+    public $dataSource;
+
+    /**
+     * @var string
+     */
+    public $eventName;
+
+    /**
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @var string
+     */
+    public $intranetIp;
+
+    /**
+     * @var string
+     */
+    public $lastTime;
+
+    /**
+     * @var string
+     */
+    public $operateMsg;
+
+    /**
+     * @var string
+     */
+    public $uuid;
+
+    /**
+     * @var bool
+     */
+    public $canBeDealOnLine;
 
     /**
      * @var string
@@ -27,32 +62,7 @@ class DescribeSuspEventDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $operateErrorCode;
-
-    /**
-     * @var string
-     */
-    public $eventStatus;
-
-    /**
-     * @var string
-     */
-    public $eventName;
-
-    /**
-     * @var string
-     */
-    public $saleVersion;
-
-    /**
-     * @var string
-     */
-    public $intranetIp;
-
-    /**
-     * @var string
-     */
-    public $dataSource;
+    public $eventDesc;
 
     /**
      * @var string
@@ -62,27 +72,22 @@ class DescribeSuspEventDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $operateMsg;
-
-    /**
-     * @var bool
-     */
-    public $canBeDealOnLine;
+    public $eventStatus;
 
     /**
      * @var string
      */
-    public $uuid;
-
-    /**
-     * @var details[]
-     */
-    public $details;
+    public $saleVersion;
 
     /**
      * @var string
      */
-    public $internetIp;
+    public $operateErrorCode;
+
+    /**
+     * @var string
+     */
+    public $sasId;
 
     /**
      * @var string
@@ -95,34 +100,29 @@ class DescribeSuspEventDetailResponseBody extends Model
     public $id;
 
     /**
-     * @var string
+     * @var details[]
      */
-    public $lastTime;
-
-    /**
-     * @var string
-     */
-    public $sasId;
+    public $details;
     protected $_name = [
-        'eventDesc'        => 'EventDesc',
+        'dataSource'       => 'DataSource',
+        'eventName'        => 'EventName',
+        'internetIp'       => 'InternetIp',
+        'intranetIp'       => 'IntranetIp',
+        'lastTime'         => 'LastTime',
+        'operateMsg'       => 'OperateMsg',
+        'uuid'             => 'Uuid',
+        'canBeDealOnLine'  => 'CanBeDealOnLine',
         'requestId'        => 'RequestId',
         'eventTypeDesc'    => 'EventTypeDesc',
-        'operateErrorCode' => 'OperateErrorCode',
-        'eventStatus'      => 'EventStatus',
-        'eventName'        => 'EventName',
-        'saleVersion'      => 'SaleVersion',
-        'intranetIp'       => 'IntranetIp',
-        'dataSource'       => 'DataSource',
+        'eventDesc'        => 'EventDesc',
         'instanceName'     => 'InstanceName',
-        'operateMsg'       => 'OperateMsg',
-        'canBeDealOnLine'  => 'CanBeDealOnLine',
-        'uuid'             => 'Uuid',
-        'details'          => 'Details',
-        'internetIp'       => 'InternetIp',
+        'eventStatus'      => 'EventStatus',
+        'saleVersion'      => 'SaleVersion',
+        'operateErrorCode' => 'OperateErrorCode',
+        'sasId'            => 'SasId',
         'level'            => 'Level',
         'id'               => 'Id',
-        'lastTime'         => 'LastTime',
-        'sasId'            => 'SasId',
+        'details'          => 'Details',
     ];
 
     public function validate()
@@ -132,8 +132,29 @@ class DescribeSuspEventDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventDesc) {
-            $res['EventDesc'] = $this->eventDesc;
+        if (null !== $this->dataSource) {
+            $res['DataSource'] = $this->dataSource;
+        }
+        if (null !== $this->eventName) {
+            $res['EventName'] = $this->eventName;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
+        }
+        if (null !== $this->lastTime) {
+            $res['LastTime'] = $this->lastTime;
+        }
+        if (null !== $this->operateMsg) {
+            $res['OperateMsg'] = $this->operateMsg;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
+        }
+        if (null !== $this->canBeDealOnLine) {
+            $res['CanBeDealOnLine'] = $this->canBeDealOnLine;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -141,35 +162,29 @@ class DescribeSuspEventDetailResponseBody extends Model
         if (null !== $this->eventTypeDesc) {
             $res['EventTypeDesc'] = $this->eventTypeDesc;
         }
-        if (null !== $this->operateErrorCode) {
-            $res['OperateErrorCode'] = $this->operateErrorCode;
-        }
-        if (null !== $this->eventStatus) {
-            $res['EventStatus'] = $this->eventStatus;
-        }
-        if (null !== $this->eventName) {
-            $res['EventName'] = $this->eventName;
-        }
-        if (null !== $this->saleVersion) {
-            $res['SaleVersion'] = $this->saleVersion;
-        }
-        if (null !== $this->intranetIp) {
-            $res['IntranetIp'] = $this->intranetIp;
-        }
-        if (null !== $this->dataSource) {
-            $res['DataSource'] = $this->dataSource;
+        if (null !== $this->eventDesc) {
+            $res['EventDesc'] = $this->eventDesc;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->operateMsg) {
-            $res['OperateMsg'] = $this->operateMsg;
+        if (null !== $this->eventStatus) {
+            $res['EventStatus'] = $this->eventStatus;
         }
-        if (null !== $this->canBeDealOnLine) {
-            $res['CanBeDealOnLine'] = $this->canBeDealOnLine;
+        if (null !== $this->saleVersion) {
+            $res['SaleVersion'] = $this->saleVersion;
         }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
+        if (null !== $this->operateErrorCode) {
+            $res['OperateErrorCode'] = $this->operateErrorCode;
+        }
+        if (null !== $this->sasId) {
+            $res['SasId'] = $this->sasId;
+        }
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->details) {
             $res['Details'] = [];
@@ -179,21 +194,6 @@ class DescribeSuspEventDetailResponseBody extends Model
                     $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->internetIp) {
-            $res['InternetIp'] = $this->internetIp;
-        }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->lastTime) {
-            $res['LastTime'] = $this->lastTime;
-        }
-        if (null !== $this->sasId) {
-            $res['SasId'] = $this->sasId;
         }
 
         return $res;
@@ -207,8 +207,29 @@ class DescribeSuspEventDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventDesc'])) {
-            $model->eventDesc = $map['EventDesc'];
+        if (isset($map['DataSource'])) {
+            $model->dataSource = $map['DataSource'];
+        }
+        if (isset($map['EventName'])) {
+            $model->eventName = $map['EventName'];
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
+        }
+        if (isset($map['LastTime'])) {
+            $model->lastTime = $map['LastTime'];
+        }
+        if (isset($map['OperateMsg'])) {
+            $model->operateMsg = $map['OperateMsg'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
+        }
+        if (isset($map['CanBeDealOnLine'])) {
+            $model->canBeDealOnLine = $map['CanBeDealOnLine'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -216,35 +237,29 @@ class DescribeSuspEventDetailResponseBody extends Model
         if (isset($map['EventTypeDesc'])) {
             $model->eventTypeDesc = $map['EventTypeDesc'];
         }
-        if (isset($map['OperateErrorCode'])) {
-            $model->operateErrorCode = $map['OperateErrorCode'];
-        }
-        if (isset($map['EventStatus'])) {
-            $model->eventStatus = $map['EventStatus'];
-        }
-        if (isset($map['EventName'])) {
-            $model->eventName = $map['EventName'];
-        }
-        if (isset($map['SaleVersion'])) {
-            $model->saleVersion = $map['SaleVersion'];
-        }
-        if (isset($map['IntranetIp'])) {
-            $model->intranetIp = $map['IntranetIp'];
-        }
-        if (isset($map['DataSource'])) {
-            $model->dataSource = $map['DataSource'];
+        if (isset($map['EventDesc'])) {
+            $model->eventDesc = $map['EventDesc'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['OperateMsg'])) {
-            $model->operateMsg = $map['OperateMsg'];
+        if (isset($map['EventStatus'])) {
+            $model->eventStatus = $map['EventStatus'];
         }
-        if (isset($map['CanBeDealOnLine'])) {
-            $model->canBeDealOnLine = $map['CanBeDealOnLine'];
+        if (isset($map['SaleVersion'])) {
+            $model->saleVersion = $map['SaleVersion'];
         }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
+        if (isset($map['OperateErrorCode'])) {
+            $model->operateErrorCode = $map['OperateErrorCode'];
+        }
+        if (isset($map['SasId'])) {
+            $model->sasId = $map['SasId'];
+        }
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
@@ -254,21 +269,6 @@ class DescribeSuspEventDetailResponseBody extends Model
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['InternetIp'])) {
-            $model->internetIp = $map['InternetIp'];
-        }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['LastTime'])) {
-            $model->lastTime = $map['LastTime'];
-        }
-        if (isset($map['SasId'])) {
-            $model->sasId = $map['SasId'];
         }
 
         return $model;

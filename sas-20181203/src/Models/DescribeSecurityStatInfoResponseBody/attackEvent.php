@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class attackEvent extends Model
 {
     /**
-     * @var string[]
-     */
-    public $valueArray;
-
-    /**
      * @var int
      */
     public $totalCount;
@@ -22,10 +17,15 @@ class attackEvent extends Model
      * @var string[]
      */
     public $dateArray;
+
+    /**
+     * @var string[]
+     */
+    public $valueArray;
     protected $_name = [
-        'valueArray' => 'ValueArray',
         'totalCount' => 'TotalCount',
         'dateArray'  => 'DateArray',
+        'valueArray' => 'ValueArray',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class attackEvent extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->valueArray) {
-            $res['ValueArray'] = $this->valueArray;
-        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->dateArray) {
             $res['DateArray'] = $this->dateArray;
+        }
+        if (null !== $this->valueArray) {
+            $res['ValueArray'] = $this->valueArray;
         }
 
         return $res;
@@ -56,17 +56,17 @@ class attackEvent extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ValueArray'])) {
-            if (!empty($map['ValueArray'])) {
-                $model->valueArray = $map['ValueArray'];
-            }
-        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['DateArray'])) {
             if (!empty($map['DateArray'])) {
                 $model->dateArray = $map['DateArray'];
+            }
+        }
+        if (isset($map['ValueArray'])) {
+            if (!empty($map['ValueArray'])) {
+                $model->valueArray = $map['ValueArray'];
             }
         }
 

@@ -46,11 +46,6 @@ class ModifyAntiBruteForceRuleRequest extends Model
     /**
      * @var bool
      */
-    public $enableSmartRule;
-
-    /**
-     * @var bool
-     */
     public $defaultRule;
 
     /**
@@ -65,7 +60,6 @@ class ModifyAntiBruteForceRuleRequest extends Model
         'span'            => 'Span',
         'failCount'       => 'FailCount',
         'forbiddenTime'   => 'ForbiddenTime',
-        'enableSmartRule' => 'EnableSmartRule',
         'defaultRule'     => 'DefaultRule',
         'uuidList'        => 'UuidList',
     ];
@@ -97,9 +91,6 @@ class ModifyAntiBruteForceRuleRequest extends Model
         }
         if (null !== $this->forbiddenTime) {
             $res['ForbiddenTime'] = $this->forbiddenTime;
-        }
-        if (null !== $this->enableSmartRule) {
-            $res['EnableSmartRule'] = $this->enableSmartRule;
         }
         if (null !== $this->defaultRule) {
             $res['DefaultRule'] = $this->defaultRule;
@@ -139,9 +130,6 @@ class ModifyAntiBruteForceRuleRequest extends Model
         }
         if (isset($map['ForbiddenTime'])) {
             $model->forbiddenTime = $map['ForbiddenTime'];
-        }
-        if (isset($map['EnableSmartRule'])) {
-            $model->enableSmartRule = $map['EnableSmartRule'];
         }
         if (isset($map['DefaultRule'])) {
             $model->defaultRule = $map['DefaultRule'];

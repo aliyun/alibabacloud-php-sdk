@@ -16,12 +16,12 @@ class propertys extends Model
     /**
      * @var string
      */
-    public $lastLoginIp;
+    public $create;
 
     /**
      * @var string
      */
-    public $create;
+    public $lastLoginIp;
 
     /**
      * @var string
@@ -31,17 +31,12 @@ class propertys extends Model
     /**
      * @var string
      */
-    public $isRoot;
-
-    /**
-     * @var string
-     */
     public $lastLoginTime;
 
     /**
      * @var string
      */
-    public $user;
+    public $isRoot;
 
     /**
      * @var string
@@ -51,12 +46,12 @@ class propertys extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $user;
 
     /**
      * @var string
      */
-    public $passwordExpirationDate;
+    public $instanceId;
 
     /**
      * @var string
@@ -64,9 +59,9 @@ class propertys extends Model
     public $intranetIp;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $groupNames;
+    public $passwordExpirationDate;
 
     /**
      * @var string
@@ -92,24 +87,29 @@ class propertys extends Model
      * @var int
      */
     public $createTimestamp;
+
+    /**
+     * @var string[]
+     */
+    public $groupNames;
     protected $_name = [
         'status'                 => 'Status',
-        'lastLoginIp'            => 'LastLoginIp',
         'create'                 => 'Create',
+        'lastLoginIp'            => 'LastLoginIp',
         'internetIp'             => 'InternetIp',
-        'isRoot'                 => 'IsRoot',
         'lastLoginTime'          => 'LastLoginTime',
-        'user'                   => 'User',
+        'isRoot'                 => 'IsRoot',
         'ip'                     => 'Ip',
+        'user'                   => 'User',
         'instanceId'             => 'InstanceId',
-        'passwordExpirationDate' => 'PasswordExpirationDate',
         'intranetIp'             => 'IntranetIp',
-        'groupNames'             => 'GroupNames',
+        'passwordExpirationDate' => 'PasswordExpirationDate',
         'uuid'                   => 'Uuid',
         'lastLoginTimestamp'     => 'LastLoginTimestamp',
         'instanceName'           => 'InstanceName',
         'accountsExpirationDate' => 'AccountsExpirationDate',
         'createTimestamp'        => 'CreateTimestamp',
+        'groupNames'             => 'GroupNames',
     ];
 
     public function validate()
@@ -122,38 +122,35 @@ class propertys extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->lastLoginIp) {
-            $res['LastLoginIp'] = $this->lastLoginIp;
-        }
         if (null !== $this->create) {
             $res['Create'] = $this->create;
+        }
+        if (null !== $this->lastLoginIp) {
+            $res['LastLoginIp'] = $this->lastLoginIp;
         }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
-        if (null !== $this->isRoot) {
-            $res['IsRoot'] = $this->isRoot;
-        }
         if (null !== $this->lastLoginTime) {
             $res['LastLoginTime'] = $this->lastLoginTime;
         }
-        if (null !== $this->user) {
-            $res['User'] = $this->user;
+        if (null !== $this->isRoot) {
+            $res['IsRoot'] = $this->isRoot;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->passwordExpirationDate) {
-            $res['PasswordExpirationDate'] = $this->passwordExpirationDate;
         }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
-        if (null !== $this->groupNames) {
-            $res['GroupNames'] = $this->groupNames;
+        if (null !== $this->passwordExpirationDate) {
+            $res['PasswordExpirationDate'] = $this->passwordExpirationDate;
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
@@ -170,6 +167,9 @@ class propertys extends Model
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
         }
+        if (null !== $this->groupNames) {
+            $res['GroupNames'] = $this->groupNames;
+        }
 
         return $res;
     }
@@ -185,40 +185,35 @@ class propertys extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['LastLoginIp'])) {
-            $model->lastLoginIp = $map['LastLoginIp'];
-        }
         if (isset($map['Create'])) {
             $model->create = $map['Create'];
+        }
+        if (isset($map['LastLoginIp'])) {
+            $model->lastLoginIp = $map['LastLoginIp'];
         }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
-        if (isset($map['IsRoot'])) {
-            $model->isRoot = $map['IsRoot'];
-        }
         if (isset($map['LastLoginTime'])) {
             $model->lastLoginTime = $map['LastLoginTime'];
         }
-        if (isset($map['User'])) {
-            $model->user = $map['User'];
+        if (isset($map['IsRoot'])) {
+            $model->isRoot = $map['IsRoot'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['PasswordExpirationDate'])) {
-            $model->passwordExpirationDate = $map['PasswordExpirationDate'];
         }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
-        if (isset($map['GroupNames'])) {
-            if (!empty($map['GroupNames'])) {
-                $model->groupNames = $map['GroupNames'];
-            }
+        if (isset($map['PasswordExpirationDate'])) {
+            $model->passwordExpirationDate = $map['PasswordExpirationDate'];
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
@@ -234,6 +229,11 @@ class propertys extends Model
         }
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['GroupNames'])) {
+            if (!empty($map['GroupNames'])) {
+                $model->groupNames = $map['GroupNames'];
+            }
         }
 
         return $model;

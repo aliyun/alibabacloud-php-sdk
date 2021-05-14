@@ -11,29 +11,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceListResponseBody extends Model
 {
     /**
-     * @var pageInfo
-     */
-    public $pageInfo;
-
-    /**
      * @var string
      */
     public $requestId;
 
     /**
+     * @var pageInfo
+     */
+    public $pageInfo;
+
+    /**
      * @var exposedInstances[]
      */
     public $exposedInstances;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
-        'pageInfo'         => 'PageInfo',
         'requestId'        => 'RequestId',
+        'pageInfo'         => 'PageInfo',
         'exposedInstances' => 'ExposedInstances',
-        'success'          => 'Success',
     ];
 
     public function validate()
@@ -43,11 +37,11 @@ class DescribeExposedInstanceListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
         if (null !== $this->exposedInstances) {
             $res['ExposedInstances'] = [];
@@ -57,9 +51,6 @@ class DescribeExposedInstanceListResponseBody extends Model
                     $res['ExposedInstances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -73,11 +64,11 @@ class DescribeExposedInstanceListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
         if (isset($map['ExposedInstances'])) {
             if (!empty($map['ExposedInstances'])) {
@@ -87,9 +78,6 @@ class DescribeExposedInstanceListResponseBody extends Model
                     $model->exposedInstances[$n++] = null !== $item ? exposedInstances::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

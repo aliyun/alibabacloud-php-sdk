@@ -19,6 +19,16 @@ class healthCheck extends Model
     public $lowCount;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var int
+     */
+    public $mediumCount;
+
+    /**
      * @var string[]
      */
     public $valueArray;
@@ -44,16 +54,6 @@ class healthCheck extends Model
     public $mediumList;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $mediumCount;
-
-    /**
      * @var string[]
      */
     public $dateArray;
@@ -65,13 +65,13 @@ class healthCheck extends Model
     protected $_name = [
         'highCount'   => 'HighCount',
         'lowCount'    => 'LowCount',
+        'totalCount'  => 'TotalCount',
+        'mediumCount' => 'MediumCount',
         'valueArray'  => 'ValueArray',
         'timeArray'   => 'TimeArray',
         'levelsOn'    => 'LevelsOn',
         'lowList'     => 'LowList',
         'mediumList'  => 'MediumList',
-        'totalCount'  => 'TotalCount',
-        'mediumCount' => 'MediumCount',
         'dateArray'   => 'DateArray',
         'highList'    => 'HighList',
     ];
@@ -89,6 +89,12 @@ class healthCheck extends Model
         if (null !== $this->lowCount) {
             $res['LowCount'] = $this->lowCount;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->mediumCount) {
+            $res['MediumCount'] = $this->mediumCount;
+        }
         if (null !== $this->valueArray) {
             $res['ValueArray'] = $this->valueArray;
         }
@@ -103,12 +109,6 @@ class healthCheck extends Model
         }
         if (null !== $this->mediumList) {
             $res['MediumList'] = $this->mediumList;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->mediumCount) {
-            $res['MediumCount'] = $this->mediumCount;
         }
         if (null !== $this->dateArray) {
             $res['DateArray'] = $this->dateArray;
@@ -134,6 +134,12 @@ class healthCheck extends Model
         if (isset($map['LowCount'])) {
             $model->lowCount = $map['LowCount'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['MediumCount'])) {
+            $model->mediumCount = $map['MediumCount'];
+        }
         if (isset($map['ValueArray'])) {
             if (!empty($map['ValueArray'])) {
                 $model->valueArray = $map['ValueArray'];
@@ -158,12 +164,6 @@ class healthCheck extends Model
             if (!empty($map['MediumList'])) {
                 $model->mediumList = $map['MediumList'];
             }
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['MediumCount'])) {
-            $model->mediumCount = $map['MediumCount'];
         }
         if (isset($map['DateArray'])) {
             if (!empty($map['DateArray'])) {

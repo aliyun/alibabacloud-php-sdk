@@ -69,9 +69,9 @@ class suspEvents extends Model
     public $securityEventIds;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $canBeDealOnLine;
+    public $k8sClusterId;
 
     /**
      * @var string
@@ -79,9 +79,9 @@ class suspEvents extends Model
     public $containerImageName;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $k8sClusterId;
+    public $canBeDealOnLine;
 
     /**
      * @var string
@@ -96,12 +96,12 @@ class suspEvents extends Model
     /**
      * @var string
      */
-    public $instanceName;
+    public $k8sNodeId;
 
     /**
      * @var string
      */
-    public $k8sNodeId;
+    public $instanceName;
 
     /**
      * @var string
@@ -124,14 +124,14 @@ class suspEvents extends Model
     public $hasTraceInfo;
 
     /**
-     * @var int
-     */
-    public $operateTime;
-
-    /**
      * @var string
      */
     public $dataSource;
+
+    /**
+     * @var int
+     */
+    public $operateTime;
 
     /**
      * @var string
@@ -205,19 +205,19 @@ class suspEvents extends Model
         'canCancelFault'         => 'CanCancelFault',
         'appName'                => 'AppName',
         'securityEventIds'       => 'SecurityEventIds',
-        'canBeDealOnLine'        => 'CanBeDealOnLine',
-        'containerImageName'     => 'ContainerImageName',
         'k8sClusterId'           => 'K8sClusterId',
+        'containerImageName'     => 'ContainerImageName',
+        'canBeDealOnLine'        => 'CanBeDealOnLine',
         'description'            => 'Description',
         'containHwMode'          => 'ContainHwMode',
-        'instanceName'           => 'InstanceName',
         'k8sNodeId'              => 'K8sNodeId',
+        'instanceName'           => 'InstanceName',
         'saleVersion'            => 'SaleVersion',
         'operateErrorCode'       => 'OperateErrorCode',
         'solution'               => 'Solution',
         'hasTraceInfo'           => 'HasTraceInfo',
-        'operateTime'            => 'OperateTime',
         'dataSource'             => 'DataSource',
+        'operateTime'            => 'OperateTime',
         'instanceId'             => 'InstanceId',
         'intranetIp'             => 'IntranetIp',
         'endTime'                => 'EndTime',
@@ -275,14 +275,14 @@ class suspEvents extends Model
         if (null !== $this->securityEventIds) {
             $res['SecurityEventIds'] = $this->securityEventIds;
         }
-        if (null !== $this->canBeDealOnLine) {
-            $res['CanBeDealOnLine'] = $this->canBeDealOnLine;
+        if (null !== $this->k8sClusterId) {
+            $res['K8sClusterId'] = $this->k8sClusterId;
         }
         if (null !== $this->containerImageName) {
             $res['ContainerImageName'] = $this->containerImageName;
         }
-        if (null !== $this->k8sClusterId) {
-            $res['K8sClusterId'] = $this->k8sClusterId;
+        if (null !== $this->canBeDealOnLine) {
+            $res['CanBeDealOnLine'] = $this->canBeDealOnLine;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -290,11 +290,11 @@ class suspEvents extends Model
         if (null !== $this->containHwMode) {
             $res['ContainHwMode'] = $this->containHwMode;
         }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
         if (null !== $this->k8sNodeId) {
             $res['K8sNodeId'] = $this->k8sNodeId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->saleVersion) {
             $res['SaleVersion'] = $this->saleVersion;
@@ -308,11 +308,11 @@ class suspEvents extends Model
         if (null !== $this->hasTraceInfo) {
             $res['HasTraceInfo'] = $this->hasTraceInfo;
         }
-        if (null !== $this->operateTime) {
-            $res['OperateTime'] = $this->operateTime;
-        }
         if (null !== $this->dataSource) {
             $res['DataSource'] = $this->dataSource;
+        }
+        if (null !== $this->operateTime) {
+            $res['OperateTime'] = $this->operateTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -398,14 +398,14 @@ class suspEvents extends Model
         if (isset($map['SecurityEventIds'])) {
             $model->securityEventIds = $map['SecurityEventIds'];
         }
-        if (isset($map['CanBeDealOnLine'])) {
-            $model->canBeDealOnLine = $map['CanBeDealOnLine'];
+        if (isset($map['K8sClusterId'])) {
+            $model->k8sClusterId = $map['K8sClusterId'];
         }
         if (isset($map['ContainerImageName'])) {
             $model->containerImageName = $map['ContainerImageName'];
         }
-        if (isset($map['K8sClusterId'])) {
-            $model->k8sClusterId = $map['K8sClusterId'];
+        if (isset($map['CanBeDealOnLine'])) {
+            $model->canBeDealOnLine = $map['CanBeDealOnLine'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -413,11 +413,11 @@ class suspEvents extends Model
         if (isset($map['ContainHwMode'])) {
             $model->containHwMode = $map['ContainHwMode'];
         }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
         if (isset($map['K8sNodeId'])) {
             $model->k8sNodeId = $map['K8sNodeId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['SaleVersion'])) {
             $model->saleVersion = $map['SaleVersion'];
@@ -431,11 +431,11 @@ class suspEvents extends Model
         if (isset($map['HasTraceInfo'])) {
             $model->hasTraceInfo = $map['HasTraceInfo'];
         }
-        if (isset($map['OperateTime'])) {
-            $model->operateTime = $map['OperateTime'];
-        }
         if (isset($map['DataSource'])) {
             $model->dataSource = $map['DataSource'];
+        }
+        if (isset($map['OperateTime'])) {
+            $model->operateTime = $map['OperateTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

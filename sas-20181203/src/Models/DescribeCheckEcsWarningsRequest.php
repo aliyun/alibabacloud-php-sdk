@@ -12,14 +12,8 @@ class DescribeCheckEcsWarningsRequest extends Model
      * @var string
      */
     public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $uuidList;
     protected $_name = [
         'sourceIp' => 'SourceIp',
-        'uuidList' => 'UuidList',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class DescribeCheckEcsWarningsRequest extends Model
         $res = [];
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->uuidList) {
-            $res['UuidList'] = $this->uuidList;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class DescribeCheckEcsWarningsRequest extends Model
         $model = new self();
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['UuidList'])) {
-            $model->uuidList = $map['UuidList'];
         }
 
         return $model;

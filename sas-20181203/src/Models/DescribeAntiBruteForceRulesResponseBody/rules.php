@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @var string[]
-     */
-    public $uuidList;
-
-    /**
      * @var int
      */
     public $machineCount;
@@ -52,8 +47,12 @@ class rules extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var string[]
+     */
+    public $uuidList;
     protected $_name = [
-        'uuidList'        => 'UuidList',
         'machineCount'    => 'MachineCount',
         'enableSmartRule' => 'EnableSmartRule',
         'failCount'       => 'FailCount',
@@ -62,6 +61,7 @@ class rules extends Model
         'defaultRule'     => 'DefaultRule',
         'name'            => 'Name',
         'id'              => 'Id',
+        'uuidList'        => 'UuidList',
     ];
 
     public function validate()
@@ -71,9 +71,6 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->uuidList) {
-            $res['UuidList'] = $this->uuidList;
-        }
         if (null !== $this->machineCount) {
             $res['MachineCount'] = $this->machineCount;
         }
@@ -98,6 +95,9 @@ class rules extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->uuidList) {
+            $res['UuidList'] = $this->uuidList;
+        }
 
         return $res;
     }
@@ -110,11 +110,6 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UuidList'])) {
-            if (!empty($map['UuidList'])) {
-                $model->uuidList = $map['UuidList'];
-            }
-        }
         if (isset($map['MachineCount'])) {
             $model->machineCount = $map['MachineCount'];
         }
@@ -138,6 +133,11 @@ class rules extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['UuidList'])) {
+            if (!empty($map['UuidList'])) {
+                $model->uuidList = $map['UuidList'];
+            }
         }
 
         return $model;

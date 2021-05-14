@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class realVulList extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $type;
 
@@ -19,7 +19,7 @@ class realVulList extends Model
     public $necessity;
 
     /**
-     * @var int
+     * @var string
      */
     public $uuid;
 

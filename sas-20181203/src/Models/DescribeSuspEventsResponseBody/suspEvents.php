@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponseBody;
 
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponseBody\suspEvents\details;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponseBody\suspEvents\eventNotes;
 use AlibabaCloud\Tea\Model;
 
 class suspEvents extends Model
@@ -50,11 +51,6 @@ class suspEvents extends Model
     public $desc;
 
     /**
-     * @var details[]
-     */
-    public $details;
-
-    /**
      * @var bool
      */
     public $canCancelFault;
@@ -75,14 +71,9 @@ class suspEvents extends Model
     public $securityEventIds;
 
     /**
-     * @var bool
-     */
-    public $canBeDealOnLine;
-
-    /**
      * @var string
      */
-    public $markMisRules;
+    public $k8sClusterId;
 
     /**
      * @var string
@@ -92,7 +83,12 @@ class suspEvents extends Model
     /**
      * @var string
      */
-    public $k8sClusterId;
+    public $markMisRules;
+
+    /**
+     * @var bool
+     */
+    public $canBeDealOnLine;
 
     /**
      * @var bool
@@ -102,12 +98,12 @@ class suspEvents extends Model
     /**
      * @var string
      */
-    public $instanceName;
+    public $k8sNodeId;
 
     /**
      * @var string
      */
-    public $k8sNodeId;
+    public $instanceName;
 
     /**
      * @var int
@@ -158,6 +154,11 @@ class suspEvents extends Model
      * @var int
      */
     public $occurrenceTimeStamp;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -233,6 +234,16 @@ class suspEvents extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var details[]
+     */
+    public $details;
+
+    /**
+     * @var eventNotes[]
+     */
+    public $eventNotes;
     protected $_name = [
         'stages'                => 'Stages',
         'internetIp'            => 'InternetIp',
@@ -242,18 +253,17 @@ class suspEvents extends Model
         'occurrenceTime'        => 'OccurrenceTime',
         'alarmUniqueInfo'       => 'AlarmUniqueInfo',
         'desc'                  => 'Desc',
-        'details'               => 'Details',
         'canCancelFault'        => 'CanCancelFault',
         'alarmEventNameDisplay' => 'AlarmEventNameDisplay',
         'appName'               => 'AppName',
         'securityEventIds'      => 'SecurityEventIds',
-        'canBeDealOnLine'       => 'CanBeDealOnLine',
-        'markMisRules'          => 'MarkMisRules',
-        'containerImageName'    => 'ContainerImageName',
         'k8sClusterId'          => 'K8sClusterId',
+        'containerImageName'    => 'ContainerImageName',
+        'markMisRules'          => 'MarkMisRules',
+        'canBeDealOnLine'       => 'CanBeDealOnLine',
         'containHwMode'         => 'ContainHwMode',
-        'instanceName'          => 'InstanceName',
         'k8sNodeId'             => 'K8sNodeId',
+        'instanceName'          => 'InstanceName',
         'eventStatus'           => 'EventStatus',
         'saleVersion'           => 'SaleVersion',
         'operateErrorCode'      => 'OperateErrorCode',
@@ -264,6 +274,7 @@ class suspEvents extends Model
         'eventSubType'          => 'EventSubType',
         'advanced'              => 'Advanced',
         'occurrenceTimeStamp'   => 'OccurrenceTimeStamp',
+        'instanceId'            => 'InstanceId',
         'alarmEventTypeDisplay' => 'AlarmEventTypeDisplay',
         'intranetIp'            => 'IntranetIp',
         'lastTime'              => 'LastTime',
@@ -279,6 +290,8 @@ class suspEvents extends Model
         'uniqueInfo'            => 'UniqueInfo',
         'level'                 => 'Level',
         'id'                    => 'Id',
+        'details'               => 'Details',
+        'eventNotes'            => 'EventNotes',
     ];
 
     public function validate()
@@ -312,15 +325,6 @@ class suspEvents extends Model
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
-        if (null !== $this->details) {
-            $res['Details'] = [];
-            if (null !== $this->details && \is_array($this->details)) {
-                $n = 0;
-                foreach ($this->details as $item) {
-                    $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->canCancelFault) {
             $res['CanCancelFault'] = $this->canCancelFault;
         }
@@ -333,26 +337,26 @@ class suspEvents extends Model
         if (null !== $this->securityEventIds) {
             $res['SecurityEventIds'] = $this->securityEventIds;
         }
-        if (null !== $this->canBeDealOnLine) {
-            $res['CanBeDealOnLine'] = $this->canBeDealOnLine;
-        }
-        if (null !== $this->markMisRules) {
-            $res['MarkMisRules'] = $this->markMisRules;
+        if (null !== $this->k8sClusterId) {
+            $res['K8sClusterId'] = $this->k8sClusterId;
         }
         if (null !== $this->containerImageName) {
             $res['ContainerImageName'] = $this->containerImageName;
         }
-        if (null !== $this->k8sClusterId) {
-            $res['K8sClusterId'] = $this->k8sClusterId;
+        if (null !== $this->markMisRules) {
+            $res['MarkMisRules'] = $this->markMisRules;
+        }
+        if (null !== $this->canBeDealOnLine) {
+            $res['CanBeDealOnLine'] = $this->canBeDealOnLine;
         }
         if (null !== $this->containHwMode) {
             $res['ContainHwMode'] = $this->containHwMode;
         }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
         if (null !== $this->k8sNodeId) {
             $res['K8sNodeId'] = $this->k8sNodeId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->eventStatus) {
             $res['EventStatus'] = $this->eventStatus;
@@ -383,6 +387,9 @@ class suspEvents extends Model
         }
         if (null !== $this->occurrenceTimeStamp) {
             $res['OccurrenceTimeStamp'] = $this->occurrenceTimeStamp;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->alarmEventTypeDisplay) {
             $res['AlarmEventTypeDisplay'] = $this->alarmEventTypeDisplay;
@@ -429,6 +436,24 @@ class suspEvents extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->details) {
+            $res['Details'] = [];
+            if (null !== $this->details && \is_array($this->details)) {
+                $n = 0;
+                foreach ($this->details as $item) {
+                    $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->eventNotes) {
+            $res['EventNotes'] = [];
+            if (null !== $this->eventNotes && \is_array($this->eventNotes)) {
+                $n = 0;
+                foreach ($this->eventNotes as $item) {
+                    $res['EventNotes'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -465,15 +490,6 @@ class suspEvents extends Model
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
-        if (isset($map['Details'])) {
-            if (!empty($map['Details'])) {
-                $model->details = [];
-                $n              = 0;
-                foreach ($map['Details'] as $item) {
-                    $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['CanCancelFault'])) {
             $model->canCancelFault = $map['CanCancelFault'];
         }
@@ -486,26 +502,26 @@ class suspEvents extends Model
         if (isset($map['SecurityEventIds'])) {
             $model->securityEventIds = $map['SecurityEventIds'];
         }
-        if (isset($map['CanBeDealOnLine'])) {
-            $model->canBeDealOnLine = $map['CanBeDealOnLine'];
-        }
-        if (isset($map['MarkMisRules'])) {
-            $model->markMisRules = $map['MarkMisRules'];
+        if (isset($map['K8sClusterId'])) {
+            $model->k8sClusterId = $map['K8sClusterId'];
         }
         if (isset($map['ContainerImageName'])) {
             $model->containerImageName = $map['ContainerImageName'];
         }
-        if (isset($map['K8sClusterId'])) {
-            $model->k8sClusterId = $map['K8sClusterId'];
+        if (isset($map['MarkMisRules'])) {
+            $model->markMisRules = $map['MarkMisRules'];
+        }
+        if (isset($map['CanBeDealOnLine'])) {
+            $model->canBeDealOnLine = $map['CanBeDealOnLine'];
         }
         if (isset($map['ContainHwMode'])) {
             $model->containHwMode = $map['ContainHwMode'];
         }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
         if (isset($map['K8sNodeId'])) {
             $model->k8sNodeId = $map['K8sNodeId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['EventStatus'])) {
             $model->eventStatus = $map['EventStatus'];
@@ -536,6 +552,9 @@ class suspEvents extends Model
         }
         if (isset($map['OccurrenceTimeStamp'])) {
             $model->occurrenceTimeStamp = $map['OccurrenceTimeStamp'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['AlarmEventTypeDisplay'])) {
             $model->alarmEventTypeDisplay = $map['AlarmEventTypeDisplay'];
@@ -581,6 +600,24 @@ class suspEvents extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Details'])) {
+            if (!empty($map['Details'])) {
+                $model->details = [];
+                $n              = 0;
+                foreach ($map['Details'] as $item) {
+                    $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['EventNotes'])) {
+            if (!empty($map['EventNotes'])) {
+                $model->eventNotes = [];
+                $n                 = 0;
+                foreach ($map['EventNotes'] as $item) {
+                    $model->eventNotes[$n++] = null !== $item ? eventNotes::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

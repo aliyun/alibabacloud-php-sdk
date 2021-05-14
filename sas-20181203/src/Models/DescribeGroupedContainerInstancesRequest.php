@@ -11,11 +11,6 @@ class DescribeGroupedContainerInstancesRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $criteria;
 
     /**
@@ -43,7 +38,6 @@ class DescribeGroupedContainerInstancesRequest extends Model
      */
     public $currentPage;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
         'criteria'    => 'Criteria',
         'logicalExp'  => 'LogicalExp',
         'groupField'  => 'GroupField',
@@ -59,9 +53,6 @@ class DescribeGroupedContainerInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
         }
@@ -92,9 +83,6 @@ class DescribeGroupedContainerInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
         }

@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedContainerInstancesResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var pageInfo
      */
     public $pageInfo;
@@ -19,15 +24,10 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
      * @var groupedContainerInstanceList[]
      */
     public $groupedContainerInstanceList;
-
-    /**
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
+        'requestId'                    => 'RequestId',
         'pageInfo'                     => 'PageInfo',
         'groupedContainerInstanceList' => 'GroupedContainerInstanceList',
-        'requestId'                    => 'RequestId',
     ];
 
     public function validate()
@@ -37,6 +37,9 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->pageInfo) {
             $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
@@ -48,9 +51,6 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
                     $res['GroupedContainerInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,6 +64,9 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
@@ -75,9 +78,6 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
                     $model->groupedContainerInstanceList[$n++] = null !== $item ? groupedContainerInstanceList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -21,12 +21,12 @@ class propertys extends Model
     /**
      * @var string
      */
-    public $user;
+    public $ip;
 
     /**
      * @var string
      */
-    public $ip;
+    public $user;
 
     /**
      * @var string
@@ -41,12 +41,12 @@ class propertys extends Model
     /**
      * @var string
      */
-    public $cmd;
+    public $intranetIp;
 
     /**
      * @var string
      */
-    public $intranetIp;
+    public $cmd;
 
     /**
      * @var string
@@ -75,12 +75,12 @@ class propertys extends Model
     protected $_name = [
         'create'          => 'Create',
         'internetIp'      => 'InternetIp',
-        'user'            => 'User',
         'ip'              => 'Ip',
+        'user'            => 'User',
         'instanceId'      => 'InstanceId',
         'source'          => 'Source',
-        'cmd'             => 'Cmd',
         'intranetIp'      => 'IntranetIp',
+        'cmd'             => 'Cmd',
         'period'          => 'Period',
         'uuid'            => 'Uuid',
         'instanceName'    => 'InstanceName',
@@ -101,11 +101,11 @@ class propertys extends Model
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
-        if (null !== $this->user) {
-            $res['User'] = $this->user;
-        }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -113,11 +113,11 @@ class propertys extends Model
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-        if (null !== $this->cmd) {
-            $res['Cmd'] = $this->cmd;
-        }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
+        }
+        if (null !== $this->cmd) {
+            $res['Cmd'] = $this->cmd;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -152,11 +152,11 @@ class propertys extends Model
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
-        if (isset($map['User'])) {
-            $model->user = $map['User'];
-        }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
+        }
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -164,11 +164,11 @@ class propertys extends Model
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-        if (isset($map['Cmd'])) {
-            $model->cmd = $map['Cmd'];
-        }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
+        }
+        if (isset($map['Cmd'])) {
+            $model->cmd = $map['Cmd'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];

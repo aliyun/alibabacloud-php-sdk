@@ -21,12 +21,12 @@ class bindList extends Model
     /**
      * @var string
      */
-    public $serviceDetail;
+    public $internetIp;
 
     /**
      * @var string
      */
-    public $internetIp;
+    public $serviceDetail;
 
     /**
      * @var string
@@ -75,8 +75,8 @@ class bindList extends Model
     protected $_name = [
         'status'        => 'Status',
         'percent'       => 'Percent',
-        'serviceDetail' => 'ServiceDetail',
         'internetIp'    => 'InternetIp',
+        'serviceDetail' => 'ServiceDetail',
         'os'            => 'Os',
         'serviceStatus' => 'ServiceStatus',
         'intranetIp'    => 'IntranetIp',
@@ -101,11 +101,11 @@ class bindList extends Model
         if (null !== $this->percent) {
             $res['Percent'] = $this->percent;
         }
-        if (null !== $this->serviceDetail) {
-            $res['ServiceDetail'] = $this->serviceDetail;
-        }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->serviceDetail) {
+            $res['ServiceDetail'] = $this->serviceDetail;
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
@@ -152,11 +152,11 @@ class bindList extends Model
         if (isset($map['Percent'])) {
             $model->percent = $map['Percent'];
         }
-        if (isset($map['ServiceDetail'])) {
-            $model->serviceDetail = $map['ServiceDetail'];
-        }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['ServiceDetail'])) {
+            $model->serviceDetail = $map['ServiceDetail'];
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];

@@ -72,6 +72,16 @@ class CreateSasOrderRequest extends Model
      * @var string
      */
     public $sasWebguardOrderNum;
+
+    /**
+     * @var string
+     */
+    public $vcore;
+
+    /**
+     * @var string
+     */
+    public $containerImageScan;
     protected $_name = [
         'period'              => 'Period',
         'periodUnit'          => 'PeriodUnit',
@@ -86,6 +96,8 @@ class CreateSasOrderRequest extends Model
         'sasSc'               => 'SasSc',
         'sasProductService'   => 'SasProductService',
         'sasWebguardOrderNum' => 'SasWebguardOrderNum',
+        'vcore'               => 'Vcore',
+        'containerImageScan'  => 'ContainerImageScan',
     ];
 
     public function validate()
@@ -133,6 +145,12 @@ class CreateSasOrderRequest extends Model
         }
         if (null !== $this->sasWebguardOrderNum) {
             $res['SasWebguardOrderNum'] = $this->sasWebguardOrderNum;
+        }
+        if (null !== $this->vcore) {
+            $res['Vcore'] = $this->vcore;
+        }
+        if (null !== $this->containerImageScan) {
+            $res['ContainerImageScan'] = $this->containerImageScan;
         }
 
         return $res;
@@ -184,6 +202,12 @@ class CreateSasOrderRequest extends Model
         }
         if (isset($map['SasWebguardOrderNum'])) {
             $model->sasWebguardOrderNum = $map['SasWebguardOrderNum'];
+        }
+        if (isset($map['Vcore'])) {
+            $model->vcore = $map['Vcore'];
+        }
+        if (isset($map['ContainerImageScan'])) {
+            $model->containerImageScan = $map['ContainerImageScan'];
         }
 
         return $model;

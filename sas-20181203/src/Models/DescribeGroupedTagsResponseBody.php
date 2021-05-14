@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedTagsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @var groupedFileds[]
+     * @var string
      */
-    public $groupedFileds;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
 
     /**
      * @var int
@@ -30,15 +30,15 @@ class DescribeGroupedTagsResponseBody extends Model
     public $count;
 
     /**
-     * @var bool
+     * @var groupedFileds[]
      */
-    public $success;
+    public $groupedFileds;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'httpStatusCode' => 'HttpStatusCode',
-        'groupedFileds'  => 'GroupedFileds',
-        'count'          => 'Count',
+        'requestId'      => 'RequestId',
         'success'        => 'Success',
+        'count'          => 'Count',
+        'groupedFileds'  => 'GroupedFileds',
     ];
 
     public function validate()
@@ -48,11 +48,17 @@ class DescribeGroupedTagsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->groupedFileds) {
             $res['GroupedFileds'] = [];
@@ -62,12 +68,6 @@ class DescribeGroupedTagsResponseBody extends Model
                     $res['GroupedFileds'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -81,11 +81,17 @@ class DescribeGroupedTagsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['GroupedFileds'])) {
             if (!empty($map['GroupedFileds'])) {
@@ -95,12 +101,6 @@ class DescribeGroupedTagsResponseBody extends Model
                     $model->groupedFileds[$n++] = null !== $item ? groupedFileds::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

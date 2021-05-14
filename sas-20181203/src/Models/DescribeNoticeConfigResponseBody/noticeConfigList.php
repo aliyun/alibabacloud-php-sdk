@@ -11,16 +11,6 @@ class noticeConfigList extends Model
     /**
      * @var int
      */
-    public $currentPage;
-
-    /**
-     * @var int
-     */
-    public $route;
-
-    /**
-     * @var int
-     */
     public $timeLimit;
 
     /**
@@ -29,15 +19,25 @@ class noticeConfigList extends Model
     public $aliUid;
 
     /**
+     * @var int
+     */
+    public $currentPage;
+
+    /**
      * @var string
      */
     public $project;
+
+    /**
+     * @var int
+     */
+    public $route;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'route'       => 'Route',
         'timeLimit'   => 'TimeLimit',
         'aliUid'      => 'AliUid',
+        'currentPage' => 'CurrentPage',
         'project'     => 'Project',
+        'route'       => 'Route',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class noticeConfigList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->route) {
-            $res['Route'] = $this->route;
-        }
         if (null !== $this->timeLimit) {
             $res['TimeLimit'] = $this->timeLimit;
         }
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
+        }
+        if (null !== $this->route) {
+            $res['Route'] = $this->route;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class noticeConfigList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['Route'])) {
-            $model->route = $map['Route'];
-        }
         if (isset($map['TimeLimit'])) {
             $model->timeLimit = $map['TimeLimit'];
         }
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
+        }
+        if (isset($map['Route'])) {
+            $model->route = $map['Route'];
         }
 
         return $model;

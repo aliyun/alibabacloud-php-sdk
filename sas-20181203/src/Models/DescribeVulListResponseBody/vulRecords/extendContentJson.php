@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class extendContentJson extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $status;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $cveList;
+    public $ip;
 
     /**
      * @var int
@@ -28,27 +28,12 @@ class extendContentJson extends Model
     /**
      * @var string
      */
-    public $tag;
-
-    /**
-     * @var string
-     */
-    public $osRelease;
-
-    /**
-     * @var rpmEntityList[]
-     */
-    public $rpmEntityList;
-
-    /**
-     * @var string
-     */
-    public $ip;
-
-    /**
-     * @var string
-     */
     public $os;
+
+    /**
+     * @var string
+     */
+    public $tag;
 
     /**
      * @var int
@@ -56,9 +41,9 @@ class extendContentJson extends Model
     public $lastTs;
 
     /**
-     * @var necessity
+     * @var string
      */
-    public $necessity;
+    public $osRelease;
 
     /**
      * @var string
@@ -69,19 +54,34 @@ class extendContentJson extends Model
      * @var string
      */
     public $absolutePath;
+
+    /**
+     * @var rpmEntityList[]
+     */
+    public $rpmEntityList;
+
+    /**
+     * @var string[]
+     */
+    public $cveList;
+
+    /**
+     * @var necessity
+     */
+    public $necessity;
     protected $_name = [
         'status'        => 'Status',
-        'cveList'       => 'cveList',
-        'primaryId'     => 'PrimaryId',
-        'tag'           => 'Tag',
-        'osRelease'     => 'OsRelease',
-        'rpmEntityList' => 'RpmEntityList',
         'ip'            => 'Ip',
+        'primaryId'     => 'PrimaryId',
         'os'            => 'Os',
+        'tag'           => 'Tag',
         'lastTs'        => 'LastTs',
-        'necessity'     => 'Necessity',
+        'osRelease'     => 'OsRelease',
         'aliasName'     => 'AliasName',
         'absolutePath'  => 'AbsolutePath',
+        'rpmEntityList' => 'RpmEntityList',
+        'cveList'       => 'cveList',
+        'necessity'     => 'Necessity',
     ];
 
     public function validate()
@@ -94,17 +94,29 @@ class extendContentJson extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->cveList) {
-            $res['cveList'] = $this->cveList;
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
         if (null !== $this->primaryId) {
             $res['PrimaryId'] = $this->primaryId;
         }
+        if (null !== $this->os) {
+            $res['Os'] = $this->os;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
+        if (null !== $this->lastTs) {
+            $res['LastTs'] = $this->lastTs;
+        }
         if (null !== $this->osRelease) {
             $res['OsRelease'] = $this->osRelease;
+        }
+        if (null !== $this->aliasName) {
+            $res['AliasName'] = $this->aliasName;
+        }
+        if (null !== $this->absolutePath) {
+            $res['AbsolutePath'] = $this->absolutePath;
         }
         if (null !== $this->rpmEntityList) {
             $res['RpmEntityList'] = [];
@@ -115,23 +127,11 @@ class extendContentJson extends Model
                 }
             }
         }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
-        if (null !== $this->os) {
-            $res['Os'] = $this->os;
-        }
-        if (null !== $this->lastTs) {
-            $res['LastTs'] = $this->lastTs;
+        if (null !== $this->cveList) {
+            $res['cveList'] = $this->cveList;
         }
         if (null !== $this->necessity) {
             $res['Necessity'] = null !== $this->necessity ? $this->necessity->toMap() : null;
-        }
-        if (null !== $this->aliasName) {
-            $res['AliasName'] = $this->aliasName;
-        }
-        if (null !== $this->absolutePath) {
-            $res['AbsolutePath'] = $this->absolutePath;
         }
 
         return $res;
@@ -148,19 +148,29 @@ class extendContentJson extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['cveList'])) {
-            if (!empty($map['cveList'])) {
-                $model->cveList = $map['cveList'];
-            }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
         if (isset($map['PrimaryId'])) {
             $model->primaryId = $map['PrimaryId'];
         }
+        if (isset($map['Os'])) {
+            $model->os = $map['Os'];
+        }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
+        if (isset($map['LastTs'])) {
+            $model->lastTs = $map['LastTs'];
+        }
         if (isset($map['OsRelease'])) {
             $model->osRelease = $map['OsRelease'];
+        }
+        if (isset($map['AliasName'])) {
+            $model->aliasName = $map['AliasName'];
+        }
+        if (isset($map['AbsolutePath'])) {
+            $model->absolutePath = $map['AbsolutePath'];
         }
         if (isset($map['RpmEntityList'])) {
             if (!empty($map['RpmEntityList'])) {
@@ -171,23 +181,13 @@ class extendContentJson extends Model
                 }
             }
         }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
-        if (isset($map['Os'])) {
-            $model->os = $map['Os'];
-        }
-        if (isset($map['LastTs'])) {
-            $model->lastTs = $map['LastTs'];
+        if (isset($map['cveList'])) {
+            if (!empty($map['cveList'])) {
+                $model->cveList = $map['cveList'];
+            }
         }
         if (isset($map['Necessity'])) {
             $model->necessity = necessity::fromMap($map['Necessity']);
-        }
-        if (isset($map['AliasName'])) {
-            $model->aliasName = $map['AliasName'];
-        }
-        if (isset($map['AbsolutePath'])) {
-            $model->absolutePath = $map['AbsolutePath'];
         }
 
         return $model;

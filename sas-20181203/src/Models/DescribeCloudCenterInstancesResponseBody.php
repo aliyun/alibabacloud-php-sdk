@@ -11,14 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudCenterInstancesResponseBody extends Model
 {
     /**
-     * @var instances[]
+     * @var bool
      */
-    public $instances;
-
-    /**
-     * @var pageInfo
-     */
-    public $pageInfo;
+    public $success;
 
     /**
      * @var string
@@ -26,14 +21,19 @@ class DescribeCloudCenterInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
+     * @var pageInfo
      */
-    public $success;
+    public $pageInfo;
+
+    /**
+     * @var instances[]
+     */
+    public $instances;
     protected $_name = [
-        'instances' => 'Instances',
-        'pageInfo'  => 'PageInfo',
-        'requestId' => 'RequestId',
         'success'   => 'Success',
+        'requestId' => 'RequestId',
+        'pageInfo'  => 'PageInfo',
+        'instances' => 'Instances',
     ];
 
     public function validate()
@@ -43,6 +43,15 @@ class DescribeCloudCenterInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
         if (null !== $this->instances) {
             $res['Instances'] = [];
             if (null !== $this->instances && \is_array($this->instances)) {
@@ -51,15 +60,6 @@ class DescribeCloudCenterInstancesResponseBody extends Model
                     $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -73,6 +73,15 @@ class DescribeCloudCenterInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
@@ -81,15 +90,6 @@ class DescribeCloudCenterInstancesResponseBody extends Model
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

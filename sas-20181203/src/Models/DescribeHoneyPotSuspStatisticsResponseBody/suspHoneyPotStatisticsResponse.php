@@ -11,17 +11,17 @@ class suspHoneyPotStatisticsResponse extends Model
     /**
      * @var string
      */
-    public $vpcName;
-
-    /**
-     * @var string
-     */
     public $type;
 
     /**
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $vpcName;
 
     /**
      * @var string
@@ -34,21 +34,15 @@ class suspHoneyPotStatisticsResponse extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var int
      */
     public $count;
     protected $_name = [
-        'vpcName'      => 'VpcName',
         'type'         => 'Type',
         'vpcId'        => 'VpcId',
+        'vpcName'      => 'VpcName',
         'instanceName' => 'InstanceName',
         'instanceId'   => 'InstanceId',
-        'name'         => 'Name',
         'count'        => 'Count',
     ];
 
@@ -59,23 +53,20 @@ class suspHoneyPotStatisticsResponse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcName) {
-            $res['VpcName'] = $this->vpcName;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+        if (null !== $this->vpcName) {
+            $res['VpcName'] = $this->vpcName;
+        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
@@ -92,23 +83,20 @@ class suspHoneyPotStatisticsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcName'])) {
-            $model->vpcName = $map['VpcName'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+        if (isset($map['VpcName'])) {
+            $model->vpcName = $map['VpcName'];
+        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];

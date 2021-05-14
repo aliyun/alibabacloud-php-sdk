@@ -18,6 +18,11 @@ class data extends Model
     public $vertexList;
 
     /**
+     * @var edgeList[]
+     */
+    public $edgeList;
+
+    /**
      * @var entityTypeList[]
      */
     public $entityTypeList;
@@ -26,16 +31,11 @@ class data extends Model
      * @var relationTypeList[]
      */
     public $relationTypeList;
-
-    /**
-     * @var edgeList[]
-     */
-    public $edgeList;
     protected $_name = [
         'vertexList'       => 'VertexList',
+        'edgeList'         => 'EdgeList',
         'entityTypeList'   => 'EntityTypeList',
         'relationTypeList' => 'RelationTypeList',
-        'edgeList'         => 'EdgeList',
     ];
 
     public function validate()
@@ -54,6 +54,15 @@ class data extends Model
                 }
             }
         }
+        if (null !== $this->edgeList) {
+            $res['EdgeList'] = [];
+            if (null !== $this->edgeList && \is_array($this->edgeList)) {
+                $n = 0;
+                foreach ($this->edgeList as $item) {
+                    $res['EdgeList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->entityTypeList) {
             $res['EntityTypeList'] = [];
             if (null !== $this->entityTypeList && \is_array($this->entityTypeList)) {
@@ -69,15 +78,6 @@ class data extends Model
                 $n = 0;
                 foreach ($this->relationTypeList as $item) {
                     $res['RelationTypeList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->edgeList) {
-            $res['EdgeList'] = [];
-            if (null !== $this->edgeList && \is_array($this->edgeList)) {
-                $n = 0;
-                foreach ($this->edgeList as $item) {
-                    $res['EdgeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -102,6 +102,15 @@ class data extends Model
                 }
             }
         }
+        if (isset($map['EdgeList'])) {
+            if (!empty($map['EdgeList'])) {
+                $model->edgeList = [];
+                $n               = 0;
+                foreach ($map['EdgeList'] as $item) {
+                    $model->edgeList[$n++] = null !== $item ? edgeList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['EntityTypeList'])) {
             if (!empty($map['EntityTypeList'])) {
                 $model->entityTypeList = [];
@@ -117,15 +126,6 @@ class data extends Model
                 $n                       = 0;
                 foreach ($map['RelationTypeList'] as $item) {
                     $model->relationTypeList[$n++] = null !== $item ? relationTypeList::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['EdgeList'])) {
-            if (!empty($map['EdgeList'])) {
-                $model->edgeList = [];
-                $n               = 0;
-                foreach ($map['EdgeList'] as $item) {
-                    $model->edgeList[$n++] = null !== $item ? edgeList::fromMap($item) : $item;
                 }
             }
         }

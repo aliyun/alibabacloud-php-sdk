@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcListResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,15 +23,10 @@ class DescribeVpcListResponseBody extends Model
      * @var vpcList[]
      */
     public $vpcList;
-
-    /**
-     * @var int
-     */
-    public $count;
     protected $_name = [
+        'count'     => 'Count',
         'requestId' => 'RequestId',
         'vpcList'   => 'VpcList',
-        'count'     => 'Count',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class DescribeVpcListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,9 +50,6 @@ class DescribeVpcListResponseBody extends Model
                     $res['VpcList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -63,6 +63,9 @@ class DescribeVpcListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -74,9 +77,6 @@ class DescribeVpcListResponseBody extends Model
                     $model->vpcList[$n++] = null !== $item ? vpcList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

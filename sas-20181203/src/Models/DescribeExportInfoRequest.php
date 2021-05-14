@@ -9,16 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeExportInfoRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @var int
      */
     public $exportId;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
         'exportId' => 'ExportId',
     ];
 
@@ -29,9 +23,6 @@ class DescribeExportInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->exportId) {
             $res['ExportId'] = $this->exportId;
         }
@@ -47,9 +38,6 @@ class DescribeExportInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ExportId'])) {
             $model->exportId = $map['ExportId'];
         }

@@ -86,12 +86,12 @@ class propertys extends Model
     /**
      * @var string
      */
-    public $processUser;
+    public $ip;
 
     /**
      * @var string
      */
-    public $ip;
+    public $processUser;
 
     /**
      * @var string
@@ -163,8 +163,8 @@ class propertys extends Model
         'listenStatus'    => 'ListenStatus',
         'name'            => 'Name',
         'create'          => 'Create',
-        'processUser'     => 'ProcessUser',
         'ip'              => 'Ip',
+        'processUser'     => 'ProcessUser',
         'instanceId'      => 'InstanceId',
         'webPath'         => 'WebPath',
         'ppid'            => 'Ppid',
@@ -230,11 +230,11 @@ class propertys extends Model
         if (null !== $this->create) {
             $res['Create'] = $this->create;
         }
-        if (null !== $this->processUser) {
-            $res['ProcessUser'] = $this->processUser;
-        }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->processUser) {
+            $res['ProcessUser'] = $this->processUser;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -326,11 +326,11 @@ class propertys extends Model
         if (isset($map['Create'])) {
             $model->create = $map['Create'];
         }
-        if (isset($map['ProcessUser'])) {
-            $model->processUser = $map['ProcessUser'];
-        }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
+        }
+        if (isset($map['ProcessUser'])) {
+            $model->processUser = $map['ProcessUser'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

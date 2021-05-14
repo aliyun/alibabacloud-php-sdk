@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAffectedMaliciousFileImagesResponseBody extends Model
 {
     /**
-     * @var affectedMaliciousFileImagesResponse[]
+     * @var string
      */
-    public $affectedMaliciousFileImagesResponse;
+    public $requestId;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribeAffectedMaliciousFileImagesResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var string
+     * @var affectedMaliciousFileImagesResponse[]
      */
-    public $requestId;
+    public $affectedMaliciousFileImagesResponse;
     protected $_name = [
-        'affectedMaliciousFileImagesResponse' => 'AffectedMaliciousFileImagesResponse',
-        'pageInfo'                            => 'PageInfo',
         'requestId'                           => 'RequestId',
+        'pageInfo'                            => 'PageInfo',
+        'affectedMaliciousFileImagesResponse' => 'AffectedMaliciousFileImagesResponse',
     ];
 
     public function validate()
@@ -37,6 +37,12 @@ class DescribeAffectedMaliciousFileImagesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
         if (null !== $this->affectedMaliciousFileImagesResponse) {
             $res['AffectedMaliciousFileImagesResponse'] = [];
             if (null !== $this->affectedMaliciousFileImagesResponse && \is_array($this->affectedMaliciousFileImagesResponse)) {
@@ -45,12 +51,6 @@ class DescribeAffectedMaliciousFileImagesResponseBody extends Model
                     $res['AffectedMaliciousFileImagesResponse'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,6 +64,12 @@ class DescribeAffectedMaliciousFileImagesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
         if (isset($map['AffectedMaliciousFileImagesResponse'])) {
             if (!empty($map['AffectedMaliciousFileImagesResponse'])) {
                 $model->affectedMaliciousFileImagesResponse = [];
@@ -72,12 +78,6 @@ class DescribeAffectedMaliciousFileImagesResponseBody extends Model
                     $model->affectedMaliciousFileImagesResponse[$n++] = null !== $item ? affectedMaliciousFileImagesResponse::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

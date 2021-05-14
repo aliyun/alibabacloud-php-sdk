@@ -11,14 +11,8 @@ class DescribeGroupedTagsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $machineTypes;
     protected $_name = [
-        'sourceIp'     => 'SourceIp',
         'machineTypes' => 'MachineTypes',
     ];
 
@@ -29,9 +23,6 @@ class DescribeGroupedTagsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->machineTypes) {
             $res['MachineTypes'] = $this->machineTypes;
         }
@@ -47,9 +38,6 @@ class DescribeGroupedTagsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['MachineTypes'])) {
             $model->machineTypes = $map['MachineTypes'];
         }

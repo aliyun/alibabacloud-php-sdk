@@ -16,7 +16,17 @@ class securityEvent extends Model
     /**
      * @var int
      */
+    public $seriousCount;
+
+    /**
+     * @var int
+     */
     public $remindCount;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
 
     /**
      * @var string[]
@@ -39,16 +49,6 @@ class securityEvent extends Model
     public $levelsOn;
 
     /**
-     * @var int
-     */
-    public $seriousCount;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string[]
      */
     public $dateArray;
@@ -64,13 +64,13 @@ class securityEvent extends Model
     public $seriousList;
     protected $_name = [
         'suspiciousCount' => 'SuspiciousCount',
+        'seriousCount'    => 'SeriousCount',
         'remindCount'     => 'RemindCount',
+        'totalCount'      => 'TotalCount',
         'valueArray'      => 'ValueArray',
         'timeArray'       => 'TimeArray',
         'remindList'      => 'RemindList',
         'levelsOn'        => 'LevelsOn',
-        'seriousCount'    => 'SeriousCount',
-        'totalCount'      => 'TotalCount',
         'dateArray'       => 'DateArray',
         'suspiciousList'  => 'SuspiciousList',
         'seriousList'     => 'SeriousList',
@@ -86,8 +86,14 @@ class securityEvent extends Model
         if (null !== $this->suspiciousCount) {
             $res['SuspiciousCount'] = $this->suspiciousCount;
         }
+        if (null !== $this->seriousCount) {
+            $res['SeriousCount'] = $this->seriousCount;
+        }
         if (null !== $this->remindCount) {
             $res['RemindCount'] = $this->remindCount;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->valueArray) {
             $res['ValueArray'] = $this->valueArray;
@@ -100,12 +106,6 @@ class securityEvent extends Model
         }
         if (null !== $this->levelsOn) {
             $res['LevelsOn'] = $this->levelsOn;
-        }
-        if (null !== $this->seriousCount) {
-            $res['SeriousCount'] = $this->seriousCount;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->dateArray) {
             $res['DateArray'] = $this->dateArray;
@@ -131,8 +131,14 @@ class securityEvent extends Model
         if (isset($map['SuspiciousCount'])) {
             $model->suspiciousCount = $map['SuspiciousCount'];
         }
+        if (isset($map['SeriousCount'])) {
+            $model->seriousCount = $map['SeriousCount'];
+        }
         if (isset($map['RemindCount'])) {
             $model->remindCount = $map['RemindCount'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['ValueArray'])) {
             if (!empty($map['ValueArray'])) {
@@ -153,12 +159,6 @@ class securityEvent extends Model
             if (!empty($map['LevelsOn'])) {
                 $model->levelsOn = $map['LevelsOn'];
             }
-        }
-        if (isset($map['SeriousCount'])) {
-            $model->seriousCount = $map['SeriousCount'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['DateArray'])) {
             if (!empty($map['DateArray'])) {

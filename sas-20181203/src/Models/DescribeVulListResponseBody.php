@@ -12,7 +12,7 @@ class DescribeVulListResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $currentPage;
 
     /**
      * @var string
@@ -25,20 +25,20 @@ class DescribeVulListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var vulRecords[]
      */
     public $vulRecords;
-
-    /**
-     * @var int
-     */
-    public $currentPage;
     protected $_name = [
-        'totalCount'  => 'TotalCount',
+        'currentPage' => 'CurrentPage',
         'requestId'   => 'RequestId',
         'pageSize'    => 'PageSize',
+        'totalCount'  => 'TotalCount',
         'vulRecords'  => 'VulRecords',
-        'currentPage' => 'CurrentPage',
     ];
 
     public function validate()
@@ -48,14 +48,17 @@ class DescribeVulListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->vulRecords) {
             $res['VulRecords'] = [];
@@ -65,9 +68,6 @@ class DescribeVulListResponseBody extends Model
                     $res['VulRecords'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -81,14 +81,17 @@ class DescribeVulListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['VulRecords'])) {
             if (!empty($map['VulRecords'])) {
@@ -98,9 +101,6 @@ class DescribeVulListResponseBody extends Model
                     $model->vulRecords[$n++] = null !== $item ? vulRecords::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

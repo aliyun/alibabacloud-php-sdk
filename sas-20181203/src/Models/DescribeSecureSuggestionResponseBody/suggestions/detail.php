@@ -11,20 +11,20 @@ class detail extends Model
     /**
      * @var string
      */
-    public $description;
+    public $title;
 
     /**
      * @var string
      */
-    public $title;
+    public $description;
 
     /**
      * @var string
      */
     public $subType;
     protected $_name = [
-        'description' => 'Description',
         'title'       => 'Title',
+        'description' => 'Description',
         'subType'     => 'SubType',
     ];
 
@@ -35,11 +35,11 @@ class detail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->subType) {
             $res['SubType'] = $this->subType;
@@ -56,11 +56,11 @@ class detail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['SubType'])) {
             $model->subType = $map['SubType'];

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityEventOperationStatusResponseBody extends Model
 {
     /**
-     * @var securityEventOperationStatusResponse
-     */
-    public $securityEventOperationStatusResponse;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var securityEventOperationStatusResponse
+     */
+    public $securityEventOperationStatusResponse;
     protected $_name = [
-        'securityEventOperationStatusResponse' => 'SecurityEventOperationStatusResponse',
         'requestId'                            => 'RequestId',
+        'securityEventOperationStatusResponse' => 'SecurityEventOperationStatusResponse',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeSecurityEventOperationStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityEventOperationStatusResponse) {
-            $res['SecurityEventOperationStatusResponse'] = null !== $this->securityEventOperationStatusResponse ? $this->securityEventOperationStatusResponse->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->securityEventOperationStatusResponse) {
+            $res['SecurityEventOperationStatusResponse'] = null !== $this->securityEventOperationStatusResponse ? $this->securityEventOperationStatusResponse->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeSecurityEventOperationStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityEventOperationStatusResponse'])) {
-            $model->securityEventOperationStatusResponse = securityEventOperationStatusResponse::fromMap($map['SecurityEventOperationStatusResponse']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SecurityEventOperationStatusResponse'])) {
+            $model->securityEventOperationStatusResponse = securityEventOperationStatusResponse::fromMap($map['SecurityEventOperationStatusResponse']);
         }
 
         return $model;

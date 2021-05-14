@@ -12,12 +12,7 @@ class DescribeCheckWarningsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var checkWarnings[]
-     */
-    public $checkWarnings;
+    public $currentPage;
 
     /**
      * @var int
@@ -32,19 +27,24 @@ class DescribeCheckWarningsResponseBody extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $totalCount;
 
     /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var checkWarnings[]
+     */
+    public $checkWarnings;
     protected $_name = [
-        'totalCount'    => 'TotalCount',
-        'checkWarnings' => 'CheckWarnings',
+        'currentPage'   => 'CurrentPage',
         'pageSize'      => 'PageSize',
         'requestId'     => 'RequestId',
-        'currentPage'   => 'CurrentPage',
+        'totalCount'    => 'TotalCount',
         'count'         => 'Count',
+        'checkWarnings' => 'CheckWarnings',
     ];
 
     public function validate()
@@ -54,8 +54,20 @@ class DescribeCheckWarningsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->checkWarnings) {
             $res['CheckWarnings'] = [];
@@ -65,18 +77,6 @@ class DescribeCheckWarningsResponseBody extends Model
                     $res['CheckWarnings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -90,8 +90,20 @@ class DescribeCheckWarningsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['CheckWarnings'])) {
             if (!empty($map['CheckWarnings'])) {
@@ -101,18 +113,6 @@ class DescribeCheckWarningsResponseBody extends Model
                     $model->checkWarnings[$n++] = null !== $item ? checkWarnings::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

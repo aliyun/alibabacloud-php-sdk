@@ -11,14 +11,8 @@ class RefreshContainerAssetsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $assetType;
     protected $_name = [
-        'sourceIp'  => 'SourceIp',
         'assetType' => 'AssetType',
     ];
 
@@ -29,9 +23,6 @@ class RefreshContainerAssetsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->assetType) {
             $res['AssetType'] = $this->assetType;
         }
@@ -47,9 +38,6 @@ class RefreshContainerAssetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['AssetType'])) {
             $model->assetType = $map['AssetType'];
         }

@@ -11,11 +11,6 @@ class DescribeGroupedVulRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $lang;
 
     /**
@@ -56,11 +51,6 @@ class DescribeGroupedVulRequest extends Model
     /**
      * @var string
      */
-    public $statusList;
-
-    /**
-     * @var string
-     */
     public $groupId;
 
     /**
@@ -88,7 +78,6 @@ class DescribeGroupedVulRequest extends Model
      */
     public $minScore;
     protected $_name = [
-        'sourceIp'            => 'SourceIp',
         'lang'                => 'Lang',
         'type'                => 'Type',
         'uuids'               => 'Uuids',
@@ -97,7 +86,6 @@ class DescribeGroupedVulRequest extends Model
         'dealed'              => 'Dealed',
         'currentPage'         => 'CurrentPage',
         'pageSize'            => 'PageSize',
-        'statusList'          => 'StatusList',
         'groupId'             => 'GroupId',
         'containerFieldName'  => 'ContainerFieldName',
         'containerFieldValue' => 'ContainerFieldValue',
@@ -113,9 +101,6 @@ class DescribeGroupedVulRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -139,9 +124,6 @@ class DescribeGroupedVulRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->statusList) {
-            $res['StatusList'] = $this->statusList;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -173,9 +155,6 @@ class DescribeGroupedVulRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
@@ -199,9 +178,6 @@ class DescribeGroupedVulRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['StatusList'])) {
-            $model->statusList = $map['StatusList'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

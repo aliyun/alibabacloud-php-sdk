@@ -11,15 +11,9 @@ class DeleteVpcHoneyPotRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $vpcId;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'vpcId'    => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class DeleteVpcHoneyPotRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -47,9 +38,6 @@ class DeleteVpcHoneyPotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

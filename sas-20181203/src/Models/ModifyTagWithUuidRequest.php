@@ -11,11 +11,6 @@ class ModifyTagWithUuidRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $uuidList;
 
     /**
@@ -33,7 +28,6 @@ class ModifyTagWithUuidRequest extends Model
      */
     public $machineTypes;
     protected $_name = [
-        'sourceIp'     => 'SourceIp',
         'uuidList'     => 'UuidList',
         'tagList'      => 'TagList',
         'tagId'        => 'TagId',
@@ -47,9 +41,6 @@ class ModifyTagWithUuidRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
         }
@@ -74,9 +65,6 @@ class ModifyTagWithUuidRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['UuidList'])) {
             $model->uuidList = $map['UuidList'];
         }

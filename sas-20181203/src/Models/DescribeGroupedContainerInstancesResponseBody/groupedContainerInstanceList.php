@@ -11,22 +11,22 @@ class groupedContainerInstanceList extends Model
     /**
      * @var string
      */
-    public $hostIp;
-
-    /**
-     * @var string
-     */
     public $riskLevel;
 
     /**
      * @var string
      */
-    public $riskStatus;
+    public $hostIp;
 
     /**
      * @var string
      */
     public $pod;
+
+    /**
+     * @var string
+     */
+    public $riskStatus;
 
     /**
      * @var int
@@ -36,12 +36,12 @@ class groupedContainerInstanceList extends Model
     /**
      * @var string
      */
-    public $custerState;
+    public $namespace;
 
     /**
      * @var string
      */
-    public $namespace;
+    public $custerState;
 
     /**
      * @var string
@@ -98,13 +98,13 @@ class groupedContainerInstanceList extends Model
      */
     public $clusterId;
     protected $_name = [
-        'hostIp'            => 'HostIp',
         'riskLevel'         => 'RiskLevel',
-        'riskStatus'        => 'RiskStatus',
+        'hostIp'            => 'HostIp',
         'pod'               => 'Pod',
+        'riskStatus'        => 'RiskStatus',
         'createTime'        => 'CreateTime',
-        'custerState'       => 'CusterState',
         'namespace'         => 'Namespace',
+        'custerState'       => 'CusterState',
         'instanceId'        => 'InstanceId',
         'regionId'          => 'RegionId',
         'appName'           => 'AppName',
@@ -125,26 +125,26 @@ class groupedContainerInstanceList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hostIp) {
-            $res['HostIp'] = $this->hostIp;
-        }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
-        if (null !== $this->riskStatus) {
-            $res['RiskStatus'] = $this->riskStatus;
+        if (null !== $this->hostIp) {
+            $res['HostIp'] = $this->hostIp;
         }
         if (null !== $this->pod) {
             $res['Pod'] = $this->pod;
         }
+        if (null !== $this->riskStatus) {
+            $res['RiskStatus'] = $this->riskStatus;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->custerState) {
-            $res['CusterState'] = $this->custerState;
-        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->custerState) {
+            $res['CusterState'] = $this->custerState;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -191,26 +191,26 @@ class groupedContainerInstanceList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HostIp'])) {
-            $model->hostIp = $map['HostIp'];
-        }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
-        if (isset($map['RiskStatus'])) {
-            $model->riskStatus = $map['RiskStatus'];
+        if (isset($map['HostIp'])) {
+            $model->hostIp = $map['HostIp'];
         }
         if (isset($map['Pod'])) {
             $model->pod = $map['Pod'];
         }
+        if (isset($map['RiskStatus'])) {
+            $model->riskStatus = $map['RiskStatus'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['CusterState'])) {
-            $model->custerState = $map['CusterState'];
-        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['CusterState'])) {
+            $model->custerState = $map['CusterState'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

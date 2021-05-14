@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCountResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $rootDomainsCount;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -16,16 +21,17 @@ class DescribeDomainCountResponseBody extends Model
     /**
      * @var int
      */
-    public $totalDomainsCount;
+    public $subDomainsCount;
 
     /**
      * @var int
      */
-    public $rootDomainsCount;
+    public $totalDomainsCount;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'totalDomainsCount' => 'TotalDomainsCount',
         'rootDomainsCount'  => 'RootDomainsCount',
+        'requestId'         => 'RequestId',
+        'subDomainsCount'   => 'SubDomainsCount',
+        'totalDomainsCount' => 'TotalDomainsCount',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class DescribeDomainCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->rootDomainsCount) {
+            $res['RootDomainsCount'] = $this->rootDomainsCount;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->subDomainsCount) {
+            $res['SubDomainsCount'] = $this->subDomainsCount;
+        }
         if (null !== $this->totalDomainsCount) {
             $res['TotalDomainsCount'] = $this->totalDomainsCount;
-        }
-        if (null !== $this->rootDomainsCount) {
-            $res['RootDomainsCount'] = $this->rootDomainsCount;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class DescribeDomainCountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RootDomainsCount'])) {
+            $model->rootDomainsCount = $map['RootDomainsCount'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['SubDomainsCount'])) {
+            $model->subDomainsCount = $map['SubDomainsCount'];
+        }
         if (isset($map['TotalDomainsCount'])) {
             $model->totalDomainsCount = $map['TotalDomainsCount'];
-        }
-        if (isset($map['RootDomainsCount'])) {
-            $model->rootDomainsCount = $map['RootDomainsCount'];
         }
 
         return $model;

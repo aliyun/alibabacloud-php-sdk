@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyProcItemRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
      * @var bool
      */
     public $forceFlush;
@@ -33,7 +28,6 @@ class DescribePropertyProcItemRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
         'forceFlush'  => 'ForceFlush',
         'name'        => 'Name',
         'currentPage' => 'CurrentPage',
@@ -47,9 +41,6 @@ class DescribePropertyProcItemRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->forceFlush) {
             $res['ForceFlush'] = $this->forceFlush;
         }
@@ -74,9 +65,6 @@ class DescribePropertyProcItemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ForceFlush'])) {
             $model->forceFlush = $map['ForceFlush'];
         }

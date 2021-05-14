@@ -15,18 +15,18 @@ class extendContentJson extends Model
     public $osRelease;
 
     /**
-     * @var rpmEntityList[]
-     */
-    public $rpmEntityList;
-
-    /**
      * @var string
      */
     public $os;
+
+    /**
+     * @var rpmEntityList[]
+     */
+    public $rpmEntityList;
     protected $_name = [
         'osRelease'     => 'OsRelease',
-        'rpmEntityList' => 'RpmEntityList',
         'os'            => 'Os',
+        'rpmEntityList' => 'RpmEntityList',
     ];
 
     public function validate()
@@ -39,6 +39,9 @@ class extendContentJson extends Model
         if (null !== $this->osRelease) {
             $res['OsRelease'] = $this->osRelease;
         }
+        if (null !== $this->os) {
+            $res['Os'] = $this->os;
+        }
         if (null !== $this->rpmEntityList) {
             $res['RpmEntityList'] = [];
             if (null !== $this->rpmEntityList && \is_array($this->rpmEntityList)) {
@@ -47,9 +50,6 @@ class extendContentJson extends Model
                     $res['RpmEntityList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->os) {
-            $res['Os'] = $this->os;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class extendContentJson extends Model
         if (isset($map['OsRelease'])) {
             $model->osRelease = $map['OsRelease'];
         }
+        if (isset($map['Os'])) {
+            $model->os = $map['Os'];
+        }
         if (isset($map['RpmEntityList'])) {
             if (!empty($map['RpmEntityList'])) {
                 $model->rpmEntityList = [];
@@ -74,9 +77,6 @@ class extendContentJson extends Model
                     $model->rpmEntityList[$n++] = null !== $item ? rpmEntityList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Os'])) {
-            $model->os = $map['Os'];
         }
 
         return $model;

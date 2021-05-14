@@ -11,11 +11,6 @@ class DescribeAccesskeyLeakListRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $status;
 
     /**
@@ -38,7 +33,6 @@ class DescribeAccesskeyLeakListRequest extends Model
      */
     public $currentPage;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
         'status'      => 'Status',
         'query'       => 'Query',
         'startTs'     => 'StartTs',
@@ -53,9 +47,6 @@ class DescribeAccesskeyLeakListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -83,9 +74,6 @@ class DescribeAccesskeyLeakListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

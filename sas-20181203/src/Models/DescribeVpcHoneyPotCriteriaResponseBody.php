@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcHoneyPotCriteriaResponseBody extends Model
 {
     /**
-     * @var criteriaList[]
-     */
-    public $criteriaList;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var criteriaList[]
+     */
+    public $criteriaList;
     protected $_name = [
-        'criteriaList' => 'CriteriaList',
         'requestId'    => 'RequestId',
+        'criteriaList' => 'CriteriaList',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class DescribeVpcHoneyPotCriteriaResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->criteriaList) {
             $res['CriteriaList'] = [];
             if (null !== $this->criteriaList && \is_array($this->criteriaList)) {
@@ -38,9 +41,6 @@ class DescribeVpcHoneyPotCriteriaResponseBody extends Model
                     $res['CriteriaList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class DescribeVpcHoneyPotCriteriaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['CriteriaList'])) {
             if (!empty($map['CriteriaList'])) {
                 $model->criteriaList = [];
@@ -62,9 +65,6 @@ class DescribeVpcHoneyPotCriteriaResponseBody extends Model
                     $model->criteriaList[$n++] = null !== $item ? criteriaList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

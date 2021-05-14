@@ -51,12 +51,12 @@ class propertys extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $uuid;
 
     /**
      * @var string
      */
-    public $uuid;
+    public $startTime;
 
     /**
      * @var string
@@ -96,8 +96,8 @@ class propertys extends Model
         'cmdline'         => 'Cmdline',
         'intranetIp'      => 'IntranetIp',
         'euidName'        => 'EuidName',
-        'startTime'       => 'StartTime',
         'uuid'            => 'Uuid',
+        'startTime'       => 'StartTime',
         'pname'           => 'Pname',
         'instanceName'    => 'InstanceName',
         'path'            => 'Path',
@@ -137,11 +137,11 @@ class propertys extends Model
         if (null !== $this->euidName) {
             $res['EuidName'] = $this->euidName;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->pname) {
             $res['Pname'] = $this->pname;
@@ -197,11 +197,11 @@ class propertys extends Model
         if (isset($map['EuidName'])) {
             $model->euidName = $map['EuidName'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Pname'])) {
             $model->pname = $map['Pname'];

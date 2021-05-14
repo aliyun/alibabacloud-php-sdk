@@ -11,11 +11,6 @@ class ModifyOperateVulRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $info;
 
     /**
@@ -33,7 +28,6 @@ class ModifyOperateVulRequest extends Model
      */
     public $reason;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
         'info'        => 'Info',
         'operateType' => 'OperateType',
         'type'        => 'Type',
@@ -47,9 +41,6 @@ class ModifyOperateVulRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->info) {
             $res['Info'] = $this->info;
         }
@@ -74,9 +65,6 @@ class ModifyOperateVulRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Info'])) {
             $model->info = $map['Info'];
         }

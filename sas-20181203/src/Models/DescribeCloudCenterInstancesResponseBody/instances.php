@@ -96,12 +96,12 @@ class instances extends Model
     /**
      * @var int
      */
-    public $healthCheckCount;
+    public $importance;
 
     /**
      * @var int
      */
-    public $importance;
+    public $healthCheckCount;
 
     /**
      * @var string
@@ -114,14 +114,14 @@ class instances extends Model
     public $os;
 
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var int
      */
     public $safeEventCount;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -142,6 +142,11 @@ class instances extends Model
      * @var string
      */
     public $uuid;
+
+    /**
+     * @var int
+     */
+    public $autoSnapshotsLevel;
 
     /**
      * @var string
@@ -173,39 +178,40 @@ class instances extends Model
      */
     public $clientVersion;
     protected $_name = [
-        'status'           => 'Status',
-        'internetIp'       => 'InternetIp',
-        'osName'           => 'OsName',
-        'tag'              => 'Tag',
-        'clientStatus'     => 'ClientStatus',
-        'vpcInstanceId'    => 'VpcInstanceId',
-        'flag'             => 'Flag',
-        'region'           => 'Region',
-        'instanceName'     => 'InstanceName',
-        'podCount'         => 'PodCount',
-        'vulCount'         => 'VulCount',
-        'hcStatus'         => 'HcStatus',
-        'createdTime'      => 'CreatedTime',
-        'clusterId'        => 'ClusterId',
-        'riskStatus'       => 'RiskStatus',
-        'vulStatus'        => 'VulStatus',
-        'alarmStatus'      => 'AlarmStatus',
-        'healthCheckCount' => 'HealthCheckCount',
-        'importance'       => 'Importance',
-        'ip'               => 'Ip',
-        'os'               => 'Os',
-        'instanceId'       => 'InstanceId',
-        'safeEventCount'   => 'SafeEventCount',
-        'assetType'        => 'AssetType',
-        'intranetIp'       => 'IntranetIp',
-        'regionId'         => 'RegionId',
-        'uuid'             => 'Uuid',
-        'groupId'          => 'GroupId',
-        'regionName'       => 'RegionName',
-        'clusterName'      => 'ClusterName',
-        'exposedStatus'    => 'ExposedStatus',
-        'riskCount'        => 'RiskCount',
-        'clientVersion'    => 'ClientVersion',
+        'status'             => 'Status',
+        'internetIp'         => 'InternetIp',
+        'osName'             => 'OsName',
+        'tag'                => 'Tag',
+        'clientStatus'       => 'ClientStatus',
+        'vpcInstanceId'      => 'VpcInstanceId',
+        'flag'               => 'Flag',
+        'region'             => 'Region',
+        'instanceName'       => 'InstanceName',
+        'podCount'           => 'PodCount',
+        'vulCount'           => 'VulCount',
+        'hcStatus'           => 'HcStatus',
+        'createdTime'        => 'CreatedTime',
+        'clusterId'          => 'ClusterId',
+        'riskStatus'         => 'RiskStatus',
+        'vulStatus'          => 'VulStatus',
+        'alarmStatus'        => 'AlarmStatus',
+        'importance'         => 'Importance',
+        'healthCheckCount'   => 'HealthCheckCount',
+        'ip'                 => 'Ip',
+        'os'                 => 'Os',
+        'safeEventCount'     => 'SafeEventCount',
+        'instanceId'         => 'InstanceId',
+        'assetType'          => 'AssetType',
+        'intranetIp'         => 'IntranetIp',
+        'regionId'           => 'RegionId',
+        'uuid'               => 'Uuid',
+        'autoSnapshotsLevel' => 'AutoSnapshotsLevel',
+        'groupId'            => 'GroupId',
+        'regionName'         => 'RegionName',
+        'clusterName'        => 'ClusterName',
+        'exposedStatus'      => 'ExposedStatus',
+        'riskCount'          => 'RiskCount',
+        'clientVersion'      => 'ClientVersion',
     ];
 
     public function validate()
@@ -266,11 +272,11 @@ class instances extends Model
         if (null !== $this->alarmStatus) {
             $res['AlarmStatus'] = $this->alarmStatus;
         }
-        if (null !== $this->healthCheckCount) {
-            $res['HealthCheckCount'] = $this->healthCheckCount;
-        }
         if (null !== $this->importance) {
             $res['Importance'] = $this->importance;
+        }
+        if (null !== $this->healthCheckCount) {
+            $res['HealthCheckCount'] = $this->healthCheckCount;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
@@ -278,11 +284,11 @@ class instances extends Model
         if (null !== $this->os) {
             $res['Os'] = $this->os;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->safeEventCount) {
             $res['SafeEventCount'] = $this->safeEventCount;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->assetType) {
             $res['AssetType'] = $this->assetType;
@@ -295,6 +301,9 @@ class instances extends Model
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
+        }
+        if (null !== $this->autoSnapshotsLevel) {
+            $res['AutoSnapshotsLevel'] = $this->autoSnapshotsLevel;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -377,11 +386,11 @@ class instances extends Model
         if (isset($map['AlarmStatus'])) {
             $model->alarmStatus = $map['AlarmStatus'];
         }
-        if (isset($map['HealthCheckCount'])) {
-            $model->healthCheckCount = $map['HealthCheckCount'];
-        }
         if (isset($map['Importance'])) {
             $model->importance = $map['Importance'];
+        }
+        if (isset($map['HealthCheckCount'])) {
+            $model->healthCheckCount = $map['HealthCheckCount'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
@@ -389,11 +398,11 @@ class instances extends Model
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['SafeEventCount'])) {
             $model->safeEventCount = $map['SafeEventCount'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['AssetType'])) {
             $model->assetType = $map['AssetType'];
@@ -406,6 +415,9 @@ class instances extends Model
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
+        }
+        if (isset($map['AutoSnapshotsLevel'])) {
+            $model->autoSnapshotsLevel = $map['AutoSnapshotsLevel'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

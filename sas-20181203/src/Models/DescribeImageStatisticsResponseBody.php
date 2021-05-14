@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageStatisticsResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $instanceCount;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -21,10 +16,15 @@ class DescribeImageStatisticsResponseBody extends Model
     /**
      * @var int
      */
+    public $instanceCount;
+
+    /**
+     * @var int
+     */
     public $riskInstanceCount;
     protected $_name = [
-        'instanceCount'     => 'InstanceCount',
         'requestId'         => 'RequestId',
+        'instanceCount'     => 'InstanceCount',
         'riskInstanceCount' => 'RiskInstanceCount',
     ];
 
@@ -35,11 +35,11 @@ class DescribeImageStatisticsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceCount) {
-            $res['InstanceCount'] = $this->instanceCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->instanceCount) {
+            $res['InstanceCount'] = $this->instanceCount;
         }
         if (null !== $this->riskInstanceCount) {
             $res['RiskInstanceCount'] = $this->riskInstanceCount;
@@ -56,11 +56,11 @@ class DescribeImageStatisticsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceCount'])) {
-            $model->instanceCount = $map['InstanceCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['InstanceCount'])) {
+            $model->instanceCount = $map['InstanceCount'];
         }
         if (isset($map['RiskInstanceCount'])) {
             $model->riskInstanceCount = $map['RiskInstanceCount'];

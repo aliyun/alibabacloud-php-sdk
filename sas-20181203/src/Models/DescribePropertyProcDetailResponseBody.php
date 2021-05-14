@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyProcDetailResponseBody extends Model
 {
     /**
-     * @var propertys[]
+     * @var string
      */
-    public $propertys;
+    public $requestId;
 
     /**
      * @var pageInfo
@@ -21,13 +21,13 @@ class DescribePropertyProcDetailResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @var string
+     * @var propertys[]
      */
-    public $requestId;
+    public $propertys;
     protected $_name = [
-        'propertys' => 'Propertys',
-        'pageInfo'  => 'PageInfo',
         'requestId' => 'RequestId',
+        'pageInfo'  => 'PageInfo',
+        'propertys' => 'Propertys',
     ];
 
     public function validate()
@@ -37,6 +37,12 @@ class DescribePropertyProcDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
         if (null !== $this->propertys) {
             $res['Propertys'] = [];
             if (null !== $this->propertys && \is_array($this->propertys)) {
@@ -45,12 +51,6 @@ class DescribePropertyProcDetailResponseBody extends Model
                     $res['Propertys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,6 +64,12 @@ class DescribePropertyProcDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
         if (isset($map['Propertys'])) {
             if (!empty($map['Propertys'])) {
                 $model->propertys = [];
@@ -72,12 +78,6 @@ class DescribePropertyProcDetailResponseBody extends Model
                     $model->propertys[$n++] = null !== $item ? propertys::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

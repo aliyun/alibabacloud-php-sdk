@@ -11,15 +11,9 @@ class DescribeExposedInstanceCriteriaRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $value;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'value'    => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class DescribeExposedInstanceCriteriaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,9 +38,6 @@ class DescribeExposedInstanceCriteriaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

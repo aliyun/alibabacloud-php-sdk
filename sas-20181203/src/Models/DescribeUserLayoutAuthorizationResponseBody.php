@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserLayoutAuthorizationResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $authorized;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'authorized' => 'Authorized',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeUserLayoutAuthorizationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->authorized) {
             $res['Authorized'] = $this->authorized;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeUserLayoutAuthorizationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Authorized'])) {
             $model->authorized = $map['Authorized'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

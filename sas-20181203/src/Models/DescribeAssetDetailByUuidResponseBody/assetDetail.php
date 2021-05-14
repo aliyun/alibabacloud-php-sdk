@@ -24,14 +24,14 @@ class assetDetail extends Model
     public $osDetail;
 
     /**
-     * @var string
-     */
-    public $kernel;
-
-    /**
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $kernel;
 
     /**
      * @var string
@@ -69,24 +69,9 @@ class assetDetail extends Model
     public $region;
 
     /**
-     * @var string[]
-     */
-    public $ipList;
-
-    /**
      * @var string
      */
     public $groupTrace;
-
-    /**
-     * @var string[]
-     */
-    public $diskInfoList;
-
-    /**
-     * @var string
-     */
-    public $hostName;
 
     /**
      * @var string
@@ -94,9 +79,9 @@ class assetDetail extends Model
     public $ip;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $macList;
+    public $hostName;
 
     /**
      * @var string
@@ -111,12 +96,17 @@ class assetDetail extends Model
     /**
      * @var string
      */
+    public $intranetIp;
+
+    /**
+     * @var string
+     */
     public $assetType;
 
     /**
      * @var string
      */
-    public $intranetIp;
+    public $regionId;
 
     /**
      * @var string
@@ -139,37 +129,47 @@ class assetDetail extends Model
     public $regionName;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $instanceStatus;
+    public $ipList;
+
+    /**
+     * @var string[]
+     */
+    public $macList;
+
+    /**
+     * @var string[]
+     */
+    public $diskInfoList;
     protected $_name = [
-        'cpuInfo'        => 'CpuInfo',
-        'internetIp'     => 'InternetIp',
-        'osDetail'       => 'OsDetail',
-        'kernel'         => 'Kernel',
-        'createTime'     => 'CreateTime',
-        'osName'         => 'OsName',
-        'tag'            => 'Tag',
-        'clientStatus'   => 'ClientStatus',
-        'mem'            => 'Mem',
-        'vpcInstanceId'  => 'VpcInstanceId',
-        'instanceName'   => 'InstanceName',
-        'region'         => 'Region',
-        'ipList'         => 'IpList',
-        'groupTrace'     => 'GroupTrace',
-        'diskInfoList'   => 'DiskInfoList',
-        'hostName'       => 'HostName',
-        'ip'             => 'Ip',
-        'macList'        => 'MacList',
-        'os'             => 'Os',
-        'instanceId'     => 'InstanceId',
-        'assetType'      => 'AssetType',
-        'intranetIp'     => 'IntranetIp',
-        'sysInfo'        => 'SysInfo',
-        'uuid'           => 'Uuid',
-        'cpu'            => 'Cpu',
-        'regionName'     => 'RegionName',
-        'instanceStatus' => 'InstanceStatus',
+        'cpuInfo'       => 'CpuInfo',
+        'internetIp'    => 'InternetIp',
+        'osDetail'      => 'OsDetail',
+        'createTime'    => 'CreateTime',
+        'kernel'        => 'Kernel',
+        'osName'        => 'OsName',
+        'tag'           => 'Tag',
+        'clientStatus'  => 'ClientStatus',
+        'mem'           => 'Mem',
+        'vpcInstanceId' => 'VpcInstanceId',
+        'instanceName'  => 'InstanceName',
+        'region'        => 'Region',
+        'groupTrace'    => 'GroupTrace',
+        'ip'            => 'Ip',
+        'hostName'      => 'HostName',
+        'os'            => 'Os',
+        'instanceId'    => 'InstanceId',
+        'intranetIp'    => 'IntranetIp',
+        'assetType'     => 'AssetType',
+        'regionId'      => 'RegionId',
+        'sysInfo'       => 'SysInfo',
+        'uuid'          => 'Uuid',
+        'cpu'           => 'Cpu',
+        'regionName'    => 'RegionName',
+        'ipList'        => 'IpList',
+        'macList'       => 'MacList',
+        'diskInfoList'  => 'DiskInfoList',
     ];
 
     public function validate()
@@ -188,11 +188,11 @@ class assetDetail extends Model
         if (null !== $this->osDetail) {
             $res['OsDetail'] = $this->osDetail;
         }
-        if (null !== $this->kernel) {
-            $res['Kernel'] = $this->kernel;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->kernel) {
+            $res['Kernel'] = $this->kernel;
         }
         if (null !== $this->osName) {
             $res['OsName'] = $this->osName;
@@ -215,23 +215,14 @@ class assetDetail extends Model
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->ipList) {
-            $res['IpList'] = $this->ipList;
-        }
         if (null !== $this->groupTrace) {
             $res['GroupTrace'] = $this->groupTrace;
-        }
-        if (null !== $this->diskInfoList) {
-            $res['DiskInfoList'] = $this->diskInfoList;
-        }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
-        if (null !== $this->macList) {
-            $res['MacList'] = $this->macList;
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
@@ -239,11 +230,14 @@ class assetDetail extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
+        }
         if (null !== $this->assetType) {
             $res['AssetType'] = $this->assetType;
         }
-        if (null !== $this->intranetIp) {
-            $res['IntranetIp'] = $this->intranetIp;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sysInfo) {
             $res['SysInfo'] = $this->sysInfo;
@@ -257,8 +251,14 @@ class assetDetail extends Model
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
-        if (null !== $this->instanceStatus) {
-            $res['InstanceStatus'] = $this->instanceStatus;
+        if (null !== $this->ipList) {
+            $res['IpList'] = $this->ipList;
+        }
+        if (null !== $this->macList) {
+            $res['MacList'] = $this->macList;
+        }
+        if (null !== $this->diskInfoList) {
+            $res['DiskInfoList'] = $this->diskInfoList;
         }
 
         return $res;
@@ -281,11 +281,11 @@ class assetDetail extends Model
         if (isset($map['OsDetail'])) {
             $model->osDetail = $map['OsDetail'];
         }
-        if (isset($map['Kernel'])) {
-            $model->kernel = $map['Kernel'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Kernel'])) {
+            $model->kernel = $map['Kernel'];
         }
         if (isset($map['OsName'])) {
             $model->osName = $map['OsName'];
@@ -308,29 +308,14 @@ class assetDetail extends Model
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-        if (isset($map['IpList'])) {
-            if (!empty($map['IpList'])) {
-                $model->ipList = $map['IpList'];
-            }
-        }
         if (isset($map['GroupTrace'])) {
             $model->groupTrace = $map['GroupTrace'];
-        }
-        if (isset($map['DiskInfoList'])) {
-            if (!empty($map['DiskInfoList'])) {
-                $model->diskInfoList = $map['DiskInfoList'];
-            }
-        }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
-        if (isset($map['MacList'])) {
-            if (!empty($map['MacList'])) {
-                $model->macList = $map['MacList'];
-            }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
@@ -338,11 +323,14 @@ class assetDetail extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
+        }
         if (isset($map['AssetType'])) {
             $model->assetType = $map['AssetType'];
         }
-        if (isset($map['IntranetIp'])) {
-            $model->intranetIp = $map['IntranetIp'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SysInfo'])) {
             $model->sysInfo = $map['SysInfo'];
@@ -356,8 +344,20 @@ class assetDetail extends Model
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
         }
-        if (isset($map['InstanceStatus'])) {
-            $model->instanceStatus = $map['InstanceStatus'];
+        if (isset($map['IpList'])) {
+            if (!empty($map['IpList'])) {
+                $model->ipList = $map['IpList'];
+            }
+        }
+        if (isset($map['MacList'])) {
+            if (!empty($map['MacList'])) {
+                $model->macList = $map['MacList'];
+            }
+        }
+        if (isset($map['DiskInfoList'])) {
+            if (!empty($map['DiskInfoList'])) {
+                $model->diskInfoList = $map['DiskInfoList'];
+            }
         }
 
         return $model;

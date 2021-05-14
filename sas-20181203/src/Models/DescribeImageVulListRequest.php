@@ -11,27 +11,7 @@ class DescribeImageVulListRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $ids;
-
-    /**
-     * @var string
-     */
-    public $remark;
-
-    /**
-     * @var string
-     */
-    public $groupId;
 
     /**
      * @var string
@@ -56,11 +36,6 @@ class DescribeImageVulListRequest extends Model
     /**
      * @var string
      */
-    public $level;
-
-    /**
-     * @var string
-     */
     public $statusList;
 
     /**
@@ -74,26 +49,6 @@ class DescribeImageVulListRequest extends Model
     public $dealed;
 
     /**
-     * @var string
-     */
-    public $batchName;
-
-    /**
-     * @var string
-     */
-    public $resource;
-
-    /**
-     * @var int
-     */
-    public $createTsStart;
-
-    /**
-     * @var int
-     */
-    public $createTsEnd;
-
-    /**
      * @var int
      */
     public $currentPage;
@@ -104,24 +59,29 @@ class DescribeImageVulListRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $modifyTsStart;
-
-    /**
-     * @var int
-     */
-    public $modifyTsEnd;
+    public $repoRegionId;
 
     /**
      * @var string
      */
-    public $cveId;
+    public $repoInstanceId;
+
+    /**
+     * @var string
+     */
+    public $repoId;
 
     /**
      * @var string
      */
     public $repoName;
+
+    /**
+     * @var string
+     */
+    public $repoNamespace;
 
     /**
      * @var string
@@ -132,11 +92,6 @@ class DescribeImageVulListRequest extends Model
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $repoId;
 
     /**
      * @var string
@@ -163,32 +118,23 @@ class DescribeImageVulListRequest extends Model
      */
     public $targetType;
     protected $_name = [
-        'sourceIp'            => 'SourceIp',
         'lang'                => 'Lang',
-        'ids'                 => 'Ids',
-        'remark'              => 'Remark',
-        'groupId'             => 'GroupId',
         'type'                => 'Type',
         'uuids'               => 'Uuids',
         'name'                => 'Name',
         'aliasName'           => 'AliasName',
-        'level'               => 'Level',
         'statusList'          => 'StatusList',
         'necessity'           => 'Necessity',
         'dealed'              => 'Dealed',
-        'batchName'           => 'BatchName',
-        'resource'            => 'Resource',
-        'createTsStart'       => 'CreateTsStart',
-        'createTsEnd'         => 'CreateTsEnd',
         'currentPage'         => 'CurrentPage',
         'pageSize'            => 'PageSize',
-        'modifyTsStart'       => 'ModifyTsStart',
-        'modifyTsEnd'         => 'ModifyTsEnd',
-        'cveId'               => 'CveId',
+        'repoRegionId'        => 'RepoRegionId',
+        'repoInstanceId'      => 'RepoInstanceId',
+        'repoId'              => 'RepoId',
         'repoName'            => 'RepoName',
+        'repoNamespace'       => 'RepoNamespace',
         'regionId'            => 'RegionId',
         'instanceId'          => 'InstanceId',
-        'repoId'              => 'RepoId',
         'tag'                 => 'Tag',
         'digest'              => 'Digest',
         'containerFieldName'  => 'ContainerFieldName',
@@ -203,20 +149,8 @@ class DescribeImageVulListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -230,9 +164,6 @@ class DescribeImageVulListRequest extends Model
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
-        }
         if (null !== $this->statusList) {
             $res['StatusList'] = $this->statusList;
         }
@@ -242,44 +173,32 @@ class DescribeImageVulListRequest extends Model
         if (null !== $this->dealed) {
             $res['Dealed'] = $this->dealed;
         }
-        if (null !== $this->batchName) {
-            $res['BatchName'] = $this->batchName;
-        }
-        if (null !== $this->resource) {
-            $res['Resource'] = $this->resource;
-        }
-        if (null !== $this->createTsStart) {
-            $res['CreateTsStart'] = $this->createTsStart;
-        }
-        if (null !== $this->createTsEnd) {
-            $res['CreateTsEnd'] = $this->createTsEnd;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->modifyTsStart) {
-            $res['ModifyTsStart'] = $this->modifyTsStart;
+        if (null !== $this->repoRegionId) {
+            $res['RepoRegionId'] = $this->repoRegionId;
         }
-        if (null !== $this->modifyTsEnd) {
-            $res['ModifyTsEnd'] = $this->modifyTsEnd;
+        if (null !== $this->repoInstanceId) {
+            $res['RepoInstanceId'] = $this->repoInstanceId;
         }
-        if (null !== $this->cveId) {
-            $res['CveId'] = $this->cveId;
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoNamespace) {
+            $res['RepoNamespace'] = $this->repoNamespace;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->repoId) {
-            $res['RepoId'] = $this->repoId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -308,20 +227,8 @@ class DescribeImageVulListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['Ids'])) {
-            $model->ids = $map['Ids'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
@@ -335,9 +242,6 @@ class DescribeImageVulListRequest extends Model
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
-        }
         if (isset($map['StatusList'])) {
             $model->statusList = $map['StatusList'];
         }
@@ -347,44 +251,32 @@ class DescribeImageVulListRequest extends Model
         if (isset($map['Dealed'])) {
             $model->dealed = $map['Dealed'];
         }
-        if (isset($map['BatchName'])) {
-            $model->batchName = $map['BatchName'];
-        }
-        if (isset($map['Resource'])) {
-            $model->resource = $map['Resource'];
-        }
-        if (isset($map['CreateTsStart'])) {
-            $model->createTsStart = $map['CreateTsStart'];
-        }
-        if (isset($map['CreateTsEnd'])) {
-            $model->createTsEnd = $map['CreateTsEnd'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ModifyTsStart'])) {
-            $model->modifyTsStart = $map['ModifyTsStart'];
+        if (isset($map['RepoRegionId'])) {
+            $model->repoRegionId = $map['RepoRegionId'];
         }
-        if (isset($map['ModifyTsEnd'])) {
-            $model->modifyTsEnd = $map['ModifyTsEnd'];
+        if (isset($map['RepoInstanceId'])) {
+            $model->repoInstanceId = $map['RepoInstanceId'];
         }
-        if (isset($map['CveId'])) {
-            $model->cveId = $map['CveId'];
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoNamespace'])) {
+            $model->repoNamespace = $map['RepoNamespace'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RepoId'])) {
-            $model->repoId = $map['RepoId'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];

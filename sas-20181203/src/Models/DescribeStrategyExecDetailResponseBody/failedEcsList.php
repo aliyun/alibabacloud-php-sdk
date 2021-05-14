@@ -11,11 +11,6 @@ class failedEcsList extends Model
     /**
      * @var string
      */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
     public $IP;
 
     /**
@@ -27,11 +22,16 @@ class failedEcsList extends Model
      * @var string
      */
     public $reason;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
     protected $_name = [
-        'instanceName' => 'InstanceName',
         'IP'           => 'IP',
         'intranetIp'   => 'IntranetIp',
         'reason'       => 'Reason',
+        'instanceName' => 'InstanceName',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class failedEcsList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
         if (null !== $this->IP) {
             $res['IP'] = $this->IP;
         }
@@ -52,6 +49,9 @@ class failedEcsList extends Model
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class failedEcsList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
         if (isset($map['IP'])) {
             $model->IP = $map['IP'];
         }
@@ -76,6 +73,9 @@ class failedEcsList extends Model
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         return $model;

@@ -11,27 +11,27 @@ class markFieldsSource extends Model
     /**
      * @var string
      */
-    public $markMisValue;
-
-    /**
-     * @var string[]
-     */
-    public $supportedMisType;
-
-    /**
-     * @var string
-     */
     public $filedName;
 
     /**
      * @var string
      */
     public $filedAliasName;
+
+    /**
+     * @var string
+     */
+    public $markMisValue;
+
+    /**
+     * @var string[]
+     */
+    public $supportedMisType;
     protected $_name = [
-        'markMisValue'     => 'MarkMisValue',
-        'supportedMisType' => 'SupportedMisType',
         'filedName'        => 'FiledName',
         'filedAliasName'   => 'FiledAliasName',
+        'markMisValue'     => 'MarkMisValue',
+        'supportedMisType' => 'SupportedMisType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class markFieldsSource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->markMisValue) {
-            $res['MarkMisValue'] = $this->markMisValue;
-        }
-        if (null !== $this->supportedMisType) {
-            $res['SupportedMisType'] = $this->supportedMisType;
-        }
         if (null !== $this->filedName) {
             $res['FiledName'] = $this->filedName;
         }
         if (null !== $this->filedAliasName) {
             $res['FiledAliasName'] = $this->filedAliasName;
+        }
+        if (null !== $this->markMisValue) {
+            $res['MarkMisValue'] = $this->markMisValue;
+        }
+        if (null !== $this->supportedMisType) {
+            $res['SupportedMisType'] = $this->supportedMisType;
         }
 
         return $res;
@@ -65,6 +65,12 @@ class markFieldsSource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FiledName'])) {
+            $model->filedName = $map['FiledName'];
+        }
+        if (isset($map['FiledAliasName'])) {
+            $model->filedAliasName = $map['FiledAliasName'];
+        }
         if (isset($map['MarkMisValue'])) {
             $model->markMisValue = $map['MarkMisValue'];
         }
@@ -72,12 +78,6 @@ class markFieldsSource extends Model
             if (!empty($map['SupportedMisType'])) {
                 $model->supportedMisType = $map['SupportedMisType'];
             }
-        }
-        if (isset($map['FiledName'])) {
-            $model->filedName = $map['FiledName'];
-        }
-        if (isset($map['FiledAliasName'])) {
-            $model->filedAliasName = $map['FiledAliasName'];
         }
 
         return $model;

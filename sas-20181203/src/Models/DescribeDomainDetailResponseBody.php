@@ -10,24 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailResponseBody extends Model
 {
     /**
-     * @var domainDetailItems[]
+     * @var string
      */
-    public $domainDetailItems;
+    public $domain;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $rootDomain;
-
-    /**
-     * @var string
-     */
-    public $domain;
 
     /**
      * @var int
@@ -38,13 +28,23 @@ class DescribeDomainDetailResponseBody extends Model
      * @var int
      */
     public $alarmCount;
+
+    /**
+     * @var string
+     */
+    public $rootDomain;
+
+    /**
+     * @var domainDetailItems[]
+     */
+    public $domainDetailItems;
     protected $_name = [
-        'domainDetailItems' => 'DomainDetailItems',
-        'requestId'         => 'RequestId',
-        'rootDomain'        => 'RootDomain',
         'domain'            => 'Domain',
+        'requestId'         => 'RequestId',
         'vulCount'          => 'VulCount',
         'alarmCount'        => 'AlarmCount',
+        'rootDomain'        => 'RootDomain',
+        'domainDetailItems' => 'DomainDetailItems',
     ];
 
     public function validate()
@@ -54,6 +54,21 @@ class DescribeDomainDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vulCount) {
+            $res['VulCount'] = $this->vulCount;
+        }
+        if (null !== $this->alarmCount) {
+            $res['AlarmCount'] = $this->alarmCount;
+        }
+        if (null !== $this->rootDomain) {
+            $res['RootDomain'] = $this->rootDomain;
+        }
         if (null !== $this->domainDetailItems) {
             $res['DomainDetailItems'] = [];
             if (null !== $this->domainDetailItems && \is_array($this->domainDetailItems)) {
@@ -62,21 +77,6 @@ class DescribeDomainDetailResponseBody extends Model
                     $res['DomainDetailItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->rootDomain) {
-            $res['RootDomain'] = $this->rootDomain;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
-        if (null !== $this->vulCount) {
-            $res['VulCount'] = $this->vulCount;
-        }
-        if (null !== $this->alarmCount) {
-            $res['AlarmCount'] = $this->alarmCount;
         }
 
         return $res;
@@ -90,6 +90,21 @@ class DescribeDomainDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VulCount'])) {
+            $model->vulCount = $map['VulCount'];
+        }
+        if (isset($map['AlarmCount'])) {
+            $model->alarmCount = $map['AlarmCount'];
+        }
+        if (isset($map['RootDomain'])) {
+            $model->rootDomain = $map['RootDomain'];
+        }
         if (isset($map['DomainDetailItems'])) {
             if (!empty($map['DomainDetailItems'])) {
                 $model->domainDetailItems = [];
@@ -98,21 +113,6 @@ class DescribeDomainDetailResponseBody extends Model
                     $model->domainDetailItems[$n++] = null !== $item ? domainDetailItems::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['RootDomain'])) {
-            $model->rootDomain = $map['RootDomain'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
-        if (isset($map['VulCount'])) {
-            $model->vulCount = $map['VulCount'];
-        }
-        if (isset($map['AlarmCount'])) {
-            $model->alarmCount = $map['AlarmCount'];
         }
 
         return $model;

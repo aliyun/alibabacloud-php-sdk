@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyExecDetailResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $inProcessCount;
+
+    /**
      * @var string
      */
     public $endTime;
@@ -17,12 +22,17 @@ class DescribeStrategyExecDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $startTime;
 
     /**
      * @var string
      */
     public $percent;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
@@ -32,7 +42,7 @@ class DescribeStrategyExecDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $source;
 
     /**
      * @var int
@@ -40,29 +50,19 @@ class DescribeStrategyExecDetailResponseBody extends Model
     public $successCount;
 
     /**
-     * @var string
-     */
-    public $source;
-
-    /**
      * @var failedEcsList[]
      */
     public $failedEcsList;
-
-    /**
-     * @var int
-     */
-    public $inProcessCount;
     protected $_name = [
-        'endTime'        => 'EndTime',
-        'requestId'      => 'RequestId',
-        'percent'        => 'Percent',
-        'failCount'      => 'FailCount',
-        'startTime'      => 'StartTime',
-        'successCount'   => 'SuccessCount',
-        'source'         => 'Source',
-        'failedEcsList'  => 'FailedEcsList',
         'inProcessCount' => 'InProcessCount',
+        'endTime'        => 'EndTime',
+        'startTime'      => 'StartTime',
+        'percent'        => 'Percent',
+        'requestId'      => 'RequestId',
+        'failCount'      => 'FailCount',
+        'source'         => 'Source',
+        'successCount'   => 'SuccessCount',
+        'failedEcsList'  => 'FailedEcsList',
     ];
 
     public function validate()
@@ -72,26 +72,29 @@ class DescribeStrategyExecDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->inProcessCount) {
+            $res['InProcessCount'] = $this->inProcessCount;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->percent) {
-            $res['Percent'] = $this->percent;
-        }
-        if (null !== $this->failCount) {
-            $res['FailCount'] = $this->failCount;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->successCount) {
-            $res['SuccessCount'] = $this->successCount;
+        if (null !== $this->percent) {
+            $res['Percent'] = $this->percent;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->failCount) {
+            $res['FailCount'] = $this->failCount;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+        if (null !== $this->successCount) {
+            $res['SuccessCount'] = $this->successCount;
         }
         if (null !== $this->failedEcsList) {
             $res['FailedEcsList'] = [];
@@ -101,9 +104,6 @@ class DescribeStrategyExecDetailResponseBody extends Model
                     $res['FailedEcsList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->inProcessCount) {
-            $res['InProcessCount'] = $this->inProcessCount;
         }
 
         return $res;
@@ -117,26 +117,29 @@ class DescribeStrategyExecDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InProcessCount'])) {
+            $model->inProcessCount = $map['InProcessCount'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Percent'])) {
-            $model->percent = $map['Percent'];
-        }
-        if (isset($map['FailCount'])) {
-            $model->failCount = $map['FailCount'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['SuccessCount'])) {
-            $model->successCount = $map['SuccessCount'];
+        if (isset($map['Percent'])) {
+            $model->percent = $map['Percent'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['FailCount'])) {
+            $model->failCount = $map['FailCount'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+        if (isset($map['SuccessCount'])) {
+            $model->successCount = $map['SuccessCount'];
         }
         if (isset($map['FailedEcsList'])) {
             if (!empty($map['FailedEcsList'])) {
@@ -146,9 +149,6 @@ class DescribeStrategyExecDetailResponseBody extends Model
                     $model->failedEcsList[$n++] = null !== $item ? failedEcsList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['InProcessCount'])) {
-            $model->inProcessCount = $map['InProcessCount'];
         }
 
         return $model;

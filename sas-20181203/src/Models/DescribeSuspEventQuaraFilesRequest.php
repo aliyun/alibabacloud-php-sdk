@@ -26,6 +26,11 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     /**
      * @var string
      */
+    public $groupId;
+
+    /**
+     * @var string
+     */
     public $quaraTag;
 
     /**
@@ -41,6 +46,7 @@ class DescribeSuspEventQuaraFilesRequest extends Model
         'sourceIp'    => 'SourceIp',
         'pageSize'    => 'PageSize',
         'status'      => 'Status',
+        'groupId'     => 'GroupId',
         'quaraTag'    => 'QuaraTag',
         'currentPage' => 'CurrentPage',
         'from'        => 'From',
@@ -61,6 +67,9 @@ class DescribeSuspEventQuaraFilesRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->quaraTag) {
             $res['QuaraTag'] = $this->quaraTag;
@@ -91,6 +100,9 @@ class DescribeSuspEventQuaraFilesRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['QuaraTag'])) {
             $model->quaraTag = $map['QuaraTag'];

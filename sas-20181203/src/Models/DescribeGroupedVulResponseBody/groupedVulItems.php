@@ -51,17 +51,23 @@ class groupedVulItems extends Model
     /**
      * @var int
      */
+    public $totalFixCount;
+
+    /**
+     * @var int
+     */
     public $asapCount;
     protected $_name = [
-        'type'         => 'Type',
-        'nntfCount'    => 'NntfCount',
-        'handledCount' => 'HandledCount',
-        'gmtLast'      => 'GmtLast',
-        'tags'         => 'Tags',
-        'laterCount'   => 'LaterCount',
-        'aliasName'    => 'AliasName',
-        'name'         => 'Name',
-        'asapCount'    => 'AsapCount',
+        'type'          => 'Type',
+        'nntfCount'     => 'NntfCount',
+        'handledCount'  => 'HandledCount',
+        'gmtLast'       => 'GmtLast',
+        'tags'          => 'Tags',
+        'laterCount'    => 'LaterCount',
+        'aliasName'     => 'AliasName',
+        'name'          => 'Name',
+        'totalFixCount' => 'TotalFixCount',
+        'asapCount'     => 'AsapCount',
     ];
 
     public function validate()
@@ -94,6 +100,9 @@ class groupedVulItems extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->totalFixCount) {
+            $res['TotalFixCount'] = $this->totalFixCount;
         }
         if (null !== $this->asapCount) {
             $res['AsapCount'] = $this->asapCount;
@@ -133,6 +142,9 @@ class groupedVulItems extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['TotalFixCount'])) {
+            $model->totalFixCount = $map['TotalFixCount'];
         }
         if (isset($map['AsapCount'])) {
             $model->asapCount = $map['AsapCount'];

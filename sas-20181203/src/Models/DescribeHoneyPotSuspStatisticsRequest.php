@@ -11,11 +11,6 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $from;
 
     /**
@@ -28,7 +23,6 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
      */
     public $statisticsDays;
     protected $_name = [
-        'sourceIp'          => 'SourceIp',
         'from'              => 'From',
         'statisticsKeyType' => 'StatisticsKeyType',
         'statisticsDays'    => 'StatisticsDays',
@@ -41,9 +35,6 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
@@ -65,9 +56,6 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }

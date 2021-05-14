@@ -9,10 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateAssetGroupResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $groupId;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'groupId'   => 'GroupId',
         'requestId' => 'RequestId',
     ];
 
@@ -23,6 +29,9 @@ class CreateOrUpdateAssetGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -38,6 +47,9 @@ class CreateOrUpdateAssetGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

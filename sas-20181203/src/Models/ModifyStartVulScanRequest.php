@@ -11,11 +11,6 @@ class ModifyStartVulScanRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $types;
 
     /**
@@ -23,9 +18,8 @@ class ModifyStartVulScanRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'types'    => 'Types',
-        'uuids'    => 'Uuids',
+        'types' => 'Types',
+        'uuids' => 'Uuids',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class ModifyStartVulScanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->types) {
             $res['Types'] = $this->types;
         }
@@ -56,9 +47,6 @@ class ModifyStartVulScanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Types'])) {
             $model->types = $map['Types'];
         }

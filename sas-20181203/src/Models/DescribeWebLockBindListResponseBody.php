@@ -12,7 +12,7 @@ class DescribeWebLockBindListResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $currentPage;
 
     /**
      * @var string
@@ -27,17 +27,17 @@ class DescribeWebLockBindListResponseBody extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $totalCount;
 
     /**
      * @var bindList[]
      */
     public $bindList;
     protected $_name = [
-        'totalCount'  => 'TotalCount',
+        'currentPage' => 'CurrentPage',
         'requestId'   => 'RequestId',
         'pageSize'    => 'PageSize',
-        'currentPage' => 'CurrentPage',
+        'totalCount'  => 'TotalCount',
         'bindList'    => 'BindList',
     ];
 
@@ -48,8 +48,8 @@ class DescribeWebLockBindListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -57,8 +57,8 @@ class DescribeWebLockBindListResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->bindList) {
             $res['BindList'] = [];
@@ -81,8 +81,8 @@ class DescribeWebLockBindListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -90,8 +90,8 @@ class DescribeWebLockBindListResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['BindList'])) {
             if (!empty($map['BindList'])) {

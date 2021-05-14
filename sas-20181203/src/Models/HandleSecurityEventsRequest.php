@@ -34,6 +34,11 @@ class HandleSecurityEventsRequest extends Model
     public $markMissParam;
 
     /**
+     * @var string
+     */
+    public $markBatch;
+
+    /**
      * @var string[]
      */
     public $securityEventIds;
@@ -43,6 +48,7 @@ class HandleSecurityEventsRequest extends Model
         'operationCode'    => 'OperationCode',
         'operationParams'  => 'OperationParams',
         'markMissParam'    => 'MarkMissParam',
+        'markBatch'        => 'MarkBatch',
         'securityEventIds' => 'SecurityEventIds',
     ];
 
@@ -67,6 +73,9 @@ class HandleSecurityEventsRequest extends Model
         }
         if (null !== $this->markMissParam) {
             $res['MarkMissParam'] = $this->markMissParam;
+        }
+        if (null !== $this->markBatch) {
+            $res['MarkBatch'] = $this->markBatch;
         }
         if (null !== $this->securityEventIds) {
             $res['SecurityEventIds'] = $this->securityEventIds;
@@ -97,6 +106,9 @@ class HandleSecurityEventsRequest extends Model
         }
         if (isset($map['MarkMissParam'])) {
             $model->markMissParam = $map['MarkMissParam'];
+        }
+        if (isset($map['MarkBatch'])) {
+            $model->markBatch = $map['MarkBatch'];
         }
         if (isset($map['SecurityEventIds'])) {
             if (!empty($map['SecurityEventIds'])) {

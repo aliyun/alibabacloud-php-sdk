@@ -11,11 +11,6 @@ class DescribeDingTalkRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $ruleActionName;
 
     /**
@@ -28,7 +23,6 @@ class DescribeDingTalkRequest extends Model
      */
     public $currentPage;
     protected $_name = [
-        'sourceIp'       => 'SourceIp',
         'ruleActionName' => 'RuleActionName',
         'pageSize'       => 'PageSize',
         'currentPage'    => 'CurrentPage',
@@ -41,9 +35,6 @@ class DescribeDingTalkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->ruleActionName) {
             $res['RuleActionName'] = $this->ruleActionName;
         }
@@ -65,9 +56,6 @@ class DescribeDingTalkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['RuleActionName'])) {
             $model->ruleActionName = $map['RuleActionName'];
         }

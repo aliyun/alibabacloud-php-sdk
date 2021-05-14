@@ -31,12 +31,12 @@ class data extends Model
     /**
      * @var int
      */
-    public $emgNum;
+    public $cveNum;
 
     /**
      * @var int
      */
-    public $cveNum;
+    public $emgNum;
 
     /**
      * @var int
@@ -72,8 +72,8 @@ class data extends Model
         'appNum'     => 'AppNum',
         'scaNum'     => 'ScaNum',
         'trojan'     => 'Trojan',
-        'emgNum'     => 'EmgNum',
         'cveNum'     => 'CveNum',
+        'emgNum'     => 'EmgNum',
         'suspicious' => 'Suspicious',
         'cmsNum'     => 'CmsNum',
         'uuid'       => 'Uuid',
@@ -101,11 +101,11 @@ class data extends Model
         if (null !== $this->trojan) {
             $res['Trojan'] = $this->trojan;
         }
-        if (null !== $this->emgNum) {
-            $res['EmgNum'] = $this->emgNum;
-        }
         if (null !== $this->cveNum) {
             $res['CveNum'] = $this->cveNum;
+        }
+        if (null !== $this->emgNum) {
+            $res['EmgNum'] = $this->emgNum;
         }
         if (null !== $this->suspicious) {
             $res['Suspicious'] = $this->suspicious;
@@ -149,11 +149,11 @@ class data extends Model
         if (isset($map['Trojan'])) {
             $model->trojan = $map['Trojan'];
         }
-        if (isset($map['EmgNum'])) {
-            $model->emgNum = $map['EmgNum'];
-        }
         if (isset($map['CveNum'])) {
             $model->cveNum = $map['CveNum'];
+        }
+        if (isset($map['EmgNum'])) {
+            $model->emgNum = $map['EmgNum'];
         }
         if (isset($map['Suspicious'])) {
             $model->suspicious = $map['Suspicious'];

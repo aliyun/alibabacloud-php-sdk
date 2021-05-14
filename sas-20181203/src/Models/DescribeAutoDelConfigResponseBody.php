@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoDelConfigResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $days;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'days'      => 'Days',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeAutoDelConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->days) {
             $res['Days'] = $this->days;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeAutoDelConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Days'])) {
             $model->days = $map['Days'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

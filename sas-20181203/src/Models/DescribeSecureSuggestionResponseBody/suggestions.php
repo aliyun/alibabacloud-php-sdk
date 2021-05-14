@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class suggestions extends Model
 {
     /**
-     * @var string
-     */
-    public $suggestType;
-
-    /**
      * @var int
      */
     public $points;
+
+    /**
+     * @var string
+     */
+    public $suggestType;
 
     /**
      * @var detail[]
      */
     public $detail;
     protected $_name = [
-        'suggestType' => 'SuggestType',
         'points'      => 'Points',
+        'suggestType' => 'SuggestType',
         'detail'      => 'Detail',
     ];
 
@@ -36,11 +36,11 @@ class suggestions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suggestType) {
-            $res['SuggestType'] = $this->suggestType;
-        }
         if (null !== $this->points) {
             $res['Points'] = $this->points;
+        }
+        if (null !== $this->suggestType) {
+            $res['SuggestType'] = $this->suggestType;
         }
         if (null !== $this->detail) {
             $res['Detail'] = [];
@@ -63,11 +63,11 @@ class suggestions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SuggestType'])) {
-            $model->suggestType = $map['SuggestType'];
-        }
         if (isset($map['Points'])) {
             $model->points = $map['Points'];
+        }
+        if (isset($map['SuggestType'])) {
+            $model->suggestType = $map['SuggestType'];
         }
         if (isset($map['Detail'])) {
             if (!empty($map['Detail'])) {

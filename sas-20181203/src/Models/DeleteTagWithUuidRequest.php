@@ -11,11 +11,6 @@ class DeleteTagWithUuidRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $tagName;
 
     /**
@@ -23,7 +18,6 @@ class DeleteTagWithUuidRequest extends Model
      */
     public $uuidList;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
         'tagName'  => 'TagName',
         'uuidList' => 'UuidList',
     ];
@@ -35,9 +29,6 @@ class DeleteTagWithUuidRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
@@ -56,9 +47,6 @@ class DeleteTagWithUuidRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }

@@ -32,18 +32,12 @@ class StartBaselineSecurityCheckRequest extends Model
      * @var int[]
      */
     public $itemIds;
-
-    /**
-     * @var string[]
-     */
-    public $assets;
     protected $_name = [
         'sourceIp'        => 'SourceIp',
         'resourceOwnerId' => 'ResourceOwnerId',
         'lang'            => 'Lang',
         'type'            => 'Type',
         'itemIds'         => 'ItemIds',
-        'assets'          => 'Assets',
     ];
 
     public function validate()
@@ -67,9 +61,6 @@ class StartBaselineSecurityCheckRequest extends Model
         }
         if (null !== $this->itemIds) {
             $res['ItemIds'] = $this->itemIds;
-        }
-        if (null !== $this->assets) {
-            $res['Assets'] = $this->assets;
         }
 
         return $res;
@@ -98,11 +89,6 @@ class StartBaselineSecurityCheckRequest extends Model
         if (isset($map['ItemIds'])) {
             if (!empty($map['ItemIds'])) {
                 $model->itemIds = $map['ItemIds'];
-            }
-        }
-        if (isset($map['Assets'])) {
-            if (!empty($map['Assets'])) {
-                $model->assets = $map['Assets'];
             }
         }
 

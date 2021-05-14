@@ -11,11 +11,6 @@ class CreateOrUpdateAssetGroupRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $uuids;
 
     /**
@@ -28,7 +23,6 @@ class CreateOrUpdateAssetGroupRequest extends Model
      */
     public $groupId;
     protected $_name = [
-        'sourceIp'  => 'SourceIp',
         'uuids'     => 'Uuids',
         'groupName' => 'GroupName',
         'groupId'   => 'GroupId',
@@ -41,9 +35,6 @@ class CreateOrUpdateAssetGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
         }
@@ -65,9 +56,6 @@ class CreateOrUpdateAssetGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];
         }

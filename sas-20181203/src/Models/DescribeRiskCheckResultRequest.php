@@ -61,11 +61,6 @@ class DescribeRiskCheckResultRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $queryFlag;
 
     /**
@@ -83,7 +78,6 @@ class DescribeRiskCheckResultRequest extends Model
         'assetType'       => 'AssetType',
         'name'            => 'Name',
         'pageSize'        => 'PageSize',
-        'instanceId'      => 'InstanceId',
         'queryFlag'       => 'QueryFlag',
         'itemIds'         => 'ItemIds',
     ];
@@ -124,9 +118,6 @@ class DescribeRiskCheckResultRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->queryFlag) {
             $res['QueryFlag'] = $this->queryFlag;
@@ -175,9 +166,6 @@ class DescribeRiskCheckResultRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['QueryFlag'])) {
             $model->queryFlag = $map['QueryFlag'];

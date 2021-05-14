@@ -36,12 +36,12 @@ class affectedMaliciousFileImagesResponse extends Model
     /**
      * @var string
      */
-    public $repoRegionId;
+    public $tag;
 
     /**
      * @var string
      */
-    public $tag;
+    public $repoRegionId;
 
     /**
      * @var string
@@ -49,14 +49,14 @@ class affectedMaliciousFileImagesResponse extends Model
     public $imageUuid;
 
     /**
-     * @var string
-     */
-    public $maliciousMd5;
-
-    /**
      * @var int
      */
     public $firstScanTimestamp;
+
+    /**
+     * @var string
+     */
+    public $maliciousMd5;
 
     /**
      * @var string
@@ -93,11 +93,11 @@ class affectedMaliciousFileImagesResponse extends Model
         'latestVerifyTimestamp' => 'LatestVerifyTimestamp',
         'repoInstanceId'        => 'RepoInstanceId',
         'namespace'             => 'Namespace',
-        'repoRegionId'          => 'RepoRegionId',
         'tag'                   => 'Tag',
+        'repoRegionId'          => 'RepoRegionId',
         'imageUuid'             => 'ImageUuid',
-        'maliciousMd5'          => 'MaliciousMd5',
         'firstScanTimestamp'    => 'FirstScanTimestamp',
+        'maliciousMd5'          => 'MaliciousMd5',
         'filePath'              => 'FilePath',
         'repoId'                => 'RepoId',
         'layer'                 => 'Layer',
@@ -128,20 +128,20 @@ class affectedMaliciousFileImagesResponse extends Model
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-        if (null !== $this->repoRegionId) {
-            $res['RepoRegionId'] = $this->repoRegionId;
-        }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->repoRegionId) {
+            $res['RepoRegionId'] = $this->repoRegionId;
         }
         if (null !== $this->imageUuid) {
             $res['ImageUuid'] = $this->imageUuid;
         }
-        if (null !== $this->maliciousMd5) {
-            $res['MaliciousMd5'] = $this->maliciousMd5;
-        }
         if (null !== $this->firstScanTimestamp) {
             $res['FirstScanTimestamp'] = $this->firstScanTimestamp;
+        }
+        if (null !== $this->maliciousMd5) {
+            $res['MaliciousMd5'] = $this->maliciousMd5;
         }
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
@@ -188,20 +188,20 @@ class affectedMaliciousFileImagesResponse extends Model
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-        if (isset($map['RepoRegionId'])) {
-            $model->repoRegionId = $map['RepoRegionId'];
-        }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
+        }
+        if (isset($map['RepoRegionId'])) {
+            $model->repoRegionId = $map['RepoRegionId'];
         }
         if (isset($map['ImageUuid'])) {
             $model->imageUuid = $map['ImageUuid'];
         }
-        if (isset($map['MaliciousMd5'])) {
-            $model->maliciousMd5 = $map['MaliciousMd5'];
-        }
         if (isset($map['FirstScanTimestamp'])) {
             $model->firstScanTimestamp = $map['FirstScanTimestamp'];
+        }
+        if (isset($map['MaliciousMd5'])) {
+            $model->maliciousMd5 = $map['MaliciousMd5'];
         }
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];

@@ -18,17 +18,12 @@ class exposedChains extends Model
     /**
      * @var string
      */
+    public $groupNo;
+
+    /**
+     * @var string
+     */
     public $internetIp;
-
-    /**
-     * @var int
-     */
-    public $nntfVulCount;
-
-    /**
-     * @var allVulList[]
-     */
-    public $allVulList;
 
     /**
      * @var string
@@ -56,19 +51,9 @@ class exposedChains extends Model
     public $regionId;
 
     /**
-     * @var int
-     */
-    public $asapVulCount;
-
-    /**
      * @var string
      */
     public $uuid;
-
-    /**
-     * @var realVulList[]
-     */
-    public $realVulList;
 
     /**
      * @var string
@@ -81,31 +66,34 @@ class exposedChains extends Model
     public $instanceName;
 
     /**
-     * @var int
-     */
-    public $laterVulCount;
-
-    /**
      * @var string
      */
     public $exposureComponent;
+
+    /**
+     * @var realVulList[]
+     */
+    public $realVulList;
+
+    /**
+     * @var allVulList[]
+     */
+    public $allVulList;
     protected $_name = [
         'exposureIp'        => 'ExposureIp',
+        'groupNo'           => 'GroupNo',
         'internetIp'        => 'InternetIp',
-        'nntfVulCount'      => 'NntfVulCount',
-        'allVulList'        => 'AllVulList',
         'instanceId'        => 'InstanceId',
         'exposureType'      => 'ExposureType',
         'intranetIp'        => 'IntranetIp',
         'exposureTypeId'    => 'ExposureTypeId',
         'regionId'          => 'RegionId',
-        'asapVulCount'      => 'AsapVulCount',
         'uuid'              => 'Uuid',
-        'realVulList'       => 'RealVulList',
         'exposurePort'      => 'ExposurePort',
         'instanceName'      => 'InstanceName',
-        'laterVulCount'     => 'LaterVulCount',
         'exposureComponent' => 'ExposureComponent',
+        'realVulList'       => 'RealVulList',
+        'allVulList'        => 'AllVulList',
     ];
 
     public function validate()
@@ -118,20 +106,11 @@ class exposedChains extends Model
         if (null !== $this->exposureIp) {
             $res['ExposureIp'] = $this->exposureIp;
         }
+        if (null !== $this->groupNo) {
+            $res['GroupNo'] = $this->groupNo;
+        }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
-        }
-        if (null !== $this->nntfVulCount) {
-            $res['NntfVulCount'] = $this->nntfVulCount;
-        }
-        if (null !== $this->allVulList) {
-            $res['AllVulList'] = [];
-            if (null !== $this->allVulList && \is_array($this->allVulList)) {
-                $n = 0;
-                foreach ($this->allVulList as $item) {
-                    $res['AllVulList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -148,11 +127,17 @@ class exposedChains extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->asapVulCount) {
-            $res['AsapVulCount'] = $this->asapVulCount;
-        }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
+        }
+        if (null !== $this->exposurePort) {
+            $res['ExposurePort'] = $this->exposurePort;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->exposureComponent) {
+            $res['ExposureComponent'] = $this->exposureComponent;
         }
         if (null !== $this->realVulList) {
             $res['RealVulList'] = [];
@@ -163,17 +148,14 @@ class exposedChains extends Model
                 }
             }
         }
-        if (null !== $this->exposurePort) {
-            $res['ExposurePort'] = $this->exposurePort;
-        }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->laterVulCount) {
-            $res['LaterVulCount'] = $this->laterVulCount;
-        }
-        if (null !== $this->exposureComponent) {
-            $res['ExposureComponent'] = $this->exposureComponent;
+        if (null !== $this->allVulList) {
+            $res['AllVulList'] = [];
+            if (null !== $this->allVulList && \is_array($this->allVulList)) {
+                $n = 0;
+                foreach ($this->allVulList as $item) {
+                    $res['AllVulList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -190,20 +172,11 @@ class exposedChains extends Model
         if (isset($map['ExposureIp'])) {
             $model->exposureIp = $map['ExposureIp'];
         }
+        if (isset($map['GroupNo'])) {
+            $model->groupNo = $map['GroupNo'];
+        }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
-        }
-        if (isset($map['NntfVulCount'])) {
-            $model->nntfVulCount = $map['NntfVulCount'];
-        }
-        if (isset($map['AllVulList'])) {
-            if (!empty($map['AllVulList'])) {
-                $model->allVulList = [];
-                $n                 = 0;
-                foreach ($map['AllVulList'] as $item) {
-                    $model->allVulList[$n++] = null !== $item ? allVulList::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -220,11 +193,17 @@ class exposedChains extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['AsapVulCount'])) {
-            $model->asapVulCount = $map['AsapVulCount'];
-        }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
+        }
+        if (isset($map['ExposurePort'])) {
+            $model->exposurePort = $map['ExposurePort'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['ExposureComponent'])) {
+            $model->exposureComponent = $map['ExposureComponent'];
         }
         if (isset($map['RealVulList'])) {
             if (!empty($map['RealVulList'])) {
@@ -235,17 +214,14 @@ class exposedChains extends Model
                 }
             }
         }
-        if (isset($map['ExposurePort'])) {
-            $model->exposurePort = $map['ExposurePort'];
-        }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['LaterVulCount'])) {
-            $model->laterVulCount = $map['LaterVulCount'];
-        }
-        if (isset($map['ExposureComponent'])) {
-            $model->exposureComponent = $map['ExposureComponent'];
+        if (isset($map['AllVulList'])) {
+            if (!empty($map['AllVulList'])) {
+                $model->allVulList = [];
+                $n                 = 0;
+                foreach ($map['AllVulList'] as $item) {
+                    $model->allVulList[$n++] = null !== $item ? allVulList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

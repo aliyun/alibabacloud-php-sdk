@@ -13,14 +13,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityStatInfoResponseBody extends Model
 {
     /**
-     * @var securityEvent
+     * @var bool
      */
-    public $securityEvent;
+    public $success;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var securityEvent
+     */
+    public $securityEvent;
+
+    /**
+     * @var attackEvent
+     */
+    public $attackEvent;
 
     /**
      * @var healthCheck
@@ -31,23 +41,13 @@ class DescribeSecurityStatInfoResponseBody extends Model
      * @var vulnerability
      */
     public $vulnerability;
-
-    /**
-     * @var attackEvent
-     */
-    public $attackEvent;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
-        'securityEvent' => 'SecurityEvent',
+        'success'       => 'Success',
         'requestId'     => 'RequestId',
+        'securityEvent' => 'SecurityEvent',
+        'attackEvent'   => 'AttackEvent',
         'healthCheck'   => 'HealthCheck',
         'vulnerability' => 'Vulnerability',
-        'attackEvent'   => 'AttackEvent',
-        'success'       => 'Success',
     ];
 
     public function validate()
@@ -57,23 +57,23 @@ class DescribeSecurityStatInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityEvent) {
-            $res['SecurityEvent'] = null !== $this->securityEvent ? $this->securityEvent->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->securityEvent) {
+            $res['SecurityEvent'] = null !== $this->securityEvent ? $this->securityEvent->toMap() : null;
+        }
+        if (null !== $this->attackEvent) {
+            $res['AttackEvent'] = null !== $this->attackEvent ? $this->attackEvent->toMap() : null;
         }
         if (null !== $this->healthCheck) {
             $res['HealthCheck'] = null !== $this->healthCheck ? $this->healthCheck->toMap() : null;
         }
         if (null !== $this->vulnerability) {
             $res['Vulnerability'] = null !== $this->vulnerability ? $this->vulnerability->toMap() : null;
-        }
-        if (null !== $this->attackEvent) {
-            $res['AttackEvent'] = null !== $this->attackEvent ? $this->attackEvent->toMap() : null;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -87,23 +87,23 @@ class DescribeSecurityStatInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityEvent'])) {
-            $model->securityEvent = securityEvent::fromMap($map['SecurityEvent']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SecurityEvent'])) {
+            $model->securityEvent = securityEvent::fromMap($map['SecurityEvent']);
+        }
+        if (isset($map['AttackEvent'])) {
+            $model->attackEvent = attackEvent::fromMap($map['AttackEvent']);
         }
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = healthCheck::fromMap($map['HealthCheck']);
         }
         if (isset($map['Vulnerability'])) {
             $model->vulnerability = vulnerability::fromMap($map['Vulnerability']);
-        }
-        if (isset($map['AttackEvent'])) {
-            $model->attackEvent = attackEvent::fromMap($map['AttackEvent']);
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

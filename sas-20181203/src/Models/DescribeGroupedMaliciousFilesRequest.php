@@ -11,11 +11,6 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $lang;
 
     /**
@@ -77,13 +72,7 @@ class DescribeGroupedMaliciousFilesRequest extends Model
      * @var string
      */
     public $imageLayer;
-
-    /**
-     * @var string[]
-     */
-    public $uuids;
     protected $_name = [
-        'sourceIp'           => 'SourceIp',
         'lang'               => 'Lang',
         'levels'             => 'Levels',
         'fuzzyMaliciousName' => 'FuzzyMaliciousName',
@@ -97,7 +86,6 @@ class DescribeGroupedMaliciousFilesRequest extends Model
         'imageTag'           => 'ImageTag',
         'imageDigest'        => 'ImageDigest',
         'imageLayer'         => 'ImageLayer',
-        'uuids'              => 'Uuids',
     ];
 
     public function validate()
@@ -107,9 +95,6 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -149,9 +134,6 @@ class DescribeGroupedMaliciousFilesRequest extends Model
         if (null !== $this->imageLayer) {
             $res['ImageLayer'] = $this->imageLayer;
         }
-        if (null !== $this->uuids) {
-            $res['Uuids'] = $this->uuids;
-        }
 
         return $res;
     }
@@ -164,9 +146,6 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
@@ -205,11 +184,6 @@ class DescribeGroupedMaliciousFilesRequest extends Model
         }
         if (isset($map['ImageLayer'])) {
             $model->imageLayer = $map['ImageLayer'];
-        }
-        if (isset($map['Uuids'])) {
-            if (!empty($map['Uuids'])) {
-                $model->uuids = $map['Uuids'];
-            }
         }
 
         return $model;

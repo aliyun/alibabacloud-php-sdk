@@ -12,12 +12,12 @@ class cves extends Model
     /**
      * @var string
      */
-    public $complexity;
+    public $summary;
 
     /**
      * @var string
      */
-    public $summary;
+    public $complexity;
 
     /**
      * @var string
@@ -62,12 +62,12 @@ class cves extends Model
     /**
      * @var string
      */
-    public $cvssVector;
+    public $classify;
 
     /**
      * @var string
      */
-    public $classify;
+    public $cvssVector;
 
     /**
      * @var string
@@ -104,8 +104,8 @@ class cves extends Model
      */
     public $classifys;
     protected $_name = [
-        'complexity'        => 'Complexity',
         'summary'           => 'Summary',
+        'complexity'        => 'Complexity',
         'product'           => 'Product',
         'pocCreateTime'     => 'PocCreateTime',
         'cveId'             => 'CveId',
@@ -114,8 +114,8 @@ class cves extends Model
         'cvssScore'         => 'CvssScore',
         'vendor'            => 'Vendor',
         'pocDisclosureTime' => 'PocDisclosureTime',
-        'cvssVector'        => 'CvssVector',
         'classify'          => 'Classify',
+        'cvssVector'        => 'CvssVector',
         'vulLevel'          => 'VulLevel',
         'releaseTime'       => 'ReleaseTime',
         'title'             => 'Title',
@@ -132,11 +132,11 @@ class cves extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->complexity) {
-            $res['Complexity'] = $this->complexity;
-        }
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
+        }
+        if (null !== $this->complexity) {
+            $res['Complexity'] = $this->complexity;
         }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
@@ -162,11 +162,11 @@ class cves extends Model
         if (null !== $this->pocDisclosureTime) {
             $res['PocDisclosureTime'] = $this->pocDisclosureTime;
         }
-        if (null !== $this->cvssVector) {
-            $res['CvssVector'] = $this->cvssVector;
-        }
         if (null !== $this->classify) {
             $res['Classify'] = $this->classify;
+        }
+        if (null !== $this->cvssVector) {
+            $res['CvssVector'] = $this->cvssVector;
         }
         if (null !== $this->vulLevel) {
             $res['VulLevel'] = $this->vulLevel;
@@ -207,11 +207,11 @@ class cves extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Complexity'])) {
-            $model->complexity = $map['Complexity'];
-        }
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+        if (isset($map['Complexity'])) {
+            $model->complexity = $map['Complexity'];
         }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
@@ -237,11 +237,11 @@ class cves extends Model
         if (isset($map['PocDisclosureTime'])) {
             $model->pocDisclosureTime = $map['PocDisclosureTime'];
         }
-        if (isset($map['CvssVector'])) {
-            $model->cvssVector = $map['CvssVector'];
-        }
         if (isset($map['Classify'])) {
             $model->classify = $map['Classify'];
+        }
+        if (isset($map['CvssVector'])) {
+            $model->cvssVector = $map['CvssVector'];
         }
         if (isset($map['VulLevel'])) {
             $model->vulLevel = $map['VulLevel'];

@@ -11,15 +11,15 @@ class DescribeVolDingdingMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $dingdingUrl;
 
     /**
      * @var string
      */
-    public $dingdingUrl;
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'dingdingUrl' => 'DingdingUrl',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeVolDingdingMessageResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dingdingUrl) {
             $res['DingdingUrl'] = $this->dingdingUrl;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeVolDingdingMessageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DingdingUrl'])) {
             $model->dingdingUrl = $map['DingdingUrl'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

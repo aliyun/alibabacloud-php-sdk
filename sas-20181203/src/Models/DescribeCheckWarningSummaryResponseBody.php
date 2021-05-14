@@ -12,7 +12,7 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $currentPage;
 
     /**
      * @var int
@@ -27,7 +27,7 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $totalCount;
 
     /**
      * @var int
@@ -39,10 +39,10 @@ class DescribeCheckWarningSummaryResponseBody extends Model
      */
     public $warningSummarys;
     protected $_name = [
-        'totalCount'      => 'TotalCount',
+        'currentPage'     => 'CurrentPage',
         'pageSize'        => 'PageSize',
         'requestId'       => 'RequestId',
-        'currentPage'     => 'CurrentPage',
+        'totalCount'      => 'TotalCount',
         'count'           => 'Count',
         'warningSummarys' => 'WarningSummarys',
     ];
@@ -54,8 +54,8 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -63,8 +63,8 @@ class DescribeCheckWarningSummaryResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
@@ -90,8 +90,8 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -99,8 +99,8 @@ class DescribeCheckWarningSummaryResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];

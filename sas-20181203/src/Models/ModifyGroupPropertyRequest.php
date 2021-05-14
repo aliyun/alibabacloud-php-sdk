@@ -11,15 +11,9 @@ class ModifyGroupPropertyRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $data;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
-        'data'     => 'Data',
+        'data' => 'Data',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class ModifyGroupPropertyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
@@ -47,9 +38,6 @@ class ModifyGroupPropertyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }

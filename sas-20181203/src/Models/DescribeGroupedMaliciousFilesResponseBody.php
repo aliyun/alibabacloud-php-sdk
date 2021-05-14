@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedMaliciousFilesResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var pageInfo
      */
     public $pageInfo;
@@ -19,15 +24,10 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
      * @var groupedMaliciousFileResponse[]
      */
     public $groupedMaliciousFileResponse;
-
-    /**
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
+        'requestId'                    => 'RequestId',
         'pageInfo'                     => 'PageInfo',
         'groupedMaliciousFileResponse' => 'GroupedMaliciousFileResponse',
-        'requestId'                    => 'RequestId',
     ];
 
     public function validate()
@@ -37,6 +37,9 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->pageInfo) {
             $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
@@ -48,9 +51,6 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
                     $res['GroupedMaliciousFileResponse'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -64,6 +64,9 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
@@ -75,9 +78,6 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
                     $model->groupedMaliciousFileResponse[$n++] = null !== $item ? groupedMaliciousFileResponse::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

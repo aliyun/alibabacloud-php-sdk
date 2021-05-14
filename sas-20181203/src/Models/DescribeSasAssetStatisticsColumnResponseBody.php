@@ -11,15 +11,15 @@ class DescribeSasAssetStatisticsColumnResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $statisticsColumn;
 
     /**
      * @var string
      */
-    public $statisticsColumn;
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'statisticsColumn' => 'StatisticsColumn',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeSasAssetStatisticsColumnResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->statisticsColumn) {
             $res['StatisticsColumn'] = $this->statisticsColumn;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeSasAssetStatisticsColumnResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['StatisticsColumn'])) {
             $model->statisticsColumn = $map['StatisticsColumn'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
