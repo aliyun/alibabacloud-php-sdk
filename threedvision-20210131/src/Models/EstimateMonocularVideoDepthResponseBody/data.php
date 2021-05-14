@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoVideoDepthResponseBody;
+namespace AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularVideoDepthResponseBody;
 
 use AlibabaCloud\Tea\Model;
 

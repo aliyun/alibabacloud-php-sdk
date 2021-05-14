@@ -15,11 +15,11 @@ use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularImageDepthAdvanceRequest;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularImageDepthRequest;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularImageDepthResponse;
+use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularVideoDepthAdvanceRequest;
+use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularVideoDepthRequest;
+use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularVideoDepthResponse;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoImageDepthRequest;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoImageDepthResponse;
-use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoVideoDepthAdvanceRequest;
-use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoVideoDepthRequest;
-use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoVideoDepthResponse;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\GetAsyncJobResultRequest;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\GetAsyncJobResultResponse;
 use AlibabaCloud\SDK\Threedvision\V20210131\Models\ReconstructBodyBySingleImageAdvanceRequest;
@@ -139,29 +139,31 @@ class Threedvision extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $reconstructBodyBySingleImageReq = new ReconstructBodyBySingleImageRequest([]);
         OpenApiUtilClient::convert($request, $reconstructBodyBySingleImageReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $reconstructBodyBySingleImageReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->imageURLObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageURLObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $reconstructBodyBySingleImageReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
         return $this->reconstructBodyBySingleImageWithOptions($reconstructBodyBySingleImageReq, $runtime);
     }
@@ -237,29 +239,31 @@ class Threedvision extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $reconstructThreeDMultiViewReq = new ReconstructThreeDMultiViewRequest([]);
         OpenApiUtilClient::convert($request, $reconstructThreeDMultiViewReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->zipFileUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $reconstructThreeDMultiViewReq->zipFileUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->zipFileUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->zipFileUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $reconstructThreeDMultiViewReq->zipFileUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
         return $this->reconstructThreeDMultiViewWithOptions($reconstructThreeDMultiViewReq, $runtime);
     }
@@ -290,6 +294,34 @@ class Threedvision extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAsyncJobResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EstimateStereoImageDepthRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return EstimateStereoImageDepthResponse
+     */
+    public function estimateStereoImageDepthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EstimateStereoImageDepthResponse::fromMap($this->doRPCRequest('EstimateStereoImageDepth', '2021-01-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EstimateStereoImageDepthRequest $request
+     *
+     * @return EstimateStereoImageDepthResponse
+     */
+    public function estimateStereoImageDepth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->estimateStereoImageDepthWithOptions($request, $runtime);
     }
 
     /**
@@ -363,96 +395,70 @@ class Threedvision extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $estimateMonocularImageDepthReq = new EstimateMonocularImageDepthRequest([]);
         OpenApiUtilClient::convert($request, $estimateMonocularImageDepthReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $estimateMonocularImageDepthReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->imageURLObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageURLObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $estimateMonocularImageDepthReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
         return $this->estimateMonocularImageDepthWithOptions($estimateMonocularImageDepthReq, $runtime);
     }
 
     /**
-     * @param EstimateStereoImageDepthRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param EstimateMonocularVideoDepthRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return EstimateStereoImageDepthResponse
+     * @return EstimateMonocularVideoDepthResponse
      */
-    public function estimateStereoImageDepthWithOptions($request, $runtime)
+    public function estimateMonocularVideoDepthWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return EstimateStereoImageDepthResponse::fromMap($this->doRPCRequest('EstimateStereoImageDepth', '2021-01-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EstimateMonocularVideoDepthResponse::fromMap($this->doRPCRequest('EstimateMonocularVideoDepth', '2021-01-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param EstimateStereoImageDepthRequest $request
+     * @param EstimateMonocularVideoDepthRequest $request
      *
-     * @return EstimateStereoImageDepthResponse
+     * @return EstimateMonocularVideoDepthResponse
      */
-    public function estimateStereoImageDepth($request)
+    public function estimateMonocularVideoDepth($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->estimateStereoImageDepthWithOptions($request, $runtime);
+        return $this->estimateMonocularVideoDepthWithOptions($request, $runtime);
     }
 
     /**
-     * @param EstimateStereoVideoDepthRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param EstimateMonocularVideoDepthAdvanceRequest $request
+     * @param RuntimeOptions                            $runtime
      *
-     * @return EstimateStereoVideoDepthResponse
+     * @return EstimateMonocularVideoDepthResponse
      */
-    public function estimateStereoVideoDepthWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return EstimateStereoVideoDepthResponse::fromMap($this->doRPCRequest('EstimateStereoVideoDepth', '2021-01-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param EstimateStereoVideoDepthRequest $request
-     *
-     * @return EstimateStereoVideoDepthResponse
-     */
-    public function estimateStereoVideoDepth($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->estimateStereoVideoDepthWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EstimateStereoVideoDepthAdvanceRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return EstimateStereoVideoDepthResponse
-     */
-    public function estimateStereoVideoDepthAdvance($request, $runtime)
+    public function estimateMonocularVideoDepthAdvance($request, $runtime)
     {
         // Step 0: init client
         $accessKeyId          = $this->_credential->getAccessKeyId();
@@ -487,32 +493,34 @@ class Threedvision extends OpenApiClient
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $estimateStereoVideoDepthReq = new EstimateStereoVideoDepthRequest([]);
-        OpenApiUtilClient::convert($request, $estimateStereoVideoDepthReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->videoURLObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $estimateStereoVideoDepthReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        $estimateMonocularVideoDepthReq = new EstimateMonocularVideoDepthRequest([]);
+        OpenApiUtilClient::convert($request, $estimateMonocularVideoDepthReq);
+        if (!Utils::isUnset($request->videoURLObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->videoURLObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $estimateMonocularVideoDepthReq->videoURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
-        return $this->estimateStereoVideoDepthWithOptions($estimateStereoVideoDepthReq, $runtime);
+        return $this->estimateMonocularVideoDepthWithOptions($estimateMonocularVideoDepthReq, $runtime);
     }
 }

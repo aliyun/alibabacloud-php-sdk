@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Threedvision\V20210131\Models;
 
-use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateStereoVideoDepthResponseBody\data;
+use AlibabaCloud\SDK\Threedvision\V20210131\Models\EstimateMonocularVideoDepthResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class EstimateStereoVideoDepthResponseBody extends Model
+class EstimateMonocularVideoDepthResponseBody extends Model
 {
     /**
      * @description Id of the request
@@ -45,7 +45,7 @@ class EstimateStereoVideoDepthResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return EstimateStereoVideoDepthResponseBody
+     * @return EstimateMonocularVideoDepthResponseBody
      */
     public static function fromMap($map = [])
     {

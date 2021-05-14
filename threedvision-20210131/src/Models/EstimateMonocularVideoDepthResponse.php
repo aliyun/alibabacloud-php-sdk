@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Threedvision\V20210131\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EstimateStereoVideoDepthResponse extends Model
+class EstimateMonocularVideoDepthResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class EstimateStereoVideoDepthResponse extends Model
     public $headers;
 
     /**
-     * @var EstimateStereoVideoDepthResponseBody
+     * @var EstimateMonocularVideoDepthResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class EstimateStereoVideoDepthResponse extends Model
     /**
      * @param array $map
      *
-     * @return EstimateStereoVideoDepthResponse
+     * @return EstimateMonocularVideoDepthResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class EstimateStereoVideoDepthResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = EstimateStereoVideoDepthResponseBody::fromMap($map['body']);
+            $model->body = EstimateMonocularVideoDepthResponseBody::fromMap($map['body']);
         }
 
         return $model;

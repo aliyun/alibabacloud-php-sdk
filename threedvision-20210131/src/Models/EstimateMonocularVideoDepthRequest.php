@@ -5,34 +5,34 @@
 namespace AlibabaCloud\SDK\Threedvision\V20210131\Models;
 
 use AlibabaCloud\Tea\Model;
-use GuzzleHttp\Psr7\Stream;
 
-class EstimateStereoVideoDepthAdvanceRequest extends Model
+class EstimateMonocularVideoDepthRequest extends Model
 {
     /**
-     * @var Stream
+     * @description A short description of struct
+     *
+     * @var string
      */
-    public $videoURLObject;
+    public $videoURL;
 
     /**
      * @var string
      */
     public $sampleRate;
     protected $_name = [
-        'videoURLObject' => 'VideoURLObject',
-        'sampleRate'     => 'SampleRate',
+        'videoURL'   => 'VideoURL',
+        'sampleRate' => 'SampleRate',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoURLObject) {
-            $res['VideoURLObject'] = $this->videoURLObject;
+        if (null !== $this->videoURL) {
+            $res['VideoURL'] = $this->videoURL;
         }
         if (null !== $this->sampleRate) {
             $res['SampleRate'] = $this->sampleRate;
@@ -44,13 +44,13 @@ class EstimateStereoVideoDepthAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return EstimateStereoVideoDepthAdvanceRequest
+     * @return EstimateMonocularVideoDepthRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURLObject'])) {
-            $model->videoURLObject = $map['VideoURLObject'];
+        if (isset($map['VideoURL'])) {
+            $model->videoURL = $map['VideoURL'];
         }
         if (isset($map['SampleRate'])) {
             $model->sampleRate = $map['SampleRate'];
