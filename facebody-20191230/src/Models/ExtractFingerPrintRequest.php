@@ -6,22 +6,20 @@ namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GenerateHumanSketchStyleRequest extends Model
+class ExtractFingerPrintRequest extends Model
 {
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $imageURL;
 
     /**
-     * @var string
+     * @var int[]
      */
-    public $returnType;
+    public $imageData;
     protected $_name = [
-        'imageURL'   => 'ImageURL',
-        'returnType' => 'ReturnType',
+        'imageURL'  => 'ImageURL',
+        'imageData' => 'ImageData',
     ];
 
     public function validate()
@@ -34,8 +32,8 @@ class GenerateHumanSketchStyleRequest extends Model
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
-        if (null !== $this->returnType) {
-            $res['ReturnType'] = $this->returnType;
+        if (null !== $this->imageData) {
+            $res['ImageData'] = $this->imageData;
         }
 
         return $res;
@@ -44,7 +42,7 @@ class GenerateHumanSketchStyleRequest extends Model
     /**
      * @param array $map
      *
-     * @return GenerateHumanSketchStyleRequest
+     * @return ExtractFingerPrintRequest
      */
     public static function fromMap($map = [])
     {
@@ -52,8 +50,8 @@ class GenerateHumanSketchStyleRequest extends Model
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
-        if (isset($map['ReturnType'])) {
-            $model->returnType = $map['ReturnType'];
+        if (isset($map['ImageData'])) {
+            $model->imageData = $map['ImageData'];
         }
 
         return $model;

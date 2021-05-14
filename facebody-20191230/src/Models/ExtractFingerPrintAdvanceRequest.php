@@ -7,7 +7,7 @@ namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class GenerateHumanSketchStyleAdvanceRequest extends Model
+class ExtractFingerPrintAdvanceRequest extends Model
 {
     /**
      * @var Stream
@@ -15,12 +15,12 @@ class GenerateHumanSketchStyleAdvanceRequest extends Model
     public $imageURLObject;
 
     /**
-     * @var string
+     * @var int[]
      */
-    public $returnType;
+    public $imageData;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
-        'returnType'     => 'ReturnType',
+        'imageData'      => 'ImageData',
     ];
 
     public function validate()
@@ -34,8 +34,8 @@ class GenerateHumanSketchStyleAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
         }
-        if (null !== $this->returnType) {
-            $res['ReturnType'] = $this->returnType;
+        if (null !== $this->imageData) {
+            $res['ImageData'] = $this->imageData;
         }
 
         return $res;
@@ -44,7 +44,7 @@ class GenerateHumanSketchStyleAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return GenerateHumanSketchStyleAdvanceRequest
+     * @return ExtractFingerPrintAdvanceRequest
      */
     public static function fromMap($map = [])
     {
@@ -52,8 +52,8 @@ class GenerateHumanSketchStyleAdvanceRequest extends Model
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
         }
-        if (isset($map['ReturnType'])) {
-            $model->returnType = $map['ReturnType'];
+        if (isset($map['ImageData'])) {
+            $model->imageData = $map['ImageData'];
         }
 
         return $model;

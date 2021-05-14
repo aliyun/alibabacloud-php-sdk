@@ -79,6 +79,9 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectVideoLivingFaceResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\EnhanceFaceAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\EnhanceFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\EnhanceFaceResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractFingerPrintAdvanceRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractFingerPrintRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractFingerPrintResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttrAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttributeRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttributeResponse;
@@ -2003,6 +2006,106 @@ class Facebody extends OpenApiClient
         }
 
         return $this->mergeImageFaceWithOptions($mergeImageFaceReq, $runtime);
+    }
+
+    /**
+     * @param ExtractFingerPrintRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ExtractFingerPrintResponse
+     */
+    public function extractFingerPrintWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ExtractFingerPrintResponse::fromMap($this->doRPCRequest('ExtractFingerPrint', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ExtractFingerPrintRequest $request
+     *
+     * @return ExtractFingerPrintResponse
+     */
+    public function extractFingerPrint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->extractFingerPrintWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExtractFingerPrintAdvanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ExtractFingerPrintResponse
+     */
+    public function extractFingerPrintAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'facebody',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $extractFingerPrintReq = new ExtractFingerPrintRequest([]);
+        OpenApiUtilClient::convert($request, $extractFingerPrintReq);
+        if (!Utils::isUnset($request->imageURLObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageURLObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $extractFingerPrintReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->extractFingerPrintWithOptions($extractFingerPrintReq, $runtime);
     }
 
     /**

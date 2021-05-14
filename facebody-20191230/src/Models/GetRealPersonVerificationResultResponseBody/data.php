@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @var bool
      */
-    public $pass;
+    public $passed;
 
     /**
      * @var string
@@ -23,7 +23,7 @@ class data extends Model
      */
     public $materialMatch;
     protected $_name = [
-        'pass'          => 'Pass',
+        'passed'        => 'Passed',
         'identityInfo'  => 'IdentityInfo',
         'materialMatch' => 'MaterialMatch',
     ];
@@ -35,8 +35,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pass) {
-            $res['Pass'] = $this->pass;
+        if (null !== $this->passed) {
+            $res['Passed'] = $this->passed;
         }
         if (null !== $this->identityInfo) {
             $res['IdentityInfo'] = $this->identityInfo;
@@ -56,8 +56,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Pass'])) {
-            $model->pass = $map['Pass'];
+        if (isset($map['Passed'])) {
+            $model->passed = $map['Passed'];
         }
         if (isset($map['IdentityInfo'])) {
             $model->identityInfo = $map['IdentityInfo'];
