@@ -71,6 +71,8 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsInstanceVersionRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsInstanceVersionResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsParamsRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsParamsResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsRdsInstancesRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsRdsInstancesResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsShardingDbsRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsShardingDbsResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsSlowSqlsRequest;
@@ -111,6 +113,8 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeShardTaskInfoRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeShardTaskInfoResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeShardTaskListRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeShardTaskListResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeSqlFlashbakTaskRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeSqlFlashbakTaskResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeTableListByTypeRequest;
@@ -185,6 +189,10 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\UpdateInstanceNetworkRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\UpdateInstanceNetworkResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\UpdatePrivateRdsClassRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\UpdatePrivateRdsClassResponse;
+use AlibabaCloud\SDK\Drds\V20190123\Models\UpdateResourceGroupAttributeRequest;
+use AlibabaCloud\SDK\Drds\V20190123\Models\UpdateResourceGroupAttributeResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\UpgradeHiStoreInstanceRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\UpgradeHiStoreInstanceResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\UpgradeInstanceVersionRequest;
@@ -1197,6 +1205,34 @@ class Drds extends OpenApiClient
     }
 
     /**
+     * @param DescribeDrdsRdsInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDrdsRdsInstancesResponse
+     */
+    public function describeDrdsRdsInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDrdsRdsInstancesResponse::fromMap($this->doRPCRequest('DescribeDrdsRdsInstances', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDrdsRdsInstancesRequest $request
+     *
+     * @return DescribeDrdsRdsInstancesResponse
+     */
+    public function describeDrdsRdsInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDrdsRdsInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDrdsShardingDbsRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1754,6 +1790,34 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeShardTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeShardTaskListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeShardTaskListResponse
+     */
+    public function describeShardTaskListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeShardTaskListResponse::fromMap($this->doRPCRequest('DescribeShardTaskList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeShardTaskListRequest $request
+     *
+     * @return DescribeShardTaskListResponse
+     */
+    public function describeShardTaskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeShardTaskListWithOptions($request, $runtime);
     }
 
     /**
@@ -2790,6 +2854,62 @@ class Drds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateInstanceNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePrivateRdsClassRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdatePrivateRdsClassResponse
+     */
+    public function updatePrivateRdsClassWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdatePrivateRdsClassResponse::fromMap($this->doRPCRequest('UpdatePrivateRdsClass', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePrivateRdsClassRequest $request
+     *
+     * @return UpdatePrivateRdsClassResponse
+     */
+    public function updatePrivateRdsClass($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePrivateRdsClassWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateResourceGroupAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateResourceGroupAttributeResponse
+     */
+    public function updateResourceGroupAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateResourceGroupAttributeResponse::fromMap($this->doRPCRequest('UpdateResourceGroupAttribute', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateResourceGroupAttributeRequest $request
+     *
+     * @return UpdateResourceGroupAttributeResponse
+     */
+    public function updateResourceGroupAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateResourceGroupAttributeWithOptions($request, $runtime);
     }
 
     /**

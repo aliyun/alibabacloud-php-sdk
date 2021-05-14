@@ -36,12 +36,12 @@ class sqlFlashbackTask extends Model
     /**
      * @var string
      */
-    public $instId;
+    public $sqlPk;
 
     /**
      * @var string
      */
-    public $sqlPk;
+    public $instId;
 
     /**
      * @var int
@@ -51,22 +51,22 @@ class sqlFlashbackTask extends Model
     /**
      * @var int
      */
+    public $searchStartTime;
+
+    /**
+     * @var int
+     */
     public $gmtModified;
 
     /**
      * @var int
      */
-    public $searchStartTime;
+    public $sqlCounter;
 
     /**
      * @var string
      */
     public $dbName;
-
-    /**
-     * @var int
-     */
-    public $sqlCounter;
 
     /**
      * @var int
@@ -103,13 +103,13 @@ class sqlFlashbackTask extends Model
         'expireTime'        => 'ExpireTime',
         'downloadUrl'       => 'DownloadUrl',
         'recallProgress'    => 'RecallProgress',
-        'instId'            => 'InstId',
         'sqlPk'             => 'SqlPk',
+        'instId'            => 'InstId',
         'recallType'        => 'RecallType',
-        'gmtModified'       => 'GmtModified',
         'searchStartTime'   => 'SearchStartTime',
-        'dbName'            => 'DbName',
+        'gmtModified'       => 'GmtModified',
         'sqlCounter'        => 'SqlCounter',
+        'dbName'            => 'DbName',
         'recallRestoreType' => 'RecallRestoreType',
         'gmtCreate'         => 'GmtCreate',
         'traceId'           => 'TraceId',
@@ -140,26 +140,26 @@ class sqlFlashbackTask extends Model
         if (null !== $this->recallProgress) {
             $res['RecallProgress'] = $this->recallProgress;
         }
-        if (null !== $this->instId) {
-            $res['InstId'] = $this->instId;
-        }
         if (null !== $this->sqlPk) {
             $res['SqlPk'] = $this->sqlPk;
+        }
+        if (null !== $this->instId) {
+            $res['InstId'] = $this->instId;
         }
         if (null !== $this->recallType) {
             $res['RecallType'] = $this->recallType;
         }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
         if (null !== $this->searchStartTime) {
             $res['SearchStartTime'] = $this->searchStartTime;
         }
-        if (null !== $this->dbName) {
-            $res['DbName'] = $this->dbName;
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->sqlCounter) {
             $res['SqlCounter'] = $this->sqlCounter;
+        }
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
         }
         if (null !== $this->recallRestoreType) {
             $res['RecallRestoreType'] = $this->recallRestoreType;
@@ -206,26 +206,26 @@ class sqlFlashbackTask extends Model
         if (isset($map['RecallProgress'])) {
             $model->recallProgress = $map['RecallProgress'];
         }
-        if (isset($map['InstId'])) {
-            $model->instId = $map['InstId'];
-        }
         if (isset($map['SqlPk'])) {
             $model->sqlPk = $map['SqlPk'];
+        }
+        if (isset($map['InstId'])) {
+            $model->instId = $map['InstId'];
         }
         if (isset($map['RecallType'])) {
             $model->recallType = $map['RecallType'];
         }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
         if (isset($map['SearchStartTime'])) {
             $model->searchStartTime = $map['SearchStartTime'];
         }
-        if (isset($map['DbName'])) {
-            $model->dbName = $map['DbName'];
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['SqlCounter'])) {
             $model->sqlCounter = $map['SqlCounter'];
+        }
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
         }
         if (isset($map['RecallRestoreType'])) {
             $model->recallRestoreType = $map['RecallRestoreType'];

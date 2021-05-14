@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var drdsInstanceIdList
-     */
-    public $drdsInstanceIdList;
-
-    /**
      * @var int
      */
     public $orderId;
+
+    /**
+     * @var drdsInstanceIdList
+     */
+    public $drdsInstanceIdList;
     protected $_name = [
-        'drdsInstanceIdList' => 'DrdsInstanceIdList',
         'orderId'            => 'OrderId',
+        'drdsInstanceIdList' => 'DrdsInstanceIdList',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->drdsInstanceIdList) {
-            $res['DrdsInstanceIdList'] = null !== $this->drdsInstanceIdList ? $this->drdsInstanceIdList->toMap() : null;
-        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->drdsInstanceIdList) {
+            $res['DrdsInstanceIdList'] = null !== $this->drdsInstanceIdList ? $this->drdsInstanceIdList->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DrdsInstanceIdList'])) {
-            $model->drdsInstanceIdList = drdsInstanceIdList::fromMap($map['DrdsInstanceIdList']);
-        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['DrdsInstanceIdList'])) {
+            $model->drdsInstanceIdList = drdsInstanceIdList::fromMap($map['DrdsInstanceIdList']);
         }
 
         return $model;

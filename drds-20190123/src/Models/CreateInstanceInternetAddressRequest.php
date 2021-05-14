@@ -17,15 +17,9 @@ class CreateInstanceInternetAddressRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $drdsPassword;
     protected $_name = [
         'drdsInstanceId' => 'DrdsInstanceId',
         'regionId'       => 'RegionId',
-        'drdsPassword'   => 'DrdsPassword',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class CreateInstanceInternetAddressRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->drdsPassword) {
-            $res['DrdsPassword'] = $this->drdsPassword;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class CreateInstanceInternetAddressRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DrdsPassword'])) {
-            $model->drdsPassword = $map['DrdsPassword'];
         }
 
         return $model;

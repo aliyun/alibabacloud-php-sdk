@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
-     * @var readOnlyDBInstanceId
-     */
-    public $readOnlyDBInstanceId;
-
-    /**
      * @var string
      */
     public $instanceNetworkType;
@@ -58,8 +53,12 @@ class DBInstance extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var readOnlyDBInstanceId
+     */
+    public $readOnlyDBInstanceId;
     protected $_name = [
-        'readOnlyDBInstanceId'  => 'ReadOnlyDBInstanceId',
         'instanceNetworkType'   => 'InstanceNetworkType',
         'DBInstanceType'        => 'DBInstanceType',
         'zoneId'                => 'ZoneId',
@@ -69,6 +68,7 @@ class DBInstance extends Model
         'DBInstanceDescription' => 'DBInstanceDescription',
         'engineVersion'         => 'EngineVersion',
         'regionId'              => 'RegionId',
+        'readOnlyDBInstanceId'  => 'ReadOnlyDBInstanceId',
     ];
 
     public function validate()
@@ -78,9 +78,6 @@ class DBInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->readOnlyDBInstanceId) {
-            $res['ReadOnlyDBInstanceId'] = null !== $this->readOnlyDBInstanceId ? $this->readOnlyDBInstanceId->toMap() : null;
-        }
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
@@ -108,6 +105,9 @@ class DBInstance extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->readOnlyDBInstanceId) {
+            $res['ReadOnlyDBInstanceId'] = null !== $this->readOnlyDBInstanceId ? $this->readOnlyDBInstanceId->toMap() : null;
+        }
 
         return $res;
     }
@@ -120,9 +120,6 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReadOnlyDBInstanceId'])) {
-            $model->readOnlyDBInstanceId = readOnlyDBInstanceId::fromMap($map['ReadOnlyDBInstanceId']);
-        }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
         }
@@ -149,6 +146,9 @@ class DBInstance extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReadOnlyDBInstanceId'])) {
+            $model->readOnlyDBInstanceId = readOnlyDBInstanceId::fromMap($map['ReadOnlyDBInstanceId']);
         }
 
         return $model;

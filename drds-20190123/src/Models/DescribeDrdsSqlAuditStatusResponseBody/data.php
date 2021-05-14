@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsSqlAuditStatusResponseBody;
 
-use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsSqlAuditStatusResponseBody\data\data;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @var data[]
+     * @var \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsSqlAuditStatusResponseBody\data\data[]
      */
     public $data;
     protected $_name = [
@@ -50,7 +49,7 @@ class data extends Model
                 $model->data = [];
                 $n           = 0;
                 foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->data[$n++] = null !== $item ? \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeDrdsSqlAuditStatusResponseBody\data\data::fromMap($item) : $item;
                 }
             }
         }

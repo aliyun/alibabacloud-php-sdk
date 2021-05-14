@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var targetAzones
+     * @var string
      */
-    public $targetAzones;
+    public $originAzoneId;
 
     /**
      * @var bool
@@ -22,17 +22,17 @@ class result extends Model
     /**
      * @var string
      */
-    public $originAzoneId;
+    public $regionId;
 
     /**
-     * @var string
+     * @var targetAzones
      */
-    public $regionId;
+    public $targetAzones;
     protected $_name = [
-        'targetAzones'  => 'TargetAzones',
-        'switchAble'    => 'SwitchAble',
         'originAzoneId' => 'OriginAzoneId',
+        'switchAble'    => 'SwitchAble',
         'regionId'      => 'RegionId',
+        'targetAzones'  => 'TargetAzones',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->targetAzones) {
-            $res['TargetAzones'] = null !== $this->targetAzones ? $this->targetAzones->toMap() : null;
+        if (null !== $this->originAzoneId) {
+            $res['OriginAzoneId'] = $this->originAzoneId;
         }
         if (null !== $this->switchAble) {
             $res['SwitchAble'] = $this->switchAble;
         }
-        if (null !== $this->originAzoneId) {
-            $res['OriginAzoneId'] = $this->originAzoneId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->targetAzones) {
+            $res['TargetAzones'] = null !== $this->targetAzones ? $this->targetAzones->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TargetAzones'])) {
-            $model->targetAzones = targetAzones::fromMap($map['TargetAzones']);
+        if (isset($map['OriginAzoneId'])) {
+            $model->originAzoneId = $map['OriginAzoneId'];
         }
         if (isset($map['SwitchAble'])) {
             $model->switchAble = $map['SwitchAble'];
         }
-        if (isset($map['OriginAzoneId'])) {
-            $model->originAzoneId = $map['OriginAzoneId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TargetAzones'])) {
+            $model->targetAzones = targetAzones::fromMap($map['TargetAzones']);
         }
 
         return $model;

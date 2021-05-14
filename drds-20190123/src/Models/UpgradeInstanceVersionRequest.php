@@ -21,16 +21,10 @@ class UpgradeInstanceVersionRequest extends Model
     /**
      * @var string
      */
-    public $drdsPassword;
-
-    /**
-     * @var string
-     */
     public $rpm;
     protected $_name = [
         'drdsInstanceId' => 'DrdsInstanceId',
         'regionId'       => 'RegionId',
-        'drdsPassword'   => 'DrdsPassword',
         'rpm'            => 'Rpm',
     ];
 
@@ -46,9 +40,6 @@ class UpgradeInstanceVersionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->drdsPassword) {
-            $res['DrdsPassword'] = $this->drdsPassword;
         }
         if (null !== $this->rpm) {
             $res['Rpm'] = $this->rpm;
@@ -70,9 +61,6 @@ class UpgradeInstanceVersionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DrdsPassword'])) {
-            $model->drdsPassword = $map['DrdsPassword'];
         }
         if (isset($map['Rpm'])) {
             $model->rpm = $map['Rpm'];

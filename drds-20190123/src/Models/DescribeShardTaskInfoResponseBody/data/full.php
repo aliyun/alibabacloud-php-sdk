@@ -26,18 +26,18 @@ class full extends Model
     /**
      * @var int
      */
-    public $expired;
+    public $total;
 
     /**
      * @var int
      */
-    public $total;
+    public $expired;
     protected $_name = [
         'startTime' => 'StartTime',
         'progress'  => 'Progress',
         'tps'       => 'Tps',
-        'expired'   => 'Expired',
         'total'     => 'Total',
+        'expired'   => 'Expired',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class full extends Model
         if (null !== $this->tps) {
             $res['Tps'] = $this->tps;
         }
-        if (null !== $this->expired) {
-            $res['Expired'] = $this->expired;
-        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
+        }
+        if (null !== $this->expired) {
+            $res['Expired'] = $this->expired;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class full extends Model
         if (isset($map['Tps'])) {
             $model->tps = $map['Tps'];
         }
-        if (isset($map['Expired'])) {
-            $model->expired = $map['Expired'];
-        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
+        }
+        if (isset($map['Expired'])) {
+            $model->expired = $map['Expired'];
         }
 
         return $model;

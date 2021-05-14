@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO;
 
-use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\rdsOrderDOList\rdsOrderDOList;
 use AlibabaCloud\Tea\Model;
 
 class rdsOrderDOList extends Model
 {
     /**
-     * @var rdsOrderDOList[]
+     * @var \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\rdsOrderDOList\rdsOrderDOList[]
      */
     public $rdsOrderDOList;
     protected $_name = [
@@ -50,7 +49,7 @@ class rdsOrderDOList extends Model
                 $model->rdsOrderDOList = [];
                 $n                     = 0;
                 foreach ($map['RdsOrderDOList'] as $item) {
-                    $model->rdsOrderDOList[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->rdsOrderDOList[$n++] = null !== $item ? \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\rdsOrderDOList\rdsOrderDOList::fromMap($item) : $item;
                 }
             }
         }

@@ -66,24 +66,19 @@ class data extends Model
     public $description;
 
     /**
-     * @var vips
-     */
-    public $vips;
-
-    /**
      * @var int
      */
     public $version;
 
     /**
-     * @var string
-     */
-    public $masterInstanceId;
-
-    /**
      * @var int
      */
     public $expireDate;
+
+    /**
+     * @var string
+     */
+    public $masterInstanceId;
 
     /**
      * @var string
@@ -99,11 +94,6 @@ class data extends Model
      * @var string
      */
     public $instanceSeries;
-
-    /**
-     * @var readOnlyDBInstanceIds
-     */
-    public $readOnlyDBInstanceIds;
 
     /**
      * @var string
@@ -123,12 +113,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $drdsInstanceId;
 
     /**
      * @var string
      */
-    public $drdsInstanceId;
+    public $zoneId;
 
     /**
      * @var string
@@ -139,6 +129,16 @@ class data extends Model
      * @var string
      */
     public $orderInstanceId;
+
+    /**
+     * @var vips
+     */
+    public $vips;
+
+    /**
+     * @var readOnlyDBInstanceIds
+     */
+    public $readOnlyDBInstanceIds;
     protected $_name = [
         'type'                  => 'Type',
         'status'                => 'Status',
@@ -151,21 +151,21 @@ class data extends Model
         'instanceSpec'          => 'InstanceSpec',
         'vpcCloudInstanceId'    => 'VpcCloudInstanceId',
         'description'           => 'Description',
-        'vips'                  => 'Vips',
         'version'               => 'Version',
-        'masterInstanceId'      => 'MasterInstanceId',
         'expireDate'            => 'ExpireDate',
+        'masterInstanceId'      => 'MasterInstanceId',
         'commodityCode'         => 'CommodityCode',
         'machineType'           => 'MachineType',
         'instanceSeries'        => 'InstanceSeries',
-        'readOnlyDBInstanceIds' => 'ReadOnlyDBInstanceIds',
         'productVersion'        => 'ProductVersion',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
-        'zoneId'                => 'ZoneId',
         'drdsInstanceId'        => 'DrdsInstanceId',
+        'zoneId'                => 'ZoneId',
         'instRole'              => 'InstRole',
         'orderInstanceId'       => 'OrderInstanceId',
+        'vips'                  => 'Vips',
+        'readOnlyDBInstanceIds' => 'ReadOnlyDBInstanceIds',
     ];
 
     public function validate()
@@ -208,17 +208,14 @@ class data extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->vips) {
-            $res['Vips'] = null !== $this->vips ? $this->vips->toMap() : null;
-        }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
-        if (null !== $this->masterInstanceId) {
-            $res['MasterInstanceId'] = $this->masterInstanceId;
-        }
         if (null !== $this->expireDate) {
             $res['ExpireDate'] = $this->expireDate;
+        }
+        if (null !== $this->masterInstanceId) {
+            $res['MasterInstanceId'] = $this->masterInstanceId;
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
@@ -229,9 +226,6 @@ class data extends Model
         if (null !== $this->instanceSeries) {
             $res['InstanceSeries'] = $this->instanceSeries;
         }
-        if (null !== $this->readOnlyDBInstanceIds) {
-            $res['ReadOnlyDBInstanceIds'] = null !== $this->readOnlyDBInstanceIds ? $this->readOnlyDBInstanceIds->toMap() : null;
-        }
         if (null !== $this->productVersion) {
             $res['ProductVersion'] = $this->productVersion;
         }
@@ -241,17 +235,23 @@ class data extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->drdsInstanceId) {
             $res['DrdsInstanceId'] = $this->drdsInstanceId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
         if (null !== $this->instRole) {
             $res['InstRole'] = $this->instRole;
         }
         if (null !== $this->orderInstanceId) {
             $res['OrderInstanceId'] = $this->orderInstanceId;
+        }
+        if (null !== $this->vips) {
+            $res['Vips'] = null !== $this->vips ? $this->vips->toMap() : null;
+        }
+        if (null !== $this->readOnlyDBInstanceIds) {
+            $res['ReadOnlyDBInstanceIds'] = null !== $this->readOnlyDBInstanceIds ? $this->readOnlyDBInstanceIds->toMap() : null;
         }
 
         return $res;
@@ -298,17 +298,14 @@ class data extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Vips'])) {
-            $model->vips = vips::fromMap($map['Vips']);
-        }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }
-        if (isset($map['MasterInstanceId'])) {
-            $model->masterInstanceId = $map['MasterInstanceId'];
-        }
         if (isset($map['ExpireDate'])) {
             $model->expireDate = $map['ExpireDate'];
+        }
+        if (isset($map['MasterInstanceId'])) {
+            $model->masterInstanceId = $map['MasterInstanceId'];
         }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
@@ -319,9 +316,6 @@ class data extends Model
         if (isset($map['InstanceSeries'])) {
             $model->instanceSeries = $map['InstanceSeries'];
         }
-        if (isset($map['ReadOnlyDBInstanceIds'])) {
-            $model->readOnlyDBInstanceIds = readOnlyDBInstanceIds::fromMap($map['ReadOnlyDBInstanceIds']);
-        }
         if (isset($map['ProductVersion'])) {
             $model->productVersion = $map['ProductVersion'];
         }
@@ -331,17 +325,23 @@ class data extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['DrdsInstanceId'])) {
             $model->drdsInstanceId = $map['DrdsInstanceId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
         if (isset($map['InstRole'])) {
             $model->instRole = $map['InstRole'];
         }
         if (isset($map['OrderInstanceId'])) {
             $model->orderInstanceId = $map['OrderInstanceId'];
+        }
+        if (isset($map['Vips'])) {
+            $model->vips = vips::fromMap($map['Vips']);
+        }
+        if (isset($map['ReadOnlyDBInstanceIds'])) {
+            $model->readOnlyDBInstanceIds = readOnlyDBInstanceIds::fromMap($map['ReadOnlyDBInstanceIds']);
         }
 
         return $model;

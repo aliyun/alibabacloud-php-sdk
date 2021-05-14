@@ -24,11 +24,6 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
-     * @var bool
-     */
-    public $noRole;
-
-    /**
      * @var string[]
      */
     public $resourceId;
@@ -41,7 +36,6 @@ class UntagResourcesRequest extends Model
         'regionId'     => 'RegionId',
         'resourceType' => 'ResourceType',
         'all'          => 'All',
-        'noRole'       => 'NoRole',
         'resourceId'   => 'ResourceId',
         'tagKey'       => 'TagKey',
     ];
@@ -61,9 +55,6 @@ class UntagResourcesRequest extends Model
         }
         if (null !== $this->all) {
             $res['All'] = $this->all;
-        }
-        if (null !== $this->noRole) {
-            $res['NoRole'] = $this->noRole;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -91,9 +82,6 @@ class UntagResourcesRequest extends Model
         }
         if (isset($map['All'])) {
             $model->all = $map['All'];
-        }
-        if (isset($map['NoRole'])) {
-            $model->noRole = $map['NoRole'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {

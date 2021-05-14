@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstDbSlsInfoResponseBody extends Model
 {
     /**
-     * @var auditInfo
+     * @var bool
      */
-    public $auditInfo;
+    public $success;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeInstDbSlsInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
+     * @var auditInfo
      */
-    public $success;
+    public $auditInfo;
     protected $_name = [
-        'auditInfo' => 'AuditInfo',
-        'requestId' => 'RequestId',
         'success'   => 'Success',
+        'requestId' => 'RequestId',
+        'auditInfo' => 'AuditInfo',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeInstDbSlsInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->auditInfo) {
-            $res['AuditInfo'] = null !== $this->auditInfo ? $this->auditInfo->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->auditInfo) {
+            $res['AuditInfo'] = null !== $this->auditInfo ? $this->auditInfo->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeInstDbSlsInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuditInfo'])) {
-            $model->auditInfo = auditInfo::fromMap($map['AuditInfo']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['AuditInfo'])) {
+            $model->auditInfo = auditInfo::fromMap($map['AuditInfo']);
         }
 
         return $model;

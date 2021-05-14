@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreOrderResponseBody extends Model
 {
     /**
-     * @var restoreOrderDO
+     * @var bool
      */
-    public $restoreOrderDO;
+    public $success;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeRestoreOrderResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
+     * @var restoreOrderDO
      */
-    public $success;
+    public $restoreOrderDO;
     protected $_name = [
-        'restoreOrderDO' => 'RestoreOrderDO',
-        'requestId'      => 'RequestId',
         'success'        => 'Success',
+        'requestId'      => 'RequestId',
+        'restoreOrderDO' => 'RestoreOrderDO',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeRestoreOrderResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->restoreOrderDO) {
-            $res['RestoreOrderDO'] = null !== $this->restoreOrderDO ? $this->restoreOrderDO->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->restoreOrderDO) {
+            $res['RestoreOrderDO'] = null !== $this->restoreOrderDO ? $this->restoreOrderDO->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeRestoreOrderResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RestoreOrderDO'])) {
-            $model->restoreOrderDO = restoreOrderDO::fromMap($map['RestoreOrderDO']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['RestoreOrderDO'])) {
+            $model->restoreOrderDO = restoreOrderDO::fromMap($map['RestoreOrderDO']);
         }
 
         return $model;

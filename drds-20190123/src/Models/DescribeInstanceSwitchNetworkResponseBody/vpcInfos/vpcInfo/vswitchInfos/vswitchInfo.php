@@ -26,18 +26,18 @@ class vswitchInfo extends Model
     /**
      * @var string
      */
-    public $vswitchName;
+    public $azoneId;
 
     /**
      * @var string
      */
-    public $azoneId;
+    public $vswitchName;
     protected $_name = [
         'vpcId'         => 'VpcId',
         'drdsSupported' => 'DrdsSupported',
         'vswitchId'     => 'VswitchId',
-        'vswitchName'   => 'VswitchName',
         'azoneId'       => 'AzoneId',
+        'vswitchName'   => 'VswitchName',
     ];
 
     public function validate()
@@ -56,11 +56,11 @@ class vswitchInfo extends Model
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
         }
-        if (null !== $this->vswitchName) {
-            $res['VswitchName'] = $this->vswitchName;
-        }
         if (null !== $this->azoneId) {
             $res['AzoneId'] = $this->azoneId;
+        }
+        if (null !== $this->vswitchName) {
+            $res['VswitchName'] = $this->vswitchName;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class vswitchInfo extends Model
         if (isset($map['VswitchId'])) {
             $model->vswitchId = $map['VswitchId'];
         }
-        if (isset($map['VswitchName'])) {
-            $model->vswitchName = $map['VswitchName'];
-        }
         if (isset($map['AzoneId'])) {
             $model->azoneId = $map['AzoneId'];
+        }
+        if (isset($map['VswitchName'])) {
+            $model->vswitchName = $map['VswitchName'];
         }
 
         return $model;

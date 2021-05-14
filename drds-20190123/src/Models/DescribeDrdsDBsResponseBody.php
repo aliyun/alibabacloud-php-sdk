@@ -17,12 +17,12 @@ class DescribeDrdsDBsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $pageNumber;
 
     /**
      * @var string
      */
-    public $pageNumber;
+    public $requestId;
 
     /**
      * @var string
@@ -30,21 +30,21 @@ class DescribeDrdsDBsResponseBody extends Model
     public $total;
 
     /**
-     * @var data
-     */
-    public $data;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var data
+     */
+    public $data;
     protected $_name = [
         'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'requestId'  => 'RequestId',
         'total'      => 'Total',
-        'data'       => 'Data',
         'success'    => 'Success',
+        'data'       => 'Data',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class DescribeDrdsDBsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -87,20 +87,20 @@ class DescribeDrdsDBsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

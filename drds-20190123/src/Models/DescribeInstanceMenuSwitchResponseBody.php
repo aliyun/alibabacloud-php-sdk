@@ -14,18 +14,18 @@ class DescribeInstanceMenuSwitchResponseBody extends Model
     public $requestId;
 
     /**
-     * @var mixed[]
-     */
-    public $config;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var mixed[]
+     */
+    public $config;
     protected $_name = [
         'requestId' => 'RequestId',
-        'config'    => 'Config',
         'success'   => 'Success',
+        'config'    => 'Config',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeInstanceMenuSwitchResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeInstanceMenuSwitchResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
 
         return $model;

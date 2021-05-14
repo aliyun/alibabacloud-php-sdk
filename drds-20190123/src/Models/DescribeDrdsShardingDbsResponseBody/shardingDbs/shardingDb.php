@@ -34,14 +34,14 @@ class shardingDb extends Model
     public $groupName;
 
     /**
-     * @var int
-     */
-    public $idleTimeOut;
-
-    /**
      * @var string
      */
     public $dbType;
+
+    /**
+     * @var int
+     */
+    public $idleTimeOut;
 
     /**
      * @var string
@@ -51,12 +51,12 @@ class shardingDb extends Model
     /**
      * @var int
      */
-    public $preparedStatementCacheSize;
+    public $blockingTimeout;
 
     /**
      * @var int
      */
-    public $blockingTimeout;
+    public $preparedStatementCacheSize;
 
     /**
      * @var string
@@ -78,11 +78,11 @@ class shardingDb extends Model
         'dbInstanceId'               => 'DbInstanceId',
         'connectUrl'                 => 'ConnectUrl',
         'groupName'                  => 'GroupName',
-        'idleTimeOut'                => 'IdleTimeOut',
         'dbType'                     => 'DbType',
+        'idleTimeOut'                => 'IdleTimeOut',
         'shardingDbName'             => 'ShardingDbName',
-        'preparedStatementCacheSize' => 'PreparedStatementCacheSize',
         'blockingTimeout'            => 'BlockingTimeout',
+        'preparedStatementCacheSize' => 'PreparedStatementCacheSize',
         'connectionProperties'       => 'ConnectionProperties',
         'userName'                   => 'UserName',
         'dbStatus'                   => 'DbStatus',
@@ -110,20 +110,20 @@ class shardingDb extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->idleTimeOut) {
-            $res['IdleTimeOut'] = $this->idleTimeOut;
-        }
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
+        }
+        if (null !== $this->idleTimeOut) {
+            $res['IdleTimeOut'] = $this->idleTimeOut;
         }
         if (null !== $this->shardingDbName) {
             $res['ShardingDbName'] = $this->shardingDbName;
         }
-        if (null !== $this->preparedStatementCacheSize) {
-            $res['PreparedStatementCacheSize'] = $this->preparedStatementCacheSize;
-        }
         if (null !== $this->blockingTimeout) {
             $res['BlockingTimeout'] = $this->blockingTimeout;
+        }
+        if (null !== $this->preparedStatementCacheSize) {
+            $res['PreparedStatementCacheSize'] = $this->preparedStatementCacheSize;
         }
         if (null !== $this->connectionProperties) {
             $res['ConnectionProperties'] = $this->connectionProperties;
@@ -161,20 +161,20 @@ class shardingDb extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['IdleTimeOut'])) {
-            $model->idleTimeOut = $map['IdleTimeOut'];
-        }
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
+        }
+        if (isset($map['IdleTimeOut'])) {
+            $model->idleTimeOut = $map['IdleTimeOut'];
         }
         if (isset($map['ShardingDbName'])) {
             $model->shardingDbName = $map['ShardingDbName'];
         }
-        if (isset($map['PreparedStatementCacheSize'])) {
-            $model->preparedStatementCacheSize = $map['PreparedStatementCacheSize'];
-        }
         if (isset($map['BlockingTimeout'])) {
             $model->blockingTimeout = $map['BlockingTimeout'];
+        }
+        if (isset($map['PreparedStatementCacheSize'])) {
+            $model->preparedStatementCacheSize = $map['PreparedStatementCacheSize'];
         }
         if (isset($map['ConnectionProperties'])) {
             $model->connectionProperties = $map['ConnectionProperties'];

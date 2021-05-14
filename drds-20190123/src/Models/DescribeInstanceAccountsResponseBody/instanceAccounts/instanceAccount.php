@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class instanceAccount extends Model
 {
     /**
-     * @var dbPrivileges
-     */
-    public $dbPrivileges;
-
-    /**
      * @var string
      */
     public $host;
@@ -33,12 +28,17 @@ class instanceAccount extends Model
      * @var string
      */
     public $accountName;
+
+    /**
+     * @var dbPrivileges
+     */
+    public $dbPrivileges;
     protected $_name = [
-        'dbPrivileges' => 'DbPrivileges',
         'host'         => 'Host',
         'description'  => 'Description',
         'accountType'  => 'AccountType',
         'accountName'  => 'AccountName',
+        'dbPrivileges' => 'DbPrivileges',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class instanceAccount extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dbPrivileges) {
-            $res['DbPrivileges'] = null !== $this->dbPrivileges ? $this->dbPrivileges->toMap() : null;
-        }
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
@@ -62,6 +59,9 @@ class instanceAccount extends Model
         }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->dbPrivileges) {
+            $res['DbPrivileges'] = null !== $this->dbPrivileges ? $this->dbPrivileges->toMap() : null;
         }
 
         return $res;
@@ -75,9 +75,6 @@ class instanceAccount extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DbPrivileges'])) {
-            $model->dbPrivileges = dbPrivileges::fromMap($map['DbPrivileges']);
-        }
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
@@ -89,6 +86,9 @@ class instanceAccount extends Model
         }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['DbPrivileges'])) {
+            $model->dbPrivileges = dbPrivileges::fromMap($map['DbPrivileges']);
         }
 
         return $model;

@@ -10,19 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstancesResponseBody extends Model
 {
     /**
-     * @var instances
-     */
-    public $instances;
-
-    /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
 
     /**
      * @var int
@@ -32,13 +22,23 @@ class DescribeDrdsInstancesResponseBody extends Model
     /**
      * @var int
      */
+    public $pageSize;
+
+    /**
+     * @var int
+     */
     public $total;
+
+    /**
+     * @var instances
+     */
+    public $instances;
     protected $_name = [
-        'instances'  => 'Instances',
         'requestId'  => 'RequestId',
-        'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
         'total'      => 'Total',
+        'instances'  => 'Instances',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeDrdsInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instances) {
-            $res['Instances'] = null !== $this->instances ? $this->instances->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
+        }
+        if (null !== $this->instances) {
+            $res['Instances'] = null !== $this->instances ? $this->instances->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeDrdsInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Instances'])) {
-            $model->instances = instances::fromMap($map['Instances']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
+        }
+        if (isset($map['Instances'])) {
+            $model->instances = instances::fromMap($map['Instances']);
         }
 
         return $model;

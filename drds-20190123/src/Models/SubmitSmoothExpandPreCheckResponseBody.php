@@ -14,14 +14,14 @@ class SubmitSmoothExpandPreCheckResponseBody extends Model
     public $msg;
 
     /**
-     * @var int
-     */
-    public $taskId;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $taskId;
 
     /**
      * @var bool
@@ -29,8 +29,8 @@ class SubmitSmoothExpandPreCheckResponseBody extends Model
     public $success;
     protected $_name = [
         'msg'       => 'Msg',
-        'taskId'    => 'TaskId',
         'requestId' => 'RequestId',
+        'taskId'    => 'TaskId',
         'success'   => 'Success',
     ];
 
@@ -44,11 +44,11 @@ class SubmitSmoothExpandPreCheckResponseBody extends Model
         if (null !== $this->msg) {
             $res['Msg'] = $this->msg;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -68,11 +68,11 @@ class SubmitSmoothExpandPreCheckResponseBody extends Model
         if (isset($map['Msg'])) {
             $model->msg = $map['Msg'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

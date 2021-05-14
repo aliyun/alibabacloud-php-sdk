@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsDBIpWhiteListResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,15 +23,10 @@ class DescribeDrdsDBIpWhiteListResponseBody extends Model
      * @var ipWhiteList
      */
     public $ipWhiteList;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
+        'success'     => 'Success',
         'requestId'   => 'RequestId',
         'ipWhiteList' => 'IpWhiteList',
-        'success'     => 'Success',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeDrdsDBIpWhiteListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->ipWhiteList) {
             $res['IpWhiteList'] = null !== $this->ipWhiteList ? $this->ipWhiteList->toMap() : null;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeDrdsDBIpWhiteListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['IpWhiteList'])) {
             $model->ipWhiteList = ipWhiteList::fromMap($map['IpWhiteList']);
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

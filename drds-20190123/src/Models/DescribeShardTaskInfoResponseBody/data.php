@@ -19,11 +19,6 @@ class data extends Model
     public $status;
 
     /**
-     * @var full
-     */
-    public $full;
-
-    /**
      * @var string
      */
     public $stage;
@@ -32,11 +27,6 @@ class data extends Model
      * @var string
      */
     public $progress;
-
-    /**
-     * @var review
-     */
-    public $review;
 
     /**
      * @var string
@@ -49,14 +39,14 @@ class data extends Model
     public $targetTableName;
 
     /**
-     * @var fullRevise
-     */
-    public $fullRevise;
-
-    /**
      * @var string
      */
     public $sourceTableName;
+
+    /**
+     * @var full
+     */
+    public $full;
 
     /**
      * @var fullCheck
@@ -64,20 +54,30 @@ class data extends Model
     public $fullCheck;
 
     /**
+     * @var fullRevise
+     */
+    public $fullRevise;
+
+    /**
+     * @var review
+     */
+    public $review;
+
+    /**
      * @var increment
      */
     public $increment;
     protected $_name = [
         'status'          => 'Status',
-        'full'            => 'Full',
         'stage'           => 'Stage',
         'progress'        => 'Progress',
-        'review'          => 'Review',
         'expired'         => 'Expired',
         'targetTableName' => 'TargetTableName',
-        'fullRevise'      => 'FullRevise',
         'sourceTableName' => 'SourceTableName',
+        'full'            => 'Full',
         'fullCheck'       => 'FullCheck',
+        'fullRevise'      => 'FullRevise',
+        'review'          => 'Review',
         'increment'       => 'Increment',
     ];
 
@@ -91,17 +91,11 @@ class data extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->full) {
-            $res['Full'] = null !== $this->full ? $this->full->toMap() : null;
-        }
         if (null !== $this->stage) {
             $res['Stage'] = $this->stage;
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
-        }
-        if (null !== $this->review) {
-            $res['Review'] = null !== $this->review ? $this->review->toMap() : null;
         }
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
@@ -109,14 +103,20 @@ class data extends Model
         if (null !== $this->targetTableName) {
             $res['TargetTableName'] = $this->targetTableName;
         }
-        if (null !== $this->fullRevise) {
-            $res['FullRevise'] = null !== $this->fullRevise ? $this->fullRevise->toMap() : null;
-        }
         if (null !== $this->sourceTableName) {
             $res['SourceTableName'] = $this->sourceTableName;
         }
+        if (null !== $this->full) {
+            $res['Full'] = null !== $this->full ? $this->full->toMap() : null;
+        }
         if (null !== $this->fullCheck) {
             $res['FullCheck'] = null !== $this->fullCheck ? $this->fullCheck->toMap() : null;
+        }
+        if (null !== $this->fullRevise) {
+            $res['FullRevise'] = null !== $this->fullRevise ? $this->fullRevise->toMap() : null;
+        }
+        if (null !== $this->review) {
+            $res['Review'] = null !== $this->review ? $this->review->toMap() : null;
         }
         if (null !== $this->increment) {
             $res['Increment'] = null !== $this->increment ? $this->increment->toMap() : null;
@@ -136,17 +136,11 @@ class data extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['Full'])) {
-            $model->full = full::fromMap($map['Full']);
-        }
         if (isset($map['Stage'])) {
             $model->stage = $map['Stage'];
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
-        }
-        if (isset($map['Review'])) {
-            $model->review = review::fromMap($map['Review']);
         }
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
@@ -154,14 +148,20 @@ class data extends Model
         if (isset($map['TargetTableName'])) {
             $model->targetTableName = $map['TargetTableName'];
         }
-        if (isset($map['FullRevise'])) {
-            $model->fullRevise = fullRevise::fromMap($map['FullRevise']);
-        }
         if (isset($map['SourceTableName'])) {
             $model->sourceTableName = $map['SourceTableName'];
         }
+        if (isset($map['Full'])) {
+            $model->full = full::fromMap($map['Full']);
+        }
         if (isset($map['FullCheck'])) {
             $model->fullCheck = fullCheck::fromMap($map['FullCheck']);
+        }
+        if (isset($map['FullRevise'])) {
+            $model->fullRevise = fullRevise::fromMap($map['FullRevise']);
+        }
+        if (isset($map['Review'])) {
+            $model->review = review::fromMap($map['Review']);
         }
         if (isset($map['Increment'])) {
             $model->increment = increment::fromMap($map['Increment']);

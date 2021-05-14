@@ -11,6 +11,16 @@ class hiStoreInstanceInfo extends Model
     /**
      * @var int
      */
+    public $gmtCreate;
+
+    /**
+     * @var string
+     */
+    public $machineSpec;
+
+    /**
+     * @var int
+     */
     public $diskSize;
 
     /**
@@ -22,22 +32,12 @@ class hiStoreInstanceInfo extends Model
      * @var string
      */
     public $historeInstanceId;
-
-    /**
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
-     * @var string
-     */
-    public $machineSpec;
     protected $_name = [
+        'gmtCreate'         => 'GmtCreate',
+        'machineSpec'       => 'MachineSpec',
         'diskSize'          => 'DiskSize',
         'rpmVersion'        => 'RpmVersion',
         'historeInstanceId' => 'HistoreInstanceId',
-        'gmtCreate'         => 'GmtCreate',
-        'machineSpec'       => 'MachineSpec',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class hiStoreInstanceInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->machineSpec) {
+            $res['MachineSpec'] = $this->machineSpec;
+        }
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
         }
@@ -55,12 +61,6 @@ class hiStoreInstanceInfo extends Model
         }
         if (null !== $this->historeInstanceId) {
             $res['HistoreInstanceId'] = $this->historeInstanceId;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->machineSpec) {
-            $res['MachineSpec'] = $this->machineSpec;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class hiStoreInstanceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['MachineSpec'])) {
+            $model->machineSpec = $map['MachineSpec'];
+        }
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
         }
@@ -82,12 +88,6 @@ class hiStoreInstanceInfo extends Model
         }
         if (isset($map['HistoreInstanceId'])) {
             $model->historeInstanceId = $map['HistoreInstanceId'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['MachineSpec'])) {
-            $model->machineSpec = $map['MachineSpec'];
         }
 
         return $model;

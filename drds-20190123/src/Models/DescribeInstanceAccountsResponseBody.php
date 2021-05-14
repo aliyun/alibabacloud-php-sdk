@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAccountsResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,15 +23,10 @@ class DescribeInstanceAccountsResponseBody extends Model
      * @var instanceAccounts
      */
     public $instanceAccounts;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
+        'success'          => 'Success',
         'requestId'        => 'RequestId',
         'instanceAccounts' => 'InstanceAccounts',
-        'success'          => 'Success',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeInstanceAccountsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->instanceAccounts) {
             $res['InstanceAccounts'] = null !== $this->instanceAccounts ? $this->instanceAccounts->toMap() : null;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeInstanceAccountsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['InstanceAccounts'])) {
             $model->instanceAccounts = instanceAccounts::fromMap($map['InstanceAccounts']);
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

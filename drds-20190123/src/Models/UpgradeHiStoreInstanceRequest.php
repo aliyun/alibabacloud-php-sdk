@@ -21,16 +21,10 @@ class UpgradeHiStoreInstanceRequest extends Model
     /**
      * @var string
      */
-    public $drdsPassword;
-
-    /**
-     * @var string
-     */
     public $historeInstanceId;
     protected $_name = [
         'drdsInstanceId'    => 'DrdsInstanceId',
         'regionId'          => 'RegionId',
-        'drdsPassword'      => 'DrdsPassword',
         'historeInstanceId' => 'HistoreInstanceId',
     ];
 
@@ -46,9 +40,6 @@ class UpgradeHiStoreInstanceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->drdsPassword) {
-            $res['DrdsPassword'] = $this->drdsPassword;
         }
         if (null !== $this->historeInstanceId) {
             $res['HistoreInstanceId'] = $this->historeInstanceId;
@@ -70,9 +61,6 @@ class UpgradeHiStoreInstanceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DrdsPassword'])) {
-            $model->drdsPassword = $map['DrdsPassword'];
         }
         if (isset($map['HistoreInstanceId'])) {
             $model->historeInstanceId = $map['HistoreInstanceId'];

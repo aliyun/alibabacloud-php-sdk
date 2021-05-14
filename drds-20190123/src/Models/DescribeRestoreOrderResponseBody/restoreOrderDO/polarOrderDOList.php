@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO;
 
-use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\polarOrderDOList\polarOrderDOList;
 use AlibabaCloud\Tea\Model;
 
 class polarOrderDOList extends Model
 {
     /**
-     * @var polarOrderDOList[]
+     * @var \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\polarOrderDOList\polarOrderDOList[]
      */
     public $polarOrderDOList;
     protected $_name = [
@@ -50,7 +49,7 @@ class polarOrderDOList extends Model
                 $model->polarOrderDOList = [];
                 $n                       = 0;
                 foreach ($map['PolarOrderDOList'] as $item) {
-                    $model->polarOrderDOList[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->polarOrderDOList[$n++] = null !== $item ? \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeRestoreOrderResponseBody\restoreOrderDO\polarOrderDOList\polarOrderDOList::fromMap($item) : $item;
                 }
             }
         }

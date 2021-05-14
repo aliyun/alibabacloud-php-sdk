@@ -41,22 +41,22 @@ class backupPolicyDO extends Model
     /**
      * @var int
      */
+    public $highSpaceUsageProtection;
+
+    /**
+     * @var int
+     */
     public $gmtModified;
 
     /**
      * @var int
      */
-    public $highSpaceUsageProtection;
+    public $backupRetentionPeriod;
 
     /**
      * @var string
      */
     public $backupPolicyMode;
-
-    /**
-     * @var int
-     */
-    public $backupRetentionPeriod;
 
     /**
      * @var string
@@ -104,10 +104,10 @@ class backupPolicyDO extends Model
         'backupType'                => 'BackupType',
         'backupLevel'               => 'BackupLevel',
         'localLogRetentionHours'    => 'LocalLogRetentionHours',
-        'gmtModified'               => 'GmtModified',
         'highSpaceUsageProtection'  => 'HighSpaceUsageProtection',
-        'backupPolicyMode'          => 'BackupPolicyMode',
+        'gmtModified'               => 'GmtModified',
         'backupRetentionPeriod'     => 'BackupRetentionPeriod',
+        'backupPolicyMode'          => 'BackupPolicyMode',
         'preferredBackupPeriod'     => 'PreferredBackupPeriod',
         'localLogRetentionSpace'    => 'LocalLogRetentionSpace',
         'backupAppName'             => 'BackupAppName',
@@ -143,17 +143,17 @@ class backupPolicyDO extends Model
         if (null !== $this->localLogRetentionHours) {
             $res['LocalLogRetentionHours'] = $this->localLogRetentionHours;
         }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
         if (null !== $this->highSpaceUsageProtection) {
             $res['HighSpaceUsageProtection'] = $this->highSpaceUsageProtection;
         }
-        if (null !== $this->backupPolicyMode) {
-            $res['BackupPolicyMode'] = $this->backupPolicyMode;
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
+        }
+        if (null !== $this->backupPolicyMode) {
+            $res['BackupPolicyMode'] = $this->backupPolicyMode;
         }
         if (null !== $this->preferredBackupPeriod) {
             $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
@@ -209,17 +209,17 @@ class backupPolicyDO extends Model
         if (isset($map['LocalLogRetentionHours'])) {
             $model->localLogRetentionHours = $map['LocalLogRetentionHours'];
         }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
         if (isset($map['HighSpaceUsageProtection'])) {
             $model->highSpaceUsageProtection = $map['HighSpaceUsageProtection'];
         }
-        if (isset($map['BackupPolicyMode'])) {
-            $model->backupPolicyMode = $map['BackupPolicyMode'];
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
+        }
+        if (isset($map['BackupPolicyMode'])) {
+            $model->backupPolicyMode = $map['BackupPolicyMode'];
         }
         if (isset($map['PreferredBackupPeriod'])) {
             $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];

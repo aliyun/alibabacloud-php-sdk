@@ -11,20 +11,20 @@ class data extends Model
     /**
      * @var string
      */
-    public $tableName;
+    public $shardTbKey;
 
     /**
      * @var string
      */
-    public $shardTbKey;
+    public $tableName;
 
     /**
      * @var string
      */
     public $shardDbKey;
     protected $_name = [
-        'tableName'  => 'TableName',
         'shardTbKey' => 'ShardTbKey',
+        'tableName'  => 'TableName',
         'shardDbKey' => 'ShardDbKey',
     ];
 
@@ -35,11 +35,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
-        }
         if (null !== $this->shardTbKey) {
             $res['ShardTbKey'] = $this->shardTbKey;
+        }
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
         if (null !== $this->shardDbKey) {
             $res['ShardDbKey'] = $this->shardDbKey;
@@ -56,11 +56,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
-        }
         if (isset($map['ShardTbKey'])) {
             $model->shardTbKey = $map['ShardTbKey'];
+        }
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
         if (isset($map['ShardDbKey'])) {
             $model->shardDbKey = $map['ShardDbKey'];

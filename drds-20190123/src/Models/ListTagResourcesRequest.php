@@ -20,11 +20,6 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @var bool
-     */
-    public $noRole;
-
-    /**
      * @var string
      */
     public $nextToken;
@@ -41,7 +36,6 @@ class ListTagResourcesRequest extends Model
     protected $_name = [
         'regionId'     => 'RegionId',
         'resourceType' => 'ResourceType',
-        'noRole'       => 'NoRole',
         'nextToken'    => 'NextToken',
         'tag'          => 'Tag',
         'resourceId'   => 'ResourceId',
@@ -59,9 +53,6 @@ class ListTagResourcesRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->noRole) {
-            $res['NoRole'] = $this->noRole;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
@@ -95,9 +86,6 @@ class ListTagResourcesRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['NoRole'])) {
-            $model->noRole = $map['NoRole'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];

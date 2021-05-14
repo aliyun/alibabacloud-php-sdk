@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class dbInstance extends Model
 {
     /**
-     * @var endpoints
-     */
-    public $endpoints;
-
-    /**
      * @var string
      */
     public $expireTime;
@@ -46,11 +41,6 @@ class dbInstance extends Model
     public $engineVersion;
 
     /**
-     * @var DBNodes
-     */
-    public $DBNodes;
-
-    /**
      * @var string
      */
     public $rdsInstType;
@@ -79,21 +69,31 @@ class dbInstance extends Model
      * @var string
      */
     public $readMode;
+
+    /**
+     * @var endpoints
+     */
+    public $endpoints;
+
+    /**
+     * @var DBNodes
+     */
+    public $DBNodes;
     protected $_name = [
-        'endpoints'        => 'Endpoints',
         'expireTime'       => 'ExpireTime',
         'payType'          => 'PayType',
         'DBInstanceStatus' => 'DBInstanceStatus',
         'networkType'      => 'NetworkType',
         'port'             => 'Port',
         'engineVersion'    => 'EngineVersion',
-        'DBNodes'          => 'DBNodes',
         'rdsInstType'      => 'RdsInstType',
         'remainDays'       => 'RemainDays',
         'DBInstanceId'     => 'DBInstanceId',
         'dbInstType'       => 'DbInstType',
         'engine'           => 'Engine',
         'readMode'         => 'ReadMode',
+        'endpoints'        => 'Endpoints',
+        'DBNodes'          => 'DBNodes',
     ];
 
     public function validate()
@@ -103,9 +103,6 @@ class dbInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endpoints) {
-            $res['Endpoints'] = null !== $this->endpoints ? $this->endpoints->toMap() : null;
-        }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
@@ -123,9 +120,6 @@ class dbInstance extends Model
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
-        }
-        if (null !== $this->DBNodes) {
-            $res['DBNodes'] = null !== $this->DBNodes ? $this->DBNodes->toMap() : null;
         }
         if (null !== $this->rdsInstType) {
             $res['RdsInstType'] = $this->rdsInstType;
@@ -145,6 +139,12 @@ class dbInstance extends Model
         if (null !== $this->readMode) {
             $res['ReadMode'] = $this->readMode;
         }
+        if (null !== $this->endpoints) {
+            $res['Endpoints'] = null !== $this->endpoints ? $this->endpoints->toMap() : null;
+        }
+        if (null !== $this->DBNodes) {
+            $res['DBNodes'] = null !== $this->DBNodes ? $this->DBNodes->toMap() : null;
+        }
 
         return $res;
     }
@@ -157,9 +157,6 @@ class dbInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Endpoints'])) {
-            $model->endpoints = endpoints::fromMap($map['Endpoints']);
-        }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
@@ -178,9 +175,6 @@ class dbInstance extends Model
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
-        if (isset($map['DBNodes'])) {
-            $model->DBNodes = DBNodes::fromMap($map['DBNodes']);
-        }
         if (isset($map['RdsInstType'])) {
             $model->rdsInstType = $map['RdsInstType'];
         }
@@ -198,6 +192,12 @@ class dbInstance extends Model
         }
         if (isset($map['ReadMode'])) {
             $model->readMode = $map['ReadMode'];
+        }
+        if (isset($map['Endpoints'])) {
+            $model->endpoints = endpoints::fromMap($map['Endpoints']);
+        }
+        if (isset($map['DBNodes'])) {
+            $model->DBNodes = DBNodes::fromMap($map['DBNodes']);
         }
 
         return $model;

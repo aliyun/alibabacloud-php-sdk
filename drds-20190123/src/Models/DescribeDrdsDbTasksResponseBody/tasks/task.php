@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
-     * @var string
-     */
-    public $taskPhase;
-
-    /**
      * @var int
      */
     public $progress;
+
+    /**
+     * @var string
+     */
+    public $taskPhase;
 
     /**
      * @var int
@@ -49,14 +49,14 @@ class task extends Model
     public $dbComputeLength;
 
     /**
-     * @var bool
-     */
-    public $allowCancel;
-
-    /**
      * @var int
      */
     public $taskStatus;
+
+    /**
+     * @var bool
+     */
+    public $allowCancel;
 
     /**
      * @var bool
@@ -88,16 +88,16 @@ class task extends Model
      */
     public $expandType;
     protected $_name = [
-        'taskPhase'       => 'TaskPhase',
         'progress'        => 'Progress',
+        'taskPhase'       => 'TaskPhase',
         'tbComputeLength' => 'TbComputeLength',
         'taskName'        => 'TaskName',
         'parentJobId'     => 'ParentJobId',
         'label'           => 'Label',
         'taskType'        => 'TaskType',
         'dbComputeLength' => 'DbComputeLength',
-        'allowCancel'     => 'AllowCancel',
         'taskStatus'      => 'TaskStatus',
+        'allowCancel'     => 'AllowCancel',
         'showProgress'    => 'ShowProgress',
         'taskDetail'      => 'TaskDetail',
         'gmtCreate'       => 'GmtCreate',
@@ -113,11 +113,11 @@ class task extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskPhase) {
-            $res['TaskPhase'] = $this->taskPhase;
-        }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
+        }
+        if (null !== $this->taskPhase) {
+            $res['TaskPhase'] = $this->taskPhase;
         }
         if (null !== $this->tbComputeLength) {
             $res['TbComputeLength'] = $this->tbComputeLength;
@@ -137,11 +137,11 @@ class task extends Model
         if (null !== $this->dbComputeLength) {
             $res['DbComputeLength'] = $this->dbComputeLength;
         }
-        if (null !== $this->allowCancel) {
-            $res['AllowCancel'] = $this->allowCancel;
-        }
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
+        }
+        if (null !== $this->allowCancel) {
+            $res['AllowCancel'] = $this->allowCancel;
         }
         if (null !== $this->showProgress) {
             $res['ShowProgress'] = $this->showProgress;
@@ -173,11 +173,11 @@ class task extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskPhase'])) {
-            $model->taskPhase = $map['TaskPhase'];
-        }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
+        }
+        if (isset($map['TaskPhase'])) {
+            $model->taskPhase = $map['TaskPhase'];
         }
         if (isset($map['TbComputeLength'])) {
             $model->tbComputeLength = $map['TbComputeLength'];
@@ -197,11 +197,11 @@ class task extends Model
         if (isset($map['DbComputeLength'])) {
             $model->dbComputeLength = $map['DbComputeLength'];
         }
-        if (isset($map['AllowCancel'])) {
-            $model->allowCancel = $map['AllowCancel'];
-        }
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['AllowCancel'])) {
+            $model->allowCancel = $map['AllowCancel'];
         }
         if (isset($map['ShowProgress'])) {
             $model->showProgress = $map['ShowProgress'];

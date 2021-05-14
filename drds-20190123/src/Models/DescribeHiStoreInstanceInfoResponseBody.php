@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHiStoreInstanceInfoResponseBody extends Model
 {
     /**
-     * @var hiStoreInstanceInfo
+     * @var bool
      */
-    public $hiStoreInstanceInfo;
+    public $success;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeHiStoreInstanceInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
+     * @var hiStoreInstanceInfo
      */
-    public $success;
+    public $hiStoreInstanceInfo;
     protected $_name = [
-        'hiStoreInstanceInfo' => 'HiStoreInstanceInfo',
-        'requestId'           => 'RequestId',
         'success'             => 'Success',
+        'requestId'           => 'RequestId',
+        'hiStoreInstanceInfo' => 'HiStoreInstanceInfo',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeHiStoreInstanceInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hiStoreInstanceInfo) {
-            $res['HiStoreInstanceInfo'] = null !== $this->hiStoreInstanceInfo ? $this->hiStoreInstanceInfo->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->hiStoreInstanceInfo) {
+            $res['HiStoreInstanceInfo'] = null !== $this->hiStoreInstanceInfo ? $this->hiStoreInstanceInfo->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeHiStoreInstanceInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HiStoreInstanceInfo'])) {
-            $model->hiStoreInstanceInfo = hiStoreInstanceInfo::fromMap($map['HiStoreInstanceInfo']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['HiStoreInstanceInfo'])) {
+            $model->hiStoreInstanceInfo = hiStoreInstanceInfo::fromMap($map['HiStoreInstanceInfo']);
         }
 
         return $model;

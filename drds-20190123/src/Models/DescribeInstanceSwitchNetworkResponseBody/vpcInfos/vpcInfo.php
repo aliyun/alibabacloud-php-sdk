@@ -20,19 +20,19 @@ class vpcInfo extends Model
     public $vpcName;
 
     /**
-     * @var vswitchInfos
-     */
-    public $vswitchInfos;
-
-    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var vswitchInfos
+     */
+    public $vswitchInfos;
     protected $_name = [
         'vpcId'        => 'VpcId',
         'vpcName'      => 'VpcName',
-        'vswitchInfos' => 'VswitchInfos',
         'regionId'     => 'RegionId',
+        'vswitchInfos' => 'VswitchInfos',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class vpcInfo extends Model
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
         }
-        if (null !== $this->vswitchInfos) {
-            $res['VswitchInfos'] = null !== $this->vswitchInfos ? $this->vswitchInfos->toMap() : null;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->vswitchInfos) {
+            $res['VswitchInfos'] = null !== $this->vswitchInfos ? $this->vswitchInfos->toMap() : null;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class vpcInfo extends Model
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
         }
-        if (isset($map['VswitchInfos'])) {
-            $model->vswitchInfos = vswitchInfos::fromMap($map['VswitchInfos']);
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['VswitchInfos'])) {
+            $model->vswitchInfos = vswitchInfos::fromMap($map['VswitchInfos']);
         }
 
         return $model;

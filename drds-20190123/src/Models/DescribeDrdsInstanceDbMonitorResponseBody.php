@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstanceDbMonitorResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,15 +23,10 @@ class DescribeDrdsInstanceDbMonitorResponseBody extends Model
      * @var data[]
      */
     public $data;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
+        'success'   => 'Success',
         'requestId' => 'RequestId',
         'data'      => 'Data',
-        'success'   => 'Success',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class DescribeDrdsInstanceDbMonitorResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,9 +50,6 @@ class DescribeDrdsInstanceDbMonitorResponseBody extends Model
                     $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -63,6 +63,9 @@ class DescribeDrdsInstanceDbMonitorResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -74,9 +77,6 @@ class DescribeDrdsInstanceDbMonitorResponseBody extends Model
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

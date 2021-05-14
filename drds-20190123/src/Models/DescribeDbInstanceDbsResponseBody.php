@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDbInstanceDbsResponseBody extends Model
 {
     /**
-     * @var databases
-     */
-    public $databases;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class DescribeDbInstanceDbsResponseBody extends Model
     public $total;
 
     /**
-     * @var bool
+     * @var databases
      */
-    public $success;
+    public $databases;
     protected $_name = [
-        'databases' => 'Databases',
         'requestId' => 'RequestId',
-        'total'     => 'Total',
         'success'   => 'Success',
+        'total'     => 'Total',
+        'databases' => 'Databases',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class DescribeDbInstanceDbsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->databases) {
-            $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->databases) {
+            $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class DescribeDbInstanceDbsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Databases'])) {
-            $model->databases = databases::fromMap($map['Databases']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Databases'])) {
+            $model->databases = databases::fromMap($map['Databases']);
         }
 
         return $model;

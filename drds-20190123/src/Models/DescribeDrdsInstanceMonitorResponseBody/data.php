@@ -20,19 +20,19 @@ class data extends Model
     public $unit;
 
     /**
-     * @var values[]
-     */
-    public $values;
-
-    /**
      * @var int
      */
     public $nodeNum;
+
+    /**
+     * @var values[]
+     */
+    public $values;
     protected $_name = [
         'key'     => 'Key',
         'unit'    => 'Unit',
-        'values'  => 'Values',
         'nodeNum' => 'NodeNum',
+        'values'  => 'Values',
     ];
 
     public function validate()
@@ -48,6 +48,9 @@ class data extends Model
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
+        if (null !== $this->nodeNum) {
+            $res['NodeNum'] = $this->nodeNum;
+        }
         if (null !== $this->values) {
             $res['Values'] = [];
             if (null !== $this->values && \is_array($this->values)) {
@@ -56,9 +59,6 @@ class data extends Model
                     $res['Values'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nodeNum) {
-            $res['NodeNum'] = $this->nodeNum;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class data extends Model
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
+        if (isset($map['NodeNum'])) {
+            $model->nodeNum = $map['NodeNum'];
+        }
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
@@ -86,9 +89,6 @@ class data extends Model
                     $model->values[$n++] = null !== $item ? values::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['NodeNum'])) {
-            $model->nodeNum = $map['NodeNum'];
         }
 
         return $model;

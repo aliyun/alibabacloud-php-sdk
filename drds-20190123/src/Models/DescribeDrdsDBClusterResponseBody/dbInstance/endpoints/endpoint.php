@@ -16,16 +16,16 @@ class endpoint extends Model
     /**
      * @var string
      */
-    public $nodeIds;
+    public $endpointId;
 
     /**
      * @var string
      */
-    public $endpointId;
+    public $nodeIds;
     protected $_name = [
         'readWeight' => 'ReadWeight',
-        'nodeIds'    => 'NodeIds',
         'endpointId' => 'EndpointId',
+        'nodeIds'    => 'NodeIds',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class endpoint extends Model
         if (null !== $this->readWeight) {
             $res['ReadWeight'] = $this->readWeight;
         }
-        if (null !== $this->nodeIds) {
-            $res['NodeIds'] = $this->nodeIds;
-        }
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
+        }
+        if (null !== $this->nodeIds) {
+            $res['NodeIds'] = $this->nodeIds;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class endpoint extends Model
         if (isset($map['ReadWeight'])) {
             $model->readWeight = $map['ReadWeight'];
         }
-        if (isset($map['NodeIds'])) {
-            $model->nodeIds = $map['NodeIds'];
-        }
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
+        }
+        if (isset($map['NodeIds'])) {
+            $model->nodeIds = $map['NodeIds'];
         }
 
         return $model;

@@ -20,11 +20,6 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @var bool
-     */
-    public $noRole;
-
-    /**
      * @var tag[]
      */
     public $tag;
@@ -36,7 +31,6 @@ class TagResourcesRequest extends Model
     protected $_name = [
         'regionId'     => 'RegionId',
         'resourceType' => 'ResourceType',
-        'noRole'       => 'NoRole',
         'tag'          => 'Tag',
         'resourceId'   => 'ResourceId',
     ];
@@ -53,9 +47,6 @@ class TagResourcesRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->noRole) {
-            $res['NoRole'] = $this->noRole;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -86,9 +77,6 @@ class TagResourcesRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['NoRole'])) {
-            $model->noRole = $map['NoRole'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackMenuResponseBody;
 
-use AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackMenuResponseBody\list_\list_;
 use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
-     * @var list_[]
+     * @var \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackMenuResponseBody\list_\list_[]
      */
     public $list;
     protected $_name = [
@@ -40,7 +39,7 @@ class list_ extends Model
     /**
      * @param array $map
      *
-     * @return list
+     * @return list_
      */
     public static function fromMap($map = [])
     {
@@ -50,7 +49,7 @@ class list_ extends Model
                 $model->list = [];
                 $n           = 0;
                 foreach ($map['list'] as $item) {
-                    $model->list[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->list[$n++] = null !== $item ? \AlibabaCloud\SDK\Drds\V20190123\Models\DescribeBackMenuResponseBody\list_\list_::fromMap($item) : $item;
                 }
             }
         }

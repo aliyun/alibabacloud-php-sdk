@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupTimesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var restoreTime
      */
     public $restoreTime;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'success'     => 'Success',
+        'requestId'   => 'RequestId',
         'restoreTime' => 'RestoreTime',
     ];
 
@@ -36,11 +36,11 @@ class DescribeBackupTimesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = null !== $this->restoreTime ? $this->restoreTime->toMap() : null;
@@ -57,11 +57,11 @@ class DescribeBackupTimesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = restoreTime::fromMap($map['RestoreTime']);

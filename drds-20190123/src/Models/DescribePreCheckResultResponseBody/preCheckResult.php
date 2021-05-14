@@ -12,20 +12,20 @@ class preCheckResult extends Model
     /**
      * @var string
      */
-    public $state;
+    public $preCheckName;
 
     /**
      * @var string
      */
-    public $preCheckName;
+    public $state;
 
     /**
      * @var subCheckItems[]
      */
     public $subCheckItems;
     protected $_name = [
-        'state'         => 'State',
         'preCheckName'  => 'PreCheckName',
+        'state'         => 'State',
         'subCheckItems' => 'SubCheckItems',
     ];
 
@@ -36,11 +36,11 @@ class preCheckResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->preCheckName) {
             $res['PreCheckName'] = $this->preCheckName;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->subCheckItems) {
             $res['SubCheckItems'] = [];
@@ -63,11 +63,11 @@ class preCheckResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['PreCheckName'])) {
             $model->preCheckName = $map['PreCheckName'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['SubCheckItems'])) {
             if (!empty($map['SubCheckItems'])) {
