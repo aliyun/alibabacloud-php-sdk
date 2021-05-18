@@ -16,16 +16,16 @@ class CreateDocTranslateTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $taskId;
     protected $_name = [
         'status'    => 'Status',
-        'taskId'    => 'TaskId',
         'requestId' => 'RequestId',
+        'taskId'    => 'TaskId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class CreateDocTranslateTaskResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class CreateDocTranslateTaskResponseBody extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

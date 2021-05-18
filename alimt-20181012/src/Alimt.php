@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateDocTranslateTaskRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateDocTranslateTaskResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateImageTranslateTaskRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateImageTranslateTaskResponse;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetBatchTranslateRequest;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetBatchTranslateResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetDetectLanguageRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetDetectLanguageResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetDocTranslateTaskRequest;
@@ -27,6 +29,9 @@ use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTitleGenerateRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTitleGenerateResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTitleIntelligenceRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTitleIntelligenceResponse;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTranslateReportRequest;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetTranslateReportResponse;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetUserResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\OpenAlimtServiceRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\OpenAlimtServiceResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateCertificateAdvanceRequest;
@@ -41,9 +46,11 @@ use AlibabaCloud\SDK\Alimt\V20181012\Models\TranslateResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -175,13 +182,17 @@ class Alimt extends OpenApiClient
     public function createDocTranslateTaskAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new \AlibabaCloud\Tea\Rpc\Rpc\Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -205,29 +216,31 @@ class Alimt extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $createDocTranslateTaskReq = new CreateDocTranslateTaskRequest([]);
         OpenApiUtilClient::convert($request, $createDocTranslateTaskReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->fileUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $createDocTranslateTaskReq->fileUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->fileUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $createDocTranslateTaskReq->fileUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
         return $this->createDocTranslateTaskWithOptions($createDocTranslateTaskReq, $runtime);
     }
@@ -258,6 +271,34 @@ class Alimt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createImageTranslateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBatchTranslateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetBatchTranslateResponse
+     */
+    public function getBatchTranslateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetBatchTranslateResponse::fromMap($this->doRPCRequest('GetBatchTranslate', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetBatchTranslateRequest $request
+     *
+     * @return GetBatchTranslateResponse
+     */
+    public function getBatchTranslate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBatchTranslateWithOptions($request, $runtime);
     }
 
     /**
@@ -486,6 +527,56 @@ class Alimt extends OpenApiClient
     }
 
     /**
+     * @param GetTranslateReportRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTranslateReportResponse
+     */
+    public function getTranslateReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetTranslateReportResponse::fromMap($this->doRPCRequest('GetTranslateReport', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetTranslateReportRequest $request
+     *
+     * @return GetTranslateReportResponse
+     */
+    public function getTranslateReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTranslateReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUserResponse
+     */
+    public function getUserWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return GetUserResponse::fromMap($this->doRPCRequest('GetUser', '2018-10-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return GetUserResponse
+     */
+    public function getUser()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserWithOptions($runtime);
+    }
+
+    /**
      * @param OpenAlimtServiceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -578,13 +669,17 @@ class Alimt extends OpenApiClient
     public function translateCertificateAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId     = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $authConfig      = new \AlibabaCloud\Tea\Rpc\Rpc\Config([
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
-            'endpoint'        => 'openplatform.aliyuncs.com',
+            'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
@@ -608,29 +703,31 @@ class Alimt extends OpenApiClient
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $translateCertificateReq = new TranslateCertificateRequest([]);
         OpenApiUtilClient::convert($request, $translateCertificateReq);
-        $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-        $ossConfig->accessKeyId = $authResponse->accessKeyId;
-        $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
-        $ossClient              = new \AlibabaCloud\SDK\OSS\OSS($ossConfig);
-        $fileObj                = new FileField([
-            'filename'    => $authResponse->objectKey,
-            'content'     => $request->imageUrlObject,
-            'contentType' => '',
-        ]);
-        $ossHeader = new header([
-            'accessKeyId'         => $authResponse->accessKeyId,
-            'policy'              => $authResponse->encodedPolicy,
-            'signature'           => $authResponse->signature,
-            'key'                 => $authResponse->objectKey,
-            'file'                => $fileObj,
-            'successActionStatus' => '201',
-        ]);
-        $uploadRequest = new PostObjectRequest([
-            'bucketName' => $authResponse->bucket,
-            'header'     => $ossHeader,
-        ]);
-        $ossClient->postObject($uploadRequest, $ossRuntime);
-        $translateCertificateReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $translateCertificateReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
 
         return $this->translateCertificateWithOptions($translateCertificateReq, $runtime);
     }

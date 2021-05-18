@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\SDK\Alimt\V20181012\Models\GetImageTranslateTaskResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetImageTranslateTaskResponseBody extends Model
+class GetBatchTranslateResponseBody extends Model
 {
     /**
      * @var int
@@ -25,14 +24,14 @@ class GetImageTranslateTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data
+     * @var mixed[][]
      */
-    public $data;
+    public $translatedList;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'data'      => 'Data',
+        'code'           => 'Code',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
+        'translatedList' => 'TranslatedList',
     ];
 
     public function validate()
@@ -51,8 +50,8 @@ class GetImageTranslateTaskResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->translatedList) {
+            $res['TranslatedList'] = $this->translatedList;
         }
 
         return $res;
@@ -61,7 +60,7 @@ class GetImageTranslateTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetImageTranslateTaskResponseBody
+     * @return GetBatchTranslateResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -75,8 +74,10 @@ class GetImageTranslateTaskResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['TranslatedList'])) {
+            if (!empty($map['TranslatedList'])) {
+                $model->translatedList = $map['TranslatedList'];
+            }
         }
 
         return $model;

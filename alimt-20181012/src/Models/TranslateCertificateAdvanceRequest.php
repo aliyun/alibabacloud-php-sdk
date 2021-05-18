@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class TranslateCertificateAdvanceRequest extends Model
 {

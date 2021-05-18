@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Alimt\V20181012\Models;
 
-use AlibabaCloud\SDK\Alimt\V20181012\Models\GetImageTranslateTaskResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetImageTranslateTaskResponseBody extends Model
+class GetTranslateReportResponseBody extends Model
 {
     /**
      * @var int
@@ -22,17 +21,17 @@ class GetImageTranslateTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $data;
 
     /**
-     * @var data
+     * @var string
      */
-    public $data;
+    public $requestId;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
-        'requestId' => 'RequestId',
         'data'      => 'Data',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -48,11 +47,11 @@ class GetImageTranslateTaskResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -61,7 +60,7 @@ class GetImageTranslateTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetImageTranslateTaskResponseBody
+     * @return GetTranslateReportResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -72,11 +71,11 @@ class GetImageTranslateTaskResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

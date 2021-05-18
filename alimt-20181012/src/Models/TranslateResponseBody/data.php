@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $wordCount;
+    public $translated;
 
     /**
      * @var string
      */
-    public $translated;
+    public $wordCount;
     protected $_name = [
-        'wordCount'  => 'WordCount',
         'translated' => 'Translated',
+        'wordCount'  => 'WordCount',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->wordCount) {
-            $res['WordCount'] = $this->wordCount;
-        }
         if (null !== $this->translated) {
             $res['Translated'] = $this->translated;
+        }
+        if (null !== $this->wordCount) {
+            $res['WordCount'] = $this->wordCount;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WordCount'])) {
-            $model->wordCount = $map['WordCount'];
-        }
         if (isset($map['Translated'])) {
             $model->translated = $map['Translated'];
+        }
+        if (isset($map['WordCount'])) {
+            $model->wordCount = $map['WordCount'];
         }
 
         return $model;
