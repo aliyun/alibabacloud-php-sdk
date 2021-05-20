@@ -24,8 +24,6 @@ class GetDagRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dagId', $this->dagId, true);
-        Model::validateRequired('projectEnv', $this->projectEnv, true);
     }
 
     public function toMap()

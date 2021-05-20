@@ -57,23 +57,39 @@ class ListInstancesRequest extends Model
      * @var int
      */
     public $dagId;
+
+    /**
+     * @var string
+     */
+    public $bizdate;
+
+    /**
+     * @var string
+     */
+    public $beginBizdate;
+
+    /**
+     * @var string
+     */
+    public $endBizdate;
     protected $_name = [
-        'projectEnv'  => 'ProjectEnv',
-        'nodeId'      => 'NodeId',
-        'nodeName'    => 'NodeName',
-        'owner'       => 'Owner',
-        'projectId'   => 'ProjectId',
-        'bizName'     => 'BizName',
-        'programType' => 'ProgramType',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'dagId'       => 'DagId',
+        'projectEnv'   => 'ProjectEnv',
+        'nodeId'       => 'NodeId',
+        'nodeName'     => 'NodeName',
+        'owner'        => 'Owner',
+        'projectId'    => 'ProjectId',
+        'bizName'      => 'BizName',
+        'programType'  => 'ProgramType',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
+        'dagId'        => 'DagId',
+        'bizdate'      => 'Bizdate',
+        'beginBizdate' => 'BeginBizdate',
+        'endBizdate'   => 'EndBizdate',
     ];
 
     public function validate()
     {
-        Model::validateRequired('projectEnv', $this->projectEnv, true);
-        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()
@@ -108,6 +124,15 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
+        }
+        if (null !== $this->bizdate) {
+            $res['Bizdate'] = $this->bizdate;
+        }
+        if (null !== $this->beginBizdate) {
+            $res['BeginBizdate'] = $this->beginBizdate;
+        }
+        if (null !== $this->endBizdate) {
+            $res['EndBizdate'] = $this->endBizdate;
         }
 
         return $res;
@@ -150,6 +175,15 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
+        }
+        if (isset($map['Bizdate'])) {
+            $model->bizdate = $map['Bizdate'];
+        }
+        if (isset($map['BeginBizdate'])) {
+            $model->beginBizdate = $map['BeginBizdate'];
+        }
+        if (isset($map['EndBizdate'])) {
+            $model->endBizdate = $map['EndBizdate'];
         }
 
         return $model;

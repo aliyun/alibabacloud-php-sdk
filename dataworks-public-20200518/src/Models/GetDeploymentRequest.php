@@ -30,7 +30,6 @@ class GetDeploymentRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deploymentId', $this->deploymentId, true);
     }
 
     public function toMap()

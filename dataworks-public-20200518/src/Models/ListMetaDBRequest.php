@@ -17,15 +17,25 @@ class ListMetaDBRequest extends Model
      * @var string
      */
     public $dataSourceType;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
         'projectId'      => 'ProjectId',
         'dataSourceType' => 'DataSourceType',
+        'pageNum'        => 'PageNum',
+        'pageSize'       => 'PageSize',
     ];
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('dataSourceType', $this->dataSourceType, true);
     }
 
     public function toMap()
@@ -36,6 +46,12 @@ class ListMetaDBRequest extends Model
         }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -54,6 +70,12 @@ class ListMetaDBRequest extends Model
         }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

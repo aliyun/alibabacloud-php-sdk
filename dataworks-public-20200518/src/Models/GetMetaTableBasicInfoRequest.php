@@ -32,12 +32,18 @@ class GetMetaTableBasicInfoRequest extends Model
      * @var string
      */
     public $dataSourceType;
+
+    /**
+     * @var bool
+     */
+    public $extension;
     protected $_name = [
         'tableGuid'      => 'TableGuid',
         'clusterId'      => 'ClusterId',
         'databaseName'   => 'DatabaseName',
         'tableName'      => 'TableName',
         'dataSourceType' => 'DataSourceType',
+        'extension'      => 'Extension',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class GetMetaTableBasicInfoRequest extends Model
         }
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
+        }
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class GetMetaTableBasicInfoRequest extends Model
         }
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
+        }
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
         }
 
         return $model;

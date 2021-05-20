@@ -36,10 +36,6 @@ class RunTriggerNodeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('nodeId', $this->nodeId, true);
-        Model::validateRequired('cycleTime', $this->cycleTime, true);
-        Model::validateRequired('bizDate', $this->bizDate, true);
-        Model::validateRequired('appId', $this->appId, true);
     }
 
     public function toMap()

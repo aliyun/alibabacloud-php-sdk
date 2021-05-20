@@ -9,53 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DeleteConnectionResponse extends Model
 {
     /**
-     * @var bool
+     * @var string[]
      */
-    public $success;
+    public $headers;
 
     /**
-     * @var string
+     * @var DeleteConnectionResponseBody
      */
-    public $httpStatusCode;
-
-    /**
-     * @var bool
-     */
-    public $data;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $body;
     protected $_name = [
-        'success'        => 'Success',
-        'httpStatusCode' => 'HttpStatusCode',
-        'data'           => 'Data',
-        'requestId'      => 'RequestId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('success', $this->success, true);
-        Model::validateRequired('httpStatusCode', $this->httpStatusCode, true);
-        Model::validateRequired('data', $this->data, true);
-        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +49,11 @@ class DeleteConnectionResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['body'])) {
+            $model->body = DeleteConnectionResponseBody::fromMap($map['body']);
         }
 
         return $model;

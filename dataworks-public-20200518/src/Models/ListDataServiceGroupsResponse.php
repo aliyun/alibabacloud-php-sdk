@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceGroupsResponse\groupPagingResult;
 use AlibabaCloud\Tea\Model;
 
 class ListDataServiceGroupsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var groupPagingResult
+     * @var ListDataServiceGroupsResponseBody
      */
-    public $groupPagingResult;
+    public $body;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'groupPagingResult' => 'GroupPagingResult',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('groupPagingResult', $this->groupPagingResult, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->groupPagingResult) {
-            $res['GroupPagingResult'] = null !== $this->groupPagingResult ? $this->groupPagingResult->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class ListDataServiceGroupsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['GroupPagingResult'])) {
-            $model->groupPagingResult = groupPagingResult::fromMap($map['GroupPagingResult']);
+        if (isset($map['body'])) {
+            $model->body = ListDataServiceGroupsResponseBody::fromMap($map['body']);
         }
 
         return $model;

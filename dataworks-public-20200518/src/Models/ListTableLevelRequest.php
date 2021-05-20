@@ -17,15 +17,25 @@ class ListTableLevelRequest extends Model
      * @var int
      */
     public $levelType;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
         'projectId' => 'ProjectId',
         'levelType' => 'LevelType',
+        'pageNum'   => 'PageNum',
+        'pageSize'  => 'PageSize',
     ];
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('levelType', $this->levelType, true);
     }
 
     public function toMap()
@@ -36,6 +46,12 @@ class ListTableLevelRequest extends Model
         }
         if (null !== $this->levelType) {
             $res['LevelType'] = $this->levelType;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -54,6 +70,12 @@ class ListTableLevelRequest extends Model
         }
         if (isset($map['LevelType'])) {
             $model->levelType = $map['LevelType'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

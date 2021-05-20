@@ -17,14 +17,19 @@ class ListResourceGroupsRequest extends Model
      * @var string
      */
     public $keyword;
+
+    /**
+     * @var string
+     */
+    public $bizExtKey;
     protected $_name = [
         'resourceGroupType' => 'ResourceGroupType',
         'keyword'           => 'Keyword',
+        'bizExtKey'         => 'BizExtKey',
     ];
 
     public function validate()
     {
-        Model::validateRequired('resourceGroupType', $this->resourceGroupType, true);
     }
 
     public function toMap()
@@ -35,6 +40,9 @@ class ListResourceGroupsRequest extends Model
         }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
+        }
+        if (null !== $this->bizExtKey) {
+            $res['BizExtKey'] = $this->bizExtKey;
         }
 
         return $res;
@@ -53,6 +61,9 @@ class ListResourceGroupsRequest extends Model
         }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
+        }
+        if (isset($map['BizExtKey'])) {
+            $model->bizExtKey = $map['BizExtKey'];
         }
 
         return $model;

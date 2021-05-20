@@ -13,16 +13,6 @@ class CreateTableRequest extends Model
     /**
      * @var int
      */
-    public $hasPart;
-
-    /**
-     * @var columns[]
-     */
-    public $columns;
-
-    /**
-     * @var int
-     */
     public $isView;
 
     /**
@@ -81,11 +71,6 @@ class CreateTableRequest extends Model
     public $envType;
 
     /**
-     * @var themes[]
-     */
-    public $themes;
-
-    /**
      * @var string
      */
     public $appGuid;
@@ -94,9 +79,32 @@ class CreateTableRequest extends Model
      * @var string
      */
     public $comment;
+
+    /**
+     * @var string
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $hasPart;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var columns[]
+     */
+    public $columns;
+
+    /**
+     * @var themes[]
+     */
+    public $themes;
     protected $_name = [
-        'hasPart'           => 'HasPart',
-        'columns'           => 'Columns',
         'isView'            => 'IsView',
         'visibility'        => 'Visibility',
         'lifeCycle'         => 'LifeCycle',
@@ -109,32 +117,22 @@ class CreateTableRequest extends Model
         'tableName'         => 'TableName',
         'endpoint'          => 'Endpoint',
         'envType'           => 'EnvType',
-        'themes'            => 'Themes',
         'appGuid'           => 'AppGuid',
         'comment'           => 'Comment',
+        'ownerId'           => 'OwnerId',
+        'hasPart'           => 'HasPart',
+        'clientToken'       => 'ClientToken',
+        'columns'           => 'Columns',
+        'themes'            => 'Themes',
     ];
 
     public function validate()
     {
-        Model::validateRequired('columns', $this->columns, true);
-        Model::validateRequired('tableName', $this->tableName, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hasPart) {
-            $res['HasPart'] = $this->hasPart;
-        }
-        if (null !== $this->columns) {
-            $res['Columns'] = [];
-            if (null !== $this->columns && \is_array($this->columns)) {
-                $n = 0;
-                foreach ($this->columns as $item) {
-                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->isView) {
             $res['IsView'] = $this->isView;
         }
@@ -171,6 +169,30 @@ class CreateTableRequest extends Model
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
+        if (null !== $this->appGuid) {
+            $res['AppGuid'] = $this->appGuid;
+        }
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->hasPart) {
+            $res['HasPart'] = $this->hasPart;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->columns) {
+            $res['Columns'] = [];
+            if (null !== $this->columns && \is_array($this->columns)) {
+                $n = 0;
+                foreach ($this->columns as $item) {
+                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->themes) {
             $res['Themes'] = [];
             if (null !== $this->themes && \is_array($this->themes)) {
@@ -179,12 +201,6 @@ class CreateTableRequest extends Model
                     $res['Themes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->appGuid) {
-            $res['AppGuid'] = $this->appGuid;
-        }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
         }
 
         return $res;
@@ -198,18 +214,6 @@ class CreateTableRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HasPart'])) {
-            $model->hasPart = $map['HasPart'];
-        }
-        if (isset($map['Columns'])) {
-            if (!empty($map['Columns'])) {
-                $model->columns = [];
-                $n              = 0;
-                foreach ($map['Columns'] as $item) {
-                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['IsView'])) {
             $model->isView = $map['IsView'];
         }
@@ -246,6 +250,30 @@ class CreateTableRequest extends Model
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
+        if (isset($map['AppGuid'])) {
+            $model->appGuid = $map['AppGuid'];
+        }
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['HasPart'])) {
+            $model->hasPart = $map['HasPart'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Columns'])) {
+            if (!empty($map['Columns'])) {
+                $model->columns = [];
+                $n              = 0;
+                foreach ($map['Columns'] as $item) {
+                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Themes'])) {
             if (!empty($map['Themes'])) {
                 $model->themes = [];
@@ -254,12 +282,6 @@ class CreateTableRequest extends Model
                     $model->themes[$n++] = null !== $item ? themes::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['AppGuid'])) {
-            $model->appGuid = $map['AppGuid'];
-        }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
         }
 
         return $model;

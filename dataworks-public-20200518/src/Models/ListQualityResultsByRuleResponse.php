@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityResultsByRuleResponse\qualityResults;
 use AlibabaCloud\Tea\Model;
 
 class ListQualityResultsByRuleResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var qualityResults
+     * @var ListQualityResultsByRuleResponseBody
      */
-    public $qualityResults;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'qualityResults' => 'QualityResults',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('qualityResults', $this->qualityResults, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->qualityResults) {
-            $res['QualityResults'] = null !== $this->qualityResults ? $this->qualityResults->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class ListQualityResultsByRuleResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['QualityResults'])) {
-            $model->qualityResults = qualityResults::fromMap($map['QualityResults']);
+        if (isset($map['body'])) {
+            $model->body = ListQualityResultsByRuleResponseBody::fromMap($map['body']);
         }
 
         return $model;

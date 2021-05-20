@@ -122,6 +122,11 @@ class CreateFileRequest extends Model
      * @var string
      */
     public $connectionName;
+
+    /**
+     * @var bool
+     */
+    public $autoParsing;
     protected $_name = [
         'fileFolderPath'          => 'FileFolderPath',
         'projectId'               => 'ProjectId',
@@ -146,13 +151,11 @@ class CreateFileRequest extends Model
         'resourceGroupIdentifier' => 'ResourceGroupIdentifier',
         'resourceGroupId'         => 'ResourceGroupId',
         'connectionName'          => 'ConnectionName',
+        'autoParsing'             => 'AutoParsing',
     ];
 
     public function validate()
     {
-        Model::validateRequired('fileName', $this->fileName, true);
-        Model::validateRequired('fileType', $this->fileType, true);
-        Model::validateRequired('inputList', $this->inputList, true);
     }
 
     public function toMap()
@@ -226,6 +229,9 @@ class CreateFileRequest extends Model
         }
         if (null !== $this->connectionName) {
             $res['ConnectionName'] = $this->connectionName;
+        }
+        if (null !== $this->autoParsing) {
+            $res['AutoParsing'] = $this->autoParsing;
         }
 
         return $res;
@@ -307,6 +313,9 @@ class CreateFileRequest extends Model
         }
         if (isset($map['ConnectionName'])) {
             $model->connectionName = $map['ConnectionName'];
+        }
+        if (isset($map['AutoParsing'])) {
+            $model->autoParsing = $map['AutoParsing'];
         }
 
         return $model;

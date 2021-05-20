@@ -36,8 +36,6 @@ class GetFileVersionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('fileId', $this->fileId, true);
-        Model::validateRequired('fileVersion', $this->fileVersion, true);
     }
 
     public function toMap()

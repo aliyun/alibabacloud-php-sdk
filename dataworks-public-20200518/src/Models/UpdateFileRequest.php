@@ -122,6 +122,11 @@ class UpdateFileRequest extends Model
      * @var string
      */
     public $owner;
+
+    /**
+     * @var bool
+     */
+    public $autoParsing;
     protected $_name = [
         'fileFolderPath'          => 'FileFolderPath',
         'projectId'               => 'ProjectId',
@@ -146,11 +151,11 @@ class UpdateFileRequest extends Model
         'resourceGroupIdentifier' => 'ResourceGroupIdentifier',
         'connectionName'          => 'ConnectionName',
         'owner'                   => 'Owner',
+        'autoParsing'             => 'AutoParsing',
     ];
 
     public function validate()
     {
-        Model::validateRequired('fileId', $this->fileId, true);
     }
 
     public function toMap()
@@ -224,6 +229,9 @@ class UpdateFileRequest extends Model
         }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->autoParsing) {
+            $res['AutoParsing'] = $this->autoParsing;
         }
 
         return $res;
@@ -305,6 +313,9 @@ class UpdateFileRequest extends Model
         }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
+        }
+        if (isset($map['AutoParsing'])) {
+            $model->autoParsing = $map['AutoParsing'];
         }
 
         return $model;

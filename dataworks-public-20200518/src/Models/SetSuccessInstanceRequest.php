@@ -24,8 +24,6 @@ class SetSuccessInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('projectEnv', $this->projectEnv, true);
     }
 
     public function toMap()
