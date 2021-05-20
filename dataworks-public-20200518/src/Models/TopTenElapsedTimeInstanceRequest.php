@@ -24,6 +24,8 @@ class TopTenElapsedTimeInstanceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('businessDate', $this->businessDate, true);
     }
 
     public function toMap()

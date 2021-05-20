@@ -12,7 +12,7 @@ class applyObject extends Model
     /**
      * @var string
      */
-    public $actions;
+    public $name;
 
     /**
      * @var columnMetaList[]
@@ -22,22 +22,25 @@ class applyObject extends Model
     /**
      * @var string
      */
-    public $name;
+    public $actions;
     protected $_name = [
-        'actions'        => 'Actions',
-        'columnMetaList' => 'ColumnMetaList',
         'name'           => 'Name',
+        'columnMetaList' => 'ColumnMetaList',
+        'actions'        => 'Actions',
     ];
 
     public function validate()
     {
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('columnMetaList', $this->columnMetaList, true);
+        Model::validateRequired('actions', $this->actions, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->actions) {
-            $res['Actions'] = $this->actions;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->columnMetaList) {
             $res['ColumnMetaList'] = [];
@@ -48,8 +51,8 @@ class applyObject extends Model
                 }
             }
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->actions) {
+            $res['Actions'] = $this->actions;
         }
 
         return $res;
@@ -63,8 +66,8 @@ class applyObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Actions'])) {
-            $model->actions = $map['Actions'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['ColumnMetaList'])) {
             if (!empty($map['ColumnMetaList'])) {
@@ -75,8 +78,8 @@ class applyObject extends Model
                 }
             }
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Actions'])) {
+            $model->actions = $map['Actions'];
         }
 
         return $model;

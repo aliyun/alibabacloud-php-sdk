@@ -42,6 +42,7 @@ class UpdateTableModelInfoRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('tableGuid', $this->tableGuid, true);
     }
 
     public function toMap()

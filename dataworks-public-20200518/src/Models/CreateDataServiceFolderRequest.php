@@ -42,6 +42,11 @@ class CreateDataServiceFolderRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('tenantId', $this->tenantId, true);
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('folderName', $this->folderName, true);
+        Model::validateRequired('parentId', $this->parentId, true);
+        Model::validateRequired('groupId', $this->groupId, true);
     }
 
     public function toMap()

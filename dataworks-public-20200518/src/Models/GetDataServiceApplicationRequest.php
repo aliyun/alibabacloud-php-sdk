@@ -30,6 +30,9 @@ class GetDataServiceApplicationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('tenantId', $this->tenantId, true);
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('applicationId', $this->applicationId, true);
     }
 
     public function toMap()

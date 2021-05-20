@@ -9,33 +9,73 @@ use AlibabaCloud\Tea\Model;
 class SubmitFileResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $requestId;
 
     /**
-     * @var SubmitFileResponseBody
+     * @var bool
      */
-    public $body;
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $data;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
+        'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
+        'data'           => 'Data',
+        'httpStatusCode' => 'HttpStatusCode',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('success', $this->success, true);
+        Model::validateRequired('errorCode', $this->errorCode, true);
+        Model::validateRequired('errorMessage', $this->errorMessage, true);
+        Model::validateRequired('data', $this->data, true);
+        Model::validateRequired('httpStatusCode', $this->httpStatusCode, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
 
         return $res;
@@ -49,11 +89,23 @@ class SubmitFileResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['body'])) {
-            $model->body = SubmitFileResponseBody::fromMap($map['body']);
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
 
         return $model;

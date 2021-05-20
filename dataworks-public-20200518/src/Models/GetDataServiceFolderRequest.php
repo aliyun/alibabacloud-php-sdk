@@ -30,6 +30,9 @@ class GetDataServiceFolderRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('tenantId', $this->tenantId, true);
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('folderId', $this->folderId, true);
     }
 
     public function toMap()

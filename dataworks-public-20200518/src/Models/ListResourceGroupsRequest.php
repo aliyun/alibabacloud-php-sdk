@@ -30,6 +30,7 @@ class ListResourceGroupsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('resourceGroupType', $this->resourceGroupType, true);
     }
 
     public function toMap()

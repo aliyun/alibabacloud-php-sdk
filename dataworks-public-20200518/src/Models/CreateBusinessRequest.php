@@ -48,6 +48,7 @@ class CreateBusinessRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('businessName', $this->businessName, true);
     }
 
     public function toMap()

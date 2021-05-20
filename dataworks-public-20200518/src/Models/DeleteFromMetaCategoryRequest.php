@@ -24,6 +24,8 @@ class DeleteFromMetaCategoryRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('categoryId', $this->categoryId, true);
+        Model::validateRequired('tableGuid', $this->tableGuid, true);
     }
 
     public function toMap()

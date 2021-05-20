@@ -60,6 +60,14 @@ class DeleteQualityRelativeNodeRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('envType', $this->envType, true);
+        Model::validateRequired('matchExpression', $this->matchExpression, true);
+        Model::validateRequired('nodeId', $this->nodeId, true);
+        Model::validateRequired('projectId', $this->projectId, true);
+        Model::validateRequired('targetNodeProjectName', $this->targetNodeProjectName, true);
+        Model::validateRequired('projectName', $this->projectName, true);
+        Model::validateRequired('tableName', $this->tableName, true);
+        Model::validateRequired('targetNodeProjectId', $this->targetNodeProjectId, true);
     }
 
     public function toMap()

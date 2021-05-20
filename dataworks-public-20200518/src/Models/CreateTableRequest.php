@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateTableRequest extends Model
 {
     /**
+     * @var columns[]
+     */
+    public $columns;
+
+    /**
      * @var int
      */
     public $isView;
@@ -71,6 +76,11 @@ class CreateTableRequest extends Model
     public $envType;
 
     /**
+     * @var themes[]
+     */
+    public $themes;
+
+    /**
      * @var string
      */
     public $appGuid;
@@ -94,17 +104,8 @@ class CreateTableRequest extends Model
      * @var string
      */
     public $clientToken;
-
-    /**
-     * @var columns[]
-     */
-    public $columns;
-
-    /**
-     * @var themes[]
-     */
-    public $themes;
     protected $_name = [
+        'columns'           => 'Columns',
         'isView'            => 'IsView',
         'visibility'        => 'Visibility',
         'lifeCycle'         => 'LifeCycle',
@@ -117,22 +118,32 @@ class CreateTableRequest extends Model
         'tableName'         => 'TableName',
         'endpoint'          => 'Endpoint',
         'envType'           => 'EnvType',
+        'themes'            => 'Themes',
         'appGuid'           => 'AppGuid',
         'comment'           => 'Comment',
         'ownerId'           => 'OwnerId',
         'hasPart'           => 'HasPart',
         'clientToken'       => 'ClientToken',
-        'columns'           => 'Columns',
-        'themes'            => 'Themes',
     ];
 
     public function validate()
     {
+        Model::validateRequired('columns', $this->columns, true);
+        Model::validateRequired('tableName', $this->tableName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->columns) {
+            $res['Columns'] = [];
+            if (null !== $this->columns && \is_array($this->columns)) {
+                $n = 0;
+                foreach ($this->columns as $item) {
+                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->isView) {
             $res['IsView'] = $this->isView;
         }
@@ -169,6 +180,15 @@ class CreateTableRequest extends Model
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
+        if (null !== $this->themes) {
+            $res['Themes'] = [];
+            if (null !== $this->themes && \is_array($this->themes)) {
+                $n = 0;
+                foreach ($this->themes as $item) {
+                    $res['Themes'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->appGuid) {
             $res['AppGuid'] = $this->appGuid;
         }
@@ -184,24 +204,6 @@ class CreateTableRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->columns) {
-            $res['Columns'] = [];
-            if (null !== $this->columns && \is_array($this->columns)) {
-                $n = 0;
-                foreach ($this->columns as $item) {
-                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->themes) {
-            $res['Themes'] = [];
-            if (null !== $this->themes && \is_array($this->themes)) {
-                $n = 0;
-                foreach ($this->themes as $item) {
-                    $res['Themes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
 
         return $res;
     }
@@ -214,6 +216,15 @@ class CreateTableRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Columns'])) {
+            if (!empty($map['Columns'])) {
+                $model->columns = [];
+                $n              = 0;
+                foreach ($map['Columns'] as $item) {
+                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['IsView'])) {
             $model->isView = $map['IsView'];
         }
@@ -250,6 +261,15 @@ class CreateTableRequest extends Model
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
+        if (isset($map['Themes'])) {
+            if (!empty($map['Themes'])) {
+                $model->themes = [];
+                $n             = 0;
+                foreach ($map['Themes'] as $item) {
+                    $model->themes[$n++] = null !== $item ? themes::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['AppGuid'])) {
             $model->appGuid = $map['AppGuid'];
         }
@@ -264,24 +284,6 @@ class CreateTableRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['Columns'])) {
-            if (!empty($map['Columns'])) {
-                $model->columns = [];
-                $n              = 0;
-                foreach ($map['Columns'] as $item) {
-                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Themes'])) {
-            if (!empty($map['Themes'])) {
-                $model->themes = [];
-                $n             = 0;
-                foreach ($map['Themes'] as $item) {
-                    $model->themes[$n++] = null !== $item ? themes::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

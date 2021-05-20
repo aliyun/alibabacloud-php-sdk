@@ -78,6 +78,13 @@ class RunCycleDagNodesRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectEnv', $this->projectEnv, true);
+        Model::validateRequired('startBizDate', $this->startBizDate, true);
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('rootNodeId', $this->rootNodeId, true);
+        Model::validateRequired('includeNodeIds', $this->includeNodeIds, true);
+        Model::validateRequired('parallelism', $this->parallelism, true);
+        Model::validateRequired('endBizDate', $this->endBizDate, true);
     }
 
     public function toMap()

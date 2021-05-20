@@ -48,6 +48,7 @@ class CheckMetaPartitionRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('partition', $this->partition, true);
     }
 
     public function toMap()

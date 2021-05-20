@@ -42,6 +42,9 @@ class GetMetaTableOutputRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('tableGuid', $this->tableGuid, true);
+        Model::validateRequired('startDate', $this->startDate, true);
+        Model::validateRequired('endDate', $this->endDate, true);
     }
 
     public function toMap()

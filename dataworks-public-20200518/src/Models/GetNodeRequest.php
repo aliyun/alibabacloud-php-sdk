@@ -24,6 +24,8 @@ class GetNodeRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('nodeId', $this->nodeId, true);
+        Model::validateRequired('projectEnv', $this->projectEnv, true);
     }
 
     public function toMap()

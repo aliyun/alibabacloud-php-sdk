@@ -18,6 +18,7 @@ class DeleteRemindRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('remindId', $this->remindId, true);
     }
 
     public function toMap()

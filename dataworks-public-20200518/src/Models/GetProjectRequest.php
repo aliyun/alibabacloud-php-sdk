@@ -18,6 +18,7 @@ class GetProjectRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

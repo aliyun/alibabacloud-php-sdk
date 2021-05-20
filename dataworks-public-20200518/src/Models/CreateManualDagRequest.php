@@ -48,6 +48,10 @@ class CreateManualDagRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectEnv', $this->projectEnv, true);
+        Model::validateRequired('projectName', $this->projectName, true);
+        Model::validateRequired('flowName', $this->flowName, true);
+        Model::validateRequired('bizDate', $this->bizDate, true);
     }
 
     public function toMap()

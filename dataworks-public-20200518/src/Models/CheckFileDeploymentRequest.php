@@ -30,6 +30,8 @@ class CheckFileDeploymentRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('checkerInstanceId', $this->checkerInstanceId, true);
+        Model::validateRequired('status', $this->status, true);
     }
 
     public function toMap()
