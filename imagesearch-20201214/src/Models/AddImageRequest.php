@@ -14,11 +14,6 @@ class AddImageRequest extends Model
     public $instanceName;
 
     /**
-     * @var int
-     */
-    public $categoryId;
-
-    /**
      * @var string
      */
     public $productId;
@@ -32,6 +27,11 @@ class AddImageRequest extends Model
      * @var string
      */
     public $picContent;
+
+    /**
+     * @var int
+     */
+    public $categoryId;
 
     /**
      * @var bool
@@ -59,10 +59,10 @@ class AddImageRequest extends Model
     public $strAttr;
     protected $_name = [
         'instanceName'  => 'InstanceName',
-        'categoryId'    => 'CategoryId',
         'productId'     => 'ProductId',
         'picName'       => 'PicName',
         'picContent'    => 'PicContent',
+        'categoryId'    => 'CategoryId',
         'crop'          => 'Crop',
         'region'        => 'Region',
         'customContent' => 'CustomContent',
@@ -80,9 +80,6 @@ class AddImageRequest extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
-        }
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
         }
@@ -91,6 +88,9 @@ class AddImageRequest extends Model
         }
         if (null !== $this->picContent) {
             $res['PicContent'] = $this->picContent;
+        }
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->crop) {
             $res['Crop'] = $this->crop;
@@ -122,9 +122,6 @@ class AddImageRequest extends Model
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
-        }
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
         }
@@ -133,6 +130,9 @@ class AddImageRequest extends Model
         }
         if (isset($map['PicContent'])) {
             $model->picContent = $map['PicContent'];
+        }
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['Crop'])) {
             $model->crop = $map['Crop'];
