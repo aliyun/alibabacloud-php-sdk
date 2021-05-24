@@ -46,17 +46,7 @@ class StopLoadBalancerListenerRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
     public $listenerProtocol;
-
-    /**
-     * @var string
-     */
-    public $tags;
     protected $_name = [
         'regionId'             => 'RegionId',
         'ownerId'              => 'OwnerId',
@@ -65,9 +55,7 @@ class StopLoadBalancerListenerRequest extends Model
         'loadBalancerId'       => 'LoadBalancerId',
         'listenerPort'         => 'ListenerPort',
         'ownerAccount'         => 'OwnerAccount',
-        'accessKeyId'          => 'access_key_id',
         'listenerProtocol'     => 'ListenerProtocol',
-        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -98,14 +86,8 @@ class StopLoadBalancerListenerRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
         if (null !== $this->listenerProtocol) {
             $res['ListenerProtocol'] = $this->listenerProtocol;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -140,14 +122,8 @@ class StopLoadBalancerListenerRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
         if (isset($map['ListenerProtocol'])) {
             $model->listenerProtocol = $map['ListenerProtocol'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
 
         return $model;

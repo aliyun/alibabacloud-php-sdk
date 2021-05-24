@@ -11,17 +11,27 @@ class DescribeRuleAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $cookie;
-
-    /**
-     * @var int
-     */
-    public $cookieTimeout;
+    public $healthCheckHttpCode;
 
     /**
      * @var string
      */
     public $VServerGroupId;
+
+    /**
+     * @var string
+     */
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $cookie;
+
+    /**
+     * @var string
+     */
+    public $loadBalancerId;
 
     /**
      * @var string
@@ -36,12 +46,7 @@ class DescribeRuleAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $unhealthyThreshold;
+    public $url;
 
     /**
      * @var string
@@ -51,7 +56,12 @@ class DescribeRuleAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $scheduler;
+    public $stickySessionType;
+
+    /**
+     * @var string
+     */
+    public $ruleName;
 
     /**
      * @var string
@@ -59,14 +69,19 @@ class DescribeRuleAttributeResponseBody extends Model
     public $ruleId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $healthCheck;
+    public $healthCheckConnectPort;
 
     /**
      * @var string
      */
-    public $loadBalancerId;
+    public $scheduler;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
@@ -76,17 +91,7 @@ class DescribeRuleAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $url;
-
-    /**
-     * @var string
-     */
-    public $stickySession;
-
-    /**
-     * @var int
-     */
-    public $healthCheckConnectPort;
+    public $listenerSync;
 
     /**
      * @var int
@@ -94,9 +99,9 @@ class DescribeRuleAttributeResponseBody extends Model
     public $healthyThreshold;
 
     /**
-     * @var string
+     * @var int
      */
-    public $listenerSync;
+    public $cookieTimeout;
 
     /**
      * @var string
@@ -104,48 +109,43 @@ class DescribeRuleAttributeResponseBody extends Model
     public $healthCheckDomain;
 
     /**
-     * @var string
+     * @var int
      */
-    public $stickySessionType;
+    public $unhealthyThreshold;
 
     /**
      * @var string
      */
-    public $domain;
+    public $stickySession;
 
     /**
      * @var string
      */
-    public $healthCheckHttpCode;
-
-    /**
-     * @var string
-     */
-    public $ruleName;
+    public $healthCheck;
     protected $_name = [
-        'cookie'                 => 'Cookie',
-        'cookieTimeout'          => 'CookieTimeout',
+        'healthCheckHttpCode'    => 'HealthCheckHttpCode',
         'VServerGroupId'         => 'VServerGroupId',
+        'domain'                 => 'Domain',
+        'cookie'                 => 'Cookie',
+        'loadBalancerId'         => 'LoadBalancerId',
         'listenerPort'           => 'ListenerPort',
         'healthCheckInterval'    => 'HealthCheckInterval',
-        'requestId'              => 'RequestId',
-        'unhealthyThreshold'     => 'UnhealthyThreshold',
-        'healthCheckURI'         => 'HealthCheckURI',
-        'scheduler'              => 'Scheduler',
-        'ruleId'                 => 'RuleId',
-        'healthCheck'            => 'HealthCheck',
-        'loadBalancerId'         => 'LoadBalancerId',
-        'healthCheckTimeout'     => 'HealthCheckTimeout',
         'url'                    => 'Url',
-        'stickySession'          => 'StickySession',
-        'healthCheckConnectPort' => 'HealthCheckConnectPort',
-        'healthyThreshold'       => 'HealthyThreshold',
-        'listenerSync'           => 'ListenerSync',
-        'healthCheckDomain'      => 'HealthCheckDomain',
+        'healthCheckURI'         => 'HealthCheckURI',
         'stickySessionType'      => 'StickySessionType',
-        'domain'                 => 'Domain',
-        'healthCheckHttpCode'    => 'HealthCheckHttpCode',
         'ruleName'               => 'RuleName',
+        'ruleId'                 => 'RuleId',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
+        'scheduler'              => 'Scheduler',
+        'requestId'              => 'RequestId',
+        'healthCheckTimeout'     => 'HealthCheckTimeout',
+        'listenerSync'           => 'ListenerSync',
+        'healthyThreshold'       => 'HealthyThreshold',
+        'cookieTimeout'          => 'CookieTimeout',
+        'healthCheckDomain'      => 'HealthCheckDomain',
+        'unhealthyThreshold'     => 'UnhealthyThreshold',
+        'stickySession'          => 'StickySession',
+        'healthCheck'            => 'HealthCheck',
     ];
 
     public function validate()
@@ -155,14 +155,20 @@ class DescribeRuleAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cookie) {
-            $res['Cookie'] = $this->cookie;
-        }
-        if (null !== $this->cookieTimeout) {
-            $res['CookieTimeout'] = $this->cookieTimeout;
+        if (null !== $this->healthCheckHttpCode) {
+            $res['HealthCheckHttpCode'] = $this->healthCheckHttpCode;
         }
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->cookie) {
+            $res['Cookie'] = $this->cookie;
+        }
+        if (null !== $this->loadBalancerId) {
+            $res['LoadBalancerId'] = $this->loadBalancerId;
         }
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
@@ -170,59 +176,53 @@ class DescribeRuleAttributeResponseBody extends Model
         if (null !== $this->healthCheckInterval) {
             $res['HealthCheckInterval'] = $this->healthCheckInterval;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->unhealthyThreshold) {
-            $res['UnhealthyThreshold'] = $this->unhealthyThreshold;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
         if (null !== $this->healthCheckURI) {
             $res['HealthCheckURI'] = $this->healthCheckURI;
         }
-        if (null !== $this->scheduler) {
-            $res['Scheduler'] = $this->scheduler;
+        if (null !== $this->stickySessionType) {
+            $res['StickySessionType'] = $this->stickySessionType;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
-        if (null !== $this->healthCheck) {
-            $res['HealthCheck'] = $this->healthCheck;
+        if (null !== $this->healthCheckConnectPort) {
+            $res['HealthCheckConnectPort'] = $this->healthCheckConnectPort;
         }
-        if (null !== $this->loadBalancerId) {
-            $res['LoadBalancerId'] = $this->loadBalancerId;
+        if (null !== $this->scheduler) {
+            $res['Scheduler'] = $this->scheduler;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->healthCheckTimeout) {
             $res['HealthCheckTimeout'] = $this->healthCheckTimeout;
         }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
-        if (null !== $this->stickySession) {
-            $res['StickySession'] = $this->stickySession;
-        }
-        if (null !== $this->healthCheckConnectPort) {
-            $res['HealthCheckConnectPort'] = $this->healthCheckConnectPort;
+        if (null !== $this->listenerSync) {
+            $res['ListenerSync'] = $this->listenerSync;
         }
         if (null !== $this->healthyThreshold) {
             $res['HealthyThreshold'] = $this->healthyThreshold;
         }
-        if (null !== $this->listenerSync) {
-            $res['ListenerSync'] = $this->listenerSync;
+        if (null !== $this->cookieTimeout) {
+            $res['CookieTimeout'] = $this->cookieTimeout;
         }
         if (null !== $this->healthCheckDomain) {
             $res['HealthCheckDomain'] = $this->healthCheckDomain;
         }
-        if (null !== $this->stickySessionType) {
-            $res['StickySessionType'] = $this->stickySessionType;
+        if (null !== $this->unhealthyThreshold) {
+            $res['UnhealthyThreshold'] = $this->unhealthyThreshold;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
+        if (null !== $this->stickySession) {
+            $res['StickySession'] = $this->stickySession;
         }
-        if (null !== $this->healthCheckHttpCode) {
-            $res['HealthCheckHttpCode'] = $this->healthCheckHttpCode;
-        }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
+        if (null !== $this->healthCheck) {
+            $res['HealthCheck'] = $this->healthCheck;
         }
 
         return $res;
@@ -236,14 +236,20 @@ class DescribeRuleAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Cookie'])) {
-            $model->cookie = $map['Cookie'];
-        }
-        if (isset($map['CookieTimeout'])) {
-            $model->cookieTimeout = $map['CookieTimeout'];
+        if (isset($map['HealthCheckHttpCode'])) {
+            $model->healthCheckHttpCode = $map['HealthCheckHttpCode'];
         }
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['Cookie'])) {
+            $model->cookie = $map['Cookie'];
+        }
+        if (isset($map['LoadBalancerId'])) {
+            $model->loadBalancerId = $map['LoadBalancerId'];
         }
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
@@ -251,59 +257,53 @@ class DescribeRuleAttributeResponseBody extends Model
         if (isset($map['HealthCheckInterval'])) {
             $model->healthCheckInterval = $map['HealthCheckInterval'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['UnhealthyThreshold'])) {
-            $model->unhealthyThreshold = $map['UnhealthyThreshold'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
         if (isset($map['HealthCheckURI'])) {
             $model->healthCheckURI = $map['HealthCheckURI'];
         }
-        if (isset($map['Scheduler'])) {
-            $model->scheduler = $map['Scheduler'];
+        if (isset($map['StickySessionType'])) {
+            $model->stickySessionType = $map['StickySessionType'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
-        if (isset($map['HealthCheck'])) {
-            $model->healthCheck = $map['HealthCheck'];
+        if (isset($map['HealthCheckConnectPort'])) {
+            $model->healthCheckConnectPort = $map['HealthCheckConnectPort'];
         }
-        if (isset($map['LoadBalancerId'])) {
-            $model->loadBalancerId = $map['LoadBalancerId'];
+        if (isset($map['Scheduler'])) {
+            $model->scheduler = $map['Scheduler'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['HealthCheckTimeout'])) {
             $model->healthCheckTimeout = $map['HealthCheckTimeout'];
         }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
-        if (isset($map['StickySession'])) {
-            $model->stickySession = $map['StickySession'];
-        }
-        if (isset($map['HealthCheckConnectPort'])) {
-            $model->healthCheckConnectPort = $map['HealthCheckConnectPort'];
+        if (isset($map['ListenerSync'])) {
+            $model->listenerSync = $map['ListenerSync'];
         }
         if (isset($map['HealthyThreshold'])) {
             $model->healthyThreshold = $map['HealthyThreshold'];
         }
-        if (isset($map['ListenerSync'])) {
-            $model->listenerSync = $map['ListenerSync'];
+        if (isset($map['CookieTimeout'])) {
+            $model->cookieTimeout = $map['CookieTimeout'];
         }
         if (isset($map['HealthCheckDomain'])) {
             $model->healthCheckDomain = $map['HealthCheckDomain'];
         }
-        if (isset($map['StickySessionType'])) {
-            $model->stickySessionType = $map['StickySessionType'];
+        if (isset($map['UnhealthyThreshold'])) {
+            $model->unhealthyThreshold = $map['UnhealthyThreshold'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
+        if (isset($map['StickySession'])) {
+            $model->stickySession = $map['StickySession'];
         }
-        if (isset($map['HealthCheckHttpCode'])) {
-            $model->healthCheckHttpCode = $map['HealthCheckHttpCode'];
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
+        if (isset($map['HealthCheck'])) {
+            $model->healthCheck = $map['HealthCheck'];
         }
 
         return $model;

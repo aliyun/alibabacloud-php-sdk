@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class listenerPortAndProtocol extends Model
 {
     /**
+     * @var int
+     */
+    public $listenerPort;
+
+    /**
      * @var string
      */
     public $listenerProtocol;
@@ -26,17 +31,12 @@ class listenerPortAndProtocol extends Model
     /**
      * @var int
      */
-    public $listenerPort;
-
-    /**
-     * @var int
-     */
     public $forwardPort;
     protected $_name = [
+        'listenerPort'     => 'ListenerPort',
         'listenerProtocol' => 'ListenerProtocol',
         'listenerForward'  => 'ListenerForward',
         'description'      => 'Description',
-        'listenerPort'     => 'ListenerPort',
         'forwardPort'      => 'ForwardPort',
     ];
 
@@ -47,6 +47,9 @@ class listenerPortAndProtocol extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->listenerPort) {
+            $res['ListenerPort'] = $this->listenerPort;
+        }
         if (null !== $this->listenerProtocol) {
             $res['ListenerProtocol'] = $this->listenerProtocol;
         }
@@ -55,9 +58,6 @@ class listenerPortAndProtocol extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->listenerPort) {
-            $res['ListenerPort'] = $this->listenerPort;
         }
         if (null !== $this->forwardPort) {
             $res['ForwardPort'] = $this->forwardPort;
@@ -74,6 +74,9 @@ class listenerPortAndProtocol extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ListenerPort'])) {
+            $model->listenerPort = $map['ListenerPort'];
+        }
         if (isset($map['ListenerProtocol'])) {
             $model->listenerProtocol = $map['ListenerProtocol'];
         }
@@ -82,9 +85,6 @@ class listenerPortAndProtocol extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['ListenerPort'])) {
-            $model->listenerPort = $map['ListenerPort'];
         }
         if (isset($map['ForwardPort'])) {
             $model->forwardPort = $map['ForwardPort'];

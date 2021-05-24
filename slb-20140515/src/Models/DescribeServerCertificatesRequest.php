@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeServerCertificatesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeServerCertificatesRequest extends Model
@@ -42,22 +41,7 @@ class DescribeServerCertificatesRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -65,10 +49,7 @@ class DescribeServerCertificatesRequest extends Model
         'regionId'             => 'RegionId',
         'serverCertificateId'  => 'ServerCertificateId',
         'ownerAccount'         => 'OwnerAccount',
-        'accessKeyId'          => 'access_key_id',
-        'tags'                 => 'Tags',
         'resourceGroupId'      => 'ResourceGroupId',
-        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -96,23 +77,8 @@ class DescribeServerCertificatesRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -144,23 +110,8 @@ class DescribeServerCertificatesRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

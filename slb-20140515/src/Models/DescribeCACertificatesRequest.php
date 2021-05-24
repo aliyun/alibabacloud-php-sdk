@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeCACertificatesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCACertificatesRequest extends Model
@@ -32,11 +31,6 @@ class DescribeCACertificatesRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
@@ -48,21 +42,14 @@ class DescribeCACertificatesRequest extends Model
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
-        'accessKeyId'          => 'access_key_id',
         'regionId'             => 'RegionId',
         'CACertificateId'      => 'CACertificateId',
         'resourceGroupId'      => 'ResourceGroupId',
-        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -84,9 +71,6 @@ class DescribeCACertificatesRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -95,15 +79,6 @@ class DescribeCACertificatesRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -129,9 +104,6 @@ class DescribeCACertificatesRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -140,15 +112,6 @@ class DescribeCACertificatesRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

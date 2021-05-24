@@ -79,6 +79,8 @@ use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerHTTPListenerAttrib
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerHTTPListenerAttributeResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerHTTPSListenerAttributeRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerHTTPSListenerAttributeResponse;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerListenersRequest;
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerListenersResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancersRequest;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancersResponse;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerTCPListenerAttributeRequest;
@@ -1290,6 +1292,34 @@ class Slb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLoadBalancerHTTPSListenerAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLoadBalancerListenersRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeLoadBalancerListenersResponse
+     */
+    public function describeLoadBalancerListenersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeLoadBalancerListenersResponse::fromMap($this->doRPCRequest('DescribeLoadBalancerListeners', '2014-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLoadBalancerListenersRequest $request
+     *
+     * @return DescribeLoadBalancerListenersResponse
+     */
+    public function describeLoadBalancerListeners($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLoadBalancerListenersWithOptions($request, $runtime);
     }
 
     /**

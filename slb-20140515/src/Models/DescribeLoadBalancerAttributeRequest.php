@@ -37,21 +37,6 @@ class DescribeLoadBalancerAttributeRequest extends Model
      * @var string
      */
     public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
-
-    /**
-     * @var bool
-     */
-    public $includeReservedData;
     protected $_name = [
         'regionId'             => 'RegionId',
         'ownerId'              => 'OwnerId',
@@ -59,9 +44,6 @@ class DescribeLoadBalancerAttributeRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'loadBalancerId'       => 'LoadBalancerId',
         'ownerAccount'         => 'OwnerAccount',
-        'accessKeyId'          => 'access_key_id',
-        'tags'                 => 'Tags',
-        'includeReservedData'  => 'IncludeReservedData',
     ];
 
     public function validate()
@@ -88,15 +70,6 @@ class DescribeLoadBalancerAttributeRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
-        if (null !== $this->includeReservedData) {
-            $res['IncludeReservedData'] = $this->includeReservedData;
         }
 
         return $res;
@@ -127,15 +100,6 @@ class DescribeLoadBalancerAttributeRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
-        if (isset($map['IncludeReservedData'])) {
-            $model->includeReservedData = $map['IncludeReservedData'];
         }
 
         return $model;

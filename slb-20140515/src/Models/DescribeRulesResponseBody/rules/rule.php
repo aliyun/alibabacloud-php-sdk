@@ -11,12 +11,12 @@ class rule extends Model
     /**
      * @var string
      */
-    public $VServerGroupId;
+    public $healthCheckHttpCode;
 
     /**
      * @var string
      */
-    public $healthCheckHttpCode;
+    public $VServerGroupId;
 
     /**
      * @var string
@@ -29,14 +29,14 @@ class rule extends Model
     public $cookie;
 
     /**
-     * @var string
-     */
-    public $url;
-
-    /**
      * @var int
      */
     public $healthCheckInterval;
+
+    /**
+     * @var string
+     */
+    public $url;
 
     /**
      * @var string
@@ -46,7 +46,7 @@ class rule extends Model
     /**
      * @var string
      */
-    public $ruleId;
+    public $stickySessionType;
 
     /**
      * @var string
@@ -56,17 +56,17 @@ class rule extends Model
     /**
      * @var string
      */
-    public $stickySessionType;
-
-    /**
-     * @var string
-     */
-    public $scheduler;
+    public $ruleId;
 
     /**
      * @var int
      */
     public $healthCheckConnectPort;
+
+    /**
+     * @var string
+     */
+    public $scheduler;
 
     /**
      * @var int
@@ -108,18 +108,18 @@ class rule extends Model
      */
     public $healthCheck;
     protected $_name = [
-        'VServerGroupId'         => 'VServerGroupId',
         'healthCheckHttpCode'    => 'HealthCheckHttpCode',
+        'VServerGroupId'         => 'VServerGroupId',
         'domain'                 => 'Domain',
         'cookie'                 => 'Cookie',
-        'url'                    => 'Url',
         'healthCheckInterval'    => 'HealthCheckInterval',
+        'url'                    => 'Url',
         'healthCheckURI'         => 'HealthCheckURI',
-        'ruleId'                 => 'RuleId',
-        'ruleName'               => 'RuleName',
         'stickySessionType'      => 'StickySessionType',
-        'scheduler'              => 'Scheduler',
+        'ruleName'               => 'RuleName',
+        'ruleId'                 => 'RuleId',
         'healthCheckConnectPort' => 'HealthCheckConnectPort',
+        'scheduler'              => 'Scheduler',
         'healthCheckTimeout'     => 'HealthCheckTimeout',
         'listenerSync'           => 'ListenerSync',
         'healthyThreshold'       => 'HealthyThreshold',
@@ -137,11 +137,11 @@ class rule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->VServerGroupId) {
-            $res['VServerGroupId'] = $this->VServerGroupId;
-        }
         if (null !== $this->healthCheckHttpCode) {
             $res['HealthCheckHttpCode'] = $this->healthCheckHttpCode;
+        }
+        if (null !== $this->VServerGroupId) {
+            $res['VServerGroupId'] = $this->VServerGroupId;
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
@@ -149,29 +149,29 @@ class rule extends Model
         if (null !== $this->cookie) {
             $res['Cookie'] = $this->cookie;
         }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->healthCheckInterval) {
             $res['HealthCheckInterval'] = $this->healthCheckInterval;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
         if (null !== $this->healthCheckURI) {
             $res['HealthCheckURI'] = $this->healthCheckURI;
         }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+        if (null !== $this->stickySessionType) {
+            $res['StickySessionType'] = $this->stickySessionType;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-        if (null !== $this->stickySessionType) {
-            $res['StickySessionType'] = $this->stickySessionType;
-        }
-        if (null !== $this->scheduler) {
-            $res['Scheduler'] = $this->scheduler;
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
         if (null !== $this->healthCheckConnectPort) {
             $res['HealthCheckConnectPort'] = $this->healthCheckConnectPort;
+        }
+        if (null !== $this->scheduler) {
+            $res['Scheduler'] = $this->scheduler;
         }
         if (null !== $this->healthCheckTimeout) {
             $res['HealthCheckTimeout'] = $this->healthCheckTimeout;
@@ -209,11 +209,11 @@ class rule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VServerGroupId'])) {
-            $model->VServerGroupId = $map['VServerGroupId'];
-        }
         if (isset($map['HealthCheckHttpCode'])) {
             $model->healthCheckHttpCode = $map['HealthCheckHttpCode'];
+        }
+        if (isset($map['VServerGroupId'])) {
+            $model->VServerGroupId = $map['VServerGroupId'];
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
@@ -221,29 +221,29 @@ class rule extends Model
         if (isset($map['Cookie'])) {
             $model->cookie = $map['Cookie'];
         }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['HealthCheckInterval'])) {
             $model->healthCheckInterval = $map['HealthCheckInterval'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
         if (isset($map['HealthCheckURI'])) {
             $model->healthCheckURI = $map['HealthCheckURI'];
         }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['StickySessionType'])) {
+            $model->stickySessionType = $map['StickySessionType'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-        if (isset($map['StickySessionType'])) {
-            $model->stickySessionType = $map['StickySessionType'];
-        }
-        if (isset($map['Scheduler'])) {
-            $model->scheduler = $map['Scheduler'];
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
         if (isset($map['HealthCheckConnectPort'])) {
             $model->healthCheckConnectPort = $map['HealthCheckConnectPort'];
+        }
+        if (isset($map['Scheduler'])) {
+            $model->scheduler = $map['Scheduler'];
         }
         if (isset($map['HealthCheckTimeout'])) {
             $model->healthCheckTimeout = $map['HealthCheckTimeout'];

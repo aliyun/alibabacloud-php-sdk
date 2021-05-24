@@ -11,17 +11,32 @@ class CreateLoadBalancerResponseBody extends Model
     /**
      * @var string
      */
-    public $loadBalancerName;
-
-    /**
-     * @var string
-     */
     public $vpcId;
 
     /**
      * @var string
      */
+    public $addressIPVersion;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $loadBalancerName;
+
+    /**
+     * @var string
+     */
+    public $loadBalancerId;
 
     /**
      * @var string
@@ -39,34 +54,19 @@ class CreateLoadBalancerResponseBody extends Model
     public $networkType;
 
     /**
-     * @var string
-     */
-    public $addressIPVersion;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $loadBalancerId;
-
-    /**
      * @var int
      */
     public $orderId;
     protected $_name = [
-        'loadBalancerName' => 'LoadBalancerName',
         'vpcId'            => 'VpcId',
+        'addressIPVersion' => 'AddressIPVersion',
+        'vSwitchId'        => 'VSwitchId',
         'requestId'        => 'RequestId',
+        'loadBalancerName' => 'LoadBalancerName',
+        'loadBalancerId'   => 'LoadBalancerId',
         'resourceGroupId'  => 'ResourceGroupId',
         'address'          => 'Address',
         'networkType'      => 'NetworkType',
-        'addressIPVersion' => 'AddressIPVersion',
-        'vSwitchId'        => 'VSwitchId',
-        'loadBalancerId'   => 'LoadBalancerId',
         'orderId'          => 'OrderId',
     ];
 
@@ -77,14 +77,23 @@ class CreateLoadBalancerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->loadBalancerName) {
-            $res['LoadBalancerName'] = $this->loadBalancerName;
-        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+        if (null !== $this->addressIPVersion) {
+            $res['AddressIPVersion'] = $this->addressIPVersion;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->loadBalancerName) {
+            $res['LoadBalancerName'] = $this->loadBalancerName;
+        }
+        if (null !== $this->loadBalancerId) {
+            $res['LoadBalancerId'] = $this->loadBalancerId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -94,15 +103,6 @@ class CreateLoadBalancerResponseBody extends Model
         }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
-        }
-        if (null !== $this->addressIPVersion) {
-            $res['AddressIPVersion'] = $this->addressIPVersion;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->loadBalancerId) {
-            $res['LoadBalancerId'] = $this->loadBalancerId;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
@@ -119,14 +119,23 @@ class CreateLoadBalancerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LoadBalancerName'])) {
-            $model->loadBalancerName = $map['LoadBalancerName'];
-        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+        if (isset($map['AddressIPVersion'])) {
+            $model->addressIPVersion = $map['AddressIPVersion'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['LoadBalancerName'])) {
+            $model->loadBalancerName = $map['LoadBalancerName'];
+        }
+        if (isset($map['LoadBalancerId'])) {
+            $model->loadBalancerId = $map['LoadBalancerId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -136,15 +145,6 @@ class CreateLoadBalancerResponseBody extends Model
         }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
-        }
-        if (isset($map['AddressIPVersion'])) {
-            $model->addressIPVersion = $map['AddressIPVersion'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['LoadBalancerId'])) {
-            $model->loadBalancerId = $map['LoadBalancerId'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];

@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancersRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeLoadBalancersRequest extends Model
@@ -107,11 +106,6 @@ class DescribeLoadBalancersRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
     public $tags;
 
     /**
@@ -133,26 +127,6 @@ class DescribeLoadBalancersRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var bool
-     */
-    public $supportPrivateLink;
-
-    /**
-     * @var string
-     */
-    public $fuzzy;
-
-    /**
-     * @var string
-     */
-    public $businessStatus;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
     protected $_name = [
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
@@ -173,16 +147,11 @@ class DescribeLoadBalancersRequest extends Model
         'masterZoneId'          => 'MasterZoneId',
         'slaveZoneId'           => 'SlaveZoneId',
         'ownerAccount'          => 'OwnerAccount',
-        'accessKeyId'           => 'access_key_id',
         'tags'                  => 'Tags',
         'payType'               => 'PayType',
         'resourceGroupId'       => 'ResourceGroupId',
         'pageNumber'            => 'PageNumber',
         'pageSize'              => 'PageSize',
-        'supportPrivateLink'    => 'SupportPrivateLink',
-        'fuzzy'                 => 'Fuzzy',
-        'businessStatus'        => 'BusinessStatus',
-        'tag'                   => 'Tag',
     ];
 
     public function validate()
@@ -249,9 +218,6 @@ class DescribeLoadBalancersRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
@@ -266,24 +232,6 @@ class DescribeLoadBalancersRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->supportPrivateLink) {
-            $res['SupportPrivateLink'] = $this->supportPrivateLink;
-        }
-        if (null !== $this->fuzzy) {
-            $res['Fuzzy'] = $this->fuzzy;
-        }
-        if (null !== $this->businessStatus) {
-            $res['BusinessStatus'] = $this->businessStatus;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -354,9 +302,6 @@ class DescribeLoadBalancersRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
@@ -371,24 +316,6 @@ class DescribeLoadBalancersRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['SupportPrivateLink'])) {
-            $model->supportPrivateLink = $map['SupportPrivateLink'];
-        }
-        if (isset($map['Fuzzy'])) {
-            $model->fuzzy = $map['Fuzzy'];
-        }
-        if (isset($map['BusinessStatus'])) {
-            $model->businessStatus = $map['BusinessStatus'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

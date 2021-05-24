@@ -12,7 +12,7 @@ class DescribeAccessControlListsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -27,24 +27,24 @@ class DescribeAccessControlListsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var acls
-     */
-    public $acls;
+    public $totalCount;
 
     /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var acls
+     */
+    public $acls;
     protected $_name = [
-        'totalCount' => 'TotalCount',
+        'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'pageNumber' => 'PageNumber',
-        'acls'       => 'Acls',
+        'totalCount' => 'TotalCount',
         'count'      => 'Count',
+        'acls'       => 'Acls',
     ];
 
     public function validate()
@@ -54,8 +54,8 @@ class DescribeAccessControlListsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -63,14 +63,14 @@ class DescribeAccessControlListsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->acls) {
-            $res['Acls'] = null !== $this->acls ? $this->acls->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->acls) {
+            $res['Acls'] = null !== $this->acls ? $this->acls->toMap() : null;
         }
 
         return $res;
@@ -84,8 +84,8 @@ class DescribeAccessControlListsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -93,14 +93,14 @@ class DescribeAccessControlListsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['Acls'])) {
-            $model->acls = acls::fromMap($map['Acls']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['Acls'])) {
+            $model->acls = acls::fromMap($map['Acls']);
         }
 
         return $model;

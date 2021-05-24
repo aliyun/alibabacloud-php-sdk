@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class relatedListener extends Model
 {
     /**
+     * @var int
+     */
+    public $listenerPort;
+
+    /**
      * @var string
      */
     public $aclType;
@@ -22,16 +27,11 @@ class relatedListener extends Model
      * @var string
      */
     public $loadBalancerId;
-
-    /**
-     * @var int
-     */
-    public $listenerPort;
     protected $_name = [
+        'listenerPort'   => 'ListenerPort',
         'aclType'        => 'AclType',
         'protocol'       => 'Protocol',
         'loadBalancerId' => 'LoadBalancerId',
-        'listenerPort'   => 'ListenerPort',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class relatedListener extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->listenerPort) {
+            $res['ListenerPort'] = $this->listenerPort;
+        }
         if (null !== $this->aclType) {
             $res['AclType'] = $this->aclType;
         }
@@ -49,9 +52,6 @@ class relatedListener extends Model
         }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
-        }
-        if (null !== $this->listenerPort) {
-            $res['ListenerPort'] = $this->listenerPort;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class relatedListener extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ListenerPort'])) {
+            $model->listenerPort = $map['ListenerPort'];
+        }
         if (isset($map['AclType'])) {
             $model->aclType = $map['AclType'];
         }
@@ -73,9 +76,6 @@ class relatedListener extends Model
         }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
-        }
-        if (isset($map['ListenerPort'])) {
-            $model->listenerPort = $map['ListenerPort'];
         }
 
         return $model;

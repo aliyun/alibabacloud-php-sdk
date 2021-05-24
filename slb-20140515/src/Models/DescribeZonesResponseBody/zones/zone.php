@@ -12,20 +12,20 @@ class zone extends Model
     /**
      * @var string
      */
-    public $localName;
+    public $zoneId;
 
     /**
      * @var string
      */
-    public $zoneId;
+    public $localName;
 
     /**
      * @var slaveZones
      */
     public $slaveZones;
     protected $_name = [
-        'localName'  => 'LocalName',
         'zoneId'     => 'ZoneId',
+        'localName'  => 'LocalName',
         'slaveZones' => 'SlaveZones',
     ];
 
@@ -36,11 +36,11 @@ class zone extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->localName) {
-            $res['LocalName'] = $this->localName;
-        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->localName) {
+            $res['LocalName'] = $this->localName;
         }
         if (null !== $this->slaveZones) {
             $res['SlaveZones'] = null !== $this->slaveZones ? $this->slaveZones->toMap() : null;
@@ -57,11 +57,11 @@ class zone extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LocalName'])) {
-            $model->localName = $map['LocalName'];
-        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['LocalName'])) {
+            $model->localName = $map['LocalName'];
         }
         if (isset($map['SlaveZones'])) {
             $model->slaveZones = slaveZones::fromMap($map['SlaveZones']);

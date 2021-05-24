@@ -21,17 +21,17 @@ class acl extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $aclName;
 
     /**
      * @var string
      */
-    public $aclName;
+    public $resourceGroupId;
     protected $_name = [
         'aclId'            => 'AclId',
         'addressIPVersion' => 'AddressIPVersion',
-        'resourceGroupId'  => 'ResourceGroupId',
         'aclName'          => 'AclName',
+        'resourceGroupId'  => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class acl extends Model
         if (null !== $this->addressIPVersion) {
             $res['AddressIPVersion'] = $this->addressIPVersion;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->aclName) {
             $res['AclName'] = $this->aclName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class acl extends Model
         if (isset($map['AddressIPVersion'])) {
             $model->addressIPVersion = $map['AddressIPVersion'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['AclName'])) {
             $model->aclName = $map['AclName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

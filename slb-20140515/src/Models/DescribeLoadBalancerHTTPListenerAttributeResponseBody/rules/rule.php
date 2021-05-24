@@ -16,12 +16,12 @@ class rule extends Model
     /**
      * @var string
      */
-    public $domain;
+    public $url;
 
     /**
      * @var string
      */
-    public $url;
+    public $domain;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class rule extends Model
     public $ruleId;
     protected $_name = [
         'VServerGroupId' => 'VServerGroupId',
-        'domain'         => 'Domain',
         'url'            => 'Url',
+        'domain'         => 'Domain',
         'ruleName'       => 'RuleName',
         'ruleId'         => 'RuleId',
     ];
@@ -50,11 +50,11 @@ class rule extends Model
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
@@ -77,11 +77,11 @@ class rule extends Model
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];

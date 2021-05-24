@@ -12,20 +12,20 @@ class CreateMasterSlaveServerGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $masterSlaveServerGroupId;
 
     /**
      * @var string
      */
-    public $masterSlaveServerGroupId;
+    public $requestId;
 
     /**
      * @var masterSlaveBackendServers
      */
     public $masterSlaveBackendServers;
     protected $_name = [
-        'requestId'                 => 'RequestId',
         'masterSlaveServerGroupId'  => 'MasterSlaveServerGroupId',
+        'requestId'                 => 'RequestId',
         'masterSlaveBackendServers' => 'MasterSlaveBackendServers',
     ];
 
@@ -36,11 +36,11 @@ class CreateMasterSlaveServerGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->masterSlaveServerGroupId) {
             $res['MasterSlaveServerGroupId'] = $this->masterSlaveServerGroupId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->masterSlaveBackendServers) {
             $res['MasterSlaveBackendServers'] = null !== $this->masterSlaveBackendServers ? $this->masterSlaveBackendServers->toMap() : null;
@@ -57,11 +57,11 @@ class CreateMasterSlaveServerGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MasterSlaveServerGroupId'])) {
             $model->masterSlaveServerGroupId = $map['MasterSlaveServerGroupId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['MasterSlaveBackendServers'])) {
             $model->masterSlaveBackendServers = masterSlaveBackendServers::fromMap($map['MasterSlaveBackendServers']);

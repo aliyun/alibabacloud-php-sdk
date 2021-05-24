@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\SDK\Slb\V20140515\Models\SetDomainExtensionAttributeRequest\serverCertificate;
 use AlibabaCloud\Tea\Model;
 
 class SetDomainExtensionAttributeRequest extends Model
@@ -37,44 +36,20 @@ class SetDomainExtensionAttributeRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
     public $domainExtensionId;
 
     /**
      * @var string
      */
     public $serverCertificateId;
-
-    /**
-     * @var string[]
-     */
-    public $certificateId;
-
-    /**
-     * @var serverCertificate[]
-     */
-    public $serverCertificate;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'regionId'             => 'RegionId',
         'ownerAccount'         => 'OwnerAccount',
-        'accessKeyId'          => 'access_key_id',
-        'tags'                 => 'Tags',
         'domainExtensionId'    => 'DomainExtensionId',
         'serverCertificateId'  => 'ServerCertificateId',
-        'certificateId'        => 'CertificateId',
-        'serverCertificate'    => 'ServerCertificate',
     ];
 
     public function validate()
@@ -99,29 +74,11 @@ class SetDomainExtensionAttributeRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->domainExtensionId) {
             $res['DomainExtensionId'] = $this->domainExtensionId;
         }
         if (null !== $this->serverCertificateId) {
             $res['ServerCertificateId'] = $this->serverCertificateId;
-        }
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
-        }
-        if (null !== $this->serverCertificate) {
-            $res['ServerCertificate'] = [];
-            if (null !== $this->serverCertificate && \is_array($this->serverCertificate)) {
-                $n = 0;
-                foreach ($this->serverCertificate as $item) {
-                    $res['ServerCertificate'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -150,31 +107,11 @@ class SetDomainExtensionAttributeRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
         if (isset($map['DomainExtensionId'])) {
             $model->domainExtensionId = $map['DomainExtensionId'];
         }
         if (isset($map['ServerCertificateId'])) {
             $model->serverCertificateId = $map['ServerCertificateId'];
-        }
-        if (isset($map['CertificateId'])) {
-            if (!empty($map['CertificateId'])) {
-                $model->certificateId = $map['CertificateId'];
-            }
-        }
-        if (isset($map['ServerCertificate'])) {
-            if (!empty($map['ServerCertificate'])) {
-                $model->serverCertificate = [];
-                $n                        = 0;
-                foreach ($map['ServerCertificate'] as $item) {
-                    $model->serverCertificate[$n++] = null !== $item ? serverCertificate::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

@@ -16,42 +16,22 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $description;
+    public $status;
 
     /**
      * @var string
      */
-    public $synProxy;
+    public $aclType;
 
     /**
      * @var int
      */
-    public $unhealthyThreshold;
+    public $connectionDrainTimeout;
 
     /**
      * @var string
      */
-    public $healthCheckURI;
-
-    /**
-     * @var string
-     */
-    public $scheduler;
-
-    /**
-     * @var string
-     */
-    public $healthCheck;
-
-    /**
-     * @var int
-     */
-    public $backendServerPort;
-
-    /**
-     * @var int
-     */
-    public $persistenceTimeout;
+    public $requestId;
 
     /**
      * @var int
@@ -61,7 +41,7 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $healthCheckMethod;
+    public $description;
 
     /**
      * @var int
@@ -71,17 +51,42 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $healthCheckType;
+
+    /**
+     * @var string
+     */
+    public $masterSlaveServerGroupId;
+
+    /**
+     * @var int
+     */
+    public $backendServerPort;
+
+    /**
+     * @var string
+     */
+    public $aclStatus;
+
+    /**
+     * @var string
+     */
+    public $healthCheckDomain;
+
+    /**
+     * @var int
+     */
+    public $unhealthyThreshold;
+
+    /**
+     * @var string
+     */
     public $healthCheckHttpCode;
 
     /**
      * @var int
      */
-    public $establishedTimeout;
-
-    /**
-     * @var string
-     */
-    public $status;
+    public $persistenceTimeout;
 
     /**
      * @var int
@@ -96,7 +101,7 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $healthCheckURI;
 
     /**
      * @var string
@@ -104,14 +109,24 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
     public $aclId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $healthCheckConnectTimeout;
+    public $synProxy;
 
     /**
      * @var string
      */
-    public $aclStatus;
+    public $scheduler;
+
+    /**
+     * @var int
+     */
+    public $establishedTimeout;
+
+    /**
+     * @var int
+     */
+    public $healthCheckConnectTimeout;
 
     /**
      * @var int
@@ -121,49 +136,46 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $masterSlaveServerGroupId;
+    public $connectionDrain;
 
     /**
      * @var string
      */
-    public $healthCheckDomain;
+    public $healthCheckMethod;
 
     /**
      * @var string
      */
-    public $aclType;
-
-    /**
-     * @var string
-     */
-    public $healthCheckType;
+    public $healthCheck;
     protected $_name = [
         'VServerGroupId'            => 'VServerGroupId',
-        'description'               => 'Description',
-        'synProxy'                  => 'SynProxy',
-        'unhealthyThreshold'        => 'UnhealthyThreshold',
-        'healthCheckURI'            => 'HealthCheckURI',
-        'scheduler'                 => 'Scheduler',
-        'healthCheck'               => 'HealthCheck',
-        'backendServerPort'         => 'BackendServerPort',
-        'persistenceTimeout'        => 'PersistenceTimeout',
-        'healthCheckConnectPort'    => 'HealthCheckConnectPort',
-        'healthCheckMethod'         => 'HealthCheckMethod',
-        'bandwidth'                 => 'Bandwidth',
-        'healthCheckHttpCode'       => 'HealthCheckHttpCode',
-        'establishedTimeout'        => 'EstablishedTimeout',
         'status'                    => 'Status',
+        'aclType'                   => 'AclType',
+        'connectionDrainTimeout'    => 'ConnectionDrainTimeout',
+        'requestId'                 => 'RequestId',
+        'healthCheckConnectPort'    => 'HealthCheckConnectPort',
+        'description'               => 'Description',
+        'bandwidth'                 => 'Bandwidth',
+        'healthCheckType'           => 'HealthCheckType',
+        'masterSlaveServerGroupId'  => 'MasterSlaveServerGroupId',
+        'backendServerPort'         => 'BackendServerPort',
+        'aclStatus'                 => 'AclStatus',
+        'healthCheckDomain'         => 'HealthCheckDomain',
+        'unhealthyThreshold'        => 'UnhealthyThreshold',
+        'healthCheckHttpCode'       => 'HealthCheckHttpCode',
+        'persistenceTimeout'        => 'PersistenceTimeout',
         'listenerPort'              => 'ListenerPort',
         'healthCheckInterval'       => 'HealthCheckInterval',
-        'requestId'                 => 'RequestId',
+        'healthCheckURI'            => 'HealthCheckURI',
         'aclId'                     => 'AclId',
+        'synProxy'                  => 'SynProxy',
+        'scheduler'                 => 'Scheduler',
+        'establishedTimeout'        => 'EstablishedTimeout',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
-        'aclStatus'                 => 'AclStatus',
         'healthyThreshold'          => 'HealthyThreshold',
-        'masterSlaveServerGroupId'  => 'MasterSlaveServerGroupId',
-        'healthCheckDomain'         => 'HealthCheckDomain',
-        'aclType'                   => 'AclType',
-        'healthCheckType'           => 'HealthCheckType',
+        'connectionDrain'           => 'ConnectionDrain',
+        'healthCheckMethod'         => 'HealthCheckMethod',
+        'healthCheck'               => 'HealthCheck',
     ];
 
     public function validate()
@@ -176,47 +188,50 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->synProxy) {
-            $res['SynProxy'] = $this->synProxy;
+        if (null !== $this->aclType) {
+            $res['AclType'] = $this->aclType;
         }
-        if (null !== $this->unhealthyThreshold) {
-            $res['UnhealthyThreshold'] = $this->unhealthyThreshold;
+        if (null !== $this->connectionDrainTimeout) {
+            $res['ConnectionDrainTimeout'] = $this->connectionDrainTimeout;
         }
-        if (null !== $this->healthCheckURI) {
-            $res['HealthCheckURI'] = $this->healthCheckURI;
-        }
-        if (null !== $this->scheduler) {
-            $res['Scheduler'] = $this->scheduler;
-        }
-        if (null !== $this->healthCheck) {
-            $res['HealthCheck'] = $this->healthCheck;
-        }
-        if (null !== $this->backendServerPort) {
-            $res['BackendServerPort'] = $this->backendServerPort;
-        }
-        if (null !== $this->persistenceTimeout) {
-            $res['PersistenceTimeout'] = $this->persistenceTimeout;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->healthCheckConnectPort) {
             $res['HealthCheckConnectPort'] = $this->healthCheckConnectPort;
         }
-        if (null !== $this->healthCheckMethod) {
-            $res['HealthCheckMethod'] = $this->healthCheckMethod;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
+        if (null !== $this->healthCheckType) {
+            $res['HealthCheckType'] = $this->healthCheckType;
+        }
+        if (null !== $this->masterSlaveServerGroupId) {
+            $res['MasterSlaveServerGroupId'] = $this->masterSlaveServerGroupId;
+        }
+        if (null !== $this->backendServerPort) {
+            $res['BackendServerPort'] = $this->backendServerPort;
+        }
+        if (null !== $this->aclStatus) {
+            $res['AclStatus'] = $this->aclStatus;
+        }
+        if (null !== $this->healthCheckDomain) {
+            $res['HealthCheckDomain'] = $this->healthCheckDomain;
+        }
+        if (null !== $this->unhealthyThreshold) {
+            $res['UnhealthyThreshold'] = $this->unhealthyThreshold;
+        }
         if (null !== $this->healthCheckHttpCode) {
             $res['HealthCheckHttpCode'] = $this->healthCheckHttpCode;
         }
-        if (null !== $this->establishedTimeout) {
-            $res['EstablishedTimeout'] = $this->establishedTimeout;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->persistenceTimeout) {
+            $res['PersistenceTimeout'] = $this->persistenceTimeout;
         }
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
@@ -224,32 +239,35 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
         if (null !== $this->healthCheckInterval) {
             $res['HealthCheckInterval'] = $this->healthCheckInterval;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->healthCheckURI) {
+            $res['HealthCheckURI'] = $this->healthCheckURI;
         }
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
+        if (null !== $this->synProxy) {
+            $res['SynProxy'] = $this->synProxy;
+        }
+        if (null !== $this->scheduler) {
+            $res['Scheduler'] = $this->scheduler;
+        }
+        if (null !== $this->establishedTimeout) {
+            $res['EstablishedTimeout'] = $this->establishedTimeout;
+        }
         if (null !== $this->healthCheckConnectTimeout) {
             $res['HealthCheckConnectTimeout'] = $this->healthCheckConnectTimeout;
-        }
-        if (null !== $this->aclStatus) {
-            $res['AclStatus'] = $this->aclStatus;
         }
         if (null !== $this->healthyThreshold) {
             $res['HealthyThreshold'] = $this->healthyThreshold;
         }
-        if (null !== $this->masterSlaveServerGroupId) {
-            $res['MasterSlaveServerGroupId'] = $this->masterSlaveServerGroupId;
+        if (null !== $this->connectionDrain) {
+            $res['ConnectionDrain'] = $this->connectionDrain;
         }
-        if (null !== $this->healthCheckDomain) {
-            $res['HealthCheckDomain'] = $this->healthCheckDomain;
+        if (null !== $this->healthCheckMethod) {
+            $res['HealthCheckMethod'] = $this->healthCheckMethod;
         }
-        if (null !== $this->aclType) {
-            $res['AclType'] = $this->aclType;
-        }
-        if (null !== $this->healthCheckType) {
-            $res['HealthCheckType'] = $this->healthCheckType;
+        if (null !== $this->healthCheck) {
+            $res['HealthCheck'] = $this->healthCheck;
         }
 
         return $res;
@@ -266,47 +284,50 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['SynProxy'])) {
-            $model->synProxy = $map['SynProxy'];
+        if (isset($map['AclType'])) {
+            $model->aclType = $map['AclType'];
         }
-        if (isset($map['UnhealthyThreshold'])) {
-            $model->unhealthyThreshold = $map['UnhealthyThreshold'];
+        if (isset($map['ConnectionDrainTimeout'])) {
+            $model->connectionDrainTimeout = $map['ConnectionDrainTimeout'];
         }
-        if (isset($map['HealthCheckURI'])) {
-            $model->healthCheckURI = $map['HealthCheckURI'];
-        }
-        if (isset($map['Scheduler'])) {
-            $model->scheduler = $map['Scheduler'];
-        }
-        if (isset($map['HealthCheck'])) {
-            $model->healthCheck = $map['HealthCheck'];
-        }
-        if (isset($map['BackendServerPort'])) {
-            $model->backendServerPort = $map['BackendServerPort'];
-        }
-        if (isset($map['PersistenceTimeout'])) {
-            $model->persistenceTimeout = $map['PersistenceTimeout'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['HealthCheckConnectPort'])) {
             $model->healthCheckConnectPort = $map['HealthCheckConnectPort'];
         }
-        if (isset($map['HealthCheckMethod'])) {
-            $model->healthCheckMethod = $map['HealthCheckMethod'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
+        if (isset($map['HealthCheckType'])) {
+            $model->healthCheckType = $map['HealthCheckType'];
+        }
+        if (isset($map['MasterSlaveServerGroupId'])) {
+            $model->masterSlaveServerGroupId = $map['MasterSlaveServerGroupId'];
+        }
+        if (isset($map['BackendServerPort'])) {
+            $model->backendServerPort = $map['BackendServerPort'];
+        }
+        if (isset($map['AclStatus'])) {
+            $model->aclStatus = $map['AclStatus'];
+        }
+        if (isset($map['HealthCheckDomain'])) {
+            $model->healthCheckDomain = $map['HealthCheckDomain'];
+        }
+        if (isset($map['UnhealthyThreshold'])) {
+            $model->unhealthyThreshold = $map['UnhealthyThreshold'];
+        }
         if (isset($map['HealthCheckHttpCode'])) {
             $model->healthCheckHttpCode = $map['HealthCheckHttpCode'];
         }
-        if (isset($map['EstablishedTimeout'])) {
-            $model->establishedTimeout = $map['EstablishedTimeout'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['PersistenceTimeout'])) {
+            $model->persistenceTimeout = $map['PersistenceTimeout'];
         }
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
@@ -314,32 +335,35 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
         if (isset($map['HealthCheckInterval'])) {
             $model->healthCheckInterval = $map['HealthCheckInterval'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['HealthCheckURI'])) {
+            $model->healthCheckURI = $map['HealthCheckURI'];
         }
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
+        if (isset($map['SynProxy'])) {
+            $model->synProxy = $map['SynProxy'];
+        }
+        if (isset($map['Scheduler'])) {
+            $model->scheduler = $map['Scheduler'];
+        }
+        if (isset($map['EstablishedTimeout'])) {
+            $model->establishedTimeout = $map['EstablishedTimeout'];
+        }
         if (isset($map['HealthCheckConnectTimeout'])) {
             $model->healthCheckConnectTimeout = $map['HealthCheckConnectTimeout'];
-        }
-        if (isset($map['AclStatus'])) {
-            $model->aclStatus = $map['AclStatus'];
         }
         if (isset($map['HealthyThreshold'])) {
             $model->healthyThreshold = $map['HealthyThreshold'];
         }
-        if (isset($map['MasterSlaveServerGroupId'])) {
-            $model->masterSlaveServerGroupId = $map['MasterSlaveServerGroupId'];
+        if (isset($map['ConnectionDrain'])) {
+            $model->connectionDrain = $map['ConnectionDrain'];
         }
-        if (isset($map['HealthCheckDomain'])) {
-            $model->healthCheckDomain = $map['HealthCheckDomain'];
+        if (isset($map['HealthCheckMethod'])) {
+            $model->healthCheckMethod = $map['HealthCheckMethod'];
         }
-        if (isset($map['AclType'])) {
-            $model->aclType = $map['AclType'];
-        }
-        if (isset($map['HealthCheckType'])) {
-            $model->healthCheckType = $map['HealthCheckType'];
+        if (isset($map['HealthCheck'])) {
+            $model->healthCheck = $map['HealthCheck'];
         }
 
         return $model;

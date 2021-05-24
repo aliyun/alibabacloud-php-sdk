@@ -17,12 +17,12 @@ class DescribeVServerGroupAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $VServerGroupName;
 
     /**
      * @var string
      */
-    public $VServerGroupName;
+    public $requestId;
 
     /**
      * @var string
@@ -35,8 +35,8 @@ class DescribeVServerGroupAttributeResponseBody extends Model
     public $backendServers;
     protected $_name = [
         'VServerGroupId'   => 'VServerGroupId',
-        'requestId'        => 'RequestId',
         'VServerGroupName' => 'VServerGroupName',
+        'requestId'        => 'RequestId',
         'loadBalancerId'   => 'LoadBalancerId',
         'backendServers'   => 'BackendServers',
     ];
@@ -51,11 +51,11 @@ class DescribeVServerGroupAttributeResponseBody extends Model
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->VServerGroupName) {
             $res['VServerGroupName'] = $this->VServerGroupName;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
@@ -78,11 +78,11 @@ class DescribeVServerGroupAttributeResponseBody extends Model
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['VServerGroupName'])) {
             $model->VServerGroupName = $map['VServerGroupName'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];

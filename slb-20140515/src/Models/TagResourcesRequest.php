@@ -32,11 +32,6 @@ class TagResourcesRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
@@ -58,7 +53,6 @@ class TagResourcesRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
-        'accessKeyId'          => 'access_key_id',
         'regionId'             => 'RegionId',
         'resourceType'         => 'ResourceType',
         'resourceId'           => 'ResourceId',
@@ -83,9 +77,6 @@ class TagResourcesRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -128,9 +119,6 @@ class TagResourcesRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

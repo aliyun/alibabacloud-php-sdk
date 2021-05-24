@@ -41,16 +41,6 @@ class ModifyLoadBalancerInstanceSpecRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
     public $loadBalancerSpec;
 
     /**
@@ -64,8 +54,6 @@ class ModifyLoadBalancerInstanceSpecRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'loadBalancerId'       => 'LoadBalancerId',
         'ownerAccount'         => 'OwnerAccount',
-        'accessKeyId'          => 'access_key_id',
-        'tags'                 => 'Tags',
         'loadBalancerSpec'     => 'LoadBalancerSpec',
         'autoPay'              => 'AutoPay',
     ];
@@ -94,12 +82,6 @@ class ModifyLoadBalancerInstanceSpecRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
         if (null !== $this->loadBalancerSpec) {
             $res['LoadBalancerSpec'] = $this->loadBalancerSpec;
@@ -136,12 +118,6 @@ class ModifyLoadBalancerInstanceSpecRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['LoadBalancerSpec'])) {
             $model->loadBalancerSpec = $map['LoadBalancerSpec'];

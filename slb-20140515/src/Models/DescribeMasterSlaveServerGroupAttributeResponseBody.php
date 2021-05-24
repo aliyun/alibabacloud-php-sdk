@@ -17,11 +17,6 @@ class DescribeMasterSlaveServerGroupAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $masterSlaveServerGroupId;
-
-    /**
-     * @var string
-     */
     public $loadBalancerId;
 
     /**
@@ -30,14 +25,19 @@ class DescribeMasterSlaveServerGroupAttributeResponseBody extends Model
     public $masterSlaveServerGroupName;
 
     /**
+     * @var string
+     */
+    public $masterSlaveServerGroupId;
+
+    /**
      * @var masterSlaveBackendServers
      */
     public $masterSlaveBackendServers;
     protected $_name = [
         'requestId'                  => 'RequestId',
-        'masterSlaveServerGroupId'   => 'MasterSlaveServerGroupId',
         'loadBalancerId'             => 'LoadBalancerId',
         'masterSlaveServerGroupName' => 'MasterSlaveServerGroupName',
+        'masterSlaveServerGroupId'   => 'MasterSlaveServerGroupId',
         'masterSlaveBackendServers'  => 'MasterSlaveBackendServers',
     ];
 
@@ -51,14 +51,14 @@ class DescribeMasterSlaveServerGroupAttributeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->masterSlaveServerGroupId) {
-            $res['MasterSlaveServerGroupId'] = $this->masterSlaveServerGroupId;
-        }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
         if (null !== $this->masterSlaveServerGroupName) {
             $res['MasterSlaveServerGroupName'] = $this->masterSlaveServerGroupName;
+        }
+        if (null !== $this->masterSlaveServerGroupId) {
+            $res['MasterSlaveServerGroupId'] = $this->masterSlaveServerGroupId;
         }
         if (null !== $this->masterSlaveBackendServers) {
             $res['MasterSlaveBackendServers'] = null !== $this->masterSlaveBackendServers ? $this->masterSlaveBackendServers->toMap() : null;
@@ -78,14 +78,14 @@ class DescribeMasterSlaveServerGroupAttributeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['MasterSlaveServerGroupId'])) {
-            $model->masterSlaveServerGroupId = $map['MasterSlaveServerGroupId'];
-        }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
         if (isset($map['MasterSlaveServerGroupName'])) {
             $model->masterSlaveServerGroupName = $map['MasterSlaveServerGroupName'];
+        }
+        if (isset($map['MasterSlaveServerGroupId'])) {
+            $model->masterSlaveServerGroupId = $map['MasterSlaveServerGroupId'];
         }
         if (isset($map['MasterSlaveBackendServers'])) {
             $model->masterSlaveBackendServers = masterSlaveBackendServers::fromMap($map['MasterSlaveBackendServers']);

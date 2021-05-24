@@ -11,16 +11,6 @@ class backendServer extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $eniHost;
-
-    /**
-     * @var string
-     */
     public $protocol;
 
     /**
@@ -48,8 +38,6 @@ class backendServer extends Model
      */
     public $serverId;
     protected $_name = [
-        'type'               => 'Type',
-        'eniHost'            => 'EniHost',
         'protocol'           => 'Protocol',
         'serverHealthStatus' => 'ServerHealthStatus',
         'listenerPort'       => 'ListenerPort',
@@ -65,12 +53,6 @@ class backendServer extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->eniHost) {
-            $res['EniHost'] = $this->eniHost;
-        }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -101,12 +83,6 @@ class backendServer extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['EniHost'])) {
-            $model->eniHost = $map['EniHost'];
-        }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

@@ -42,16 +42,6 @@ class DescribeLoadBalancerUDPListenerAttributeRequest extends Model
      * @var string
      */
     public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
     protected $_name = [
         'regionId'             => 'RegionId',
         'ownerId'              => 'OwnerId',
@@ -60,8 +50,6 @@ class DescribeLoadBalancerUDPListenerAttributeRequest extends Model
         'loadBalancerId'       => 'LoadBalancerId',
         'listenerPort'         => 'ListenerPort',
         'ownerAccount'         => 'OwnerAccount',
-        'accessKeyId'          => 'access_key_id',
-        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -91,12 +79,6 @@ class DescribeLoadBalancerUDPListenerAttributeRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -130,12 +112,6 @@ class DescribeLoadBalancerUDPListenerAttributeRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
 
         return $model;

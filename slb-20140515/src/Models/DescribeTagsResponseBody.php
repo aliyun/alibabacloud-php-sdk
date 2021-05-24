@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -30,14 +25,19 @@ class DescribeTagsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var tagSets
      */
     public $tagSets;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'requestId'  => 'RequestId',
         'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
+        'totalCount' => 'TotalCount',
         'tagSets'    => 'TagSets',
     ];
 
@@ -48,9 +48,6 @@ class DescribeTagsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,6 +56,9 @@ class DescribeTagsResponseBody extends Model
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->tagSets) {
             $res['TagSets'] = null !== $this->tagSets ? $this->tagSets->toMap() : null;
@@ -75,9 +75,6 @@ class DescribeTagsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -86,6 +83,9 @@ class DescribeTagsResponseBody extends Model
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['TagSets'])) {
             $model->tagSets = tagSets::fromMap($map['TagSets']);

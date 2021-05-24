@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainExtensionAttributeResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $listenerPort;
-
-    /**
      * @var string
      */
-    public $domainExtensionId;
+    public $domain;
 
     /**
      * @var string
@@ -26,24 +21,29 @@ class DescribeDomainExtensionAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $loadBalancerId;
+
+    /**
+     * @var int
+     */
+    public $listenerPort;
+
+    /**
+     * @var string
+     */
     public $serverCertificateId;
 
     /**
      * @var string
      */
-    public $loadBalancerId;
-
-    /**
-     * @var string
-     */
-    public $domain;
+    public $domainExtensionId;
     protected $_name = [
-        'listenerPort'        => 'ListenerPort',
-        'domainExtensionId'   => 'DomainExtensionId',
-        'requestId'           => 'RequestId',
-        'serverCertificateId' => 'ServerCertificateId',
-        'loadBalancerId'      => 'LoadBalancerId',
         'domain'              => 'Domain',
+        'requestId'           => 'RequestId',
+        'loadBalancerId'      => 'LoadBalancerId',
+        'listenerPort'        => 'ListenerPort',
+        'serverCertificateId' => 'ServerCertificateId',
+        'domainExtensionId'   => 'DomainExtensionId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeDomainExtensionAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->listenerPort) {
-            $res['ListenerPort'] = $this->listenerPort;
-        }
-        if (null !== $this->domainExtensionId) {
-            $res['DomainExtensionId'] = $this->domainExtensionId;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->serverCertificateId) {
-            $res['ServerCertificateId'] = $this->serverCertificateId;
-        }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
+        if (null !== $this->listenerPort) {
+            $res['ListenerPort'] = $this->listenerPort;
+        }
+        if (null !== $this->serverCertificateId) {
+            $res['ServerCertificateId'] = $this->serverCertificateId;
+        }
+        if (null !== $this->domainExtensionId) {
+            $res['DomainExtensionId'] = $this->domainExtensionId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeDomainExtensionAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ListenerPort'])) {
-            $model->listenerPort = $map['ListenerPort'];
-        }
-        if (isset($map['DomainExtensionId'])) {
-            $model->domainExtensionId = $map['DomainExtensionId'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ServerCertificateId'])) {
-            $model->serverCertificateId = $map['ServerCertificateId'];
-        }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
+        if (isset($map['ListenerPort'])) {
+            $model->listenerPort = $map['ListenerPort'];
+        }
+        if (isset($map['ServerCertificateId'])) {
+            $model->serverCertificateId = $map['ServerCertificateId'];
+        }
+        if (isset($map['DomainExtensionId'])) {
+            $model->domainExtensionId = $map['DomainExtensionId'];
         }
 
         return $model;

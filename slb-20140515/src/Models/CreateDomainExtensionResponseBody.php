@@ -16,16 +16,16 @@ class CreateDomainExtensionResponseBody extends Model
     /**
      * @var string
      */
-    public $domainExtensionId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $domainExtensionId;
     protected $_name = [
         'listenerPort'      => 'ListenerPort',
-        'domainExtensionId' => 'DomainExtensionId',
         'requestId'         => 'RequestId',
+        'domainExtensionId' => 'DomainExtensionId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class CreateDomainExtensionResponseBody extends Model
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
         }
-        if (null !== $this->domainExtensionId) {
-            $res['DomainExtensionId'] = $this->domainExtensionId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->domainExtensionId) {
+            $res['DomainExtensionId'] = $this->domainExtensionId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class CreateDomainExtensionResponseBody extends Model
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
         }
-        if (isset($map['DomainExtensionId'])) {
-            $model->domainExtensionId = $map['DomainExtensionId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['DomainExtensionId'])) {
+            $model->domainExtensionId = $map['DomainExtensionId'];
         }
 
         return $model;

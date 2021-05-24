@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\SDK\Slb\V20140515\Models\SetLoadBalancerUDPListenerAttributeRequest\portRange;
 use AlibabaCloud\Tea\Model;
 
 class SetLoadBalancerUDPListenerAttributeRequest extends Model
@@ -52,11 +51,6 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     /**
      * @var int
      */
-    public $persistenceTimeout;
-
-    /**
-     * @var int
-     */
     public $healthyThreshold;
 
     /**
@@ -90,24 +84,9 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     public $healthCheckExp;
 
     /**
-     * @var int
-     */
-    public $maxConnection;
-
-    /**
      * @var string
      */
     public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
 
     /**
      * @var string
@@ -147,27 +126,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     /**
      * @var string
      */
-    public $vpcIds;
-
-    /**
-     * @var string
-     */
     public $description;
-
-    /**
-     * @var string
-     */
-    public $connectionDrain;
-
-    /**
-     * @var int
-     */
-    public $connectionDrainTimeout;
-
-    /**
-     * @var portRange[]
-     */
-    public $portRange;
     protected $_name = [
         'regionId'                  => 'RegionId',
         'ownerId'                   => 'OwnerId',
@@ -177,7 +136,6 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         'listenerPort'              => 'ListenerPort',
         'bandwidth'                 => 'Bandwidth',
         'scheduler'                 => 'Scheduler',
-        'persistenceTimeout'        => 'PersistenceTimeout',
         'healthyThreshold'          => 'HealthyThreshold',
         'unhealthyThreshold'        => 'UnhealthyThreshold',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
@@ -185,10 +143,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         'healthCheckInterval'       => 'HealthCheckInterval',
         'healthCheckReq'            => 'healthCheckReq',
         'healthCheckExp'            => 'healthCheckExp',
-        'maxConnection'             => 'MaxConnection',
         'ownerAccount'              => 'OwnerAccount',
-        'accessKeyId'               => 'access_key_id',
-        'tags'                      => 'Tags',
         'VServerGroup'              => 'VServerGroup',
         'VServerGroupId'            => 'VServerGroupId',
         'masterSlaveServerGroupId'  => 'MasterSlaveServerGroupId',
@@ -196,11 +151,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         'aclId'                     => 'AclId',
         'aclType'                   => 'AclType',
         'aclStatus'                 => 'AclStatus',
-        'vpcIds'                    => 'VpcIds',
         'description'               => 'Description',
-        'connectionDrain'           => 'ConnectionDrain',
-        'connectionDrainTimeout'    => 'ConnectionDrainTimeout',
-        'portRange'                 => 'PortRange',
     ];
 
     public function validate()
@@ -234,9 +185,6 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         if (null !== $this->scheduler) {
             $res['Scheduler'] = $this->scheduler;
         }
-        if (null !== $this->persistenceTimeout) {
-            $res['PersistenceTimeout'] = $this->persistenceTimeout;
-        }
         if (null !== $this->healthyThreshold) {
             $res['HealthyThreshold'] = $this->healthyThreshold;
         }
@@ -258,17 +206,8 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         if (null !== $this->healthCheckExp) {
             $res['healthCheckExp'] = $this->healthCheckExp;
         }
-        if (null !== $this->maxConnection) {
-            $res['MaxConnection'] = $this->maxConnection;
-        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
         if (null !== $this->VServerGroup) {
             $res['VServerGroup'] = $this->VServerGroup;
@@ -291,26 +230,8 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         if (null !== $this->aclStatus) {
             $res['AclStatus'] = $this->aclStatus;
         }
-        if (null !== $this->vpcIds) {
-            $res['VpcIds'] = $this->vpcIds;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->connectionDrain) {
-            $res['ConnectionDrain'] = $this->connectionDrain;
-        }
-        if (null !== $this->connectionDrainTimeout) {
-            $res['ConnectionDrainTimeout'] = $this->connectionDrainTimeout;
-        }
-        if (null !== $this->portRange) {
-            $res['PortRange'] = [];
-            if (null !== $this->portRange && \is_array($this->portRange)) {
-                $n = 0;
-                foreach ($this->portRange as $item) {
-                    $res['PortRange'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -348,9 +269,6 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         if (isset($map['Scheduler'])) {
             $model->scheduler = $map['Scheduler'];
         }
-        if (isset($map['PersistenceTimeout'])) {
-            $model->persistenceTimeout = $map['PersistenceTimeout'];
-        }
         if (isset($map['HealthyThreshold'])) {
             $model->healthyThreshold = $map['HealthyThreshold'];
         }
@@ -372,17 +290,8 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         if (isset($map['healthCheckExp'])) {
             $model->healthCheckExp = $map['healthCheckExp'];
         }
-        if (isset($map['MaxConnection'])) {
-            $model->maxConnection = $map['MaxConnection'];
-        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['VServerGroup'])) {
             $model->VServerGroup = $map['VServerGroup'];
@@ -405,26 +314,8 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
         if (isset($map['AclStatus'])) {
             $model->aclStatus = $map['AclStatus'];
         }
-        if (isset($map['VpcIds'])) {
-            $model->vpcIds = $map['VpcIds'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['ConnectionDrain'])) {
-            $model->connectionDrain = $map['ConnectionDrain'];
-        }
-        if (isset($map['ConnectionDrainTimeout'])) {
-            $model->connectionDrainTimeout = $map['ConnectionDrainTimeout'];
-        }
-        if (isset($map['PortRange'])) {
-            if (!empty($map['PortRange'])) {
-                $model->portRange = [];
-                $n                = 0;
-                foreach ($map['PortRange'] as $item) {
-                    $model->portRange[$n++] = null !== $item ? portRange::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

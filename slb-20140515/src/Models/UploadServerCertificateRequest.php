@@ -66,22 +66,7 @@ class UploadServerCertificateRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $standardType;
     protected $_name = [
         'ownerId'                     => 'OwnerId',
         'resourceOwnerAccount'        => 'ResourceOwnerAccount',
@@ -94,10 +79,7 @@ class UploadServerCertificateRequest extends Model
         'privateKey'                  => 'PrivateKey',
         'serverCertificateName'       => 'ServerCertificateName',
         'ownerAccount'                => 'OwnerAccount',
-        'accessKeyId'                 => 'access_key_id',
-        'tags'                        => 'Tags',
         'resourceGroupId'             => 'ResourceGroupId',
-        'standardType'                => 'StandardType',
     ];
 
     public function validate()
@@ -140,17 +122,8 @@ class UploadServerCertificateRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->standardType) {
-            $res['StandardType'] = $this->standardType;
         }
 
         return $res;
@@ -197,17 +170,8 @@ class UploadServerCertificateRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['StandardType'])) {
-            $model->standardType = $map['StandardType'];
         }
 
         return $model;

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class serverCertificate extends Model
 {
     /**
-     * @var string
-     */
-    public $aliCloudCertificateName;
-
-    /**
      * @var int
      */
     public $createTimeStamp;
+
+    /**
+     * @var string
+     */
+    public $aliCloudCertificateName;
 
     /**
      * @var string
@@ -55,11 +55,6 @@ class serverCertificate extends Model
     public $fingerprint;
 
     /**
-     * @var subjectAlternativeNames
-     */
-    public $subjectAlternativeNames;
-
-    /**
      * @var string
      */
     public $commonName;
@@ -78,9 +73,14 @@ class serverCertificate extends Model
      * @var string
      */
     public $aliCloudCertificateId;
+
+    /**
+     * @var subjectAlternativeNames
+     */
+    public $subjectAlternativeNames;
     protected $_name = [
-        'aliCloudCertificateName' => 'AliCloudCertificateName',
         'createTimeStamp'         => 'CreateTimeStamp',
+        'aliCloudCertificateName' => 'AliCloudCertificateName',
         'expireTime'              => 'ExpireTime',
         'createTime'              => 'CreateTime',
         'serverCertificateId'     => 'ServerCertificateId',
@@ -88,11 +88,11 @@ class serverCertificate extends Model
         'regionId'                => 'RegionId',
         'serverCertificateName'   => 'ServerCertificateName',
         'fingerprint'             => 'Fingerprint',
-        'subjectAlternativeNames' => 'SubjectAlternativeNames',
         'commonName'              => 'CommonName',
         'resourceGroupId'         => 'ResourceGroupId',
         'isAliCloudCertificate'   => 'IsAliCloudCertificate',
         'aliCloudCertificateId'   => 'AliCloudCertificateId',
+        'subjectAlternativeNames' => 'SubjectAlternativeNames',
     ];
 
     public function validate()
@@ -102,11 +102,11 @@ class serverCertificate extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aliCloudCertificateName) {
-            $res['AliCloudCertificateName'] = $this->aliCloudCertificateName;
-        }
         if (null !== $this->createTimeStamp) {
             $res['CreateTimeStamp'] = $this->createTimeStamp;
+        }
+        if (null !== $this->aliCloudCertificateName) {
+            $res['AliCloudCertificateName'] = $this->aliCloudCertificateName;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
@@ -129,9 +129,6 @@ class serverCertificate extends Model
         if (null !== $this->fingerprint) {
             $res['Fingerprint'] = $this->fingerprint;
         }
-        if (null !== $this->subjectAlternativeNames) {
-            $res['SubjectAlternativeNames'] = null !== $this->subjectAlternativeNames ? $this->subjectAlternativeNames->toMap() : null;
-        }
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
         }
@@ -143,6 +140,9 @@ class serverCertificate extends Model
         }
         if (null !== $this->aliCloudCertificateId) {
             $res['AliCloudCertificateId'] = $this->aliCloudCertificateId;
+        }
+        if (null !== $this->subjectAlternativeNames) {
+            $res['SubjectAlternativeNames'] = null !== $this->subjectAlternativeNames ? $this->subjectAlternativeNames->toMap() : null;
         }
 
         return $res;
@@ -156,11 +156,11 @@ class serverCertificate extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AliCloudCertificateName'])) {
-            $model->aliCloudCertificateName = $map['AliCloudCertificateName'];
-        }
         if (isset($map['CreateTimeStamp'])) {
             $model->createTimeStamp = $map['CreateTimeStamp'];
+        }
+        if (isset($map['AliCloudCertificateName'])) {
+            $model->aliCloudCertificateName = $map['AliCloudCertificateName'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
@@ -183,9 +183,6 @@ class serverCertificate extends Model
         if (isset($map['Fingerprint'])) {
             $model->fingerprint = $map['Fingerprint'];
         }
-        if (isset($map['SubjectAlternativeNames'])) {
-            $model->subjectAlternativeNames = subjectAlternativeNames::fromMap($map['SubjectAlternativeNames']);
-        }
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];
         }
@@ -197,6 +194,9 @@ class serverCertificate extends Model
         }
         if (isset($map['AliCloudCertificateId'])) {
             $model->aliCloudCertificateId = $map['AliCloudCertificateId'];
+        }
+        if (isset($map['SubjectAlternativeNames'])) {
+            $model->subjectAlternativeNames = subjectAlternativeNames::fromMap($map['SubjectAlternativeNames']);
         }
 
         return $model;

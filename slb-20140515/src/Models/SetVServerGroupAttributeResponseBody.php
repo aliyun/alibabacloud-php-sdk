@@ -17,12 +17,12 @@ class SetVServerGroupAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $VServerGroupName;
 
     /**
      * @var string
      */
-    public $VServerGroupName;
+    public $requestId;
 
     /**
      * @var backendServers
@@ -30,8 +30,8 @@ class SetVServerGroupAttributeResponseBody extends Model
     public $backendServers;
     protected $_name = [
         'VServerGroupId'   => 'VServerGroupId',
-        'requestId'        => 'RequestId',
         'VServerGroupName' => 'VServerGroupName',
+        'requestId'        => 'RequestId',
         'backendServers'   => 'BackendServers',
     ];
 
@@ -45,11 +45,11 @@ class SetVServerGroupAttributeResponseBody extends Model
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->VServerGroupName) {
             $res['VServerGroupName'] = $this->VServerGroupName;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->backendServers) {
             $res['BackendServers'] = null !== $this->backendServers ? $this->backendServers->toMap() : null;
@@ -69,11 +69,11 @@ class SetVServerGroupAttributeResponseBody extends Model
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['VServerGroupName'])) {
             $model->VServerGroupName = $map['VServerGroupName'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['BackendServers'])) {
             $model->backendServers = backendServers::fromMap($map['BackendServers']);

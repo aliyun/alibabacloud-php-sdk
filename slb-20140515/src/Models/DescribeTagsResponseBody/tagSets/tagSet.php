@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tagSet extends Model
 {
     /**
+     * @var string
+     */
+    public $tagValue;
+
+    /**
      * @var int
      */
     public $instanceCount;
@@ -16,15 +21,10 @@ class tagSet extends Model
     /**
      * @var string
      */
-    public $tagValue;
-
-    /**
-     * @var string
-     */
     public $tagKey;
     protected $_name = [
-        'instanceCount' => 'InstanceCount',
         'tagValue'      => 'TagValue',
+        'instanceCount' => 'InstanceCount',
         'tagKey'        => 'TagKey',
     ];
 
@@ -35,11 +35,11 @@ class tagSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceCount) {
-            $res['InstanceCount'] = $this->instanceCount;
-        }
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
+        }
+        if (null !== $this->instanceCount) {
+            $res['InstanceCount'] = $this->instanceCount;
         }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
@@ -56,11 +56,11 @@ class tagSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceCount'])) {
-            $model->instanceCount = $map['InstanceCount'];
-        }
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
+        }
+        if (isset($map['InstanceCount'])) {
+            $model->instanceCount = $map['InstanceCount'];
         }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];

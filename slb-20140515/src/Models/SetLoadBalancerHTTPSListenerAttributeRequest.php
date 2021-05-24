@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\SDK\Slb\V20140515\Models\SetLoadBalancerHTTPSListenerAttributeRequest\serverCertificate;
 use AlibabaCloud\Tea\Model;
 
 class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
@@ -47,11 +46,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
     /**
      * @var string
      */
-    public $backendProtocol;
-
-    /**
-     * @var string
-     */
     public $XForwardedFor;
 
     /**
@@ -83,16 +77,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
      * @var string
      */
     public $healthCheck;
-
-    /**
-     * @var string
-     */
-    public $healthCheckType;
-
-    /**
-     * @var string
-     */
-    public $healthCheckMethod;
 
     /**
      * @var string
@@ -135,19 +119,9 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
     public $healthCheckHttpCode;
 
     /**
-     * @var int
-     */
-    public $maxConnection;
-
-    /**
      * @var string
      */
     public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $accessKeyId;
 
     /**
      * @var string
@@ -168,11 +142,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
      * @var string
      */
     public $VServerGroupId;
-
-    /**
-     * @var string
-     */
-    public $tags;
 
     /**
      * @var string
@@ -210,11 +179,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
     public $aclStatus;
 
     /**
-     * @var string
-     */
-    public $vpcIds;
-
-    /**
      * @var int
      */
     public $idleTimeout;
@@ -238,119 +202,46 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
      * @var string
      */
     public $description;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_SLBPORT;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_ClientSrcPort;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_ClientCertSubjectDN;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_ClientCertIssuerDN;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_ClientCertFingerprint;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_ClientCertClientVerify;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_ClientCertSubjectDNAlias;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_ClientCertIssuerDNAlias;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_ClientCertFingerprintAlias;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_ClientCertClientVerifyAlias;
-
-    /**
-     * @var serverCertificate[]
-     */
-    public $serverCertificate;
     protected $_name = [
-        'regionId'                                  => 'RegionId',
-        'ownerId'                                   => 'OwnerId',
-        'resourceOwnerAccount'                      => 'ResourceOwnerAccount',
-        'resourceOwnerId'                           => 'ResourceOwnerId',
-        'loadBalancerId'                            => 'LoadBalancerId',
-        'listenerPort'                              => 'ListenerPort',
-        'bandwidth'                                 => 'Bandwidth',
-        'backendProtocol'                           => 'BackendProtocol',
-        'XForwardedFor'                             => 'XForwardedFor',
-        'scheduler'                                 => 'Scheduler',
-        'stickySession'                             => 'StickySession',
-        'stickySessionType'                         => 'StickySessionType',
-        'cookieTimeout'                             => 'CookieTimeout',
-        'cookie'                                    => 'Cookie',
-        'healthCheck'                               => 'HealthCheck',
-        'healthCheckType'                           => 'HealthCheckType',
-        'healthCheckMethod'                         => 'HealthCheckMethod',
-        'healthCheckDomain'                         => 'HealthCheckDomain',
-        'healthCheckURI'                            => 'HealthCheckURI',
-        'healthyThreshold'                          => 'HealthyThreshold',
-        'unhealthyThreshold'                        => 'UnhealthyThreshold',
-        'healthCheckTimeout'                        => 'HealthCheckTimeout',
-        'healthCheckInterval'                       => 'HealthCheckInterval',
-        'healthCheckConnectPort'                    => 'HealthCheckConnectPort',
-        'healthCheckHttpCode'                       => 'HealthCheckHttpCode',
-        'maxConnection'                             => 'MaxConnection',
-        'ownerAccount'                              => 'OwnerAccount',
-        'accessKeyId'                               => 'access_key_id',
-        'serverCertificateId'                       => 'ServerCertificateId',
-        'CACertificateId'                           => 'CACertificateId',
-        'VServerGroup'                              => 'VServerGroup',
-        'VServerGroupId'                            => 'VServerGroupId',
-        'tags'                                      => 'Tags',
-        'XForwardedFor_SLBIP'                       => 'XForwardedFor_SLBIP',
-        'XForwardedFor_SLBID'                       => 'XForwardedFor_SLBID',
-        'XForwardedFor_proto'                       => 'XForwardedFor_proto',
-        'gzip'                                      => 'Gzip',
-        'aclId'                                     => 'AclId',
-        'aclType'                                   => 'AclType',
-        'aclStatus'                                 => 'AclStatus',
-        'vpcIds'                                    => 'VpcIds',
-        'idleTimeout'                               => 'IdleTimeout',
-        'requestTimeout'                            => 'RequestTimeout',
-        'enableHttp2'                               => 'EnableHttp2',
-        'TLSCipherPolicy'                           => 'TLSCipherPolicy',
-        'description'                               => 'Description',
-        'XForwardedFor_SLBPORT'                     => 'XForwardedFor_SLBPORT',
-        'XForwardedFor_ClientSrcPort'               => 'XForwardedFor_ClientSrcPort',
-        'XForwardedFor_ClientCertSubjectDN'         => 'XForwardedFor_ClientCertSubjectDN',
-        'XForwardedFor_ClientCertIssuerDN'          => 'XForwardedFor_ClientCertIssuerDN',
-        'XForwardedFor_ClientCertFingerprint'       => 'XForwardedFor_ClientCertFingerprint',
-        'XForwardedFor_ClientCertClientVerify'      => 'XForwardedFor_ClientCertClientVerify',
-        'XForwardedFor_ClientCertSubjectDNAlias'    => 'XForwardedFor_ClientCertSubjectDNAlias',
-        'XForwardedFor_ClientCertIssuerDNAlias'     => 'XForwardedFor_ClientCertIssuerDNAlias',
-        'XForwardedFor_ClientCertFingerprintAlias'  => 'XForwardedFor_ClientCertFingerprintAlias',
-        'XForwardedFor_ClientCertClientVerifyAlias' => 'XForwardedFor_ClientCertClientVerifyAlias',
-        'serverCertificate'                         => 'ServerCertificate',
+        'regionId'               => 'RegionId',
+        'ownerId'                => 'OwnerId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'loadBalancerId'         => 'LoadBalancerId',
+        'listenerPort'           => 'ListenerPort',
+        'bandwidth'              => 'Bandwidth',
+        'XForwardedFor'          => 'XForwardedFor',
+        'scheduler'              => 'Scheduler',
+        'stickySession'          => 'StickySession',
+        'stickySessionType'      => 'StickySessionType',
+        'cookieTimeout'          => 'CookieTimeout',
+        'cookie'                 => 'Cookie',
+        'healthCheck'            => 'HealthCheck',
+        'healthCheckDomain'      => 'HealthCheckDomain',
+        'healthCheckURI'         => 'HealthCheckURI',
+        'healthyThreshold'       => 'HealthyThreshold',
+        'unhealthyThreshold'     => 'UnhealthyThreshold',
+        'healthCheckTimeout'     => 'HealthCheckTimeout',
+        'healthCheckInterval'    => 'HealthCheckInterval',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
+        'healthCheckHttpCode'    => 'HealthCheckHttpCode',
+        'ownerAccount'           => 'OwnerAccount',
+        'serverCertificateId'    => 'ServerCertificateId',
+        'CACertificateId'        => 'CACertificateId',
+        'VServerGroup'           => 'VServerGroup',
+        'VServerGroupId'         => 'VServerGroupId',
+        'XForwardedFor_SLBIP'    => 'XForwardedFor_SLBIP',
+        'XForwardedFor_SLBID'    => 'XForwardedFor_SLBID',
+        'XForwardedFor_proto'    => 'XForwardedFor_proto',
+        'gzip'                   => 'Gzip',
+        'aclId'                  => 'AclId',
+        'aclType'                => 'AclType',
+        'aclStatus'              => 'AclStatus',
+        'idleTimeout'            => 'IdleTimeout',
+        'requestTimeout'         => 'RequestTimeout',
+        'enableHttp2'            => 'EnableHttp2',
+        'TLSCipherPolicy'        => 'TLSCipherPolicy',
+        'description'            => 'Description',
     ];
 
     public function validate()
@@ -381,9 +272,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
-        if (null !== $this->backendProtocol) {
-            $res['BackendProtocol'] = $this->backendProtocol;
-        }
         if (null !== $this->XForwardedFor) {
             $res['XForwardedFor'] = $this->XForwardedFor;
         }
@@ -404,12 +292,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         }
         if (null !== $this->healthCheck) {
             $res['HealthCheck'] = $this->healthCheck;
-        }
-        if (null !== $this->healthCheckType) {
-            $res['HealthCheckType'] = $this->healthCheckType;
-        }
-        if (null !== $this->healthCheckMethod) {
-            $res['HealthCheckMethod'] = $this->healthCheckMethod;
         }
         if (null !== $this->healthCheckDomain) {
             $res['HealthCheckDomain'] = $this->healthCheckDomain;
@@ -435,14 +317,8 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         if (null !== $this->healthCheckHttpCode) {
             $res['HealthCheckHttpCode'] = $this->healthCheckHttpCode;
         }
-        if (null !== $this->maxConnection) {
-            $res['MaxConnection'] = $this->maxConnection;
-        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
         }
         if (null !== $this->serverCertificateId) {
             $res['ServerCertificateId'] = $this->serverCertificateId;
@@ -455,9 +331,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         }
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
         if (null !== $this->XForwardedFor_SLBIP) {
             $res['XForwardedFor_SLBIP'] = $this->XForwardedFor_SLBIP;
@@ -480,9 +353,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         if (null !== $this->aclStatus) {
             $res['AclStatus'] = $this->aclStatus;
         }
-        if (null !== $this->vpcIds) {
-            $res['VpcIds'] = $this->vpcIds;
-        }
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
         }
@@ -497,45 +367,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->XForwardedFor_SLBPORT) {
-            $res['XForwardedFor_SLBPORT'] = $this->XForwardedFor_SLBPORT;
-        }
-        if (null !== $this->XForwardedFor_ClientSrcPort) {
-            $res['XForwardedFor_ClientSrcPort'] = $this->XForwardedFor_ClientSrcPort;
-        }
-        if (null !== $this->XForwardedFor_ClientCertSubjectDN) {
-            $res['XForwardedFor_ClientCertSubjectDN'] = $this->XForwardedFor_ClientCertSubjectDN;
-        }
-        if (null !== $this->XForwardedFor_ClientCertIssuerDN) {
-            $res['XForwardedFor_ClientCertIssuerDN'] = $this->XForwardedFor_ClientCertIssuerDN;
-        }
-        if (null !== $this->XForwardedFor_ClientCertFingerprint) {
-            $res['XForwardedFor_ClientCertFingerprint'] = $this->XForwardedFor_ClientCertFingerprint;
-        }
-        if (null !== $this->XForwardedFor_ClientCertClientVerify) {
-            $res['XForwardedFor_ClientCertClientVerify'] = $this->XForwardedFor_ClientCertClientVerify;
-        }
-        if (null !== $this->XForwardedFor_ClientCertSubjectDNAlias) {
-            $res['XForwardedFor_ClientCertSubjectDNAlias'] = $this->XForwardedFor_ClientCertSubjectDNAlias;
-        }
-        if (null !== $this->XForwardedFor_ClientCertIssuerDNAlias) {
-            $res['XForwardedFor_ClientCertIssuerDNAlias'] = $this->XForwardedFor_ClientCertIssuerDNAlias;
-        }
-        if (null !== $this->XForwardedFor_ClientCertFingerprintAlias) {
-            $res['XForwardedFor_ClientCertFingerprintAlias'] = $this->XForwardedFor_ClientCertFingerprintAlias;
-        }
-        if (null !== $this->XForwardedFor_ClientCertClientVerifyAlias) {
-            $res['XForwardedFor_ClientCertClientVerifyAlias'] = $this->XForwardedFor_ClientCertClientVerifyAlias;
-        }
-        if (null !== $this->serverCertificate) {
-            $res['ServerCertificate'] = [];
-            if (null !== $this->serverCertificate && \is_array($this->serverCertificate)) {
-                $n = 0;
-                foreach ($this->serverCertificate as $item) {
-                    $res['ServerCertificate'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -570,9 +401,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
-        if (isset($map['BackendProtocol'])) {
-            $model->backendProtocol = $map['BackendProtocol'];
-        }
         if (isset($map['XForwardedFor'])) {
             $model->XForwardedFor = $map['XForwardedFor'];
         }
@@ -593,12 +421,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         }
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = $map['HealthCheck'];
-        }
-        if (isset($map['HealthCheckType'])) {
-            $model->healthCheckType = $map['HealthCheckType'];
-        }
-        if (isset($map['HealthCheckMethod'])) {
-            $model->healthCheckMethod = $map['HealthCheckMethod'];
         }
         if (isset($map['HealthCheckDomain'])) {
             $model->healthCheckDomain = $map['HealthCheckDomain'];
@@ -624,14 +446,8 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         if (isset($map['HealthCheckHttpCode'])) {
             $model->healthCheckHttpCode = $map['HealthCheckHttpCode'];
         }
-        if (isset($map['MaxConnection'])) {
-            $model->maxConnection = $map['MaxConnection'];
-        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
         }
         if (isset($map['ServerCertificateId'])) {
             $model->serverCertificateId = $map['ServerCertificateId'];
@@ -644,9 +460,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         }
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['XForwardedFor_SLBIP'])) {
             $model->XForwardedFor_SLBIP = $map['XForwardedFor_SLBIP'];
@@ -669,9 +482,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         if (isset($map['AclStatus'])) {
             $model->aclStatus = $map['AclStatus'];
         }
-        if (isset($map['VpcIds'])) {
-            $model->vpcIds = $map['VpcIds'];
-        }
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];
         }
@@ -686,45 +496,6 @@ class SetLoadBalancerHTTPSListenerAttributeRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['XForwardedFor_SLBPORT'])) {
-            $model->XForwardedFor_SLBPORT = $map['XForwardedFor_SLBPORT'];
-        }
-        if (isset($map['XForwardedFor_ClientSrcPort'])) {
-            $model->XForwardedFor_ClientSrcPort = $map['XForwardedFor_ClientSrcPort'];
-        }
-        if (isset($map['XForwardedFor_ClientCertSubjectDN'])) {
-            $model->XForwardedFor_ClientCertSubjectDN = $map['XForwardedFor_ClientCertSubjectDN'];
-        }
-        if (isset($map['XForwardedFor_ClientCertIssuerDN'])) {
-            $model->XForwardedFor_ClientCertIssuerDN = $map['XForwardedFor_ClientCertIssuerDN'];
-        }
-        if (isset($map['XForwardedFor_ClientCertFingerprint'])) {
-            $model->XForwardedFor_ClientCertFingerprint = $map['XForwardedFor_ClientCertFingerprint'];
-        }
-        if (isset($map['XForwardedFor_ClientCertClientVerify'])) {
-            $model->XForwardedFor_ClientCertClientVerify = $map['XForwardedFor_ClientCertClientVerify'];
-        }
-        if (isset($map['XForwardedFor_ClientCertSubjectDNAlias'])) {
-            $model->XForwardedFor_ClientCertSubjectDNAlias = $map['XForwardedFor_ClientCertSubjectDNAlias'];
-        }
-        if (isset($map['XForwardedFor_ClientCertIssuerDNAlias'])) {
-            $model->XForwardedFor_ClientCertIssuerDNAlias = $map['XForwardedFor_ClientCertIssuerDNAlias'];
-        }
-        if (isset($map['XForwardedFor_ClientCertFingerprintAlias'])) {
-            $model->XForwardedFor_ClientCertFingerprintAlias = $map['XForwardedFor_ClientCertFingerprintAlias'];
-        }
-        if (isset($map['XForwardedFor_ClientCertClientVerifyAlias'])) {
-            $model->XForwardedFor_ClientCertClientVerifyAlias = $map['XForwardedFor_ClientCertClientVerifyAlias'];
-        }
-        if (isset($map['ServerCertificate'])) {
-            if (!empty($map['ServerCertificate'])) {
-                $model->serverCertificate = [];
-                $n                        = 0;
-                foreach ($map['ServerCertificate'] as $item) {
-                    $model->serverCertificate[$n++] = null !== $item ? serverCertificate::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

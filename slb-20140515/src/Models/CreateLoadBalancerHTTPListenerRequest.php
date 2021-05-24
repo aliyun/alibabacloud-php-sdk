@@ -86,21 +86,6 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     /**
      * @var string
      */
-    public $healthCheckType;
-
-    /**
-     * @var string
-     */
-    public $healthCheckMethod;
-
-    /**
-     * @var string
-     */
-    public $healthCheckHttpVersion;
-
-    /**
-     * @var string
-     */
     public $healthCheckDomain;
 
     /**
@@ -139,11 +124,6 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     public $healthCheckHttpCode;
 
     /**
-     * @var int
-     */
-    public $maxConnection;
-
-    /**
      * @var string
      */
     public $ownerAccount;
@@ -151,17 +131,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
     public $VServerGroupId;
-
-    /**
-     * @var string
-     */
-    public $tags;
 
     /**
      * @var string
@@ -201,11 +171,6 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     /**
      * @var string
      */
-    public $vpcIds;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -227,69 +192,44 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      * @var int
      */
     public $requestTimeout;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_SLBPORT;
-
-    /**
-     * @var string
-     */
-    public $XForwardedFor_ClientSrcPort;
-
-    /**
-     * @var int
-     */
-    public $forwardCode;
     protected $_name = [
-        'regionId'                    => 'RegionId',
-        'ownerId'                     => 'OwnerId',
-        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
-        'resourceOwnerId'             => 'ResourceOwnerId',
-        'loadBalancerId'              => 'LoadBalancerId',
-        'bandwidth'                   => 'Bandwidth',
-        'listenerPort'                => 'ListenerPort',
-        'backendServerPort'           => 'BackendServerPort',
-        'XForwardedFor'               => 'XForwardedFor',
-        'scheduler'                   => 'Scheduler',
-        'stickySession'               => 'StickySession',
-        'stickySessionType'           => 'StickySessionType',
-        'cookieTimeout'               => 'CookieTimeout',
-        'cookie'                      => 'Cookie',
-        'healthCheck'                 => 'HealthCheck',
-        'healthCheckType'             => 'HealthCheckType',
-        'healthCheckMethod'           => 'HealthCheckMethod',
-        'healthCheckHttpVersion'      => 'HealthCheckHttpVersion',
-        'healthCheckDomain'           => 'HealthCheckDomain',
-        'healthCheckURI'              => 'HealthCheckURI',
-        'healthyThreshold'            => 'HealthyThreshold',
-        'unhealthyThreshold'          => 'UnhealthyThreshold',
-        'healthCheckTimeout'          => 'HealthCheckTimeout',
-        'healthCheckConnectPort'      => 'HealthCheckConnectPort',
-        'healthCheckInterval'         => 'HealthCheckInterval',
-        'healthCheckHttpCode'         => 'HealthCheckHttpCode',
-        'maxConnection'               => 'MaxConnection',
-        'ownerAccount'                => 'OwnerAccount',
-        'accessKeyId'                 => 'access_key_id',
-        'VServerGroupId'              => 'VServerGroupId',
-        'tags'                        => 'Tags',
-        'XForwardedFor_SLBIP'         => 'XForwardedFor_SLBIP',
-        'XForwardedFor_SLBID'         => 'XForwardedFor_SLBID',
-        'XForwardedFor_proto'         => 'XForwardedFor_proto',
-        'gzip'                        => 'Gzip',
-        'aclId'                       => 'AclId',
-        'aclType'                     => 'AclType',
-        'aclStatus'                   => 'AclStatus',
-        'vpcIds'                      => 'VpcIds',
-        'description'                 => 'Description',
-        'listenerForward'             => 'ListenerForward',
-        'forwardPort'                 => 'ForwardPort',
-        'idleTimeout'                 => 'IdleTimeout',
-        'requestTimeout'              => 'RequestTimeout',
-        'XForwardedFor_SLBPORT'       => 'XForwardedFor_SLBPORT',
-        'XForwardedFor_ClientSrcPort' => 'XForwardedFor_ClientSrcPort',
-        'forwardCode'                 => 'ForwardCode',
+        'regionId'               => 'RegionId',
+        'ownerId'                => 'OwnerId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'loadBalancerId'         => 'LoadBalancerId',
+        'bandwidth'              => 'Bandwidth',
+        'listenerPort'           => 'ListenerPort',
+        'backendServerPort'      => 'BackendServerPort',
+        'XForwardedFor'          => 'XForwardedFor',
+        'scheduler'              => 'Scheduler',
+        'stickySession'          => 'StickySession',
+        'stickySessionType'      => 'StickySessionType',
+        'cookieTimeout'          => 'CookieTimeout',
+        'cookie'                 => 'Cookie',
+        'healthCheck'            => 'HealthCheck',
+        'healthCheckDomain'      => 'HealthCheckDomain',
+        'healthCheckURI'         => 'HealthCheckURI',
+        'healthyThreshold'       => 'HealthyThreshold',
+        'unhealthyThreshold'     => 'UnhealthyThreshold',
+        'healthCheckTimeout'     => 'HealthCheckTimeout',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
+        'healthCheckInterval'    => 'HealthCheckInterval',
+        'healthCheckHttpCode'    => 'HealthCheckHttpCode',
+        'ownerAccount'           => 'OwnerAccount',
+        'VServerGroupId'         => 'VServerGroupId',
+        'XForwardedFor_SLBIP'    => 'XForwardedFor_SLBIP',
+        'XForwardedFor_SLBID'    => 'XForwardedFor_SLBID',
+        'XForwardedFor_proto'    => 'XForwardedFor_proto',
+        'gzip'                   => 'Gzip',
+        'aclId'                  => 'AclId',
+        'aclType'                => 'AclType',
+        'aclStatus'              => 'AclStatus',
+        'description'            => 'Description',
+        'listenerForward'        => 'ListenerForward',
+        'forwardPort'            => 'ForwardPort',
+        'idleTimeout'            => 'IdleTimeout',
+        'requestTimeout'         => 'RequestTimeout',
     ];
 
     public function validate()
@@ -344,15 +284,6 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
         if (null !== $this->healthCheck) {
             $res['HealthCheck'] = $this->healthCheck;
         }
-        if (null !== $this->healthCheckType) {
-            $res['HealthCheckType'] = $this->healthCheckType;
-        }
-        if (null !== $this->healthCheckMethod) {
-            $res['HealthCheckMethod'] = $this->healthCheckMethod;
-        }
-        if (null !== $this->healthCheckHttpVersion) {
-            $res['HealthCheckHttpVersion'] = $this->healthCheckHttpVersion;
-        }
         if (null !== $this->healthCheckDomain) {
             $res['HealthCheckDomain'] = $this->healthCheckDomain;
         }
@@ -377,20 +308,11 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
         if (null !== $this->healthCheckHttpCode) {
             $res['HealthCheckHttpCode'] = $this->healthCheckHttpCode;
         }
-        if (null !== $this->maxConnection) {
-            $res['MaxConnection'] = $this->maxConnection;
-        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
         if (null !== $this->XForwardedFor_SLBIP) {
             $res['XForwardedFor_SLBIP'] = $this->XForwardedFor_SLBIP;
@@ -413,9 +335,6 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
         if (null !== $this->aclStatus) {
             $res['AclStatus'] = $this->aclStatus;
         }
-        if (null !== $this->vpcIds) {
-            $res['VpcIds'] = $this->vpcIds;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -430,15 +349,6 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
         }
         if (null !== $this->requestTimeout) {
             $res['RequestTimeout'] = $this->requestTimeout;
-        }
-        if (null !== $this->XForwardedFor_SLBPORT) {
-            $res['XForwardedFor_SLBPORT'] = $this->XForwardedFor_SLBPORT;
-        }
-        if (null !== $this->XForwardedFor_ClientSrcPort) {
-            $res['XForwardedFor_ClientSrcPort'] = $this->XForwardedFor_ClientSrcPort;
-        }
-        if (null !== $this->forwardCode) {
-            $res['ForwardCode'] = $this->forwardCode;
         }
 
         return $res;
@@ -497,15 +407,6 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = $map['HealthCheck'];
         }
-        if (isset($map['HealthCheckType'])) {
-            $model->healthCheckType = $map['HealthCheckType'];
-        }
-        if (isset($map['HealthCheckMethod'])) {
-            $model->healthCheckMethod = $map['HealthCheckMethod'];
-        }
-        if (isset($map['HealthCheckHttpVersion'])) {
-            $model->healthCheckHttpVersion = $map['HealthCheckHttpVersion'];
-        }
         if (isset($map['HealthCheckDomain'])) {
             $model->healthCheckDomain = $map['HealthCheckDomain'];
         }
@@ -530,20 +431,11 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
         if (isset($map['HealthCheckHttpCode'])) {
             $model->healthCheckHttpCode = $map['HealthCheckHttpCode'];
         }
-        if (isset($map['MaxConnection'])) {
-            $model->maxConnection = $map['MaxConnection'];
-        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['XForwardedFor_SLBIP'])) {
             $model->XForwardedFor_SLBIP = $map['XForwardedFor_SLBIP'];
@@ -566,9 +458,6 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
         if (isset($map['AclStatus'])) {
             $model->aclStatus = $map['AclStatus'];
         }
-        if (isset($map['VpcIds'])) {
-            $model->vpcIds = $map['VpcIds'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -583,15 +472,6 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
         }
         if (isset($map['RequestTimeout'])) {
             $model->requestTimeout = $map['RequestTimeout'];
-        }
-        if (isset($map['XForwardedFor_SLBPORT'])) {
-            $model->XForwardedFor_SLBPORT = $map['XForwardedFor_SLBPORT'];
-        }
-        if (isset($map['XForwardedFor_ClientSrcPort'])) {
-            $model->XForwardedFor_ClientSrcPort = $map['XForwardedFor_ClientSrcPort'];
-        }
-        if (isset($map['ForwardCode'])) {
-            $model->forwardCode = $map['ForwardCode'];
         }
 
         return $model;

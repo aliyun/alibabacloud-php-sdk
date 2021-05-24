@@ -81,21 +81,6 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
-    public $enableVpcVipFlow;
-
-    /**
-     * @var string
-     */
     public $loadBalancerSpec;
 
     /**
@@ -134,24 +119,9 @@ class CreateLoadBalancerRequest extends Model
     public $address;
 
     /**
-     * @var int
-     */
-    public $ratio;
-
-    /**
      * @var string
      */
     public $deleteProtection;
-
-    /**
-     * @var string
-     */
-    public $cloudType;
-
-    /**
-     * @var bool
-     */
-    public $supportPrivateLink;
 
     /**
      * @var string
@@ -177,9 +147,6 @@ class CreateLoadBalancerRequest extends Model
         'ownerAccount'                 => 'OwnerAccount',
         'masterZoneId'                 => 'MasterZoneId',
         'slaveZoneId'                  => 'SlaveZoneId',
-        'accessKeyId'                  => 'access_key_id',
-        'tags'                         => 'Tags',
-        'enableVpcVipFlow'             => 'EnableVpcVipFlow',
         'loadBalancerSpec'             => 'LoadBalancerSpec',
         'resourceGroupId'              => 'ResourceGroupId',
         'payType'                      => 'PayType',
@@ -188,10 +155,7 @@ class CreateLoadBalancerRequest extends Model
         'autoPay'                      => 'AutoPay',
         'addressIPVersion'             => 'AddressIPVersion',
         'address'                      => 'Address',
-        'ratio'                        => 'Ratio',
         'deleteProtection'             => 'DeleteProtection',
-        'cloudType'                    => 'CloudType',
-        'supportPrivateLink'           => 'SupportPrivateLink',
         'modificationProtectionStatus' => 'ModificationProtectionStatus',
         'modificationProtectionReason' => 'ModificationProtectionReason',
     ];
@@ -245,15 +209,6 @@ class CreateLoadBalancerRequest extends Model
         if (null !== $this->slaveZoneId) {
             $res['SlaveZoneId'] = $this->slaveZoneId;
         }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
-        if (null !== $this->enableVpcVipFlow) {
-            $res['EnableVpcVipFlow'] = $this->enableVpcVipFlow;
-        }
         if (null !== $this->loadBalancerSpec) {
             $res['LoadBalancerSpec'] = $this->loadBalancerSpec;
         }
@@ -278,17 +233,8 @@ class CreateLoadBalancerRequest extends Model
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
-        if (null !== $this->ratio) {
-            $res['Ratio'] = $this->ratio;
-        }
         if (null !== $this->deleteProtection) {
             $res['DeleteProtection'] = $this->deleteProtection;
-        }
-        if (null !== $this->cloudType) {
-            $res['CloudType'] = $this->cloudType;
-        }
-        if (null !== $this->supportPrivateLink) {
-            $res['SupportPrivateLink'] = $this->supportPrivateLink;
         }
         if (null !== $this->modificationProtectionStatus) {
             $res['ModificationProtectionStatus'] = $this->modificationProtectionStatus;
@@ -350,15 +296,6 @@ class CreateLoadBalancerRequest extends Model
         if (isset($map['SlaveZoneId'])) {
             $model->slaveZoneId = $map['SlaveZoneId'];
         }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
-        if (isset($map['EnableVpcVipFlow'])) {
-            $model->enableVpcVipFlow = $map['EnableVpcVipFlow'];
-        }
         if (isset($map['LoadBalancerSpec'])) {
             $model->loadBalancerSpec = $map['LoadBalancerSpec'];
         }
@@ -383,17 +320,8 @@ class CreateLoadBalancerRequest extends Model
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
-        if (isset($map['Ratio'])) {
-            $model->ratio = $map['Ratio'];
-        }
         if (isset($map['DeleteProtection'])) {
             $model->deleteProtection = $map['DeleteProtection'];
-        }
-        if (isset($map['CloudType'])) {
-            $model->cloudType = $map['CloudType'];
-        }
-        if (isset($map['SupportPrivateLink'])) {
-            $model->supportPrivateLink = $map['SupportPrivateLink'];
         }
         if (isset($map['ModificationProtectionStatus'])) {
             $model->modificationProtectionStatus = $map['ModificationProtectionStatus'];

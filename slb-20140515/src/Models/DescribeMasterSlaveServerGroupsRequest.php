@@ -36,16 +36,6 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
     public $loadBalancerId;
 
     /**
@@ -58,8 +48,6 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'regionId'             => 'RegionId',
         'ownerAccount'         => 'OwnerAccount',
-        'accessKeyId'          => 'access_key_id',
-        'tags'                 => 'Tags',
         'loadBalancerId'       => 'LoadBalancerId',
         'includeListener'      => 'IncludeListener',
     ];
@@ -85,12 +73,6 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
@@ -124,12 +106,6 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];

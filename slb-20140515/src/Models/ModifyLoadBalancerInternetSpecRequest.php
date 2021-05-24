@@ -49,24 +49,9 @@ class ModifyLoadBalancerInternetSpecRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var string
-     */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
-
-    /**
      * @var bool
      */
     public $autoPay;
-
-    /**
-     * @var int
-     */
-    public $ratio;
     protected $_name = [
         'regionId'             => 'RegionId',
         'ownerId'              => 'OwnerId',
@@ -76,10 +61,7 @@ class ModifyLoadBalancerInternetSpecRequest extends Model
         'internetChargeType'   => 'InternetChargeType',
         'bandwidth'            => 'Bandwidth',
         'ownerAccount'         => 'OwnerAccount',
-        'accessKeyId'          => 'access_key_id',
-        'tags'                 => 'Tags',
         'autoPay'              => 'AutoPay',
-        'ratio'                => 'Ratio',
     ];
 
     public function validate()
@@ -113,17 +95,8 @@ class ModifyLoadBalancerInternetSpecRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
-        }
-        if (null !== $this->ratio) {
-            $res['Ratio'] = $this->ratio;
         }
 
         return $res;
@@ -161,17 +134,8 @@ class ModifyLoadBalancerInternetSpecRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
-        }
-        if (isset($map['Ratio'])) {
-            $model->ratio = $map['Ratio'];
         }
 
         return $model;

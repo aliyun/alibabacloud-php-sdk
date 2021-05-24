@@ -36,16 +36,6 @@ class SetRuleRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
     public $ruleId;
 
     /**
@@ -138,8 +128,6 @@ class SetRuleRequest extends Model
         'resourceOwnerId'        => 'ResourceOwnerId',
         'regionId'               => 'RegionId',
         'ownerAccount'           => 'OwnerAccount',
-        'accessKeyId'            => 'access_key_id',
-        'tags'                   => 'Tags',
         'ruleId'                 => 'RuleId',
         'VServerGroupId'         => 'VServerGroupId',
         'ruleName'               => 'RuleName',
@@ -181,12 +169,6 @@ class SetRuleRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
@@ -268,12 +250,6 @@ class SetRuleRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];

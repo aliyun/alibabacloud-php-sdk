@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListTLSCipherPoliciesResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $nextToken;
@@ -25,20 +20,25 @@ class ListTLSCipherPoliciesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var TLSCipherPolicies[]
+     * @var int
      */
-    public $TLSCipherPolicies;
+    public $totalCount;
 
     /**
      * @var bool
      */
     public $isTruncated;
+
+    /**
+     * @var TLSCipherPolicies[]
+     */
+    public $TLSCipherPolicies;
     protected $_name = [
-        'totalCount'        => 'TotalCount',
         'nextToken'         => 'NextToken',
         'requestId'         => 'RequestId',
-        'TLSCipherPolicies' => 'TLSCipherPolicies',
+        'totalCount'        => 'TotalCount',
         'isTruncated'       => 'IsTruncated',
+        'TLSCipherPolicies' => 'TLSCipherPolicies',
     ];
 
     public function validate()
@@ -48,14 +48,17 @@ class ListTLSCipherPoliciesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->isTruncated) {
+            $res['IsTruncated'] = $this->isTruncated;
         }
         if (null !== $this->TLSCipherPolicies) {
             $res['TLSCipherPolicies'] = [];
@@ -65,9 +68,6 @@ class ListTLSCipherPoliciesResponseBody extends Model
                     $res['TLSCipherPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->isTruncated) {
-            $res['IsTruncated'] = $this->isTruncated;
         }
 
         return $res;
@@ -81,14 +81,17 @@ class ListTLSCipherPoliciesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['IsTruncated'])) {
+            $model->isTruncated = $map['IsTruncated'];
         }
         if (isset($map['TLSCipherPolicies'])) {
             if (!empty($map['TLSCipherPolicies'])) {
@@ -98,9 +101,6 @@ class ListTLSCipherPoliciesResponseBody extends Model
                     $model->TLSCipherPolicies[$n++] = null !== $item ? TLSCipherPolicies::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['IsTruncated'])) {
-            $model->isTruncated = $map['IsTruncated'];
         }
 
         return $model;

@@ -31,11 +31,6 @@ class UploadCACertificateRequest extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
@@ -52,22 +47,15 @@ class UploadCACertificateRequest extends Model
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $standardType;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
-        'accessKeyId'          => 'access_key_id',
         'regionId'             => 'RegionId',
         'CACertificate'        => 'CACertificate',
         'CACertificateName'    => 'CACertificateName',
         'resourceGroupId'      => 'ResourceGroupId',
-        'standardType'         => 'StandardType',
     ];
 
     public function validate()
@@ -89,9 +77,6 @@ class UploadCACertificateRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -103,9 +88,6 @@ class UploadCACertificateRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->standardType) {
-            $res['StandardType'] = $this->standardType;
         }
 
         return $res;
@@ -131,9 +113,6 @@ class UploadCACertificateRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -145,9 +124,6 @@ class UploadCACertificateRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['StandardType'])) {
-            $model->standardType = $map['StandardType'];
         }
 
         return $model;

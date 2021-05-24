@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
-use AlibabaCloud\SDK\Slb\V20140515\Models\SetLoadBalancerTCPListenerAttributeRequest\portRange;
 use AlibabaCloud\Tea\Model;
 
 class SetLoadBalancerTCPListenerAttributeRequest extends Model
@@ -107,32 +106,12 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
     /**
      * @var string
      */
-    public $healthCheckMethod;
-
-    /**
-     * @var string
-     */
     public $synProxy;
-
-    /**
-     * @var int
-     */
-    public $maxConnection;
 
     /**
      * @var string
      */
     public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $accessKeyId;
-
-    /**
-     * @var string
-     */
-    public $tags;
 
     /**
      * @var string
@@ -172,11 +151,6 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
     /**
      * @var string
      */
-    public $vpcIds;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -188,11 +162,6 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
      * @var int
      */
     public $connectionDrainTimeout;
-
-    /**
-     * @var portRange[]
-     */
-    public $portRange;
     protected $_name = [
         'regionId'                  => 'RegionId',
         'ownerId'                   => 'OwnerId',
@@ -213,12 +182,8 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
         'healthCheckURI'            => 'HealthCheckURI',
         'healthCheckHttpCode'       => 'HealthCheckHttpCode',
         'healthCheckType'           => 'HealthCheckType',
-        'healthCheckMethod'         => 'HealthCheckMethod',
         'synProxy'                  => 'SynProxy',
-        'maxConnection'             => 'MaxConnection',
         'ownerAccount'              => 'OwnerAccount',
-        'accessKeyId'               => 'access_key_id',
-        'tags'                      => 'Tags',
         'VServerGroup'              => 'VServerGroup',
         'VServerGroupId'            => 'VServerGroupId',
         'masterSlaveServerGroupId'  => 'MasterSlaveServerGroupId',
@@ -226,11 +191,9 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
         'aclId'                     => 'AclId',
         'aclType'                   => 'AclType',
         'aclStatus'                 => 'AclStatus',
-        'vpcIds'                    => 'VpcIds',
         'description'               => 'Description',
         'connectionDrain'           => 'ConnectionDrain',
         'connectionDrainTimeout'    => 'ConnectionDrainTimeout',
-        'portRange'                 => 'PortRange',
     ];
 
     public function validate()
@@ -297,23 +260,11 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
         if (null !== $this->healthCheckType) {
             $res['HealthCheckType'] = $this->healthCheckType;
         }
-        if (null !== $this->healthCheckMethod) {
-            $res['HealthCheckMethod'] = $this->healthCheckMethod;
-        }
         if (null !== $this->synProxy) {
             $res['SynProxy'] = $this->synProxy;
         }
-        if (null !== $this->maxConnection) {
-            $res['MaxConnection'] = $this->maxConnection;
-        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->accessKeyId) {
-            $res['access_key_id'] = $this->accessKeyId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
         }
         if (null !== $this->VServerGroup) {
             $res['VServerGroup'] = $this->VServerGroup;
@@ -336,9 +287,6 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
         if (null !== $this->aclStatus) {
             $res['AclStatus'] = $this->aclStatus;
         }
-        if (null !== $this->vpcIds) {
-            $res['VpcIds'] = $this->vpcIds;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -347,15 +295,6 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
         }
         if (null !== $this->connectionDrainTimeout) {
             $res['ConnectionDrainTimeout'] = $this->connectionDrainTimeout;
-        }
-        if (null !== $this->portRange) {
-            $res['PortRange'] = [];
-            if (null !== $this->portRange && \is_array($this->portRange)) {
-                $n = 0;
-                foreach ($this->portRange as $item) {
-                    $res['PortRange'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -426,23 +365,11 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
         if (isset($map['HealthCheckType'])) {
             $model->healthCheckType = $map['HealthCheckType'];
         }
-        if (isset($map['HealthCheckMethod'])) {
-            $model->healthCheckMethod = $map['HealthCheckMethod'];
-        }
         if (isset($map['SynProxy'])) {
             $model->synProxy = $map['SynProxy'];
         }
-        if (isset($map['MaxConnection'])) {
-            $model->maxConnection = $map['MaxConnection'];
-        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['access_key_id'])) {
-            $model->accessKeyId = $map['access_key_id'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
         }
         if (isset($map['VServerGroup'])) {
             $model->VServerGroup = $map['VServerGroup'];
@@ -465,9 +392,6 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
         if (isset($map['AclStatus'])) {
             $model->aclStatus = $map['AclStatus'];
         }
-        if (isset($map['VpcIds'])) {
-            $model->vpcIds = $map['VpcIds'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -476,15 +400,6 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
         }
         if (isset($map['ConnectionDrainTimeout'])) {
             $model->connectionDrainTimeout = $map['ConnectionDrainTimeout'];
-        }
-        if (isset($map['PortRange'])) {
-            if (!empty($map['PortRange'])) {
-                $model->portRange = [];
-                $n                = 0;
-                foreach ($map['PortRange'] as $item) {
-                    $model->portRange[$n++] = null !== $item ? portRange::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

@@ -15,21 +15,6 @@ class TLSCipherPolicies extends Model
     public $status;
 
     /**
-     * @var relateListeners[]
-     */
-    public $relateListeners;
-
-    /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @var string[]
-     */
-    public $ciphers;
-
-    /**
      * @var string
      */
     public $instanceId;
@@ -40,17 +25,32 @@ class TLSCipherPolicies extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
+     * @var relateListeners[]
+     */
+    public $relateListeners;
+
+    /**
      * @var string[]
      */
     public $TLSVersions;
+
+    /**
+     * @var string[]
+     */
+    public $ciphers;
     protected $_name = [
         'status'          => 'Status',
-        'relateListeners' => 'RelateListeners',
-        'createTime'      => 'CreateTime',
-        'ciphers'         => 'Ciphers',
         'instanceId'      => 'InstanceId',
         'name'            => 'Name',
+        'createTime'      => 'CreateTime',
+        'relateListeners' => 'RelateListeners',
         'TLSVersions'     => 'TLSVersions',
+        'ciphers'         => 'Ciphers',
     ];
 
     public function validate()
@@ -63,6 +63,15 @@ class TLSCipherPolicies extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->relateListeners) {
             $res['RelateListeners'] = [];
             if (null !== $this->relateListeners && \is_array($this->relateListeners)) {
@@ -72,20 +81,11 @@ class TLSCipherPolicies extends Model
                 }
             }
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->TLSVersions) {
+            $res['TLSVersions'] = $this->TLSVersions;
         }
         if (null !== $this->ciphers) {
             $res['Ciphers'] = $this->ciphers;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->TLSVersions) {
-            $res['TLSVersions'] = $this->TLSVersions;
         }
 
         return $res;
@@ -102,6 +102,15 @@ class TLSCipherPolicies extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['RelateListeners'])) {
             if (!empty($map['RelateListeners'])) {
                 $model->relateListeners = [];
@@ -111,23 +120,14 @@ class TLSCipherPolicies extends Model
                 }
             }
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['TLSVersions'])) {
+            if (!empty($map['TLSVersions'])) {
+                $model->TLSVersions = $map['TLSVersions'];
+            }
         }
         if (isset($map['Ciphers'])) {
             if (!empty($map['Ciphers'])) {
                 $model->ciphers = $map['Ciphers'];
-            }
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['TLSVersions'])) {
-            if (!empty($map['TLSVersions'])) {
-                $model->TLSVersions = $map['TLSVersions'];
             }
         }
 

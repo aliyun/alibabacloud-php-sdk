@@ -11,21 +11,21 @@ class DescribeListenerAccessControlAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $sourceItems;
+
+    /**
+     * @var string
+     */
     public $accessControlStatus;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $sourceItems;
     protected $_name = [
+        'sourceItems'         => 'SourceItems',
         'accessControlStatus' => 'AccessControlStatus',
         'requestId'           => 'RequestId',
-        'sourceItems'         => 'SourceItems',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeListenerAccessControlAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->sourceItems) {
+            $res['SourceItems'] = $this->sourceItems;
+        }
         if (null !== $this->accessControlStatus) {
             $res['AccessControlStatus'] = $this->accessControlStatus;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->sourceItems) {
-            $res['SourceItems'] = $this->sourceItems;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeListenerAccessControlAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SourceItems'])) {
+            $model->sourceItems = $map['SourceItems'];
+        }
         if (isset($map['AccessControlStatus'])) {
             $model->accessControlStatus = $map['AccessControlStatus'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SourceItems'])) {
-            $model->sourceItems = $map['SourceItems'];
         }
 
         return $model;

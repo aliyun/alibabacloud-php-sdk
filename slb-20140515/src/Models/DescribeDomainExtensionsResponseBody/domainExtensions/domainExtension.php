@@ -11,20 +11,20 @@ class domainExtension extends Model
     /**
      * @var string
      */
-    public $domain;
+    public $serverCertificateId;
 
     /**
      * @var string
      */
-    public $serverCertificateId;
+    public $domain;
 
     /**
      * @var string
      */
     public $domainExtensionId;
     protected $_name = [
-        'domain'              => 'Domain',
         'serverCertificateId' => 'ServerCertificateId',
+        'domain'              => 'Domain',
         'domainExtensionId'   => 'DomainExtensionId',
     ];
 
@@ -35,11 +35,11 @@ class domainExtension extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->serverCertificateId) {
             $res['ServerCertificateId'] = $this->serverCertificateId;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->domainExtensionId) {
             $res['DomainExtensionId'] = $this->domainExtensionId;
@@ -56,11 +56,11 @@ class domainExtension extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['ServerCertificateId'])) {
             $model->serverCertificateId = $map['ServerCertificateId'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['DomainExtensionId'])) {
             $model->domainExtensionId = $map['DomainExtensionId'];

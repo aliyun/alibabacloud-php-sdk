@@ -46,6 +46,46 @@ class loadBalancer extends Model
     /**
      * @var string
      */
+    public $addressIPVersion;
+
+    /**
+     * @var string
+     */
+    public $loadBalancerName;
+
+    /**
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
+     * @var string
+     */
+    public $address;
+
+    /**
+     * @var string
+     */
+    public $slaveZoneId;
+
+    /**
+     * @var string
+     */
+    public $masterZoneId;
+
+    /**
+     * @var string
+     */
+    public $internetChargeTypeAlias;
+
+    /**
+     * @var string
+     */
+    public $loadBalancerSpec;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -61,22 +101,12 @@ class loadBalancer extends Model
     /**
      * @var string
      */
-    public $addressIPVersion;
-
-    /**
-     * @var string
-     */
     public $vSwitchId;
 
     /**
      * @var string
      */
     public $loadBalancerStatus;
-
-    /**
-     * @var string
-     */
-    public $loadBalancerName;
 
     /**
      * @var string
@@ -91,22 +121,12 @@ class loadBalancer extends Model
     /**
      * @var string
      */
-    public $address;
-
-    /**
-     * @var string
-     */
-    public $slaveZoneId;
+    public $deleteProtection;
 
     /**
      * @var string
      */
     public $regionIdAlias;
-
-    /**
-     * @var string
-     */
-    public $masterZoneId;
     protected $_name = [
         'vpcId'                        => 'VpcId',
         'createTimeStamp'              => 'CreateTimeStamp',
@@ -115,19 +135,23 @@ class loadBalancer extends Model
         'payType'                      => 'PayType',
         'addressType'                  => 'AddressType',
         'networkType'                  => 'NetworkType',
+        'addressIPVersion'             => 'AddressIPVersion',
+        'loadBalancerName'             => 'LoadBalancerName',
+        'bandwidth'                    => 'Bandwidth',
+        'address'                      => 'Address',
+        'slaveZoneId'                  => 'SlaveZoneId',
+        'masterZoneId'                 => 'MasterZoneId',
+        'internetChargeTypeAlias'      => 'InternetChargeTypeAlias',
+        'loadBalancerSpec'             => 'LoadBalancerSpec',
         'regionId'                     => 'RegionId',
         'modificationProtectionReason' => 'ModificationProtectionReason',
         'modificationProtectionStatus' => 'ModificationProtectionStatus',
-        'addressIPVersion'             => 'AddressIPVersion',
         'vSwitchId'                    => 'VSwitchId',
         'loadBalancerStatus'           => 'LoadBalancerStatus',
-        'loadBalancerName'             => 'LoadBalancerName',
         'resourceGroupId'              => 'ResourceGroupId',
         'internetChargeType'           => 'InternetChargeType',
-        'address'                      => 'Address',
-        'slaveZoneId'                  => 'SlaveZoneId',
+        'deleteProtection'             => 'DeleteProtection',
         'regionIdAlias'                => 'RegionIdAlias',
-        'masterZoneId'                 => 'MasterZoneId',
     ];
 
     public function validate()
@@ -158,6 +182,30 @@ class loadBalancer extends Model
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+        if (null !== $this->addressIPVersion) {
+            $res['AddressIPVersion'] = $this->addressIPVersion;
+        }
+        if (null !== $this->loadBalancerName) {
+            $res['LoadBalancerName'] = $this->loadBalancerName;
+        }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->address) {
+            $res['Address'] = $this->address;
+        }
+        if (null !== $this->slaveZoneId) {
+            $res['SlaveZoneId'] = $this->slaveZoneId;
+        }
+        if (null !== $this->masterZoneId) {
+            $res['MasterZoneId'] = $this->masterZoneId;
+        }
+        if (null !== $this->internetChargeTypeAlias) {
+            $res['InternetChargeTypeAlias'] = $this->internetChargeTypeAlias;
+        }
+        if (null !== $this->loadBalancerSpec) {
+            $res['LoadBalancerSpec'] = $this->loadBalancerSpec;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -167,17 +215,11 @@ class loadBalancer extends Model
         if (null !== $this->modificationProtectionStatus) {
             $res['ModificationProtectionStatus'] = $this->modificationProtectionStatus;
         }
-        if (null !== $this->addressIPVersion) {
-            $res['AddressIPVersion'] = $this->addressIPVersion;
-        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->loadBalancerStatus) {
             $res['LoadBalancerStatus'] = $this->loadBalancerStatus;
-        }
-        if (null !== $this->loadBalancerName) {
-            $res['LoadBalancerName'] = $this->loadBalancerName;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -185,17 +227,11 @@ class loadBalancer extends Model
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
         }
-        if (null !== $this->address) {
-            $res['Address'] = $this->address;
-        }
-        if (null !== $this->slaveZoneId) {
-            $res['SlaveZoneId'] = $this->slaveZoneId;
+        if (null !== $this->deleteProtection) {
+            $res['DeleteProtection'] = $this->deleteProtection;
         }
         if (null !== $this->regionIdAlias) {
             $res['RegionIdAlias'] = $this->regionIdAlias;
-        }
-        if (null !== $this->masterZoneId) {
-            $res['MasterZoneId'] = $this->masterZoneId;
         }
 
         return $res;
@@ -230,6 +266,30 @@ class loadBalancer extends Model
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+        if (isset($map['AddressIPVersion'])) {
+            $model->addressIPVersion = $map['AddressIPVersion'];
+        }
+        if (isset($map['LoadBalancerName'])) {
+            $model->loadBalancerName = $map['LoadBalancerName'];
+        }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['Address'])) {
+            $model->address = $map['Address'];
+        }
+        if (isset($map['SlaveZoneId'])) {
+            $model->slaveZoneId = $map['SlaveZoneId'];
+        }
+        if (isset($map['MasterZoneId'])) {
+            $model->masterZoneId = $map['MasterZoneId'];
+        }
+        if (isset($map['InternetChargeTypeAlias'])) {
+            $model->internetChargeTypeAlias = $map['InternetChargeTypeAlias'];
+        }
+        if (isset($map['LoadBalancerSpec'])) {
+            $model->loadBalancerSpec = $map['LoadBalancerSpec'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -239,17 +299,11 @@ class loadBalancer extends Model
         if (isset($map['ModificationProtectionStatus'])) {
             $model->modificationProtectionStatus = $map['ModificationProtectionStatus'];
         }
-        if (isset($map['AddressIPVersion'])) {
-            $model->addressIPVersion = $map['AddressIPVersion'];
-        }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['LoadBalancerStatus'])) {
             $model->loadBalancerStatus = $map['LoadBalancerStatus'];
-        }
-        if (isset($map['LoadBalancerName'])) {
-            $model->loadBalancerName = $map['LoadBalancerName'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -257,17 +311,11 @@ class loadBalancer extends Model
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
         }
-        if (isset($map['Address'])) {
-            $model->address = $map['Address'];
-        }
-        if (isset($map['SlaveZoneId'])) {
-            $model->slaveZoneId = $map['SlaveZoneId'];
+        if (isset($map['DeleteProtection'])) {
+            $model->deleteProtection = $map['DeleteProtection'];
         }
         if (isset($map['RegionIdAlias'])) {
             $model->regionIdAlias = $map['RegionIdAlias'];
-        }
-        if (isset($map['MasterZoneId'])) {
-            $model->masterZoneId = $map['MasterZoneId'];
         }
 
         return $model;

@@ -19,11 +19,6 @@ class backendServer extends Model
     public $weight;
 
     /**
-     * @var string
-     */
-    public $description;
-
-    /**
      * @var int
      */
     public $port;
@@ -33,11 +28,10 @@ class backendServer extends Model
      */
     public $serverId;
     protected $_name = [
-        'type'        => 'Type',
-        'weight'      => 'Weight',
-        'description' => 'Description',
-        'port'        => 'Port',
-        'serverId'    => 'ServerId',
+        'type'     => 'Type',
+        'weight'   => 'Weight',
+        'port'     => 'Port',
+        'serverId' => 'ServerId',
     ];
 
     public function validate()
@@ -52,9 +46,6 @@ class backendServer extends Model
         }
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -79,9 +70,6 @@ class backendServer extends Model
         }
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
