@@ -202,46 +202,100 @@ class CreateServiceMeshRequest extends Model
      * @var string
      */
     public $edition;
+
+    /**
+     * @var bool
+     */
+    public $configSourceEnabled;
+
+    /**
+     * @var string
+     */
+    public $configSourceNacosID;
+
+    /**
+     * @var bool
+     */
+    public $dubboFilterEnabled;
+
+    /**
+     * @var bool
+     */
+    public $filterGatewayClusterConfig;
+
+    /**
+     * @var bool
+     */
+    public $enableSDSServer;
+
+    /**
+     * @var bool
+     */
+    public $accessLogServiceEnabled;
+
+    /**
+     * @var string
+     */
+    public $accessLogServiceHost;
+
+    /**
+     * @var int
+     */
+    public $accessLogServicePort;
+
+    /**
+     * @var bool
+     */
+    public $gatewayAPIEnabled;
     protected $_name = [
-        'regionId'                 => 'RegionId',
-        'istioVersion'             => 'IstioVersion',
-        'vpcId'                    => 'VpcId',
-        'apiServerPublicEip'       => 'ApiServerPublicEip',
-        'pilotPublicEip'           => 'PilotPublicEip',
-        'tracing'                  => 'Tracing',
-        'name'                     => 'Name',
-        'vSwitches'                => 'VSwitches',
-        'traceSampling'            => 'TraceSampling',
-        'localityLoadBalancing'    => 'LocalityLoadBalancing',
-        'telemetry'                => 'Telemetry',
-        'openAgentPolicy'          => 'OpenAgentPolicy',
-        'OPALogLevel'              => 'OPALogLevel',
-        'OPARequestCPU'            => 'OPARequestCPU',
-        'OPARequestMemory'         => 'OPARequestMemory',
-        'OPALimitCPU'              => 'OPALimitCPU',
-        'OPALimitMemory'           => 'OPALimitMemory',
-        'enableAudit'              => 'EnableAudit',
-        'auditProject'             => 'AuditProject',
-        'proxyRequestCPU'          => 'ProxyRequestCPU',
-        'proxyRequestMemory'       => 'ProxyRequestMemory',
-        'proxyLimitCPU'            => 'ProxyLimitCPU',
-        'proxyLimitMemory'         => 'ProxyLimitMemory',
-        'includeIPRanges'          => 'IncludeIPRanges',
-        'excludeIPRanges'          => 'ExcludeIPRanges',
-        'excludeOutboundPorts'     => 'ExcludeOutboundPorts',
-        'excludeInboundPorts'      => 'ExcludeInboundPorts',
-        'opaEnabled'               => 'OpaEnabled',
-        'kialiEnabled'             => 'KialiEnabled',
-        'accessLogEnabled'         => 'AccessLogEnabled',
-        'customizedPrometheus'     => 'CustomizedPrometheus',
-        'prometheusUrl'            => 'PrometheusUrl',
-        'redisFilterEnabled'       => 'RedisFilterEnabled',
-        'mysqlFilterEnabled'       => 'MysqlFilterEnabled',
-        'thriftFilterEnabled'      => 'ThriftFilterEnabled',
-        'webAssemblyFilterEnabled' => 'WebAssemblyFilterEnabled',
-        'MSEEnabled'               => 'MSEEnabled',
-        'DNSProxyingEnabled'       => 'DNSProxyingEnabled',
-        'edition'                  => 'Edition',
+        'regionId'                   => 'RegionId',
+        'istioVersion'               => 'IstioVersion',
+        'vpcId'                      => 'VpcId',
+        'apiServerPublicEip'         => 'ApiServerPublicEip',
+        'pilotPublicEip'             => 'PilotPublicEip',
+        'tracing'                    => 'Tracing',
+        'name'                       => 'Name',
+        'vSwitches'                  => 'VSwitches',
+        'traceSampling'              => 'TraceSampling',
+        'localityLoadBalancing'      => 'LocalityLoadBalancing',
+        'telemetry'                  => 'Telemetry',
+        'openAgentPolicy'            => 'OpenAgentPolicy',
+        'OPALogLevel'                => 'OPALogLevel',
+        'OPARequestCPU'              => 'OPARequestCPU',
+        'OPARequestMemory'           => 'OPARequestMemory',
+        'OPALimitCPU'                => 'OPALimitCPU',
+        'OPALimitMemory'             => 'OPALimitMemory',
+        'enableAudit'                => 'EnableAudit',
+        'auditProject'               => 'AuditProject',
+        'proxyRequestCPU'            => 'ProxyRequestCPU',
+        'proxyRequestMemory'         => 'ProxyRequestMemory',
+        'proxyLimitCPU'              => 'ProxyLimitCPU',
+        'proxyLimitMemory'           => 'ProxyLimitMemory',
+        'includeIPRanges'            => 'IncludeIPRanges',
+        'excludeIPRanges'            => 'ExcludeIPRanges',
+        'excludeOutboundPorts'       => 'ExcludeOutboundPorts',
+        'excludeInboundPorts'        => 'ExcludeInboundPorts',
+        'opaEnabled'                 => 'OpaEnabled',
+        'kialiEnabled'               => 'KialiEnabled',
+        'accessLogEnabled'           => 'AccessLogEnabled',
+        'customizedPrometheus'       => 'CustomizedPrometheus',
+        'prometheusUrl'              => 'PrometheusUrl',
+        'redisFilterEnabled'         => 'RedisFilterEnabled',
+        'mysqlFilterEnabled'         => 'MysqlFilterEnabled',
+        'thriftFilterEnabled'        => 'ThriftFilterEnabled',
+        'webAssemblyFilterEnabled'   => 'WebAssemblyFilterEnabled',
+        'MSEEnabled'                 => 'MSEEnabled',
+        'DNSProxyingEnabled'         => 'DNSProxyingEnabled',
+        'edition'                    => 'Edition',
+        'configSourceEnabled'        => 'ConfigSourceEnabled',
+        'configSourceNacosID'        => 'ConfigSourceNacosID',
+        'dubboFilterEnabled'         => 'DubboFilterEnabled',
+        'filterGatewayClusterConfig' => 'FilterGatewayClusterConfig',
+        'enableSDSServer'            => 'EnableSDSServer',
+        'accessLogServiceEnabled'    => 'AccessLogServiceEnabled',
+        'accessLogServiceHost'       => 'AccessLogServiceHost',
+        'accessLogServicePort'       => 'AccessLogServicePort',
+        'gatewayAPIEnabled'          => 'GatewayAPIEnabled',
     ];
 
     public function validate()
@@ -367,6 +421,33 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->edition) {
             $res['Edition'] = $this->edition;
+        }
+        if (null !== $this->configSourceEnabled) {
+            $res['ConfigSourceEnabled'] = $this->configSourceEnabled;
+        }
+        if (null !== $this->configSourceNacosID) {
+            $res['ConfigSourceNacosID'] = $this->configSourceNacosID;
+        }
+        if (null !== $this->dubboFilterEnabled) {
+            $res['DubboFilterEnabled'] = $this->dubboFilterEnabled;
+        }
+        if (null !== $this->filterGatewayClusterConfig) {
+            $res['FilterGatewayClusterConfig'] = $this->filterGatewayClusterConfig;
+        }
+        if (null !== $this->enableSDSServer) {
+            $res['EnableSDSServer'] = $this->enableSDSServer;
+        }
+        if (null !== $this->accessLogServiceEnabled) {
+            $res['AccessLogServiceEnabled'] = $this->accessLogServiceEnabled;
+        }
+        if (null !== $this->accessLogServiceHost) {
+            $res['AccessLogServiceHost'] = $this->accessLogServiceHost;
+        }
+        if (null !== $this->accessLogServicePort) {
+            $res['AccessLogServicePort'] = $this->accessLogServicePort;
+        }
+        if (null !== $this->gatewayAPIEnabled) {
+            $res['GatewayAPIEnabled'] = $this->gatewayAPIEnabled;
         }
 
         return $res;
@@ -496,6 +577,33 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['Edition'])) {
             $model->edition = $map['Edition'];
+        }
+        if (isset($map['ConfigSourceEnabled'])) {
+            $model->configSourceEnabled = $map['ConfigSourceEnabled'];
+        }
+        if (isset($map['ConfigSourceNacosID'])) {
+            $model->configSourceNacosID = $map['ConfigSourceNacosID'];
+        }
+        if (isset($map['DubboFilterEnabled'])) {
+            $model->dubboFilterEnabled = $map['DubboFilterEnabled'];
+        }
+        if (isset($map['FilterGatewayClusterConfig'])) {
+            $model->filterGatewayClusterConfig = $map['FilterGatewayClusterConfig'];
+        }
+        if (isset($map['EnableSDSServer'])) {
+            $model->enableSDSServer = $map['EnableSDSServer'];
+        }
+        if (isset($map['AccessLogServiceEnabled'])) {
+            $model->accessLogServiceEnabled = $map['AccessLogServiceEnabled'];
+        }
+        if (isset($map['AccessLogServiceHost'])) {
+            $model->accessLogServiceHost = $map['AccessLogServiceHost'];
+        }
+        if (isset($map['AccessLogServicePort'])) {
+            $model->accessLogServicePort = $map['AccessLogServicePort'];
+        }
+        if (isset($map['GatewayAPIEnabled'])) {
+            $model->gatewayAPIEnabled = $map['GatewayAPIEnabled'];
         }
 
         return $model;

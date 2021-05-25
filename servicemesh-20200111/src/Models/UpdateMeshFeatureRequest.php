@@ -114,6 +114,21 @@ class UpdateMeshFeatureRequest extends Model
     public $includeIPRanges;
 
     /**
+     * @var string
+     */
+    public $excludeIPRanges;
+
+    /**
+     * @var string
+     */
+    public $excludeOutboundPorts;
+
+    /**
+     * @var string
+     */
+    public $excludeInboundPorts;
+
+    /**
      * @var bool
      */
     public $enableNamespacesByDefault;
@@ -217,6 +232,51 @@ class UpdateMeshFeatureRequest extends Model
      * @var bool
      */
     public $DNSProxyingEnabled;
+
+    /**
+     * @var bool
+     */
+    public $dubboFilterEnabled;
+
+    /**
+     * @var bool
+     */
+    public $filterGatewayClusterConfig;
+
+    /**
+     * @var bool
+     */
+    public $enableSDSServer;
+
+    /**
+     * @var bool
+     */
+    public $accessLogServiceEnabled;
+
+    /**
+     * @var string
+     */
+    public $accessLogServiceHost;
+
+    /**
+     * @var int
+     */
+    public $accessLogServicePort;
+
+    /**
+     * @var bool
+     */
+    public $gatewayAPIEnabled;
+
+    /**
+     * @var bool
+     */
+    public $configSourceEnabled;
+
+    /**
+     * @var string
+     */
+    public $configSourceNacosID;
     protected $_name = [
         'serviceMeshId'                => 'ServiceMeshId',
         'tracing'                      => 'Tracing',
@@ -239,6 +299,9 @@ class UpdateMeshFeatureRequest extends Model
         'proxyLimitCPU'                => 'ProxyLimitCPU',
         'proxyLimitMemory'             => 'ProxyLimitMemory',
         'includeIPRanges'              => 'IncludeIPRanges',
+        'excludeIPRanges'              => 'ExcludeIPRanges',
+        'excludeOutboundPorts'         => 'ExcludeOutboundPorts',
+        'excludeInboundPorts'          => 'ExcludeInboundPorts',
         'enableNamespacesByDefault'    => 'EnableNamespacesByDefault',
         'autoInjectionPolicyEnabled'   => 'AutoInjectionPolicyEnabled',
         'sidecarInjectorRequestCPU'    => 'SidecarInjectorRequestCPU',
@@ -260,6 +323,15 @@ class UpdateMeshFeatureRequest extends Model
         'thriftFilterEnabled'          => 'ThriftFilterEnabled',
         'webAssemblyFilterEnabled'     => 'WebAssemblyFilterEnabled',
         'DNSProxyingEnabled'           => 'DNSProxyingEnabled',
+        'dubboFilterEnabled'           => 'DubboFilterEnabled',
+        'filterGatewayClusterConfig'   => 'FilterGatewayClusterConfig',
+        'enableSDSServer'              => 'EnableSDSServer',
+        'accessLogServiceEnabled'      => 'AccessLogServiceEnabled',
+        'accessLogServiceHost'         => 'AccessLogServiceHost',
+        'accessLogServicePort'         => 'AccessLogServicePort',
+        'gatewayAPIEnabled'            => 'GatewayAPIEnabled',
+        'configSourceEnabled'          => 'ConfigSourceEnabled',
+        'configSourceNacosID'          => 'ConfigSourceNacosID',
     ];
 
     public function validate()
@@ -332,6 +404,15 @@ class UpdateMeshFeatureRequest extends Model
         if (null !== $this->includeIPRanges) {
             $res['IncludeIPRanges'] = $this->includeIPRanges;
         }
+        if (null !== $this->excludeIPRanges) {
+            $res['ExcludeIPRanges'] = $this->excludeIPRanges;
+        }
+        if (null !== $this->excludeOutboundPorts) {
+            $res['ExcludeOutboundPorts'] = $this->excludeOutboundPorts;
+        }
+        if (null !== $this->excludeInboundPorts) {
+            $res['ExcludeInboundPorts'] = $this->excludeInboundPorts;
+        }
         if (null !== $this->enableNamespacesByDefault) {
             $res['EnableNamespacesByDefault'] = $this->enableNamespacesByDefault;
         }
@@ -394,6 +475,33 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->DNSProxyingEnabled) {
             $res['DNSProxyingEnabled'] = $this->DNSProxyingEnabled;
+        }
+        if (null !== $this->dubboFilterEnabled) {
+            $res['DubboFilterEnabled'] = $this->dubboFilterEnabled;
+        }
+        if (null !== $this->filterGatewayClusterConfig) {
+            $res['FilterGatewayClusterConfig'] = $this->filterGatewayClusterConfig;
+        }
+        if (null !== $this->enableSDSServer) {
+            $res['EnableSDSServer'] = $this->enableSDSServer;
+        }
+        if (null !== $this->accessLogServiceEnabled) {
+            $res['AccessLogServiceEnabled'] = $this->accessLogServiceEnabled;
+        }
+        if (null !== $this->accessLogServiceHost) {
+            $res['AccessLogServiceHost'] = $this->accessLogServiceHost;
+        }
+        if (null !== $this->accessLogServicePort) {
+            $res['AccessLogServicePort'] = $this->accessLogServicePort;
+        }
+        if (null !== $this->gatewayAPIEnabled) {
+            $res['GatewayAPIEnabled'] = $this->gatewayAPIEnabled;
+        }
+        if (null !== $this->configSourceEnabled) {
+            $res['ConfigSourceEnabled'] = $this->configSourceEnabled;
+        }
+        if (null !== $this->configSourceNacosID) {
+            $res['ConfigSourceNacosID'] = $this->configSourceNacosID;
         }
 
         return $res;
@@ -470,6 +578,15 @@ class UpdateMeshFeatureRequest extends Model
         if (isset($map['IncludeIPRanges'])) {
             $model->includeIPRanges = $map['IncludeIPRanges'];
         }
+        if (isset($map['ExcludeIPRanges'])) {
+            $model->excludeIPRanges = $map['ExcludeIPRanges'];
+        }
+        if (isset($map['ExcludeOutboundPorts'])) {
+            $model->excludeOutboundPorts = $map['ExcludeOutboundPorts'];
+        }
+        if (isset($map['ExcludeInboundPorts'])) {
+            $model->excludeInboundPorts = $map['ExcludeInboundPorts'];
+        }
         if (isset($map['EnableNamespacesByDefault'])) {
             $model->enableNamespacesByDefault = $map['EnableNamespacesByDefault'];
         }
@@ -532,6 +649,33 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['DNSProxyingEnabled'])) {
             $model->DNSProxyingEnabled = $map['DNSProxyingEnabled'];
+        }
+        if (isset($map['DubboFilterEnabled'])) {
+            $model->dubboFilterEnabled = $map['DubboFilterEnabled'];
+        }
+        if (isset($map['FilterGatewayClusterConfig'])) {
+            $model->filterGatewayClusterConfig = $map['FilterGatewayClusterConfig'];
+        }
+        if (isset($map['EnableSDSServer'])) {
+            $model->enableSDSServer = $map['EnableSDSServer'];
+        }
+        if (isset($map['AccessLogServiceEnabled'])) {
+            $model->accessLogServiceEnabled = $map['AccessLogServiceEnabled'];
+        }
+        if (isset($map['AccessLogServiceHost'])) {
+            $model->accessLogServiceHost = $map['AccessLogServiceHost'];
+        }
+        if (isset($map['AccessLogServicePort'])) {
+            $model->accessLogServicePort = $map['AccessLogServicePort'];
+        }
+        if (isset($map['GatewayAPIEnabled'])) {
+            $model->gatewayAPIEnabled = $map['GatewayAPIEnabled'];
+        }
+        if (isset($map['ConfigSourceEnabled'])) {
+            $model->configSourceEnabled = $map['ConfigSourceEnabled'];
+        }
+        if (isset($map['ConfigSourceNacosID'])) {
+            $model->configSourceNacosID = $map['ConfigSourceNacosID'];
         }
 
         return $model;

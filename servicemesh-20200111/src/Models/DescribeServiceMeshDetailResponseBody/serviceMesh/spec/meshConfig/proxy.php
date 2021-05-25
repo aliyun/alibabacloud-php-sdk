@@ -37,13 +37,31 @@ class proxy extends Model
      * @var string
      */
     public $limitCPU;
+
+    /**
+     * @var bool
+     */
+    public $accessLogServiceEnabled;
+
+    /**
+     * @var string
+     */
+    public $accessLogServiceHost;
+
+    /**
+     * @var int
+     */
+    public $accessLogServicePort;
     protected $_name = [
-        'requestMemory'     => 'RequestMemory',
-        'clusterDomain'     => 'ClusterDomain',
-        'limitMemory'       => 'LimitMemory',
-        'requestCPU'        => 'RequestCPU',
-        'enableDNSProxying' => 'EnableDNSProxying',
-        'limitCPU'          => 'LimitCPU',
+        'requestMemory'           => 'RequestMemory',
+        'clusterDomain'           => 'ClusterDomain',
+        'limitMemory'             => 'LimitMemory',
+        'requestCPU'              => 'RequestCPU',
+        'enableDNSProxying'       => 'EnableDNSProxying',
+        'limitCPU'                => 'LimitCPU',
+        'accessLogServiceEnabled' => 'AccessLogServiceEnabled',
+        'accessLogServiceHost'    => 'AccessLogServiceHost',
+        'accessLogServicePort'    => 'AccessLogServicePort',
     ];
 
     public function validate()
@@ -70,6 +88,15 @@ class proxy extends Model
         }
         if (null !== $this->limitCPU) {
             $res['LimitCPU'] = $this->limitCPU;
+        }
+        if (null !== $this->accessLogServiceEnabled) {
+            $res['AccessLogServiceEnabled'] = $this->accessLogServiceEnabled;
+        }
+        if (null !== $this->accessLogServiceHost) {
+            $res['AccessLogServiceHost'] = $this->accessLogServiceHost;
+        }
+        if (null !== $this->accessLogServicePort) {
+            $res['AccessLogServicePort'] = $this->accessLogServicePort;
         }
 
         return $res;
@@ -100,6 +127,15 @@ class proxy extends Model
         }
         if (isset($map['LimitCPU'])) {
             $model->limitCPU = $map['LimitCPU'];
+        }
+        if (isset($map['AccessLogServiceEnabled'])) {
+            $model->accessLogServiceEnabled = $map['AccessLogServiceEnabled'];
+        }
+        if (isset($map['AccessLogServiceHost'])) {
+            $model->accessLogServiceHost = $map['AccessLogServiceHost'];
+        }
+        if (isset($map['AccessLogServicePort'])) {
+            $model->accessLogServicePort = $map['AccessLogServicePort'];
         }
 
         return $model;

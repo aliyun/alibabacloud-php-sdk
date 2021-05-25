@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\pilot\feature;
 use AlibabaCloud\Tea\Model;
 
 class pilot extends Model
@@ -17,9 +18,15 @@ class pilot extends Model
      * @var float
      */
     public $traceSampling;
+
+    /**
+     * @var feature
+     */
+    public $feature;
     protected $_name = [
         'http10Enabled' => 'Http10Enabled',
         'traceSampling' => 'TraceSampling',
+        'feature'       => 'Feature',
     ];
 
     public function validate()
@@ -34,6 +41,9 @@ class pilot extends Model
         }
         if (null !== $this->traceSampling) {
             $res['TraceSampling'] = $this->traceSampling;
+        }
+        if (null !== $this->feature) {
+            $res['Feature'] = null !== $this->feature ? $this->feature->toMap() : null;
         }
 
         return $res;
@@ -52,6 +62,9 @@ class pilot extends Model
         }
         if (isset($map['TraceSampling'])) {
             $model->traceSampling = $map['TraceSampling'];
+        }
+        if (isset($map['Feature'])) {
+            $model->feature = feature::fromMap($map['Feature']);
         }
 
         return $model;

@@ -22,10 +22,16 @@ class protocolSupport extends Model
      * @var bool
      */
     public $thriftFilterEnabled;
+
+    /**
+     * @var bool
+     */
+    public $dubboFilterEnabled;
     protected $_name = [
         'mysqlFilterEnabled'  => 'MysqlFilterEnabled',
         'redisFilterEnabled'  => 'RedisFilterEnabled',
         'thriftFilterEnabled' => 'ThriftFilterEnabled',
+        'dubboFilterEnabled'  => 'DubboFilterEnabled',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class protocolSupport extends Model
         }
         if (null !== $this->thriftFilterEnabled) {
             $res['ThriftFilterEnabled'] = $this->thriftFilterEnabled;
+        }
+        if (null !== $this->dubboFilterEnabled) {
+            $res['DubboFilterEnabled'] = $this->dubboFilterEnabled;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class protocolSupport extends Model
         }
         if (isset($map['ThriftFilterEnabled'])) {
             $model->thriftFilterEnabled = $map['ThriftFilterEnabled'];
+        }
+        if (isset($map['DubboFilterEnabled'])) {
+            $model->dubboFilterEnabled = $map['DubboFilterEnabled'];
         }
 
         return $model;

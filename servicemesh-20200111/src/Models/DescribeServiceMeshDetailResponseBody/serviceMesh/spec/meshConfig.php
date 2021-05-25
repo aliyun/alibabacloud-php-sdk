@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetai
 
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\accessLog;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\audit;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\k8sNewAPIsSupport;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\kiali;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\MSE;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\OPA;
@@ -60,6 +61,21 @@ class meshConfig extends Model
     public $includeIPRanges;
 
     /**
+     * @var string
+     */
+    public $excludeIPRanges;
+
+    /**
+     * @var string
+     */
+    public $excludeOutboundPorts;
+
+    /**
+     * @var string
+     */
+    public $excludeInboundPorts;
+
+    /**
      * @var bool
      */
     public $telemetry;
@@ -108,6 +124,11 @@ class meshConfig extends Model
      * @var proxy
      */
     public $proxy;
+
+    /**
+     * @var k8sNewAPIsSupport
+     */
+    public $k8sNewAPIsSupport;
     protected $_name = [
         'OPA'                         => 'OPA',
         'prometheus'                  => 'Prometheus',
@@ -117,6 +138,9 @@ class meshConfig extends Model
         'customizedZipkin'            => 'CustomizedZipkin',
         'sidecarInjector'             => 'SidecarInjector',
         'includeIPRanges'             => 'IncludeIPRanges',
+        'excludeIPRanges'             => 'ExcludeIPRanges',
+        'excludeOutboundPorts'        => 'ExcludeOutboundPorts',
+        'excludeInboundPorts'         => 'ExcludeInboundPorts',
         'telemetry'                   => 'Telemetry',
         'edition'                     => 'Edition',
         'protocolSupport'             => 'ProtocolSupport',
@@ -127,6 +151,7 @@ class meshConfig extends Model
         'enableLocalityLB'            => 'EnableLocalityLB',
         'audit'                       => 'Audit',
         'proxy'                       => 'Proxy',
+        'k8sNewAPIsSupport'           => 'K8sNewAPIsSupport',
     ];
 
     public function validate()
@@ -160,6 +185,15 @@ class meshConfig extends Model
         if (null !== $this->includeIPRanges) {
             $res['IncludeIPRanges'] = $this->includeIPRanges;
         }
+        if (null !== $this->excludeIPRanges) {
+            $res['ExcludeIPRanges'] = $this->excludeIPRanges;
+        }
+        if (null !== $this->excludeOutboundPorts) {
+            $res['ExcludeOutboundPorts'] = $this->excludeOutboundPorts;
+        }
+        if (null !== $this->excludeInboundPorts) {
+            $res['ExcludeInboundPorts'] = $this->excludeInboundPorts;
+        }
         if (null !== $this->telemetry) {
             $res['Telemetry'] = $this->telemetry;
         }
@@ -189,6 +223,9 @@ class meshConfig extends Model
         }
         if (null !== $this->proxy) {
             $res['Proxy'] = null !== $this->proxy ? $this->proxy->toMap() : null;
+        }
+        if (null !== $this->k8sNewAPIsSupport) {
+            $res['K8sNewAPIsSupport'] = null !== $this->k8sNewAPIsSupport ? $this->k8sNewAPIsSupport->toMap() : null;
         }
 
         return $res;
@@ -226,6 +263,15 @@ class meshConfig extends Model
         if (isset($map['IncludeIPRanges'])) {
             $model->includeIPRanges = $map['IncludeIPRanges'];
         }
+        if (isset($map['ExcludeIPRanges'])) {
+            $model->excludeIPRanges = $map['ExcludeIPRanges'];
+        }
+        if (isset($map['ExcludeOutboundPorts'])) {
+            $model->excludeOutboundPorts = $map['ExcludeOutboundPorts'];
+        }
+        if (isset($map['ExcludeInboundPorts'])) {
+            $model->excludeInboundPorts = $map['ExcludeInboundPorts'];
+        }
         if (isset($map['Telemetry'])) {
             $model->telemetry = $map['Telemetry'];
         }
@@ -255,6 +301,9 @@ class meshConfig extends Model
         }
         if (isset($map['Proxy'])) {
             $model->proxy = proxy::fromMap($map['Proxy']);
+        }
+        if (isset($map['K8sNewAPIsSupport'])) {
+            $model->k8sNewAPIsSupport = k8sNewAPIsSupport::fromMap($map['K8sNewAPIsSupport']);
         }
 
         return $model;
