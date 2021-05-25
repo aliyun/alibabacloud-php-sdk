@@ -6,8 +6,12 @@ namespace AlibabaCloud\SDK\Improom\V20210515;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Improom\V20210515\Models\CreateInstanceRequest;
+use AlibabaCloud\SDK\Improom\V20210515\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Improom\V20210515\Models\CreateRoomRequest;
 use AlibabaCloud\SDK\Improom\V20210515\Models\CreateRoomResponse;
+use AlibabaCloud\SDK\Improom\V20210515\Models\DestroyRoomRequest;
+use AlibabaCloud\SDK\Improom\V20210515\Models\DestroyRoomResponse;
 use AlibabaCloud\SDK\Improom\V20210515\Models\GetLoginTokenRequest;
 use AlibabaCloud\SDK\Improom\V20210515\Models\GetLoginTokenResponse;
 use AlibabaCloud\SDK\Improom\V20210515\Models\GetLoginTokenShrinkRequest;
@@ -109,5 +113,61 @@ class Improom extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DestroyRoomRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DestroyRoomResponse
+     */
+    public function destroyRoomWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DestroyRoomResponse::fromMap($this->doRPCRequest('DestroyRoom', '2021-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DestroyRoomRequest $request
+     *
+     * @return DestroyRoomResponse
+     */
+    public function destroyRoom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->destroyRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateInstanceResponse::fromMap($this->doRPCRequest('CreateInstance', '2021-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInstanceWithOptions($request, $runtime);
     }
 }
