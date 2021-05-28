@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class OpenWhiteBoardRequest extends Model
+class StopWhiteBoardRecordingRequest extends Model
 {
     /**
      * @description 白板应用唯一标识符
@@ -16,7 +16,7 @@ class OpenWhiteBoardRequest extends Model
     public $appID;
 
     /**
-     * @description 打开白板的用户ID（客户业务用户），由1~32位大小写字母、数字、下划线、短划线（-）组成
+     * @description 结束白板录制的用户ID（客户业务用户），由1~32位大小写字母、数字、下划线、短划线（-）组成
      *
      * @var string
      */
@@ -28,10 +28,18 @@ class OpenWhiteBoardRequest extends Model
      * @var string
      */
     public $docKey;
+
+    /**
+     * @description 白板录制Session的唯一标识
+     *
+     * @var string
+     */
+    public $recordId;
     protected $_name = [
-        'appID'  => 'AppID',
-        'userId' => 'UserId',
-        'docKey' => 'DocKey',
+        'appID'    => 'AppID',
+        'userId'   => 'UserId',
+        'docKey'   => 'DocKey',
+        'recordId' => 'RecordId',
     ];
 
     public function validate()
@@ -50,6 +58,9 @@ class OpenWhiteBoardRequest extends Model
         if (null !== $this->docKey) {
             $res['DocKey'] = $this->docKey;
         }
+        if (null !== $this->recordId) {
+            $res['RecordId'] = $this->recordId;
+        }
 
         return $res;
     }
@@ -57,7 +68,7 @@ class OpenWhiteBoardRequest extends Model
     /**
      * @param array $map
      *
-     * @return OpenWhiteBoardRequest
+     * @return StopWhiteBoardRecordingRequest
      */
     public static function fromMap($map = [])
     {
@@ -70,6 +81,9 @@ class OpenWhiteBoardRequest extends Model
         }
         if (isset($map['DocKey'])) {
             $model->docKey = $map['DocKey'];
+        }
+        if (isset($map['RecordId'])) {
+            $model->recordId = $map['RecordId'];
         }
 
         return $model;

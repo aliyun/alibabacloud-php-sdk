@@ -15,8 +15,12 @@ use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeWhiteBoardsRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\DescribeWhiteBoardsResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\OpenWhiteBoardRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\OpenWhiteBoardResponse;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\PauseWhiteBoardRecordingRequest;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\PauseWhiteBoardRecordingResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\RefreshUsersPermissionsRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\RefreshUsersPermissionsResponse;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\ResumeWhiteBoardRecordingRequest;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\ResumeWhiteBoardRecordingResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppCallbackTypeRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppCallbackTypeResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppCallbackUrlRequest;
@@ -29,6 +33,10 @@ use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppStatusRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetAppStatusResponse;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetUsersPermissionsRequest;
 use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\SetUsersPermissionsResponse;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\StartWhiteBoardRecordingRequest;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\StartWhiteBoardRecordingResponse;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\StopWhiteBoardRecordingRequest;
+use AlibabaCloud\SDK\Rtcwhiteboard\V20201214\Models\StopWhiteBoardRecordingResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -96,6 +104,34 @@ class Rtcwhiteboard extends OpenApiClient
     }
 
     /**
+     * @param PauseWhiteBoardRecordingRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return PauseWhiteBoardRecordingResponse
+     */
+    public function pauseWhiteBoardRecordingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PauseWhiteBoardRecordingResponse::fromMap($this->doRPCRequest('PauseWhiteBoardRecording', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PauseWhiteBoardRecordingRequest $request
+     *
+     * @return PauseWhiteBoardRecordingResponse
+     */
+    public function pauseWhiteBoardRecording($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pauseWhiteBoardRecordingWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetAppCallbackUrlRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -121,6 +157,34 @@ class Rtcwhiteboard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setAppCallbackUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartWhiteBoardRecordingRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return StartWhiteBoardRecordingResponse
+     */
+    public function startWhiteBoardRecordingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartWhiteBoardRecordingResponse::fromMap($this->doRPCRequest('StartWhiteBoardRecording', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartWhiteBoardRecordingRequest $request
+     *
+     * @return StartWhiteBoardRecordingResponse
+     */
+    public function startWhiteBoardRecording($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startWhiteBoardRecordingWithOptions($request, $runtime);
     }
 
     /**
@@ -177,6 +241,34 @@ class Rtcwhiteboard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeWhiteBoardsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResumeWhiteBoardRecordingRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ResumeWhiteBoardRecordingResponse
+     */
+    public function resumeWhiteBoardRecordingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ResumeWhiteBoardRecordingResponse::fromMap($this->doRPCRequest('ResumeWhiteBoardRecording', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ResumeWhiteBoardRecordingRequest $request
+     *
+     * @return ResumeWhiteBoardRecordingResponse
+     */
+    public function resumeWhiteBoardRecording($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeWhiteBoardRecordingWithOptions($request, $runtime);
     }
 
     /**
@@ -401,5 +493,33 @@ class Rtcwhiteboard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setAppStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopWhiteBoardRecordingRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return StopWhiteBoardRecordingResponse
+     */
+    public function stopWhiteBoardRecordingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StopWhiteBoardRecordingResponse::fromMap($this->doRPCRequest('StopWhiteBoardRecording', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StopWhiteBoardRecordingRequest $request
+     *
+     * @return StopWhiteBoardRecordingResponse
+     */
+    public function stopWhiteBoardRecording($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopWhiteBoardRecordingWithOptions($request, $runtime);
     }
 }
