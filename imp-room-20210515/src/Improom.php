@@ -15,6 +15,10 @@ use AlibabaCloud\SDK\Improom\V20210515\Models\DestroyRoomResponse;
 use AlibabaCloud\SDK\Improom\V20210515\Models\GetLoginTokenRequest;
 use AlibabaCloud\SDK\Improom\V20210515\Models\GetLoginTokenResponse;
 use AlibabaCloud\SDK\Improom\V20210515\Models\GetLoginTokenShrinkRequest;
+use AlibabaCloud\SDK\Improom\V20210515\Models\GetRoomDetailRequest;
+use AlibabaCloud\SDK\Improom\V20210515\Models\GetRoomDetailResponse;
+use AlibabaCloud\SDK\Improom\V20210515\Models\GetRoomListRequest;
+use AlibabaCloud\SDK\Improom\V20210515\Models\GetRoomListResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -169,5 +173,61 @@ class Improom extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRoomDetailRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetRoomDetailResponse
+     */
+    public function getRoomDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetRoomDetailResponse::fromMap($this->doRPCRequest('GetRoomDetail', '2021-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetRoomDetailRequest $request
+     *
+     * @return GetRoomDetailResponse
+     */
+    public function getRoomDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoomDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRoomListRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetRoomListResponse
+     */
+    public function getRoomListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetRoomListResponse::fromMap($this->doRPCRequest('GetRoomList', '2021-05-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetRoomListRequest $request
+     *
+     * @return GetRoomListResponse
+     */
+    public function getRoomList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoomListWithOptions($request, $runtime);
     }
 }
