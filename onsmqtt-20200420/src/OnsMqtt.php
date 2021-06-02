@@ -17,6 +17,14 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetDeviceCredentialRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetDeviceCredentialResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceDeviceRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceDeviceResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceMessageOfClientRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceMessageOfClientResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceMessagePublishRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceMessagePublishResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceMessageSubscribeRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceMessageSubscribeResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QuerySessionByClientIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QuerySessionByClientIdResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryTokenRequest;
@@ -235,6 +243,118 @@ class OnsMqtt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGroupIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryMqttTraceDeviceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryMqttTraceDeviceResponse
+     */
+    public function queryMqttTraceDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryMqttTraceDeviceResponse::fromMap($this->doRPCRequest('QueryMqttTraceDevice', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryMqttTraceDeviceRequest $request
+     *
+     * @return QueryMqttTraceDeviceResponse
+     */
+    public function queryMqttTraceDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMqttTraceDeviceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryMqttTraceMessageOfClientRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return QueryMqttTraceMessageOfClientResponse
+     */
+    public function queryMqttTraceMessageOfClientWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryMqttTraceMessageOfClientResponse::fromMap($this->doRPCRequest('QueryMqttTraceMessageOfClient', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryMqttTraceMessageOfClientRequest $request
+     *
+     * @return QueryMqttTraceMessageOfClientResponse
+     */
+    public function queryMqttTraceMessageOfClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMqttTraceMessageOfClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryMqttTraceMessagePublishRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryMqttTraceMessagePublishResponse
+     */
+    public function queryMqttTraceMessagePublishWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryMqttTraceMessagePublishResponse::fromMap($this->doRPCRequest('QueryMqttTraceMessagePublish', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryMqttTraceMessagePublishRequest $request
+     *
+     * @return QueryMqttTraceMessagePublishResponse
+     */
+    public function queryMqttTraceMessagePublish($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMqttTraceMessagePublishWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryMqttTraceMessageSubscribeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryMqttTraceMessageSubscribeResponse
+     */
+    public function queryMqttTraceMessageSubscribeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryMqttTraceMessageSubscribeResponse::fromMap($this->doRPCRequest('QueryMqttTraceMessageSubscribe', '2020-04-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryMqttTraceMessageSubscribeRequest $request
+     *
+     * @return QueryMqttTraceMessageSubscribeResponse
+     */
+    public function queryMqttTraceMessageSubscribe($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMqttTraceMessageSubscribeWithOptions($request, $runtime);
     }
 
     /**

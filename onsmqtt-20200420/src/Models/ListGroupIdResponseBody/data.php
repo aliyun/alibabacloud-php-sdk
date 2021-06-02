@@ -14,6 +14,11 @@ class data extends Model
     public $updateTime;
 
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var bool
      */
     public $independentNaming;
@@ -27,17 +32,12 @@ class data extends Model
      * @var int
      */
     public $createTime;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
     protected $_name = [
         'updateTime'        => 'UpdateTime',
+        'instanceId'        => 'InstanceId',
         'independentNaming' => 'IndependentNaming',
         'groupId'           => 'GroupId',
         'createTime'        => 'CreateTime',
-        'instanceId'        => 'InstanceId',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class data extends Model
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->independentNaming) {
             $res['IndependentNaming'] = $this->independentNaming;
         }
@@ -58,9 +61,6 @@ class data extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -77,6 +77,9 @@ class data extends Model
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['IndependentNaming'])) {
             $model->independentNaming = $map['IndependentNaming'];
         }
@@ -85,9 +88,6 @@ class data extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

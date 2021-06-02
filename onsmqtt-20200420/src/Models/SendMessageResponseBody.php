@@ -11,15 +11,15 @@ class SendMessageResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $msgId;
 
     /**
      * @var string
      */
-    public $msgId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'msgId'     => 'MsgId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class SendMessageResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->msgId) {
             $res['MsgId'] = $this->msgId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class SendMessageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MsgId'])) {
             $model->msgId = $map['MsgId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

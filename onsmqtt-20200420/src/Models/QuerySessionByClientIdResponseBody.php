@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class QuerySessionByClientIdResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $onlineStatus;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'onlineStatus' => 'OnlineStatus',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QuerySessionByClientIdResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->onlineStatus) {
             $res['OnlineStatus'] = $this->onlineStatus;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QuerySessionByClientIdResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OnlineStatus'])) {
             $model->onlineStatus = $map['OnlineStatus'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
