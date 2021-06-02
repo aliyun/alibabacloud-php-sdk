@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateSceneResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var CreateSceneResponseBody
      */
-    public $sceneId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
-    public $errMessage;
-
-    /**
-     * @var string
-     */
-    public $previewToken;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'sceneId'      => 'SceneId',
-        'success'      => 'Success',
-        'errMessage'   => 'ErrMessage',
-        'previewToken' => 'PreviewToken',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('sceneId', $this->sceneId, true);
-        Model::validateRequired('success', $this->success, true);
-        Model::validateRequired('errMessage', $this->errMessage, true);
-        Model::validateRequired('previewToken', $this->previewToken, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
-        }
-        if (null !== $this->previewToken) {
-            $res['PreviewToken'] = $this->previewToken;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,20 +49,11 @@ class CreateSceneResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
-        }
-        if (isset($map['PreviewToken'])) {
-            $model->previewToken = $map['PreviewToken'];
+        if (isset($map['body'])) {
+            $model->body = CreateSceneResponseBody::fromMap($map['body']);
         }
 
         return $model;

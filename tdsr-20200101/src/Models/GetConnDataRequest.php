@@ -2,13 +2,15 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Tdsr\V20200101\Models\ListScenesResponse;
+namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class GetConnDataRequest extends Model
 {
     /**
+     * @description 场景ID
+     *
      * @var string
      */
     public $sceneId;
@@ -18,7 +20,6 @@ class data extends Model
 
     public function validate()
     {
-        Model::validateRequired('sceneId', $this->sceneId, true);
     }
 
     public function toMap()
@@ -34,7 +35,7 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return GetConnDataRequest
      */
     public static function fromMap($map = [])
     {

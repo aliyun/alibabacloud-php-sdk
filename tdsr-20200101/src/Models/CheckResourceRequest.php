@@ -96,14 +96,6 @@ class CheckResourceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('country', $this->country, true);
-        Model::validateRequired('invoker', $this->invoker, true);
-        Model::validateRequired('pk', $this->pk, true);
-        Model::validateRequired('bid', $this->bid, true);
-        Model::validateRequired('hid', $this->hid, true);
-        Model::validateRequired('taskIdentifier', $this->taskIdentifier, true);
-        Model::validateRequired('taskExtraData', $this->taskExtraData, true);
-        Model::validateRequired('gmtWakeup', $this->gmtWakeup, true);
     }
 
     public function toMap()

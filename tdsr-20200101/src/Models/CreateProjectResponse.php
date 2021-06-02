@@ -9,63 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int
+     * @var CreateProjectResponseBody
      */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var string
-     */
-    public $errMessage;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'id'         => 'Id',
-        'name'       => 'Name',
-        'success'    => 'Success',
-        'errMessage' => 'ErrMessage',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('id', $this->id, true);
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('success', $this->success, true);
-        Model::validateRequired('errMessage', $this->errMessage, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -79,20 +49,11 @@ class CreateProjectResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
+        if (isset($map['body'])) {
+            $model->body = CreateProjectResponseBody::fromMap($map['body']);
         }
 
         return $model;
