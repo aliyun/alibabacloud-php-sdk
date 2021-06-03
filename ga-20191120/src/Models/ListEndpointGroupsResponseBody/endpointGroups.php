@@ -61,6 +61,11 @@ class endpointGroups extends Model
     public $listenerId;
 
     /**
+     * @var string
+     */
+    public $acceleratorId;
+
+    /**
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
@@ -110,6 +115,7 @@ class endpointGroups extends Model
         'healthCheckProtocol'        => 'HealthCheckProtocol',
         'thresholdCount'             => 'ThresholdCount',
         'listenerId'                 => 'ListenerId',
+        'acceleratorId'              => 'AcceleratorId',
         'endpointConfigurations'     => 'EndpointConfigurations',
         'portOverrides'              => 'PortOverrides',
         'forwardingRuleIds'          => 'ForwardingRuleIds',
@@ -156,6 +162,9 @@ class endpointGroups extends Model
         }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->endpointConfigurations) {
             $res['EndpointConfigurations'] = [];
@@ -236,6 +245,9 @@ class endpointGroups extends Model
         }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['EndpointConfigurations'])) {
             if (!empty($map['EndpointConfigurations'])) {

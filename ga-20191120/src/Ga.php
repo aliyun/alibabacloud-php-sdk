@@ -5,8 +5,14 @@
 namespace AlibabaCloud\SDK\Ga\V20191120;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\SDK\Ga\V20191120\Models\AddEntriesToAclRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\AddEntriesToAclResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\AssociateAclsWithListenerRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\AssociateAclsWithListenerResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\AttachDdosToAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\AttachDdosToAcceleratorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\AttachLogStoreToEndpointGroupRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\AttachLogStoreToEndpointGroupResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\BandwidthPackageAddAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\BandwidthPackageAddAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\BandwidthPackageRemoveAcceleratorRequest;
@@ -15,6 +21,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\ConfigEndpointProbeRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ConfigEndpointProbeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAcceleratorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAclRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAclResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBandwidthPackageResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupRequest;
@@ -27,6 +35,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteAcceleratorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteAclRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteAclResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBandwidthPackageResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteEndpointGroupRequest;
@@ -53,10 +63,18 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DetachDdosFromAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DetachDdosFromAcceleratorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DetachLogStoreFromEndpointGroupRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DetachLogStoreFromEndpointGroupResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DissociateAclsFromListenerRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DissociateAclsFromListenerResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetAclRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetAclResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAccelerateAreasRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAccelerateAreasResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAcceleratorsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAcceleratorsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListAclsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListAclsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAvailableAccelerateAreasRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAvailableAccelerateAreasResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAvailableBusiRegionsRequest;
@@ -75,10 +93,14 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\ListIpSetsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListIpSetsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListListenersRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListListenersResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\RemoveEntriesFromAclRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\RemoveEntriesFromAclResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ReplaceBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ReplaceBandwidthPackageResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAclAttributeRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAclAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBandwidthPackageResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateEndpointGroupAttributeRequest;
@@ -132,6 +154,62 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param AddEntriesToAclRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddEntriesToAclResponse
+     */
+    public function addEntriesToAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddEntriesToAclResponse::fromMap($this->doRPCRequest('AddEntriesToAcl', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddEntriesToAclRequest $request
+     *
+     * @return AddEntriesToAclResponse
+     */
+    public function addEntriesToAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addEntriesToAclWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AssociateAclsWithListenerRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AssociateAclsWithListenerResponse
+     */
+    public function associateAclsWithListenerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AssociateAclsWithListenerResponse::fromMap($this->doRPCRequest('AssociateAclsWithListener', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AssociateAclsWithListenerRequest $request
+     *
+     * @return AssociateAclsWithListenerResponse
+     */
+    public function associateAclsWithListener($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateAclsWithListenerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AttachDdosToAcceleratorRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -157,6 +235,34 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachDdosToAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AttachLogStoreToEndpointGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return AttachLogStoreToEndpointGroupResponse
+     */
+    public function attachLogStoreToEndpointGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AttachLogStoreToEndpointGroupResponse::fromMap($this->doRPCRequest('AttachLogStoreToEndpointGroup', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AttachLogStoreToEndpointGroupRequest $request
+     *
+     * @return AttachLogStoreToEndpointGroupResponse
+     */
+    public function attachLogStoreToEndpointGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachLogStoreToEndpointGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -269,6 +375,34 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAclRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateAclResponse
+     */
+    public function createAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateAclResponse::fromMap($this->doRPCRequest('CreateAcl', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateAclRequest $request
+     *
+     * @return CreateAclResponse
+     */
+    public function createAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAclWithOptions($request, $runtime);
     }
 
     /**
@@ -437,6 +571,34 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAclRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteAclResponse
+     */
+    public function deleteAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteAclResponse::fromMap($this->doRPCRequest('DeleteAcl', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAclRequest $request
+     *
+     * @return DeleteAclResponse
+     */
+    public function deleteAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAclWithOptions($request, $runtime);
     }
 
     /**
@@ -804,6 +966,90 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param DetachLogStoreFromEndpointGroupRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DetachLogStoreFromEndpointGroupResponse
+     */
+    public function detachLogStoreFromEndpointGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetachLogStoreFromEndpointGroupResponse::fromMap($this->doRPCRequest('DetachLogStoreFromEndpointGroup', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetachLogStoreFromEndpointGroupRequest $request
+     *
+     * @return DetachLogStoreFromEndpointGroupResponse
+     */
+    public function detachLogStoreFromEndpointGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachLogStoreFromEndpointGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DissociateAclsFromListenerRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DissociateAclsFromListenerResponse
+     */
+    public function dissociateAclsFromListenerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DissociateAclsFromListenerResponse::fromMap($this->doRPCRequest('DissociateAclsFromListener', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DissociateAclsFromListenerRequest $request
+     *
+     * @return DissociateAclsFromListenerResponse
+     */
+    public function dissociateAclsFromListener($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dissociateAclsFromListenerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAclRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAclResponse
+     */
+    public function getAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetAclResponse::fromMap($this->doRPCRequest('GetAcl', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAclRequest $request
+     *
+     * @return GetAclResponse
+     */
+    public function getAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAclWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAccelerateAreasRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -857,6 +1103,34 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAcceleratorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAclsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListAclsResponse
+     */
+    public function listAclsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListAclsResponse::fromMap($this->doRPCRequest('ListAcls', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAclsRequest $request
+     *
+     * @return ListAclsResponse
+     */
+    public function listAcls($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAclsWithOptions($request, $runtime);
     }
 
     /**
@@ -1112,6 +1386,34 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param RemoveEntriesFromAclRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RemoveEntriesFromAclResponse
+     */
+    public function removeEntriesFromAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveEntriesFromAclResponse::fromMap($this->doRPCRequest('RemoveEntriesFromAcl', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveEntriesFromAclRequest $request
+     *
+     * @return RemoveEntriesFromAclResponse
+     */
+    public function removeEntriesFromAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeEntriesFromAclWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReplaceBandwidthPackageRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1165,6 +1467,34 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAclAttributeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateAclAttributeResponse
+     */
+    public function updateAclAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateAclAttributeResponse::fromMap($this->doRPCRequest('UpdateAclAttribute', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAclAttributeRequest $request
+     *
+     * @return UpdateAclAttributeResponse
+     */
+    public function updateAclAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAclAttributeWithOptions($request, $runtime);
     }
 
     /**

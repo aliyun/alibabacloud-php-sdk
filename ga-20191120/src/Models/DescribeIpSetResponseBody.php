@@ -42,6 +42,11 @@ class DescribeIpSetResponseBody extends Model
      * @var string
      */
     public $accelerateRegionId;
+
+    /**
+     * @var string
+     */
+    public $acceleratorId;
     protected $_name = [
         'ipSetId'            => 'IpSetId',
         'requestId'          => 'RequestId',
@@ -50,6 +55,7 @@ class DescribeIpSetResponseBody extends Model
         'bandwidth'          => 'Bandwidth',
         'ipAddressList'      => 'IpAddressList',
         'accelerateRegionId' => 'AccelerateRegionId',
+        'acceleratorId'      => 'AcceleratorId',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class DescribeIpSetResponseBody extends Model
         }
         if (null !== $this->accelerateRegionId) {
             $res['AccelerateRegionId'] = $this->accelerateRegionId;
+        }
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
 
         return $res;
@@ -114,6 +123,9 @@ class DescribeIpSetResponseBody extends Model
         }
         if (isset($map['AccelerateRegionId'])) {
             $model->accelerateRegionId = $map['AccelerateRegionId'];
+        }
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
 
         return $model;

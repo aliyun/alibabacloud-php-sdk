@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
-use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\backendPorts;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\certificates;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\portRanges;
 use AlibabaCloud\Tea\Model;
@@ -60,13 +59,6 @@ class CreateListenerRequest extends Model
      * @var certificates[]
      */
     public $certificates;
-
-    /**
-     * @description 转发端口迁移至终端节点组portoverride
-     *
-     * @var backendPorts[]
-     */
-    public $backendPorts;
     protected $_name = [
         'regionId'       => 'RegionId',
         'clientToken'    => 'ClientToken',
@@ -78,7 +70,6 @@ class CreateListenerRequest extends Model
         'proxyProtocol'  => 'ProxyProtocol',
         'portRanges'     => 'PortRanges',
         'certificates'   => 'Certificates',
-        'backendPorts'   => 'BackendPorts',
     ];
 
     public function validate()
@@ -127,15 +118,6 @@ class CreateListenerRequest extends Model
                 $n = 0;
                 foreach ($this->certificates as $item) {
                     $res['Certificates'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->backendPorts) {
-            $res['BackendPorts'] = [];
-            if (null !== $this->backendPorts && \is_array($this->backendPorts)) {
-                $n = 0;
-                foreach ($this->backendPorts as $item) {
-                    $res['BackendPorts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -190,15 +172,6 @@ class CreateListenerRequest extends Model
                 $n                   = 0;
                 foreach ($map['Certificates'] as $item) {
                     $model->certificates[$n++] = null !== $item ? certificates::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['BackendPorts'])) {
-            if (!empty($map['BackendPorts'])) {
-                $model->backendPorts = [];
-                $n                   = 0;
-                foreach ($map['BackendPorts'] as $item) {
-                    $model->backendPorts[$n++] = null !== $item ? backendPorts::fromMap($item) : $item;
                 }
             }
         }

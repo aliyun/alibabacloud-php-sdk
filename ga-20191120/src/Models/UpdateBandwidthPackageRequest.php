@@ -47,11 +47,6 @@ class UpdateBandwidthPackageRequest extends Model
      * @var bool
      */
     public $autoUseCoupon;
-
-    /**
-     * @var string
-     */
-    public $promotionOptionNo;
     protected $_name = [
         'regionId'           => 'RegionId',
         'bandwidthPackageId' => 'BandwidthPackageId',
@@ -61,7 +56,6 @@ class UpdateBandwidthPackageRequest extends Model
         'bandwidthType'      => 'BandwidthType',
         'autoPay'            => 'AutoPay',
         'autoUseCoupon'      => 'AutoUseCoupon',
-        'promotionOptionNo'  => 'PromotionOptionNo',
     ];
 
     public function validate()
@@ -94,9 +88,6 @@ class UpdateBandwidthPackageRequest extends Model
         }
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
-        }
-        if (null !== $this->promotionOptionNo) {
-            $res['PromotionOptionNo'] = $this->promotionOptionNo;
         }
 
         return $res;
@@ -133,9 +124,6 @@ class UpdateBandwidthPackageRequest extends Model
         }
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
-        }
-        if (isset($map['PromotionOptionNo'])) {
-            $model->promotionOptionNo = $map['PromotionOptionNo'];
         }
 
         return $model;

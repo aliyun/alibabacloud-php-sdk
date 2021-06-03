@@ -47,21 +47,15 @@ class CreateAcceleratorRequest extends Model
      * @var string
      */
     public $autoUseCoupon;
-
-    /**
-     * @var string
-     */
-    public $promotionOptionNo;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'clientToken'       => 'ClientToken',
-        'name'              => 'Name',
-        'duration'          => 'Duration',
-        'pricingCycle'      => 'PricingCycle',
-        'spec'              => 'Spec',
-        'autoPay'           => 'AutoPay',
-        'autoUseCoupon'     => 'AutoUseCoupon',
-        'promotionOptionNo' => 'PromotionOptionNo',
+        'regionId'      => 'RegionId',
+        'clientToken'   => 'ClientToken',
+        'name'          => 'Name',
+        'duration'      => 'Duration',
+        'pricingCycle'  => 'PricingCycle',
+        'spec'          => 'Spec',
+        'autoPay'       => 'AutoPay',
+        'autoUseCoupon' => 'AutoUseCoupon',
     ];
 
     public function validate()
@@ -94,9 +88,6 @@ class CreateAcceleratorRequest extends Model
         }
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
-        }
-        if (null !== $this->promotionOptionNo) {
-            $res['PromotionOptionNo'] = $this->promotionOptionNo;
         }
 
         return $res;
@@ -133,9 +124,6 @@ class CreateAcceleratorRequest extends Model
         }
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
-        }
-        if (isset($map['PromotionOptionNo'])) {
-            $model->promotionOptionNo = $map['PromotionOptionNo'];
         }
 
         return $model;

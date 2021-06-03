@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\backendPorts;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\certificates;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\portRanges;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\relatedAcls;
 use AlibabaCloud\Tea\Model;
 
 class DescribeListenerResponseBody extends Model
@@ -65,6 +66,26 @@ class DescribeListenerResponseBody extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var relatedAcls[]
+     */
+    public $relatedAcls;
+
+    /**
+     * @var string
+     */
+    public $aclType;
+
+    /**
+     * @var string
+     */
+    public $acceleratorId;
+
+    /**
+     * @var bool
+     */
+    public $proxyProtocol;
     protected $_name = [
         'description'    => 'Description',
         'requestId'      => 'RequestId',
@@ -77,6 +98,10 @@ class DescribeListenerResponseBody extends Model
         'listenerId'     => 'ListenerId',
         'clientAffinity' => 'ClientAffinity',
         'name'           => 'Name',
+        'relatedAcls'    => 'RelatedAcls',
+        'aclType'        => 'AclType',
+        'acceleratorId'  => 'AcceleratorId',
+        'proxyProtocol'  => 'ProxyProtocol',
     ];
 
     public function validate()
@@ -136,6 +161,24 @@ class DescribeListenerResponseBody extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->relatedAcls) {
+            $res['RelatedAcls'] = [];
+            if (null !== $this->relatedAcls && \is_array($this->relatedAcls)) {
+                $n = 0;
+                foreach ($this->relatedAcls as $item) {
+                    $res['RelatedAcls'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->aclType) {
+            $res['AclType'] = $this->aclType;
+        }
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->proxyProtocol) {
+            $res['ProxyProtocol'] = $this->proxyProtocol;
         }
 
         return $res;
@@ -199,6 +242,24 @@ class DescribeListenerResponseBody extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RelatedAcls'])) {
+            if (!empty($map['RelatedAcls'])) {
+                $model->relatedAcls = [];
+                $n                  = 0;
+                foreach ($map['RelatedAcls'] as $item) {
+                    $model->relatedAcls[$n++] = null !== $item ? relatedAcls::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['AclType'])) {
+            $model->aclType = $map['AclType'];
+        }
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['ProxyProtocol'])) {
+            $model->proxyProtocol = $map['ProxyProtocol'];
         }
 
         return $model;

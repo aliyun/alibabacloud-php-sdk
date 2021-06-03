@@ -82,6 +82,11 @@ class bandwidthPackages extends Model
      * @var string
      */
     public $billingType;
+
+    /**
+     * @var int
+     */
+    public $ratio;
     protected $_name = [
         'type'                   => 'Type',
         'bandwidthType'          => 'BandwidthType',
@@ -98,6 +103,7 @@ class bandwidthPackages extends Model
         'cbnGeographicRegionIdB' => 'CbnGeographicRegionIdB',
         'name'                   => 'Name',
         'billingType'            => 'BillingType',
+        'ratio'                  => 'Ratio',
     ];
 
     public function validate()
@@ -151,6 +157,9 @@ class bandwidthPackages extends Model
         }
         if (null !== $this->billingType) {
             $res['BillingType'] = $this->billingType;
+        }
+        if (null !== $this->ratio) {
+            $res['Ratio'] = $this->ratio;
         }
 
         return $res;
@@ -210,6 +219,9 @@ class bandwidthPackages extends Model
         }
         if (isset($map['BillingType'])) {
             $model->billingType = $map['BillingType'];
+        }
+        if (isset($map['Ratio'])) {
+            $model->ratio = $map['Ratio'];
         }
 
         return $model;

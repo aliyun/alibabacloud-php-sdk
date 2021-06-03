@@ -77,11 +77,6 @@ class CreateBandwidthPackageRequest extends Model
      * @var string
      */
     public $cbnGeographicRegionIdB;
-
-    /**
-     * @var string
-     */
-    public $promotionOptionNo;
     protected $_name = [
         'regionId'               => 'RegionId',
         'bandwidth'              => 'Bandwidth',
@@ -97,7 +92,6 @@ class CreateBandwidthPackageRequest extends Model
         'chargeType'             => 'ChargeType',
         'cbnGeographicRegionIdA' => 'CbnGeographicRegionIdA',
         'cbnGeographicRegionIdB' => 'CbnGeographicRegionIdB',
-        'promotionOptionNo'      => 'PromotionOptionNo',
     ];
 
     public function validate()
@@ -148,9 +142,6 @@ class CreateBandwidthPackageRequest extends Model
         }
         if (null !== $this->cbnGeographicRegionIdB) {
             $res['CbnGeographicRegionIdB'] = $this->cbnGeographicRegionIdB;
-        }
-        if (null !== $this->promotionOptionNo) {
-            $res['PromotionOptionNo'] = $this->promotionOptionNo;
         }
 
         return $res;
@@ -205,9 +196,6 @@ class CreateBandwidthPackageRequest extends Model
         }
         if (isset($map['CbnGeographicRegionIdB'])) {
             $model->cbnGeographicRegionIdB = $map['CbnGeographicRegionIdB'];
-        }
-        if (isset($map['PromotionOptionNo'])) {
-            $model->promotionOptionNo = $map['PromotionOptionNo'];
         }
 
         return $model;

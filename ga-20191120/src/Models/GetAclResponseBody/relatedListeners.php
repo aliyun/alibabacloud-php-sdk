@@ -2,30 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ga\V20191120\Models;
+namespace AlibabaCloud\SDK\Ga\V20191120\Models\GetAclResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteListenerRequest extends Model
+class relatedListeners extends Model
 {
     /**
      * @var string
      */
-    public $clientToken;
+    public $listenerId;
+
+    /**
+     * @var string
+     */
+    public $aclType;
 
     /**
      * @var string
      */
     public $acceleratorId;
-
-    /**
-     * @var string
-     */
-    public $listenerId;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'acceleratorId' => 'AcceleratorId',
         'listenerId'    => 'ListenerId',
+        'aclType'       => 'AclType',
+        'acceleratorId' => 'AcceleratorId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteListenerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->aclType) {
+            $res['AclType'] = $this->aclType;
         }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
-        }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
         }
 
         return $res;
@@ -51,19 +51,19 @@ class DeleteListenerRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteListenerRequest
+     * @return relatedListeners
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['AclType'])) {
+            $model->aclType = $map['AclType'];
         }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
-        }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
         }
 
         return $model;

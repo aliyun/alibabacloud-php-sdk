@@ -11,11 +11,6 @@ class DeleteEndpointGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $clientToken;
 
     /**
@@ -28,7 +23,6 @@ class DeleteEndpointGroupRequest extends Model
      */
     public $endpointGroupId;
     protected $_name = [
-        'regionId'        => 'RegionId',
         'clientToken'     => 'ClientToken',
         'acceleratorId'   => 'AcceleratorId',
         'endpointGroupId' => 'EndpointGroupId',
@@ -41,9 +35,6 @@ class DeleteEndpointGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -65,9 +56,6 @@ class DeleteEndpointGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

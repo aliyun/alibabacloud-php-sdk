@@ -103,7 +103,37 @@ class DescribeEndpointGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $acceleratorId;
+
+    /**
+     * @var string
+     */
     public $listenerId;
+
+    /**
+     * @var string
+     */
+    public $slsRegion;
+
+    /**
+     * @var string
+     */
+    public $slsProjectName;
+
+    /**
+     * @var string
+     */
+    public $slsLogStoreName;
+
+    /**
+     * @var string
+     */
+    public $accessLogSwitch;
+
+    /**
+     * @var bool
+     */
+    public $enableAccessLog;
     protected $_name = [
         'healthCheckIntervalSeconds' => 'HealthCheckIntervalSeconds',
         'trafficPercentage'          => 'TrafficPercentage',
@@ -123,7 +153,13 @@ class DescribeEndpointGroupResponseBody extends Model
         'endpointRequestProtocol'    => 'EndpointRequestProtocol',
         'endpointGroupType'          => 'EndpointGroupType',
         'forwardingRuleIds'          => 'ForwardingRuleIds',
+        'acceleratorId'              => 'AcceleratorId',
         'listenerId'                 => 'ListenerId',
+        'slsRegion'                  => 'SlsRegion',
+        'slsProjectName'             => 'SlsProjectName',
+        'slsLogStoreName'            => 'SlsLogStoreName',
+        'accessLogSwitch'            => 'AccessLogSwitch',
+        'enableAccessLog'            => 'EnableAccessLog',
     ];
 
     public function validate()
@@ -199,8 +235,26 @@ class DescribeEndpointGroupResponseBody extends Model
         if (null !== $this->forwardingRuleIds) {
             $res['ForwardingRuleIds'] = $this->forwardingRuleIds;
         }
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
+        }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->slsRegion) {
+            $res['SlsRegion'] = $this->slsRegion;
+        }
+        if (null !== $this->slsProjectName) {
+            $res['SlsProjectName'] = $this->slsProjectName;
+        }
+        if (null !== $this->slsLogStoreName) {
+            $res['SlsLogStoreName'] = $this->slsLogStoreName;
+        }
+        if (null !== $this->accessLogSwitch) {
+            $res['AccessLogSwitch'] = $this->accessLogSwitch;
+        }
+        if (null !== $this->enableAccessLog) {
+            $res['EnableAccessLog'] = $this->enableAccessLog;
         }
 
         return $res;
@@ -282,8 +336,26 @@ class DescribeEndpointGroupResponseBody extends Model
                 $model->forwardingRuleIds = $map['ForwardingRuleIds'];
             }
         }
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
+        }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['SlsRegion'])) {
+            $model->slsRegion = $map['SlsRegion'];
+        }
+        if (isset($map['SlsProjectName'])) {
+            $model->slsProjectName = $map['SlsProjectName'];
+        }
+        if (isset($map['SlsLogStoreName'])) {
+            $model->slsLogStoreName = $map['SlsLogStoreName'];
+        }
+        if (isset($map['AccessLogSwitch'])) {
+            $model->accessLogSwitch = $map['AccessLogSwitch'];
+        }
+        if (isset($map['EnableAccessLog'])) {
+            $model->enableAccessLog = $map['EnableAccessLog'];
         }
 
         return $model;

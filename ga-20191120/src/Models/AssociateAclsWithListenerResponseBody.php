@@ -6,26 +6,28 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteListenerRequest extends Model
+class AssociateAclsWithListenerResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
      * @var string
      */
-    public $clientToken;
+    public $requestId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $acceleratorId;
+    public $aclIds;
 
     /**
      * @var string
      */
     public $listenerId;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'acceleratorId' => 'AcceleratorId',
-        'listenerId'    => 'ListenerId',
+        'requestId'  => 'RequestId',
+        'aclIds'     => 'AclIds',
+        'listenerId' => 'ListenerId',
     ];
 
     public function validate()
@@ -35,11 +37,11 @@ class DeleteListenerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
+        if (null !== $this->aclIds) {
+            $res['AclIds'] = $this->aclIds;
         }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
@@ -51,16 +53,18 @@ class DeleteListenerRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteListenerRequest
+     * @return AssociateAclsWithListenerResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
+        if (isset($map['AclIds'])) {
+            if (!empty($map['AclIds'])) {
+                $model->aclIds = $map['AclIds'];
+            }
         }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];

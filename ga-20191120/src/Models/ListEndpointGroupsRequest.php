@@ -37,6 +37,16 @@ class ListEndpointGroupsRequest extends Model
      * @var string
      */
     public $endpointGroupType;
+
+    /**
+     * @var string
+     */
+    public $accessLogSwitch;
+
+    /**
+     * @var string
+     */
+    public $endpointGroupId;
     protected $_name = [
         'regionId'          => 'RegionId',
         'pageNumber'        => 'PageNumber',
@@ -44,6 +54,8 @@ class ListEndpointGroupsRequest extends Model
         'acceleratorId'     => 'AcceleratorId',
         'listenerId'        => 'ListenerId',
         'endpointGroupType' => 'EndpointGroupType',
+        'accessLogSwitch'   => 'AccessLogSwitch',
+        'endpointGroupId'   => 'EndpointGroupId',
     ];
 
     public function validate()
@@ -70,6 +82,12 @@ class ListEndpointGroupsRequest extends Model
         }
         if (null !== $this->endpointGroupType) {
             $res['EndpointGroupType'] = $this->endpointGroupType;
+        }
+        if (null !== $this->accessLogSwitch) {
+            $res['AccessLogSwitch'] = $this->accessLogSwitch;
+        }
+        if (null !== $this->endpointGroupId) {
+            $res['EndpointGroupId'] = $this->endpointGroupId;
         }
 
         return $res;
@@ -100,6 +118,12 @@ class ListEndpointGroupsRequest extends Model
         }
         if (isset($map['EndpointGroupType'])) {
             $model->endpointGroupType = $map['EndpointGroupType'];
+        }
+        if (isset($map['AccessLogSwitch'])) {
+            $model->accessLogSwitch = $map['AccessLogSwitch'];
+        }
+        if (isset($map['EndpointGroupId'])) {
+            $model->endpointGroupId = $map['EndpointGroupId'];
         }
 
         return $model;

@@ -65,6 +65,11 @@ class listeners extends Model
      * @var bool
      */
     public $proxyProtocol;
+
+    /**
+     * @var string
+     */
+    public $acceleratorId;
     protected $_name = [
         'certificates'   => 'Certificates',
         'backendPorts'   => 'BackendPorts',
@@ -77,6 +82,7 @@ class listeners extends Model
         'portRanges'     => 'PortRanges',
         'name'           => 'Name',
         'proxyProtocol'  => 'ProxyProtocol',
+        'acceleratorId'  => 'AcceleratorId',
     ];
 
     public function validate()
@@ -136,6 +142,9 @@ class listeners extends Model
         }
         if (null !== $this->proxyProtocol) {
             $res['ProxyProtocol'] = $this->proxyProtocol;
+        }
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
 
         return $res;
@@ -199,6 +208,9 @@ class listeners extends Model
         }
         if (isset($map['ProxyProtocol'])) {
             $model->proxyProtocol = $map['ProxyProtocol'];
+        }
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
 
         return $model;
