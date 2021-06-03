@@ -43,6 +43,13 @@ class SubmitDelogoJobRequest extends Model
      * @var string
      */
     public $inputType;
+
+    /**
+     * @description 是否强制覆盖现有OSS文件
+     *
+     * @var bool
+     */
+    public $overwrite;
     protected $_name = [
         'inputFile'    => 'InputFile',
         'userData'     => 'UserData',
@@ -50,6 +57,7 @@ class SubmitDelogoJobRequest extends Model
         'description'  => 'Description',
         'outputConfig' => 'OutputConfig',
         'inputType'    => 'InputType',
+        'overwrite'    => 'Overwrite',
     ];
 
     public function validate()
@@ -76,6 +84,9 @@ class SubmitDelogoJobRequest extends Model
         }
         if (null !== $this->inputType) {
             $res['InputType'] = $this->inputType;
+        }
+        if (null !== $this->overwrite) {
+            $res['Overwrite'] = $this->overwrite;
         }
 
         return $res;
@@ -106,6 +117,9 @@ class SubmitDelogoJobRequest extends Model
         }
         if (isset($map['InputType'])) {
             $model->inputType = $map['InputType'];
+        }
+        if (isset($map['Overwrite'])) {
+            $model->overwrite = $map['Overwrite'];
         }
 
         return $model;

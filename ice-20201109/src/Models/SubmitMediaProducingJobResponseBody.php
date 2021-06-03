@@ -28,10 +28,18 @@ class SubmitMediaProducingJobResponseBody extends Model
      * @var string
      */
     public $jobId;
+
+    /**
+     * @description 合成媒资Id
+     *
+     * @var string
+     */
+    public $mediaId;
     protected $_name = [
         'requestId' => 'RequestId',
         'projectId' => 'ProjectId',
         'jobId'     => 'JobId',
+        'mediaId'   => 'MediaId',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class SubmitMediaProducingJobResponseBody extends Model
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
         }
 
         return $res;
@@ -70,6 +81,9 @@ class SubmitMediaProducingJobResponseBody extends Model
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
         }
 
         return $model;

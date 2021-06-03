@@ -37,6 +37,11 @@ class SubmitAudioProduceJobRequest extends Model
      * @var string
      */
     public $userData;
+
+    /**
+     * @var bool
+     */
+    public $overwrite;
     protected $_name = [
         'editingConfig' => 'EditingConfig',
         'outputConfig'  => 'OutputConfig',
@@ -44,6 +49,7 @@ class SubmitAudioProduceJobRequest extends Model
         'title'         => 'Title',
         'description'   => 'Description',
         'userData'      => 'UserData',
+        'overwrite'     => 'Overwrite',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class SubmitAudioProduceJobRequest extends Model
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->overwrite) {
+            $res['Overwrite'] = $this->overwrite;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class SubmitAudioProduceJobRequest extends Model
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+        if (isset($map['Overwrite'])) {
+            $model->overwrite = $map['Overwrite'];
         }
 
         return $model;

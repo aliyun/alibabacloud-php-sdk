@@ -36,20 +36,26 @@ class ListSmartJobsRequest extends Model
     /**
      * @var string
      */
-    public $title;
+    public $jobType;
 
     /**
      * @var string
      */
-    public $jobType;
+    public $sortBy;
+
+    /**
+     * @var string
+     */
+    public $jobState;
     protected $_name = [
         'status'     => 'Status',
         'nextToken'  => 'NextToken',
         'maxResults' => 'MaxResults',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
-        'title'      => 'Title',
         'jobType'    => 'JobType',
+        'sortBy'     => 'SortBy',
+        'jobState'   => 'JobState',
     ];
 
     public function validate()
@@ -74,11 +80,14 @@ class ListSmartJobsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
+        }
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
+        }
+        if (null !== $this->jobState) {
+            $res['JobState'] = $this->jobState;
         }
 
         return $res;
@@ -107,11 +116,14 @@ class ListSmartJobsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
+        }
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
+        }
+        if (isset($map['JobState'])) {
+            $model->jobState = $map['JobState'];
         }
 
         return $model;

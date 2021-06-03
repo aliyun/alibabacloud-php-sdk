@@ -17,9 +17,15 @@ class GetMediaInfoRequest extends Model
      * @var string
      */
     public $inputURL;
+
+    /**
+     * @var string
+     */
+    public $outputType;
     protected $_name = [
-        'mediaId'  => 'MediaId',
-        'inputURL' => 'InputURL',
+        'mediaId'    => 'MediaId',
+        'inputURL'   => 'InputURL',
+        'outputType' => 'OutputType',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class GetMediaInfoRequest extends Model
         }
         if (null !== $this->inputURL) {
             $res['InputURL'] = $this->inputURL;
+        }
+        if (null !== $this->outputType) {
+            $res['OutputType'] = $this->outputType;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class GetMediaInfoRequest extends Model
         }
         if (isset($map['InputURL'])) {
             $model->inputURL = $map['InputURL'];
+        }
+        if (isset($map['OutputType'])) {
+            $model->outputType = $map['OutputType'];
         }
 
         return $model;

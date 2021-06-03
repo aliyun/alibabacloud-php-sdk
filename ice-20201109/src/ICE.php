@@ -20,6 +20,7 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeIceProductStatusResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeRelatedAuthorizationStatusResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetDefaultStorageLocationResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectRequest;
@@ -44,6 +45,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultStorageLocationRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultStorageLocationResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobRequest;
@@ -724,6 +727,28 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDefaultStorageLocationResponse
+     */
+    public function getDefaultStorageLocationWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return GetDefaultStorageLocationResponse::fromMap($this->doRPCRequest('GetDefaultStorageLocation', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return GetDefaultStorageLocationResponse
+     */
+    public function getDefaultStorageLocation()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDefaultStorageLocationWithOptions($runtime);
+    }
+
+    /**
      * @param SubmitAudioProduceJobRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1001,6 +1026,34 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitCoverJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDefaultStorageLocationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SetDefaultStorageLocationResponse
+     */
+    public function setDefaultStorageLocationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetDefaultStorageLocationResponse::fromMap($this->doRPCRequest('SetDefaultStorageLocation', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetDefaultStorageLocationRequest $request
+     *
+     * @return SetDefaultStorageLocationResponse
+     */
+    public function setDefaultStorageLocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDefaultStorageLocationWithOptions($request, $runtime);
     }
 
     /**
