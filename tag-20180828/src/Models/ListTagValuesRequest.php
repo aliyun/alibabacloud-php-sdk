@@ -47,6 +47,11 @@ class ListTagValuesRequest extends Model
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $tagProduct;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -56,6 +61,7 @@ class ListTagValuesRequest extends Model
         'nextToken'            => 'NextToken',
         'pageSize'             => 'PageSize',
         'resourceType'         => 'ResourceType',
+        'tagProduct'           => 'TagProduct',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class ListTagValuesRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->tagProduct) {
+            $res['TagProduct'] = $this->tagProduct;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class ListTagValuesRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['TagProduct'])) {
+            $model->tagProduct = $map['TagProduct'];
         }
 
         return $model;

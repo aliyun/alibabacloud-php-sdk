@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Tag\V20180828;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\SDK\Tag\V20180828\Models\DescribeRegionsRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\ListTagResourcesRequest;
@@ -95,6 +97,34 @@ class Tag extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2018-08-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionsWithOptions($request, $runtime);
     }
 
     /**

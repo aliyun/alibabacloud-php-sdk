@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Tag\V20180828\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListTagKeysRequest extends Model
+class DescribeRegionsRequest extends Model
 {
     /**
      * @var int
@@ -17,6 +17,11 @@ class ListTagKeysRequest extends Model
      * @var string
      */
     public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -31,37 +36,14 @@ class ListTagKeysRequest extends Model
     /**
      * @var string
      */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $category;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $tagProduct;
+    public $acceptLanguage;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'regionId'             => 'RegionId',
-        'nextToken'            => 'NextToken',
-        'pageSize'             => 'PageSize',
-        'category'             => 'Category',
-        'resourceType'         => 'ResourceType',
-        'tagProduct'           => 'TagProduct',
+        'acceptLanguage'       => 'AcceptLanguage',
     ];
 
     public function validate()
@@ -77,26 +59,17 @@ class ListTagKeysRequest extends Model
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->tagProduct) {
-            $res['TagProduct'] = $this->tagProduct;
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
         }
 
         return $res;
@@ -105,7 +78,7 @@ class ListTagKeysRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListTagKeysRequest
+     * @return DescribeRegionsRequest
      */
     public static function fromMap($map = [])
     {
@@ -116,26 +89,17 @@ class ListTagKeysRequest extends Model
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['TagProduct'])) {
-            $model->tagProduct = $map['TagProduct'];
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
         }
 
         return $model;
