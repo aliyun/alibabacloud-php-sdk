@@ -34,11 +34,6 @@ class result extends Model
     public $promotionPrice;
 
     /**
-     * @var string
-     */
-    public $priceAfterCoupon;
-
-    /**
      * @var int
      */
     public $userType;
@@ -76,17 +71,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $couponActivityId;
-
-    /**
-     * @var string
-     */
     public $couponTotalCount;
-
-    /**
-     * @var string
-     */
-    public $couponSendCount;
 
     /**
      * @var int
@@ -121,7 +106,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $calTkRate;
+    public $commissionRate;
 
     /**
      * @var string
@@ -132,18 +117,12 @@ class result extends Model
      * @var string
      */
     public $clickUrl;
-
-    /**
-     * @var string
-     */
-    public $shortUrl;
     protected $_name = [
         'itemId'               => 'ItemId',
         'itemName'             => 'ItemName',
         'pic'                  => 'Pic',
         'price'                => 'Price',
         'promotionPrice'       => 'PromotionPrice',
-        'priceAfterCoupon'     => 'PriceAfterCoupon',
         'userType'             => 'UserType',
         'provcity'             => 'Provcity',
         'sellerNickName'       => 'SellerNickName',
@@ -151,19 +130,16 @@ class result extends Model
         'monthSellCount'       => 'MonthSellCount',
         'levelOneCategoryName' => 'LevelOneCategoryName',
         'categoryName'         => 'CategoryName',
-        'couponActivityId'     => 'CouponActivityId',
         'couponTotalCount'     => 'CouponTotalCount',
-        'couponSendCount'      => 'CouponSendCount',
         'couponRemainCount'    => 'CouponRemainCount',
         'couponStartTime'      => 'CouponStartTime',
         'couponEndTime'        => 'CouponEndTime',
         'couponStartFee'       => 'CouponStartFee',
         'couponAmount'         => 'CouponAmount',
         'couponSaleTextInfo'   => 'CouponSaleTextInfo',
-        'calTkRate'            => 'CalTkRate',
+        'commissionRate'       => 'CommissionRate',
         'couponShareUrl'       => 'CouponShareUrl',
         'clickUrl'             => 'ClickUrl',
-        'shortUrl'             => 'ShortUrl',
     ];
 
     public function validate()
@@ -188,9 +164,6 @@ class result extends Model
         if (null !== $this->promotionPrice) {
             $res['PromotionPrice'] = $this->promotionPrice;
         }
-        if (null !== $this->priceAfterCoupon) {
-            $res['PriceAfterCoupon'] = $this->priceAfterCoupon;
-        }
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -212,14 +185,8 @@ class result extends Model
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
-        if (null !== $this->couponActivityId) {
-            $res['CouponActivityId'] = $this->couponActivityId;
-        }
         if (null !== $this->couponTotalCount) {
             $res['CouponTotalCount'] = $this->couponTotalCount;
-        }
-        if (null !== $this->couponSendCount) {
-            $res['CouponSendCount'] = $this->couponSendCount;
         }
         if (null !== $this->couponRemainCount) {
             $res['CouponRemainCount'] = $this->couponRemainCount;
@@ -239,17 +206,14 @@ class result extends Model
         if (null !== $this->couponSaleTextInfo) {
             $res['CouponSaleTextInfo'] = $this->couponSaleTextInfo;
         }
-        if (null !== $this->calTkRate) {
-            $res['CalTkRate'] = $this->calTkRate;
+        if (null !== $this->commissionRate) {
+            $res['CommissionRate'] = $this->commissionRate;
         }
         if (null !== $this->couponShareUrl) {
             $res['CouponShareUrl'] = $this->couponShareUrl;
         }
         if (null !== $this->clickUrl) {
             $res['ClickUrl'] = $this->clickUrl;
-        }
-        if (null !== $this->shortUrl) {
-            $res['ShortUrl'] = $this->shortUrl;
         }
 
         return $res;
@@ -278,9 +242,6 @@ class result extends Model
         if (isset($map['PromotionPrice'])) {
             $model->promotionPrice = $map['PromotionPrice'];
         }
-        if (isset($map['PriceAfterCoupon'])) {
-            $model->priceAfterCoupon = $map['PriceAfterCoupon'];
-        }
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }
@@ -302,14 +263,8 @@ class result extends Model
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }
-        if (isset($map['CouponActivityId'])) {
-            $model->couponActivityId = $map['CouponActivityId'];
-        }
         if (isset($map['CouponTotalCount'])) {
             $model->couponTotalCount = $map['CouponTotalCount'];
-        }
-        if (isset($map['CouponSendCount'])) {
-            $model->couponSendCount = $map['CouponSendCount'];
         }
         if (isset($map['CouponRemainCount'])) {
             $model->couponRemainCount = $map['CouponRemainCount'];
@@ -329,17 +284,14 @@ class result extends Model
         if (isset($map['CouponSaleTextInfo'])) {
             $model->couponSaleTextInfo = $map['CouponSaleTextInfo'];
         }
-        if (isset($map['CalTkRate'])) {
-            $model->calTkRate = $map['CalTkRate'];
+        if (isset($map['CommissionRate'])) {
+            $model->commissionRate = $map['CommissionRate'];
         }
         if (isset($map['CouponShareUrl'])) {
             $model->couponShareUrl = $map['CouponShareUrl'];
         }
         if (isset($map['ClickUrl'])) {
             $model->clickUrl = $map['ClickUrl'];
-        }
-        if (isset($map['ShortUrl'])) {
-            $model->shortUrl = $map['ShortUrl'];
         }
 
         return $model;
