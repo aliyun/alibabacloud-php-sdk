@@ -17,15 +17,9 @@ class RollbackDcdnStagingConfigRequest extends Model
      * @var string
      */
     public $domainName;
-
-    /**
-     * @var string
-     */
-    public $functionName;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
-        'domainName'   => 'DomainName',
-        'functionName' => 'FunctionName',
+        'ownerId'    => 'OwnerId',
+        'domainName' => 'DomainName',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class RollbackDcdnStagingConfigRequest extends Model
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->functionName) {
-            $res['FunctionName'] = $this->functionName;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class RollbackDcdnStagingConfigRequest extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['FunctionName'])) {
-            $model->functionName = $map['FunctionName'];
         }
 
         return $model;

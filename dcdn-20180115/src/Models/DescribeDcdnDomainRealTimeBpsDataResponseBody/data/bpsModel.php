@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class bpsModel extends Model
 {
     /**
-     * @var string
-     */
-    public $timeStamp;
-
-    /**
      * @var float
      */
     public $bps;
+
+    /**
+     * @var string
+     */
+    public $timeStamp;
     protected $_name = [
-        'timeStamp' => 'TimeStamp',
         'bps'       => 'Bps',
+        'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class bpsModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
         if (null !== $this->bps) {
             $res['Bps'] = $this->bps;
+        }
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class bpsModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
         if (isset($map['Bps'])) {
             $model->bps = $map['Bps'];
+        }
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
         }
 
         return $model;

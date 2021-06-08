@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainDetailResponseBody extends Model
 {
     /**
-     * @var domainDetail
-     */
-    public $domainDetail;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var domainDetail
+     */
+    public $domainDetail;
     protected $_name = [
-        'domainDetail' => 'DomainDetail',
         'requestId'    => 'RequestId',
+        'domainDetail' => 'DomainDetail',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeDcdnDomainDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domainDetail) {
-            $res['DomainDetail'] = null !== $this->domainDetail ? $this->domainDetail->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->domainDetail) {
+            $res['DomainDetail'] = null !== $this->domainDetail ? $this->domainDetail->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeDcdnDomainDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainDetail'])) {
-            $model->domainDetail = domainDetail::fromMap($map['DomainDetail']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['DomainDetail'])) {
+            $model->domainDetail = domainDetail::fromMap($map['DomainDetail']);
         }
 
         return $model;

@@ -11,12 +11,12 @@ class regionInfos extends Model
     /**
      * @var string
      */
-    public $regionName;
+    public $isOverseas;
 
     /**
      * @var string
      */
-    public $isOverseas;
+    public $regionName;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class regionInfos extends Model
      */
     public $regionId;
     protected $_name = [
-        'regionName'  => 'RegionName',
         'isOverseas'  => 'IsOverseas',
+        'regionName'  => 'RegionName',
         'ossEndpoint' => 'OssEndpoint',
         'regionId'    => 'RegionId',
     ];
@@ -41,11 +41,11 @@ class regionInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionName) {
-            $res['RegionName'] = $this->regionName;
-        }
         if (null !== $this->isOverseas) {
             $res['IsOverseas'] = $this->isOverseas;
+        }
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
         }
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
@@ -65,11 +65,11 @@ class regionInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionName'])) {
-            $model->regionName = $map['RegionName'];
-        }
         if (isset($map['IsOverseas'])) {
             $model->isOverseas = $map['IsOverseas'];
+        }
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
         }
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];

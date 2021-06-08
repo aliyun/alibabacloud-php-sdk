@@ -12,7 +12,7 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     /**
      * @var string
      */
-    public $changingChargeType;
+    public $changingAffectTime;
 
     /**
      * @var string
@@ -22,7 +22,7 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $changingChargeType;
 
     /**
      * @var string
@@ -32,25 +32,25 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     /**
      * @var string
      */
-    public $changingAffectTime;
+    public $internetChargeType;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var operationLocks
      */
     public $operationLocks;
-
-    /**
-     * @var string
-     */
-    public $internetChargeType;
     protected $_name = [
-        'changingChargeType' => 'ChangingChargeType',
-        'requestId'          => 'RequestId',
-        'instanceId'         => 'InstanceId',
-        'openingTime'        => 'OpeningTime',
         'changingAffectTime' => 'ChangingAffectTime',
-        'operationLocks'     => 'OperationLocks',
+        'requestId'          => 'RequestId',
+        'changingChargeType' => 'ChangingChargeType',
+        'openingTime'        => 'OpeningTime',
         'internetChargeType' => 'InternetChargeType',
+        'instanceId'         => 'InstanceId',
+        'operationLocks'     => 'OperationLocks',
     ];
 
     public function validate()
@@ -60,26 +60,26 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->changingChargeType) {
-            $res['ChangingChargeType'] = $this->changingChargeType;
+        if (null !== $this->changingAffectTime) {
+            $res['ChangingAffectTime'] = $this->changingAffectTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->changingChargeType) {
+            $res['ChangingChargeType'] = $this->changingChargeType;
         }
         if (null !== $this->openingTime) {
             $res['OpeningTime'] = $this->openingTime;
         }
-        if (null !== $this->changingAffectTime) {
-            $res['ChangingAffectTime'] = $this->changingAffectTime;
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->operationLocks) {
             $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toMap() : null;
-        }
-        if (null !== $this->internetChargeType) {
-            $res['InternetChargeType'] = $this->internetChargeType;
         }
 
         return $res;
@@ -93,26 +93,26 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ChangingChargeType'])) {
-            $model->changingChargeType = $map['ChangingChargeType'];
+        if (isset($map['ChangingAffectTime'])) {
+            $model->changingAffectTime = $map['ChangingAffectTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['ChangingChargeType'])) {
+            $model->changingChargeType = $map['ChangingChargeType'];
         }
         if (isset($map['OpeningTime'])) {
             $model->openingTime = $map['OpeningTime'];
         }
-        if (isset($map['ChangingAffectTime'])) {
-            $model->changingAffectTime = $map['ChangingAffectTime'];
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['OperationLocks'])) {
             $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
-        }
-        if (isset($map['InternetChargeType'])) {
-            $model->internetChargeType = $map['InternetChargeType'];
         }
 
         return $model;

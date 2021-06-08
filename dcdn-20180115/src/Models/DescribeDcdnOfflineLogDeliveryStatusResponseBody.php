@@ -11,15 +11,15 @@ class DescribeDcdnOfflineLogDeliveryStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $openStatus;
 
     /**
      * @var string
      */
-    public $openStatus;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'openStatus' => 'OpenStatus',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeDcdnOfflineLogDeliveryStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->openStatus) {
             $res['OpenStatus'] = $this->openStatus;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeDcdnOfflineLogDeliveryStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OpenStatus'])) {
             $model->openStatus = $map['OpenStatus'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

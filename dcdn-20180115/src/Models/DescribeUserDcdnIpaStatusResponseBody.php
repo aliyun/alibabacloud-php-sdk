@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserDcdnIpaStatusResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $inDebt;
@@ -21,7 +16,12 @@ class DescribeUserDcdnIpaStatusResponseBody extends Model
     /**
      * @var bool
      */
-    public $enabled;
+    public $onService;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var bool
@@ -31,13 +31,13 @@ class DescribeUserDcdnIpaStatusResponseBody extends Model
     /**
      * @var bool
      */
-    public $onService;
+    public $enabled;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'inDebt'        => 'InDebt',
-        'enabled'       => 'Enabled',
-        'inDebtOverdue' => 'InDebtOverdue',
         'onService'     => 'OnService',
+        'requestId'     => 'RequestId',
+        'inDebtOverdue' => 'InDebtOverdue',
+        'enabled'       => 'Enabled',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeUserDcdnIpaStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->inDebt) {
             $res['InDebt'] = $this->inDebt;
         }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
+        if (null !== $this->onService) {
+            $res['OnService'] = $this->onService;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->inDebtOverdue) {
             $res['InDebtOverdue'] = $this->inDebtOverdue;
         }
-        if (null !== $this->onService) {
-            $res['OnService'] = $this->onService;
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeUserDcdnIpaStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InDebt'])) {
             $model->inDebt = $map['InDebt'];
         }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
+        if (isset($map['OnService'])) {
+            $model->onService = $map['OnService'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['InDebtOverdue'])) {
             $model->inDebtOverdue = $map['InDebtOverdue'];
         }
-        if (isset($map['OnService'])) {
-            $model->onService = $map['OnService'];
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
         }
 
         return $model;

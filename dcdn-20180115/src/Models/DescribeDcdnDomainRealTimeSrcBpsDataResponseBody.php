@@ -17,6 +17,11 @@ class DescribeDcdnDomainRealTimeSrcBpsDataResponseBody extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -25,26 +30,21 @@ class DescribeDcdnDomainRealTimeSrcBpsDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @var realTimeSrcBpsDataPerInterval
-     */
-    public $realTimeSrcBpsDataPerInterval;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
      * @var string
      */
     public $dataInterval;
+
+    /**
+     * @var realTimeSrcBpsDataPerInterval
+     */
+    public $realTimeSrcBpsDataPerInterval;
     protected $_name = [
         'endTime'                       => 'EndTime',
+        'startTime'                     => 'StartTime',
         'requestId'                     => 'RequestId',
         'domainName'                    => 'DomainName',
-        'realTimeSrcBpsDataPerInterval' => 'RealTimeSrcBpsDataPerInterval',
-        'startTime'                     => 'StartTime',
         'dataInterval'                  => 'DataInterval',
+        'realTimeSrcBpsDataPerInterval' => 'RealTimeSrcBpsDataPerInterval',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class DescribeDcdnDomainRealTimeSrcBpsDataResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->realTimeSrcBpsDataPerInterval) {
-            $res['RealTimeSrcBpsDataPerInterval'] = null !== $this->realTimeSrcBpsDataPerInterval ? $this->realTimeSrcBpsDataPerInterval->toMap() : null;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->realTimeSrcBpsDataPerInterval) {
+            $res['RealTimeSrcBpsDataPerInterval'] = null !== $this->realTimeSrcBpsDataPerInterval ? $this->realTimeSrcBpsDataPerInterval->toMap() : null;
         }
 
         return $res;
@@ -87,20 +87,20 @@ class DescribeDcdnDomainRealTimeSrcBpsDataResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['RealTimeSrcBpsDataPerInterval'])) {
-            $model->realTimeSrcBpsDataPerInterval = realTimeSrcBpsDataPerInterval::fromMap($map['RealTimeSrcBpsDataPerInterval']);
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['RealTimeSrcBpsDataPerInterval'])) {
+            $model->realTimeSrcBpsDataPerInterval = realTimeSrcBpsDataPerInterval::fromMap($map['RealTimeSrcBpsDataPerInterval']);
         }
 
         return $model;

@@ -45,11 +45,6 @@ class pageData extends Model
     public $cname;
 
     /**
-     * @var sources
-     */
-    public $sources;
-
-    /**
      * @var string
      */
     public $gmtModified;
@@ -58,6 +53,11 @@ class pageData extends Model
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var sources
+     */
+    public $sources;
     protected $_name = [
         'gmtCreated'      => 'GmtCreated',
         'description'     => 'Description',
@@ -66,9 +66,9 @@ class pageData extends Model
         'sandbox'         => 'Sandbox',
         'domainStatus'    => 'DomainStatus',
         'cname'           => 'Cname',
-        'sources'         => 'Sources',
         'gmtModified'     => 'GmtModified',
         'domainName'      => 'DomainName',
+        'sources'         => 'Sources',
     ];
 
     public function validate()
@@ -99,14 +99,14 @@ class pageData extends Model
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
         }
-        if (null !== $this->sources) {
-            $res['Sources'] = null !== $this->sources ? $this->sources->toMap() : null;
-        }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->sources) {
+            $res['Sources'] = null !== $this->sources ? $this->sources->toMap() : null;
         }
 
         return $res;
@@ -141,14 +141,14 @@ class pageData extends Model
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
         }
-        if (isset($map['Sources'])) {
-            $model->sources = sources::fromMap($map['Sources']);
-        }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['Sources'])) {
+            $model->sources = sources::fromMap($map['Sources']);
         }
 
         return $model;

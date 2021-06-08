@@ -26,22 +26,22 @@ class regions extends Model
     /**
      * @var string
      */
-    public $dlaTableName;
-
-    /**
-     * @var string
-     */
     public $areaName;
 
     /**
      * @var string
      */
-    public $dlaDbName;
+    public $dlaTableName;
 
     /**
      * @var string
      */
     public $dlaVcName;
+
+    /**
+     * @var string
+     */
+    public $dlaDbName;
 
     /**
      * @var string
@@ -61,25 +61,25 @@ class regions extends Model
     /**
      * @var string
      */
-    public $ossEndpoint;
+    public $ossBucketName;
 
     /**
      * @var string
      */
-    public $ossBucketName;
+    public $ossEndpoint;
     protected $_name = [
         'ossId'         => 'OssId',
         'ossPathPrefix' => 'OssPathPrefix',
         'regionId'      => 'RegionId',
-        'dlaTableName'  => 'DlaTableName',
         'areaName'      => 'AreaName',
-        'dlaDbName'     => 'DlaDbName',
+        'dlaTableName'  => 'DlaTableName',
         'dlaVcName'     => 'DlaVcName',
+        'dlaDbName'     => 'DlaDbName',
         'regionName'    => 'RegionName',
         'areaId'        => 'AreaId',
         'isOverseas'    => 'IsOverseas',
-        'ossEndpoint'   => 'OssEndpoint',
         'ossBucketName' => 'OssBucketName',
+        'ossEndpoint'   => 'OssEndpoint',
     ];
 
     public function validate()
@@ -98,17 +98,17 @@ class regions extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->dlaTableName) {
-            $res['DlaTableName'] = $this->dlaTableName;
-        }
         if (null !== $this->areaName) {
             $res['AreaName'] = $this->areaName;
         }
-        if (null !== $this->dlaDbName) {
-            $res['DlaDbName'] = $this->dlaDbName;
+        if (null !== $this->dlaTableName) {
+            $res['DlaTableName'] = $this->dlaTableName;
         }
         if (null !== $this->dlaVcName) {
             $res['DlaVcName'] = $this->dlaVcName;
+        }
+        if (null !== $this->dlaDbName) {
+            $res['DlaDbName'] = $this->dlaDbName;
         }
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
@@ -119,11 +119,11 @@ class regions extends Model
         if (null !== $this->isOverseas) {
             $res['IsOverseas'] = $this->isOverseas;
         }
-        if (null !== $this->ossEndpoint) {
-            $res['OssEndpoint'] = $this->ossEndpoint;
-        }
         if (null !== $this->ossBucketName) {
             $res['OssBucketName'] = $this->ossBucketName;
+        }
+        if (null !== $this->ossEndpoint) {
+            $res['OssEndpoint'] = $this->ossEndpoint;
         }
 
         return $res;
@@ -146,17 +146,17 @@ class regions extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['DlaTableName'])) {
-            $model->dlaTableName = $map['DlaTableName'];
-        }
         if (isset($map['AreaName'])) {
             $model->areaName = $map['AreaName'];
         }
-        if (isset($map['DlaDbName'])) {
-            $model->dlaDbName = $map['DlaDbName'];
+        if (isset($map['DlaTableName'])) {
+            $model->dlaTableName = $map['DlaTableName'];
         }
         if (isset($map['DlaVcName'])) {
             $model->dlaVcName = $map['DlaVcName'];
+        }
+        if (isset($map['DlaDbName'])) {
+            $model->dlaDbName = $map['DlaDbName'];
         }
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
@@ -167,11 +167,11 @@ class regions extends Model
         if (isset($map['IsOverseas'])) {
             $model->isOverseas = $map['IsOverseas'];
         }
-        if (isset($map['OssEndpoint'])) {
-            $model->ossEndpoint = $map['OssEndpoint'];
-        }
         if (isset($map['OssBucketName'])) {
             $model->ossBucketName = $map['OssBucketName'];
+        }
+        if (isset($map['OssEndpoint'])) {
+            $model->ossEndpoint = $map['OssEndpoint'];
         }
 
         return $model;

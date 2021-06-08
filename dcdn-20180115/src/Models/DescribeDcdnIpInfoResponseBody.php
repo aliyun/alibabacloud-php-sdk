@@ -16,7 +16,7 @@ class DescribeDcdnIpInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $ISP;
+    public $regionEname;
 
     /**
      * @var string
@@ -31,19 +31,19 @@ class DescribeDcdnIpInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $regionEname;
+    public $dcdnIp;
 
     /**
      * @var string
      */
-    public $dcdnIp;
+    public $ISP;
     protected $_name = [
         'requestId'   => 'RequestId',
-        'ISP'         => 'ISP',
+        'regionEname' => 'RegionEname',
         'region'      => 'Region',
         'ispEname'    => 'IspEname',
-        'regionEname' => 'RegionEname',
         'dcdnIp'      => 'DcdnIp',
+        'ISP'         => 'ISP',
     ];
 
     public function validate()
@@ -56,8 +56,8 @@ class DescribeDcdnIpInfoResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->ISP) {
-            $res['ISP'] = $this->ISP;
+        if (null !== $this->regionEname) {
+            $res['RegionEname'] = $this->regionEname;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -65,11 +65,11 @@ class DescribeDcdnIpInfoResponseBody extends Model
         if (null !== $this->ispEname) {
             $res['IspEname'] = $this->ispEname;
         }
-        if (null !== $this->regionEname) {
-            $res['RegionEname'] = $this->regionEname;
-        }
         if (null !== $this->dcdnIp) {
             $res['DcdnIp'] = $this->dcdnIp;
+        }
+        if (null !== $this->ISP) {
+            $res['ISP'] = $this->ISP;
         }
 
         return $res;
@@ -86,8 +86,8 @@ class DescribeDcdnIpInfoResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ISP'])) {
-            $model->ISP = $map['ISP'];
+        if (isset($map['RegionEname'])) {
+            $model->regionEname = $map['RegionEname'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
@@ -95,11 +95,11 @@ class DescribeDcdnIpInfoResponseBody extends Model
         if (isset($map['IspEname'])) {
             $model->ispEname = $map['IspEname'];
         }
-        if (isset($map['RegionEname'])) {
-            $model->regionEname = $map['RegionEname'];
-        }
         if (isset($map['DcdnIp'])) {
             $model->dcdnIp = $map['DcdnIp'];
+        }
+        if (isset($map['ISP'])) {
+            $model->ISP = $map['ISP'];
         }
 
         return $model;

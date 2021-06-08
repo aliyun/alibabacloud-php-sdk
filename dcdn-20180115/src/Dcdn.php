@@ -24,10 +24,22 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStartDcdnDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStartDcdnDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStopDcdnDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStopDcdnDomainResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CommitStagingRoutineCodeRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CommitStagingRoutineCodeResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnCertificateSigningRequestRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnCertificateSigningRequestResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDeliverTaskRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDeliverTaskResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDeliverTaskShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDomainOfflineLogDeliveryRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDomainOfflineLogDeliveryResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSubTaskRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSubTaskResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineShrinkRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnIpaDomainRequest;
@@ -38,16 +50,29 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificStagingConfigResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSubTaskRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSubTaskResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineCodeRevisionRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineCodeRevisionResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsShrinkRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBgpBpsDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBgpBpsDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBgpTrafficDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBgpTrafficDataResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBlockedRegionsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBlockedRegionsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnConfigOfVersionRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnConfigOfVersionResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeliverListRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeliverListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainBpsDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainBpsDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainByCertificateRequest;
@@ -144,14 +169,24 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnOfflineLogDeliveryStatusR
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnOfflineLogDeliveryStatusResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRefreshQuotaRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRefreshQuotaResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRefreshTaskByIdRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRefreshTaskByIdResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRefreshTasksRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRefreshTasksResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRegionAndIspRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRegionAndIspResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnReportListRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnReportListResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnReportRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnReportResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSecFuncInfoRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSecFuncInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnServiceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnServiceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnStagingIpRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnStagingIpResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSubListRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSubListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnTagResourcesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnTagResourcesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnTopDomainsByFlowRequest;
@@ -168,6 +203,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserQuotaRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserQuotaResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserResourcePackageRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserResourcePackageResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropByMinuteRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropByMinuteResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserTagsRequest;
@@ -176,14 +213,31 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnVerifyContentRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnVerifyContentResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCanaryEnvsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCanaryEnvsResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCodeRevisionRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCodeRevisionResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineSpecRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineSpecResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineUserInfoRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineUserInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserDcdnIpaStatusRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserDcdnIpaStatusResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserDcdnStatusRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserDcdnStatusResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserErStatusRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserErStatusResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserLogserviceStatusRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserLogserviceStatusResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DisableDcdnDomainOfflineLogDeliveryRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DisableDcdnDomainOfflineLogDeliveryResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DisableDcdnOfflineLogDeliveryRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DisableDcdnOfflineLogDeliveryResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EnableDcdnDomainOfflineLogDeliveryRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EnableDcdnDomainOfflineLogDeliveryResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyRequest;
@@ -194,6 +248,9 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\PreloadDcdnObjectCachesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PreloadDcdnObjectCachesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishDcdnStagingConfigToProductionRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishDcdnStagingConfigToProductionResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishRoutineCodeRevisionRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishRoutineCodeRevisionResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishRoutineCodeRevisionShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RollbackDcdnStagingConfigRequest;
@@ -206,6 +263,9 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCSRCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCSRCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetRoutineSubdomainRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetRoutineSubdomainResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetRoutineSubdomainShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\StartDcdnDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\StartDcdnDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\StartDcdnIpaDomainRequest;
@@ -218,10 +278,19 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\TagDcdnResourcesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\TagDcdnResourcesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UntagDcdnResourcesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UntagDcdnResourcesResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnDeliverTaskRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnDeliverTaskResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnDeliverTaskShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnIpaDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnIpaDomainResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnSubTaskRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnSubTaskResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UploadRoutineCodeRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UploadRoutineCodeResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UploadStagingRoutineCodeRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UploadStagingRoutineCodeResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\VerifyDcdnDomainOwnerRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\VerifyDcdnDomainOwnerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -571,6 +640,34 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param CommitStagingRoutineCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CommitStagingRoutineCodeResponse
+     */
+    public function commitStagingRoutineCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CommitStagingRoutineCodeResponse::fromMap($this->doRPCRequest('CommitStagingRoutineCode', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CommitStagingRoutineCodeRequest $request
+     *
+     * @return CommitStagingRoutineCodeResponse
+     */
+    public function commitStagingRoutineCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->commitStagingRoutineCodeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDcdnCertificateSigningRequestRequest $request
      * @param RuntimeOptions                             $runtime
      *
@@ -599,6 +696,42 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param CreateDcdnDeliverTaskRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDcdnDeliverTaskResponse
+     */
+    public function createDcdnDeliverTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDcdnDeliverTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->deliver)) {
+            $request->deliverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deliver, 'Deliver', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->schedule)) {
+            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDcdnDeliverTaskResponse::fromMap($this->doRPCRequest('CreateDcdnDeliverTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDcdnDeliverTaskRequest $request
+     *
+     * @return CreateDcdnDeliverTaskResponse
+     */
+    public function createDcdnDeliverTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDcdnDeliverTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDcdnDomainOfflineLogDeliveryRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -624,6 +757,95 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDcdnDomainOfflineLogDeliveryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDcdnSubTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDcdnSubTaskResponse
+     */
+    public function createDcdnSubTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDcdnSubTaskResponse::fromMap($this->doRPCRequest('CreateDcdnSubTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDcdnSubTaskRequest $request
+     *
+     * @return CreateDcdnSubTaskResponse
+     */
+    public function createDcdnSubTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDcdnSubTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRoutineRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateRoutineResponse
+     */
+    public function createRoutineWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateRoutineShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->envConf)) {
+            $request->envConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envConf, 'EnvConf', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateRoutineResponse::fromMap($this->doRPCRequest('CreateRoutine', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRoutineRequest $request
+     *
+     * @return CreateRoutineResponse
+     */
+    public function createRoutine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRoutineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDcdnDeliverTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDcdnDeliverTaskResponse
+     */
+    public function deleteDcdnDeliverTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDcdnDeliverTaskResponse::fromMap($this->doRPCRequest('DeleteDcdnDeliverTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDcdnDeliverTaskRequest $request
+     *
+     * @return DeleteDcdnDeliverTaskResponse
+     */
+    public function deleteDcdnDeliverTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDcdnDeliverTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -767,6 +989,123 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DeleteDcdnSubTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteDcdnSubTaskResponse
+     */
+    public function deleteDcdnSubTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDcdnSubTaskResponse::fromMap($this->doRPCRequest('DeleteDcdnSubTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDcdnSubTaskRequest $request
+     *
+     * @return DeleteDcdnSubTaskResponse
+     */
+    public function deleteDcdnSubTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDcdnSubTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRoutineRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteRoutineResponse
+     */
+    public function deleteRoutineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteRoutineResponse::fromMap($this->doRPCRequest('DeleteRoutine', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRoutineRequest $request
+     *
+     * @return DeleteRoutineResponse
+     */
+    public function deleteRoutine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRoutineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRoutineCodeRevisionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteRoutineCodeRevisionResponse
+     */
+    public function deleteRoutineCodeRevisionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteRoutineCodeRevisionResponse::fromMap($this->doRPCRequest('DeleteRoutineCodeRevision', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRoutineCodeRevisionRequest $request
+     *
+     * @return DeleteRoutineCodeRevisionResponse
+     */
+    public function deleteRoutineCodeRevision($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRoutineCodeRevisionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRoutineConfEnvsRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteRoutineConfEnvsResponse
+     */
+    public function deleteRoutineConfEnvsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteRoutineConfEnvsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->envs)) {
+            $request->envsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteRoutineConfEnvsResponse::fromMap($this->doRPCRequest('DeleteRoutineConfEnvs', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRoutineConfEnvsRequest $request
+     *
+     * @return DeleteRoutineConfEnvsResponse
+     */
+    public function deleteRoutineConfEnvs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRoutineConfEnvsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnBgpBpsDataRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -820,6 +1159,35 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnBgpTrafficDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnBlockedRegionsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDcdnBlockedRegionsResponse
+     */
+    public function describeDcdnBlockedRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return DescribeDcdnBlockedRegionsResponse::fromMap($this->doRPCRequest('DescribeDcdnBlockedRegions', '2018-01-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnBlockedRegionsRequest $request
+     *
+     * @return DescribeDcdnBlockedRegionsResponse
+     */
+    public function describeDcdnBlockedRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnBlockedRegionsWithOptions($request, $runtime);
     }
 
     /**
@@ -904,6 +1272,34 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnConfigOfVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnDeliverListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnDeliverListResponse
+     */
+    public function describeDcdnDeliverListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDcdnDeliverListResponse::fromMap($this->doRPCRequest('DescribeDcdnDeliverList', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnDeliverListRequest $request
+     *
+     * @return DescribeDcdnDeliverListResponse
+     */
+    public function describeDcdnDeliverList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDeliverListWithOptions($request, $runtime);
     }
 
     /**
@@ -2257,6 +2653,34 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnRefreshTaskByIdRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnRefreshTaskByIdResponse
+     */
+    public function describeDcdnRefreshTaskByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDcdnRefreshTaskByIdResponse::fromMap($this->doRPCRequest('DescribeDcdnRefreshTaskById', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnRefreshTaskByIdRequest $request
+     *
+     * @return DescribeDcdnRefreshTaskByIdResponse
+     */
+    public function describeDcdnRefreshTaskById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnRefreshTaskByIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnRefreshTasksRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2313,6 +2737,90 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnReportRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDcdnReportResponse
+     */
+    public function describeDcdnReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDcdnReportResponse::fromMap($this->doRPCRequest('DescribeDcdnReport', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnReportRequest $request
+     *
+     * @return DescribeDcdnReportResponse
+     */
+    public function describeDcdnReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnReportListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnReportListResponse
+     */
+    public function describeDcdnReportListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDcdnReportListResponse::fromMap($this->doRPCRequest('DescribeDcdnReportList', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnReportListRequest $request
+     *
+     * @return DescribeDcdnReportListResponse
+     */
+    public function describeDcdnReportList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnReportListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnSecFuncInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnSecFuncInfoResponse
+     */
+    public function describeDcdnSecFuncInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDcdnSecFuncInfoResponse::fromMap($this->doRPCRequest('DescribeDcdnSecFuncInfo', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnSecFuncInfoRequest $request
+     *
+     * @return DescribeDcdnSecFuncInfoResponse
+     */
+    public function describeDcdnSecFuncInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnSecFuncInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnServiceRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2366,6 +2874,34 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnStagingIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnSubListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDcdnSubListResponse
+     */
+    public function describeDcdnSubListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDcdnSubListResponse::fromMap($this->doRPCRequest('DescribeDcdnSubList', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnSubListRequest $request
+     *
+     * @return DescribeDcdnSubListResponse
+     */
+    public function describeDcdnSubList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnSubListWithOptions($request, $runtime);
     }
 
     /**
@@ -2621,6 +3157,34 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnUserSecDropByMinuteRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDcdnUserSecDropByMinuteResponse
+     */
+    public function describeDcdnUserSecDropByMinuteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDcdnUserSecDropByMinuteResponse::fromMap($this->doRPCRequest('DescribeDcdnUserSecDropByMinute', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnUserSecDropByMinuteRequest $request
+     *
+     * @return DescribeDcdnUserSecDropByMinuteResponse
+     */
+    public function describeDcdnUserSecDropByMinute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnUserSecDropByMinuteWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnUserTagsRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2705,6 +3269,146 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeRoutineRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRoutineResponse
+     */
+    public function describeRoutineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRoutineResponse::fromMap($this->doRPCRequest('DescribeRoutine', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRoutineRequest $request
+     *
+     * @return DescribeRoutineResponse
+     */
+    public function describeRoutine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRoutineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRoutineCanaryEnvsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeRoutineCanaryEnvsResponse
+     */
+    public function describeRoutineCanaryEnvsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRoutineCanaryEnvsResponse::fromMap($this->doRPCRequest('DescribeRoutineCanaryEnvs', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRoutineCanaryEnvsRequest $request
+     *
+     * @return DescribeRoutineCanaryEnvsResponse
+     */
+    public function describeRoutineCanaryEnvs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRoutineCanaryEnvsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRoutineCodeRevisionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRoutineCodeRevisionResponse
+     */
+    public function describeRoutineCodeRevisionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRoutineCodeRevisionResponse::fromMap($this->doRPCRequest('DescribeRoutineCodeRevision', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRoutineCodeRevisionRequest $request
+     *
+     * @return DescribeRoutineCodeRevisionResponse
+     */
+    public function describeRoutineCodeRevision($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRoutineCodeRevisionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRoutineSpecRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeRoutineSpecResponse
+     */
+    public function describeRoutineSpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRoutineSpecResponse::fromMap($this->doRPCRequest('DescribeRoutineSpec', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRoutineSpecRequest $request
+     *
+     * @return DescribeRoutineSpecResponse
+     */
+    public function describeRoutineSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRoutineSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRoutineUserInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeRoutineUserInfoResponse
+     */
+    public function describeRoutineUserInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRoutineUserInfoResponse::fromMap($this->doRPCRequest('DescribeRoutineUserInfo', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRoutineUserInfoRequest $request
+     *
+     * @return DescribeRoutineUserInfoResponse
+     */
+    public function describeRoutineUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRoutineUserInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeUserDcdnIpaStatusRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2761,6 +3465,62 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeUserErStatusRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeUserErStatusResponse
+     */
+    public function describeUserErStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeUserErStatusResponse::fromMap($this->doRPCRequest('DescribeUserErStatus', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserErStatusRequest $request
+     *
+     * @return DescribeUserErStatusResponse
+     */
+    public function describeUserErStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserErStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUserLogserviceStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeUserLogserviceStatusResponse
+     */
+    public function describeUserLogserviceStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeUserLogserviceStatusResponse::fromMap($this->doRPCRequest('DescribeUserLogserviceStatus', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserLogserviceStatusRequest $request
+     *
+     * @return DescribeUserLogserviceStatusResponse
+     */
+    public function describeUserLogserviceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserLogserviceStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DisableDcdnDomainOfflineLogDeliveryRequest $request
      * @param RuntimeOptions                             $runtime
      *
@@ -2814,6 +3574,39 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableDcdnOfflineLogDeliveryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EditRoutineConfRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return EditRoutineConfResponse
+     */
+    public function editRoutineConfWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new EditRoutineConfShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->envConf)) {
+            $request->envConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envConf, 'EnvConf', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return EditRoutineConfResponse::fromMap($this->doRPCRequest('EditRoutineConf', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param EditRoutineConfRequest $request
+     *
+     * @return EditRoutineConfResponse
+     */
+    public function editRoutineConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->editRoutineConfWithOptions($request, $runtime);
     }
 
     /**
@@ -2954,6 +3747,39 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->publishDcdnStagingConfigToProductionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublishRoutineCodeRevisionRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return PublishRoutineCodeRevisionResponse
+     */
+    public function publishRoutineCodeRevisionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PublishRoutineCodeRevisionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->envs)) {
+            $request->envsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PublishRoutineCodeRevisionResponse::fromMap($this->doRPCRequest('PublishRoutineCodeRevision', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PublishRoutineCodeRevisionRequest $request
+     *
+     * @return PublishRoutineCodeRevisionResponse
+     */
+    public function publishRoutineCodeRevision($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishRoutineCodeRevisionWithOptions($request, $runtime);
     }
 
     /**
@@ -3125,6 +3951,39 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param SetRoutineSubdomainRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetRoutineSubdomainResponse
+     */
+    public function setRoutineSubdomainWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetRoutineSubdomainShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->subdomains)) {
+            $request->subdomainsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subdomains, 'Subdomains', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetRoutineSubdomainResponse::fromMap($this->doRPCRequest('SetRoutineSubdomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetRoutineSubdomainRequest $request
+     *
+     * @return SetRoutineSubdomainResponse
+     */
+    public function setRoutineSubdomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setRoutineSubdomainWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StartDcdnDomainRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -3293,6 +4152,42 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param UpdateDcdnDeliverTaskRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDcdnDeliverTaskResponse
+     */
+    public function updateDcdnDeliverTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDcdnDeliverTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->deliver)) {
+            $request->deliverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deliver, 'Deliver', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->schedule)) {
+            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDcdnDeliverTaskResponse::fromMap($this->doRPCRequest('UpdateDcdnDeliverTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDcdnDeliverTaskRequest $request
+     *
+     * @return UpdateDcdnDeliverTaskResponse
+     */
+    public function updateDcdnDeliverTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDcdnDeliverTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateDcdnDomainRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3346,6 +4241,90 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDcdnIpaDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDcdnSubTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateDcdnSubTaskResponse
+     */
+    public function updateDcdnSubTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDcdnSubTaskResponse::fromMap($this->doRPCRequest('UpdateDcdnSubTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDcdnSubTaskRequest $request
+     *
+     * @return UpdateDcdnSubTaskResponse
+     */
+    public function updateDcdnSubTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDcdnSubTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UploadRoutineCodeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UploadRoutineCodeResponse
+     */
+    public function uploadRoutineCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UploadRoutineCodeResponse::fromMap($this->doRPCRequest('UploadRoutineCode', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UploadRoutineCodeRequest $request
+     *
+     * @return UploadRoutineCodeResponse
+     */
+    public function uploadRoutineCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadRoutineCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UploadStagingRoutineCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UploadStagingRoutineCodeResponse
+     */
+    public function uploadStagingRoutineCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UploadStagingRoutineCodeResponse::fromMap($this->doRPCRequest('UploadStagingRoutineCode', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UploadStagingRoutineCodeRequest $request
+     *
+     * @return UploadStagingRoutineCodeResponse
+     */
+    public function uploadStagingRoutineCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadStagingRoutineCodeWithOptions($request, $runtime);
     }
 
     /**

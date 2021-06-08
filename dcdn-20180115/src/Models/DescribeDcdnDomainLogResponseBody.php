@@ -12,20 +12,20 @@ class DescribeDcdnDomainLogResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $requestId;
 
     /**
      * @var domainLogDetails
      */
     public $domainLogDetails;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'domainName'       => 'DomainName',
+        'requestId'        => 'RequestId',
         'domainLogDetails' => 'DomainLogDetails',
     ];
 
@@ -36,11 +36,11 @@ class DescribeDcdnDomainLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->domainLogDetails) {
             $res['DomainLogDetails'] = null !== $this->domainLogDetails ? $this->domainLogDetails->toMap() : null;
@@ -57,11 +57,11 @@ class DescribeDcdnDomainLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['DomainLogDetails'])) {
             $model->domainLogDetails = domainLogDetails::fromMap($map['DomainLogDetails']);

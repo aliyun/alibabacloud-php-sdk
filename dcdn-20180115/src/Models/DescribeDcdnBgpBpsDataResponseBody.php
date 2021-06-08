@@ -17,12 +17,12 @@ class DescribeDcdnBgpBpsDataResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $startTime;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $requestId;
 
     /**
      * @var bgpDataInterval[]
@@ -30,8 +30,8 @@ class DescribeDcdnBgpBpsDataResponseBody extends Model
     public $bgpDataInterval;
     protected $_name = [
         'endTime'         => 'EndTime',
-        'requestId'       => 'RequestId',
         'startTime'       => 'StartTime',
+        'requestId'       => 'RequestId',
         'bgpDataInterval' => 'BgpDataInterval',
     ];
 
@@ -45,11 +45,11 @@ class DescribeDcdnBgpBpsDataResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->bgpDataInterval) {
             $res['BgpDataInterval'] = [];
@@ -75,11 +75,11 @@ class DescribeDcdnBgpBpsDataResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['BgpDataInterval'])) {
             if (!empty($map['BgpDataInterval'])) {

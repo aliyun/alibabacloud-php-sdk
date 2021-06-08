@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnOfflineLogDeliveryFieldResponseBody extends Model
 {
     /**
-     * @var fields[]
-     */
-    public $fields;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var fields[]
+     */
+    public $fields;
     protected $_name = [
-        'fields'    => 'Fields',
         'requestId' => 'RequestId',
+        'fields'    => 'Fields',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class DescribeDcdnOfflineLogDeliveryFieldResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->fields) {
             $res['Fields'] = [];
             if (null !== $this->fields && \is_array($this->fields)) {
@@ -38,9 +41,6 @@ class DescribeDcdnOfflineLogDeliveryFieldResponseBody extends Model
                     $res['Fields'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class DescribeDcdnOfflineLogDeliveryFieldResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Fields'])) {
             if (!empty($map['Fields'])) {
                 $model->fields = [];
@@ -62,9 +65,6 @@ class DescribeDcdnOfflineLogDeliveryFieldResponseBody extends Model
                     $model->fields[$n++] = null !== $item ? fields::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @var websocketHttpCodeDataPerInterval
-     */
-    public $websocketHttpCodeDataPerInterval;
-
-    /**
      * @var string
      */
     public $timeStamp;
+
+    /**
+     * @var websocketHttpCodeDataPerInterval
+     */
+    public $websocketHttpCodeDataPerInterval;
     protected $_name = [
-        'websocketHttpCodeDataPerInterval' => 'WebsocketHttpCodeDataPerInterval',
         'timeStamp'                        => 'TimeStamp',
+        'websocketHttpCodeDataPerInterval' => 'WebsocketHttpCodeDataPerInterval',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class dataModule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->websocketHttpCodeDataPerInterval) {
-            $res['WebsocketHttpCodeDataPerInterval'] = null !== $this->websocketHttpCodeDataPerInterval ? $this->websocketHttpCodeDataPerInterval->toMap() : null;
-        }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
+        }
+        if (null !== $this->websocketHttpCodeDataPerInterval) {
+            $res['WebsocketHttpCodeDataPerInterval'] = null !== $this->websocketHttpCodeDataPerInterval ? $this->websocketHttpCodeDataPerInterval->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class dataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WebsocketHttpCodeDataPerInterval'])) {
-            $model->websocketHttpCodeDataPerInterval = websocketHttpCodeDataPerInterval::fromMap($map['WebsocketHttpCodeDataPerInterval']);
-        }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
+        }
+        if (isset($map['WebsocketHttpCodeDataPerInterval'])) {
+            $model->websocketHttpCodeDataPerInterval = websocketHttpCodeDataPerInterval::fromMap($map['WebsocketHttpCodeDataPerInterval']);
         }
 
         return $model;

@@ -16,12 +16,12 @@ class requestDataModule extends Model
     /**
      * @var string
      */
-    public $domain;
+    public $timeStamp;
 
     /**
      * @var string
      */
-    public $timeStamp;
+    public $domain;
 
     /**
      * @var int
@@ -29,8 +29,8 @@ class requestDataModule extends Model
     public $request;
     protected $_name = [
         'type'      => 'Type',
-        'domain'    => 'Domain',
         'timeStamp' => 'TimeStamp',
+        'domain'    => 'Domain',
         'request'   => 'Request',
     ];
 
@@ -44,11 +44,11 @@ class requestDataModule extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->request) {
             $res['Request'] = $this->request;
@@ -68,11 +68,11 @@ class requestDataModule extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['Request'])) {
             $model->request = $map['Request'];

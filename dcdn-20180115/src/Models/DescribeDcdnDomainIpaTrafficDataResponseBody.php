@@ -17,6 +17,11 @@ class DescribeDcdnDomainIpaTrafficDataResponseBody extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -25,26 +30,21 @@ class DescribeDcdnDomainIpaTrafficDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @var trafficDataPerInterval
-     */
-    public $trafficDataPerInterval;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
      * @var string
      */
     public $dataInterval;
+
+    /**
+     * @var trafficDataPerInterval
+     */
+    public $trafficDataPerInterval;
     protected $_name = [
         'endTime'                => 'EndTime',
+        'startTime'              => 'StartTime',
         'requestId'              => 'RequestId',
         'domainName'             => 'DomainName',
-        'trafficDataPerInterval' => 'TrafficDataPerInterval',
-        'startTime'              => 'StartTime',
         'dataInterval'           => 'DataInterval',
+        'trafficDataPerInterval' => 'TrafficDataPerInterval',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class DescribeDcdnDomainIpaTrafficDataResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->trafficDataPerInterval) {
-            $res['TrafficDataPerInterval'] = null !== $this->trafficDataPerInterval ? $this->trafficDataPerInterval->toMap() : null;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->trafficDataPerInterval) {
+            $res['TrafficDataPerInterval'] = null !== $this->trafficDataPerInterval ? $this->trafficDataPerInterval->toMap() : null;
         }
 
         return $res;
@@ -87,20 +87,20 @@ class DescribeDcdnDomainIpaTrafficDataResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['TrafficDataPerInterval'])) {
-            $model->trafficDataPerInterval = trafficDataPerInterval::fromMap($map['TrafficDataPerInterval']);
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['TrafficDataPerInterval'])) {
+            $model->trafficDataPerInterval = trafficDataPerInterval::fromMap($map['TrafficDataPerInterval']);
         }
 
         return $model;

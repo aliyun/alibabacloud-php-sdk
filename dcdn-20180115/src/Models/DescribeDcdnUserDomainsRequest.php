@@ -57,16 +57,6 @@ class DescribeDcdnUserDomainsRequest extends Model
     /**
      * @var string
      */
-    public $funcId;
-
-    /**
-     * @var string
-     */
-    public $funcFilter;
-
-    /**
-     * @var string
-     */
     public $changeStartTime;
 
     /**
@@ -88,8 +78,6 @@ class DescribeDcdnUserDomainsRequest extends Model
         'domainSearchType' => 'DomainSearchType',
         'checkDomainShow'  => 'CheckDomainShow',
         'resourceGroupId'  => 'ResourceGroupId',
-        'funcId'           => 'FuncId',
-        'funcFilter'       => 'FuncFilter',
         'changeStartTime'  => 'ChangeStartTime',
         'changeEndTime'    => 'ChangeEndTime',
         'tag'              => 'Tag',
@@ -128,12 +116,6 @@ class DescribeDcdnUserDomainsRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->funcId) {
-            $res['FuncId'] = $this->funcId;
-        }
-        if (null !== $this->funcFilter) {
-            $res['FuncFilter'] = $this->funcFilter;
         }
         if (null !== $this->changeStartTime) {
             $res['ChangeStartTime'] = $this->changeStartTime;
@@ -188,12 +170,6 @@ class DescribeDcdnUserDomainsRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['FuncId'])) {
-            $model->funcId = $map['FuncId'];
-        }
-        if (isset($map['FuncFilter'])) {
-            $model->funcFilter = $map['FuncFilter'];
         }
         if (isset($map['ChangeStartTime'])) {
             $model->changeStartTime = $map['ChangeStartTime'];
