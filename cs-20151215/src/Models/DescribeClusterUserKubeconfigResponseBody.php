@@ -14,8 +14,16 @@ class DescribeClusterUserKubeconfigResponseBody extends Model
      * @var string
      */
     public $config;
+
+    /**
+     * @description kubeconfig过期时间。格式：RFC3339 格式的 UTC 时间。
+     *
+     * @var string
+     */
+    public $expiration;
     protected $_name = [
-        'config' => 'config',
+        'config'     => 'config',
+        'expiration' => 'expiration',
     ];
 
     public function validate()
@@ -27,6 +35,9 @@ class DescribeClusterUserKubeconfigResponseBody extends Model
         $res = [];
         if (null !== $this->config) {
             $res['config'] = $this->config;
+        }
+        if (null !== $this->expiration) {
+            $res['expiration'] = $this->expiration;
         }
 
         return $res;
@@ -42,6 +53,9 @@ class DescribeClusterUserKubeconfigResponseBody extends Model
         $model = new self();
         if (isset($map['config'])) {
             $model->config = $map['config'];
+        }
+        if (isset($map['expiration'])) {
+            $model->expiration = $map['expiration'];
         }
 
         return $model;

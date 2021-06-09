@@ -14,8 +14,16 @@ class DescribeClusterUserKubeconfigRequest extends Model
      * @var bool
      */
     public $privateIpAddress;
+
+    /**
+     * @description 临时kubeconfig有效期，单位：分钟。  最小值：15（15分钟）  最大值：4320（3天）。
+     *
+     * @var int
+     */
+    public $temporaryDurationMinutes;
     protected $_name = [
-        'privateIpAddress' => 'PrivateIpAddress',
+        'privateIpAddress'         => 'PrivateIpAddress',
+        'temporaryDurationMinutes' => 'TemporaryDurationMinutes',
     ];
 
     public function validate()
@@ -27,6 +35,9 @@ class DescribeClusterUserKubeconfigRequest extends Model
         $res = [];
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->temporaryDurationMinutes) {
+            $res['TemporaryDurationMinutes'] = $this->temporaryDurationMinutes;
         }
 
         return $res;
@@ -42,6 +53,9 @@ class DescribeClusterUserKubeconfigRequest extends Model
         $model = new self();
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['TemporaryDurationMinutes'])) {
+            $model->temporaryDurationMinutes = $map['TemporaryDurationMinutes'];
         }
 
         return $model;

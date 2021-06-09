@@ -996,6 +996,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->privateIpAddress)) {
             @$query['PrivateIpAddress'] = $request->privateIpAddress;
         }
+        if (!Utils::isUnset($request->temporaryDurationMinutes)) {
+            @$query['TemporaryDurationMinutes'] = $request->temporaryDurationMinutes;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
