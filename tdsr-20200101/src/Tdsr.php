@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddBucketRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddBucketResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddProjectRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddProjectResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddRelativePositionRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddRelativePositionResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSubSceneRequest;
@@ -482,6 +484,34 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->optimizeRightAngleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddRelativePositionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddRelativePositionResponse
+     */
+    public function addRelativePositionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddRelativePositionResponse::fromMap($this->doRPCRequest('AddRelativePosition', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddRelativePositionRequest $request
+     *
+     * @return AddRelativePositionResponse
+     */
+    public function addRelativePosition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addRelativePositionWithOptions($request, $runtime);
     }
 
     /**
