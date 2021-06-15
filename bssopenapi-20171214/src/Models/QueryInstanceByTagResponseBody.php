@@ -12,6 +12,11 @@ class QueryInstanceByTagResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -25,26 +30,21 @@ class QueryInstanceByTagResponseBody extends Model
     public $requestId;
 
     /**
-     * @var tagResource[]
-     */
-    public $tagResource;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var tagResource[]
+     */
+    public $tagResource;
     protected $_name = [
+        'code'        => 'Code',
         'message'     => 'Message',
         'nextToken'   => 'NextToken',
         'requestId'   => 'RequestId',
-        'tagResource' => 'TagResource',
-        'code'        => 'Code',
         'success'     => 'Success',
+        'tagResource' => 'TagResource',
     ];
 
     public function validate()
@@ -54,6 +54,9 @@ class QueryInstanceByTagResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -63,6 +66,9 @@ class QueryInstanceByTagResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->tagResource) {
             $res['TagResource'] = [];
             if (null !== $this->tagResource && \is_array($this->tagResource)) {
@@ -71,12 +77,6 @@ class QueryInstanceByTagResponseBody extends Model
                     $res['TagResource'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -90,6 +90,9 @@ class QueryInstanceByTagResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -99,6 +102,9 @@ class QueryInstanceByTagResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
         if (isset($map['TagResource'])) {
             if (!empty($map['TagResource'])) {
                 $model->tagResource = [];
@@ -107,12 +113,6 @@ class QueryInstanceByTagResponseBody extends Model
                     $model->tagResource[$n++] = null !== $item ? tagResource::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

@@ -20,19 +20,14 @@ class items extends Model
     public $savingsType;
 
     /**
-     * @var tags[]
+     * @var string
      */
-    public $tags;
+    public $utilization;
 
     /**
      * @var string
      */
     public $prepayFee;
-
-    /**
-     * @var string
-     */
-    public $utilization;
 
     /**
      * @var string
@@ -57,12 +52,12 @@ class items extends Model
     /**
      * @var string
      */
-    public $instanceFamily;
+    public $allocationStatus;
 
     /**
      * @var string
      */
-    public $allocationStatus;
+    public $instanceFamily;
 
     /**
      * @var string
@@ -83,22 +78,27 @@ class items extends Model
      * @var string
      */
     public $payMode;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'status'           => 'Status',
         'savingsType'      => 'SavingsType',
-        'tags'             => 'Tags',
-        'prepayFee'        => 'PrepayFee',
         'utilization'      => 'Utilization',
+        'prepayFee'        => 'PrepayFee',
         'instanceId'       => 'InstanceId',
         'currency'         => 'Currency',
         'endTime'          => 'EndTime',
         'startTime'        => 'StartTime',
-        'instanceFamily'   => 'InstanceFamily',
         'allocationStatus' => 'AllocationStatus',
+        'instanceFamily'   => 'InstanceFamily',
         'region'           => 'Region',
         'totalSave'        => 'TotalSave',
         'poolValue'        => 'PoolValue',
         'payMode'          => 'PayMode',
+        'tags'             => 'Tags',
     ];
 
     public function validate()
@@ -114,20 +114,11 @@ class items extends Model
         if (null !== $this->savingsType) {
             $res['SavingsType'] = $this->savingsType;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->utilization) {
+            $res['Utilization'] = $this->utilization;
         }
         if (null !== $this->prepayFee) {
             $res['PrepayFee'] = $this->prepayFee;
-        }
-        if (null !== $this->utilization) {
-            $res['Utilization'] = $this->utilization;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -141,11 +132,11 @@ class items extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->instanceFamily) {
-            $res['InstanceFamily'] = $this->instanceFamily;
-        }
         if (null !== $this->allocationStatus) {
             $res['AllocationStatus'] = $this->allocationStatus;
+        }
+        if (null !== $this->instanceFamily) {
+            $res['InstanceFamily'] = $this->instanceFamily;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -158,6 +149,15 @@ class items extends Model
         }
         if (null !== $this->payMode) {
             $res['PayMode'] = $this->payMode;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -177,20 +177,11 @@ class items extends Model
         if (isset($map['SavingsType'])) {
             $model->savingsType = $map['SavingsType'];
         }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['Utilization'])) {
+            $model->utilization = $map['Utilization'];
         }
         if (isset($map['PrepayFee'])) {
             $model->prepayFee = $map['PrepayFee'];
-        }
-        if (isset($map['Utilization'])) {
-            $model->utilization = $map['Utilization'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -204,11 +195,11 @@ class items extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['InstanceFamily'])) {
-            $model->instanceFamily = $map['InstanceFamily'];
-        }
         if (isset($map['AllocationStatus'])) {
             $model->allocationStatus = $map['AllocationStatus'];
+        }
+        if (isset($map['InstanceFamily'])) {
+            $model->instanceFamily = $map['InstanceFamily'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
@@ -221,6 +212,15 @@ class items extends Model
         }
         if (isset($map['PayMode'])) {
             $model->payMode = $map['PayMode'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -25,11 +25,6 @@ class data extends Model
     public $startTime;
 
     /**
-     * @var permissionList[]
-     */
-    public $permissionList;
-
-    /**
      * @var string
      */
     public $state;
@@ -48,15 +43,20 @@ class data extends Model
      * @var string
      */
     public $setupTime;
+
+    /**
+     * @var permissionList[]
+     */
+    public $permissionList;
     protected $_name = [
         'endTime'        => 'EndTime',
         'relationType'   => 'RelationType',
         'startTime'      => 'StartTime',
-        'permissionList' => 'PermissionList',
         'state'          => 'State',
         'masterId'       => 'MasterId',
         'memberId'       => 'MemberId',
         'setupTime'      => 'SetupTime',
+        'permissionList' => 'PermissionList',
     ];
 
     public function validate()
@@ -75,15 +75,6 @@ class data extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->permissionList) {
-            $res['PermissionList'] = [];
-            if (null !== $this->permissionList && \is_array($this->permissionList)) {
-                $n = 0;
-                foreach ($this->permissionList as $item) {
-                    $res['PermissionList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
@@ -95,6 +86,15 @@ class data extends Model
         }
         if (null !== $this->setupTime) {
             $res['SetupTime'] = $this->setupTime;
+        }
+        if (null !== $this->permissionList) {
+            $res['PermissionList'] = [];
+            if (null !== $this->permissionList && \is_array($this->permissionList)) {
+                $n = 0;
+                foreach ($this->permissionList as $item) {
+                    $res['PermissionList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -117,15 +117,6 @@ class data extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['PermissionList'])) {
-            if (!empty($map['PermissionList'])) {
-                $model->permissionList = [];
-                $n                     = 0;
-                foreach ($map['PermissionList'] as $item) {
-                    $model->permissionList[$n++] = null !== $item ? permissionList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
@@ -137,6 +128,15 @@ class data extends Model
         }
         if (isset($map['SetupTime'])) {
             $model->setupTime = $map['SetupTime'];
+        }
+        if (isset($map['PermissionList'])) {
+            if (!empty($map['PermissionList'])) {
+                $model->permissionList = [];
+                $n                     = 0;
+                foreach ($map['PermissionList'] as $item) {
+                    $model->permissionList[$n++] = null !== $item ? permissionList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

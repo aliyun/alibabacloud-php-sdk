@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\BssOpenApi\V20171214;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\AddAccountRelationRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\AddAccountRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\AllocateCostUnitResourceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\AllocateCostUnitResourceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ApplyInvoiceRequest;
@@ -14,6 +16,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CancelOrderRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CancelOrderResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ChangeResellerConsumeAmountRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ChangeResellerConsumeAmountResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ConfirmRelationRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ConfirmRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ConvertChargeTypeRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ConvertChargeTypeResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\CreateAgAccountRequest;
@@ -30,8 +34,16 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceBillResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageDetailRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageDetailResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageTotalRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageTotalResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourcePackageProductResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageDetailRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageDetailResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageTotalRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageTotalResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\EnableBillGenerationRequest;
@@ -47,6 +59,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetResourcePackagePriceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetResourcePackagePriceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetSubscriptionPriceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetSubscriptionPriceResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyAccountRelationRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyAccountRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyCostUnitRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyCostUnitResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ModifyInstanceRequest;
@@ -73,6 +87,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCostUnitResourceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCostUnitResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCustomerAddressListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryCustomerAddressListResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryDPUtilizationDetailRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryDPUtilizationDetailResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryEvaluateListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryEvaluateListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryFinancialAccountInfoRequest;
@@ -117,6 +133,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySplitItemBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySplitItemBillResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryUserOmsDataRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryUserOmsDataResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RelieveAccountRelationRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RelieveAccountRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewResourcePackageRequest;
@@ -238,6 +256,34 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param AddAccountRelationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddAccountRelationResponse
+     */
+    public function addAccountRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddAccountRelationResponse::fromMap($this->doRPCRequest('AddAccountRelation', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddAccountRelationRequest $request
+     *
+     * @return AddAccountRelationResponse
+     */
+    public function addAccountRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAccountRelationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AllocateCostUnitResourceRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -347,6 +393,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeResellerConsumeAmountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfirmRelationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConfirmRelationResponse
+     */
+    public function confirmRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ConfirmRelationResponse::fromMap($this->doRPCRequest('ConfirmRelation', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ConfirmRelationRequest $request
+     *
+     * @return ConfirmRelationResponse
+     */
+    public function confirmRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -574,6 +648,62 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param DescribeResourceCoverageDetailRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeResourceCoverageDetailResponse
+     */
+    public function describeResourceCoverageDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeResourceCoverageDetailResponse::fromMap($this->doRPCRequest('DescribeResourceCoverageDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeResourceCoverageDetailRequest $request
+     *
+     * @return DescribeResourceCoverageDetailResponse
+     */
+    public function describeResourceCoverageDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceCoverageDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeResourceCoverageTotalRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeResourceCoverageTotalResponse
+     */
+    public function describeResourceCoverageTotalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeResourceCoverageTotalResponse::fromMap($this->doRPCRequest('DescribeResourceCoverageTotal', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeResourceCoverageTotalRequest $request
+     *
+     * @return DescribeResourceCoverageTotalResponse
+     */
+    public function describeResourceCoverageTotal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceCoverageTotalWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeResourcePackageProductRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -599,6 +729,62 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeResourcePackageProductWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeResourceUsageDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeResourceUsageDetailResponse
+     */
+    public function describeResourceUsageDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeResourceUsageDetailResponse::fromMap($this->doRPCRequest('DescribeResourceUsageDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeResourceUsageDetailRequest $request
+     *
+     * @return DescribeResourceUsageDetailResponse
+     */
+    public function describeResourceUsageDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceUsageDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeResourceUsageTotalRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeResourceUsageTotalResponse
+     */
+    public function describeResourceUsageTotalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeResourceUsageTotalResponse::fromMap($this->doRPCRequest('DescribeResourceUsageTotal', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeResourceUsageTotalRequest $request
+     *
+     * @return DescribeResourceUsageTotalResponse
+     */
+    public function describeResourceUsageTotal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceUsageTotalWithOptions($request, $runtime);
     }
 
     /**
@@ -817,6 +1003,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSubscriptionPriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAccountRelationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyAccountRelationResponse
+     */
+    public function modifyAccountRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyAccountRelationResponse::fromMap($this->doRPCRequest('ModifyAccountRelation', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAccountRelationRequest $request
+     *
+     * @return ModifyAccountRelationResponse
+     */
+    public function modifyAccountRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccountRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -1197,6 +1411,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryCustomerAddressListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDPUtilizationDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryDPUtilizationDetailResponse
+     */
+    public function queryDPUtilizationDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryDPUtilizationDetailResponse::fromMap($this->doRPCRequest('QueryDPUtilizationDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryDPUtilizationDetailRequest $request
+     *
+     * @return QueryDPUtilizationDetailResponse
+     */
+    public function queryDPUtilizationDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDPUtilizationDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -1814,6 +2056,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryUserOmsDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RelieveAccountRelationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RelieveAccountRelationResponse
+     */
+    public function relieveAccountRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RelieveAccountRelationResponse::fromMap($this->doRPCRequest('RelieveAccountRelation', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RelieveAccountRelationRequest $request
+     *
+     * @return RelieveAccountRelationResponse
+     */
+    public function relieveAccountRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->relieveAccountRelationWithOptions($request, $runtime);
     }
 
     /**

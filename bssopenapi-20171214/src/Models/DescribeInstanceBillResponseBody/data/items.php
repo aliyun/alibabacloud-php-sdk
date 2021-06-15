@@ -99,6 +99,11 @@ class items extends Model
     public $pipCode;
 
     /**
+     * @var string
+     */
+    public $servicePeriodUnit;
+
+    /**
      * @var float
      */
     public $pretaxAmount;
@@ -106,17 +111,12 @@ class items extends Model
     /**
      * @var string
      */
-    public $servicePeriodUnit;
+    public $commodityCode;
 
     /**
      * @var string
      */
     public $productName;
-
-    /**
-     * @var string
-     */
-    public $commodityCode;
 
     /**
      * @var string
@@ -221,10 +221,10 @@ class items extends Model
         'listPriceUnit'             => 'ListPriceUnit',
         'resourceGroup'             => 'ResourceGroup',
         'pipCode'                   => 'PipCode',
-        'pretaxAmount'              => 'PretaxAmount',
         'servicePeriodUnit'         => 'ServicePeriodUnit',
-        'productName'               => 'ProductName',
+        'pretaxAmount'              => 'PretaxAmount',
         'commodityCode'             => 'CommodityCode',
+        'productName'               => 'ProductName',
         'nickName'                  => 'NickName',
         'productDetail'             => 'ProductDetail',
         'usage'                     => 'Usage',
@@ -305,17 +305,17 @@ class items extends Model
         if (null !== $this->pipCode) {
             $res['PipCode'] = $this->pipCode;
         }
-        if (null !== $this->pretaxAmount) {
-            $res['PretaxAmount'] = $this->pretaxAmount;
-        }
         if (null !== $this->servicePeriodUnit) {
             $res['ServicePeriodUnit'] = $this->servicePeriodUnit;
         }
-        if (null !== $this->productName) {
-            $res['ProductName'] = $this->productName;
+        if (null !== $this->pretaxAmount) {
+            $res['PretaxAmount'] = $this->pretaxAmount;
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->productName) {
+            $res['ProductName'] = $this->productName;
         }
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
@@ -434,17 +434,17 @@ class items extends Model
         if (isset($map['PipCode'])) {
             $model->pipCode = $map['PipCode'];
         }
-        if (isset($map['PretaxAmount'])) {
-            $model->pretaxAmount = $map['PretaxAmount'];
-        }
         if (isset($map['ServicePeriodUnit'])) {
             $model->servicePeriodUnit = $map['ServicePeriodUnit'];
         }
-        if (isset($map['ProductName'])) {
-            $model->productName = $map['ProductName'];
+        if (isset($map['PretaxAmount'])) {
+            $model->pretaxAmount = $map['PretaxAmount'];
         }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['ProductName'])) {
+            $model->productName = $map['ProductName'];
         }
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];

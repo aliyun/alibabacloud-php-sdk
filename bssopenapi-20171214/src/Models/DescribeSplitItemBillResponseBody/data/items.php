@@ -69,14 +69,14 @@ class items extends Model
     public $instanceSpec;
 
     /**
-     * @var string
-     */
-    public $billingItem;
-
-    /**
      * @var float
      */
     public $deductedByCoupons;
+
+    /**
+     * @var string
+     */
+    public $billingItem;
 
     /**
      * @var string
@@ -109,6 +109,11 @@ class items extends Model
     public $pipCode;
 
     /**
+     * @var string
+     */
+    public $servicePeriodUnit;
+
+    /**
      * @var float
      */
     public $pretaxAmount;
@@ -116,17 +121,12 @@ class items extends Model
     /**
      * @var string
      */
-    public $servicePeriodUnit;
+    public $commodityCode;
 
     /**
      * @var string
      */
     public $productName;
-
-    /**
-     * @var string
-     */
-    public $commodityCode;
 
     /**
      * @var string
@@ -250,18 +250,18 @@ class items extends Model
         'deductedByCashCoupons'     => 'DeductedByCashCoupons',
         'subscriptionType'          => 'SubscriptionType',
         'instanceSpec'              => 'InstanceSpec',
-        'billingItem'               => 'BillingItem',
         'deductedByCoupons'         => 'DeductedByCoupons',
+        'billingItem'               => 'BillingItem',
         'region'                    => 'Region',
         'outstandingAmount'         => 'OutstandingAmount',
         'costUnit'                  => 'CostUnit',
         'listPriceUnit'             => 'ListPriceUnit',
         'resourceGroup'             => 'ResourceGroup',
         'pipCode'                   => 'PipCode',
-        'pretaxAmount'              => 'PretaxAmount',
         'servicePeriodUnit'         => 'ServicePeriodUnit',
-        'productName'               => 'ProductName',
+        'pretaxAmount'              => 'PretaxAmount',
         'commodityCode'             => 'CommodityCode',
+        'productName'               => 'ProductName',
         'splitProductDetail'        => 'SplitProductDetail',
         'nickName'                  => 'NickName',
         'productDetail'             => 'ProductDetail',
@@ -329,11 +329,11 @@ class items extends Model
         if (null !== $this->instanceSpec) {
             $res['InstanceSpec'] = $this->instanceSpec;
         }
-        if (null !== $this->billingItem) {
-            $res['BillingItem'] = $this->billingItem;
-        }
         if (null !== $this->deductedByCoupons) {
             $res['DeductedByCoupons'] = $this->deductedByCoupons;
+        }
+        if (null !== $this->billingItem) {
+            $res['BillingItem'] = $this->billingItem;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -353,17 +353,17 @@ class items extends Model
         if (null !== $this->pipCode) {
             $res['PipCode'] = $this->pipCode;
         }
-        if (null !== $this->pretaxAmount) {
-            $res['PretaxAmount'] = $this->pretaxAmount;
-        }
         if (null !== $this->servicePeriodUnit) {
             $res['ServicePeriodUnit'] = $this->servicePeriodUnit;
         }
-        if (null !== $this->productName) {
-            $res['ProductName'] = $this->productName;
+        if (null !== $this->pretaxAmount) {
+            $res['PretaxAmount'] = $this->pretaxAmount;
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->productName) {
+            $res['ProductName'] = $this->productName;
         }
         if (null !== $this->splitProductDetail) {
             $res['SplitProductDetail'] = $this->splitProductDetail;
@@ -479,11 +479,11 @@ class items extends Model
         if (isset($map['InstanceSpec'])) {
             $model->instanceSpec = $map['InstanceSpec'];
         }
-        if (isset($map['BillingItem'])) {
-            $model->billingItem = $map['BillingItem'];
-        }
         if (isset($map['DeductedByCoupons'])) {
             $model->deductedByCoupons = $map['DeductedByCoupons'];
+        }
+        if (isset($map['BillingItem'])) {
+            $model->billingItem = $map['BillingItem'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
@@ -503,17 +503,17 @@ class items extends Model
         if (isset($map['PipCode'])) {
             $model->pipCode = $map['PipCode'];
         }
-        if (isset($map['PretaxAmount'])) {
-            $model->pretaxAmount = $map['PretaxAmount'];
-        }
         if (isset($map['ServicePeriodUnit'])) {
             $model->servicePeriodUnit = $map['ServicePeriodUnit'];
         }
-        if (isset($map['ProductName'])) {
-            $model->productName = $map['ProductName'];
+        if (isset($map['PretaxAmount'])) {
+            $model->pretaxAmount = $map['PretaxAmount'];
         }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['ProductName'])) {
+            $model->productName = $map['ProductName'];
         }
         if (isset($map['SplitProductDetail'])) {
             $model->splitProductDetail = $map['SplitProductDetail'];
