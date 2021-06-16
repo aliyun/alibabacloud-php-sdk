@@ -15,18 +15,18 @@ class DescribeRefreshTaskByIdResponseBody extends Model
     public $totalCount;
 
     /**
-     * @var tasks[]
-     */
-    public $tasks;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var tasks[]
+     */
+    public $tasks;
     protected $_name = [
         'totalCount' => 'TotalCount',
-        'tasks'      => 'Tasks',
         'requestId'  => 'RequestId',
+        'tasks'      => 'Tasks',
     ];
 
     public function validate()
@@ -39,6 +39,9 @@ class DescribeRefreshTaskByIdResponseBody extends Model
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->tasks) {
             $res['Tasks'] = [];
             if (null !== $this->tasks && \is_array($this->tasks)) {
@@ -47,9 +50,6 @@ class DescribeRefreshTaskByIdResponseBody extends Model
                     $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class DescribeRefreshTaskByIdResponseBody extends Model
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
                 $model->tasks = [];
@@ -74,9 +77,6 @@ class DescribeRefreshTaskByIdResponseBody extends Model
                     $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

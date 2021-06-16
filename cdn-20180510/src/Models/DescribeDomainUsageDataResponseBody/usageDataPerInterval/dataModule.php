@@ -16,12 +16,12 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $peakTime;
+    public $timeStamp;
 
     /**
      * @var string
      */
-    public $timeStamp;
+    public $peakTime;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class dataModule extends Model
     public $specialValue;
     protected $_name = [
         'value'        => 'Value',
-        'peakTime'     => 'PeakTime',
         'timeStamp'    => 'TimeStamp',
+        'peakTime'     => 'PeakTime',
         'specialValue' => 'SpecialValue',
     ];
 
@@ -44,11 +44,11 @@ class dataModule extends Model
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
-        if (null !== $this->peakTime) {
-            $res['PeakTime'] = $this->peakTime;
-        }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
+        }
+        if (null !== $this->peakTime) {
+            $res['PeakTime'] = $this->peakTime;
         }
         if (null !== $this->specialValue) {
             $res['SpecialValue'] = $this->specialValue;
@@ -68,11 +68,11 @@ class dataModule extends Model
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
-        if (isset($map['PeakTime'])) {
-            $model->peakTime = $map['PeakTime'];
-        }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
+        }
+        if (isset($map['PeakTime'])) {
+            $model->peakTime = $map['PeakTime'];
         }
         if (isset($map['SpecialValue'])) {
             $model->specialValue = $map['SpecialValue'];

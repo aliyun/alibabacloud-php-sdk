@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainAverageResponseTimeResponseBody extends Model
 {
     /**
-     * @var avgRTPerInterval
+     * @var string
      */
-    public $avgRTPerInterval;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $startTime;
 
     /**
      * @var string
@@ -32,19 +32,19 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $dataInterval;
 
     /**
-     * @var string
+     * @var avgRTPerInterval
      */
-    public $dataInterval;
+    public $avgRTPerInterval;
     protected $_name = [
-        'avgRTPerInterval' => 'AvgRTPerInterval',
         'endTime'          => 'EndTime',
+        'startTime'        => 'StartTime',
         'requestId'        => 'RequestId',
         'domainName'       => 'DomainName',
-        'startTime'        => 'StartTime',
         'dataInterval'     => 'DataInterval',
+        'avgRTPerInterval' => 'AvgRTPerInterval',
     ];
 
     public function validate()
@@ -54,11 +54,11 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->avgRTPerInterval) {
-            $res['AvgRTPerInterval'] = null !== $this->avgRTPerInterval ? $this->avgRTPerInterval->toMap() : null;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -66,11 +66,11 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->avgRTPerInterval) {
+            $res['AvgRTPerInterval'] = null !== $this->avgRTPerInterval ? $this->avgRTPerInterval->toMap() : null;
         }
 
         return $res;
@@ -84,11 +84,11 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AvgRTPerInterval'])) {
-            $model->avgRTPerInterval = avgRTPerInterval::fromMap($map['AvgRTPerInterval']);
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -96,11 +96,11 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['AvgRTPerInterval'])) {
+            $model->avgRTPerInterval = avgRTPerInterval::fromMap($map['AvgRTPerInterval']);
         }
 
         return $model;

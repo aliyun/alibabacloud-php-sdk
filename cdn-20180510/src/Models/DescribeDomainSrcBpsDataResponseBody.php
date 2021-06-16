@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSrcBpsDataResponseBody extends Model
 {
     /**
-     * @var srcBpsDataPerInterval
+     * @var string
      */
-    public $srcBpsDataPerInterval;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $startTime;
 
     /**
      * @var string
@@ -32,19 +32,19 @@ class DescribeDomainSrcBpsDataResponseBody extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $dataInterval;
 
     /**
-     * @var string
+     * @var srcBpsDataPerInterval
      */
-    public $dataInterval;
+    public $srcBpsDataPerInterval;
     protected $_name = [
-        'srcBpsDataPerInterval' => 'SrcBpsDataPerInterval',
         'endTime'               => 'EndTime',
+        'startTime'             => 'StartTime',
         'requestId'             => 'RequestId',
         'domainName'            => 'DomainName',
-        'startTime'             => 'StartTime',
         'dataInterval'          => 'DataInterval',
+        'srcBpsDataPerInterval' => 'SrcBpsDataPerInterval',
     ];
 
     public function validate()
@@ -54,11 +54,11 @@ class DescribeDomainSrcBpsDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->srcBpsDataPerInterval) {
-            $res['SrcBpsDataPerInterval'] = null !== $this->srcBpsDataPerInterval ? $this->srcBpsDataPerInterval->toMap() : null;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -66,11 +66,11 @@ class DescribeDomainSrcBpsDataResponseBody extends Model
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->srcBpsDataPerInterval) {
+            $res['SrcBpsDataPerInterval'] = null !== $this->srcBpsDataPerInterval ? $this->srcBpsDataPerInterval->toMap() : null;
         }
 
         return $res;
@@ -84,11 +84,11 @@ class DescribeDomainSrcBpsDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SrcBpsDataPerInterval'])) {
-            $model->srcBpsDataPerInterval = srcBpsDataPerInterval::fromMap($map['SrcBpsDataPerInterval']);
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -96,11 +96,11 @@ class DescribeDomainSrcBpsDataResponseBody extends Model
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['SrcBpsDataPerInterval'])) {
+            $model->srcBpsDataPerInterval = srcBpsDataPerInterval::fromMap($map['SrcBpsDataPerInterval']);
         }
 
         return $model;

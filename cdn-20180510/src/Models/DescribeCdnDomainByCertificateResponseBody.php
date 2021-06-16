@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainByCertificateResponseBody extends Model
 {
     /**
-     * @var certInfos
-     */
-    public $certInfos;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var certInfos
+     */
+    public $certInfos;
     protected $_name = [
-        'certInfos' => 'CertInfos',
         'requestId' => 'RequestId',
+        'certInfos' => 'CertInfos',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeCdnDomainByCertificateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certInfos) {
-            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->certInfos) {
+            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeCdnDomainByCertificateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertInfos'])) {
-            $model->certInfos = certInfos::fromMap($map['CertInfos']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['CertInfos'])) {
+            $model->certInfos = certInfos::fromMap($map['CertInfos']);
         }
 
         return $model;

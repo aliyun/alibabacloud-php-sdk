@@ -11,6 +11,11 @@ class CreateCdnCertificateSigningRequestResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $pubMd5;
 
     /**
@@ -21,16 +26,11 @@ class CreateCdnCertificateSigningRequestResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $commonName;
     protected $_name = [
+        'requestId'  => 'RequestId',
         'pubMd5'     => 'PubMd5',
         'csr'        => 'Csr',
-        'requestId'  => 'RequestId',
         'commonName' => 'CommonName',
     ];
 
@@ -41,14 +41,14 @@ class CreateCdnCertificateSigningRequestResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->pubMd5) {
             $res['PubMd5'] = $this->pubMd5;
         }
         if (null !== $this->csr) {
             $res['Csr'] = $this->csr;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
@@ -65,14 +65,14 @@ class CreateCdnCertificateSigningRequestResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['PubMd5'])) {
             $model->pubMd5 = $map['PubMd5'];
         }
         if (isset($map['Csr'])) {
             $model->csr = $map['Csr'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];

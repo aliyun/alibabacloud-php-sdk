@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainPathDataResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $startTime;
 
     /**
      * @var int
@@ -30,33 +30,33 @@ class DescribeDomainPathDataResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var string
      */
     public $domainName;
 
     /**
-     * @var pathDataPerInterval
-     */
-    public $pathDataPerInterval;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
      * @var string
      */
     public $dataInterval;
+
+    /**
+     * @var pathDataPerInterval
+     */
+    public $pathDataPerInterval;
     protected $_name = [
-        'totalCount'          => 'TotalCount',
         'endTime'             => 'EndTime',
+        'startTime'           => 'StartTime',
         'pageSize'            => 'PageSize',
         'pageNumber'          => 'PageNumber',
+        'totalCount'          => 'TotalCount',
         'domainName'          => 'DomainName',
-        'pathDataPerInterval' => 'PathDataPerInterval',
-        'startTime'           => 'StartTime',
         'dataInterval'        => 'DataInterval',
+        'pathDataPerInterval' => 'PathDataPerInterval',
     ];
 
     public function validate()
@@ -66,11 +66,11 @@ class DescribeDomainPathDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -78,17 +78,17 @@ class DescribeDomainPathDataResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->pathDataPerInterval) {
-            $res['PathDataPerInterval'] = null !== $this->pathDataPerInterval ? $this->pathDataPerInterval->toMap() : null;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->pathDataPerInterval) {
+            $res['PathDataPerInterval'] = null !== $this->pathDataPerInterval ? $this->pathDataPerInterval->toMap() : null;
         }
 
         return $res;
@@ -102,11 +102,11 @@ class DescribeDomainPathDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -114,17 +114,17 @@ class DescribeDomainPathDataResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['PathDataPerInterval'])) {
-            $model->pathDataPerInterval = pathDataPerInterval::fromMap($map['PathDataPerInterval']);
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['PathDataPerInterval'])) {
+            $model->pathDataPerInterval = pathDataPerInterval::fromMap($map['PathDataPerInterval']);
         }
 
         return $model;

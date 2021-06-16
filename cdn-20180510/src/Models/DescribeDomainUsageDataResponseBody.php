@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainUsageDataResponseBody extends Model
 {
     /**
-     * @var usageDataPerInterval
+     * @var string
      */
-    public $usageDataPerInterval;
+    public $endTime;
 
     /**
      * @var string
@@ -22,12 +22,7 @@ class DescribeDomainUsageDataResponseBody extends Model
     /**
      * @var string
      */
-    public $area;
-
-    /**
-     * @var string
-     */
-    public $endTime;
+    public $startTime;
 
     /**
      * @var string
@@ -37,26 +32,31 @@ class DescribeDomainUsageDataResponseBody extends Model
     /**
      * @var string
      */
+    public $area;
+
+    /**
+     * @var string
+     */
     public $domainName;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $dataInterval;
 
     /**
-     * @var string
+     * @var usageDataPerInterval
      */
-    public $dataInterval;
+    public $usageDataPerInterval;
     protected $_name = [
-        'usageDataPerInterval' => 'UsageDataPerInterval',
-        'type'                 => 'Type',
-        'area'                 => 'Area',
         'endTime'              => 'EndTime',
-        'requestId'            => 'RequestId',
-        'domainName'           => 'DomainName',
+        'type'                 => 'Type',
         'startTime'            => 'StartTime',
+        'requestId'            => 'RequestId',
+        'area'                 => 'Area',
+        'domainName'           => 'DomainName',
         'dataInterval'         => 'DataInterval',
+        'usageDataPerInterval' => 'UsageDataPerInterval',
     ];
 
     public function validate()
@@ -66,29 +66,29 @@ class DescribeDomainUsageDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->usageDataPerInterval) {
-            $res['UsageDataPerInterval'] = null !== $this->usageDataPerInterval ? $this->usageDataPerInterval->toMap() : null;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->area) {
-            $res['Area'] = $this->area;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->area) {
+            $res['Area'] = $this->area;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->usageDataPerInterval) {
+            $res['UsageDataPerInterval'] = null !== $this->usageDataPerInterval ? $this->usageDataPerInterval->toMap() : null;
         }
 
         return $res;
@@ -102,29 +102,29 @@ class DescribeDomainUsageDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UsageDataPerInterval'])) {
-            $model->usageDataPerInterval = usageDataPerInterval::fromMap($map['UsageDataPerInterval']);
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['Area'])) {
-            $model->area = $map['Area'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Area'])) {
+            $model->area = $map['Area'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['UsageDataPerInterval'])) {
+            $model->usageDataPerInterval = usageDataPerInterval::fromMap($map['UsageDataPerInterval']);
         }
 
         return $model;

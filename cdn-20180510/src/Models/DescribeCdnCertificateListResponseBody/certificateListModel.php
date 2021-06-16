@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class certificateListModel extends Model
 {
     /**
-     * @var certList
-     */
-    public $certList;
-
-    /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var certList
+     */
+    public $certList;
     protected $_name = [
-        'certList' => 'CertList',
         'count'    => 'Count',
+        'certList' => 'CertList',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class certificateListModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certList) {
-            $res['CertList'] = null !== $this->certList ? $this->certList->toMap() : null;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->certList) {
+            $res['CertList'] = null !== $this->certList ? $this->certList->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class certificateListModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertList'])) {
-            $model->certList = certList::fromMap($map['CertList']);
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['CertList'])) {
+            $model->certList = certList::fromMap($map['CertList']);
         }
 
         return $model;

@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class domainsData extends Model
 {
     /**
-     * @var domains
-     */
-    public $domains;
-
-    /**
      * @var string
      */
     public $source;
@@ -24,10 +19,15 @@ class domainsData extends Model
      * @var domainInfos
      */
     public $domainInfos;
+
+    /**
+     * @var domains
+     */
+    public $domains;
     protected $_name = [
-        'domains'     => 'Domains',
         'source'      => 'Source',
         'domainInfos' => 'DomainInfos',
+        'domains'     => 'Domains',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class domainsData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domains) {
-            $res['Domains'] = null !== $this->domains ? $this->domains->toMap() : null;
-        }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
         if (null !== $this->domainInfos) {
             $res['DomainInfos'] = null !== $this->domainInfos ? $this->domainInfos->toMap() : null;
+        }
+        if (null !== $this->domains) {
+            $res['Domains'] = null !== $this->domains ? $this->domains->toMap() : null;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class domainsData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domains'])) {
-            $model->domains = domains::fromMap($map['Domains']);
-        }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
         if (isset($map['DomainInfos'])) {
             $model->domainInfos = domainInfos::fromMap($map['DomainInfos']);
+        }
+        if (isset($map['Domains'])) {
+            $model->domains = domains::fromMap($map['Domains']);
         }
 
         return $model;

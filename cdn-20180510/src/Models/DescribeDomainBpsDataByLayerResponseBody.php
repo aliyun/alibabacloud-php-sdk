@@ -12,20 +12,20 @@ class DescribeDomainBpsDataByLayerResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $dataInterval;
 
     /**
      * @var string
      */
-    public $dataInterval;
+    public $requestId;
 
     /**
      * @var bpsDataInterval
      */
     public $bpsDataInterval;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'dataInterval'    => 'DataInterval',
+        'requestId'       => 'RequestId',
         'bpsDataInterval' => 'BpsDataInterval',
     ];
 
@@ -36,11 +36,11 @@ class DescribeDomainBpsDataByLayerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->bpsDataInterval) {
             $res['BpsDataInterval'] = null !== $this->bpsDataInterval ? $this->bpsDataInterval->toMap() : null;
@@ -57,11 +57,11 @@ class DescribeDomainBpsDataByLayerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['BpsDataInterval'])) {
             $model->bpsDataInterval = bpsDataInterval::fromMap($map['BpsDataInterval']);

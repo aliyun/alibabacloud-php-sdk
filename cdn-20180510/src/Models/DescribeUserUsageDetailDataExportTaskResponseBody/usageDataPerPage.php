@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class usageDataPerPage extends Model
 {
     /**
-     * @var data
-     */
-    public $data;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -28,11 +23,16 @@ class usageDataPerPage extends Model
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var data
+     */
+    public $data;
     protected $_name = [
-        'data'       => 'Data',
         'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
         'totalCount' => 'TotalCount',
+        'data'       => 'Data',
     ];
 
     public function validate()
@@ -42,9 +42,6 @@ class usageDataPerPage extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -53,6 +50,9 @@ class usageDataPerPage extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class usageDataPerPage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -77,6 +74,9 @@ class usageDataPerPage extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

@@ -12,12 +12,12 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
     /**
      * @var string
      */
-    public $billType;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $startTime;
 
     /**
      * @var string
@@ -27,17 +27,17 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $billType;
 
     /**
      * @var billPredictionData
      */
     public $billPredictionData;
     protected $_name = [
-        'billType'           => 'BillType',
         'endTime'            => 'EndTime',
-        'requestId'          => 'RequestId',
         'startTime'          => 'StartTime',
+        'requestId'          => 'RequestId',
+        'billType'           => 'BillType',
         'billPredictionData' => 'BillPredictionData',
     ];
 
@@ -48,17 +48,17 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->billType) {
-            $res['BillType'] = $this->billType;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->billType) {
+            $res['BillType'] = $this->billType;
         }
         if (null !== $this->billPredictionData) {
             $res['BillPredictionData'] = null !== $this->billPredictionData ? $this->billPredictionData->toMap() : null;
@@ -75,17 +75,17 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BillType'])) {
-            $model->billType = $map['BillType'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['BillType'])) {
+            $model->billType = $map['BillType'];
         }
         if (isset($map['BillPredictionData'])) {
             $model->billPredictionData = billPredictionData::fromMap($map['BillPredictionData']);

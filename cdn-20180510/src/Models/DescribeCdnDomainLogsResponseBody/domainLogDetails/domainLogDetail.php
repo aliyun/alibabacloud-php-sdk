@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class domainLogDetail extends Model
 {
     /**
-     * @var pageInfos
-     */
-    public $pageInfos;
-
-    /**
      * @var int
      */
     public $logCount;
@@ -26,13 +21,18 @@ class domainLogDetail extends Model
     public $domainName;
 
     /**
+     * @var pageInfos
+     */
+    public $pageInfos;
+
+    /**
      * @var logInfos
      */
     public $logInfos;
     protected $_name = [
-        'pageInfos'  => 'PageInfos',
         'logCount'   => 'LogCount',
         'domainName' => 'DomainName',
+        'pageInfos'  => 'PageInfos',
         'logInfos'   => 'LogInfos',
     ];
 
@@ -43,14 +43,14 @@ class domainLogDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageInfos) {
-            $res['PageInfos'] = null !== $this->pageInfos ? $this->pageInfos->toMap() : null;
-        }
         if (null !== $this->logCount) {
             $res['LogCount'] = $this->logCount;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->pageInfos) {
+            $res['PageInfos'] = null !== $this->pageInfos ? $this->pageInfos->toMap() : null;
         }
         if (null !== $this->logInfos) {
             $res['LogInfos'] = null !== $this->logInfos ? $this->logInfos->toMap() : null;
@@ -67,14 +67,14 @@ class domainLogDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageInfos'])) {
-            $model->pageInfos = pageInfos::fromMap($map['PageInfos']);
-        }
         if (isset($map['LogCount'])) {
             $model->logCount = $map['LogCount'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['PageInfos'])) {
+            $model->pageInfos = pageInfos::fromMap($map['PageInfos']);
         }
         if (isset($map['LogInfos'])) {
             $model->logInfos = logInfos::fromMap($map['LogInfos']);

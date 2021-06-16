@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCcActivityLogResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $pageIndex;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -28,17 +33,12 @@ class DescribeDomainCcActivityLogResponseBody extends Model
      * @var activityLog[]
      */
     public $activityLog;
-
-    /**
-     * @var int
-     */
-    public $pageIndex;
     protected $_name = [
+        'pageIndex'   => 'PageIndex',
         'requestId'   => 'RequestId',
         'pageSize'    => 'PageSize',
         'total'       => 'Total',
         'activityLog' => 'ActivityLog',
-        'pageIndex'   => 'PageIndex',
     ];
 
     public function validate()
@@ -48,6 +48,9 @@ class DescribeDomainCcActivityLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageIndex) {
+            $res['PageIndex'] = $this->pageIndex;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -66,9 +69,6 @@ class DescribeDomainCcActivityLogResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->pageIndex) {
-            $res['PageIndex'] = $this->pageIndex;
-        }
 
         return $res;
     }
@@ -81,6 +81,9 @@ class DescribeDomainCcActivityLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageIndex'])) {
+            $model->pageIndex = $map['PageIndex'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -98,9 +101,6 @@ class DescribeDomainCcActivityLogResponseBody extends Model
                     $model->activityLog[$n++] = null !== $item ? activityLog::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageIndex'])) {
-            $model->pageIndex = $map['PageIndex'];
         }
 
         return $model;

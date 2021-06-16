@@ -24,6 +24,11 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchUpdateCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchUpdateCdnDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnCertificateSigningRequestRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnCertificateSigningRequestResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnDeliverTaskRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnDeliverTaskResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnDeliverTaskShrinkRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnSubTaskRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnSubTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateIllegalUrlExportTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateIllegalUrlExportTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateRealTimeLogDeliveryRequest;
@@ -32,8 +37,12 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateUsageDetailDataExportTaskRequest
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateUsageDetailDataExportTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateUserUsageDataExportTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateUserUsageDataExportTaskResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnDeliverTaskRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnDomainResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnSubTaskRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteCdnSubTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteFCTriggerRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteFCTriggerResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteRealtimeLogDeliveryRequest;
@@ -52,6 +61,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateListResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeliverListRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeliverListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainByCertificateRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainByCertificateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainConfigsRequest;
@@ -66,8 +77,14 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnHttpsDomainListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnHttpsDomainListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnRegionAndIspRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnRegionAndIspResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnReportListRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnReportListResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnReportRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnReportResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnServiceRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnServiceResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSubListRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSubListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillHistoryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillHistoryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillPredictionRequest;
@@ -180,6 +197,10 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainUsageDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainUsageDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainUvDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainUvDataResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeEsExceptionDataRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeEsExceptionDataResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeEsExecuteDataRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeEsExecuteDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeFCTriggerRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeFCTriggerResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIllegalUrlExportTaskRequest;
@@ -238,8 +259,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnServiceRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnServiceResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyDomainCustomLogConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyDomainCustomLogConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryRequest;
@@ -314,6 +333,11 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateCdnDeliverTaskRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateCdnDeliverTaskResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateCdnDeliverTaskShrinkRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateCdnSubTaskRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateCdnSubTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateFCTriggerRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateFCTriggerResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\VerifyDomainOwnerRequest;
@@ -622,6 +646,70 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param CreateCdnDeliverTaskRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateCdnDeliverTaskResponse
+     */
+    public function createCdnDeliverTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCdnDeliverTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->deliver)) {
+            $request->deliverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deliver, 'Deliver', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->schedule)) {
+            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateCdnDeliverTaskResponse::fromMap($this->doRPCRequest('CreateCdnDeliverTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateCdnDeliverTaskRequest $request
+     *
+     * @return CreateCdnDeliverTaskResponse
+     */
+    public function createCdnDeliverTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCdnDeliverTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCdnSubTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateCdnSubTaskResponse
+     */
+    public function createCdnSubTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateCdnSubTaskResponse::fromMap($this->doRPCRequest('CreateCdnSubTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateCdnSubTaskRequest $request
+     *
+     * @return CreateCdnSubTaskResponse
+     */
+    public function createCdnSubTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCdnSubTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateIllegalUrlExportTaskRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -735,6 +823,34 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DeleteCdnDeliverTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteCdnDeliverTaskResponse
+     */
+    public function deleteCdnDeliverTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteCdnDeliverTaskResponse::fromMap($this->doRPCRequest('DeleteCdnDeliverTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCdnDeliverTaskRequest $request
+     *
+     * @return DeleteCdnDeliverTaskResponse
+     */
+    public function deleteCdnDeliverTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCdnDeliverTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteCdnDomainRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -760,6 +876,34 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCdnDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCdnSubTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteCdnSubTaskResponse
+     */
+    public function deleteCdnSubTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteCdnSubTaskResponse::fromMap($this->doRPCRequest('DeleteCdnSubTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCdnSubTaskRequest $request
+     *
+     * @return DeleteCdnSubTaskResponse
+     */
+    public function deleteCdnSubTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCdnSubTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1016,6 +1160,34 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeCdnDeliverListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeCdnDeliverListResponse
+     */
+    public function describeCdnDeliverListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCdnDeliverListResponse::fromMap($this->doRPCRequest('DescribeCdnDeliverList', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnDeliverListRequest $request
+     *
+     * @return DescribeCdnDeliverListResponse
+     */
+    public function describeCdnDeliverList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnDeliverListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCdnDomainByCertificateRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -1212,6 +1384,62 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeCdnReportRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeCdnReportResponse
+     */
+    public function describeCdnReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCdnReportResponse::fromMap($this->doRPCRequest('DescribeCdnReport', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnReportRequest $request
+     *
+     * @return DescribeCdnReportResponse
+     */
+    public function describeCdnReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCdnReportListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeCdnReportListResponse
+     */
+    public function describeCdnReportListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCdnReportListResponse::fromMap($this->doRPCRequest('DescribeCdnReportList', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnReportListRequest $request
+     *
+     * @return DescribeCdnReportListResponse
+     */
+    public function describeCdnReportList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnReportListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCdnServiceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1237,6 +1465,34 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCdnServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCdnSubListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeCdnSubListResponse
+     */
+    public function describeCdnSubListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeCdnSubListResponse::fromMap($this->doRPCRequest('DescribeCdnSubList', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnSubListRequest $request
+     *
+     * @return DescribeCdnSubListResponse
+     */
+    public function describeCdnSubList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnSubListWithOptions($request, $runtime);
     }
 
     /**
@@ -2819,6 +3075,62 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeEsExceptionDataRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeEsExceptionDataResponse
+     */
+    public function describeEsExceptionDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeEsExceptionDataResponse::fromMap($this->doRPCRequest('DescribeEsExceptionData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEsExceptionDataRequest $request
+     *
+     * @return DescribeEsExceptionDataResponse
+     */
+    public function describeEsExceptionData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEsExceptionDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEsExecuteDataRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeEsExecuteDataResponse
+     */
+    public function describeEsExecuteDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeEsExecuteDataResponse::fromMap($this->doRPCRequest('DescribeEsExecuteData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEsExecuteDataRequest $request
+     *
+     * @return DescribeEsExecuteDataResponse
+     */
+    public function describeEsExecuteData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEsExecuteDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeFCTriggerRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3637,34 +3949,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyCdnDomainSchdmByPropertyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyCdnServiceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ModifyCdnServiceResponse
-     */
-    public function modifyCdnServiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyCdnServiceResponse::fromMap($this->doRPCRequest('ModifyCdnService', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyCdnServiceRequest $request
-     *
-     * @return ModifyCdnServiceResponse
-     */
-    public function modifyCdnService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyCdnServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -4704,6 +4988,70 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCdnDeliverTaskRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateCdnDeliverTaskResponse
+     */
+    public function updateCdnDeliverTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateCdnDeliverTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->deliver)) {
+            $request->deliverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deliver, 'Deliver', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->schedule)) {
+            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateCdnDeliverTaskResponse::fromMap($this->doRPCRequest('UpdateCdnDeliverTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCdnDeliverTaskRequest $request
+     *
+     * @return UpdateCdnDeliverTaskResponse
+     */
+    public function updateCdnDeliverTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCdnDeliverTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCdnSubTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateCdnSubTaskResponse
+     */
+    public function updateCdnSubTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateCdnSubTaskResponse::fromMap($this->doRPCRequest('UpdateCdnSubTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCdnSubTaskRequest $request
+     *
+     * @return UpdateCdnSubTaskResponse
+     */
+    public function updateCdnSubTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCdnSubTaskWithOptions($request, $runtime);
     }
 
     /**

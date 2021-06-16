@@ -12,20 +12,20 @@ class DescribeUserVipsByDomainResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $requestId;
 
     /**
      * @var vips
      */
     public $vips;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'domainName' => 'DomainName',
+        'requestId'  => 'RequestId',
         'vips'       => 'Vips',
     ];
 
@@ -36,11 +36,11 @@ class DescribeUserVipsByDomainResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->vips) {
             $res['Vips'] = null !== $this->vips ? $this->vips->toMap() : null;
@@ -57,11 +57,11 @@ class DescribeUserVipsByDomainResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Vips'])) {
             $model->vips = vips::fromMap($map['Vips']);

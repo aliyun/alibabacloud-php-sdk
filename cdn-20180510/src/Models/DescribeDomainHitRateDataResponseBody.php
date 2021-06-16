@@ -17,12 +17,12 @@ class DescribeDomainHitRateDataResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $startTime;
 
     /**
-     * @var hitRateInterval
+     * @var string
      */
-    public $hitRateInterval;
+    public $requestId;
 
     /**
      * @var string
@@ -32,19 +32,19 @@ class DescribeDomainHitRateDataResponseBody extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $dataInterval;
 
     /**
-     * @var string
+     * @var hitRateInterval
      */
-    public $dataInterval;
+    public $hitRateInterval;
     protected $_name = [
         'endTime'         => 'EndTime',
-        'requestId'       => 'RequestId',
-        'hitRateInterval' => 'HitRateInterval',
-        'domainName'      => 'DomainName',
         'startTime'       => 'StartTime',
+        'requestId'       => 'RequestId',
+        'domainName'      => 'DomainName',
         'dataInterval'    => 'DataInterval',
+        'hitRateInterval' => 'HitRateInterval',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class DescribeDomainHitRateDataResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->hitRateInterval) {
-            $res['HitRateInterval'] = null !== $this->hitRateInterval ? $this->hitRateInterval->toMap() : null;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->hitRateInterval) {
+            $res['HitRateInterval'] = null !== $this->hitRateInterval ? $this->hitRateInterval->toMap() : null;
         }
 
         return $res;
@@ -87,20 +87,20 @@ class DescribeDomainHitRateDataResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['HitRateInterval'])) {
-            $model->hitRateInterval = hitRateInterval::fromMap($map['HitRateInterval']);
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['HitRateInterval'])) {
+            $model->hitRateInterval = hitRateInterval::fromMap($map['HitRateInterval']);
         }
 
         return $model;

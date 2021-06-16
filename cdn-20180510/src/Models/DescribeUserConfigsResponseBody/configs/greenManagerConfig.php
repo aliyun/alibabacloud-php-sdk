@@ -11,15 +11,15 @@ class greenManagerConfig extends Model
     /**
      * @var string
      */
-    public $quota;
+    public $ratio;
 
     /**
      * @var string
      */
-    public $ratio;
+    public $quota;
     protected $_name = [
-        'quota' => 'Quota',
         'ratio' => 'Ratio',
+        'quota' => 'Quota',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class greenManagerConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->quota) {
-            $res['Quota'] = $this->quota;
-        }
         if (null !== $this->ratio) {
             $res['Ratio'] = $this->ratio;
+        }
+        if (null !== $this->quota) {
+            $res['Quota'] = $this->quota;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class greenManagerConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Quota'])) {
-            $model->quota = $map['Quota'];
-        }
         if (isset($map['Ratio'])) {
             $model->ratio = $map['Ratio'];
+        }
+        if (isset($map['Quota'])) {
+            $model->quota = $map['Quota'];
         }
 
         return $model;

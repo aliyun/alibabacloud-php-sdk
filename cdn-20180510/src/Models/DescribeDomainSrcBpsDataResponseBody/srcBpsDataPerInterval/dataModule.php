@@ -16,16 +16,16 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $httpsValue;
+    public $timeStamp;
 
     /**
      * @var string
      */
-    public $timeStamp;
+    public $httpsValue;
     protected $_name = [
         'value'      => 'Value',
-        'httpsValue' => 'HttpsValue',
         'timeStamp'  => 'TimeStamp',
+        'httpsValue' => 'HttpsValue',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class dataModule extends Model
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
-        if (null !== $this->httpsValue) {
-            $res['HttpsValue'] = $this->httpsValue;
-        }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
+        }
+        if (null !== $this->httpsValue) {
+            $res['HttpsValue'] = $this->httpsValue;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class dataModule extends Model
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
-        if (isset($map['HttpsValue'])) {
-            $model->httpsValue = $map['HttpsValue'];
-        }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
+        }
+        if (isset($map['HttpsValue'])) {
+            $model->httpsValue = $map['HttpsValue'];
         }
 
         return $model;

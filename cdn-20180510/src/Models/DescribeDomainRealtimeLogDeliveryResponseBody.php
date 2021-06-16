@@ -16,6 +16,11 @@ class DescribeDomainRealtimeLogDeliveryResponseBody extends Model
     /**
      * @var string
      */
+    public $logstore;
+
+    /**
+     * @var string
+     */
     public $project;
 
     /**
@@ -26,17 +31,12 @@ class DescribeDomainRealtimeLogDeliveryResponseBody extends Model
     /**
      * @var string
      */
-    public $logstore;
-
-    /**
-     * @var string
-     */
     public $region;
     protected $_name = [
         'status'    => 'Status',
+        'logstore'  => 'Logstore',
         'project'   => 'Project',
         'requestId' => 'RequestId',
-        'logstore'  => 'Logstore',
         'region'    => 'Region',
     ];
 
@@ -50,14 +50,14 @@ class DescribeDomainRealtimeLogDeliveryResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->logstore) {
+            $res['Logstore'] = $this->logstore;
+        }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->logstore) {
-            $res['Logstore'] = $this->logstore;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -77,14 +77,14 @@ class DescribeDomainRealtimeLogDeliveryResponseBody extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['Logstore'])) {
+            $model->logstore = $map['Logstore'];
+        }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Logstore'])) {
-            $model->logstore = $map['Logstore'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

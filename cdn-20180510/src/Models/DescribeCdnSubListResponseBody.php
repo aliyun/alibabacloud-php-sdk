@@ -6,13 +6,19 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyCdnServiceResponseBody extends Model
+class DescribeCdnSubListResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $content;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'content'   => 'Content',
         'requestId' => 'RequestId',
     ];
 
@@ -23,6 +29,9 @@ class ModifyCdnServiceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -33,11 +42,14 @@ class ModifyCdnServiceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyCdnServiceResponseBody
+     * @return DescribeCdnSubListResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

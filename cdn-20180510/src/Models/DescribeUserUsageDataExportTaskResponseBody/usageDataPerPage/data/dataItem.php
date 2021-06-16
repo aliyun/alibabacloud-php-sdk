@@ -35,22 +35,22 @@ class dataItem extends Model
     public $taskName;
 
     /**
-     * @var taskConfig
-     */
-    public $taskConfig;
-
-    /**
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var taskConfig
+     */
+    public $taskConfig;
     protected $_name = [
         'status'      => 'Status',
         'updateTime'  => 'UpdateTime',
         'downloadUrl' => 'DownloadUrl',
         'createTime'  => 'CreateTime',
         'taskName'    => 'TaskName',
-        'taskConfig'  => 'TaskConfig',
         'taskId'      => 'TaskId',
+        'taskConfig'  => 'TaskConfig',
     ];
 
     public function validate()
@@ -75,11 +75,11 @@ class dataItem extends Model
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
-        if (null !== $this->taskConfig) {
-            $res['TaskConfig'] = null !== $this->taskConfig ? $this->taskConfig->toMap() : null;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskConfig) {
+            $res['TaskConfig'] = null !== $this->taskConfig ? $this->taskConfig->toMap() : null;
         }
 
         return $res;
@@ -108,11 +108,11 @@ class dataItem extends Model
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
-        if (isset($map['TaskConfig'])) {
-            $model->taskConfig = taskConfig::fromMap($map['TaskConfig']);
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskConfig'])) {
+            $model->taskConfig = taskConfig::fromMap($map['TaskConfig']);
         }
 
         return $model;

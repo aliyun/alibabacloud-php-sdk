@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyCdnServiceResponse extends Model
+class DescribeCdnReportResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ModifyCdnServiceResponse extends Model
     public $headers;
 
     /**
-     * @var ModifyCdnServiceResponseBody
+     * @var DescribeCdnReportResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ModifyCdnServiceResponse extends Model
     /**
      * @param array $map
      *
-     * @return ModifyCdnServiceResponse
+     * @return DescribeCdnReportResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ModifyCdnServiceResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ModifyCdnServiceResponseBody::fromMap($map['body']);
+            $model->body = DescribeCdnReportResponseBody::fromMap($map['body']);
         }
 
         return $model;

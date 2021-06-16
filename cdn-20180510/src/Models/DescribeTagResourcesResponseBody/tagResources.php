@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
      * @var string
      */
     public $resourceId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'tag'        => 'Tag',
         'resourceId' => 'ResourceId',
+        'tag'        => 'Tag',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class tagResources extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -38,9 +41,6 @@ class tagResources extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class tagResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -62,9 +65,6 @@ class tagResources extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
         }
 
         return $model;

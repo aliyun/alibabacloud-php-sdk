@@ -11,6 +11,11 @@ class usageData extends Model
     /**
      * @var string
      */
+    public $path;
+
+    /**
+     * @var string
+     */
     public $time;
 
     /**
@@ -22,16 +27,11 @@ class usageData extends Model
      * @var int
      */
     public $traffic;
-
-    /**
-     * @var string
-     */
-    public $path;
     protected $_name = [
+        'path'    => 'Path',
         'time'    => 'Time',
         'acc'     => 'Acc',
         'traffic' => 'Traffic',
-        'path'    => 'Path',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class usageData extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -49,9 +52,6 @@ class usageData extends Model
         }
         if (null !== $this->traffic) {
             $res['Traffic'] = $this->traffic;
-        }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class usageData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
@@ -73,9 +76,6 @@ class usageData extends Model
         }
         if (isset($map['Traffic'])) {
             $model->traffic = $map['Traffic'];
-        }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
         }
 
         return $model;

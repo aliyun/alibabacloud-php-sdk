@@ -11,12 +11,17 @@ class DescribeIpInfoResponseBody extends Model
     /**
      * @var string
      */
+    public $cdnIp;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var string
      */
-    public $ISP;
+    public $regionEname;
 
     /**
      * @var string
@@ -31,19 +36,14 @@ class DescribeIpInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $cdnIp;
-
-    /**
-     * @var string
-     */
-    public $regionEname;
+    public $ISP;
     protected $_name = [
+        'cdnIp'       => 'CdnIp',
         'requestId'   => 'RequestId',
-        'ISP'         => 'ISP',
+        'regionEname' => 'RegionEname',
         'region'      => 'Region',
         'ispEname'    => 'IspEname',
-        'cdnIp'       => 'CdnIp',
-        'regionEname' => 'RegionEname',
+        'ISP'         => 'ISP',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class DescribeIpInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cdnIp) {
+            $res['CdnIp'] = $this->cdnIp;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->ISP) {
-            $res['ISP'] = $this->ISP;
+        if (null !== $this->regionEname) {
+            $res['RegionEname'] = $this->regionEname;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -65,11 +68,8 @@ class DescribeIpInfoResponseBody extends Model
         if (null !== $this->ispEname) {
             $res['IspEname'] = $this->ispEname;
         }
-        if (null !== $this->cdnIp) {
-            $res['CdnIp'] = $this->cdnIp;
-        }
-        if (null !== $this->regionEname) {
-            $res['RegionEname'] = $this->regionEname;
+        if (null !== $this->ISP) {
+            $res['ISP'] = $this->ISP;
         }
 
         return $res;
@@ -83,11 +83,14 @@ class DescribeIpInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CdnIp'])) {
+            $model->cdnIp = $map['CdnIp'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ISP'])) {
-            $model->ISP = $map['ISP'];
+        if (isset($map['RegionEname'])) {
+            $model->regionEname = $map['RegionEname'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
@@ -95,11 +98,8 @@ class DescribeIpInfoResponseBody extends Model
         if (isset($map['IspEname'])) {
             $model->ispEname = $map['IspEname'];
         }
-        if (isset($map['CdnIp'])) {
-            $model->cdnIp = $map['CdnIp'];
-        }
-        if (isset($map['RegionEname'])) {
-            $model->regionEname = $map['RegionEname'];
+        if (isset($map['ISP'])) {
+            $model->ISP = $map['ISP'];
         }
 
         return $model;

@@ -11,21 +11,21 @@ class configs extends Model
     /**
      * @var string
      */
+    public $argValue;
+
+    /**
+     * @var string
+     */
     public $argName;
 
     /**
      * @var string
      */
     public $functionName;
-
-    /**
-     * @var string
-     */
-    public $argValue;
     protected $_name = [
+        'argValue'     => 'ArgValue',
         'argName'      => 'ArgName',
         'functionName' => 'FunctionName',
-        'argValue'     => 'ArgValue',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class configs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->argValue) {
+            $res['ArgValue'] = $this->argValue;
+        }
         if (null !== $this->argName) {
             $res['ArgName'] = $this->argName;
         }
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
-        }
-        if (null !== $this->argValue) {
-            $res['ArgValue'] = $this->argValue;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class configs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArgValue'])) {
+            $model->argValue = $map['ArgValue'];
+        }
         if (isset($map['ArgName'])) {
             $model->argName = $map['ArgName'];
         }
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
-        }
-        if (isset($map['ArgValue'])) {
-            $model->argValue = $map['ArgValue'];
         }
 
         return $model;

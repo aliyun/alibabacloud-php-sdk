@@ -11,16 +11,6 @@ class DescribeDomainCustomLogConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $sample;
-
-    /**
-     * @var string
-     */
     public $configId;
 
     /**
@@ -31,13 +21,23 @@ class DescribeDomainCustomLogConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $remark;
+
+    /**
+     * @var string
+     */
+    public $sample;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'sample'    => 'Sample',
         'configId'  => 'ConfigId',
         'tag'       => 'Tag',
+        'requestId' => 'RequestId',
         'remark'    => 'Remark',
+        'sample'    => 'Sample',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeDomainCustomLogConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->sample) {
-            $res['Sample'] = $this->sample;
-        }
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->sample) {
+            $res['Sample'] = $this->sample;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeDomainCustomLogConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Sample'])) {
-            $model->sample = $map['Sample'];
-        }
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['Sample'])) {
+            $model->sample = $map['Sample'];
         }
 
         return $model;

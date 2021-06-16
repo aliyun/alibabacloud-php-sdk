@@ -20,11 +20,6 @@ class DescribeTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @var string
-     */
-    public $scope;
-
-    /**
      * @var string[]
      */
     public $resourceId;
@@ -36,7 +31,6 @@ class DescribeTagResourcesRequest extends Model
     protected $_name = [
         'ownerId'      => 'OwnerId',
         'resourceType' => 'ResourceType',
-        'scope'        => 'Scope',
         'resourceId'   => 'ResourceId',
         'tag'          => 'Tag',
     ];
@@ -53,9 +47,6 @@ class DescribeTagResourcesRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->scope) {
-            $res['Scope'] = $this->scope;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -86,9 +77,6 @@ class DescribeTagResourcesRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['Scope'])) {
-            $model->scope = $map['Scope'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {

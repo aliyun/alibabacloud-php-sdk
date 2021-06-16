@@ -26,12 +26,24 @@ class DescribeDomainRealTimeTrafficDataRequest extends Model
     /**
      * @var string
      */
+    public $ispNameEn;
+
+    /**
+     * @var string
+     */
+    public $locationNameEn;
+
+    /**
+     * @var string
+     */
     public $endTime;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'domainName' => 'DomainName',
-        'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
+        'ownerId'        => 'OwnerId',
+        'domainName'     => 'DomainName',
+        'startTime'      => 'StartTime',
+        'ispNameEn'      => 'IspNameEn',
+        'locationNameEn' => 'LocationNameEn',
+        'endTime'        => 'EndTime',
     ];
 
     public function validate()
@@ -49,6 +61,12 @@ class DescribeDomainRealTimeTrafficDataRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->ispNameEn) {
+            $res['IspNameEn'] = $this->ispNameEn;
+        }
+        if (null !== $this->locationNameEn) {
+            $res['LocationNameEn'] = $this->locationNameEn;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -73,6 +91,12 @@ class DescribeDomainRealTimeTrafficDataRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['IspNameEn'])) {
+            $model->ispNameEn = $map['IspNameEn'];
+        }
+        if (isset($map['LocationNameEn'])) {
+            $model->locationNameEn = $map['LocationNameEn'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

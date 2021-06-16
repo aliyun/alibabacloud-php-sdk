@@ -72,16 +72,6 @@ class DescribeUserDomainsRequest extends Model
     /**
      * @var string
      */
-    public $funcId;
-
-    /**
-     * @var string
-     */
-    public $funcFilter;
-
-    /**
-     * @var string
-     */
     public $coverage;
 
     /**
@@ -101,8 +91,6 @@ class DescribeUserDomainsRequest extends Model
         'resourceGroupId'  => 'ResourceGroupId',
         'changeStartTime'  => 'ChangeStartTime',
         'changeEndTime'    => 'ChangeEndTime',
-        'funcId'           => 'FuncId',
-        'funcFilter'       => 'FuncFilter',
         'coverage'         => 'Coverage',
         'tag'              => 'Tag',
     ];
@@ -149,12 +137,6 @@ class DescribeUserDomainsRequest extends Model
         }
         if (null !== $this->changeEndTime) {
             $res['ChangeEndTime'] = $this->changeEndTime;
-        }
-        if (null !== $this->funcId) {
-            $res['FuncId'] = $this->funcId;
-        }
-        if (null !== $this->funcFilter) {
-            $res['FuncFilter'] = $this->funcFilter;
         }
         if (null !== $this->coverage) {
             $res['Coverage'] = $this->coverage;
@@ -215,12 +197,6 @@ class DescribeUserDomainsRequest extends Model
         }
         if (isset($map['ChangeEndTime'])) {
             $model->changeEndTime = $map['ChangeEndTime'];
-        }
-        if (isset($map['FuncId'])) {
-            $model->funcId = $map['FuncId'];
-        }
-        if (isset($map['FuncFilter'])) {
-            $model->funcFilter = $map['FuncFilter'];
         }
         if (isset($map['Coverage'])) {
             $model->coverage = $map['Coverage'];

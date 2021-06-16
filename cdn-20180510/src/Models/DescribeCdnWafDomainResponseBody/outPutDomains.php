@@ -11,6 +11,11 @@ class outPutDomains extends Model
     /**
      * @var string
      */
+    public $aclStatus;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -26,17 +31,12 @@ class outPutDomains extends Model
     /**
      * @var string
      */
-    public $aclStatus;
-
-    /**
-     * @var string
-     */
     public $wafStatus;
     protected $_name = [
+        'aclStatus' => 'AclStatus',
         'status'    => 'Status',
         'domain'    => 'Domain',
         'ccStatus'  => 'CcStatus',
-        'aclStatus' => 'AclStatus',
         'wafStatus' => 'WafStatus',
     ];
 
@@ -47,6 +47,9 @@ class outPutDomains extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aclStatus) {
+            $res['AclStatus'] = $this->aclStatus;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -55,9 +58,6 @@ class outPutDomains extends Model
         }
         if (null !== $this->ccStatus) {
             $res['CcStatus'] = $this->ccStatus;
-        }
-        if (null !== $this->aclStatus) {
-            $res['AclStatus'] = $this->aclStatus;
         }
         if (null !== $this->wafStatus) {
             $res['WafStatus'] = $this->wafStatus;
@@ -74,6 +74,9 @@ class outPutDomains extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AclStatus'])) {
+            $model->aclStatus = $map['AclStatus'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
@@ -82,9 +85,6 @@ class outPutDomains extends Model
         }
         if (isset($map['CcStatus'])) {
             $model->ccStatus = $map['CcStatus'];
-        }
-        if (isset($map['AclStatus'])) {
-            $model->aclStatus = $map['AclStatus'];
         }
         if (isset($map['WafStatus'])) {
             $model->wafStatus = $map['WafStatus'];

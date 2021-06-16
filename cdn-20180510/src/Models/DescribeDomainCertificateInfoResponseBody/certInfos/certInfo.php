@@ -11,7 +11,7 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $status;
+    public $certExpireTime;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $certExpireTime;
+    public $status;
 
     /**
      * @var string
@@ -31,12 +31,12 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $serverCertificateStatus;
+    public $certDomainName;
 
     /**
      * @var string
      */
-    public $certDomainName;
+    public $serverCertificateStatus;
 
     /**
      * @var string
@@ -73,12 +73,12 @@ class certInfo extends Model
      */
     public $serverCertificate;
     protected $_name = [
-        'status'                  => 'Status',
-        'certLife'                => 'CertLife',
         'certExpireTime'          => 'CertExpireTime',
+        'certLife'                => 'CertLife',
+        'status'                  => 'Status',
         'certUpdateTime'          => 'CertUpdateTime',
-        'serverCertificateStatus' => 'ServerCertificateStatus',
         'certDomainName'          => 'CertDomainName',
+        'serverCertificateStatus' => 'ServerCertificateStatus',
         'certOrg'                 => 'CertOrg',
         'domainName'              => 'DomainName',
         'certStartTime'           => 'CertStartTime',
@@ -95,23 +95,23 @@ class certInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->certExpireTime) {
+            $res['CertExpireTime'] = $this->certExpireTime;
         }
         if (null !== $this->certLife) {
             $res['CertLife'] = $this->certLife;
         }
-        if (null !== $this->certExpireTime) {
-            $res['CertExpireTime'] = $this->certExpireTime;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->certUpdateTime) {
             $res['CertUpdateTime'] = $this->certUpdateTime;
         }
-        if (null !== $this->serverCertificateStatus) {
-            $res['ServerCertificateStatus'] = $this->serverCertificateStatus;
-        }
         if (null !== $this->certDomainName) {
             $res['CertDomainName'] = $this->certDomainName;
+        }
+        if (null !== $this->serverCertificateStatus) {
+            $res['ServerCertificateStatus'] = $this->serverCertificateStatus;
         }
         if (null !== $this->certOrg) {
             $res['CertOrg'] = $this->certOrg;
@@ -146,23 +146,23 @@ class certInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CertExpireTime'])) {
+            $model->certExpireTime = $map['CertExpireTime'];
         }
         if (isset($map['CertLife'])) {
             $model->certLife = $map['CertLife'];
         }
-        if (isset($map['CertExpireTime'])) {
-            $model->certExpireTime = $map['CertExpireTime'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['CertUpdateTime'])) {
             $model->certUpdateTime = $map['CertUpdateTime'];
         }
-        if (isset($map['ServerCertificateStatus'])) {
-            $model->serverCertificateStatus = $map['ServerCertificateStatus'];
-        }
         if (isset($map['CertDomainName'])) {
             $model->certDomainName = $map['CertDomainName'];
+        }
+        if (isset($map['ServerCertificateStatus'])) {
+            $model->serverCertificateStatus = $map['ServerCertificateStatus'];
         }
         if (isset($map['CertOrg'])) {
             $model->certOrg = $map['CertOrg'];

@@ -15,18 +15,18 @@ class DescribeDomainNamesOfVersionResponseBody extends Model
     public $totalCount;
 
     /**
-     * @var contents[]
-     */
-    public $contents;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var contents[]
+     */
+    public $contents;
     protected $_name = [
         'totalCount' => 'TotalCount',
-        'contents'   => 'Contents',
         'requestId'  => 'RequestId',
+        'contents'   => 'Contents',
     ];
 
     public function validate()
@@ -39,6 +39,9 @@ class DescribeDomainNamesOfVersionResponseBody extends Model
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->contents) {
             $res['Contents'] = [];
             if (null !== $this->contents && \is_array($this->contents)) {
@@ -47,9 +50,6 @@ class DescribeDomainNamesOfVersionResponseBody extends Model
                     $res['Contents'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class DescribeDomainNamesOfVersionResponseBody extends Model
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
                 $model->contents = [];
@@ -74,9 +77,6 @@ class DescribeDomainNamesOfVersionResponseBody extends Model
                     $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyCdnServiceRequest extends Model
+class DescribeCdnDeliverListRequest extends Model
 {
     /**
      * @var int
@@ -14,18 +14,18 @@ class ModifyCdnServiceRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $securityToken;
+    public $deliverId;
 
     /**
      * @var string
      */
-    public $internetChargeType;
+    public $status;
     protected $_name = [
-        'ownerId'            => 'OwnerId',
-        'securityToken'      => 'SecurityToken',
-        'internetChargeType' => 'InternetChargeType',
+        'ownerId'   => 'OwnerId',
+        'deliverId' => 'DeliverId',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ModifyCdnServiceRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->deliverId) {
+            $res['DeliverId'] = $this->deliverId;
         }
-        if (null !== $this->internetChargeType) {
-            $res['InternetChargeType'] = $this->internetChargeType;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -51,7 +51,7 @@ class ModifyCdnServiceRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyCdnServiceRequest
+     * @return DescribeCdnDeliverListRequest
      */
     public static function fromMap($map = [])
     {
@@ -59,11 +59,11 @@ class ModifyCdnServiceRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['DeliverId'])) {
+            $model->deliverId = $map['DeliverId'];
         }
-        if (isset($map['InternetChargeType'])) {
-            $model->internetChargeType = $map['InternetChargeType'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
