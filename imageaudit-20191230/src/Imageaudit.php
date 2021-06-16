@@ -48,34 +48,6 @@ class Imageaudit extends OpenApiClient
     }
 
     /**
-     * @param ScanImageRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ScanImageResponse
-     */
-    public function scanImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ScanImageResponse::fromMap($this->doRPCRequest('ScanImage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ScanImageRequest $request
-     *
-     * @return ScanImageResponse
-     */
-    public function scanImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->scanImageWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ScanTextRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -101,5 +73,33 @@ class Imageaudit extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->scanTextWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ScanImageRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ScanImageResponse
+     */
+    public function scanImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ScanImageResponse::fromMap($this->doRPCRequest('ScanImage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ScanImageRequest $request
+     *
+     * @return ScanImageResponse
+     */
+    public function scanImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->scanImageWithOptions($request, $runtime);
     }
 }
