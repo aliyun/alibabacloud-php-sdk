@@ -64,14 +64,14 @@ class object extends Model
     public $updated;
 
     /**
-     * @var bool
-     */
-    public $isArchived;
-
-    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var bool
+     */
+    public $isArchived;
 
     /**
      * @var string
@@ -106,7 +106,7 @@ class object extends Model
     /**
      * @var string
      */
-    public $organizationId;
+    public $defaultCollectionId;
 
     /**
      * @var bool
@@ -116,7 +116,7 @@ class object extends Model
     /**
      * @var string
      */
-    public $defaultCollectionId;
+    public $organizationId;
 
     /**
      * @var string
@@ -164,17 +164,17 @@ class object extends Model
         'rootCollectionId'    => 'RootCollectionId',
         'isDeleted'           => 'IsDeleted',
         'updated'             => 'Updated',
-        'isArchived'          => 'IsArchived',
         'name'                => 'Name',
+        'isArchived'          => 'IsArchived',
         'endDate'             => 'EndDate',
         'logo'                => 'Logo',
         'startDate'           => 'StartDate',
         'pinyin'              => 'Pinyin',
         'creatorId'           => 'CreatorId',
         'sourceId'            => 'SourceId',
-        'organizationId'      => 'OrganizationId',
-        'isSuspended'         => 'IsSuspended',
         'defaultCollectionId' => 'DefaultCollectionId',
+        'isSuspended'         => 'IsSuspended',
+        'organizationId'      => 'OrganizationId',
         'visibility'          => 'Visibility',
         'py'                  => 'Py',
         'category'            => 'Category',
@@ -224,11 +224,11 @@ class object extends Model
         if (null !== $this->updated) {
             $res['Updated'] = $this->updated;
         }
-        if (null !== $this->isArchived) {
-            $res['IsArchived'] = $this->isArchived;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->isArchived) {
+            $res['IsArchived'] = $this->isArchived;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
@@ -248,14 +248,14 @@ class object extends Model
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
         }
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
+        if (null !== $this->defaultCollectionId) {
+            $res['DefaultCollectionId'] = $this->defaultCollectionId;
         }
         if (null !== $this->isSuspended) {
             $res['IsSuspended'] = $this->isSuspended;
         }
-        if (null !== $this->defaultCollectionId) {
-            $res['DefaultCollectionId'] = $this->defaultCollectionId;
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
         }
         if (null !== $this->visibility) {
             $res['Visibility'] = $this->visibility;
@@ -323,11 +323,11 @@ class object extends Model
         if (isset($map['Updated'])) {
             $model->updated = $map['Updated'];
         }
-        if (isset($map['IsArchived'])) {
-            $model->isArchived = $map['IsArchived'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['IsArchived'])) {
+            $model->isArchived = $map['IsArchived'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
@@ -347,14 +347,14 @@ class object extends Model
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
         }
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
+        if (isset($map['DefaultCollectionId'])) {
+            $model->defaultCollectionId = $map['DefaultCollectionId'];
         }
         if (isset($map['IsSuspended'])) {
             $model->isSuspended = $map['IsSuspended'];
         }
-        if (isset($map['DefaultCollectionId'])) {
-            $model->defaultCollectionId = $map['DefaultCollectionId'];
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
         }
         if (isset($map['Visibility'])) {
             $model->visibility = $map['Visibility'];

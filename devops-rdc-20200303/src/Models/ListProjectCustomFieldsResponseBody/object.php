@@ -17,28 +17,28 @@ class object extends Model
     /**
      * @var string
      */
-    public $subtype;
-
-    /**
-     * @var values[]
-     */
-    public $values;
-
-    /**
-     * @var string
-     */
     public $customFieldId;
 
     /**
      * @var string
      */
+    public $subtype;
+
+    /**
+     * @var string
+     */
     public $name;
+
+    /**
+     * @var values[]
+     */
+    public $values;
     protected $_name = [
         'type'          => 'Type',
-        'subtype'       => 'Subtype',
-        'values'        => 'Values',
         'customFieldId' => 'CustomFieldId',
+        'subtype'       => 'Subtype',
         'name'          => 'Name',
+        'values'        => 'Values',
     ];
 
     public function validate()
@@ -51,8 +51,14 @@ class object extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+        if (null !== $this->customFieldId) {
+            $res['CustomFieldId'] = $this->customFieldId;
+        }
         if (null !== $this->subtype) {
             $res['Subtype'] = $this->subtype;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->values) {
             $res['Values'] = [];
@@ -62,12 +68,6 @@ class object extends Model
                     $res['Values'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->customFieldId) {
-            $res['CustomFieldId'] = $this->customFieldId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -84,8 +84,14 @@ class object extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+        if (isset($map['CustomFieldId'])) {
+            $model->customFieldId = $map['CustomFieldId'];
+        }
         if (isset($map['Subtype'])) {
             $model->subtype = $map['Subtype'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
@@ -95,12 +101,6 @@ class object extends Model
                     $model->values[$n++] = null !== $item ? values::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['CustomFieldId'])) {
-            $model->customFieldId = $map['CustomFieldId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

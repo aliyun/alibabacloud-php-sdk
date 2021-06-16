@@ -15,6 +15,11 @@ class customfields extends Model
     public $type;
 
     /**
+     * @var string
+     */
+    public $customfieldId;
+
+    /**
      * @var value[]
      */
     public $value;
@@ -23,16 +28,11 @@ class customfields extends Model
      * @var string[]
      */
     public $values;
-
-    /**
-     * @var string
-     */
-    public $customfieldId;
     protected $_name = [
         'type'          => 'Type',
+        'customfieldId' => 'CustomfieldId',
         'value'         => 'Value',
         'values'        => 'Values',
-        'customfieldId' => 'CustomfieldId',
     ];
 
     public function validate()
@@ -45,6 +45,9 @@ class customfields extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+        if (null !== $this->customfieldId) {
+            $res['CustomfieldId'] = $this->customfieldId;
+        }
         if (null !== $this->value) {
             $res['Value'] = [];
             if (null !== $this->value && \is_array($this->value)) {
@@ -56,9 +59,6 @@ class customfields extends Model
         }
         if (null !== $this->values) {
             $res['Values'] = $this->values;
-        }
-        if (null !== $this->customfieldId) {
-            $res['CustomfieldId'] = $this->customfieldId;
         }
 
         return $res;
@@ -75,6 +75,9 @@ class customfields extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+        if (isset($map['CustomfieldId'])) {
+            $model->customfieldId = $map['CustomfieldId'];
+        }
         if (isset($map['Value'])) {
             if (!empty($map['Value'])) {
                 $model->value = [];
@@ -88,9 +91,6 @@ class customfields extends Model
             if (!empty($map['Values'])) {
                 $model->values = $map['Values'];
             }
-        }
-        if (isset($map['CustomfieldId'])) {
-            $model->customfieldId = $map['CustomfieldId'];
         }
 
         return $model;

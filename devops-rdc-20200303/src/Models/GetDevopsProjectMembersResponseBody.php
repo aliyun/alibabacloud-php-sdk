@@ -17,12 +17,7 @@ class GetDevopsProjectMembersResponseBody extends Model
     /**
      * @var string
      */
-    public $errorMsg;
-
-    /**
-     * @var object[]
-     */
-    public $object;
+    public $nextPageToken;
 
     /**
      * @var string
@@ -30,15 +25,32 @@ class GetDevopsProjectMembersResponseBody extends Model
     public $errorCode;
 
     /**
+     * @var string
+     */
+    public $errorMsg;
+
+    /**
      * @var bool
      */
     public $successful;
+
+    /**
+     * @var int
+     */
+    public $total;
+
+    /**
+     * @var object[]
+     */
+    public $object;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'errorMsg'   => 'ErrorMsg',
-        'object'     => 'Object',
-        'errorCode'  => 'ErrorCode',
-        'successful' => 'Successful',
+        'requestId'     => 'RequestId',
+        'nextPageToken' => 'NextPageToken',
+        'errorCode'     => 'ErrorCode',
+        'errorMsg'      => 'ErrorMsg',
+        'successful'    => 'Successful',
+        'total'         => 'Total',
+        'object'        => 'Object',
     ];
 
     public function validate()
@@ -51,8 +63,20 @@ class GetDevopsProjectMembersResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->nextPageToken) {
+            $res['NextPageToken'] = $this->nextPageToken;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
+        }
+        if (null !== $this->successful) {
+            $res['Successful'] = $this->successful;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
         if (null !== $this->object) {
             $res['Object'] = [];
@@ -62,12 +86,6 @@ class GetDevopsProjectMembersResponseBody extends Model
                     $res['Object'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->successful) {
-            $res['Successful'] = $this->successful;
         }
 
         return $res;
@@ -84,8 +102,20 @@ class GetDevopsProjectMembersResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['NextPageToken'])) {
+            $model->nextPageToken = $map['NextPageToken'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
+        }
+        if (isset($map['Successful'])) {
+            $model->successful = $map['Successful'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
         if (isset($map['Object'])) {
             if (!empty($map['Object'])) {
@@ -95,12 +125,6 @@ class GetDevopsProjectMembersResponseBody extends Model
                     $model->object[$n++] = null !== $item ? object::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['Successful'])) {
-            $model->successful = $map['Successful'];
         }
 
         return $model;

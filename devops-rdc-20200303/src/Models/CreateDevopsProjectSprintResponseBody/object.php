@@ -62,22 +62,22 @@ class object extends Model
     /**
      * @var string
      */
+    public $created;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
      * @var string
      */
-    public $created;
+    public $id;
 
     /**
      * @var planToDo
      */
     public $planToDo;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
         'status'       => 'Status',
         'projectId'    => 'ProjectId',
@@ -89,10 +89,10 @@ class object extends Model
         'isDeleted'    => 'IsDeleted',
         'updated'      => 'Updated',
         'dueDate'      => 'DueDate',
-        'name'         => 'Name',
         'created'      => 'Created',
-        'planToDo'     => 'PlanToDo',
+        'name'         => 'Name',
         'id'           => 'Id',
+        'planToDo'     => 'PlanToDo',
     ];
 
     public function validate()
@@ -132,17 +132,17 @@ class object extends Model
         if (null !== $this->dueDate) {
             $res['DueDate'] = $this->dueDate;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->created) {
             $res['Created'] = $this->created;
         }
-        if (null !== $this->planToDo) {
-            $res['PlanToDo'] = null !== $this->planToDo ? $this->planToDo->toMap() : null;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->planToDo) {
+            $res['PlanToDo'] = null !== $this->planToDo ? $this->planToDo->toMap() : null;
         }
 
         return $res;
@@ -186,17 +186,17 @@ class object extends Model
         if (isset($map['DueDate'])) {
             $model->dueDate = $map['DueDate'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Created'])) {
             $model->created = $map['Created'];
         }
-        if (isset($map['PlanToDo'])) {
-            $model->planToDo = planToDo::fromMap($map['PlanToDo']);
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['PlanToDo'])) {
+            $model->planToDo = planToDo::fromMap($map['PlanToDo']);
         }
 
         return $model;

@@ -12,6 +12,11 @@ class object extends Model
     /**
      * @var string
      */
+    public $actionName;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -20,18 +25,13 @@ class object extends Model
     public $jobId;
 
     /**
-     * @var string
-     */
-    public $actionName;
-
-    /**
      * @var buildProcessNodes[]
      */
     public $buildProcessNodes;
     protected $_name = [
+        'actionName'        => 'ActionName',
         'startTime'         => 'StartTime',
         'jobId'             => 'JobId',
-        'actionName'        => 'ActionName',
         'buildProcessNodes' => 'BuildProcessNodes',
     ];
 
@@ -42,14 +42,14 @@ class object extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->actionName) {
+            $res['ActionName'] = $this->actionName;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->actionName) {
-            $res['ActionName'] = $this->actionName;
         }
         if (null !== $this->buildProcessNodes) {
             $res['BuildProcessNodes'] = [];
@@ -72,14 +72,14 @@ class object extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActionName'])) {
+            $model->actionName = $map['ActionName'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
-        }
-        if (isset($map['ActionName'])) {
-            $model->actionName = $map['ActionName'];
         }
         if (isset($map['BuildProcessNodes'])) {
             if (!empty($map['BuildProcessNodes'])) {

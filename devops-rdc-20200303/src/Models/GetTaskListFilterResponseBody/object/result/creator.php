@@ -11,20 +11,20 @@ class creator extends Model
     /**
      * @var string
      */
-    public $avatarUrl;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $avatarUrl;
 
     /**
      * @var string
      */
     public $id;
     protected $_name = [
-        'avatarUrl' => 'AvatarUrl',
         'name'      => 'Name',
+        'avatarUrl' => 'AvatarUrl',
         'id'        => 'Id',
     ];
 
@@ -35,11 +35,11 @@ class creator extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->avatarUrl) {
-            $res['AvatarUrl'] = $this->avatarUrl;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->avatarUrl) {
+            $res['AvatarUrl'] = $this->avatarUrl;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -56,11 +56,11 @@ class creator extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AvatarUrl'])) {
-            $model->avatarUrl = $map['AvatarUrl'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['AvatarUrl'])) {
+            $model->avatarUrl = $map['AvatarUrl'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

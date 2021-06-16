@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class object extends Model
 {
     /**
+     * @var string
+     */
+    public $employeeId;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -24,14 +29,9 @@ class object extends Model
     public $startTime;
 
     /**
-     * @var string[]
-     */
-    public $packageDownloadUrls;
-
-    /**
      * @var string
      */
-    public $employeeId;
+    public $sources;
 
     /**
      * @var string[]
@@ -39,17 +39,17 @@ class object extends Model
     public $dockerImages;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $sources;
+    public $packageDownloadUrls;
     protected $_name = [
+        'employeeId'          => 'EmployeeId',
         'endTime'             => 'EndTime',
         'status'              => 'Status',
         'startTime'           => 'StartTime',
-        'packageDownloadUrls' => 'PackageDownloadUrls',
-        'employeeId'          => 'EmployeeId',
-        'dockerImages'        => 'DockerImages',
         'sources'             => 'Sources',
+        'dockerImages'        => 'DockerImages',
+        'packageDownloadUrls' => 'PackageDownloadUrls',
     ];
 
     public function validate()
@@ -59,6 +59,9 @@ class object extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->employeeId) {
+            $res['EmployeeId'] = $this->employeeId;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -68,17 +71,14 @@ class object extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->packageDownloadUrls) {
-            $res['PackageDownloadUrls'] = $this->packageDownloadUrls;
-        }
-        if (null !== $this->employeeId) {
-            $res['EmployeeId'] = $this->employeeId;
+        if (null !== $this->sources) {
+            $res['Sources'] = $this->sources;
         }
         if (null !== $this->dockerImages) {
             $res['DockerImages'] = $this->dockerImages;
         }
-        if (null !== $this->sources) {
-            $res['Sources'] = $this->sources;
+        if (null !== $this->packageDownloadUrls) {
+            $res['PackageDownloadUrls'] = $this->packageDownloadUrls;
         }
 
         return $res;
@@ -92,6 +92,9 @@ class object extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EmployeeId'])) {
+            $model->employeeId = $map['EmployeeId'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -101,21 +104,18 @@ class object extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['PackageDownloadUrls'])) {
-            if (!empty($map['PackageDownloadUrls'])) {
-                $model->packageDownloadUrls = $map['PackageDownloadUrls'];
-            }
-        }
-        if (isset($map['EmployeeId'])) {
-            $model->employeeId = $map['EmployeeId'];
+        if (isset($map['Sources'])) {
+            $model->sources = $map['Sources'];
         }
         if (isset($map['DockerImages'])) {
             if (!empty($map['DockerImages'])) {
                 $model->dockerImages = $map['DockerImages'];
             }
         }
-        if (isset($map['Sources'])) {
-            $model->sources = $map['Sources'];
+        if (isset($map['PackageDownloadUrls'])) {
+            if (!empty($map['PackageDownloadUrls'])) {
+                $model->packageDownloadUrls = $map['PackageDownloadUrls'];
+            }
         }
 
         return $model;

@@ -15,16 +15,6 @@ class GetPipelineInstHistoryResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
      * @var string
      */
     public $errorMessage;
@@ -33,12 +23,22 @@ class GetPipelineInstHistoryResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var data
+     */
+    public $data;
     protected $_name = [
         'requestId'    => 'RequestId',
-        'data'         => 'Data',
-        'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'success'      => 'Success',
+        'errorCode'    => 'ErrorCode',
+        'data'         => 'Data',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class GetPipelineInstHistoryResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class GetPipelineInstHistoryResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
 
         return $model;

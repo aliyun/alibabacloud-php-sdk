@@ -17,9 +17,21 @@ class GetDevopsProjectMembersRequest extends Model
      * @var string
      */
     public $projectId;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $pageToken;
     protected $_name = [
         'orgId'     => 'OrgId',
         'projectId' => 'ProjectId',
+        'pageSize'  => 'PageSize',
+        'pageToken' => 'PageToken',
     ];
 
     public function validate()
@@ -34,6 +46,12 @@ class GetDevopsProjectMembersRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->pageToken) {
+            $res['PageToken'] = $this->pageToken;
         }
 
         return $res;
@@ -52,6 +70,12 @@ class GetDevopsProjectMembersRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PageToken'])) {
+            $model->pageToken = $map['PageToken'];
         }
 
         return $model;

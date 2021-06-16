@@ -25,9 +25,9 @@ class dataList extends Model
     public $statusName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $deletion;
+    public $triggerMode;
 
     /**
      * @var int
@@ -35,9 +35,9 @@ class dataList extends Model
     public $pipelineConfigId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $triggerMode;
+    public $deletion;
 
     /**
      * @var string
@@ -53,11 +53,6 @@ class dataList extends Model
      * @var string
      */
     public $modifier;
-
-    /**
-     * @var flowInstance
-     */
-    public $flowInstance;
 
     /**
      * @var string
@@ -83,22 +78,27 @@ class dataList extends Model
      * @var int
      */
     public $modifyTime;
+
+    /**
+     * @var flowInstance
+     */
+    public $flowInstance;
     protected $_name = [
         'status'           => 'Status',
         'createTime'       => 'CreateTime',
         'statusName'       => 'StatusName',
-        'deletion'         => 'Deletion',
-        'pipelineConfigId' => 'PipelineConfigId',
         'triggerMode'      => 'TriggerMode',
+        'pipelineConfigId' => 'PipelineConfigId',
+        'deletion'         => 'Deletion',
         'creator'          => 'Creator',
         'instNumber'       => 'InstNumber',
         'modifier'         => 'Modifier',
-        'flowInstance'     => 'FlowInstance',
         'packages'         => 'Packages',
         'flowInstId'       => 'FlowInstId',
         'pipelineId'       => 'PipelineId',
         'id'               => 'Id',
         'modifyTime'       => 'ModifyTime',
+        'flowInstance'     => 'FlowInstance',
     ];
 
     public function validate()
@@ -117,14 +117,14 @@ class dataList extends Model
         if (null !== $this->statusName) {
             $res['StatusName'] = $this->statusName;
         }
-        if (null !== $this->deletion) {
-            $res['Deletion'] = $this->deletion;
+        if (null !== $this->triggerMode) {
+            $res['TriggerMode'] = $this->triggerMode;
         }
         if (null !== $this->pipelineConfigId) {
             $res['PipelineConfigId'] = $this->pipelineConfigId;
         }
-        if (null !== $this->triggerMode) {
-            $res['TriggerMode'] = $this->triggerMode;
+        if (null !== $this->deletion) {
+            $res['Deletion'] = $this->deletion;
         }
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
@@ -134,9 +134,6 @@ class dataList extends Model
         }
         if (null !== $this->modifier) {
             $res['Modifier'] = $this->modifier;
-        }
-        if (null !== $this->flowInstance) {
-            $res['FlowInstance'] = null !== $this->flowInstance ? $this->flowInstance->toMap() : null;
         }
         if (null !== $this->packages) {
             $res['Packages'] = $this->packages;
@@ -152,6 +149,9 @@ class dataList extends Model
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->flowInstance) {
+            $res['FlowInstance'] = null !== $this->flowInstance ? $this->flowInstance->toMap() : null;
         }
 
         return $res;
@@ -174,14 +174,14 @@ class dataList extends Model
         if (isset($map['StatusName'])) {
             $model->statusName = $map['StatusName'];
         }
-        if (isset($map['Deletion'])) {
-            $model->deletion = $map['Deletion'];
+        if (isset($map['TriggerMode'])) {
+            $model->triggerMode = $map['TriggerMode'];
         }
         if (isset($map['PipelineConfigId'])) {
             $model->pipelineConfigId = $map['PipelineConfigId'];
         }
-        if (isset($map['TriggerMode'])) {
-            $model->triggerMode = $map['TriggerMode'];
+        if (isset($map['Deletion'])) {
+            $model->deletion = $map['Deletion'];
         }
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
@@ -191,9 +191,6 @@ class dataList extends Model
         }
         if (isset($map['Modifier'])) {
             $model->modifier = $map['Modifier'];
-        }
-        if (isset($map['FlowInstance'])) {
-            $model->flowInstance = flowInstance::fromMap($map['FlowInstance']);
         }
         if (isset($map['Packages'])) {
             $model->packages = $map['Packages'];
@@ -209,6 +206,9 @@ class dataList extends Model
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['FlowInstance'])) {
+            $model->flowInstance = flowInstance::fromMap($map['FlowInstance']);
         }
 
         return $model;

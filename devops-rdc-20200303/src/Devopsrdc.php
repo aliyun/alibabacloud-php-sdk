@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\DeleteCommonGroupRequest;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\DeleteCommonGroupResponse;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\DeleteDevopsOrganizationMembersRequest;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\DeleteDevopsOrganizationMembersResponse;
+use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\DeleteDevopsOrganizationRequest;
+use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\DeleteDevopsOrganizationResponse;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\DeleteDevopsProjectMembersRequest;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\DeleteDevopsProjectMembersResponse;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\DeleteDevopsProjectRequest;
@@ -95,6 +97,8 @@ use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\ListCredentialsRequest;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\ListCredentialsResponse;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\ListDevopsProjectSprintsRequest;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\ListDevopsProjectSprintsResponse;
+use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\ListDevopsProjectsRequest;
+use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\ListDevopsProjectsResponse;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\ListDevopsProjectTaskFlowRequest;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\ListDevopsProjectTaskFlowResponse;
 use AlibabaCloud\SDK\Devopsrdc\V20200303\Models\ListDevopsProjectTaskFlowStatusRequest;
@@ -501,6 +505,34 @@ class Devopsrdc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCommonGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDevopsOrganizationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteDevopsOrganizationResponse
+     */
+    public function deleteDevopsOrganizationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDevopsOrganizationResponse::fromMap($this->doRPCRequest('DeleteDevopsOrganization', '2020-03-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDevopsOrganizationRequest $request
+     *
+     * @return DeleteDevopsOrganizationResponse
+     */
+    public function deleteDevopsOrganization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDevopsOrganizationWithOptions($request, $runtime);
     }
 
     /**
@@ -1397,6 +1429,34 @@ class Devopsrdc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCredentialsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDevopsProjectsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListDevopsProjectsResponse
+     */
+    public function listDevopsProjectsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDevopsProjectsResponse::fromMap($this->doRPCRequest('ListDevopsProjects', '2020-03-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDevopsProjectsRequest $request
+     *
+     * @return ListDevopsProjectsResponse
+     */
+    public function listDevopsProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDevopsProjectsWithOptions($request, $runtime);
     }
 
     /**

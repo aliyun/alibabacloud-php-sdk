@@ -16,9 +16,15 @@ class object extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $id;
     protected $_name = [
         'type' => 'Type',
+        'name' => 'Name',
         'id'   => 'Id',
     ];
 
@@ -31,6 +37,9 @@ class object extends Model
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -49,6 +58,9 @@ class object extends Model
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

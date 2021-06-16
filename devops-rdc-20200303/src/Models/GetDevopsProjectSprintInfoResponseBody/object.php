@@ -17,22 +17,12 @@ class object extends Model
     /**
      * @var string
      */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $startDate;
-
-    /**
-     * @var string
-     */
-    public $creatorId;
-
-    /**
-     * @var string
-     */
     public $accomplished;
+
+    /**
+     * @var string
+     */
+    public $projectId;
 
     /**
      * @var bool
@@ -42,7 +32,17 @@ class object extends Model
     /**
      * @var string
      */
+    public $startDate;
+
+    /**
+     * @var string
+     */
     public $updated;
+
+    /**
+     * @var string
+     */
+    public $creatorId;
 
     /**
      * @var string
@@ -60,27 +60,27 @@ class object extends Model
     public $created;
 
     /**
-     * @var planToDo
-     */
-    public $planToDo;
-
-    /**
      * @var string
      */
     public $id;
+
+    /**
+     * @var planToDo
+     */
+    public $planToDo;
     protected $_name = [
         'status'       => 'Status',
-        'projectId'    => 'ProjectId',
-        'startDate'    => 'StartDate',
-        'creatorId'    => 'CreatorId',
         'accomplished' => 'Accomplished',
+        'projectId'    => 'ProjectId',
         'isDeleted'    => 'IsDeleted',
+        'startDate'    => 'StartDate',
         'updated'      => 'Updated',
+        'creatorId'    => 'CreatorId',
         'dueDate'      => 'DueDate',
         'name'         => 'Name',
         'created'      => 'Created',
-        'planToDo'     => 'PlanToDo',
         'id'           => 'Id',
+        'planToDo'     => 'PlanToDo',
     ];
 
     public function validate()
@@ -93,23 +93,23 @@ class object extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
-        if (null !== $this->creatorId) {
-            $res['CreatorId'] = $this->creatorId;
-        }
         if (null !== $this->accomplished) {
             $res['Accomplished'] = $this->accomplished;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->isDeleted) {
             $res['IsDeleted'] = $this->isDeleted;
         }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
+        }
         if (null !== $this->updated) {
             $res['Updated'] = $this->updated;
+        }
+        if (null !== $this->creatorId) {
+            $res['CreatorId'] = $this->creatorId;
         }
         if (null !== $this->dueDate) {
             $res['DueDate'] = $this->dueDate;
@@ -120,11 +120,11 @@ class object extends Model
         if (null !== $this->created) {
             $res['Created'] = $this->created;
         }
-        if (null !== $this->planToDo) {
-            $res['PlanToDo'] = null !== $this->planToDo ? $this->planToDo->toMap() : null;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->planToDo) {
+            $res['PlanToDo'] = null !== $this->planToDo ? $this->planToDo->toMap() : null;
         }
 
         return $res;
@@ -141,23 +141,23 @@ class object extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
-        if (isset($map['CreatorId'])) {
-            $model->creatorId = $map['CreatorId'];
-        }
         if (isset($map['Accomplished'])) {
             $model->accomplished = $map['Accomplished'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['IsDeleted'])) {
             $model->isDeleted = $map['IsDeleted'];
         }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
+        }
         if (isset($map['Updated'])) {
             $model->updated = $map['Updated'];
+        }
+        if (isset($map['CreatorId'])) {
+            $model->creatorId = $map['CreatorId'];
         }
         if (isset($map['DueDate'])) {
             $model->dueDate = $map['DueDate'];
@@ -168,11 +168,11 @@ class object extends Model
         if (isset($map['Created'])) {
             $model->created = $map['Created'];
         }
-        if (isset($map['PlanToDo'])) {
-            $model->planToDo = planToDo::fromMap($map['PlanToDo']);
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['PlanToDo'])) {
+            $model->planToDo = planToDo::fromMap($map['PlanToDo']);
         }
 
         return $model;

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetTaskDetailActivityResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $httpStatusCode;
@@ -25,9 +20,14 @@ class GetTaskDetailActivityResponseBody extends Model
     public $errorMsg;
 
     /**
-     * @var object[]
+     * @var string
      */
-    public $object;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $successful;
 
     /**
      * @var string
@@ -35,16 +35,16 @@ class GetTaskDetailActivityResponseBody extends Model
     public $errorCode;
 
     /**
-     * @var bool
+     * @var object[]
      */
-    public $successful;
+    public $object;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'httpStatusCode' => 'HttpStatusCode',
         'errorMsg'       => 'ErrorMsg',
-        'object'         => 'Object',
-        'errorCode'      => 'ErrorCode',
+        'requestId'      => 'RequestId',
         'successful'     => 'Successful',
+        'errorCode'      => 'ErrorCode',
+        'object'         => 'Object',
     ];
 
     public function validate()
@@ -54,14 +54,20 @@ class GetTaskDetailActivityResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->successful) {
+            $res['Successful'] = $this->successful;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->object) {
             $res['Object'] = [];
@@ -71,12 +77,6 @@ class GetTaskDetailActivityResponseBody extends Model
                     $res['Object'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->successful) {
-            $res['Successful'] = $this->successful;
         }
 
         return $res;
@@ -90,14 +90,20 @@ class GetTaskDetailActivityResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Successful'])) {
+            $model->successful = $map['Successful'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Object'])) {
             if (!empty($map['Object'])) {
@@ -107,12 +113,6 @@ class GetTaskDetailActivityResponseBody extends Model
                     $model->object[$n++] = null !== $item ? object::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['Successful'])) {
-            $model->successful = $map['Successful'];
         }
 
         return $model;

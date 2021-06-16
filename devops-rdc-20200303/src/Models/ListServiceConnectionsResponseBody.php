@@ -14,16 +14,6 @@ class ListServiceConnectionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var mixed[][]
-     */
-    public $object;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
      * @var string
      */
     public $errorMessage;
@@ -32,12 +22,22 @@ class ListServiceConnectionsResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var mixed[][]
+     */
+    public $object;
     protected $_name = [
         'requestId'    => 'RequestId',
-        'object'       => 'Object',
-        'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'success'      => 'Success',
+        'errorCode'    => 'ErrorCode',
+        'object'       => 'Object',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class ListServiceConnectionsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->object) {
-            $res['Object'] = $this->object;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->object) {
+            $res['Object'] = $this->object;
         }
 
         return $res;
@@ -77,19 +77,19 @@ class ListServiceConnectionsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Object'])) {
-            if (!empty($map['Object'])) {
-                $model->object = $map['Object'];
-            }
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['Object'])) {
+            if (!empty($map['Object'])) {
+                $model->object = $map['Object'];
+            }
         }
 
         return $model;

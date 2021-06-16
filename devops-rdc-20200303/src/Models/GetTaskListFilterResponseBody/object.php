@@ -15,18 +15,18 @@ class object extends Model
     public $nextPageToken;
 
     /**
-     * @var result[]
-     */
-    public $result;
-
-    /**
      * @var int
      */
     public $totalSize;
+
+    /**
+     * @var result[]
+     */
+    public $result;
     protected $_name = [
         'nextPageToken' => 'NextPageToken',
-        'result'        => 'Result',
         'totalSize'     => 'TotalSize',
+        'result'        => 'Result',
     ];
 
     public function validate()
@@ -39,6 +39,9 @@ class object extends Model
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
+        if (null !== $this->totalSize) {
+            $res['TotalSize'] = $this->totalSize;
+        }
         if (null !== $this->result) {
             $res['Result'] = [];
             if (null !== $this->result && \is_array($this->result)) {
@@ -47,9 +50,6 @@ class object extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->totalSize) {
-            $res['TotalSize'] = $this->totalSize;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class object extends Model
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
+        if (isset($map['TotalSize'])) {
+            $model->totalSize = $map['TotalSize'];
+        }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
@@ -74,9 +77,6 @@ class object extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['TotalSize'])) {
-            $model->totalSize = $map['TotalSize'];
         }
 
         return $model;

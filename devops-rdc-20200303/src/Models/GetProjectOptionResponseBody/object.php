@@ -17,9 +17,21 @@ class object extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $scopeName;
+
+    /**
+     * @var string
+     */
+    public $kind;
     protected $_name = [
-        'value' => 'Value',
-        'name'  => 'Name',
+        'value'     => 'Value',
+        'name'      => 'Name',
+        'scopeName' => 'ScopeName',
+        'kind'      => 'Kind',
     ];
 
     public function validate()
@@ -34,6 +46,12 @@ class object extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->scopeName) {
+            $res['ScopeName'] = $this->scopeName;
+        }
+        if (null !== $this->kind) {
+            $res['Kind'] = $this->kind;
         }
 
         return $res;
@@ -52,6 +70,12 @@ class object extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ScopeName'])) {
+            $model->scopeName = $map['ScopeName'];
+        }
+        if (isset($map['Kind'])) {
+            $model->kind = $map['Kind'];
         }
 
         return $model;

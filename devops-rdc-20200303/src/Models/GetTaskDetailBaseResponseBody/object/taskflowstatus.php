@@ -16,22 +16,22 @@ class taskflowstatus extends Model
     /**
      * @var string
      */
-    public $kind;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
      * @var string
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $kind;
     protected $_name = [
         'taskflowId' => 'TaskflowId',
-        'kind'       => 'Kind',
         'name'       => 'Name',
         'id'         => 'Id',
+        'kind'       => 'Kind',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class taskflowstatus extends Model
         if (null !== $this->taskflowId) {
             $res['TaskflowId'] = $this->taskflowId;
         }
-        if (null !== $this->kind) {
-            $res['Kind'] = $this->kind;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->kind) {
+            $res['Kind'] = $this->kind;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class taskflowstatus extends Model
         if (isset($map['TaskflowId'])) {
             $model->taskflowId = $map['TaskflowId'];
         }
-        if (isset($map['Kind'])) {
-            $model->kind = $map['Kind'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Kind'])) {
+            $model->kind = $map['Kind'];
         }
 
         return $model;

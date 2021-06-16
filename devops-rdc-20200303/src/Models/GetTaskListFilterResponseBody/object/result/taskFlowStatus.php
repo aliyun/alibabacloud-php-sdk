@@ -14,6 +14,11 @@ class taskFlowStatus extends Model
     public $taskFlowId;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $pos;
@@ -26,17 +31,12 @@ class taskFlowStatus extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $id;
     protected $_name = [
         'taskFlowId' => 'TaskFlowId',
+        'name'       => 'Name',
         'pos'        => 'Pos',
         'kind'       => 'Kind',
-        'name'       => 'Name',
         'id'         => 'Id',
     ];
 
@@ -50,14 +50,14 @@ class taskFlowStatus extends Model
         if (null !== $this->taskFlowId) {
             $res['TaskFlowId'] = $this->taskFlowId;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->pos) {
             $res['Pos'] = $this->pos;
         }
         if (null !== $this->kind) {
             $res['Kind'] = $this->kind;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -77,14 +77,14 @@ class taskFlowStatus extends Model
         if (isset($map['TaskFlowId'])) {
             $model->taskFlowId = $map['TaskFlowId'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Pos'])) {
             $model->pos = $map['Pos'];
         }
         if (isset($map['Kind'])) {
             $model->kind = $map['Kind'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

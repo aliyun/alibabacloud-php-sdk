@@ -21,22 +21,22 @@ class object extends Model
     /**
      * @var string
      */
+    public $startDate;
+
+    /**
+     * @var string
+     */
     public $storyPoint;
 
     /**
      * @var string
      */
-    public $startDate;
+    public $priority;
 
     /**
      * @var bool
      */
     public $isTopInProject;
-
-    /**
-     * @var string
-     */
-    public $priority;
 
     /**
      * @var string
@@ -56,12 +56,12 @@ class object extends Model
     /**
      * @var string
      */
-    public $tasklistId;
+    public $visible;
 
     /**
      * @var string
      */
-    public $visible;
+    public $tasklistId;
 
     /**
      * @var bool
@@ -94,11 +94,6 @@ class object extends Model
     public $updated;
 
     /**
-     * @var string[]
-     */
-    public $involveMembers;
-
-    /**
      * @var string
      */
     public $dueDate;
@@ -117,29 +112,34 @@ class object extends Model
      * @var string
      */
     public $id;
+
+    /**
+     * @var string[]
+     */
+    public $involveMembers;
     protected $_name = [
         'executorId'       => 'ExecutorId',
         'projectId'        => 'ProjectId',
-        'storyPoint'       => 'StoryPoint',
         'startDate'        => 'StartDate',
-        'isTopInProject'   => 'IsTopInProject',
+        'storyPoint'       => 'StoryPoint',
         'priority'         => 'Priority',
+        'isTopInProject'   => 'IsTopInProject',
         'creatorId'        => 'CreatorId',
         'organizationId'   => 'OrganizationId',
         'taskType'         => 'TaskType',
-        'tasklistId'       => 'TasklistId',
         'visible'          => 'Visible',
+        'tasklistId'       => 'TasklistId',
         'isDone'           => 'IsDone',
         'isDeleted'        => 'IsDeleted',
         'taskflowstatusId' => 'TaskflowstatusId',
         'note'             => 'Note',
         'sprintId'         => 'SprintId',
         'updated'          => 'Updated',
-        'involveMembers'   => 'InvolveMembers',
         'dueDate'          => 'DueDate',
         'created'          => 'Created',
         'content'          => 'Content',
         'id'               => 'Id',
+        'involveMembers'   => 'InvolveMembers',
     ];
 
     public function validate()
@@ -155,17 +155,17 @@ class object extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->storyPoint) {
-            $res['StoryPoint'] = $this->storyPoint;
-        }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
-        if (null !== $this->isTopInProject) {
-            $res['IsTopInProject'] = $this->isTopInProject;
+        if (null !== $this->storyPoint) {
+            $res['StoryPoint'] = $this->storyPoint;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->isTopInProject) {
+            $res['IsTopInProject'] = $this->isTopInProject;
         }
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
@@ -176,11 +176,11 @@ class object extends Model
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
-        if (null !== $this->tasklistId) {
-            $res['TasklistId'] = $this->tasklistId;
-        }
         if (null !== $this->visible) {
             $res['Visible'] = $this->visible;
+        }
+        if (null !== $this->tasklistId) {
+            $res['TasklistId'] = $this->tasklistId;
         }
         if (null !== $this->isDone) {
             $res['IsDone'] = $this->isDone;
@@ -200,9 +200,6 @@ class object extends Model
         if (null !== $this->updated) {
             $res['Updated'] = $this->updated;
         }
-        if (null !== $this->involveMembers) {
-            $res['InvolveMembers'] = $this->involveMembers;
-        }
         if (null !== $this->dueDate) {
             $res['DueDate'] = $this->dueDate;
         }
@@ -214,6 +211,9 @@ class object extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->involveMembers) {
+            $res['InvolveMembers'] = $this->involveMembers;
         }
 
         return $res;
@@ -233,17 +233,17 @@ class object extends Model
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['StoryPoint'])) {
-            $model->storyPoint = $map['StoryPoint'];
-        }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
-        if (isset($map['IsTopInProject'])) {
-            $model->isTopInProject = $map['IsTopInProject'];
+        if (isset($map['StoryPoint'])) {
+            $model->storyPoint = $map['StoryPoint'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+        if (isset($map['IsTopInProject'])) {
+            $model->isTopInProject = $map['IsTopInProject'];
         }
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
@@ -254,11 +254,11 @@ class object extends Model
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
-        if (isset($map['TasklistId'])) {
-            $model->tasklistId = $map['TasklistId'];
-        }
         if (isset($map['Visible'])) {
             $model->visible = $map['Visible'];
+        }
+        if (isset($map['TasklistId'])) {
+            $model->tasklistId = $map['TasklistId'];
         }
         if (isset($map['IsDone'])) {
             $model->isDone = $map['IsDone'];
@@ -278,11 +278,6 @@ class object extends Model
         if (isset($map['Updated'])) {
             $model->updated = $map['Updated'];
         }
-        if (isset($map['InvolveMembers'])) {
-            if (!empty($map['InvolveMembers'])) {
-                $model->involveMembers = $map['InvolveMembers'];
-            }
-        }
         if (isset($map['DueDate'])) {
             $model->dueDate = $map['DueDate'];
         }
@@ -294,6 +289,11 @@ class object extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['InvolveMembers'])) {
+            if (!empty($map['InvolveMembers'])) {
+                $model->involveMembers = $map['InvolveMembers'];
+            }
         }
 
         return $model;

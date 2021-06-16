@@ -81,12 +81,12 @@ class object extends Model
     /**
      * @var string
      */
-    public $startDate;
+    public $storyPoint;
 
     /**
      * @var string
      */
-    public $storyPoint;
+    public $startDate;
 
     /**
      * @var string
@@ -147,8 +147,8 @@ class object extends Model
         'content'               => 'Content',
         'rating'                => 'Rating',
         'pos'                   => 'Pos',
-        'startDate'             => 'StartDate',
         'storyPoint'            => 'StoryPoint',
+        'startDate'             => 'StartDate',
         'creatorId'             => 'CreatorId',
         'source'                => 'Source',
         'organizationId'        => 'OrganizationId',
@@ -209,11 +209,11 @@ class object extends Model
         if (null !== $this->pos) {
             $res['Pos'] = $this->pos;
         }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
         if (null !== $this->storyPoint) {
             $res['StoryPoint'] = $this->storyPoint;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
@@ -296,11 +296,11 @@ class object extends Model
         if (isset($map['Pos'])) {
             $model->pos = $map['Pos'];
         }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
         if (isset($map['StoryPoint'])) {
             $model->storyPoint = $map['StoryPoint'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];

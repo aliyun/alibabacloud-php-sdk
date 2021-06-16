@@ -12,17 +12,17 @@ class UpdateCommonGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $errorMsg;
 
     /**
      * @var string
      */
-    public $errorMsg;
+    public $requestId;
 
     /**
-     * @var object
+     * @var bool
      */
-    public $object;
+    public $successful;
 
     /**
      * @var string
@@ -30,15 +30,15 @@ class UpdateCommonGroupResponseBody extends Model
     public $errorCode;
 
     /**
-     * @var bool
+     * @var object
      */
-    public $successful;
+    public $object;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'errorMsg'   => 'ErrorMsg',
-        'object'     => 'Object',
-        'errorCode'  => 'ErrorCode',
+        'requestId'  => 'RequestId',
         'successful' => 'Successful',
+        'errorCode'  => 'ErrorCode',
+        'object'     => 'Object',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class UpdateCommonGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
-        if (null !== $this->object) {
-            $res['Object'] = null !== $this->object ? $this->object->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->successful) {
+            $res['Successful'] = $this->successful;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-        if (null !== $this->successful) {
-            $res['Successful'] = $this->successful;
+        if (null !== $this->object) {
+            $res['Object'] = null !== $this->object ? $this->object->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class UpdateCommonGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
-        if (isset($map['Object'])) {
-            $model->object = object::fromMap($map['Object']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Successful'])) {
+            $model->successful = $map['Successful'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-        if (isset($map['Successful'])) {
-            $model->successful = $map['Successful'];
+        if (isset($map['Object'])) {
+            $model->object = object::fromMap($map['Object']);
         }
 
         return $model;

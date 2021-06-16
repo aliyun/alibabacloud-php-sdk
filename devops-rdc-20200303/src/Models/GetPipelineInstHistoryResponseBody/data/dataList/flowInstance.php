@@ -21,11 +21,6 @@ class flowInstance extends Model
     public $stages;
 
     /**
-     * @var result
-     */
-    public $result;
-
-    /**
      * @var int
      */
     public $createTime;
@@ -43,22 +38,17 @@ class flowInstance extends Model
     /**
      * @var string
      */
-    public $stageTopo;
-
-    /**
-     * @var string
-     */
     public $creator;
 
     /**
      * @var string
      */
-    public $modifier;
+    public $stageTopo;
 
     /**
-     * @var groups[]
+     * @var string
      */
-    public $groups;
+    public $modifier;
 
     /**
      * @var bool
@@ -89,23 +79,33 @@ class flowInstance extends Model
      * @var string
      */
     public $systemId;
+
+    /**
+     * @var groups[]
+     */
+    public $groups;
+
+    /**
+     * @var result
+     */
+    public $result;
     protected $_name = [
         'status'           => 'Status',
         'stages'           => 'Stages',
-        'result'           => 'Result',
         'createTime'       => 'CreateTime',
         'statusName'       => 'StatusName',
         'runningStatus'    => 'RunningStatus',
-        'stageTopo'        => 'StageTopo',
         'creator'          => 'Creator',
+        'stageTopo'        => 'StageTopo',
         'modifier'         => 'Modifier',
-        'groups'           => 'Groups',
         'autoDrivenStatus' => 'AutoDrivenStatus',
         'resultStatus'     => 'ResultStatus',
         'id'               => 'Id',
         'systemCode'       => 'SystemCode',
         'modifyTime'       => 'ModifyTime',
         'systemId'         => 'SystemId',
+        'groups'           => 'Groups',
+        'result'           => 'Result',
     ];
 
     public function validate()
@@ -121,9 +121,6 @@ class flowInstance extends Model
         if (null !== $this->stages) {
             $res['Stages'] = $this->stages;
         }
-        if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -133,23 +130,14 @@ class flowInstance extends Model
         if (null !== $this->runningStatus) {
             $res['RunningStatus'] = $this->runningStatus;
         }
-        if (null !== $this->stageTopo) {
-            $res['StageTopo'] = $this->stageTopo;
-        }
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
+        if (null !== $this->stageTopo) {
+            $res['StageTopo'] = $this->stageTopo;
+        }
         if (null !== $this->modifier) {
             $res['Modifier'] = $this->modifier;
-        }
-        if (null !== $this->groups) {
-            $res['Groups'] = [];
-            if (null !== $this->groups && \is_array($this->groups)) {
-                $n = 0;
-                foreach ($this->groups as $item) {
-                    $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->autoDrivenStatus) {
             $res['AutoDrivenStatus'] = $this->autoDrivenStatus;
@@ -169,6 +157,18 @@ class flowInstance extends Model
         if (null !== $this->systemId) {
             $res['SystemId'] = $this->systemId;
         }
+        if (null !== $this->groups) {
+            $res['Groups'] = [];
+            if (null !== $this->groups && \is_array($this->groups)) {
+                $n = 0;
+                foreach ($this->groups as $item) {
+                    $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->result) {
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+        }
 
         return $res;
     }
@@ -187,9 +187,6 @@ class flowInstance extends Model
         if (isset($map['Stages'])) {
             $model->stages = $map['Stages'];
         }
-        if (isset($map['Result'])) {
-            $model->result = result::fromMap($map['Result']);
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -199,23 +196,14 @@ class flowInstance extends Model
         if (isset($map['RunningStatus'])) {
             $model->runningStatus = $map['RunningStatus'];
         }
-        if (isset($map['StageTopo'])) {
-            $model->stageTopo = $map['StageTopo'];
-        }
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
+        if (isset($map['StageTopo'])) {
+            $model->stageTopo = $map['StageTopo'];
+        }
         if (isset($map['Modifier'])) {
             $model->modifier = $map['Modifier'];
-        }
-        if (isset($map['Groups'])) {
-            if (!empty($map['Groups'])) {
-                $model->groups = [];
-                $n             = 0;
-                foreach ($map['Groups'] as $item) {
-                    $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['AutoDrivenStatus'])) {
             $model->autoDrivenStatus = $map['AutoDrivenStatus'];
@@ -234,6 +222,18 @@ class flowInstance extends Model
         }
         if (isset($map['SystemId'])) {
             $model->systemId = $map['SystemId'];
+        }
+        if (isset($map['Groups'])) {
+            if (!empty($map['Groups'])) {
+                $model->groups = [];
+                $n             = 0;
+                foreach ($map['Groups'] as $item) {
+                    $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Result'])) {
+            $model->result = result::fromMap($map['Result']);
         }
 
         return $model;

@@ -15,16 +15,6 @@ class GetPipelineLogResponseBody extends Model
     public $requestId;
 
     /**
-     * @var object[]
-     */
-    public $object;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
      * @var string
      */
     public $errorMessage;
@@ -33,12 +23,22 @@ class GetPipelineLogResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @var object[]
+     */
+    public $object;
     protected $_name = [
         'requestId'    => 'RequestId',
-        'object'       => 'Object',
-        'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'success'      => 'Success',
+        'errorCode'    => 'ErrorCode',
+        'object'       => 'Object',
     ];
 
     public function validate()
@@ -51,6 +51,15 @@ class GetPipelineLogResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
         if (null !== $this->object) {
             $res['Object'] = [];
             if (null !== $this->object && \is_array($this->object)) {
@@ -59,15 +68,6 @@ class GetPipelineLogResponseBody extends Model
                     $res['Object'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -84,6 +84,15 @@ class GetPipelineLogResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
         if (isset($map['Object'])) {
             if (!empty($map['Object'])) {
                 $model->object = [];
@@ -92,15 +101,6 @@ class GetPipelineLogResponseBody extends Model
                     $model->object[$n++] = null !== $item ? object::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

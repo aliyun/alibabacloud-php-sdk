@@ -11,12 +11,12 @@ class object extends Model
     /**
      * @var string
      */
-    public $action;
+    public $updated;
 
     /**
      * @var string
      */
-    public $updated;
+    public $action;
 
     /**
      * @var string
@@ -33,8 +33,8 @@ class object extends Model
      */
     public $content;
     protected $_name = [
-        'action'  => 'Action',
         'updated' => 'Updated',
+        'action'  => 'Action',
         'title'   => 'Title',
         'created' => 'Created',
         'content' => 'Content',
@@ -47,11 +47,11 @@ class object extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->action) {
-            $res['Action'] = $this->action;
-        }
         if (null !== $this->updated) {
             $res['Updated'] = $this->updated;
+        }
+        if (null !== $this->action) {
+            $res['Action'] = $this->action;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -74,11 +74,11 @@ class object extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Action'])) {
-            $model->action = $map['Action'];
-        }
         if (isset($map['Updated'])) {
             $model->updated = $map['Updated'];
+        }
+        if (isset($map['Action'])) {
+            $model->action = $map['Action'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

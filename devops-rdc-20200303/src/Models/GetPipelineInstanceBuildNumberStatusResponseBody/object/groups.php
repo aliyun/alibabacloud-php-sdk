@@ -15,18 +15,18 @@ class groups extends Model
     public $status;
 
     /**
-     * @var stages[]
-     */
-    public $stages;
-
-    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var stages[]
+     */
+    public $stages;
     protected $_name = [
         'status' => 'Status',
-        'stages' => 'Stages',
         'name'   => 'Name',
+        'stages' => 'Stages',
     ];
 
     public function validate()
@@ -39,6 +39,9 @@ class groups extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->stages) {
             $res['Stages'] = [];
             if (null !== $this->stages && \is_array($this->stages)) {
@@ -47,9 +50,6 @@ class groups extends Model
                     $res['Stages'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class groups extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Stages'])) {
             if (!empty($map['Stages'])) {
                 $model->stages = [];
@@ -74,9 +77,6 @@ class groups extends Model
                     $model->stages[$n++] = null !== $item ? stages::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

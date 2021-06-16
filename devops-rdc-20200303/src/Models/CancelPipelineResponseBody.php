@@ -14,6 +14,11 @@ class CancelPipelineResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @var bool
      */
     public $object;
@@ -24,19 +29,14 @@ class CancelPipelineResponseBody extends Model
     public $errorCode;
 
     /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'requestId'    => 'RequestId',
+        'errorMessage' => 'ErrorMessage',
         'object'       => 'Object',
         'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
         'success'      => 'Success',
     ];
 
@@ -50,14 +50,14 @@ class CancelPipelineResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->object) {
             $res['Object'] = $this->object;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -77,14 +77,14 @@ class CancelPipelineResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['Object'])) {
             $model->object = $map['Object'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

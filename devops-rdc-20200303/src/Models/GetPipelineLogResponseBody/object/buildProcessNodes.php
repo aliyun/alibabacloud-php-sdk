@@ -14,18 +14,18 @@ class buildProcessNodes extends Model
     public $status;
 
     /**
-     * @var string
-     */
-    public $nodeName;
-
-    /**
      * @var int
      */
     public $nodeIndex;
+
+    /**
+     * @var string
+     */
+    public $nodeName;
     protected $_name = [
         'status'    => 'Status',
-        'nodeName'  => 'NodeName',
         'nodeIndex' => 'NodeIndex',
+        'nodeName'  => 'NodeName',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class buildProcessNodes extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->nodeName) {
-            $res['NodeName'] = $this->nodeName;
-        }
         if (null !== $this->nodeIndex) {
             $res['NodeIndex'] = $this->nodeIndex;
+        }
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class buildProcessNodes extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['NodeName'])) {
-            $model->nodeName = $map['NodeName'];
-        }
         if (isset($map['NodeIndex'])) {
             $model->nodeIndex = $map['NodeIndex'];
+        }
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
         }
 
         return $model;

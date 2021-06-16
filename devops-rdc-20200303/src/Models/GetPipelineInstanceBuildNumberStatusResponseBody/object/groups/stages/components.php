@@ -14,18 +14,18 @@ class components extends Model
     public $status;
 
     /**
-     * @var int
-     */
-    public $jobId;
-
-    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $jobId;
     protected $_name = [
         'status' => 'Status',
-        'jobId'  => 'JobId',
         'name'   => 'Name',
+        'jobId'  => 'JobId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class components extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class components extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         return $model;
