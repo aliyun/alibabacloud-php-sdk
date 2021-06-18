@@ -36,6 +36,11 @@ class policies extends Model
     /**
      * @var string
      */
+    public $policyRegionId;
+
+    /**
+     * @var string
+     */
     public $clientStatus;
 
     /**
@@ -56,12 +61,17 @@ class policies extends Model
     /**
      * @var string[]
      */
-    public $uuidList;
+    public $clientErrorUuidList;
 
     /**
      * @var string[]
      */
-    public $clientErrorUuidList;
+    public $remarkedUuidList;
+
+    /**
+     * @var string[]
+     */
+    public $uuidList;
 
     /**
      * @var string[]
@@ -78,12 +88,14 @@ class policies extends Model
         'policyVersion'        => 'PolicyVersion',
         'policy'               => 'Policy',
         'serviceErrorCount'    => 'ServiceErrorCount',
+        'policyRegionId'       => 'PolicyRegionId',
         'clientStatus'         => 'ClientStatus',
         'name'                 => 'Name',
         'healthClientCount'    => 'HealthClientCount',
         'id'                   => 'Id',
-        'uuidList'             => 'UuidList',
         'clientErrorUuidList'  => 'ClientErrorUuidList',
+        'remarkedUuidList'     => 'RemarkedUuidList',
+        'uuidList'             => 'UuidList',
         'serviceErrorUuidList' => 'ServiceErrorUuidList',
         'healthClientUuidList' => 'HealthClientUuidList',
     ];
@@ -110,6 +122,9 @@ class policies extends Model
         if (null !== $this->serviceErrorCount) {
             $res['ServiceErrorCount'] = $this->serviceErrorCount;
         }
+        if (null !== $this->policyRegionId) {
+            $res['PolicyRegionId'] = $this->policyRegionId;
+        }
         if (null !== $this->clientStatus) {
             $res['ClientStatus'] = $this->clientStatus;
         }
@@ -122,11 +137,14 @@ class policies extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->uuidList) {
-            $res['UuidList'] = $this->uuidList;
-        }
         if (null !== $this->clientErrorUuidList) {
             $res['ClientErrorUuidList'] = $this->clientErrorUuidList;
+        }
+        if (null !== $this->remarkedUuidList) {
+            $res['RemarkedUuidList'] = $this->remarkedUuidList;
+        }
+        if (null !== $this->uuidList) {
+            $res['UuidList'] = $this->uuidList;
         }
         if (null !== $this->serviceErrorUuidList) {
             $res['ServiceErrorUuidList'] = $this->serviceErrorUuidList;
@@ -161,6 +179,9 @@ class policies extends Model
         if (isset($map['ServiceErrorCount'])) {
             $model->serviceErrorCount = $map['ServiceErrorCount'];
         }
+        if (isset($map['PolicyRegionId'])) {
+            $model->policyRegionId = $map['PolicyRegionId'];
+        }
         if (isset($map['ClientStatus'])) {
             $model->clientStatus = $map['ClientStatus'];
         }
@@ -173,14 +194,19 @@ class policies extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['UuidList'])) {
-            if (!empty($map['UuidList'])) {
-                $model->uuidList = $map['UuidList'];
-            }
-        }
         if (isset($map['ClientErrorUuidList'])) {
             if (!empty($map['ClientErrorUuidList'])) {
                 $model->clientErrorUuidList = $map['ClientErrorUuidList'];
+            }
+        }
+        if (isset($map['RemarkedUuidList'])) {
+            if (!empty($map['RemarkedUuidList'])) {
+                $model->remarkedUuidList = $map['RemarkedUuidList'];
+            }
+        }
+        if (isset($map['UuidList'])) {
+            if (!empty($map['UuidList'])) {
+                $model->uuidList = $map['UuidList'];
             }
         }
         if (isset($map['ServiceErrorUuidList'])) {

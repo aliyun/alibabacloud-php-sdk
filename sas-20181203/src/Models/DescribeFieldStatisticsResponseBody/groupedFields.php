@@ -36,7 +36,17 @@ class groupedFields extends Model
     /**
      * @var int
      */
+    public $tencentInstanceCount;
+
+    /**
+     * @var int
+     */
     public $generalAssetCount;
+
+    /**
+     * @var int
+     */
+    public $instanceSyncTaskCount;
 
     /**
      * @var int
@@ -56,17 +66,27 @@ class groupedFields extends Model
     /**
      * @var int
      */
-    public $instanceCount;
-
-    /**
-     * @var int
-     */
     public $vpcCount;
 
     /**
      * @var int
      */
+    public $instanceCount;
+
+    /**
+     * @var int
+     */
+    public $idcInstanceCount;
+
+    /**
+     * @var int
+     */
     public $notRunningStatusCount;
+
+    /**
+     * @var int
+     */
+    public $aliYunInstanceCount;
 
     /**
      * @var int
@@ -78,13 +98,17 @@ class groupedFields extends Model
         'newInstanceCount'         => 'NewInstanceCount',
         'exposedInstanceCount'     => 'ExposedInstanceCount',
         'groupCount'               => 'GroupCount',
+        'tencentInstanceCount'     => 'TencentInstanceCount',
         'generalAssetCount'        => 'GeneralAssetCount',
+        'instanceSyncTaskCount'    => 'InstanceSyncTaskCount',
         'unprotectedInstanceCount' => 'UnprotectedInstanceCount',
         'importantAssetCount'      => 'ImportantAssetCount',
         'testAssetCount'           => 'TestAssetCount',
-        'instanceCount'            => 'InstanceCount',
         'vpcCount'                 => 'VpcCount',
+        'instanceCount'            => 'InstanceCount',
+        'idcInstanceCount'         => 'IdcInstanceCount',
         'notRunningStatusCount'    => 'NotRunningStatusCount',
+        'aliYunInstanceCount'      => 'AliYunInstanceCount',
         'riskInstanceCount'        => 'RiskInstanceCount',
     ];
 
@@ -110,8 +134,14 @@ class groupedFields extends Model
         if (null !== $this->groupCount) {
             $res['GroupCount'] = $this->groupCount;
         }
+        if (null !== $this->tencentInstanceCount) {
+            $res['TencentInstanceCount'] = $this->tencentInstanceCount;
+        }
         if (null !== $this->generalAssetCount) {
             $res['GeneralAssetCount'] = $this->generalAssetCount;
+        }
+        if (null !== $this->instanceSyncTaskCount) {
+            $res['InstanceSyncTaskCount'] = $this->instanceSyncTaskCount;
         }
         if (null !== $this->unprotectedInstanceCount) {
             $res['UnprotectedInstanceCount'] = $this->unprotectedInstanceCount;
@@ -122,14 +152,20 @@ class groupedFields extends Model
         if (null !== $this->testAssetCount) {
             $res['TestAssetCount'] = $this->testAssetCount;
         }
-        if (null !== $this->instanceCount) {
-            $res['InstanceCount'] = $this->instanceCount;
-        }
         if (null !== $this->vpcCount) {
             $res['VpcCount'] = $this->vpcCount;
         }
+        if (null !== $this->instanceCount) {
+            $res['InstanceCount'] = $this->instanceCount;
+        }
+        if (null !== $this->idcInstanceCount) {
+            $res['IdcInstanceCount'] = $this->idcInstanceCount;
+        }
         if (null !== $this->notRunningStatusCount) {
             $res['NotRunningStatusCount'] = $this->notRunningStatusCount;
+        }
+        if (null !== $this->aliYunInstanceCount) {
+            $res['AliYunInstanceCount'] = $this->aliYunInstanceCount;
         }
         if (null !== $this->riskInstanceCount) {
             $res['RiskInstanceCount'] = $this->riskInstanceCount;
@@ -161,8 +197,14 @@ class groupedFields extends Model
         if (isset($map['GroupCount'])) {
             $model->groupCount = $map['GroupCount'];
         }
+        if (isset($map['TencentInstanceCount'])) {
+            $model->tencentInstanceCount = $map['TencentInstanceCount'];
+        }
         if (isset($map['GeneralAssetCount'])) {
             $model->generalAssetCount = $map['GeneralAssetCount'];
+        }
+        if (isset($map['InstanceSyncTaskCount'])) {
+            $model->instanceSyncTaskCount = $map['InstanceSyncTaskCount'];
         }
         if (isset($map['UnprotectedInstanceCount'])) {
             $model->unprotectedInstanceCount = $map['UnprotectedInstanceCount'];
@@ -173,14 +215,20 @@ class groupedFields extends Model
         if (isset($map['TestAssetCount'])) {
             $model->testAssetCount = $map['TestAssetCount'];
         }
-        if (isset($map['InstanceCount'])) {
-            $model->instanceCount = $map['InstanceCount'];
-        }
         if (isset($map['VpcCount'])) {
             $model->vpcCount = $map['VpcCount'];
         }
+        if (isset($map['InstanceCount'])) {
+            $model->instanceCount = $map['InstanceCount'];
+        }
+        if (isset($map['IdcInstanceCount'])) {
+            $model->idcInstanceCount = $map['IdcInstanceCount'];
+        }
         if (isset($map['NotRunningStatusCount'])) {
             $model->notRunningStatusCount = $map['NotRunningStatusCount'];
+        }
+        if (isset($map['AliYunInstanceCount'])) {
+            $model->aliYunInstanceCount = $map['AliYunInstanceCount'];
         }
         if (isset($map['RiskInstanceCount'])) {
             $model->riskInstanceCount = $map['RiskInstanceCount'];

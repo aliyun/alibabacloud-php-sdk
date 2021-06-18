@@ -39,6 +39,11 @@ class ModifyBackupPolicyShrinkRequest extends Model
     public $policyVersion;
 
     /**
+     * @var string
+     */
+    public $policyRegionId;
+
+    /**
      * @var string[]
      */
     public $uuidList;
@@ -49,6 +54,7 @@ class ModifyBackupPolicyShrinkRequest extends Model
         'name'            => 'Name',
         'policyShrink'    => 'Policy',
         'policyVersion'   => 'PolicyVersion',
+        'policyRegionId'  => 'PolicyRegionId',
         'uuidList'        => 'UuidList',
     ];
 
@@ -76,6 +82,9 @@ class ModifyBackupPolicyShrinkRequest extends Model
         }
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
+        }
+        if (null !== $this->policyRegionId) {
+            $res['PolicyRegionId'] = $this->policyRegionId;
         }
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
@@ -109,6 +118,9 @@ class ModifyBackupPolicyShrinkRequest extends Model
         }
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
+        }
+        if (isset($map['PolicyRegionId'])) {
+            $model->policyRegionId = $map['PolicyRegionId'];
         }
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {

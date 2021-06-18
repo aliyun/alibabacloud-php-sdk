@@ -31,12 +31,12 @@ class CreateBackupPolicyRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $policyVersion;
 
     /**
      * @var string
      */
-    public $policyVersion;
+    public $policyRegionId;
 
     /**
      * @var string[]
@@ -47,8 +47,8 @@ class CreateBackupPolicyRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
         'name'            => 'Name',
         'policy'          => 'Policy',
-        'status'          => 'Status',
         'policyVersion'   => 'PolicyVersion',
+        'policyRegionId'  => 'PolicyRegionId',
         'uuidList'        => 'UuidList',
     ];
 
@@ -71,11 +71,11 @@ class CreateBackupPolicyRequest extends Model
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
+        }
+        if (null !== $this->policyRegionId) {
+            $res['PolicyRegionId'] = $this->policyRegionId;
         }
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
@@ -104,11 +104,11 @@ class CreateBackupPolicyRequest extends Model
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
+        }
+        if (isset($map['PolicyRegionId'])) {
+            $model->policyRegionId = $map['PolicyRegionId'];
         }
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {

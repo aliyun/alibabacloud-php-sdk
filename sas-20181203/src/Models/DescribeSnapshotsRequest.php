@@ -57,6 +57,11 @@ class DescribeSnapshotsRequest extends Model
      * @var string
      */
     public $apiVersion;
+
+    /**
+     * @var string
+     */
+    public $isAliYunEcs;
     protected $_name = [
         'sourceIp'        => 'SourceIp',
         'resourceOwnerId' => 'ResourceOwnerId',
@@ -68,6 +73,7 @@ class DescribeSnapshotsRequest extends Model
         'currentPage'     => 'CurrentPage',
         'nextToken'       => 'NextToken',
         'apiVersion'      => 'ApiVersion',
+        'isAliYunEcs'     => 'IsAliYunEcs',
     ];
 
     public function validate()
@@ -106,6 +112,9 @@ class DescribeSnapshotsRequest extends Model
         }
         if (null !== $this->apiVersion) {
             $res['ApiVersion'] = $this->apiVersion;
+        }
+        if (null !== $this->isAliYunEcs) {
+            $res['IsAliYunEcs'] = $this->isAliYunEcs;
         }
 
         return $res;
@@ -148,6 +157,9 @@ class DescribeSnapshotsRequest extends Model
         }
         if (isset($map['ApiVersion'])) {
             $model->apiVersion = $map['ApiVersion'];
+        }
+        if (isset($map['IsAliYunEcs'])) {
+            $model->isAliYunEcs = $map['IsAliYunEcs'];
         }
 
         return $model;

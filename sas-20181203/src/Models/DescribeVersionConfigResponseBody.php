@@ -11,6 +11,11 @@ class DescribeVersionConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $MVAuthCount;
+
+    /**
+     * @var int
+     */
     public $sasLog;
 
     /**
@@ -22,6 +27,11 @@ class DescribeVersionConfigResponseBody extends Model
      * @var int
      */
     public $honeypotCapacity;
+
+    /**
+     * @var int
+     */
+    public $MVUnusedAuthCount;
 
     /**
      * @var int
@@ -61,6 +71,11 @@ class DescribeVersionConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $highestVersion;
+
+    /**
+     * @var int
+     */
     public $assetLevel;
 
     /**
@@ -86,6 +101,11 @@ class DescribeVersionConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $allowPartialBuy;
+
+    /**
+     * @var int
+     */
     public $appWhiteList;
 
     /**
@@ -103,9 +123,11 @@ class DescribeVersionConfigResponseBody extends Model
      */
     public $userDefinedAlarms;
     protected $_name = [
+        'MVAuthCount'           => 'MVAuthCount',
         'sasLog'                => 'SasLog',
         'sasScreen'             => 'SasScreen',
         'honeypotCapacity'      => 'HoneypotCapacity',
+        'MVUnusedAuthCount'     => 'MVUnusedAuthCount',
         'webLock'               => 'WebLock',
         'appWhiteListAuthCount' => 'AppWhiteListAuthCount',
         'requestId'             => 'RequestId',
@@ -113,11 +135,13 @@ class DescribeVersionConfigResponseBody extends Model
         'version'               => 'Version',
         'webLockAuthCount'      => 'WebLockAuthCount',
         'releaseTime'           => 'ReleaseTime',
+        'highestVersion'        => 'HighestVersion',
         'assetLevel'            => 'AssetLevel',
         'isOverBalance'         => 'IsOverBalance',
         'instanceId'            => 'InstanceId',
         'slsCapacity'           => 'SlsCapacity',
         'vmCores'               => 'VmCores',
+        'allowPartialBuy'       => 'AllowPartialBuy',
         'appWhiteList'          => 'AppWhiteList',
         'imageScanCapacity'     => 'ImageScanCapacity',
         'isTrialVersion'        => 'IsTrialVersion',
@@ -131,6 +155,9 @@ class DescribeVersionConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->MVAuthCount) {
+            $res['MVAuthCount'] = $this->MVAuthCount;
+        }
         if (null !== $this->sasLog) {
             $res['SasLog'] = $this->sasLog;
         }
@@ -139,6 +166,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (null !== $this->honeypotCapacity) {
             $res['HoneypotCapacity'] = $this->honeypotCapacity;
+        }
+        if (null !== $this->MVUnusedAuthCount) {
+            $res['MVUnusedAuthCount'] = $this->MVUnusedAuthCount;
         }
         if (null !== $this->webLock) {
             $res['WebLock'] = $this->webLock;
@@ -161,6 +191,9 @@ class DescribeVersionConfigResponseBody extends Model
         if (null !== $this->releaseTime) {
             $res['ReleaseTime'] = $this->releaseTime;
         }
+        if (null !== $this->highestVersion) {
+            $res['HighestVersion'] = $this->highestVersion;
+        }
         if (null !== $this->assetLevel) {
             $res['AssetLevel'] = $this->assetLevel;
         }
@@ -175,6 +208,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (null !== $this->vmCores) {
             $res['VmCores'] = $this->vmCores;
+        }
+        if (null !== $this->allowPartialBuy) {
+            $res['AllowPartialBuy'] = $this->allowPartialBuy;
         }
         if (null !== $this->appWhiteList) {
             $res['AppWhiteList'] = $this->appWhiteList;
@@ -200,6 +236,9 @@ class DescribeVersionConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MVAuthCount'])) {
+            $model->MVAuthCount = $map['MVAuthCount'];
+        }
         if (isset($map['SasLog'])) {
             $model->sasLog = $map['SasLog'];
         }
@@ -208,6 +247,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (isset($map['HoneypotCapacity'])) {
             $model->honeypotCapacity = $map['HoneypotCapacity'];
+        }
+        if (isset($map['MVUnusedAuthCount'])) {
+            $model->MVUnusedAuthCount = $map['MVUnusedAuthCount'];
         }
         if (isset($map['WebLock'])) {
             $model->webLock = $map['WebLock'];
@@ -230,6 +272,9 @@ class DescribeVersionConfigResponseBody extends Model
         if (isset($map['ReleaseTime'])) {
             $model->releaseTime = $map['ReleaseTime'];
         }
+        if (isset($map['HighestVersion'])) {
+            $model->highestVersion = $map['HighestVersion'];
+        }
         if (isset($map['AssetLevel'])) {
             $model->assetLevel = $map['AssetLevel'];
         }
@@ -244,6 +289,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (isset($map['VmCores'])) {
             $model->vmCores = $map['VmCores'];
+        }
+        if (isset($map['AllowPartialBuy'])) {
+            $model->allowPartialBuy = $map['AllowPartialBuy'];
         }
         if (isset($map['AppWhiteList'])) {
             $model->appWhiteList = $map['AppWhiteList'];

@@ -34,6 +34,11 @@ class assetDetail extends Model
     public $kernel;
 
     /**
+     * @var bool
+     */
+    public $bind;
+
+    /**
      * @var string
      */
     public $osName;
@@ -57,6 +62,11 @@ class assetDetail extends Model
      * @var string
      */
     public $vpcInstanceId;
+
+    /**
+     * @var int
+     */
+    public $authVersion;
 
     /**
      * @var string
@@ -87,6 +97,11 @@ class assetDetail extends Model
      * @var string
      */
     public $os;
+
+    /**
+     * @var int
+     */
+    public $authModifyTime;
 
     /**
      * @var string
@@ -143,33 +158,36 @@ class assetDetail extends Model
      */
     public $diskInfoList;
     protected $_name = [
-        'cpuInfo'       => 'CpuInfo',
-        'internetIp'    => 'InternetIp',
-        'osDetail'      => 'OsDetail',
-        'createTime'    => 'CreateTime',
-        'kernel'        => 'Kernel',
-        'osName'        => 'OsName',
-        'tag'           => 'Tag',
-        'clientStatus'  => 'ClientStatus',
-        'mem'           => 'Mem',
-        'vpcInstanceId' => 'VpcInstanceId',
-        'instanceName'  => 'InstanceName',
-        'region'        => 'Region',
-        'groupTrace'    => 'GroupTrace',
-        'ip'            => 'Ip',
-        'hostName'      => 'HostName',
-        'os'            => 'Os',
-        'instanceId'    => 'InstanceId',
-        'intranetIp'    => 'IntranetIp',
-        'assetType'     => 'AssetType',
-        'regionId'      => 'RegionId',
-        'sysInfo'       => 'SysInfo',
-        'uuid'          => 'Uuid',
-        'cpu'           => 'Cpu',
-        'regionName'    => 'RegionName',
-        'ipList'        => 'IpList',
-        'macList'       => 'MacList',
-        'diskInfoList'  => 'DiskInfoList',
+        'cpuInfo'        => 'CpuInfo',
+        'internetIp'     => 'InternetIp',
+        'osDetail'       => 'OsDetail',
+        'createTime'     => 'CreateTime',
+        'kernel'         => 'Kernel',
+        'bind'           => 'Bind',
+        'osName'         => 'OsName',
+        'tag'            => 'Tag',
+        'clientStatus'   => 'ClientStatus',
+        'mem'            => 'Mem',
+        'vpcInstanceId'  => 'VpcInstanceId',
+        'authVersion'    => 'AuthVersion',
+        'instanceName'   => 'InstanceName',
+        'region'         => 'Region',
+        'groupTrace'     => 'GroupTrace',
+        'ip'             => 'Ip',
+        'hostName'       => 'HostName',
+        'os'             => 'Os',
+        'authModifyTime' => 'AuthModifyTime',
+        'instanceId'     => 'InstanceId',
+        'intranetIp'     => 'IntranetIp',
+        'assetType'      => 'AssetType',
+        'regionId'       => 'RegionId',
+        'sysInfo'        => 'SysInfo',
+        'uuid'           => 'Uuid',
+        'cpu'            => 'Cpu',
+        'regionName'     => 'RegionName',
+        'ipList'         => 'IpList',
+        'macList'        => 'MacList',
+        'diskInfoList'   => 'DiskInfoList',
     ];
 
     public function validate()
@@ -194,6 +212,9 @@ class assetDetail extends Model
         if (null !== $this->kernel) {
             $res['Kernel'] = $this->kernel;
         }
+        if (null !== $this->bind) {
+            $res['Bind'] = $this->bind;
+        }
         if (null !== $this->osName) {
             $res['OsName'] = $this->osName;
         }
@@ -208,6 +229,9 @@ class assetDetail extends Model
         }
         if (null !== $this->vpcInstanceId) {
             $res['VpcInstanceId'] = $this->vpcInstanceId;
+        }
+        if (null !== $this->authVersion) {
+            $res['AuthVersion'] = $this->authVersion;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -226,6 +250,9 @@ class assetDetail extends Model
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
+        }
+        if (null !== $this->authModifyTime) {
+            $res['AuthModifyTime'] = $this->authModifyTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -287,6 +314,9 @@ class assetDetail extends Model
         if (isset($map['Kernel'])) {
             $model->kernel = $map['Kernel'];
         }
+        if (isset($map['Bind'])) {
+            $model->bind = $map['Bind'];
+        }
         if (isset($map['OsName'])) {
             $model->osName = $map['OsName'];
         }
@@ -301,6 +331,9 @@ class assetDetail extends Model
         }
         if (isset($map['VpcInstanceId'])) {
             $model->vpcInstanceId = $map['VpcInstanceId'];
+        }
+        if (isset($map['AuthVersion'])) {
+            $model->authVersion = $map['AuthVersion'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
@@ -319,6 +352,9 @@ class assetDetail extends Model
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
+        }
+        if (isset($map['AuthModifyTime'])) {
+            $model->authModifyTime = $map['AuthModifyTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

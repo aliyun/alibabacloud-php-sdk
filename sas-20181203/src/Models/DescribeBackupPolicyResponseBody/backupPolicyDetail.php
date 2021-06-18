@@ -16,6 +16,11 @@ class backupPolicyDetail extends Model
     /**
      * @var string
      */
+    public $policyVersion;
+
+    /**
+     * @var string
+     */
     public $policy;
 
     /**
@@ -34,16 +39,23 @@ class backupPolicyDetail extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'status'       => 'Status',
-        'policy'       => 'Policy',
-        'clientStatus' => 'ClientStatus',
-        'name'         => 'Name',
-        'id'           => 'Id',
-        'uuidList'     => 'UuidList',
+        'status'        => 'Status',
+        'policyVersion' => 'PolicyVersion',
+        'policy'        => 'Policy',
+        'clientStatus'  => 'ClientStatus',
+        'name'          => 'Name',
+        'id'            => 'Id',
+        'regionId'      => 'RegionId',
+        'uuidList'      => 'UuidList',
     ];
 
     public function validate()
@@ -56,6 +68,9 @@ class backupPolicyDetail extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->policyVersion) {
+            $res['PolicyVersion'] = $this->policyVersion;
+        }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
@@ -67,6 +82,9 @@ class backupPolicyDetail extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
@@ -86,6 +104,9 @@ class backupPolicyDetail extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['PolicyVersion'])) {
+            $model->policyVersion = $map['PolicyVersion'];
+        }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
@@ -97,6 +118,9 @@ class backupPolicyDetail extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {

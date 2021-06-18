@@ -26,6 +26,11 @@ class DescribeBackupPoliciesRequest extends Model
     /**
      * @var string
      */
+    public $machineRemark;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -41,6 +46,7 @@ class DescribeBackupPoliciesRequest extends Model
         'sourceIp'        => 'SourceIp',
         'resourceOwnerId' => 'ResourceOwnerId',
         'name'            => 'Name',
+        'machineRemark'   => 'MachineRemark',
         'status'          => 'Status',
         'pageSize'        => 'PageSize',
         'currentPage'     => 'CurrentPage',
@@ -61,6 +67,9 @@ class DescribeBackupPoliciesRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->machineRemark) {
+            $res['MachineRemark'] = $this->machineRemark;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -91,6 +100,9 @@ class DescribeBackupPoliciesRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['MachineRemark'])) {
+            $model->machineRemark = $map['MachineRemark'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

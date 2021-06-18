@@ -64,6 +64,11 @@ class assetList extends Model
     public $uuid;
 
     /**
+     * @var int
+     */
+    public $flag;
+
+    /**
      * @var string
      */
     public $regionName;
@@ -89,6 +94,7 @@ class assetList extends Model
         'assetType'     => 'AssetType',
         'regionId'      => 'RegionId',
         'uuid'          => 'Uuid',
+        'flag'          => 'Flag',
         'regionName'    => 'RegionName',
         'instanceName'  => 'InstanceName',
         'region'        => 'Region',
@@ -133,6 +139,9 @@ class assetList extends Model
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
+        }
+        if (null !== $this->flag) {
+            $res['Flag'] = $this->flag;
         }
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
@@ -187,6 +196,9 @@ class assetList extends Model
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
+        }
+        if (isset($map['Flag'])) {
+            $model->flag = $map['Flag'];
         }
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];

@@ -26,11 +26,6 @@ class CreateRestoreJobRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $snapshotId;
 
     /**
@@ -46,12 +41,17 @@ class CreateRestoreJobRequest extends Model
     /**
      * @var string
      */
-    public $snapshotVersion;
+    public $sourceType;
 
     /**
      * @var string
      */
-    public $policyVersion;
+    public $vaultId;
+
+    /**
+     * @var string
+     */
+    public $snapshotVersion;
 
     /**
      * @var string
@@ -61,12 +61,12 @@ class CreateRestoreJobRequest extends Model
         'sourceIp'        => 'SourceIp',
         'resourceOwnerId' => 'ResourceOwnerId',
         'uuid'            => 'Uuid',
-        'instanceId'      => 'InstanceId',
         'snapshotId'      => 'SnapshotId',
         'snapshotHash'    => 'SnapshotHash',
         'target'          => 'Target',
+        'sourceType'      => 'SourceType',
+        'vaultId'         => 'VaultId',
         'snapshotVersion' => 'SnapshotVersion',
-        'policyVersion'   => 'PolicyVersion',
         'includes'        => 'Includes',
     ];
 
@@ -86,9 +86,6 @@ class CreateRestoreJobRequest extends Model
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
@@ -98,11 +95,14 @@ class CreateRestoreJobRequest extends Model
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->vaultId) {
+            $res['VaultId'] = $this->vaultId;
+        }
         if (null !== $this->snapshotVersion) {
             $res['SnapshotVersion'] = $this->snapshotVersion;
-        }
-        if (null !== $this->policyVersion) {
-            $res['PolicyVersion'] = $this->policyVersion;
         }
         if (null !== $this->includes) {
             $res['Includes'] = $this->includes;
@@ -128,9 +128,6 @@ class CreateRestoreJobRequest extends Model
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }
@@ -140,11 +137,14 @@ class CreateRestoreJobRequest extends Model
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['VaultId'])) {
+            $model->vaultId = $map['VaultId'];
+        }
         if (isset($map['SnapshotVersion'])) {
             $model->snapshotVersion = $map['SnapshotVersion'];
-        }
-        if (isset($map['PolicyVersion'])) {
-            $model->policyVersion = $map['PolicyVersion'];
         }
         if (isset($map['Includes'])) {
             $model->includes = $map['Includes'];

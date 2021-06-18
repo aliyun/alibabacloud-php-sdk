@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CheckSecurityEventIdRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckSecurityEventIdResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAssetRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAssetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyShrinkRequest;
@@ -26,6 +28,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSasOrderResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAssetRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAssetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyRequest;
@@ -34,6 +38,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteGroupResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteLoginBaseConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteLoginBaseConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteStrategyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotRequest;
@@ -60,6 +66,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAutoDelConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupClientsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupClientsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupDirsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupDirsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupFilesRequest;
@@ -137,6 +145,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotSuspStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotSuspStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageGroupedVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageGroupedVulListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageScanAuthCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListResponse;
@@ -216,6 +225,12 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSnapshotsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSnapshotsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyExecDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyExecDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyProcessRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyProcessResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyTargetRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSummaryInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSummaryInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSupportRegionRequest;
@@ -254,6 +269,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockBindListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockBindListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockConfigListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockConfigListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExecStrategyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExecStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsRequest;
@@ -264,6 +281,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetIncIOCsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetIncIOCsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetIOCsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetIOCsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetLocalInstallScriptRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetLocalInstallScriptResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetLocalUninstallScriptRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetLocalUninstallScriptResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVulStatisticsRequest;
@@ -313,6 +334,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySecurityCheckScheduleConfigReque
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifySecurityCheckScheduleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStartVulScanRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStartVulScanResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStrategyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStrategyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStrategyTargetRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStrategyTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyTagWithUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyTagWithUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyVpcHoneyPotRequest;
@@ -371,61 +396,61 @@ class Sas extends OpenApiClient
         $this->_endpointMap  = [
             'cn-hangzhou'                 => 'tds.aliyuncs.com',
             'ap-southeast-3'              => 'tds.ap-southeast-3.aliyuncs.com',
-            'ap-northeast-1'              => 'sas.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'sas.aliyuncs.com',
-            'ap-south-1'                  => 'sas.aliyuncs.com',
-            'ap-southeast-1'              => 'sas.aliyuncs.com',
-            'ap-southeast-2'              => 'sas.aliyuncs.com',
-            'ap-southeast-5'              => 'sas.aliyuncs.com',
-            'cn-beijing'                  => 'sas.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'sas.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'sas.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'sas.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'sas.aliyuncs.com',
-            'cn-chengdu'                  => 'sas.aliyuncs.com',
-            'cn-edge-1'                   => 'sas.aliyuncs.com',
-            'cn-fujian'                   => 'sas.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'sas.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'sas.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'sas.aliyuncs.com',
-            'cn-hangzhou-internal-prod-1' => 'sas.aliyuncs.com',
-            'cn-hangzhou-internal-test-1' => 'sas.aliyuncs.com',
-            'cn-hangzhou-internal-test-2' => 'sas.aliyuncs.com',
-            'cn-hangzhou-internal-test-3' => 'sas.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'sas.aliyuncs.com',
-            'cn-hongkong'                 => 'sas.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'sas.aliyuncs.com',
-            'cn-huhehaote'                => 'sas.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'sas.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'sas.aliyuncs.com',
-            'cn-qingdao'                  => 'sas.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'sas.aliyuncs.com',
-            'cn-shanghai'                 => 'sas.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'sas.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'sas.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'sas.aliyuncs.com',
-            'cn-shanghai-inner'           => 'sas.aliyuncs.com',
-            'cn-shanghai-internal-test-1' => 'sas.aliyuncs.com',
-            'cn-shenzhen'                 => 'sas.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'sas.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'sas.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'sas.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'sas.aliyuncs.com',
-            'cn-wuhan'                    => 'sas.aliyuncs.com',
-            'cn-wulanchabu'               => 'sas.aliyuncs.com',
-            'cn-yushanfang'               => 'sas.aliyuncs.com',
-            'cn-zhangbei'                 => 'sas.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'sas.aliyuncs.com',
-            'cn-zhangjiakou'              => 'sas.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'sas.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'sas.aliyuncs.com',
-            'eu-central-1'                => 'sas.aliyuncs.com',
-            'eu-west-1'                   => 'sas.aliyuncs.com',
-            'eu-west-1-oxs'               => 'sas.aliyuncs.com',
-            'me-east-1'                   => 'sas.aliyuncs.com',
-            'rus-west-1-pop'              => 'sas.aliyuncs.com',
-            'us-east-1'                   => 'sas.aliyuncs.com',
-            'us-west-1'                   => 'sas.aliyuncs.com',
+            'ap-northeast-1'              => 'tds.aliyuncs.com',
+            'ap-northeast-2-pop'          => 'tds.aliyuncs.com',
+            'ap-south-1'                  => 'tds.aliyuncs.com',
+            'ap-southeast-1'              => 'tds.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2'              => 'tds.aliyuncs.com',
+            'ap-southeast-5'              => 'tds.aliyuncs.com',
+            'cn-beijing'                  => 'tds.aliyuncs.com',
+            'cn-beijing-finance-1'        => 'tds.aliyuncs.com',
+            'cn-beijing-finance-pop'      => 'tds.aliyuncs.com',
+            'cn-beijing-gov-1'            => 'tds.aliyuncs.com',
+            'cn-beijing-nu16-b01'         => 'tds.aliyuncs.com',
+            'cn-chengdu'                  => 'tds.aliyuncs.com',
+            'cn-edge-1'                   => 'tds.aliyuncs.com',
+            'cn-fujian'                   => 'tds.aliyuncs.com',
+            'cn-haidian-cm12-c01'         => 'tds.aliyuncs.com',
+            'cn-hangzhou-bj-b01'          => 'tds.aliyuncs.com',
+            'cn-hangzhou-finance'         => 'tds.aliyuncs.com',
+            'cn-hangzhou-internal-prod-1' => 'tds.aliyuncs.com',
+            'cn-hangzhou-internal-test-1' => 'tds.aliyuncs.com',
+            'cn-hangzhou-internal-test-2' => 'tds.aliyuncs.com',
+            'cn-hangzhou-internal-test-3' => 'tds.aliyuncs.com',
+            'cn-hangzhou-test-306'        => 'tds.aliyuncs.com',
+            'cn-hongkong'                 => 'tds.aliyuncs.com',
+            'cn-hongkong-finance-pop'     => 'tds.aliyuncs.com',
+            'cn-huhehaote'                => 'tds.aliyuncs.com',
+            'cn-huhehaote-nebula-1'       => 'tds.aliyuncs.com',
+            'cn-north-2-gov-1'            => 'tds.aliyuncs.com',
+            'cn-qingdao'                  => 'tds.aliyuncs.com',
+            'cn-qingdao-nebula'           => 'tds.aliyuncs.com',
+            'cn-shanghai'                 => 'tds.aliyuncs.com',
+            'cn-shanghai-et15-b01'        => 'tds.aliyuncs.com',
+            'cn-shanghai-et2-b01'         => 'tds.aliyuncs.com',
+            'cn-shanghai-finance-1'       => 'tds.aliyuncs.com',
+            'cn-shanghai-inner'           => 'tds.aliyuncs.com',
+            'cn-shanghai-internal-test-1' => 'tds.aliyuncs.com',
+            'cn-shenzhen'                 => 'tds.aliyuncs.com',
+            'cn-shenzhen-finance-1'       => 'tds.aliyuncs.com',
+            'cn-shenzhen-inner'           => 'tds.aliyuncs.com',
+            'cn-shenzhen-st4-d01'         => 'tds.aliyuncs.com',
+            'cn-shenzhen-su18-b01'        => 'tds.aliyuncs.com',
+            'cn-wuhan'                    => 'tds.aliyuncs.com',
+            'cn-wulanchabu'               => 'tds.aliyuncs.com',
+            'cn-yushanfang'               => 'tds.aliyuncs.com',
+            'cn-zhangbei'                 => 'tds.aliyuncs.com',
+            'cn-zhangbei-na61-b01'        => 'tds.aliyuncs.com',
+            'cn-zhangjiakou'              => 'tds.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01'     => 'tds.aliyuncs.com',
+            'cn-zhengzhou-nebula-1'       => 'tds.aliyuncs.com',
+            'eu-central-1'                => 'tds.aliyuncs.com',
+            'eu-west-1'                   => 'tds.aliyuncs.com',
+            'eu-west-1-oxs'               => 'tds.aliyuncs.com',
+            'me-east-1'                   => 'tds.aliyuncs.com',
+            'rus-west-1-pop'              => 'tds.aliyuncs.com',
+            'us-east-1'                   => 'tds.aliyuncs.com',
+            'us-west-1'                   => 'tds.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('sas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -564,6 +589,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAntiBruteForceRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAssetRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAssetResponse
+     */
+    public function createAssetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateAssetResponse::fromMap($this->doRPCRequest('CreateAsset', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateAssetRequest $request
+     *
+     * @return CreateAssetResponse
+     */
+    public function createAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAssetWithOptions($request, $runtime);
     }
 
     /**
@@ -734,6 +787,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DeleteAssetRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteAssetResponse
+     */
+    public function deleteAssetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteAssetResponse::fromMap($this->doRPCRequest('DeleteAsset', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAssetRequest $request
+     *
+     * @return DeleteAssetResponse
+     */
+    public function deleteAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAssetWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteBackupPolicyRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -843,6 +924,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteLoginBaseConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteStrategyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteStrategyResponse
+     */
+    public function deleteStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteStrategyResponse::fromMap($this->doRPCRequest('DeleteStrategy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteStrategyRequest $request
+     *
+     * @return DeleteStrategyResponse
+     */
+    public function deleteStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -1223,6 +1332,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAutoDelConfigWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeBackupClientsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeBackupClientsResponse
+     */
+    public function describeBackupClientsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeBackupClientsResponse::fromMap($this->doRPCRequest('DescribeBackupClients', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupClientsRequest $request
+     *
+     * @return DescribeBackupClientsResponse
+     */
+    public function describeBackupClients($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupClientsWithOptions($request, $runtime);
     }
 
     /**
@@ -2330,6 +2467,28 @@ class Sas extends OpenApiClient
     /**
      * @param RuntimeOptions $runtime
      *
+     * @return DescribeImageScanAuthCountResponse
+     */
+    public function describeImageScanAuthCountWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return DescribeImageScanAuthCountResponse::fromMap($this->doRPCRequest('DescribeImageScanAuthCount', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return DescribeImageScanAuthCountResponse
+     */
+    public function describeImageScanAuthCount()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageScanAuthCountWithOptions($runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
      * @return DescribeImageStatisticsResponse
      */
     public function describeImageStatisticsWithOptions($runtime)
@@ -3430,6 +3589,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeStrategyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeStrategyResponse
+     */
+    public function describeStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeStrategyResponse::fromMap($this->doRPCRequest('DescribeStrategy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeStrategyRequest $request
+     *
+     * @return DescribeStrategyResponse
+     */
+    public function describeStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStrategyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeStrategyExecDetailRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -3455,6 +3642,62 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeStrategyExecDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeStrategyProcessRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeStrategyProcessResponse
+     */
+    public function describeStrategyProcessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeStrategyProcessResponse::fromMap($this->doRPCRequest('DescribeStrategyProcess', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeStrategyProcessRequest $request
+     *
+     * @return DescribeStrategyProcessResponse
+     */
+    public function describeStrategyProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStrategyProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeStrategyTargetRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeStrategyTargetResponse
+     */
+    public function describeStrategyTargetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeStrategyTargetResponse::fromMap($this->doRPCRequest('DescribeStrategyTarget', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeStrategyTargetRequest $request
+     *
+     * @return DescribeStrategyTargetResponse
+     */
+    public function describeStrategyTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStrategyTargetWithOptions($request, $runtime);
     }
 
     /**
@@ -4006,6 +4249,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ExecStrategyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ExecStrategyResponse
+     */
+    public function execStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ExecStrategyResponse::fromMap($this->doRPCRequest('ExecStrategy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ExecStrategyRequest $request
+     *
+     * @return ExecStrategyResponse
+     */
+    public function execStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->execStrategyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ExportRecordRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -4143,6 +4414,62 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getIOCsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLocalInstallScriptRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetLocalInstallScriptResponse
+     */
+    public function getLocalInstallScriptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetLocalInstallScriptResponse::fromMap($this->doRPCRequest('GetLocalInstallScript', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetLocalInstallScriptRequest $request
+     *
+     * @return GetLocalInstallScriptResponse
+     */
+    public function getLocalInstallScript($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLocalInstallScriptWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLocalUninstallScriptRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetLocalUninstallScriptResponse
+     */
+    public function getLocalUninstallScriptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetLocalUninstallScriptResponse::fromMap($this->doRPCRequest('GetLocalUninstallScript', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetLocalUninstallScriptRequest $request
+     *
+     * @return GetLocalUninstallScriptResponse
+     */
+    public function getLocalUninstallScript($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLocalUninstallScriptWithOptions($request, $runtime);
     }
 
     /**
@@ -4820,6 +5147,62 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyStartVulScanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyStrategyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyStrategyResponse
+     */
+    public function modifyStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyStrategyResponse::fromMap($this->doRPCRequest('ModifyStrategy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyStrategyRequest $request
+     *
+     * @return ModifyStrategyResponse
+     */
+    public function modifyStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyStrategyTargetRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyStrategyTargetResponse
+     */
+    public function modifyStrategyTargetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyStrategyTargetResponse::fromMap($this->doRPCRequest('ModifyStrategyTarget', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyStrategyTargetRequest $request
+     *
+     * @return ModifyStrategyTargetResponse
+     */
+    public function modifyStrategyTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyStrategyTargetWithOptions($request, $runtime);
     }
 
     /**
