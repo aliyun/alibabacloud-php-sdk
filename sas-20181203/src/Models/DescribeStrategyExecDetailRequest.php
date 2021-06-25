@@ -17,9 +17,21 @@ class DescribeStrategyExecDetailRequest extends Model
      * @var int
      */
     public $strategyId;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $currentPage;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
-        'strategyId' => 'StrategyId',
+        'sourceIp'    => 'SourceIp',
+        'strategyId'  => 'StrategyId',
+        'pageSize'    => 'PageSize',
+        'currentPage' => 'CurrentPage',
     ];
 
     public function validate()
@@ -34,6 +46,12 @@ class DescribeStrategyExecDetailRequest extends Model
         }
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -52,6 +70,12 @@ class DescribeStrategyExecDetailRequest extends Model
         }
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;
