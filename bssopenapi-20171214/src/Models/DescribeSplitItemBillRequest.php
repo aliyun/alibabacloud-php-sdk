@@ -60,6 +60,16 @@ class DescribeSplitItemBillRequest extends Model
     public $splitItemID;
 
     /**
+     * @var string
+     */
+    public $granularity;
+
+    /**
+     * @var string
+     */
+    public $billingDate;
+
+    /**
      * @var tagFilter[]
      */
     public $tagFilter;
@@ -74,6 +84,8 @@ class DescribeSplitItemBillRequest extends Model
         'billOwnerId'      => 'BillOwnerId',
         'instanceID'       => 'InstanceID',
         'splitItemID'      => 'SplitItemID',
+        'granularity'      => 'Granularity',
+        'billingDate'      => 'BillingDate',
         'tagFilter'        => 'TagFilter',
     ];
 
@@ -113,6 +125,12 @@ class DescribeSplitItemBillRequest extends Model
         }
         if (null !== $this->splitItemID) {
             $res['SplitItemID'] = $this->splitItemID;
+        }
+        if (null !== $this->granularity) {
+            $res['Granularity'] = $this->granularity;
+        }
+        if (null !== $this->billingDate) {
+            $res['BillingDate'] = $this->billingDate;
         }
         if (null !== $this->tagFilter) {
             $res['TagFilter'] = [];
@@ -164,6 +182,12 @@ class DescribeSplitItemBillRequest extends Model
         }
         if (isset($map['SplitItemID'])) {
             $model->splitItemID = $map['SplitItemID'];
+        }
+        if (isset($map['Granularity'])) {
+            $model->granularity = $map['Granularity'];
+        }
+        if (isset($map['BillingDate'])) {
+            $model->billingDate = $map['BillingDate'];
         }
         if (isset($map['TagFilter'])) {
             if (!empty($map['TagFilter'])) {

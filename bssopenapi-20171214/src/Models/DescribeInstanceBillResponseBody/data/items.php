@@ -44,6 +44,11 @@ class items extends Model
     public $currency;
 
     /**
+     * @var string
+     */
+    public $billAccountName;
+
+    /**
      * @var float
      */
     public $deductedByCashCoupons;
@@ -52,6 +57,11 @@ class items extends Model
      * @var string
      */
     public $subscriptionType;
+
+    /**
+     * @var string
+     */
+    public $bizType;
 
     /**
      * @var string
@@ -154,6 +164,11 @@ class items extends Model
     public $usageUnit;
 
     /**
+     * @var string
+     */
+    public $billAccountID;
+
+    /**
      * @var float
      */
     public $paymentAmount;
@@ -210,8 +225,10 @@ class items extends Model
         'tag'                       => 'Tag',
         'instanceID'                => 'InstanceID',
         'currency'                  => 'Currency',
+        'billAccountName'           => 'BillAccountName',
         'deductedByCashCoupons'     => 'DeductedByCashCoupons',
         'subscriptionType'          => 'SubscriptionType',
+        'bizType'                   => 'BizType',
         'instanceSpec'              => 'InstanceSpec',
         'deductedByCoupons'         => 'DeductedByCoupons',
         'billingItem'               => 'BillingItem',
@@ -232,6 +249,7 @@ class items extends Model
         'ownerID'                   => 'OwnerID',
         'deductedByPrepaidCard'     => 'DeductedByPrepaidCard',
         'usageUnit'                 => 'UsageUnit',
+        'billAccountID'             => 'BillAccountID',
         'paymentAmount'             => 'PaymentAmount',
         'invoiceDiscount'           => 'InvoiceDiscount',
         'deductedByResourcePackage' => 'DeductedByResourcePackage',
@@ -272,11 +290,17 @@ class items extends Model
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
+        if (null !== $this->billAccountName) {
+            $res['BillAccountName'] = $this->billAccountName;
+        }
         if (null !== $this->deductedByCashCoupons) {
             $res['DeductedByCashCoupons'] = $this->deductedByCashCoupons;
         }
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
+        }
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
         }
         if (null !== $this->instanceSpec) {
             $res['InstanceSpec'] = $this->instanceSpec;
@@ -337,6 +361,9 @@ class items extends Model
         }
         if (null !== $this->usageUnit) {
             $res['UsageUnit'] = $this->usageUnit;
+        }
+        if (null !== $this->billAccountID) {
+            $res['BillAccountID'] = $this->billAccountID;
         }
         if (null !== $this->paymentAmount) {
             $res['PaymentAmount'] = $this->paymentAmount;
@@ -401,11 +428,17 @@ class items extends Model
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
+        if (isset($map['BillAccountName'])) {
+            $model->billAccountName = $map['BillAccountName'];
+        }
         if (isset($map['DeductedByCashCoupons'])) {
             $model->deductedByCashCoupons = $map['DeductedByCashCoupons'];
         }
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
+        }
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
         }
         if (isset($map['InstanceSpec'])) {
             $model->instanceSpec = $map['InstanceSpec'];
@@ -466,6 +499,9 @@ class items extends Model
         }
         if (isset($map['UsageUnit'])) {
             $model->usageUnit = $map['UsageUnit'];
+        }
+        if (isset($map['BillAccountID'])) {
+            $model->billAccountID = $map['BillAccountID'];
         }
         if (isset($map['PaymentAmount'])) {
             $model->paymentAmount = $map['PaymentAmount'];

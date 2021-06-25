@@ -141,6 +141,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewResourcePackageRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewResourcePackageResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SaveUserCreditRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SaveUserCreditResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetAllExpirationDayRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetAllExpirationDayResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetCreditLabelActionRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetCreditLabelActionResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetRenewalRequest;
@@ -2168,6 +2170,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveUserCreditWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetAllExpirationDayRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetAllExpirationDayResponse
+     */
+    public function setAllExpirationDayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetAllExpirationDayResponse::fromMap($this->doRPCRequest('SetAllExpirationDay', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetAllExpirationDayRequest $request
+     *
+     * @return SetAllExpirationDayResponse
+     */
+    public function setAllExpirationDay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAllExpirationDayWithOptions($request, $runtime);
     }
 
     /**
