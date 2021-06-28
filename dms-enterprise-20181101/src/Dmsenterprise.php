@@ -27,6 +27,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreatePublishGroupTaskRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreatePublishGroupTaskResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateSQLReviewOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateSQLReviewOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateSQLReviewOrderShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStructSyncOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStructSyncOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStructSyncOrderShrinkRequest;
@@ -92,6 +95,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailReque
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatusRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatusResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewOptimizeDetailRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewOptimizeDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncExecSqlDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncExecSqlDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncJobAnalyzeResultRequest;
@@ -138,6 +145,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsDetailRe
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLReviewOriginSQLRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLReviewOriginSQLResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLReviewOriginSQLShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserPermissionsRequest;
@@ -820,6 +830,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetSQLReviewCheckResultStatusRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetSQLReviewCheckResultStatusResponse
+     */
+    public function getSQLReviewCheckResultStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSQLReviewCheckResultStatusResponse::fromMap($this->doRPCRequest('GetSQLReviewCheckResultStatus', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSQLReviewCheckResultStatusRequest $request
+     *
+     * @return GetSQLReviewCheckResultStatusResponse
+     */
+    public function getSQLReviewCheckResultStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSQLReviewCheckResultStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SyncDatabaseMetaRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1181,6 +1219,39 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getApprovalDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSQLReviewOriginSQLRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListSQLReviewOriginSQLResponse
+     */
+    public function listSQLReviewOriginSQLWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListSQLReviewOriginSQLShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->orderActionDetail)) {
+            $request->orderActionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->orderActionDetail), 'OrderActionDetail', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListSQLReviewOriginSQLResponse::fromMap($this->doRPCRequest('ListSQLReviewOriginSQL', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListSQLReviewOriginSQLRequest $request
+     *
+     * @return ListSQLReviewOriginSQLResponse
+     */
+    public function listSQLReviewOriginSQL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSQLReviewOriginSQLWithOptions($request, $runtime);
     }
 
     /**
@@ -1928,6 +1999,42 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param CreateSQLReviewOrderRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateSQLReviewOrderResponse
+     */
+    public function createSQLReviewOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSQLReviewOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->param)) {
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateSQLReviewOrderResponse::fromMap($this->doRPCRequest('CreateSQLReviewOrder', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateSQLReviewOrderRequest $request
+     *
+     * @return CreateSQLReviewOrderResponse
+     */
+    public function createSQLReviewOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSQLReviewOrderWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetOrderBaseInfoRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1953,6 +2060,34 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOrderBaseInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSQLReviewOptimizeDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetSQLReviewOptimizeDetailResponse
+     */
+    public function getSQLReviewOptimizeDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSQLReviewOptimizeDetailResponse::fromMap($this->doRPCRequest('GetSQLReviewOptimizeDetail', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSQLReviewOptimizeDetailRequest $request
+     *
+     * @return GetSQLReviewOptimizeDetailResponse
+     */
+    public function getSQLReviewOptimizeDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSQLReviewOptimizeDetailWithOptions($request, $runtime);
     }
 
     /**
