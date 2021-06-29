@@ -17,9 +17,27 @@ class PredictPictureRequest extends Model
      * @var string
      */
     public $ossPath;
+
+    /**
+     * @var string
+     */
+    public $resourceUrl;
+
+    /**
+     * @var string
+     */
+    public $customerData;
+
+    /**
+     * @var string
+     */
+    public $imageUrl;
     protected $_name = [
         'algorithmCode' => 'AlgorithmCode',
         'ossPath'       => 'OssPath',
+        'resourceUrl'   => 'ResourceUrl',
+        'customerData'  => 'CustomerData',
+        'imageUrl'      => 'ImageUrl',
     ];
 
     public function validate()
@@ -34,6 +52,15 @@ class PredictPictureRequest extends Model
         }
         if (null !== $this->ossPath) {
             $res['OssPath'] = $this->ossPath;
+        }
+        if (null !== $this->resourceUrl) {
+            $res['ResourceUrl'] = $this->resourceUrl;
+        }
+        if (null !== $this->customerData) {
+            $res['CustomerData'] = $this->customerData;
+        }
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
         }
 
         return $res;
@@ -52,6 +79,15 @@ class PredictPictureRequest extends Model
         }
         if (isset($map['OssPath'])) {
             $model->ossPath = $map['OssPath'];
+        }
+        if (isset($map['ResourceUrl'])) {
+            $model->resourceUrl = $map['ResourceUrl'];
+        }
+        if (isset($map['CustomerData'])) {
+            $model->customerData = $map['CustomerData'];
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
         }
 
         return $model;

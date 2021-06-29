@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaceGroupsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $totalNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -20,30 +30,20 @@ class DescribeFaceGroupsResponseBody extends Model
     public $currentPage;
 
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var string
      */
     public $nextPageToken;
-
-    /**
-     * @var int
-     */
-    public $totalNum;
 
     /**
      * @var groups[]
      */
     public $groups;
     protected $_name = [
+        'totalNum'      => 'TotalNum',
+        'pageSize'      => 'PageSize',
         'requestId'     => 'RequestId',
         'currentPage'   => 'CurrentPage',
-        'pageSize'      => 'PageSize',
         'nextPageToken' => 'NextPageToken',
-        'totalNum'      => 'TotalNum',
         'groups'        => 'Groups',
     ];
 
@@ -54,20 +54,20 @@ class DescribeFaceGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
-        }
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
         }
         if (null !== $this->groups) {
             $res['Groups'] = [];
@@ -90,20 +90,20 @@ class DescribeFaceGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
-        }
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
         }
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {

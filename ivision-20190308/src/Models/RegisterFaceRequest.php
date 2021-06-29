@@ -16,11 +16,6 @@ class RegisterFaceRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $groupId;
 
     /**
@@ -34,7 +29,6 @@ class RegisterFaceRequest extends Model
     public $content;
     protected $_name = [
         'ownerId'  => 'OwnerId',
-        'showLog'  => 'ShowLog',
         'groupId'  => 'GroupId',
         'dataType' => 'DataType',
         'content'  => 'Content',
@@ -49,9 +43,6 @@ class RegisterFaceRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -76,9 +67,6 @@ class RegisterFaceRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

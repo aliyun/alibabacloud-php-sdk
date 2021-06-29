@@ -16,11 +16,6 @@ class ImagePredictRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $modelId;
 
     /**
@@ -29,7 +24,6 @@ class ImagePredictRequest extends Model
     public $dataUrl;
     protected $_name = [
         'ownerId' => 'OwnerId',
-        'showLog' => 'ShowLog',
         'modelId' => 'ModelId',
         'dataUrl' => 'DataUrl',
     ];
@@ -43,9 +37,6 @@ class ImagePredictRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
@@ -67,9 +58,6 @@ class ImagePredictRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];

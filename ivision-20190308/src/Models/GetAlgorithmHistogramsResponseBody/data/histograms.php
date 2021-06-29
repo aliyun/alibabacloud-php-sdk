@@ -16,16 +16,16 @@ class histograms extends Model
     /**
      * @var int
      */
-    public $successCount;
+    public $failureCount;
 
     /**
      * @var int
      */
-    public $failureCount;
+    public $successCount;
     protected $_name = [
         'time'         => 'Time',
-        'successCount' => 'SuccessCount',
         'failureCount' => 'FailureCount',
+        'successCount' => 'SuccessCount',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class histograms extends Model
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
-        if (null !== $this->successCount) {
-            $res['SuccessCount'] = $this->successCount;
-        }
         if (null !== $this->failureCount) {
             $res['FailureCount'] = $this->failureCount;
+        }
+        if (null !== $this->successCount) {
+            $res['SuccessCount'] = $this->successCount;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class histograms extends Model
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
-        if (isset($map['SuccessCount'])) {
-            $model->successCount = $map['SuccessCount'];
-        }
         if (isset($map['FailureCount'])) {
             $model->failureCount = $map['FailureCount'];
+        }
+        if (isset($map['SuccessCount'])) {
+            $model->successCount = $map['SuccessCount'];
         }
 
         return $model;

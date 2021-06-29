@@ -12,20 +12,20 @@ class data extends Model
     /**
      * @var int
      */
-    public $successCount;
+    public $failureCount;
 
     /**
      * @var int
      */
-    public $failureCount;
+    public $successCount;
 
     /**
      * @var histograms[]
      */
     public $histograms;
     protected $_name = [
-        'successCount' => 'SuccessCount',
         'failureCount' => 'FailureCount',
+        'successCount' => 'SuccessCount',
         'histograms'   => 'Histograms',
     ];
 
@@ -36,11 +36,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->successCount) {
-            $res['SuccessCount'] = $this->successCount;
-        }
         if (null !== $this->failureCount) {
             $res['FailureCount'] = $this->failureCount;
+        }
+        if (null !== $this->successCount) {
+            $res['SuccessCount'] = $this->successCount;
         }
         if (null !== $this->histograms) {
             $res['Histograms'] = [];
@@ -63,11 +63,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SuccessCount'])) {
-            $model->successCount = $map['SuccessCount'];
-        }
         if (isset($map['FailureCount'])) {
             $model->failureCount = $map['FailureCount'];
+        }
+        if (isset($map['SuccessCount'])) {
+            $model->successCount = $map['SuccessCount'];
         }
         if (isset($map['Histograms'])) {
             if (!empty($map['Histograms'])) {

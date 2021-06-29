@@ -16,11 +16,6 @@ class CreateStreamPredictRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $clientToken;
 
     /**
@@ -79,7 +74,6 @@ class CreateStreamPredictRequest extends Model
     public $modelUserData;
     protected $_name = [
         'ownerId'               => 'OwnerId',
-        'showLog'               => 'ShowLog',
         'clientToken'           => 'ClientToken',
         'streamType'            => 'StreamType',
         'streamId'              => 'StreamId',
@@ -103,9 +97,6 @@ class CreateStreamPredictRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -157,9 +148,6 @@ class CreateStreamPredictRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

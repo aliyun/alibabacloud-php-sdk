@@ -16,11 +16,6 @@ class DescribeFaceGroupsRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $nextPageToken;
 
     /**
@@ -34,7 +29,6 @@ class DescribeFaceGroupsRequest extends Model
     public $pageSize;
     protected $_name = [
         'ownerId'       => 'OwnerId',
-        'showLog'       => 'ShowLog',
         'nextPageToken' => 'NextPageToken',
         'currentPage'   => 'CurrentPage',
         'pageSize'      => 'PageSize',
@@ -49,9 +43,6 @@ class DescribeFaceGroupsRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
@@ -76,9 +67,6 @@ class DescribeFaceGroupsRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];

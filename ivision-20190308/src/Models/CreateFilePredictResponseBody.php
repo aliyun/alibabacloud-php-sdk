@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Ivision\V20190308\Models;
 
-use AlibabaCloud\SDK\Ivision\V20190308\Models\GetAlgorithmHistogramsResponseBody\data;
+use AlibabaCloud\SDK\Ivision\V20190308\Models\CreateFilePredictResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetAlgorithmHistogramsResponseBody extends Model
+class CreateFilePredictResponseBody extends Model
 {
     /**
      * @var string
@@ -28,17 +28,11 @@ class GetAlgorithmHistogramsResponseBody extends Model
      * @var string
      */
     public $code;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'data'      => 'Data',
         'code'      => 'Code',
-        'success'   => 'Success',
     ];
 
     public function validate()
@@ -60,9 +54,6 @@ class GetAlgorithmHistogramsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
 
         return $res;
     }
@@ -70,7 +61,7 @@ class GetAlgorithmHistogramsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetAlgorithmHistogramsResponseBody
+     * @return CreateFilePredictResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -86,9 +77,6 @@ class GetAlgorithmHistogramsResponseBody extends Model
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

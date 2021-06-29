@@ -11,21 +11,21 @@ class groups extends Model
     /**
      * @var string
      */
+    public $creationTime;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
      * @var string
      */
     public $name;
-
-    /**
-     * @var string
-     */
-    public $creationTime;
     protected $_name = [
+        'creationTime' => 'CreationTime',
         'groupId'      => 'GroupId',
         'name'         => 'Name',
-        'creationTime' => 'CreationTime',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class groups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class groups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
         }
 
         return $model;

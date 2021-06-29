@@ -16,11 +16,6 @@ class UnregisterFaceRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $groupId;
 
     /**
@@ -29,7 +24,6 @@ class UnregisterFaceRequest extends Model
     public $faceToken;
     protected $_name = [
         'ownerId'   => 'OwnerId',
-        'showLog'   => 'ShowLog',
         'groupId'   => 'GroupId',
         'faceToken' => 'FaceToken',
     ];
@@ -43,9 +37,6 @@ class UnregisterFaceRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -67,9 +58,6 @@ class UnregisterFaceRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

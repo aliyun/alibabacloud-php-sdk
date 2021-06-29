@@ -8,10 +8,14 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ivision\V20190308\Models\CreateFaceGroupRequest;
 use AlibabaCloud\SDK\Ivision\V20190308\Models\CreateFaceGroupResponse;
+use AlibabaCloud\SDK\Ivision\V20190308\Models\CreateFilePredictRequest;
+use AlibabaCloud\SDK\Ivision\V20190308\Models\CreateFilePredictResponse;
 use AlibabaCloud\SDK\Ivision\V20190308\Models\CreateStreamPredictRequest;
 use AlibabaCloud\SDK\Ivision\V20190308\Models\CreateStreamPredictResponse;
 use AlibabaCloud\SDK\Ivision\V20190308\Models\DeleteFaceGroupRequest;
 use AlibabaCloud\SDK\Ivision\V20190308\Models\DeleteFaceGroupResponse;
+use AlibabaCloud\SDK\Ivision\V20190308\Models\DeleteFilePredictRequest;
+use AlibabaCloud\SDK\Ivision\V20190308\Models\DeleteFilePredictResponse;
 use AlibabaCloud\SDK\Ivision\V20190308\Models\DeleteStreamPredictRequest;
 use AlibabaCloud\SDK\Ivision\V20190308\Models\DeleteStreamPredictResponse;
 use AlibabaCloud\SDK\Ivision\V20190308\Models\DescribeFaceGroupsRequest;
@@ -108,6 +112,34 @@ class Ivision extends OpenApiClient
     }
 
     /**
+     * @param CreateFilePredictRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateFilePredictResponse
+     */
+    public function createFilePredictWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateFilePredictResponse::fromMap($this->doRPCRequest('CreateFilePredict', '2019-03-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateFilePredictRequest $request
+     *
+     * @return CreateFilePredictResponse
+     */
+    public function createFilePredict($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFilePredictWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateStreamPredictRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -162,6 +194,34 @@ class Ivision extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFaceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteFilePredictRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteFilePredictResponse
+     */
+    public function deleteFilePredictWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteFilePredictResponse::fromMap($this->doRPCRequest('DeleteFilePredict', '2019-03-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteFilePredictRequest $request
+     *
+     * @return DeleteFilePredictResponse
+     */
+    public function deleteFilePredict($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFilePredictWithOptions($request, $runtime);
     }
 
     /**

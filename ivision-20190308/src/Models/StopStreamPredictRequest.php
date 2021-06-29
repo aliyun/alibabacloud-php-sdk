@@ -16,15 +16,9 @@ class StopStreamPredictRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $predictId;
     protected $_name = [
         'ownerId'   => 'OwnerId',
-        'showLog'   => 'ShowLog',
         'predictId' => 'PredictId',
     ];
 
@@ -37,9 +31,6 @@ class StopStreamPredictRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->predictId) {
             $res['PredictId'] = $this->predictId;
@@ -58,9 +49,6 @@ class StopStreamPredictRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['PredictId'])) {
             $model->predictId = $map['PredictId'];

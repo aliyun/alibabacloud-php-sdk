@@ -15,18 +15,18 @@ class RegisterFaceResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
      * @var faces[]
      */
     public $faces;
+
+    /**
+     * @var string
+     */
+    public $groupId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'groupId'   => 'GroupId',
         'faces'     => 'Faces',
+        'groupId'   => 'GroupId',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class RegisterFaceResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->faces) {
             $res['Faces'] = [];
             if (null !== $this->faces && \is_array($this->faces)) {
@@ -50,6 +47,9 @@ class RegisterFaceResponseBody extends Model
                     $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class RegisterFaceResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['Faces'])) {
             if (!empty($map['Faces'])) {
                 $model->faces = [];
@@ -77,6 +74,9 @@ class RegisterFaceResponseBody extends Model
                     $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
 
         return $model;

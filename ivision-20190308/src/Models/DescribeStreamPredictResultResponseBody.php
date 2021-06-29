@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamPredictResultResponseBody extends Model
 {
     /**
-     * @var string
+     * @var streamPredictDatas[]
      */
-    public $requestId;
+    public $streamPredictDatas;
 
     /**
      * @var int
@@ -22,29 +22,29 @@ class DescribeStreamPredictResultResponseBody extends Model
     /**
      * @var int
      */
-    public $currentPage;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
      * @var string
      */
-    public $nextPageToken;
+    public $requestId;
 
     /**
-     * @var streamPredictDatas[]
+     * @var int
      */
-    public $streamPredictDatas;
+    public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $nextPageToken;
     protected $_name = [
-        'requestId'          => 'RequestId',
-        'totalNum'           => 'TotalNum',
-        'currentPage'        => 'CurrentPage',
-        'pageSize'           => 'PageSize',
-        'nextPageToken'      => 'NextPageToken',
         'streamPredictDatas' => 'StreamPredictDatas',
+        'totalNum'           => 'TotalNum',
+        'pageSize'           => 'PageSize',
+        'requestId'          => 'RequestId',
+        'currentPage'        => 'CurrentPage',
+        'nextPageToken'      => 'NextPageToken',
     ];
 
     public function validate()
@@ -54,21 +54,6 @@ class DescribeStreamPredictResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->nextPageToken) {
-            $res['NextPageToken'] = $this->nextPageToken;
-        }
         if (null !== $this->streamPredictDatas) {
             $res['StreamPredictDatas'] = [];
             if (null !== $this->streamPredictDatas && \is_array($this->streamPredictDatas)) {
@@ -77,6 +62,21 @@ class DescribeStreamPredictResultResponseBody extends Model
                     $res['StreamPredictDatas'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->nextPageToken) {
+            $res['NextPageToken'] = $this->nextPageToken;
         }
 
         return $res;
@@ -90,21 +90,6 @@ class DescribeStreamPredictResultResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['NextPageToken'])) {
-            $model->nextPageToken = $map['NextPageToken'];
-        }
         if (isset($map['StreamPredictDatas'])) {
             if (!empty($map['StreamPredictDatas'])) {
                 $model->streamPredictDatas = [];
@@ -113,6 +98,21 @@ class DescribeStreamPredictResultResponseBody extends Model
                     $model->streamPredictDatas[$n++] = null !== $item ? streamPredictDatas::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['NextPageToken'])) {
+            $model->nextPageToken = $map['NextPageToken'];
         }
 
         return $model;

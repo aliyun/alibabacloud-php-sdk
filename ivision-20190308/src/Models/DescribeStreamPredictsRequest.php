@@ -16,11 +16,6 @@ class DescribeStreamPredictsRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $predictIds;
 
     /**
@@ -44,7 +39,6 @@ class DescribeStreamPredictsRequest extends Model
     public $pageSize;
     protected $_name = [
         'ownerId'       => 'OwnerId',
-        'showLog'       => 'ShowLog',
         'predictIds'    => 'PredictIds',
         'modelId'       => 'ModelId',
         'nextPageToken' => 'NextPageToken',
@@ -61,9 +55,6 @@ class DescribeStreamPredictsRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->predictIds) {
             $res['PredictIds'] = $this->predictIds;
@@ -94,9 +85,6 @@ class DescribeStreamPredictsRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['PredictIds'])) {
             $model->predictIds = $map['PredictIds'];
