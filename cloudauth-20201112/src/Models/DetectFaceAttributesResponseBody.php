@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20201112\Models;
 
-use AlibabaCloud\SDK\Cloudauth\V20201112\Models\LivenessDetectResponseBody\resultObject;
+use AlibabaCloud\SDK\Cloudauth\V20201112\Models\DetectFaceAttributesResponseBody\resultObject;
 use AlibabaCloud\Tea\Model;
 
-class LivenessDetectResponseBody extends Model
+class DetectFaceAttributesResponseBody extends Model
 {
     /**
      * @var string
@@ -25,6 +25,11 @@ class LivenessDetectResponseBody extends Model
     public $requestId;
 
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
      * @var resultObject
      */
     public $resultObject;
@@ -32,6 +37,7 @@ class LivenessDetectResponseBody extends Model
         'code'         => 'Code',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
+        'success'      => 'Success',
         'resultObject' => 'ResultObject',
     ];
 
@@ -51,6 +57,9 @@ class LivenessDetectResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->resultObject) {
             $res['ResultObject'] = null !== $this->resultObject ? $this->resultObject->toMap() : null;
         }
@@ -61,7 +70,7 @@ class LivenessDetectResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return LivenessDetectResponseBody
+     * @return DetectFaceAttributesResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -74,6 +83,9 @@ class LivenessDetectResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['ResultObject'])) {
             $model->resultObject = resultObject::fromMap($map['ResultObject']);

@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Cloudauth\V20201112\Models;
 
-use AlibabaCloud\SDK\Cloudauth\V20201112\Models\LivenessDetectResponseBody\resultObject;
+use AlibabaCloud\SDK\Cloudauth\V20201112\Models\VerifyMaterialResponseBody\resultObject;
 use AlibabaCloud\Tea\Model;
 
-class LivenessDetectResponseBody extends Model
+class VerifyMaterialResponseBody extends Model
 {
     /**
      * @var string
@@ -61,7 +61,7 @@ class LivenessDetectResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return LivenessDetectResponseBody
+     * @return VerifyMaterialResponseBody
      */
     public static function fromMap($map = [])
     {
