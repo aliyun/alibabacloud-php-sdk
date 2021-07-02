@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Imageprocess\V20200320;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\AnalyzeChestVesselRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\AnalyzeChestVesselResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\CalcCACSRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\CalcCACSResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ClassifyFNFAdvanceRequest;
@@ -126,14 +128,20 @@ class Imageprocess extends OpenApiClient
         // Step 0: init client
         $accessKeyId          = $this->_credential->getAccessKeyId();
         $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::isUnset($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
             'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
@@ -241,6 +249,34 @@ class Imageprocess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runCTRegistrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AnalyzeChestVesselRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AnalyzeChestVesselResponse
+     */
+    public function analyzeChestVesselWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AnalyzeChestVesselResponse::fromMap($this->doRPCRequest('AnalyzeChestVessel', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AnalyzeChestVesselRequest $request
+     *
+     * @return AnalyzeChestVesselResponse
+     */
+    public function analyzeChestVessel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->analyzeChestVesselWithOptions($request, $runtime);
     }
 
     /**
@@ -366,14 +402,20 @@ class Imageprocess extends OpenApiClient
         // Step 0: init client
         $accessKeyId          = $this->_credential->getAccessKeyId();
         $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::isUnset($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
             'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
@@ -466,14 +508,20 @@ class Imageprocess extends OpenApiClient
         // Step 0: init client
         $accessKeyId          = $this->_credential->getAccessKeyId();
         $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::isUnset($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
             'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
@@ -594,14 +642,20 @@ class Imageprocess extends OpenApiClient
         // Step 0: init client
         $accessKeyId          = $this->_credential->getAccessKeyId();
         $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::isUnset($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
             'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
@@ -806,14 +860,20 @@ class Imageprocess extends OpenApiClient
         // Step 0: init client
         $accessKeyId          = $this->_credential->getAccessKeyId();
         $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::isUnset($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
             'endpoint'        => $openPlatformEndpoint,
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
