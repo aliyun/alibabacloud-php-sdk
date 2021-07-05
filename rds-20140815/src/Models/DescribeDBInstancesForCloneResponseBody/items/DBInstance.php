@@ -87,12 +87,12 @@ class DBInstance extends Model
     /**
      * @var string
      */
-    public $DBInstanceNetType;
+    public $expireTime;
 
     /**
      * @var string
      */
-    public $expireTime;
+    public $DBInstanceNetType;
 
     /**
      * @var string
@@ -113,11 +113,6 @@ class DBInstance extends Model
      * @var string
      */
     public $DBInstanceStatus;
-
-    /**
-     * @var readOnlyDBInstanceIds
-     */
-    public $readOnlyDBInstanceIds;
 
     /**
      * @var string
@@ -163,6 +158,11 @@ class DBInstance extends Model
      * @var string
      */
     public $DBInstanceClass;
+
+    /**
+     * @var readOnlyDBInstanceIds
+     */
+    public $readOnlyDBInstanceIds;
     protected $_name = [
         'vpcId'                 => 'VpcId',
         'replicateId'           => 'ReplicateId',
@@ -179,13 +179,12 @@ class DBInstance extends Model
         'instanceNetworkType'   => 'InstanceNetworkType',
         'masterInstanceId'      => 'MasterInstanceId',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceNetType'     => 'DBInstanceNetType',
         'expireTime'            => 'ExpireTime',
+        'DBInstanceNetType'     => 'DBInstanceNetType',
         'DBInstanceType'        => 'DBInstanceType',
         'destroyTime'           => 'DestroyTime',
         'lockReason'            => 'LockReason',
         'DBInstanceStatus'      => 'DBInstanceStatus',
-        'readOnlyDBInstanceIds' => 'ReadOnlyDBInstanceIds',
         'guardDBInstanceId'     => 'GuardDBInstanceId',
         'regionId'              => 'RegionId',
         'vSwitchId'             => 'VSwitchId',
@@ -195,6 +194,7 @@ class DBInstance extends Model
         'category'              => 'Category',
         'engine'                => 'Engine',
         'DBInstanceClass'       => 'DBInstanceClass',
+        'readOnlyDBInstanceIds' => 'ReadOnlyDBInstanceIds',
     ];
 
     public function validate()
@@ -249,11 +249,11 @@ class DBInstance extends Model
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
-        if (null !== $this->DBInstanceNetType) {
-            $res['DBInstanceNetType'] = $this->DBInstanceNetType;
-        }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->DBInstanceNetType) {
+            $res['DBInstanceNetType'] = $this->DBInstanceNetType;
         }
         if (null !== $this->DBInstanceType) {
             $res['DBInstanceType'] = $this->DBInstanceType;
@@ -266,9 +266,6 @@ class DBInstance extends Model
         }
         if (null !== $this->DBInstanceStatus) {
             $res['DBInstanceStatus'] = $this->DBInstanceStatus;
-        }
-        if (null !== $this->readOnlyDBInstanceIds) {
-            $res['ReadOnlyDBInstanceIds'] = null !== $this->readOnlyDBInstanceIds ? $this->readOnlyDBInstanceIds->toMap() : null;
         }
         if (null !== $this->guardDBInstanceId) {
             $res['GuardDBInstanceId'] = $this->guardDBInstanceId;
@@ -296,6 +293,9 @@ class DBInstance extends Model
         }
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
+        }
+        if (null !== $this->readOnlyDBInstanceIds) {
+            $res['ReadOnlyDBInstanceIds'] = null !== $this->readOnlyDBInstanceIds ? $this->readOnlyDBInstanceIds->toMap() : null;
         }
 
         return $res;
@@ -354,11 +354,11 @@ class DBInstance extends Model
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
-        if (isset($map['DBInstanceNetType'])) {
-            $model->DBInstanceNetType = $map['DBInstanceNetType'];
-        }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['DBInstanceNetType'])) {
+            $model->DBInstanceNetType = $map['DBInstanceNetType'];
         }
         if (isset($map['DBInstanceType'])) {
             $model->DBInstanceType = $map['DBInstanceType'];
@@ -371,9 +371,6 @@ class DBInstance extends Model
         }
         if (isset($map['DBInstanceStatus'])) {
             $model->DBInstanceStatus = $map['DBInstanceStatus'];
-        }
-        if (isset($map['ReadOnlyDBInstanceIds'])) {
-            $model->readOnlyDBInstanceIds = readOnlyDBInstanceIds::fromMap($map['ReadOnlyDBInstanceIds']);
         }
         if (isset($map['GuardDBInstanceId'])) {
             $model->guardDBInstanceId = $map['GuardDBInstanceId'];
@@ -401,6 +398,9 @@ class DBInstance extends Model
         }
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
+        }
+        if (isset($map['ReadOnlyDBInstanceIds'])) {
+            $model->readOnlyDBInstanceIds = readOnlyDBInstanceIds::fromMap($map['ReadOnlyDBInstanceIds']);
         }
 
         return $model;

@@ -76,7 +76,7 @@ class dedicatedHosts extends Model
     /**
      * @var string
      */
-    public $cpuUsed;
+    public $instanceNumber;
 
     /**
      * @var string
@@ -86,7 +86,7 @@ class dedicatedHosts extends Model
     /**
      * @var string
      */
-    public $instanceNumber;
+    public $cpuUsed;
 
     /**
      * @var string
@@ -111,12 +111,12 @@ class dedicatedHosts extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $CPUAllocationRatio;
 
     /**
      * @var string
      */
-    public $CPUAllocationRatio;
+    public $zoneId;
 
     /**
      * @var string
@@ -161,15 +161,15 @@ class dedicatedHosts extends Model
         'hostStatus'           => 'HostStatus',
         'hostName'             => 'HostName',
         'hostCPU'              => 'HostCPU',
-        'cpuUsed'              => 'CpuUsed',
-        'openPermission'       => 'OpenPermission',
         'instanceNumber'       => 'InstanceNumber',
+        'openPermission'       => 'OpenPermission',
+        'cpuUsed'              => 'CpuUsed',
         'VPCId'                => 'VPCId',
         'hostClass'            => 'HostClass',
         'endTime'              => 'EndTime',
         'vSwitchId'            => 'VSwitchId',
-        'zoneId'               => 'ZoneId',
         'CPUAllocationRatio'   => 'CPUAllocationRatio',
+        'zoneId'               => 'ZoneId',
         'imageCategory'        => 'ImageCategory',
         'engine'               => 'Engine',
         'diskAllocationRatio'  => 'DiskAllocationRatio',
@@ -224,14 +224,14 @@ class dedicatedHosts extends Model
         if (null !== $this->hostCPU) {
             $res['HostCPU'] = $this->hostCPU;
         }
-        if (null !== $this->cpuUsed) {
-            $res['CpuUsed'] = $this->cpuUsed;
+        if (null !== $this->instanceNumber) {
+            $res['InstanceNumber'] = $this->instanceNumber;
         }
         if (null !== $this->openPermission) {
             $res['OpenPermission'] = $this->openPermission;
         }
-        if (null !== $this->instanceNumber) {
-            $res['InstanceNumber'] = $this->instanceNumber;
+        if (null !== $this->cpuUsed) {
+            $res['CpuUsed'] = $this->cpuUsed;
         }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
@@ -245,11 +245,11 @@ class dedicatedHosts extends Model
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->CPUAllocationRatio) {
             $res['CPUAllocationRatio'] = $this->CPUAllocationRatio;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
         if (null !== $this->imageCategory) {
             $res['ImageCategory'] = $this->imageCategory;
@@ -320,14 +320,14 @@ class dedicatedHosts extends Model
         if (isset($map['HostCPU'])) {
             $model->hostCPU = $map['HostCPU'];
         }
-        if (isset($map['CpuUsed'])) {
-            $model->cpuUsed = $map['CpuUsed'];
+        if (isset($map['InstanceNumber'])) {
+            $model->instanceNumber = $map['InstanceNumber'];
         }
         if (isset($map['OpenPermission'])) {
             $model->openPermission = $map['OpenPermission'];
         }
-        if (isset($map['InstanceNumber'])) {
-            $model->instanceNumber = $map['InstanceNumber'];
+        if (isset($map['CpuUsed'])) {
+            $model->cpuUsed = $map['CpuUsed'];
         }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
@@ -341,11 +341,11 @@ class dedicatedHosts extends Model
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['CPUAllocationRatio'])) {
             $model->CPUAllocationRatio = $map['CPUAllocationRatio'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
         if (isset($map['ImageCategory'])) {
             $model->imageCategory = $map['ImageCategory'];

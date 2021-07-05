@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossBackupMetaListResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceName;
+
+    /**
      * @var int
      */
     public $totalPageCount;
 
     /**
-     * @var int
+     * @var string
      */
-    public $totalRecordCount;
+    public $requestId;
 
     /**
      * @var int
@@ -25,9 +30,9 @@ class DescribeCrossBackupMetaListResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $totalRecordCount;
 
     /**
      * @var int
@@ -38,19 +43,14 @@ class DescribeCrossBackupMetaListResponseBody extends Model
      * @var items
      */
     public $items;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceName;
     protected $_name = [
+        'DBInstanceName'   => 'DBInstanceName',
         'totalPageCount'   => 'TotalPageCount',
-        'totalRecordCount' => 'TotalRecordCount',
-        'pageRecordCount'  => 'PageRecordCount',
         'requestId'        => 'RequestId',
+        'pageRecordCount'  => 'PageRecordCount',
+        'totalRecordCount' => 'TotalRecordCount',
         'pageNumber'       => 'PageNumber',
         'items'            => 'Items',
-        'DBInstanceName'   => 'DBInstanceName',
     ];
 
     public function validate()
@@ -60,26 +60,26 @@ class DescribeCrossBackupMetaListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
         if (null !== $this->totalPageCount) {
             $res['TotalPageCount'] = $this->totalPageCount;
         }
-        if (null !== $this->totalRecordCount) {
-            $res['TotalRecordCount'] = $this->totalRecordCount;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
-        }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
         return $res;
@@ -93,26 +93,26 @@ class DescribeCrossBackupMetaListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
         if (isset($map['TotalPageCount'])) {
             $model->totalPageCount = $map['TotalPageCount'];
         }
-        if (isset($map['TotalRecordCount'])) {
-            $model->totalRecordCount = $map['TotalRecordCount'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
-        }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
         }
 
         return $model;

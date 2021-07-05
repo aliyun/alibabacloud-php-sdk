@@ -11,12 +11,12 @@ class dbProxyCertListItems extends Model
     /**
      * @var string
      */
-    public $endpointName;
+    public $dbInstanceName;
 
     /**
      * @var string
      */
-    public $dbInstanceName;
+    public $endpointName;
 
     /**
      * @var string
@@ -33,8 +33,8 @@ class dbProxyCertListItems extends Model
      */
     public $certCommonName;
     protected $_name = [
-        'endpointName'   => 'EndpointName',
         'dbInstanceName' => 'DbInstanceName',
+        'endpointName'   => 'EndpointName',
         'endpointType'   => 'EndpointType',
         'sslExpiredTime' => 'SslExpiredTime',
         'certCommonName' => 'CertCommonName',
@@ -47,11 +47,11 @@ class dbProxyCertListItems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endpointName) {
-            $res['EndpointName'] = $this->endpointName;
-        }
         if (null !== $this->dbInstanceName) {
             $res['DbInstanceName'] = $this->dbInstanceName;
+        }
+        if (null !== $this->endpointName) {
+            $res['EndpointName'] = $this->endpointName;
         }
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
@@ -74,11 +74,11 @@ class dbProxyCertListItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndpointName'])) {
-            $model->endpointName = $map['EndpointName'];
-        }
         if (isset($map['DbInstanceName'])) {
             $model->dbInstanceName = $map['DbInstanceName'];
+        }
+        if (isset($map['EndpointName'])) {
+            $model->endpointName = $map['EndpointName'];
         }
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];

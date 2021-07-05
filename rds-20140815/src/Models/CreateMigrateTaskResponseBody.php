@@ -11,12 +11,17 @@ class CreateMigrateTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $DBName;
+
+    /**
+     * @var string
+     */
+    public $backupMode;
 
     /**
      * @var string
@@ -31,19 +36,14 @@ class CreateMigrateTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $backupMode;
-
-    /**
-     * @var string
-     */
-    public $DBName;
+    public $taskId;
     protected $_name = [
-        'taskId'        => 'TaskId',
         'requestId'     => 'RequestId',
+        'DBName'        => 'DBName',
+        'backupMode'    => 'BackupMode',
         'DBInstanceId'  => 'DBInstanceId',
         'migrateTaskId' => 'MigrateTaskId',
-        'backupMode'    => 'BackupMode',
-        'DBName'        => 'DBName',
+        'taskId'        => 'TaskId',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class CreateMigrateTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
+        }
+        if (null !== $this->backupMode) {
+            $res['BackupMode'] = $this->backupMode;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -65,11 +68,8 @@ class CreateMigrateTaskResponseBody extends Model
         if (null !== $this->migrateTaskId) {
             $res['MigrateTaskId'] = $this->migrateTaskId;
         }
-        if (null !== $this->backupMode) {
-            $res['BackupMode'] = $this->backupMode;
-        }
-        if (null !== $this->DBName) {
-            $res['DBName'] = $this->DBName;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -83,11 +83,14 @@ class CreateMigrateTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
+        }
+        if (isset($map['BackupMode'])) {
+            $model->backupMode = $map['BackupMode'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
@@ -95,11 +98,8 @@ class CreateMigrateTaskResponseBody extends Model
         if (isset($map['MigrateTaskId'])) {
             $model->migrateTaskId = $map['MigrateTaskId'];
         }
-        if (isset($map['BackupMode'])) {
-            $model->backupMode = $map['BackupMode'];
-        }
-        if (isset($map['DBName'])) {
-            $model->DBName = $map['DBName'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

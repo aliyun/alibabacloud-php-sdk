@@ -16,12 +16,12 @@ class parameterChangeLog extends Model
     /**
      * @var string
      */
-    public $parameterName;
+    public $oldParameterValue;
 
     /**
      * @var string
      */
-    public $oldParameterValue;
+    public $parameterName;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class parameterChangeLog extends Model
     public $modifyTime;
     protected $_name = [
         'status'            => 'Status',
-        'parameterName'     => 'ParameterName',
         'oldParameterValue' => 'OldParameterValue',
+        'parameterName'     => 'ParameterName',
         'newParameterValue' => 'NewParameterValue',
         'modifyTime'        => 'ModifyTime',
     ];
@@ -50,11 +50,11 @@ class parameterChangeLog extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->parameterName) {
-            $res['ParameterName'] = $this->parameterName;
-        }
         if (null !== $this->oldParameterValue) {
             $res['OldParameterValue'] = $this->oldParameterValue;
+        }
+        if (null !== $this->parameterName) {
+            $res['ParameterName'] = $this->parameterName;
         }
         if (null !== $this->newParameterValue) {
             $res['NewParameterValue'] = $this->newParameterValue;
@@ -77,11 +77,11 @@ class parameterChangeLog extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['ParameterName'])) {
-            $model->parameterName = $map['ParameterName'];
-        }
         if (isset($map['OldParameterValue'])) {
             $model->oldParameterValue = $map['OldParameterValue'];
+        }
+        if (isset($map['ParameterName'])) {
+            $model->parameterName = $map['ParameterName'];
         }
         if (isset($map['NewParameterValue'])) {
             $model->newParameterValue = $map['NewParameterValue'];

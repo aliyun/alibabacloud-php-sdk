@@ -11,15 +11,15 @@ class CopyDatabaseBetweenInstancesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $DBInstanceId;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'DBInstanceId' => 'DBInstanceId',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CopyDatabaseBetweenInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CopyDatabaseBetweenInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

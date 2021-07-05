@@ -47,6 +47,11 @@ class DescribeAvailableZonesRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
+    /**
+     * @var string
+     */
+    public $category;
     protected $_name = [
         'resourceOwnerId' => 'ResourceOwnerId',
         'regionId'        => 'RegionId',
@@ -56,6 +61,7 @@ class DescribeAvailableZonesRequest extends Model
         'commodityCode'   => 'CommodityCode',
         'dispenseMode'    => 'DispenseMode',
         'DBInstanceName'  => 'DBInstanceName',
+        'category'        => 'Category',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class DescribeAvailableZonesRequest extends Model
         }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class DescribeAvailableZonesRequest extends Model
         }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
 
         return $model;

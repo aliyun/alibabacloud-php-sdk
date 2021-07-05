@@ -60,19 +60,14 @@ class dedicatedHostGroups extends Model
     public $memAllocationRatio;
 
     /**
-     * @var zoneIDList
+     * @var float
      */
-    public $zoneIDList;
+    public $memUtility;
 
     /**
      * @var float
      */
     public $memAllocateRation;
-
-    /**
-     * @var float
-     */
-    public $memUtility;
 
     /**
      * @var float
@@ -90,14 +85,14 @@ class dedicatedHostGroups extends Model
     public $cpuAllocateRation;
 
     /**
-     * @var string
-     */
-    public $openPermission;
-
-    /**
      * @var int
      */
     public $instanceNumber;
+
+    /**
+     * @var string
+     */
+    public $openPermission;
 
     /**
      * @var string
@@ -143,6 +138,11 @@ class dedicatedHostGroups extends Model
      * @var string
      */
     public $hostReplacePolicy;
+
+    /**
+     * @var zoneIDList
+     */
+    public $zoneIDList;
     protected $_name = [
         'diskAllocateRation'                => 'DiskAllocateRation',
         'createTime'                        => 'CreateTime',
@@ -154,14 +154,13 @@ class dedicatedHostGroups extends Model
         'memAllocatedAmount'                => 'MemAllocatedAmount',
         'cpuAllocationRatio'                => 'CpuAllocationRatio',
         'memAllocationRatio'                => 'MemAllocationRatio',
-        'zoneIDList'                        => 'ZoneIDList',
-        'memAllocateRation'                 => 'MemAllocateRation',
         'memUtility'                        => 'MemUtility',
+        'memAllocateRation'                 => 'MemAllocateRation',
         'cpuAllocatedAmount'                => 'CpuAllocatedAmount',
         'dedicatedHostGroupDesc'            => 'DedicatedHostGroupDesc',
         'cpuAllocateRation'                 => 'CpuAllocateRation',
-        'openPermission'                    => 'OpenPermission',
         'instanceNumber'                    => 'InstanceNumber',
+        'openPermission'                    => 'OpenPermission',
         'VPCId'                             => 'VPCId',
         'diskAllocatedAmount'               => 'DiskAllocatedAmount',
         'hostNumber'                        => 'HostNumber',
@@ -171,6 +170,7 @@ class dedicatedHostGroups extends Model
         'diskAllocationRatio'               => 'DiskAllocationRatio',
         'bastionInstanceId'                 => 'BastionInstanceId',
         'hostReplacePolicy'                 => 'HostReplacePolicy',
+        'zoneIDList'                        => 'ZoneIDList',
     ];
 
     public function validate()
@@ -210,14 +210,11 @@ class dedicatedHostGroups extends Model
         if (null !== $this->memAllocationRatio) {
             $res['MemAllocationRatio'] = $this->memAllocationRatio;
         }
-        if (null !== $this->zoneIDList) {
-            $res['ZoneIDList'] = null !== $this->zoneIDList ? $this->zoneIDList->toMap() : null;
+        if (null !== $this->memUtility) {
+            $res['MemUtility'] = $this->memUtility;
         }
         if (null !== $this->memAllocateRation) {
             $res['MemAllocateRation'] = $this->memAllocateRation;
-        }
-        if (null !== $this->memUtility) {
-            $res['MemUtility'] = $this->memUtility;
         }
         if (null !== $this->cpuAllocatedAmount) {
             $res['CpuAllocatedAmount'] = $this->cpuAllocatedAmount;
@@ -228,11 +225,11 @@ class dedicatedHostGroups extends Model
         if (null !== $this->cpuAllocateRation) {
             $res['CpuAllocateRation'] = $this->cpuAllocateRation;
         }
-        if (null !== $this->openPermission) {
-            $res['OpenPermission'] = $this->openPermission;
-        }
         if (null !== $this->instanceNumber) {
             $res['InstanceNumber'] = $this->instanceNumber;
+        }
+        if (null !== $this->openPermission) {
+            $res['OpenPermission'] = $this->openPermission;
         }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
@@ -260,6 +257,9 @@ class dedicatedHostGroups extends Model
         }
         if (null !== $this->hostReplacePolicy) {
             $res['HostReplacePolicy'] = $this->hostReplacePolicy;
+        }
+        if (null !== $this->zoneIDList) {
+            $res['ZoneIDList'] = null !== $this->zoneIDList ? $this->zoneIDList->toMap() : null;
         }
 
         return $res;
@@ -303,14 +303,11 @@ class dedicatedHostGroups extends Model
         if (isset($map['MemAllocationRatio'])) {
             $model->memAllocationRatio = $map['MemAllocationRatio'];
         }
-        if (isset($map['ZoneIDList'])) {
-            $model->zoneIDList = zoneIDList::fromMap($map['ZoneIDList']);
+        if (isset($map['MemUtility'])) {
+            $model->memUtility = $map['MemUtility'];
         }
         if (isset($map['MemAllocateRation'])) {
             $model->memAllocateRation = $map['MemAllocateRation'];
-        }
-        if (isset($map['MemUtility'])) {
-            $model->memUtility = $map['MemUtility'];
         }
         if (isset($map['CpuAllocatedAmount'])) {
             $model->cpuAllocatedAmount = $map['CpuAllocatedAmount'];
@@ -321,11 +318,11 @@ class dedicatedHostGroups extends Model
         if (isset($map['CpuAllocateRation'])) {
             $model->cpuAllocateRation = $map['CpuAllocateRation'];
         }
-        if (isset($map['OpenPermission'])) {
-            $model->openPermission = $map['OpenPermission'];
-        }
         if (isset($map['InstanceNumber'])) {
             $model->instanceNumber = $map['InstanceNumber'];
+        }
+        if (isset($map['OpenPermission'])) {
+            $model->openPermission = $map['OpenPermission'];
         }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
@@ -353,6 +350,9 @@ class dedicatedHostGroups extends Model
         }
         if (isset($map['HostReplacePolicy'])) {
             $model->hostReplacePolicy = $map['HostReplacePolicy'];
+        }
+        if (isset($map['ZoneIDList'])) {
+            $model->zoneIDList = zoneIDList::fromMap($map['ZoneIDList']);
         }
 
         return $model;

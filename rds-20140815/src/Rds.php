@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDedicatedHostUserRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDedicatedHostUserResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDiagnosticReportRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDiagnosticReportResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGdnInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGdnInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskForSQLServerRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskForSQLServerResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMigrateTaskRequest;
@@ -87,6 +89,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDedicatedHostGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDedicatedHostGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteUserBackupFileRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteUserBackupFileResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescibeImportsFromDatabaseRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescibeImportsFromDatabaseResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountsRequest;
@@ -135,6 +139,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceDetailRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceDetailResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceEncryptionKeyRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceEncryptionKeyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceHAConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceHAConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceIPArrayListRequest;
@@ -271,8 +277,14 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\GrantOperatorPermissionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GrantOperatorPermissionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ImportDatabaseBetweenInstancesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ImportDatabaseBetweenInstancesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ImportUserBackupFileRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ImportUserBackupFileResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ListClassesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ListClassesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ListUserBackupFilesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ListUserBackupFilesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\LockAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\LockAccountResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateDBInstanceRequest;
@@ -421,6 +433,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\UnlockAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UnlockAccountResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UpdateUserBackupFileRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UpdateUserBackupFileResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceEngineVersionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceEngineVersionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceKernelVersionRequest;
@@ -1241,6 +1255,34 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param CreateGdnInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateGdnInstanceResponse
+     */
+    public function createGdnInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateGdnInstanceResponse::fromMap($this->doRPCRequest('CreateGdnInstance', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateGdnInstanceRequest $request
+     *
+     * @return CreateGdnInstanceResponse
+     */
+    public function createGdnInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGdnInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateMigrateTaskRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1658,6 +1700,34 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteUserBackupFileRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteUserBackupFileResponse
+     */
+    public function deleteUserBackupFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteUserBackupFileResponse::fromMap($this->doRPCRequest('DeleteUserBackupFile', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteUserBackupFileRequest $request
+     *
+     * @return DeleteUserBackupFileResponse
+     */
+    public function deleteUserBackupFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserBackupFileWithOptions($request, $runtime);
     }
 
     /**
@@ -2330,6 +2400,34 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstanceDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBInstanceEncryptionKeyRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDBInstanceEncryptionKeyResponse
+     */
+    public function describeDBInstanceEncryptionKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDBInstanceEncryptionKeyResponse::fromMap($this->doRPCRequest('DescribeDBInstanceEncryptionKey', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceEncryptionKeyRequest $request
+     *
+     * @return DescribeDBInstanceEncryptionKeyResponse
+     */
+    public function describeDBInstanceEncryptionKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceEncryptionKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -4237,6 +4335,62 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param ImportUserBackupFileRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ImportUserBackupFileResponse
+     */
+    public function importUserBackupFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ImportUserBackupFileResponse::fromMap($this->doRPCRequest('ImportUserBackupFile', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ImportUserBackupFileRequest $request
+     *
+     * @return ImportUserBackupFileResponse
+     */
+    public function importUserBackupFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importUserBackupFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListClassesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListClassesResponse
+     */
+    public function listClassesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListClassesResponse::fromMap($this->doRPCRequest('ListClasses', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListClassesRequest $request
+     *
+     * @return ListClassesResponse
+     */
+    public function listClasses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClassesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4262,6 +4416,34 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListUserBackupFilesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListUserBackupFilesResponse
+     */
+    public function listUserBackupFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListUserBackupFilesResponse::fromMap($this->doRPCRequest('ListUserBackupFiles', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListUserBackupFilesRequest $request
+     *
+     * @return ListUserBackupFilesResponse
+     */
+    public function listUserBackupFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserBackupFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -6334,6 +6516,34 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateUserBackupFileRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateUserBackupFileResponse
+     */
+    public function updateUserBackupFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateUserBackupFileResponse::fromMap($this->doRPCRequest('UpdateUserBackupFile', '2014-08-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateUserBackupFileRequest $request
+     *
+     * @return UpdateUserBackupFileResponse
+     */
+    public function updateUserBackupFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserBackupFileWithOptions($request, $runtime);
     }
 
     /**

@@ -11,15 +11,15 @@ class CreateTempDBInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $tempDBInstanceId;
 
     /**
      * @var string
      */
-    public $tempDBInstanceId;
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'tempDBInstanceId' => 'TempDBInstanceId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateTempDBInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->tempDBInstanceId) {
             $res['TempDBInstanceId'] = $this->tempDBInstanceId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateTempDBInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['TempDBInstanceId'])) {
             $model->tempDBInstanceId = $map['TempDBInstanceId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

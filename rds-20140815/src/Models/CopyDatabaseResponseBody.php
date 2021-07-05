@@ -11,20 +11,20 @@ class CopyDatabaseResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $DBName;
 
     /**
      * @var string
      */
-    public $DBName;
+    public $taskId;
 
     /**
      * @var string
      */
     public $DBStatus;
     protected $_name = [
-        'taskId'   => 'TaskId',
         'DBName'   => 'DBName',
+        'taskId'   => 'TaskId',
         'DBStatus' => 'DBStatus',
     ];
 
@@ -35,11 +35,11 @@ class CopyDatabaseResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->DBStatus) {
             $res['DBStatus'] = $this->DBStatus;
@@ -56,11 +56,11 @@ class CopyDatabaseResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['DBStatus'])) {
             $model->DBStatus = $map['DBStatus'];

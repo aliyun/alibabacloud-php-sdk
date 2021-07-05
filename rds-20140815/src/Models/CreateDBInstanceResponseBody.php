@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRunResult;
+
+    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $connectionString;
 
     /**
      * @var string
@@ -24,19 +34,21 @@ class CreateDBInstanceResponseBody extends Model
     public $port;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $connectionString;
+    public $dryRun;
 
     /**
      * @var string
      */
     public $orderId;
     protected $_name = [
+        'dryRunResult'     => 'DryRunResult',
         'requestId'        => 'RequestId',
+        'connectionString' => 'ConnectionString',
         'DBInstanceId'     => 'DBInstanceId',
         'port'             => 'Port',
-        'connectionString' => 'ConnectionString',
+        'dryRun'           => 'DryRun',
         'orderId'          => 'OrderId',
     ];
 
@@ -47,8 +59,14 @@ class CreateDBInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRunResult) {
+            $res['DryRunResult'] = $this->dryRunResult;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -56,8 +74,8 @@ class CreateDBInstanceResponseBody extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
@@ -74,8 +92,14 @@ class CreateDBInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRunResult'])) {
+            $model->dryRunResult = $map['DryRunResult'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
@@ -83,8 +107,8 @@ class CreateDBInstanceResponseBody extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];

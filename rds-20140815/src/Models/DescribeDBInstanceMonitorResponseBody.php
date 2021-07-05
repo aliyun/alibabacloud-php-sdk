@@ -11,15 +11,15 @@ class DescribeDBInstanceMonitorResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $period;
 
     /**
      * @var string
      */
-    public $period;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'period'    => 'Period',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeDBInstanceMonitorResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeDBInstanceMonitorResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

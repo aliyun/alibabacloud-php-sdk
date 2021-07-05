@@ -72,17 +72,22 @@ class DBInstance extends Model
     /**
      * @var string
      */
+    public $generalGroupName;
+
+    /**
+     * @var string
+     */
     public $dedicatedHostGroupId;
 
     /**
      * @var string
      */
-    public $vpcCloudInstanceId;
+    public $vpcName;
 
     /**
      * @var string
      */
-    public $vpcName;
+    public $vpcCloudInstanceId;
 
     /**
      * @var string
@@ -98,6 +103,11 @@ class DBInstance extends Model
      * @var string
      */
     public $connectionString;
+
+    /**
+     * @var string
+     */
+    public $tips;
 
     /**
      * @var string
@@ -160,11 +170,6 @@ class DBInstance extends Model
     public $DBInstanceStatus;
 
     /**
-     * @var readOnlyDBInstanceIds
-     */
-    public $readOnlyDBInstanceIds;
-
-    /**
      * @var string
      */
     public $dedicatedHostNameForMaster;
@@ -195,6 +200,11 @@ class DBInstance extends Model
     public $resourceGroupId;
 
     /**
+     * @var int
+     */
+    public $tipsLevel;
+
+    /**
      * @var string
      */
     public $zoneId;
@@ -223,6 +233,11 @@ class DBInstance extends Model
      * @var string
      */
     public $engine;
+
+    /**
+     * @var readOnlyDBInstanceIds
+     */
+    public $readOnlyDBInstanceIds;
     protected $_name = [
         'vpcId'                        => 'VpcId',
         'dedicatedHostIdForLog'        => 'DedicatedHostIdForLog',
@@ -236,12 +251,14 @@ class DBInstance extends Model
         'connectionMode'               => 'ConnectionMode',
         'lockMode'                     => 'LockMode',
         'engineVersion'                => 'EngineVersion',
+        'generalGroupName'             => 'GeneralGroupName',
         'dedicatedHostGroupId'         => 'DedicatedHostGroupId',
-        'vpcCloudInstanceId'           => 'VpcCloudInstanceId',
         'vpcName'                      => 'VpcName',
+        'vpcCloudInstanceId'           => 'VpcCloudInstanceId',
         'dedicatedHostZoneIdForSlave'  => 'DedicatedHostZoneIdForSlave',
         'dedicatedHostZoneIdForMaster' => 'DedicatedHostZoneIdForMaster',
         'connectionString'             => 'ConnectionString',
+        'tips'                         => 'Tips',
         'instanceNetworkType'          => 'InstanceNetworkType',
         'dedicatedHostZoneIdForLog'    => 'DedicatedHostZoneIdForLog',
         'masterInstanceId'             => 'MasterInstanceId',
@@ -254,19 +271,20 @@ class DBInstance extends Model
         'destroyTime'                  => 'DestroyTime',
         'lockReason'                   => 'LockReason',
         'DBInstanceStatus'             => 'DBInstanceStatus',
-        'readOnlyDBInstanceIds'        => 'ReadOnlyDBInstanceIds',
         'dedicatedHostNameForMaster'   => 'DedicatedHostNameForMaster',
         'guardDBInstanceId'            => 'GuardDBInstanceId',
         'regionId'                     => 'RegionId',
         'vSwitchId'                    => 'VSwitchId',
         'dedicatedHostIdForSlave'      => 'DedicatedHostIdForSlave',
         'resourceGroupId'              => 'ResourceGroupId',
+        'tipsLevel'                    => 'TipsLevel',
         'zoneId'                       => 'ZoneId',
         'category'                     => 'Category',
         'DBInstanceId'                 => 'DBInstanceId',
         'dedicatedHostIdForMaster'     => 'DedicatedHostIdForMaster',
         'DBInstanceClass'              => 'DBInstanceClass',
         'engine'                       => 'Engine',
+        'readOnlyDBInstanceIds'        => 'ReadOnlyDBInstanceIds',
     ];
 
     public function validate()
@@ -312,14 +330,17 @@ class DBInstance extends Model
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
+        if (null !== $this->generalGroupName) {
+            $res['GeneralGroupName'] = $this->generalGroupName;
+        }
         if (null !== $this->dedicatedHostGroupId) {
             $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
         }
-        if (null !== $this->vpcCloudInstanceId) {
-            $res['VpcCloudInstanceId'] = $this->vpcCloudInstanceId;
-        }
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
+        }
+        if (null !== $this->vpcCloudInstanceId) {
+            $res['VpcCloudInstanceId'] = $this->vpcCloudInstanceId;
         }
         if (null !== $this->dedicatedHostZoneIdForSlave) {
             $res['DedicatedHostZoneIdForSlave'] = $this->dedicatedHostZoneIdForSlave;
@@ -329,6 +350,9 @@ class DBInstance extends Model
         }
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
+        }
+        if (null !== $this->tips) {
+            $res['Tips'] = $this->tips;
         }
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
@@ -366,9 +390,6 @@ class DBInstance extends Model
         if (null !== $this->DBInstanceStatus) {
             $res['DBInstanceStatus'] = $this->DBInstanceStatus;
         }
-        if (null !== $this->readOnlyDBInstanceIds) {
-            $res['ReadOnlyDBInstanceIds'] = null !== $this->readOnlyDBInstanceIds ? $this->readOnlyDBInstanceIds->toMap() : null;
-        }
         if (null !== $this->dedicatedHostNameForMaster) {
             $res['DedicatedHostNameForMaster'] = $this->dedicatedHostNameForMaster;
         }
@@ -387,6 +408,9 @@ class DBInstance extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->tipsLevel) {
+            $res['TipsLevel'] = $this->tipsLevel;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -404,6 +428,9 @@ class DBInstance extends Model
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->readOnlyDBInstanceIds) {
+            $res['ReadOnlyDBInstanceIds'] = null !== $this->readOnlyDBInstanceIds ? $this->readOnlyDBInstanceIds->toMap() : null;
         }
 
         return $res;
@@ -453,14 +480,17 @@ class DBInstance extends Model
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
+        if (isset($map['GeneralGroupName'])) {
+            $model->generalGroupName = $map['GeneralGroupName'];
+        }
         if (isset($map['DedicatedHostGroupId'])) {
             $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
         }
-        if (isset($map['VpcCloudInstanceId'])) {
-            $model->vpcCloudInstanceId = $map['VpcCloudInstanceId'];
-        }
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
+        }
+        if (isset($map['VpcCloudInstanceId'])) {
+            $model->vpcCloudInstanceId = $map['VpcCloudInstanceId'];
         }
         if (isset($map['DedicatedHostZoneIdForSlave'])) {
             $model->dedicatedHostZoneIdForSlave = $map['DedicatedHostZoneIdForSlave'];
@@ -470,6 +500,9 @@ class DBInstance extends Model
         }
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
+        }
+        if (isset($map['Tips'])) {
+            $model->tips = $map['Tips'];
         }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
@@ -507,9 +540,6 @@ class DBInstance extends Model
         if (isset($map['DBInstanceStatus'])) {
             $model->DBInstanceStatus = $map['DBInstanceStatus'];
         }
-        if (isset($map['ReadOnlyDBInstanceIds'])) {
-            $model->readOnlyDBInstanceIds = readOnlyDBInstanceIds::fromMap($map['ReadOnlyDBInstanceIds']);
-        }
         if (isset($map['DedicatedHostNameForMaster'])) {
             $model->dedicatedHostNameForMaster = $map['DedicatedHostNameForMaster'];
         }
@@ -528,6 +558,9 @@ class DBInstance extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['TipsLevel'])) {
+            $model->tipsLevel = $map['TipsLevel'];
+        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
@@ -545,6 +578,9 @@ class DBInstance extends Model
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+        if (isset($map['ReadOnlyDBInstanceIds'])) {
+            $model->readOnlyDBInstanceIds = readOnlyDBInstanceIds::fromMap($map['ReadOnlyDBInstanceIds']);
         }
 
         return $model;

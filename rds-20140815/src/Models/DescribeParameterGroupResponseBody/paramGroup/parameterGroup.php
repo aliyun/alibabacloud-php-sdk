@@ -50,11 +50,6 @@ class parameterGroup extends Model
     public $paramCounts;
 
     /**
-     * @var paramDetail
-     */
-    public $paramDetail;
-
-    /**
      * @var string
      */
     public $engineVersion;
@@ -63,6 +58,11 @@ class parameterGroup extends Model
      * @var int
      */
     public $parameterGroupType;
+
+    /**
+     * @var paramDetail
+     */
+    public $paramDetail;
     protected $_name = [
         'updateTime'         => 'UpdateTime',
         'parameterGroupDesc' => 'ParameterGroupDesc',
@@ -72,9 +72,9 @@ class parameterGroup extends Model
         'parameterGroupName' => 'ParameterGroupName',
         'engine'             => 'Engine',
         'paramCounts'        => 'ParamCounts',
-        'paramDetail'        => 'ParamDetail',
         'engineVersion'      => 'EngineVersion',
         'parameterGroupType' => 'ParameterGroupType',
+        'paramDetail'        => 'ParamDetail',
     ];
 
     public function validate()
@@ -108,14 +108,14 @@ class parameterGroup extends Model
         if (null !== $this->paramCounts) {
             $res['ParamCounts'] = $this->paramCounts;
         }
-        if (null !== $this->paramDetail) {
-            $res['ParamDetail'] = null !== $this->paramDetail ? $this->paramDetail->toMap() : null;
-        }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->parameterGroupType) {
             $res['ParameterGroupType'] = $this->parameterGroupType;
+        }
+        if (null !== $this->paramDetail) {
+            $res['ParamDetail'] = null !== $this->paramDetail ? $this->paramDetail->toMap() : null;
         }
 
         return $res;
@@ -153,14 +153,14 @@ class parameterGroup extends Model
         if (isset($map['ParamCounts'])) {
             $model->paramCounts = $map['ParamCounts'];
         }
-        if (isset($map['ParamDetail'])) {
-            $model->paramDetail = paramDetail::fromMap($map['ParamDetail']);
-        }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['ParameterGroupType'])) {
             $model->parameterGroupType = $map['ParameterGroupType'];
+        }
+        if (isset($map['ParamDetail'])) {
+            $model->paramDetail = paramDetail::fromMap($map['ParamDetail']);
         }
 
         return $model;

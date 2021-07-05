@@ -12,21 +12,21 @@ class DescribeSecurityGroupConfigurationResponseBody extends Model
     /**
      * @var string
      */
+    public $DBInstanceName;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var items
      */
     public $items;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceName;
     protected $_name = [
+        'DBInstanceName' => 'DBInstanceName',
         'requestId'      => 'RequestId',
         'items'          => 'Items',
-        'DBInstanceName' => 'DBInstanceName',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeSecurityGroupConfigurationResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
-        }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeSecurityGroupConfigurationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
-        }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
         }
 
         return $model;

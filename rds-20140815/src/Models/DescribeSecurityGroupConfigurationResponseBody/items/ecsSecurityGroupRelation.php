@@ -11,20 +11,20 @@ class ecsSecurityGroupRelation extends Model
     /**
      * @var string
      */
-    public $securityGroupId;
+    public $networkType;
 
     /**
      * @var string
      */
-    public $networkType;
+    public $securityGroupId;
 
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'securityGroupId' => 'SecurityGroupId',
         'networkType'     => 'NetworkType',
+        'securityGroupId' => 'SecurityGroupId',
         'regionId'        => 'RegionId',
     ];
 
@@ -35,11 +35,11 @@ class ecsSecurityGroupRelation extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -56,11 +56,11 @@ class ecsSecurityGroupRelation extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

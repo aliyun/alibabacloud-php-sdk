@@ -16,12 +16,12 @@ class reportList extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $diagnosticTime;
 
     /**
      * @var string
      */
-    public $diagnosticTime;
+    public $startTime;
 
     /**
      * @var int
@@ -34,8 +34,8 @@ class reportList extends Model
     public $downloadURL;
     protected $_name = [
         'endTime'        => 'EndTime',
-        'startTime'      => 'StartTime',
         'diagnosticTime' => 'DiagnosticTime',
+        'startTime'      => 'StartTime',
         'score'          => 'Score',
         'downloadURL'    => 'DownloadURL',
     ];
@@ -50,11 +50,11 @@ class reportList extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->diagnosticTime) {
             $res['DiagnosticTime'] = $this->diagnosticTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
@@ -77,11 +77,11 @@ class reportList extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['DiagnosticTime'])) {
             $model->diagnosticTime = $map['DiagnosticTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];

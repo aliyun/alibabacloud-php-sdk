@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLCollectorPolicyResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $storagePeriod;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -22,10 +17,15 @@ class DescribeSQLCollectorPolicyResponseBody extends Model
      * @var string
      */
     public $SQLCollectorStatus;
+
+    /**
+     * @var int
+     */
+    public $storagePeriod;
     protected $_name = [
-        'storagePeriod'      => 'StoragePeriod',
         'requestId'          => 'RequestId',
         'SQLCollectorStatus' => 'SQLCollectorStatus',
+        'storagePeriod'      => 'StoragePeriod',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeSQLCollectorPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->storagePeriod) {
-            $res['StoragePeriod'] = $this->storagePeriod;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->SQLCollectorStatus) {
             $res['SQLCollectorStatus'] = $this->SQLCollectorStatus;
+        }
+        if (null !== $this->storagePeriod) {
+            $res['StoragePeriod'] = $this->storagePeriod;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeSQLCollectorPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StoragePeriod'])) {
-            $model->storagePeriod = $map['StoragePeriod'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SQLCollectorStatus'])) {
             $model->SQLCollectorStatus = $map['SQLCollectorStatus'];
+        }
+        if (isset($map['StoragePeriod'])) {
+            $model->storagePeriod = $map['StoragePeriod'];
         }
 
         return $model;

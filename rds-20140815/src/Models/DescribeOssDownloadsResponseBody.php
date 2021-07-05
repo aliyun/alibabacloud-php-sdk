@@ -12,12 +12,12 @@ class DescribeOssDownloadsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $DBInstanceId;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $requestId;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class DescribeOssDownloadsResponseBody extends Model
      */
     public $items;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'DBInstanceId'  => 'DBInstanceId',
+        'requestId'     => 'RequestId',
         'migrateTaskId' => 'MigrateTaskId',
         'items'         => 'Items',
     ];
@@ -42,11 +42,11 @@ class DescribeOssDownloadsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->migrateTaskId) {
             $res['MigrateTaskId'] = $this->migrateTaskId;
@@ -66,11 +66,11 @@ class DescribeOssDownloadsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['MigrateTaskId'])) {
             $model->migrateTaskId = $map['MigrateTaskId'];

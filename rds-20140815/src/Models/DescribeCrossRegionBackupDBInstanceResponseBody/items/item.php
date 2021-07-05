@@ -51,12 +51,12 @@ class item extends Model
     /**
      * @var string
      */
-    public $crossBackupRegion;
+    public $crossBackupType;
 
     /**
      * @var string
      */
-    public $crossBackupType;
+    public $crossBackupRegion;
 
     /**
      * @var string
@@ -86,8 +86,8 @@ class item extends Model
         'logBackupEnabled'      => 'LogBackupEnabled',
         'retentType'            => 'RetentType',
         'retention'             => 'Retention',
-        'crossBackupRegion'     => 'CrossBackupRegion',
         'crossBackupType'       => 'CrossBackupType',
+        'crossBackupRegion'     => 'CrossBackupRegion',
         'DBInstanceId'          => 'DBInstanceId',
         'engine'                => 'Engine',
         'backupEnabledTime'     => 'BackupEnabledTime',
@@ -125,11 +125,11 @@ class item extends Model
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
         }
-        if (null !== $this->crossBackupRegion) {
-            $res['CrossBackupRegion'] = $this->crossBackupRegion;
-        }
         if (null !== $this->crossBackupType) {
             $res['CrossBackupType'] = $this->crossBackupType;
+        }
+        if (null !== $this->crossBackupRegion) {
+            $res['CrossBackupRegion'] = $this->crossBackupRegion;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -179,11 +179,11 @@ class item extends Model
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
         }
-        if (isset($map['CrossBackupRegion'])) {
-            $model->crossBackupRegion = $map['CrossBackupRegion'];
-        }
         if (isset($map['CrossBackupType'])) {
             $model->crossBackupType = $map['CrossBackupType'];
+        }
+        if (isset($map['CrossBackupRegion'])) {
+            $model->crossBackupRegion = $map['CrossBackupRegion'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];

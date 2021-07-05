@@ -11,17 +11,7 @@ class CreateMigrateTaskForSQLServerResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
+    public $migrateIaskId;
 
     /**
      * @var string
@@ -31,25 +21,35 @@ class CreateMigrateTaskForSQLServerResponseBody extends Model
     /**
      * @var string
      */
+    public $DBInstanceName;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $DBName;
 
     /**
      * @var string
      */
-    public $migrateIaskId;
+    public $DBInstanceId;
 
     /**
      * @var string
      */
-    public $DBInstanceName;
+    public $taskId;
     protected $_name = [
-        'taskId'         => 'TaskId',
-        'requestId'      => 'RequestId',
-        'DBInstanceId'   => 'DBInstanceId',
-        'taskType'       => 'TaskType',
-        'DBName'         => 'DBName',
         'migrateIaskId'  => 'MigrateIaskId',
+        'taskType'       => 'TaskType',
         'DBInstanceName' => 'DBInstanceName',
+        'requestId'      => 'RequestId',
+        'DBName'         => 'DBName',
+        'DBInstanceId'   => 'DBInstanceId',
+        'taskId'         => 'TaskId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class CreateMigrateTaskForSQLServerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->migrateIaskId) {
+            $res['MigrateIaskId'] = $this->migrateIaskId;
         }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
         }
-        if (null !== $this->migrateIaskId) {
-            $res['MigrateIaskId'] = $this->migrateIaskId;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class CreateMigrateTaskForSQLServerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['MigrateIaskId'])) {
+            $model->migrateIaskId = $map['MigrateIaskId'];
         }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
         }
-        if (isset($map['MigrateIaskId'])) {
-            $model->migrateIaskId = $map['MigrateIaskId'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

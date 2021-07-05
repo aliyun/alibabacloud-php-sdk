@@ -11,15 +11,15 @@ class CheckCreateDdrDBInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $isValid;
 
     /**
      * @var string
      */
-    public $isValid;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'isValid'   => 'IsValid',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CheckCreateDdrDBInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->isValid) {
             $res['IsValid'] = $this->isValid;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CheckCreateDdrDBInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['IsValid'])) {
             $model->isValid = $map['IsValid'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

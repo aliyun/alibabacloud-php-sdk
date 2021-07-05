@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class QPSTopNItem extends Model
 {
     /**
-     * @var string
-     */
-    public $SQLText;
-
-    /**
      * @var int
      */
     public $SQLExecuteTimes;
+
+    /**
+     * @var string
+     */
+    public $SQLText;
     protected $_name = [
-        'SQLText'         => 'SQLText',
         'SQLExecuteTimes' => 'SQLExecuteTimes',
+        'SQLText'         => 'SQLText',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QPSTopNItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->SQLText) {
-            $res['SQLText'] = $this->SQLText;
-        }
         if (null !== $this->SQLExecuteTimes) {
             $res['SQLExecuteTimes'] = $this->SQLExecuteTimes;
+        }
+        if (null !== $this->SQLText) {
+            $res['SQLText'] = $this->SQLText;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QPSTopNItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SQLText'])) {
-            $model->SQLText = $map['SQLText'];
-        }
         if (isset($map['SQLExecuteTimes'])) {
             $model->SQLExecuteTimes = $map['SQLExecuteTimes'];
+        }
+        if (isset($map['SQLText'])) {
+            $model->SQLText = $map['SQLText'];
         }
 
         return $model;

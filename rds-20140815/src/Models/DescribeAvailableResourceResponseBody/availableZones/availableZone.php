@@ -12,27 +12,27 @@ class availableZone extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var supportedEngines
-     */
-    public $supportedEngines;
-
-    /**
-     * @var string
-     */
     public $zoneId;
 
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var supportedEngines
+     */
+    public $supportedEngines;
     protected $_name = [
-        'status'           => 'Status',
-        'supportedEngines' => 'SupportedEngines',
         'zoneId'           => 'ZoneId',
+        'status'           => 'Status',
         'regionId'         => 'RegionId',
+        'supportedEngines' => 'SupportedEngines',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class availableZone extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->supportedEngines) {
-            $res['SupportedEngines'] = null !== $this->supportedEngines ? $this->supportedEngines->toMap() : null;
-        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->supportedEngines) {
+            $res['SupportedEngines'] = null !== $this->supportedEngines ? $this->supportedEngines->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class availableZone extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['SupportedEngines'])) {
-            $model->supportedEngines = supportedEngines::fromMap($map['SupportedEngines']);
-        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SupportedEngines'])) {
+            $model->supportedEngines = supportedEngines::fromMap($map['SupportedEngines']);
         }
 
         return $model;

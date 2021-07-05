@@ -11,6 +11,11 @@ class DBInstanceIPArray extends Model
     /**
      * @var string
      */
+    public $DBInstanceIPArrayAttribute;
+
+    /**
+     * @var string
+     */
     public $DBInstanceIPArrayName;
 
     /**
@@ -22,16 +27,11 @@ class DBInstanceIPArray extends Model
      * @var string
      */
     public $securityIPList;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceIPArrayAttribute;
     protected $_name = [
+        'DBInstanceIPArrayAttribute' => 'DBInstanceIPArrayAttribute',
         'DBInstanceIPArrayName'      => 'DBInstanceIPArrayName',
         'securityIPType'             => 'SecurityIPType',
         'securityIPList'             => 'SecurityIPList',
-        'DBInstanceIPArrayAttribute' => 'DBInstanceIPArrayAttribute',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class DBInstanceIPArray extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceIPArrayAttribute) {
+            $res['DBInstanceIPArrayAttribute'] = $this->DBInstanceIPArrayAttribute;
+        }
         if (null !== $this->DBInstanceIPArrayName) {
             $res['DBInstanceIPArrayName'] = $this->DBInstanceIPArrayName;
         }
@@ -49,9 +52,6 @@ class DBInstanceIPArray extends Model
         }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
-        }
-        if (null !== $this->DBInstanceIPArrayAttribute) {
-            $res['DBInstanceIPArrayAttribute'] = $this->DBInstanceIPArrayAttribute;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class DBInstanceIPArray extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceIPArrayAttribute'])) {
+            $model->DBInstanceIPArrayAttribute = $map['DBInstanceIPArrayAttribute'];
+        }
         if (isset($map['DBInstanceIPArrayName'])) {
             $model->DBInstanceIPArrayName = $map['DBInstanceIPArrayName'];
         }
@@ -73,9 +76,6 @@ class DBInstanceIPArray extends Model
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
-        }
-        if (isset($map['DBInstanceIPArrayAttribute'])) {
-            $model->DBInstanceIPArrayAttribute = $map['DBInstanceIPArrayAttribute'];
         }
 
         return $model;

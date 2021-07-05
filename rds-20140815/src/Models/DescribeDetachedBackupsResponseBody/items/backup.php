@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class backup extends Model
 {
     /**
-     * @var string
-     */
-    public $backupStatus;
-
-    /**
-     * @var string
-     */
-    public $storeStatus;
-
-    /**
      * @var int
      */
     public $consistentTime;
@@ -26,12 +16,22 @@ class backup extends Model
     /**
      * @var string
      */
-    public $backupStartTime;
+    public $storeStatus;
+
+    /**
+     * @var string
+     */
+    public $backupStatus;
 
     /**
      * @var string
      */
     public $backupType;
+
+    /**
+     * @var string
+     */
+    public $backupStartTime;
 
     /**
      * @var string
@@ -46,12 +46,12 @@ class backup extends Model
     /**
      * @var string
      */
-    public $backupEndTime;
+    public $metaStatus;
 
     /**
      * @var string
      */
-    public $metaStatus;
+    public $backupEndTime;
 
     /**
      * @var string
@@ -88,15 +88,15 @@ class backup extends Model
      */
     public $backupMethod;
     protected $_name = [
-        'backupStatus'              => 'BackupStatus',
-        'storeStatus'               => 'StoreStatus',
         'consistentTime'            => 'ConsistentTime',
-        'backupStartTime'           => 'BackupStartTime',
+        'storeStatus'               => 'StoreStatus',
+        'backupStatus'              => 'BackupStatus',
         'backupType'                => 'BackupType',
+        'backupStartTime'           => 'BackupStartTime',
         'backupDownloadURL'         => 'BackupDownloadURL',
         'isAvail'                   => 'IsAvail',
-        'backupEndTime'             => 'BackupEndTime',
         'metaStatus'                => 'MetaStatus',
+        'backupEndTime'             => 'BackupEndTime',
         'backupId'                  => 'BackupId',
         'hostInstanceID'            => 'HostInstanceID',
         'backupIntranetDownloadURL' => 'BackupIntranetDownloadURL',
@@ -113,20 +113,20 @@ class backup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->backupStatus) {
-            $res['BackupStatus'] = $this->backupStatus;
+        if (null !== $this->consistentTime) {
+            $res['ConsistentTime'] = $this->consistentTime;
         }
         if (null !== $this->storeStatus) {
             $res['StoreStatus'] = $this->storeStatus;
         }
-        if (null !== $this->consistentTime) {
-            $res['ConsistentTime'] = $this->consistentTime;
-        }
-        if (null !== $this->backupStartTime) {
-            $res['BackupStartTime'] = $this->backupStartTime;
+        if (null !== $this->backupStatus) {
+            $res['BackupStatus'] = $this->backupStatus;
         }
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
+        }
+        if (null !== $this->backupStartTime) {
+            $res['BackupStartTime'] = $this->backupStartTime;
         }
         if (null !== $this->backupDownloadURL) {
             $res['BackupDownloadURL'] = $this->backupDownloadURL;
@@ -134,11 +134,11 @@ class backup extends Model
         if (null !== $this->isAvail) {
             $res['IsAvail'] = $this->isAvail;
         }
-        if (null !== $this->backupEndTime) {
-            $res['BackupEndTime'] = $this->backupEndTime;
-        }
         if (null !== $this->metaStatus) {
             $res['MetaStatus'] = $this->metaStatus;
+        }
+        if (null !== $this->backupEndTime) {
+            $res['BackupEndTime'] = $this->backupEndTime;
         }
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
@@ -173,20 +173,20 @@ class backup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BackupStatus'])) {
-            $model->backupStatus = $map['BackupStatus'];
+        if (isset($map['ConsistentTime'])) {
+            $model->consistentTime = $map['ConsistentTime'];
         }
         if (isset($map['StoreStatus'])) {
             $model->storeStatus = $map['StoreStatus'];
         }
-        if (isset($map['ConsistentTime'])) {
-            $model->consistentTime = $map['ConsistentTime'];
-        }
-        if (isset($map['BackupStartTime'])) {
-            $model->backupStartTime = $map['BackupStartTime'];
+        if (isset($map['BackupStatus'])) {
+            $model->backupStatus = $map['BackupStatus'];
         }
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
+        }
+        if (isset($map['BackupStartTime'])) {
+            $model->backupStartTime = $map['BackupStartTime'];
         }
         if (isset($map['BackupDownloadURL'])) {
             $model->backupDownloadURL = $map['BackupDownloadURL'];
@@ -194,11 +194,11 @@ class backup extends Model
         if (isset($map['IsAvail'])) {
             $model->isAvail = $map['IsAvail'];
         }
-        if (isset($map['BackupEndTime'])) {
-            $model->backupEndTime = $map['BackupEndTime'];
-        }
         if (isset($map['MetaStatus'])) {
             $model->metaStatus = $map['MetaStatus'];
+        }
+        if (isset($map['BackupEndTime'])) {
+            $model->backupEndTime = $map['BackupEndTime'];
         }
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];

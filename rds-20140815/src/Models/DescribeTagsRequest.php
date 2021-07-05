@@ -52,6 +52,11 @@ class DescribeTagsRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -62,6 +67,7 @@ class DescribeTagsRequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'tags'                 => 'Tags',
         'ownerAccount'         => 'OwnerAccount',
+        'resourceType'         => 'ResourceType',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class DescribeTagsRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class DescribeTagsRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

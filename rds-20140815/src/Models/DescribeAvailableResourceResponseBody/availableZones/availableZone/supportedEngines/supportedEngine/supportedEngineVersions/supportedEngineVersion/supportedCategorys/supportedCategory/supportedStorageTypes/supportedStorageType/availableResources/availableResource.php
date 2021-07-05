@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class availableResource extends Model
 {
     /**
-     * @var DBInstanceStorageRange
-     */
-    public $DBInstanceStorageRange;
-
-    /**
      * @var string
      */
     public $storageRange;
@@ -23,10 +18,15 @@ class availableResource extends Model
      * @var string
      */
     public $DBInstanceClass;
+
+    /**
+     * @var DBInstanceStorageRange
+     */
+    public $DBInstanceStorageRange;
     protected $_name = [
-        'DBInstanceStorageRange' => 'DBInstanceStorageRange',
         'storageRange'           => 'StorageRange',
         'DBInstanceClass'        => 'DBInstanceClass',
+        'DBInstanceStorageRange' => 'DBInstanceStorageRange',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class availableResource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceStorageRange) {
-            $res['DBInstanceStorageRange'] = null !== $this->DBInstanceStorageRange ? $this->DBInstanceStorageRange->toMap() : null;
-        }
         if (null !== $this->storageRange) {
             $res['StorageRange'] = $this->storageRange;
         }
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
+        }
+        if (null !== $this->DBInstanceStorageRange) {
+            $res['DBInstanceStorageRange'] = null !== $this->DBInstanceStorageRange ? $this->DBInstanceStorageRange->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class availableResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceStorageRange'])) {
-            $model->DBInstanceStorageRange = DBInstanceStorageRange::fromMap($map['DBInstanceStorageRange']);
-        }
         if (isset($map['StorageRange'])) {
             $model->storageRange = $map['StorageRange'];
         }
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
+        }
+        if (isset($map['DBInstanceStorageRange'])) {
+            $model->DBInstanceStorageRange = DBInstanceStorageRange::fromMap($map['DBInstanceStorageRange']);
         }
 
         return $model;

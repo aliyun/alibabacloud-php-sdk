@@ -16,16 +16,16 @@ class DescribeHASwitchConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $HAConfig;
+    public $manualHATime;
 
     /**
      * @var string
      */
-    public $manualHATime;
+    public $HAConfig;
     protected $_name = [
         'requestId'    => 'RequestId',
-        'HAConfig'     => 'HAConfig',
         'manualHATime' => 'ManualHATime',
+        'HAConfig'     => 'HAConfig',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeHASwitchConfigResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->HAConfig) {
-            $res['HAConfig'] = $this->HAConfig;
-        }
         if (null !== $this->manualHATime) {
             $res['ManualHATime'] = $this->manualHATime;
+        }
+        if (null !== $this->HAConfig) {
+            $res['HAConfig'] = $this->HAConfig;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeHASwitchConfigResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['HAConfig'])) {
-            $model->HAConfig = $map['HAConfig'];
-        }
         if (isset($map['ManualHATime'])) {
             $model->manualHATime = $map['ManualHATime'];
+        }
+        if (isset($map['HAConfig'])) {
+            $model->HAConfig = $map['HAConfig'];
         }
 
         return $model;

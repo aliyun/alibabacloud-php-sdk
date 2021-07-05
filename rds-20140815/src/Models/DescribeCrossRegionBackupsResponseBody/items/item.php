@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $crossBackupId;
+    public $consistentTime;
 
     /**
      * @var string
@@ -20,19 +20,9 @@ class item extends Model
     public $DBInstanceStorageType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $consistentTime;
-
-    /**
-     * @var restoreRegions
-     */
-    public $restoreRegions;
-
-    /**
-     * @var string
-     */
-    public $backupStartTime;
+    public $crossBackupId;
 
     /**
      * @var string
@@ -42,7 +32,22 @@ class item extends Model
     /**
      * @var string
      */
+    public $backupStartTime;
+
+    /**
+     * @var string
+     */
     public $crossBackupSetLocation;
+
+    /**
+     * @var int
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $crossBackupDownloadLink;
 
     /**
      * @var string
@@ -52,22 +57,12 @@ class item extends Model
     /**
      * @var string
      */
-    public $crossBackupDownloadLink;
-
-    /**
-     * @var int
-     */
-    public $instanceId;
+    public $engineVersion;
 
     /**
      * @var int
      */
     public $backupSetStatus;
-
-    /**
-     * @var string
-     */
-    public $engineVersion;
 
     /**
      * @var string
@@ -103,19 +98,23 @@ class item extends Model
      * @var string
      */
     public $backupMethod;
+
+    /**
+     * @var restoreRegions
+     */
+    public $restoreRegions;
     protected $_name = [
-        'crossBackupId'           => 'CrossBackupId',
-        'DBInstanceStorageType'   => 'DBInstanceStorageType',
         'consistentTime'          => 'ConsistentTime',
-        'restoreRegions'          => 'RestoreRegions',
-        'backupStartTime'         => 'BackupStartTime',
+        'DBInstanceStorageType'   => 'DBInstanceStorageType',
+        'crossBackupId'           => 'CrossBackupId',
         'backupType'              => 'BackupType',
+        'backupStartTime'         => 'BackupStartTime',
         'crossBackupSetLocation'  => 'CrossBackupSetLocation',
-        'backupEndTime'           => 'BackupEndTime',
-        'crossBackupDownloadLink' => 'CrossBackupDownloadLink',
         'instanceId'              => 'InstanceId',
-        'backupSetStatus'         => 'BackupSetStatus',
+        'crossBackupDownloadLink' => 'CrossBackupDownloadLink',
+        'backupEndTime'           => 'BackupEndTime',
         'engineVersion'           => 'EngineVersion',
+        'backupSetStatus'         => 'BackupSetStatus',
         'crossBackupSetFile'      => 'CrossBackupSetFile',
         'backupSetScale'          => 'BackupSetScale',
         'crossBackupSetSize'      => 'CrossBackupSetSize',
@@ -123,6 +122,7 @@ class item extends Model
         'category'                => 'Category',
         'engine'                  => 'Engine',
         'backupMethod'            => 'BackupMethod',
+        'restoreRegions'          => 'RestoreRegions',
     ];
 
     public function validate()
@@ -132,41 +132,38 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->crossBackupId) {
-            $res['CrossBackupId'] = $this->crossBackupId;
+        if (null !== $this->consistentTime) {
+            $res['ConsistentTime'] = $this->consistentTime;
         }
         if (null !== $this->DBInstanceStorageType) {
             $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
         }
-        if (null !== $this->consistentTime) {
-            $res['ConsistentTime'] = $this->consistentTime;
-        }
-        if (null !== $this->restoreRegions) {
-            $res['RestoreRegions'] = null !== $this->restoreRegions ? $this->restoreRegions->toMap() : null;
-        }
-        if (null !== $this->backupStartTime) {
-            $res['BackupStartTime'] = $this->backupStartTime;
+        if (null !== $this->crossBackupId) {
+            $res['CrossBackupId'] = $this->crossBackupId;
         }
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
         }
+        if (null !== $this->backupStartTime) {
+            $res['BackupStartTime'] = $this->backupStartTime;
+        }
         if (null !== $this->crossBackupSetLocation) {
             $res['CrossBackupSetLocation'] = $this->crossBackupSetLocation;
-        }
-        if (null !== $this->backupEndTime) {
-            $res['BackupEndTime'] = $this->backupEndTime;
-        }
-        if (null !== $this->crossBackupDownloadLink) {
-            $res['CrossBackupDownloadLink'] = $this->crossBackupDownloadLink;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->backupSetStatus) {
-            $res['BackupSetStatus'] = $this->backupSetStatus;
+        if (null !== $this->crossBackupDownloadLink) {
+            $res['CrossBackupDownloadLink'] = $this->crossBackupDownloadLink;
+        }
+        if (null !== $this->backupEndTime) {
+            $res['BackupEndTime'] = $this->backupEndTime;
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->backupSetStatus) {
+            $res['BackupSetStatus'] = $this->backupSetStatus;
         }
         if (null !== $this->crossBackupSetFile) {
             $res['CrossBackupSetFile'] = $this->crossBackupSetFile;
@@ -189,6 +186,9 @@ class item extends Model
         if (null !== $this->backupMethod) {
             $res['BackupMethod'] = $this->backupMethod;
         }
+        if (null !== $this->restoreRegions) {
+            $res['RestoreRegions'] = null !== $this->restoreRegions ? $this->restoreRegions->toMap() : null;
+        }
 
         return $res;
     }
@@ -201,41 +201,38 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CrossBackupId'])) {
-            $model->crossBackupId = $map['CrossBackupId'];
+        if (isset($map['ConsistentTime'])) {
+            $model->consistentTime = $map['ConsistentTime'];
         }
         if (isset($map['DBInstanceStorageType'])) {
             $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
         }
-        if (isset($map['ConsistentTime'])) {
-            $model->consistentTime = $map['ConsistentTime'];
-        }
-        if (isset($map['RestoreRegions'])) {
-            $model->restoreRegions = restoreRegions::fromMap($map['RestoreRegions']);
-        }
-        if (isset($map['BackupStartTime'])) {
-            $model->backupStartTime = $map['BackupStartTime'];
+        if (isset($map['CrossBackupId'])) {
+            $model->crossBackupId = $map['CrossBackupId'];
         }
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
         }
+        if (isset($map['BackupStartTime'])) {
+            $model->backupStartTime = $map['BackupStartTime'];
+        }
         if (isset($map['CrossBackupSetLocation'])) {
             $model->crossBackupSetLocation = $map['CrossBackupSetLocation'];
-        }
-        if (isset($map['BackupEndTime'])) {
-            $model->backupEndTime = $map['BackupEndTime'];
-        }
-        if (isset($map['CrossBackupDownloadLink'])) {
-            $model->crossBackupDownloadLink = $map['CrossBackupDownloadLink'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['BackupSetStatus'])) {
-            $model->backupSetStatus = $map['BackupSetStatus'];
+        if (isset($map['CrossBackupDownloadLink'])) {
+            $model->crossBackupDownloadLink = $map['CrossBackupDownloadLink'];
+        }
+        if (isset($map['BackupEndTime'])) {
+            $model->backupEndTime = $map['BackupEndTime'];
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+        if (isset($map['BackupSetStatus'])) {
+            $model->backupSetStatus = $map['BackupSetStatus'];
         }
         if (isset($map['CrossBackupSetFile'])) {
             $model->crossBackupSetFile = $map['CrossBackupSetFile'];
@@ -257,6 +254,9 @@ class item extends Model
         }
         if (isset($map['BackupMethod'])) {
             $model->backupMethod = $map['BackupMethod'];
+        }
+        if (isset($map['RestoreRegions'])) {
+            $model->restoreRegions = restoreRegions::fromMap($map['RestoreRegions']);
         }
 
         return $model;

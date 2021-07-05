@@ -16,10 +16,22 @@ class RDSRegion extends Model
     /**
      * @var string
      */
+    public $regionEndpoint;
+
+    /**
+     * @var string
+     */
+    public $localName;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
-        'zoneId'   => 'ZoneId',
-        'regionId' => 'RegionId',
+        'zoneId'         => 'ZoneId',
+        'regionEndpoint' => 'RegionEndpoint',
+        'localName'      => 'LocalName',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -31,6 +43,12 @@ class RDSRegion extends Model
         $res = [];
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->regionEndpoint) {
+            $res['RegionEndpoint'] = $this->regionEndpoint;
+        }
+        if (null !== $this->localName) {
+            $res['LocalName'] = $this->localName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -49,6 +67,12 @@ class RDSRegion extends Model
         $model = new self();
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['RegionEndpoint'])) {
+            $model->regionEndpoint = $map['RegionEndpoint'];
+        }
+        if (isset($map['LocalName'])) {
+            $model->localName = $map['LocalName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

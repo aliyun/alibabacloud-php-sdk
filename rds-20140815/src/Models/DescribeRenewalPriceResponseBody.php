@@ -16,18 +16,18 @@ class DescribeRenewalPriceResponseBody extends Model
     public $requestId;
 
     /**
-     * @var rules
-     */
-    public $rules;
-
-    /**
      * @var priceInfo
      */
     public $priceInfo;
+
+    /**
+     * @var rules
+     */
+    public $rules;
     protected $_name = [
         'requestId' => 'RequestId',
-        'rules'     => 'Rules',
         'priceInfo' => 'PriceInfo',
+        'rules'     => 'Rules',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class DescribeRenewalPriceResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->rules) {
-            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
-        }
         if (null !== $this->priceInfo) {
             $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toMap() : null;
+        }
+        if (null !== $this->rules) {
+            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class DescribeRenewalPriceResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Rules'])) {
-            $model->rules = rules::fromMap($map['Rules']);
-        }
         if (isset($map['PriceInfo'])) {
             $model->priceInfo = priceInfo::fromMap($map['PriceInfo']);
+        }
+        if (isset($map['Rules'])) {
+            $model->rules = rules::fromMap($map['Rules']);
         }
 
         return $model;

@@ -11,15 +11,15 @@ class CreateDiagnosticReportResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $reportId;
 
     /**
      * @var string
      */
-    public $reportId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'reportId'  => 'ReportId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateDiagnosticReportResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateDiagnosticReportResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

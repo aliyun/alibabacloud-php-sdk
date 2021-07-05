@@ -11,6 +11,11 @@ class binLogFile extends Model
     /**
      * @var string
      */
+    public $remoteStatus;
+
+    /**
+     * @var string
+     */
     public $intranetDownloadLink;
 
     /**
@@ -53,6 +58,7 @@ class binLogFile extends Model
      */
     public $fileSize;
     protected $_name = [
+        'remoteStatus'         => 'RemoteStatus',
         'intranetDownloadLink' => 'IntranetDownloadLink',
         'logBeginTime'         => 'LogBeginTime',
         'linkExpiredTime'      => 'LinkExpiredTime',
@@ -71,6 +77,9 @@ class binLogFile extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->remoteStatus) {
+            $res['RemoteStatus'] = $this->remoteStatus;
+        }
         if (null !== $this->intranetDownloadLink) {
             $res['IntranetDownloadLink'] = $this->intranetDownloadLink;
         }
@@ -110,6 +119,9 @@ class binLogFile extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RemoteStatus'])) {
+            $model->remoteStatus = $map['RemoteStatus'];
+        }
         if (isset($map['IntranetDownloadLink'])) {
             $model->intranetDownloadLink = $map['IntranetDownloadLink'];
         }

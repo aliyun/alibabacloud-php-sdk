@@ -11,15 +11,15 @@ class ImportDatabaseBetweenInstancesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $importId;
 
     /**
      * @var string
      */
-    public $importId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'importId'  => 'ImportId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ImportDatabaseBetweenInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->importId) {
             $res['ImportId'] = $this->importId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ImportDatabaseBetweenInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ImportId'])) {
             $model->importId = $map['ImportId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

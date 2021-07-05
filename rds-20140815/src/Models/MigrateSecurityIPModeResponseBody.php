@@ -11,7 +11,7 @@ class MigrateSecurityIPModeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $securityIPMode;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class MigrateSecurityIPModeResponseBody extends Model
     /**
      * @var string
      */
-    public $securityIPMode;
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'DBInstanceId'   => 'DBInstanceId',
         'securityIPMode' => 'SecurityIPMode',
+        'DBInstanceId'   => 'DBInstanceId',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class MigrateSecurityIPModeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->securityIPMode) {
+            $res['SecurityIPMode'] = $this->securityIPMode;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->securityIPMode) {
-            $res['SecurityIPMode'] = $this->securityIPMode;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class MigrateSecurityIPModeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['SecurityIPMode'])) {
+            $model->securityIPMode = $map['SecurityIPMode'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['SecurityIPMode'])) {
-            $model->securityIPMode = $map['SecurityIPMode'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

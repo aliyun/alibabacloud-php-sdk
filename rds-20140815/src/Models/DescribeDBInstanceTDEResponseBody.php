@@ -15,18 +15,18 @@ class DescribeDBInstanceTDEResponseBody extends Model
     public $TDEStatus;
 
     /**
-     * @var databases
-     */
-    public $databases;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var databases
+     */
+    public $databases;
     protected $_name = [
         'TDEStatus' => 'TDEStatus',
-        'databases' => 'Databases',
         'requestId' => 'RequestId',
+        'databases' => 'Databases',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class DescribeDBInstanceTDEResponseBody extends Model
         if (null !== $this->TDEStatus) {
             $res['TDEStatus'] = $this->TDEStatus;
         }
-        if (null !== $this->databases) {
-            $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->databases) {
+            $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class DescribeDBInstanceTDEResponseBody extends Model
         if (isset($map['TDEStatus'])) {
             $model->TDEStatus = $map['TDEStatus'];
         }
-        if (isset($map['Databases'])) {
-            $model->databases = databases::fromMap($map['Databases']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Databases'])) {
+            $model->databases = databases::fromMap($map['Databases']);
         }
 
         return $model;

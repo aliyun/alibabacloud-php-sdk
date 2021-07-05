@@ -21,17 +21,23 @@ class DBInstanceWeight extends Model
     /**
      * @var string
      */
-    public $DBInstanceType;
+    public $DBInstanceId;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $role;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceType;
     protected $_name = [
         'availability'   => 'Availability',
         'weight'         => 'Weight',
-        'DBInstanceType' => 'DBInstanceType',
         'DBInstanceId'   => 'DBInstanceId',
+        'role'           => 'Role',
+        'DBInstanceType' => 'DBInstanceType',
     ];
 
     public function validate()
@@ -47,11 +53,14 @@ class DBInstanceWeight extends Model
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
-        if (null !== $this->DBInstanceType) {
-            $res['DBInstanceType'] = $this->DBInstanceType;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
+        if (null !== $this->DBInstanceType) {
+            $res['DBInstanceType'] = $this->DBInstanceType;
         }
 
         return $res;
@@ -71,11 +80,14 @@ class DBInstanceWeight extends Model
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }
-        if (isset($map['DBInstanceType'])) {
-            $model->DBInstanceType = $map['DBInstanceType'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
+        if (isset($map['DBInstanceType'])) {
+            $model->DBInstanceType = $map['DBInstanceType'];
         }
 
         return $model;

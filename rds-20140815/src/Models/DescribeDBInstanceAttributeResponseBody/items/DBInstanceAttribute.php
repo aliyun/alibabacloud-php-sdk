@@ -14,12 +14,12 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $vpcId;
 
     /**
      * @var string
      */
-    public $vpcId;
+    public $creationTime;
 
     /**
      * @var string
@@ -109,12 +109,17 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $latestKernelVersion;
+
+    /**
+     * @var int
+     */
+    public $tipsLevel;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $zoneId;
 
     /**
      * @var int
@@ -124,17 +129,12 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
-    public $tempDBInstanceId;
-
-    /**
-     * @var int
-     */
-    public $DBInstanceMemory;
+    public $DBInstanceId;
 
     /**
      * @var string
      */
-    public $DBInstanceStorageType;
+    public $tempDBInstanceId;
 
     /**
      * @var string
@@ -144,7 +144,17 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
-    public $port;
+    public $DBInstanceStorageType;
+
+    /**
+     * @var int
+     */
+    public $DBInstanceMemory;
+
+    /**
+     * @var string
+     */
+    public $consoleVersion;
 
     /**
      * @var string
@@ -154,17 +164,17 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
-    public $consoleVersion;
-
-    /**
-     * @var extra
-     */
-    public $extra;
+    public $port;
 
     /**
      * @var string
      */
     public $lockMode;
+
+    /**
+     * @var string
+     */
+    public $generalGroupName;
 
     /**
      * @var string
@@ -180,6 +190,11 @@ class DBInstanceAttribute extends Model
      * @var int
      */
     public $maxIOPS;
+
+    /**
+     * @var string
+     */
+    public $tips;
 
     /**
      * @var string
@@ -237,11 +252,6 @@ class DBInstanceAttribute extends Model
     public $DBMaxQuantity;
 
     /**
-     * @var readOnlyDBInstanceIds
-     */
-    public $readOnlyDBInstanceIds;
-
-    /**
      * @var string
      */
     public $regionId;
@@ -280,9 +290,19 @@ class DBInstanceAttribute extends Model
      * @var slaveZones
      */
     public $slaveZones;
+
+    /**
+     * @var readOnlyDBInstanceIds
+     */
+    public $readOnlyDBInstanceIds;
+
+    /**
+     * @var extra
+     */
+    public $extra;
     protected $_name = [
-        'creationTime'                   => 'CreationTime',
         'vpcId'                          => 'VpcId',
+        'creationTime'                   => 'CreationTime',
         'incrementSourceDBInstanceId'    => 'IncrementSourceDBInstanceId',
         'maintainTime'                   => 'MaintainTime',
         'payType'                        => 'PayType',
@@ -300,21 +320,24 @@ class DBInstanceAttribute extends Model
         'guardDBInstanceId'              => 'GuardDBInstanceId',
         'DBInstanceStorage'              => 'DBInstanceStorage',
         'timeZone'                       => 'TimeZone',
+        'latestKernelVersion'            => 'LatestKernelVersion',
+        'tipsLevel'                      => 'TipsLevel',
         'zoneId'                         => 'ZoneId',
-        'DBInstanceId'                   => 'DBInstanceId',
         'maxConnections'                 => 'MaxConnections',
+        'DBInstanceId'                   => 'DBInstanceId',
         'tempDBInstanceId'               => 'TempDBInstanceId',
-        'DBInstanceMemory'               => 'DBInstanceMemory',
-        'DBInstanceStorageType'          => 'DBInstanceStorageType',
         'advancedFeatures'               => 'AdvancedFeatures',
-        'port'                           => 'Port',
-        'connectionMode'                 => 'ConnectionMode',
+        'DBInstanceStorageType'          => 'DBInstanceStorageType',
+        'DBInstanceMemory'               => 'DBInstanceMemory',
         'consoleVersion'                 => 'ConsoleVersion',
-        'extra'                          => 'Extra',
+        'connectionMode'                 => 'ConnectionMode',
+        'port'                           => 'Port',
         'lockMode'                       => 'LockMode',
+        'generalGroupName'               => 'GeneralGroupName',
         'vpcCloudInstanceId'             => 'VpcCloudInstanceId',
         'collation'                      => 'Collation',
         'maxIOPS'                        => 'MaxIOPS',
+        'tips'                           => 'Tips',
         'securityIPMode'                 => 'SecurityIPMode',
         'DBInstanceClassType'            => 'DBInstanceClassType',
         'proxyType'                      => 'ProxyType',
@@ -326,7 +349,6 @@ class DBInstanceAttribute extends Model
         'lockReason'                     => 'LockReason',
         'DBInstanceStatus'               => 'DBInstanceStatus',
         'DBMaxQuantity'                  => 'DBMaxQuantity',
-        'readOnlyDBInstanceIds'          => 'ReadOnlyDBInstanceIds',
         'regionId'                       => 'RegionId',
         'readonlyInstanceSQLDelayedTime' => 'ReadonlyInstanceSQLDelayedTime',
         'vSwitchId'                      => 'VSwitchId',
@@ -335,6 +357,8 @@ class DBInstanceAttribute extends Model
         'DBInstanceClass'                => 'DBInstanceClass',
         'engine'                         => 'Engine',
         'slaveZones'                     => 'SlaveZones',
+        'readOnlyDBInstanceIds'          => 'ReadOnlyDBInstanceIds',
+        'extra'                          => 'Extra',
     ];
 
     public function validate()
@@ -344,11 +368,11 @@ class DBInstanceAttribute extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->incrementSourceDBInstanceId) {
             $res['IncrementSourceDBInstanceId'] = $this->incrementSourceDBInstanceId;
@@ -401,41 +425,47 @@ class DBInstanceAttribute extends Model
         if (null !== $this->timeZone) {
             $res['TimeZone'] = $this->timeZone;
         }
+        if (null !== $this->latestKernelVersion) {
+            $res['LatestKernelVersion'] = $this->latestKernelVersion;
+        }
+        if (null !== $this->tipsLevel) {
+            $res['TipsLevel'] = $this->tipsLevel;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
         }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
         if (null !== $this->tempDBInstanceId) {
             $res['TempDBInstanceId'] = $this->tempDBInstanceId;
-        }
-        if (null !== $this->DBInstanceMemory) {
-            $res['DBInstanceMemory'] = $this->DBInstanceMemory;
-        }
-        if (null !== $this->DBInstanceStorageType) {
-            $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
         }
         if (null !== $this->advancedFeatures) {
             $res['AdvancedFeatures'] = $this->advancedFeatures;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
+        if (null !== $this->DBInstanceStorageType) {
+            $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
         }
-        if (null !== $this->connectionMode) {
-            $res['ConnectionMode'] = $this->connectionMode;
+        if (null !== $this->DBInstanceMemory) {
+            $res['DBInstanceMemory'] = $this->DBInstanceMemory;
         }
         if (null !== $this->consoleVersion) {
             $res['ConsoleVersion'] = $this->consoleVersion;
         }
-        if (null !== $this->extra) {
-            $res['Extra'] = null !== $this->extra ? $this->extra->toMap() : null;
+        if (null !== $this->connectionMode) {
+            $res['ConnectionMode'] = $this->connectionMode;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
+        }
+        if (null !== $this->generalGroupName) {
+            $res['GeneralGroupName'] = $this->generalGroupName;
         }
         if (null !== $this->vpcCloudInstanceId) {
             $res['VpcCloudInstanceId'] = $this->vpcCloudInstanceId;
@@ -445,6 +475,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->maxIOPS) {
             $res['MaxIOPS'] = $this->maxIOPS;
+        }
+        if (null !== $this->tips) {
+            $res['Tips'] = $this->tips;
         }
         if (null !== $this->securityIPMode) {
             $res['SecurityIPMode'] = $this->securityIPMode;
@@ -479,9 +512,6 @@ class DBInstanceAttribute extends Model
         if (null !== $this->DBMaxQuantity) {
             $res['DBMaxQuantity'] = $this->DBMaxQuantity;
         }
-        if (null !== $this->readOnlyDBInstanceIds) {
-            $res['ReadOnlyDBInstanceIds'] = null !== $this->readOnlyDBInstanceIds ? $this->readOnlyDBInstanceIds->toMap() : null;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -506,6 +536,12 @@ class DBInstanceAttribute extends Model
         if (null !== $this->slaveZones) {
             $res['SlaveZones'] = null !== $this->slaveZones ? $this->slaveZones->toMap() : null;
         }
+        if (null !== $this->readOnlyDBInstanceIds) {
+            $res['ReadOnlyDBInstanceIds'] = null !== $this->readOnlyDBInstanceIds ? $this->readOnlyDBInstanceIds->toMap() : null;
+        }
+        if (null !== $this->extra) {
+            $res['Extra'] = null !== $this->extra ? $this->extra->toMap() : null;
+        }
 
         return $res;
     }
@@ -518,11 +554,11 @@ class DBInstanceAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['IncrementSourceDBInstanceId'])) {
             $model->incrementSourceDBInstanceId = $map['IncrementSourceDBInstanceId'];
@@ -575,41 +611,47 @@ class DBInstanceAttribute extends Model
         if (isset($map['TimeZone'])) {
             $model->timeZone = $map['TimeZone'];
         }
+        if (isset($map['LatestKernelVersion'])) {
+            $model->latestKernelVersion = $map['LatestKernelVersion'];
+        }
+        if (isset($map['TipsLevel'])) {
+            $model->tipsLevel = $map['TipsLevel'];
+        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];
         }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
         if (isset($map['TempDBInstanceId'])) {
             $model->tempDBInstanceId = $map['TempDBInstanceId'];
-        }
-        if (isset($map['DBInstanceMemory'])) {
-            $model->DBInstanceMemory = $map['DBInstanceMemory'];
-        }
-        if (isset($map['DBInstanceStorageType'])) {
-            $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
         }
         if (isset($map['AdvancedFeatures'])) {
             $model->advancedFeatures = $map['AdvancedFeatures'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['DBInstanceStorageType'])) {
+            $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
         }
-        if (isset($map['ConnectionMode'])) {
-            $model->connectionMode = $map['ConnectionMode'];
+        if (isset($map['DBInstanceMemory'])) {
+            $model->DBInstanceMemory = $map['DBInstanceMemory'];
         }
         if (isset($map['ConsoleVersion'])) {
             $model->consoleVersion = $map['ConsoleVersion'];
         }
-        if (isset($map['Extra'])) {
-            $model->extra = extra::fromMap($map['Extra']);
+        if (isset($map['ConnectionMode'])) {
+            $model->connectionMode = $map['ConnectionMode'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
+        }
+        if (isset($map['GeneralGroupName'])) {
+            $model->generalGroupName = $map['GeneralGroupName'];
         }
         if (isset($map['VpcCloudInstanceId'])) {
             $model->vpcCloudInstanceId = $map['VpcCloudInstanceId'];
@@ -619,6 +661,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['MaxIOPS'])) {
             $model->maxIOPS = $map['MaxIOPS'];
+        }
+        if (isset($map['Tips'])) {
+            $model->tips = $map['Tips'];
         }
         if (isset($map['SecurityIPMode'])) {
             $model->securityIPMode = $map['SecurityIPMode'];
@@ -653,9 +698,6 @@ class DBInstanceAttribute extends Model
         if (isset($map['DBMaxQuantity'])) {
             $model->DBMaxQuantity = $map['DBMaxQuantity'];
         }
-        if (isset($map['ReadOnlyDBInstanceIds'])) {
-            $model->readOnlyDBInstanceIds = readOnlyDBInstanceIds::fromMap($map['ReadOnlyDBInstanceIds']);
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -679,6 +721,12 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['SlaveZones'])) {
             $model->slaveZones = slaveZones::fromMap($map['SlaveZones']);
+        }
+        if (isset($map['ReadOnlyDBInstanceIds'])) {
+            $model->readOnlyDBInstanceIds = readOnlyDBInstanceIds::fromMap($map['ReadOnlyDBInstanceIds']);
+        }
+        if (isset($map['Extra'])) {
+            $model->extra = extra::fromMap($map['Extra']);
         }
 
         return $model;

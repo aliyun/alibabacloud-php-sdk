@@ -11,11 +11,6 @@ class DescribeDBInstanceProxyConfigurationResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $persistentConnectionsConfiguration;
 
     /**
@@ -26,11 +21,16 @@ class DescribeDBInstanceProxyConfigurationResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $transparentSwitchConfiguration;
     protected $_name = [
-        'requestId'                          => 'RequestId',
         'persistentConnectionsConfiguration' => 'PersistentConnectionsConfiguration',
         'attacksProtectionConfiguration'     => 'AttacksProtectionConfiguration',
+        'requestId'                          => 'RequestId',
         'transparentSwitchConfiguration'     => 'TransparentSwitchConfiguration',
     ];
 
@@ -41,14 +41,14 @@ class DescribeDBInstanceProxyConfigurationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->persistentConnectionsConfiguration) {
             $res['PersistentConnectionsConfiguration'] = $this->persistentConnectionsConfiguration;
         }
         if (null !== $this->attacksProtectionConfiguration) {
             $res['AttacksProtectionConfiguration'] = $this->attacksProtectionConfiguration;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->transparentSwitchConfiguration) {
             $res['TransparentSwitchConfiguration'] = $this->transparentSwitchConfiguration;
@@ -65,14 +65,14 @@ class DescribeDBInstanceProxyConfigurationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PersistentConnectionsConfiguration'])) {
             $model->persistentConnectionsConfiguration = $map['PersistentConnectionsConfiguration'];
         }
         if (isset($map['AttacksProtectionConfiguration'])) {
             $model->attacksProtectionConfiguration = $map['AttacksProtectionConfiguration'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TransparentSwitchConfiguration'])) {
             $model->transparentSwitchConfiguration = $map['TransparentSwitchConfiguration'];

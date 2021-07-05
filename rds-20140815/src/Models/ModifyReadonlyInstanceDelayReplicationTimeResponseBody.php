@@ -11,7 +11,7 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $DBInstanceId;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
     /**
      * @var string
      */
-    public $DBInstanceId;
+    public $taskId;
 
     /**
      * @var string
      */
     public $readSQLReplicationTime;
     protected $_name = [
-        'taskId'                 => 'TaskId',
-        'requestId'              => 'RequestId',
         'DBInstanceId'           => 'DBInstanceId',
+        'requestId'              => 'RequestId',
+        'taskId'                 => 'TaskId',
         'readSQLReplicationTime' => 'ReadSQLReplicationTime',
     ];
 
@@ -41,14 +41,14 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->readSQLReplicationTime) {
             $res['ReadSQLReplicationTime'] = $this->readSQLReplicationTime;
@@ -65,14 +65,14 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['ReadSQLReplicationTime'])) {
             $model->readSQLReplicationTime = $map['ReadSQLReplicationTime'];

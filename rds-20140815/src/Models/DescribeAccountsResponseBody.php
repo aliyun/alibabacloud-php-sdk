@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $totalRecordCount;
+    public $systemAdminAccountStatus;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $systemAdminAccountFirstActivationTime;
 
     /**
      * @var int
@@ -27,24 +27,24 @@ class DescribeAccountsResponseBody extends Model
     /**
      * @var string
      */
-    public $systemAdminAccountStatus;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalRecordCount;
 
     /**
      * @var accounts
      */
     public $accounts;
-
-    /**
-     * @var string
-     */
-    public $systemAdminAccountFirstActivationTime;
     protected $_name = [
-        'totalRecordCount'                      => 'TotalRecordCount',
-        'requestId'                             => 'RequestId',
-        'pageNumber'                            => 'PageNumber',
         'systemAdminAccountStatus'              => 'SystemAdminAccountStatus',
-        'accounts'                              => 'Accounts',
         'systemAdminAccountFirstActivationTime' => 'SystemAdminAccountFirstActivationTime',
+        'pageNumber'                            => 'PageNumber',
+        'requestId'                             => 'RequestId',
+        'totalRecordCount'                      => 'TotalRecordCount',
+        'accounts'                              => 'Accounts',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeAccountsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalRecordCount) {
-            $res['TotalRecordCount'] = $this->totalRecordCount;
+        if (null !== $this->systemAdminAccountStatus) {
+            $res['SystemAdminAccountStatus'] = $this->systemAdminAccountStatus;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->systemAdminAccountFirstActivationTime) {
+            $res['SystemAdminAccountFirstActivationTime'] = $this->systemAdminAccountFirstActivationTime;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->systemAdminAccountStatus) {
-            $res['SystemAdminAccountStatus'] = $this->systemAdminAccountStatus;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
         if (null !== $this->accounts) {
             $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
-        }
-        if (null !== $this->systemAdminAccountFirstActivationTime) {
-            $res['SystemAdminAccountFirstActivationTime'] = $this->systemAdminAccountFirstActivationTime;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeAccountsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalRecordCount'])) {
-            $model->totalRecordCount = $map['TotalRecordCount'];
+        if (isset($map['SystemAdminAccountStatus'])) {
+            $model->systemAdminAccountStatus = $map['SystemAdminAccountStatus'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['SystemAdminAccountFirstActivationTime'])) {
+            $model->systemAdminAccountFirstActivationTime = $map['SystemAdminAccountFirstActivationTime'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['SystemAdminAccountStatus'])) {
-            $model->systemAdminAccountStatus = $map['SystemAdminAccountStatus'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
         if (isset($map['Accounts'])) {
             $model->accounts = accounts::fromMap($map['Accounts']);
-        }
-        if (isset($map['SystemAdminAccountFirstActivationTime'])) {
-            $model->systemAdminAccountFirstActivationTime = $map['SystemAdminAccountFirstActivationTime'];
         }
 
         return $model;

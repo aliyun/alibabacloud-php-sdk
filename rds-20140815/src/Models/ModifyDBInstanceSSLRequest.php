@@ -42,14 +42,68 @@ class ModifyDBInstanceSSLRequest extends Model
      * @var int
      */
     public $SSLEnabled;
+
+    /**
+     * @var string
+     */
+    public $CAType;
+
+    /**
+     * @var string
+     */
+    public $serverCert;
+
+    /**
+     * @var string
+     */
+    public $serverKey;
+
+    /**
+     * @var int
+     */
+    public $clientCAEnabled;
+
+    /**
+     * @var string
+     */
+    public $clientCACert;
+
+    /**
+     * @var int
+     */
+    public $clientCrlEnabled;
+
+    /**
+     * @var string
+     */
+    public $clientCertRevocationList;
+
+    /**
+     * @var string
+     */
+    public $ACL;
+
+    /**
+     * @var string
+     */
+    public $replicationACL;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'DBInstanceId'         => 'DBInstanceId',
-        'connectionString'     => 'ConnectionString',
-        'ownerAccount'         => 'OwnerAccount',
-        'SSLEnabled'           => 'SSLEnabled',
+        'ownerId'                  => 'OwnerId',
+        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
+        'resourceOwnerId'          => 'ResourceOwnerId',
+        'DBInstanceId'             => 'DBInstanceId',
+        'connectionString'         => 'ConnectionString',
+        'ownerAccount'             => 'OwnerAccount',
+        'SSLEnabled'               => 'SSLEnabled',
+        'CAType'                   => 'CAType',
+        'serverCert'               => 'ServerCert',
+        'serverKey'                => 'ServerKey',
+        'clientCAEnabled'          => 'ClientCAEnabled',
+        'clientCACert'             => 'ClientCACert',
+        'clientCrlEnabled'         => 'ClientCrlEnabled',
+        'clientCertRevocationList' => 'ClientCertRevocationList',
+        'ACL'                      => 'ACL',
+        'replicationACL'           => 'ReplicationACL',
     ];
 
     public function validate()
@@ -79,6 +133,33 @@ class ModifyDBInstanceSSLRequest extends Model
         }
         if (null !== $this->SSLEnabled) {
             $res['SSLEnabled'] = $this->SSLEnabled;
+        }
+        if (null !== $this->CAType) {
+            $res['CAType'] = $this->CAType;
+        }
+        if (null !== $this->serverCert) {
+            $res['ServerCert'] = $this->serverCert;
+        }
+        if (null !== $this->serverKey) {
+            $res['ServerKey'] = $this->serverKey;
+        }
+        if (null !== $this->clientCAEnabled) {
+            $res['ClientCAEnabled'] = $this->clientCAEnabled;
+        }
+        if (null !== $this->clientCACert) {
+            $res['ClientCACert'] = $this->clientCACert;
+        }
+        if (null !== $this->clientCrlEnabled) {
+            $res['ClientCrlEnabled'] = $this->clientCrlEnabled;
+        }
+        if (null !== $this->clientCertRevocationList) {
+            $res['ClientCertRevocationList'] = $this->clientCertRevocationList;
+        }
+        if (null !== $this->ACL) {
+            $res['ACL'] = $this->ACL;
+        }
+        if (null !== $this->replicationACL) {
+            $res['ReplicationACL'] = $this->replicationACL;
         }
 
         return $res;
@@ -112,6 +193,33 @@ class ModifyDBInstanceSSLRequest extends Model
         }
         if (isset($map['SSLEnabled'])) {
             $model->SSLEnabled = $map['SSLEnabled'];
+        }
+        if (isset($map['CAType'])) {
+            $model->CAType = $map['CAType'];
+        }
+        if (isset($map['ServerCert'])) {
+            $model->serverCert = $map['ServerCert'];
+        }
+        if (isset($map['ServerKey'])) {
+            $model->serverKey = $map['ServerKey'];
+        }
+        if (isset($map['ClientCAEnabled'])) {
+            $model->clientCAEnabled = $map['ClientCAEnabled'];
+        }
+        if (isset($map['ClientCACert'])) {
+            $model->clientCACert = $map['ClientCACert'];
+        }
+        if (isset($map['ClientCrlEnabled'])) {
+            $model->clientCrlEnabled = $map['ClientCrlEnabled'];
+        }
+        if (isset($map['ClientCertRevocationList'])) {
+            $model->clientCertRevocationList = $map['ClientCertRevocationList'];
+        }
+        if (isset($map['ACL'])) {
+            $model->ACL = $map['ACL'];
+        }
+        if (isset($map['ReplicationACL'])) {
+            $model->replicationACL = $map['ReplicationACL'];
         }
 
         return $model;

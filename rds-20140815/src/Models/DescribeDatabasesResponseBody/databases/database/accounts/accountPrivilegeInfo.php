@@ -16,16 +16,16 @@ class accountPrivilegeInfo extends Model
     /**
      * @var string
      */
-    public $accountPrivilegeDetail;
+    public $accountPrivilege;
 
     /**
      * @var string
      */
-    public $accountPrivilege;
+    public $accountPrivilegeDetail;
     protected $_name = [
         'account'                => 'Account',
-        'accountPrivilegeDetail' => 'AccountPrivilegeDetail',
         'accountPrivilege'       => 'AccountPrivilege',
+        'accountPrivilegeDetail' => 'AccountPrivilegeDetail',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class accountPrivilegeInfo extends Model
         if (null !== $this->account) {
             $res['Account'] = $this->account;
         }
-        if (null !== $this->accountPrivilegeDetail) {
-            $res['AccountPrivilegeDetail'] = $this->accountPrivilegeDetail;
-        }
         if (null !== $this->accountPrivilege) {
             $res['AccountPrivilege'] = $this->accountPrivilege;
+        }
+        if (null !== $this->accountPrivilegeDetail) {
+            $res['AccountPrivilegeDetail'] = $this->accountPrivilegeDetail;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class accountPrivilegeInfo extends Model
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
         }
-        if (isset($map['AccountPrivilegeDetail'])) {
-            $model->accountPrivilegeDetail = $map['AccountPrivilegeDetail'];
-        }
         if (isset($map['AccountPrivilege'])) {
             $model->accountPrivilege = $map['AccountPrivilege'];
+        }
+        if (isset($map['AccountPrivilegeDetail'])) {
+            $model->accountPrivilegeDetail = $map['AccountPrivilegeDetail'];
         }
 
         return $model;

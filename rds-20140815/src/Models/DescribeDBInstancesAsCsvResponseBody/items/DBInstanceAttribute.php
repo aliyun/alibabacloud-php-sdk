@@ -66,22 +66,22 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
-    public $port;
-
-    /**
-     * @var string
-     */
     public $connectionMode;
 
     /**
      * @var string
      */
-    public $lockMode;
+    public $port;
 
     /**
      * @var string
      */
     public $accountType;
+
+    /**
+     * @var string
+     */
+    public $lockMode;
 
     /**
      * @var string
@@ -224,10 +224,10 @@ class DBInstanceAttribute extends Model
         'tags'                        => 'Tags',
         'availabilityValue'           => 'AvailabilityValue',
         'readDelayTime'               => 'ReadDelayTime',
-        'port'                        => 'Port',
         'connectionMode'              => 'ConnectionMode',
-        'lockMode'                    => 'LockMode',
+        'port'                        => 'Port',
         'accountType'                 => 'AccountType',
+        'lockMode'                    => 'LockMode',
         'engineVersion'               => 'EngineVersion',
         'maxIOPS'                     => 'MaxIOPS',
         'connectionString'            => 'ConnectionString',
@@ -296,17 +296,17 @@ class DBInstanceAttribute extends Model
         if (null !== $this->readDelayTime) {
             $res['ReadDelayTime'] = $this->readDelayTime;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
         if (null !== $this->connectionMode) {
             $res['ConnectionMode'] = $this->connectionMode;
         }
-        if (null !== $this->lockMode) {
-            $res['LockMode'] = $this->lockMode;
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
+        }
+        if (null !== $this->lockMode) {
+            $res['LockMode'] = $this->lockMode;
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
@@ -431,17 +431,17 @@ class DBInstanceAttribute extends Model
         if (isset($map['ReadDelayTime'])) {
             $model->readDelayTime = $map['ReadDelayTime'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
         if (isset($map['ConnectionMode'])) {
             $model->connectionMode = $map['ConnectionMode'];
         }
-        if (isset($map['LockMode'])) {
-            $model->lockMode = $map['LockMode'];
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
+        }
+        if (isset($map['LockMode'])) {
+            $model->lockMode = $map['LockMode'];
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];

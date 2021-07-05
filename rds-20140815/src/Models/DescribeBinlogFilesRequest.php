@@ -52,11 +52,6 @@ class DescribeBinlogFilesRequest extends Model
      * @var string
      */
     public $ownerAccount;
-
-    /**
-     * @var int
-     */
-    public $latest;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -67,7 +62,6 @@ class DescribeBinlogFilesRequest extends Model
         'pageSize'             => 'PageSize',
         'pageNumber'           => 'PageNumber',
         'ownerAccount'         => 'OwnerAccount',
-        'latest'               => 'Latest',
     ];
 
     public function validate()
@@ -103,9 +97,6 @@ class DescribeBinlogFilesRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->latest) {
-            $res['Latest'] = $this->latest;
         }
 
         return $res;
@@ -145,9 +136,6 @@ class DescribeBinlogFilesRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['Latest'])) {
-            $model->latest = $map['Latest'];
         }
 
         return $model;

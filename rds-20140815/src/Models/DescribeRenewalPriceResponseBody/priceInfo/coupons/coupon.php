@@ -11,11 +11,6 @@ class coupon extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $isSelected;
 
     /**
@@ -27,11 +22,16 @@ class coupon extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $description;
     protected $_name = [
-        'description' => 'Description',
         'isSelected'  => 'IsSelected',
         'couponNo'    => 'CouponNo',
         'name'        => 'Name',
+        'description' => 'Description',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class coupon extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->isSelected) {
             $res['IsSelected'] = $this->isSelected;
         }
@@ -52,6 +49,9 @@ class coupon extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class coupon extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['IsSelected'])) {
             $model->isSelected = $map['IsSelected'];
         }
@@ -76,6 +73,9 @@ class coupon extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         return $model;

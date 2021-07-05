@@ -11,20 +11,20 @@ class endpointConnectItems extends Model
     /**
      * @var string
      */
-    public $dbProxyEndpointConnectString;
+    public $dbProxyEndpointPort;
 
     /**
      * @var string
      */
-    public $dbProxyEndpointPort;
+    public $dbProxyEndpointConnectString;
 
     /**
      * @var string
      */
     public $dbProxyEndpointNetType;
     protected $_name = [
-        'dbProxyEndpointConnectString' => 'DbProxyEndpointConnectString',
         'dbProxyEndpointPort'          => 'DbProxyEndpointPort',
+        'dbProxyEndpointConnectString' => 'DbProxyEndpointConnectString',
         'dbProxyEndpointNetType'       => 'DbProxyEndpointNetType',
     ];
 
@@ -35,11 +35,11 @@ class endpointConnectItems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dbProxyEndpointConnectString) {
-            $res['DbProxyEndpointConnectString'] = $this->dbProxyEndpointConnectString;
-        }
         if (null !== $this->dbProxyEndpointPort) {
             $res['DbProxyEndpointPort'] = $this->dbProxyEndpointPort;
+        }
+        if (null !== $this->dbProxyEndpointConnectString) {
+            $res['DbProxyEndpointConnectString'] = $this->dbProxyEndpointConnectString;
         }
         if (null !== $this->dbProxyEndpointNetType) {
             $res['DbProxyEndpointNetType'] = $this->dbProxyEndpointNetType;
@@ -56,11 +56,11 @@ class endpointConnectItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DbProxyEndpointConnectString'])) {
-            $model->dbProxyEndpointConnectString = $map['DbProxyEndpointConnectString'];
-        }
         if (isset($map['DbProxyEndpointPort'])) {
             $model->dbProxyEndpointPort = $map['DbProxyEndpointPort'];
+        }
+        if (isset($map['DbProxyEndpointConnectString'])) {
+            $model->dbProxyEndpointConnectString = $map['DbProxyEndpointConnectString'];
         }
         if (isset($map['DbProxyEndpointNetType'])) {
             $model->dbProxyEndpointNetType = $map['DbProxyEndpointNetType'];

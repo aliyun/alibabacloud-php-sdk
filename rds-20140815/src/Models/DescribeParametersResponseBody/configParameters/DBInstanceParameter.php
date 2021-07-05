@@ -11,21 +11,21 @@ class DBInstanceParameter extends Model
     /**
      * @var string
      */
+    public $parameterDescription;
+
+    /**
+     * @var string
+     */
     public $parameterName;
 
     /**
      * @var string
      */
     public $parameterValue;
-
-    /**
-     * @var string
-     */
-    public $parameterDescription;
     protected $_name = [
+        'parameterDescription' => 'ParameterDescription',
         'parameterName'        => 'ParameterName',
         'parameterValue'       => 'ParameterValue',
-        'parameterDescription' => 'ParameterDescription',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DBInstanceParameter extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->parameterDescription) {
+            $res['ParameterDescription'] = $this->parameterDescription;
+        }
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
         }
         if (null !== $this->parameterValue) {
             $res['ParameterValue'] = $this->parameterValue;
-        }
-        if (null !== $this->parameterDescription) {
-            $res['ParameterDescription'] = $this->parameterDescription;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DBInstanceParameter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ParameterDescription'])) {
+            $model->parameterDescription = $map['ParameterDescription'];
+        }
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
         }
         if (isset($map['ParameterValue'])) {
             $model->parameterValue = $map['ParameterValue'];
-        }
-        if (isset($map['ParameterDescription'])) {
-            $model->parameterDescription = $map['ParameterDescription'];
         }
 
         return $model;

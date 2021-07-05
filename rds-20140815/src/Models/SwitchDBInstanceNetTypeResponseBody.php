@@ -11,21 +11,21 @@ class SwitchDBInstanceNetTypeResponseBody extends Model
     /**
      * @var string
      */
+    public $newConnectionString;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var string
      */
     public $oldConnectionString;
-
-    /**
-     * @var string
-     */
-    public $newConnectionString;
     protected $_name = [
+        'newConnectionString' => 'NewConnectionString',
         'requestId'           => 'RequestId',
         'oldConnectionString' => 'OldConnectionString',
-        'newConnectionString' => 'NewConnectionString',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SwitchDBInstanceNetTypeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->newConnectionString) {
+            $res['NewConnectionString'] = $this->newConnectionString;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->oldConnectionString) {
             $res['OldConnectionString'] = $this->oldConnectionString;
-        }
-        if (null !== $this->newConnectionString) {
-            $res['NewConnectionString'] = $this->newConnectionString;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SwitchDBInstanceNetTypeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NewConnectionString'])) {
+            $model->newConnectionString = $map['NewConnectionString'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['OldConnectionString'])) {
             $model->oldConnectionString = $map['OldConnectionString'];
-        }
-        if (isset($map['NewConnectionString'])) {
-            $model->newConnectionString = $map['NewConnectionString'];
         }
 
         return $model;

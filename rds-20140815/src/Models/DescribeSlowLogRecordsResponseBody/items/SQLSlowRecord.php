@@ -16,12 +16,12 @@ class SQLSlowRecord extends Model
     /**
      * @var int
      */
-    public $queryTimes;
+    public $rowsAffectedCount;
 
     /**
      * @var int
      */
-    public $rowsAffectedCount;
+    public $queryTimes;
 
     /**
      * @var string
@@ -61,12 +61,12 @@ class SQLSlowRecord extends Model
     /**
      * @var int
      */
-    public $physicalIORead;
+    public $writeIOCount;
 
     /**
      * @var int
      */
-    public $writeIOCount;
+    public $physicalIORead;
 
     /**
      * @var int
@@ -99,8 +99,8 @@ class SQLSlowRecord extends Model
     public $lastRowsAffectedCount;
     protected $_name = [
         'hostAddress'           => 'HostAddress',
-        'queryTimes'            => 'QueryTimes',
         'rowsAffectedCount'     => 'RowsAffectedCount',
+        'queryTimes'            => 'QueryTimes',
         'SQLText'               => 'SQLText',
         'cpuTime'               => 'CpuTime',
         'queryTimeMS'           => 'QueryTimeMS',
@@ -108,8 +108,8 @@ class SQLSlowRecord extends Model
         'lockTimes'             => 'LockTimes',
         'executionStartTime'    => 'ExecutionStartTime',
         'logicalIORead'         => 'LogicalIORead',
-        'physicalIORead'        => 'PhysicalIORead',
         'writeIOCount'          => 'WriteIOCount',
+        'physicalIORead'        => 'PhysicalIORead',
         'returnRowCounts'       => 'ReturnRowCounts',
         'parseRowCounts'        => 'ParseRowCounts',
         'DBName'                => 'DBName',
@@ -128,11 +128,11 @@ class SQLSlowRecord extends Model
         if (null !== $this->hostAddress) {
             $res['HostAddress'] = $this->hostAddress;
         }
-        if (null !== $this->queryTimes) {
-            $res['QueryTimes'] = $this->queryTimes;
-        }
         if (null !== $this->rowsAffectedCount) {
             $res['RowsAffectedCount'] = $this->rowsAffectedCount;
+        }
+        if (null !== $this->queryTimes) {
+            $res['QueryTimes'] = $this->queryTimes;
         }
         if (null !== $this->SQLText) {
             $res['SQLText'] = $this->SQLText;
@@ -155,11 +155,11 @@ class SQLSlowRecord extends Model
         if (null !== $this->logicalIORead) {
             $res['LogicalIORead'] = $this->logicalIORead;
         }
-        if (null !== $this->physicalIORead) {
-            $res['PhysicalIORead'] = $this->physicalIORead;
-        }
         if (null !== $this->writeIOCount) {
             $res['WriteIOCount'] = $this->writeIOCount;
+        }
+        if (null !== $this->physicalIORead) {
+            $res['PhysicalIORead'] = $this->physicalIORead;
         }
         if (null !== $this->returnRowCounts) {
             $res['ReturnRowCounts'] = $this->returnRowCounts;
@@ -194,11 +194,11 @@ class SQLSlowRecord extends Model
         if (isset($map['HostAddress'])) {
             $model->hostAddress = $map['HostAddress'];
         }
-        if (isset($map['QueryTimes'])) {
-            $model->queryTimes = $map['QueryTimes'];
-        }
         if (isset($map['RowsAffectedCount'])) {
             $model->rowsAffectedCount = $map['RowsAffectedCount'];
+        }
+        if (isset($map['QueryTimes'])) {
+            $model->queryTimes = $map['QueryTimes'];
         }
         if (isset($map['SQLText'])) {
             $model->SQLText = $map['SQLText'];
@@ -221,11 +221,11 @@ class SQLSlowRecord extends Model
         if (isset($map['LogicalIORead'])) {
             $model->logicalIORead = $map['LogicalIORead'];
         }
-        if (isset($map['PhysicalIORead'])) {
-            $model->physicalIORead = $map['PhysicalIORead'];
-        }
         if (isset($map['WriteIOCount'])) {
             $model->writeIOCount = $map['WriteIOCount'];
+        }
+        if (isset($map['PhysicalIORead'])) {
+            $model->physicalIORead = $map['PhysicalIORead'];
         }
         if (isset($map['ReturnRowCounts'])) {
             $model->returnRowCounts = $map['ReturnRowCounts'];

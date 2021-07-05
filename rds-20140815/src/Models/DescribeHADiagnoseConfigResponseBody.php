@@ -11,15 +11,15 @@ class DescribeHADiagnoseConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $tcpConnectionType;
 
     /**
      * @var string
      */
-    public $tcpConnectionType;
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'tcpConnectionType' => 'TcpConnectionType',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeHADiagnoseConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->tcpConnectionType) {
             $res['TcpConnectionType'] = $this->tcpConnectionType;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeHADiagnoseConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['TcpConnectionType'])) {
             $model->tcpConnectionType = $map['TcpConnectionType'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

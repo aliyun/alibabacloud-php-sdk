@@ -207,6 +207,16 @@ class CreateDBInstanceRequest extends Model
      * @var int
      */
     public $storageUpperBound;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $userBackupId;
     protected $_name = [
         'resourceOwnerId'                => 'ResourceOwnerId',
         'regionId'                       => 'RegionId',
@@ -248,6 +258,8 @@ class CreateDBInstanceRequest extends Model
         'storageAutoScale'               => 'StorageAutoScale',
         'storageThreshold'               => 'StorageThreshold',
         'storageUpperBound'              => 'StorageUpperBound',
+        'dryRun'                         => 'DryRun',
+        'userBackupId'                   => 'UserBackupId',
     ];
 
     public function validate()
@@ -376,6 +388,12 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->storageUpperBound) {
             $res['StorageUpperBound'] = $this->storageUpperBound;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->userBackupId) {
+            $res['UserBackupId'] = $this->userBackupId;
         }
 
         return $res;
@@ -508,6 +526,12 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['StorageUpperBound'])) {
             $model->storageUpperBound = $map['StorageUpperBound'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['UserBackupId'])) {
+            $model->userBackupId = $map['UserBackupId'];
         }
 
         return $model;

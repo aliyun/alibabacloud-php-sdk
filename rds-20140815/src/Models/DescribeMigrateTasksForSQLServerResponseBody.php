@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeMigrateTasksForSQLServerResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalRecordCount;
-
-    /**
-     * @var int
-     */
-    public $pageRecordCount;
-
-    /**
      * @var string
      */
     public $endTime;
@@ -27,7 +17,27 @@ class DescribeMigrateTasksForSQLServerResponseBody extends Model
     /**
      * @var string
      */
+    public $DBInstanceName;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $pageRecordCount;
+
+    /**
+     * @var int
+     */
+    public $totalRecordCount;
 
     /**
      * @var string
@@ -40,29 +50,19 @@ class DescribeMigrateTasksForSQLServerResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
      * @var items
      */
     public $items;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceName;
     protected $_name = [
-        'totalRecordCount' => 'TotalRecordCount',
-        'pageRecordCount'  => 'PageRecordCount',
         'endTime'          => 'EndTime',
+        'DBInstanceName'   => 'DBInstanceName',
+        'startTime'        => 'StartTime',
         'requestId'        => 'RequestId',
+        'pageRecordCount'  => 'PageRecordCount',
+        'totalRecordCount' => 'TotalRecordCount',
         'DBInstanceID'     => 'DBInstanceID',
         'pageNumber'       => 'PageNumber',
-        'startTime'        => 'StartTime',
         'items'            => 'Items',
-        'DBInstanceName'   => 'DBInstanceName',
     ];
 
     public function validate()
@@ -72,17 +72,23 @@ class DescribeMigrateTasksForSQLServerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalRecordCount) {
-            $res['TotalRecordCount'] = $this->totalRecordCount;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->totalRecordCount) {
+            $res['TotalRecordCount'] = $this->totalRecordCount;
         }
         if (null !== $this->DBInstanceID) {
             $res['DBInstanceID'] = $this->DBInstanceID;
@@ -90,14 +96,8 @@ class DescribeMigrateTasksForSQLServerResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
-        }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
         return $res;
@@ -111,17 +111,23 @@ class DescribeMigrateTasksForSQLServerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalRecordCount'])) {
-            $model->totalRecordCount = $map['TotalRecordCount'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['TotalRecordCount'])) {
+            $model->totalRecordCount = $map['TotalRecordCount'];
         }
         if (isset($map['DBInstanceID'])) {
             $model->DBInstanceID = $map['DBInstanceID'];
@@ -129,14 +135,8 @@ class DescribeMigrateTasksForSQLServerResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
-        }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
         }
 
         return $model;

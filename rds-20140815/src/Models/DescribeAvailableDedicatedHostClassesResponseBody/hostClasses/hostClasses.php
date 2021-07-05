@@ -11,15 +11,15 @@ class hostClasses extends Model
     /**
      * @var string
      */
-    public $hostClassName;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $hostClassName;
     protected $_name = [
-        'hostClassName' => 'HostClassName',
         'description'   => 'Description',
+        'hostClassName' => 'HostClassName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class hostClasses extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hostClassName) {
-            $res['HostClassName'] = $this->hostClassName;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->hostClassName) {
+            $res['HostClassName'] = $this->hostClassName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class hostClasses extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HostClassName'])) {
-            $model->hostClassName = $map['HostClassName'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['HostClassName'])) {
+            $model->hostClassName = $map['HostClassName'];
         }
 
         return $model;
