@@ -206,6 +206,20 @@ class scalingGroup extends Model
      * @var string
      */
     public $keyPair;
+
+    /**
+     * @description 节点公网IP网络计费类型
+     *
+     * @var string
+     */
+    public $internetChargeType;
+
+    /**
+     * @description 节点公网IP出带宽最大值，单位为Mbps（Mega bit per second），取值范围：1~100
+     *
+     * @var int
+     */
+    public $internetMaxBandwidthOut;
     protected $_name = [
         'autoRenew'                           => 'auto_renew',
         'autoRenewPeriod'                     => 'auto_renew_period',
@@ -235,6 +249,8 @@ class scalingGroup extends Model
         'vswitchIds'                          => 'vswitch_ids',
         'loginPassword'                       => 'login_password',
         'keyPair'                             => 'key_pair',
+        'internetChargeType'                  => 'internet_charge_type',
+        'internetMaxBandwidthOut'             => 'internet_max_bandwidth_out',
     ];
 
     public function validate()
@@ -345,6 +361,12 @@ class scalingGroup extends Model
         }
         if (null !== $this->keyPair) {
             $res['key_pair'] = $this->keyPair;
+        }
+        if (null !== $this->internetChargeType) {
+            $res['internet_charge_type'] = $this->internetChargeType;
+        }
+        if (null !== $this->internetMaxBandwidthOut) {
+            $res['internet_max_bandwidth_out'] = $this->internetMaxBandwidthOut;
         }
 
         return $res;
@@ -465,6 +487,12 @@ class scalingGroup extends Model
         }
         if (isset($map['key_pair'])) {
             $model->keyPair = $map['key_pair'];
+        }
+        if (isset($map['internet_charge_type'])) {
+            $model->internetChargeType = $map['internet_charge_type'];
+        }
+        if (isset($map['internet_max_bandwidth_out'])) {
+            $model->internetMaxBandwidthOut = $map['internet_max_bandwidth_out'];
         }
 
         return $model;

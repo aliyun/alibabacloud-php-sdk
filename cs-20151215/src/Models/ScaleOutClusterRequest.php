@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterRequest\workerDataDisks;
 use AlibabaCloud\Tea\Model;
 
 class ScaleOutClusterRequest extends Model
@@ -95,7 +96,7 @@ class ScaleOutClusterRequest extends Model
     /**
      * @description Worker节点数据盘配置
      *
-     * @var DataDisk[]
+     * @var workerDataDisks[]
      */
     public $workerDataDisks;
 
@@ -321,7 +322,7 @@ class ScaleOutClusterRequest extends Model
                 $model->workerDataDisks = [];
                 $n                      = 0;
                 foreach ($map['worker_data_disks'] as $item) {
-                    $model->workerDataDisks[$n++] = null !== $item ? DataDisk::fromMap($item) : $item;
+                    $model->workerDataDisks[$n++] = null !== $item ? workerDataDisks::fromMap($item) : $item;
                 }
             }
         }
