@@ -125,6 +125,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDatabasesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDatabasesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDatabaseUserPermssionsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDatabaseUserPermssionsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataCorrectPreCheckDBRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataCorrectPreCheckDBResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataCorrectPreCheckSQLRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataCorrectPreCheckSQLResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobRequest;
@@ -2244,6 +2248,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ListDataCorrectPreCheckSQLRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListDataCorrectPreCheckSQLResponse
+     */
+    public function listDataCorrectPreCheckSQLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDataCorrectPreCheckSQLResponse::fromMap($this->doRPCRequest('ListDataCorrectPreCheckSQL', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDataCorrectPreCheckSQLRequest $request
+     *
+     * @return ListDataCorrectPreCheckSQLResponse
+     */
+    public function listDataCorrectPreCheckSQL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataCorrectPreCheckSQLWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RegisterInstanceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2371,6 +2403,34 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeDataCorrectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataCorrectPreCheckDBRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDataCorrectPreCheckDBResponse
+     */
+    public function listDataCorrectPreCheckDBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDataCorrectPreCheckDBResponse::fromMap($this->doRPCRequest('ListDataCorrectPreCheckDB', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDataCorrectPreCheckDBRequest $request
+     *
+     * @return ListDataCorrectPreCheckDBResponse
+     */
+    public function listDataCorrectPreCheckDB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataCorrectPreCheckDBWithOptions($request, $runtime);
     }
 
     /**
