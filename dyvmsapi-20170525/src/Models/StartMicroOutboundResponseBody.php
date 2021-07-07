@@ -11,7 +11,7 @@ class StartMicroOutboundResponseBody extends Model
     /**
      * @var string
      */
-    public $invokeCreateTime;
+    public $customerInfo;
 
     /**
      * @var string
@@ -21,29 +21,29 @@ class StartMicroOutboundResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
     public $invokeCmdId;
 
     /**
      * @var string
      */
-    public $customerInfo;
+    public $code;
 
     /**
      * @var string
      */
-    public $code;
+    public $invokeCreateTime;
+
+    /**
+     * @var string
+     */
+    public $message;
     protected $_name = [
-        'invokeCreateTime' => 'InvokeCreateTime',
-        'requestId'        => 'RequestId',
-        'message'          => 'Message',
-        'invokeCmdId'      => 'InvokeCmdId',
         'customerInfo'     => 'CustomerInfo',
+        'requestId'        => 'RequestId',
+        'invokeCmdId'      => 'InvokeCmdId',
         'code'             => 'Code',
+        'invokeCreateTime' => 'InvokeCreateTime',
+        'message'          => 'Message',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class StartMicroOutboundResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->invokeCreateTime) {
-            $res['InvokeCreateTime'] = $this->invokeCreateTime;
+        if (null !== $this->customerInfo) {
+            $res['CustomerInfo'] = $this->customerInfo;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->invokeCmdId) {
             $res['InvokeCmdId'] = $this->invokeCmdId;
         }
-        if (null !== $this->customerInfo) {
-            $res['CustomerInfo'] = $this->customerInfo;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->invokeCreateTime) {
+            $res['InvokeCreateTime'] = $this->invokeCreateTime;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class StartMicroOutboundResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InvokeCreateTime'])) {
-            $model->invokeCreateTime = $map['InvokeCreateTime'];
+        if (isset($map['CustomerInfo'])) {
+            $model->customerInfo = $map['CustomerInfo'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['InvokeCmdId'])) {
             $model->invokeCmdId = $map['InvokeCmdId'];
         }
-        if (isset($map['CustomerInfo'])) {
-            $model->customerInfo = $map['CustomerInfo'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['InvokeCreateTime'])) {
+            $model->invokeCreateTime = $map['InvokeCreateTime'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         return $model;

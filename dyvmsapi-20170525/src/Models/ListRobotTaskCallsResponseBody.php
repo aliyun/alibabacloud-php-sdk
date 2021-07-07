@@ -11,12 +11,22 @@ class ListRobotTaskCallsResponseBody extends Model
     /**
      * @var string
      */
-    public $totalCount;
+    public $data;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $pageNo;
+
+    /**
+     * @var string
+     */
+    public $code;
 
     /**
      * @var string
@@ -31,25 +41,15 @@ class ListRobotTaskCallsResponseBody extends Model
     /**
      * @var string
      */
-    public $data;
-
-    /**
-     * @var string
-     */
-    public $pageNo;
-
-    /**
-     * @var string
-     */
-    public $code;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
-        'message'    => 'Message',
-        'pageSize'   => 'PageSize',
         'data'       => 'Data',
+        'requestId'  => 'RequestId',
         'pageNo'     => 'PageNo',
         'code'       => 'Code',
+        'message'    => 'Message',
+        'pageSize'   => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,11 +59,17 @@ class ListRobotTaskCallsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -71,14 +77,8 @@ class ListRobotTaskCallsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -92,11 +92,17 @@ class ListRobotTaskCallsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -104,14 +110,8 @@ class ListRobotTaskCallsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

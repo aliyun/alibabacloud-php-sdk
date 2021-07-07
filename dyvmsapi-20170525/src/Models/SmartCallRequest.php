@@ -127,6 +127,11 @@ class SmartCallRequest extends Model
      * @var string
      */
     public $asrBaseId;
+
+    /**
+     * @var int
+     */
+    public $streamAsr;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -152,6 +157,7 @@ class SmartCallRequest extends Model
         'ttsSpeed'             => 'TtsSpeed',
         'ttsConf'              => 'TtsConf',
         'asrBaseId'            => 'AsrBaseId',
+        'streamAsr'            => 'StreamAsr',
     ];
 
     public function validate()
@@ -232,6 +238,9 @@ class SmartCallRequest extends Model
         }
         if (null !== $this->asrBaseId) {
             $res['AsrBaseId'] = $this->asrBaseId;
+        }
+        if (null !== $this->streamAsr) {
+            $res['StreamAsr'] = $this->streamAsr;
         }
 
         return $res;
@@ -316,6 +325,9 @@ class SmartCallRequest extends Model
         }
         if (isset($map['AsrBaseId'])) {
             $model->asrBaseId = $map['AsrBaseId'];
+        }
+        if (isset($map['StreamAsr'])) {
+            $model->streamAsr = $map['StreamAsr'];
         }
 
         return $model;

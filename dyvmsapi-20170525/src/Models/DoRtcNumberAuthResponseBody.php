@@ -11,12 +11,12 @@ class DoRtcNumberAuthResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
+    public $code;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $message;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DoRtcNumberAuthResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $requestId;
     protected $_name = [
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'module'    => 'Module',
         'code'      => 'Code',
+        'message'   => 'Message',
+        'module'    => 'Module',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DoRtcNumberAuthResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->module) {
             $res['Module'] = $this->module;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DoRtcNumberAuthResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Module'])) {
             $model->module = $map['Module'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

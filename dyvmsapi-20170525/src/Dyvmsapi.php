@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525;
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddRtcAccountRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddRtcAccountResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BatchRobotSmartCallRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BatchRobotSmartCallResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BindNumberAndVoipIdRequest;
@@ -19,18 +21,34 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ClickToDialRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ClickToDialResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloseSipAccountRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloseSipAccountResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateRobotTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateSipAccountRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateSipAccountResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DeleteRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DeleteRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DescribeRecordDataRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DescribeRecordDataResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoRtcNumberAuthRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoRtcNumberAuthResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoubleCallSeatRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoubleCallSeatResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetRtcTokenRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetRtcTokenResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTokenRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTokenResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\IvrCallRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\IvrCallResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskDetailRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskDetailResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListOrderedNumbersRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListOrderedNumbersResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListOutboundStrategiesRequest;
@@ -55,6 +73,10 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotv2AllListRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotv2AllListResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRtcNumberAuthStatusRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRtcNumberAuthStatusResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoipNumberBindInfosRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoipNumberBindInfosResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ReportVoipProblemsRequest;
@@ -147,6 +169,34 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addRtcAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddVirtualNumberRelationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AddVirtualNumberRelationResponse
+     */
+    public function addVirtualNumberRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddVirtualNumberRelationResponse::fromMap($this->doRPCRequest('AddVirtualNumberRelation', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddVirtualNumberRelationRequest $request
+     *
+     * @return AddVirtualNumberRelationResponse
+     */
+    public function addVirtualNumberRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addVirtualNumberRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -318,6 +368,62 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param CloseSipAccountRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CloseSipAccountResponse
+     */
+    public function closeSipAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CloseSipAccountResponse::fromMap($this->doRPCRequest('CloseSipAccount', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CloseSipAccountRequest $request
+     *
+     * @return CloseSipAccountResponse
+     */
+    public function closeSipAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeSipAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCallTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCallTaskResponse
+     */
+    public function createCallTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateCallTaskResponse::fromMap($this->doRPCRequest('CreateCallTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateCallTaskRequest $request
+     *
+     * @return CreateCallTaskResponse
+     */
+    public function createCallTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCallTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateRobotTaskRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -343,6 +449,34 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRobotTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSipAccountRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateSipAccountResponse
+     */
+    public function createSipAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateSipAccountResponse::fromMap($this->doRPCRequest('CreateSipAccount', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateSipAccountRequest $request
+     *
+     * @return CreateSipAccountResponse
+     */
+    public function createSipAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSipAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -430,6 +564,62 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param DoubleCallSeatRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DoubleCallSeatResponse
+     */
+    public function doubleCallSeatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DoubleCallSeatResponse::fromMap($this->doRPCRequest('DoubleCallSeat', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DoubleCallSeatRequest $request
+     *
+     * @return DoubleCallSeatResponse
+     */
+    public function doubleCallSeat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->doubleCallSeatWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExecuteCallTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ExecuteCallTaskResponse
+     */
+    public function executeCallTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ExecuteCallTaskResponse::fromMap($this->doRPCRequest('ExecuteCallTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ExecuteCallTaskRequest $request
+     *
+     * @return ExecuteCallTaskResponse
+     */
+    public function executeCallTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeCallTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRtcTokenRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -458,6 +648,34 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param GetTokenRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTokenResponse
+     */
+    public function getTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetTokenResponse::fromMap($this->doRPCRequest('GetToken', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetTokenRequest $request
+     *
+     * @return GetTokenResponse
+     */
+    public function getToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param IvrCallRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -483,6 +701,62 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->ivrCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCallTaskRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListCallTaskResponse
+     */
+    public function listCallTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListCallTaskResponse::fromMap($this->doRPCRequest('ListCallTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListCallTaskRequest $request
+     *
+     * @return ListCallTaskResponse
+     */
+    public function listCallTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCallTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCallTaskDetailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListCallTaskDetailResponse
+     */
+    public function listCallTaskDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListCallTaskDetailResponse::fromMap($this->doRPCRequest('ListCallTaskDetail', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListCallTaskDetailRequest $request
+     *
+     * @return ListCallTaskDetailResponse
+     */
+    public function listCallTaskDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCallTaskDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -819,6 +1093,62 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryRtcNumberAuthStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryVirtualNumberRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryVirtualNumberResponse
+     */
+    public function queryVirtualNumberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryVirtualNumberResponse::fromMap($this->doRPCRequest('QueryVirtualNumber', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryVirtualNumberRequest $request
+     *
+     * @return QueryVirtualNumberResponse
+     */
+    public function queryVirtualNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVirtualNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryVirtualNumberRelationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryVirtualNumberRelationResponse
+     */
+    public function queryVirtualNumberRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryVirtualNumberRelationResponse::fromMap($this->doRPCRequest('QueryVirtualNumberRelation', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryVirtualNumberRelationRequest $request
+     *
+     * @return QueryVirtualNumberRelationResponse
+     */
+    public function queryVirtualNumberRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVirtualNumberRelationWithOptions($request, $runtime);
     }
 
     /**

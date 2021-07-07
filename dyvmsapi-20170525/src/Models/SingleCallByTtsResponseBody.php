@@ -11,6 +11,11 @@ class SingleCallByTtsResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -22,16 +27,11 @@ class SingleCallByTtsResponseBody extends Model
      * @var string
      */
     public $callId;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'callId'    => 'CallId',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class SingleCallByTtsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -49,9 +52,6 @@ class SingleCallByTtsResponseBody extends Model
         }
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class SingleCallByTtsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -73,9 +76,6 @@ class SingleCallByTtsResponseBody extends Model
         }
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;
