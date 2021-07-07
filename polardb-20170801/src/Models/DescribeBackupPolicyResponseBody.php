@@ -42,6 +42,11 @@ class DescribeBackupPolicyResponseBody extends Model
      * @var string
      */
     public $dataLevel2BackupRetentionPeriod;
+
+    /**
+     * @var string
+     */
+    public $backupFrequency;
     protected $_name = [
         'preferredBackupPeriod'                  => 'PreferredBackupPeriod',
         'dataLevel1BackupRetentionPeriod'        => 'DataLevel1BackupRetentionPeriod',
@@ -50,6 +55,7 @@ class DescribeBackupPolicyResponseBody extends Model
         'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
         'preferredNextBackupTime'                => 'PreferredNextBackupTime',
         'dataLevel2BackupRetentionPeriod'        => 'DataLevel2BackupRetentionPeriod',
+        'backupFrequency'                        => 'BackupFrequency',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (null !== $this->dataLevel2BackupRetentionPeriod) {
             $res['DataLevel2BackupRetentionPeriod'] = $this->dataLevel2BackupRetentionPeriod;
+        }
+        if (null !== $this->backupFrequency) {
+            $res['BackupFrequency'] = $this->backupFrequency;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (isset($map['DataLevel2BackupRetentionPeriod'])) {
             $model->dataLevel2BackupRetentionPeriod = $map['DataLevel2BackupRetentionPeriod'];
+        }
+        if (isset($map['BackupFrequency'])) {
+            $model->backupFrequency = $map['BackupFrequency'];
         }
 
         return $model;

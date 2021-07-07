@@ -154,6 +154,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
      * @var string
      */
     public $expireTime;
+
+    /**
+     * @var string
+     */
+    public $subCategory;
     protected $_name = [
         'deletionLock'              => 'DeletionLock',
         'category'                  => 'Category',
@@ -184,6 +189,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'SQLSize'                   => 'SQLSize',
         'regionId'                  => 'RegionId',
         'expireTime'                => 'ExpireTime',
+        'subCategory'               => 'SubCategory',
     ];
 
     public function validate()
@@ -291,6 +297,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->subCategory) {
+            $res['SubCategory'] = $this->subCategory;
         }
 
         return $res;
@@ -402,6 +411,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['SubCategory'])) {
+            $model->subCategory = $map['SubCategory'];
         }
 
         return $model;

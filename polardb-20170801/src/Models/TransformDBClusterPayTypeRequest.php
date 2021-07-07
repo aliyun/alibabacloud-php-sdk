@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDBClusterSSLRequest extends Model
+class TransformDBClusterPayTypeRequest extends Model
 {
     /**
      * @var int
@@ -36,32 +36,44 @@ class ModifyDBClusterSSLRequest extends Model
     /**
      * @var string
      */
-    public $SSLEnabled;
+    public $payType;
 
     /**
      * @var string
      */
-    public $DBEndpointId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $netType;
+    public $usedTime;
 
     /**
      * @var string
      */
-    public $SSLAutoRotate;
+    public $period;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
         'DBClusterId'          => 'DBClusterId',
-        'SSLEnabled'           => 'SSLEnabled',
-        'DBEndpointId'         => 'DBEndpointId',
-        'netType'              => 'NetType',
-        'SSLAutoRotate'        => 'SSLAutoRotate',
+        'payType'              => 'PayType',
+        'regionId'             => 'RegionId',
+        'usedTime'             => 'UsedTime',
+        'period'               => 'Period',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
@@ -86,17 +98,23 @@ class ModifyDBClusterSSLRequest extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->SSLEnabled) {
-            $res['SSLEnabled'] = $this->SSLEnabled;
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
         }
-        if (null !== $this->DBEndpointId) {
-            $res['DBEndpointId'] = $this->DBEndpointId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->netType) {
-            $res['NetType'] = $this->netType;
+        if (null !== $this->usedTime) {
+            $res['UsedTime'] = $this->usedTime;
         }
-        if (null !== $this->SSLAutoRotate) {
-            $res['SSLAutoRotate'] = $this->SSLAutoRotate;
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -105,7 +123,7 @@ class ModifyDBClusterSSLRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDBClusterSSLRequest
+     * @return TransformDBClusterPayTypeRequest
      */
     public static function fromMap($map = [])
     {
@@ -125,17 +143,23 @@ class ModifyDBClusterSSLRequest extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['SSLEnabled'])) {
-            $model->SSLEnabled = $map['SSLEnabled'];
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
         }
-        if (isset($map['DBEndpointId'])) {
-            $model->DBEndpointId = $map['DBEndpointId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['NetType'])) {
-            $model->netType = $map['NetType'];
+        if (isset($map['UsedTime'])) {
+            $model->usedTime = $map['UsedTime'];
         }
-        if (isset($map['SSLAutoRotate'])) {
-            $model->SSLAutoRotate = $map['SSLAutoRotate'];
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

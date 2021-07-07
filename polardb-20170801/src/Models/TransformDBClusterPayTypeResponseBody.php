@@ -6,17 +6,19 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBClusterTDEResponseBody extends Model
+class TransformDBClusterPayTypeResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
      * @var string
      */
-    public $TDEStatus;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $chargeType;
 
     /**
      * @var string
@@ -26,18 +28,18 @@ class DescribeDBClusterTDEResponseBody extends Model
     /**
      * @var string
      */
-    public $encryptionKey;
+    public $expiredTime;
 
     /**
      * @var string
      */
-    public $encryptNewTables;
+    public $orderId;
     protected $_name = [
-        'TDEStatus'        => 'TDEStatus',
-        'requestId'        => 'RequestId',
-        'DBClusterId'      => 'DBClusterId',
-        'encryptionKey'    => 'EncryptionKey',
-        'encryptNewTables' => 'EncryptNewTables',
+        'requestId'   => 'RequestId',
+        'chargeType'  => 'ChargeType',
+        'DBClusterId' => 'DBClusterId',
+        'expiredTime' => 'ExpiredTime',
+        'orderId'     => 'OrderId',
     ];
 
     public function validate()
@@ -47,20 +49,20 @@ class DescribeDBClusterTDEResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->TDEStatus) {
-            $res['TDEStatus'] = $this->TDEStatus;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->encryptionKey) {
-            $res['EncryptionKey'] = $this->encryptionKey;
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
         }
-        if (null !== $this->encryptNewTables) {
-            $res['EncryptNewTables'] = $this->encryptNewTables;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -69,25 +71,25 @@ class DescribeDBClusterTDEResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBClusterTDEResponseBody
+     * @return TransformDBClusterPayTypeResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TDEStatus'])) {
-            $model->TDEStatus = $map['TDEStatus'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['EncryptionKey'])) {
-            $model->encryptionKey = $map['EncryptionKey'];
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
         }
-        if (isset($map['EncryptNewTables'])) {
-            $model->encryptNewTables = $map['EncryptNewTables'];
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         return $model;

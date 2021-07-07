@@ -15,12 +15,18 @@ class DescribeDBClusterSSLResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $SSLAutoRotate;
+
+    /**
      * @var items[]
      */
     public $items;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'items'     => 'Items',
+        'requestId'     => 'RequestId',
+        'SSLAutoRotate' => 'SSLAutoRotate',
+        'items'         => 'Items',
     ];
 
     public function validate()
@@ -32,6 +38,9 @@ class DescribeDBClusterSSLResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->SSLAutoRotate) {
+            $res['SSLAutoRotate'] = $this->SSLAutoRotate;
         }
         if (null !== $this->items) {
             $res['Items'] = [];
@@ -56,6 +65,9 @@ class DescribeDBClusterSSLResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SSLAutoRotate'])) {
+            $model->SSLAutoRotate = $map['SSLAutoRotate'];
         }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {

@@ -23,10 +23,16 @@ class DescribeScheduleTasksResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'message' => 'Message',
-        'data'    => 'Data',
-        'success' => 'Success',
+        'message'   => 'Message',
+        'data'      => 'Data',
+        'success'   => 'Success',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class DescribeScheduleTasksResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -65,6 +74,9 @@ class DescribeScheduleTasksResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

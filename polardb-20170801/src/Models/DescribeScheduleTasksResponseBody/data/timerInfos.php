@@ -52,16 +52,28 @@ class timerInfos extends Model
      * @var string
      */
     public $orderId;
+
+    /**
+     * @var string
+     */
+    public $dbClusterStatus;
+
+    /**
+     * @var string
+     */
+    public $dbClusterDescription;
     protected $_name = [
-        'status'           => 'Status',
-        'action'           => 'Action',
-        'plannedEndTime'   => 'PlannedEndTime',
-        'plannedTime'      => 'PlannedTime',
-        'DBClusterId'      => 'DBClusterId',
-        'region'           => 'Region',
-        'plannedStartTime' => 'PlannedStartTime',
-        'taskId'           => 'TaskId',
-        'orderId'          => 'OrderId',
+        'status'               => 'Status',
+        'action'               => 'Action',
+        'plannedEndTime'       => 'PlannedEndTime',
+        'plannedTime'          => 'PlannedTime',
+        'DBClusterId'          => 'DBClusterId',
+        'region'               => 'Region',
+        'plannedStartTime'     => 'PlannedStartTime',
+        'taskId'               => 'TaskId',
+        'orderId'              => 'OrderId',
+        'dbClusterStatus'      => 'DbClusterStatus',
+        'dbClusterDescription' => 'DbClusterDescription',
     ];
 
     public function validate()
@@ -97,6 +109,12 @@ class timerInfos extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->dbClusterStatus) {
+            $res['DbClusterStatus'] = $this->dbClusterStatus;
+        }
+        if (null !== $this->dbClusterDescription) {
+            $res['DbClusterDescription'] = $this->dbClusterDescription;
         }
 
         return $res;
@@ -136,6 +154,12 @@ class timerInfos extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['DbClusterStatus'])) {
+            $model->dbClusterStatus = $map['DbClusterStatus'];
+        }
+        if (isset($map['DbClusterDescription'])) {
+            $model->dbClusterDescription = $map['DbClusterDescription'];
         }
 
         return $model;

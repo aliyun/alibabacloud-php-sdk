@@ -47,6 +47,11 @@ class ModifyDBClusterTDERequest extends Model
      * @var string
      */
     public $encryptionKey;
+
+    /**
+     * @var string
+     */
+    public $encryptNewTables;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -56,6 +61,7 @@ class ModifyDBClusterTDERequest extends Model
         'TDEStatus'            => 'TDEStatus',
         'roleArn'              => 'RoleArn',
         'encryptionKey'        => 'EncryptionKey',
+        'encryptNewTables'     => 'EncryptNewTables',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class ModifyDBClusterTDERequest extends Model
         }
         if (null !== $this->encryptionKey) {
             $res['EncryptionKey'] = $this->encryptionKey;
+        }
+        if (null !== $this->encryptNewTables) {
+            $res['EncryptNewTables'] = $this->encryptNewTables;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class ModifyDBClusterTDERequest extends Model
         }
         if (isset($map['EncryptionKey'])) {
             $model->encryptionKey = $map['EncryptionKey'];
+        }
+        if (isset($map['EncryptNewTables'])) {
+            $model->encryptNewTables = $map['EncryptNewTables'];
         }
 
         return $model;

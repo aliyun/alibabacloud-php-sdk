@@ -46,11 +46,6 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @var string
      */
-    public $backupRetentionPeriod;
-
-    /**
-     * @var string
-     */
     public $dataLevel1BackupRetentionPeriod;
 
     /**
@@ -62,6 +57,11 @@ class ModifyBackupPolicyRequest extends Model
      * @var string
      */
     public $backupRetentionPolicyOnClusterDeletion;
+
+    /**
+     * @var string
+     */
+    public $backupFrequency;
     protected $_name = [
         'ownerId'                                => 'OwnerId',
         'resourceOwnerAccount'                   => 'ResourceOwnerAccount',
@@ -70,10 +70,10 @@ class ModifyBackupPolicyRequest extends Model
         'DBClusterId'                            => 'DBClusterId',
         'preferredBackupTime'                    => 'PreferredBackupTime',
         'preferredBackupPeriod'                  => 'PreferredBackupPeriod',
-        'backupRetentionPeriod'                  => 'BackupRetentionPeriod',
         'dataLevel1BackupRetentionPeriod'        => 'DataLevel1BackupRetentionPeriod',
         'dataLevel2BackupRetentionPeriod'        => 'DataLevel2BackupRetentionPeriod',
         'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
+        'backupFrequency'                        => 'BackupFrequency',
     ];
 
     public function validate()
@@ -104,9 +104,6 @@ class ModifyBackupPolicyRequest extends Model
         if (null !== $this->preferredBackupPeriod) {
             $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
         }
-        if (null !== $this->backupRetentionPeriod) {
-            $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
-        }
         if (null !== $this->dataLevel1BackupRetentionPeriod) {
             $res['DataLevel1BackupRetentionPeriod'] = $this->dataLevel1BackupRetentionPeriod;
         }
@@ -115,6 +112,9 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (null !== $this->backupRetentionPolicyOnClusterDeletion) {
             $res['BackupRetentionPolicyOnClusterDeletion'] = $this->backupRetentionPolicyOnClusterDeletion;
+        }
+        if (null !== $this->backupFrequency) {
+            $res['BackupFrequency'] = $this->backupFrequency;
         }
 
         return $res;
@@ -149,9 +149,6 @@ class ModifyBackupPolicyRequest extends Model
         if (isset($map['PreferredBackupPeriod'])) {
             $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
         }
-        if (isset($map['BackupRetentionPeriod'])) {
-            $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
-        }
         if (isset($map['DataLevel1BackupRetentionPeriod'])) {
             $model->dataLevel1BackupRetentionPeriod = $map['DataLevel1BackupRetentionPeriod'];
         }
@@ -160,6 +157,9 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (isset($map['BackupRetentionPolicyOnClusterDeletion'])) {
             $model->backupRetentionPolicyOnClusterDeletion = $map['BackupRetentionPolicyOnClusterDeletion'];
+        }
+        if (isset($map['BackupFrequency'])) {
+            $model->backupFrequency = $map['BackupFrequency'];
         }
 
         return $model;

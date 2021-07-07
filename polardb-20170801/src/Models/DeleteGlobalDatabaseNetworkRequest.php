@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDBClusterSSLRequest extends Model
+class DeleteGlobalDatabaseNetworkRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $securityToken;
+
     /**
      * @var int
      */
@@ -31,37 +36,14 @@ class ModifyDBClusterSSLRequest extends Model
     /**
      * @var string
      */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
-    public $SSLEnabled;
-
-    /**
-     * @var string
-     */
-    public $DBEndpointId;
-
-    /**
-     * @var string
-     */
-    public $netType;
-
-    /**
-     * @var string
-     */
-    public $SSLAutoRotate;
+    public $GDNId;
     protected $_name = [
+        'securityToken'        => 'SecurityToken',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'SSLEnabled'           => 'SSLEnabled',
-        'DBEndpointId'         => 'DBEndpointId',
-        'netType'              => 'NetType',
-        'SSLAutoRotate'        => 'SSLAutoRotate',
+        'GDNId'                => 'GDNId',
     ];
 
     public function validate()
@@ -71,6 +53,9 @@ class ModifyDBClusterSSLRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -83,20 +68,8 @@ class ModifyDBClusterSSLRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-        if (null !== $this->SSLEnabled) {
-            $res['SSLEnabled'] = $this->SSLEnabled;
-        }
-        if (null !== $this->DBEndpointId) {
-            $res['DBEndpointId'] = $this->DBEndpointId;
-        }
-        if (null !== $this->netType) {
-            $res['NetType'] = $this->netType;
-        }
-        if (null !== $this->SSLAutoRotate) {
-            $res['SSLAutoRotate'] = $this->SSLAutoRotate;
+        if (null !== $this->GDNId) {
+            $res['GDNId'] = $this->GDNId;
         }
 
         return $res;
@@ -105,11 +78,14 @@ class ModifyDBClusterSSLRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDBClusterSSLRequest
+     * @return DeleteGlobalDatabaseNetworkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -122,20 +98,8 @@ class ModifyDBClusterSSLRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-        if (isset($map['SSLEnabled'])) {
-            $model->SSLEnabled = $map['SSLEnabled'];
-        }
-        if (isset($map['DBEndpointId'])) {
-            $model->DBEndpointId = $map['DBEndpointId'];
-        }
-        if (isset($map['NetType'])) {
-            $model->netType = $map['NetType'];
-        }
-        if (isset($map['SSLAutoRotate'])) {
-            $model->SSLAutoRotate = $map['SSLAutoRotate'];
+        if (isset($map['GDNId'])) {
+            $model->GDNId = $map['GDNId'];
         }
 
         return $model;

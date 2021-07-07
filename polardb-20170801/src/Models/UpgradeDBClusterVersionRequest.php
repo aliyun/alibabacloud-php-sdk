@@ -47,6 +47,11 @@ class UpgradeDBClusterVersionRequest extends Model
      * @var bool
      */
     public $fromTimeService;
+
+    /**
+     * @var string
+     */
+    public $upgradeType;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -56,6 +61,7 @@ class UpgradeDBClusterVersionRequest extends Model
         'plannedStartTime'     => 'PlannedStartTime',
         'plannedEndTime'       => 'PlannedEndTime',
         'fromTimeService'      => 'FromTimeService',
+        'upgradeType'          => 'UpgradeType',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class UpgradeDBClusterVersionRequest extends Model
         }
         if (null !== $this->fromTimeService) {
             $res['FromTimeService'] = $this->fromTimeService;
+        }
+        if (null !== $this->upgradeType) {
+            $res['UpgradeType'] = $this->upgradeType;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class UpgradeDBClusterVersionRequest extends Model
         }
         if (isset($map['FromTimeService'])) {
             $model->fromTimeService = $map['FromTimeService'];
+        }
+        if (isset($map['UpgradeType'])) {
+            $model->upgradeType = $map['UpgradeType'];
         }
 
         return $model;

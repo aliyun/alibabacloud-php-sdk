@@ -9,26 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterPerformanceRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
      * @var string
      */
     public $DBClusterId;
@@ -41,11 +21,6 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @var string
      */
-    public $metric;
-
-    /**
-     * @var string
-     */
     public $startTime;
 
     /**
@@ -53,15 +28,10 @@ class DescribeDBClusterPerformanceRequest extends Model
      */
     public $endTime;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBClusterId'          => 'DBClusterId',
-        'key'                  => 'Key',
-        'metric'               => 'Metric',
-        'startTime'            => 'StartTime',
-        'endTime'              => 'EndTime',
+        'DBClusterId' => 'DBClusterId',
+        'key'         => 'Key',
+        'startTime'   => 'StartTime',
+        'endTime'     => 'EndTime',
     ];
 
     public function validate()
@@ -71,26 +41,11 @@ class DescribeDBClusterPerformanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
-        }
-        if (null !== $this->metric) {
-            $res['Metric'] = $this->metric;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -110,26 +65,11 @@ class DescribeDBClusterPerformanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
-        }
-        if (isset($map['Metric'])) {
-            $model->metric = $map['Metric'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

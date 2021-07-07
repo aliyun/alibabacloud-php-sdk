@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelScheduleTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelScheduleTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckAccountNameRequest;
@@ -29,6 +30,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBLinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBLinkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBNodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBNodesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDatabaseNetworkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDatabaseNetworkResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteBackupRequest;
@@ -45,6 +50,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBLinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBLinkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBNodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBNodesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDatabaseNetworkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDatabaseNetworkResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeRequest;
@@ -97,34 +106,32 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBNodePerformanceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBNodePerformanceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDetachedBackupsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDetachedBackupsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLogBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLogBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeMetaListRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeMetaListResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeParameterGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeParameterGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeParameterGroupsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeParameterGroupsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeParameterTemplatesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeParameterTemplatesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarSQLCollectorPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarSQLCollectorPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeScheduleTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeScheduleTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogRecordsResponse;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLExplorerPolicyRequest;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLExplorerPolicyResponse;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLExplorerRetentionRequest;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLExplorerRetentionResponse;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLExplorerVersionRequest;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLExplorerVersionResponse;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLLogRecordsRequest;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLLogRecordsResponse;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLLogTemplatesRequest;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLLogTemplatesResponse;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSqlLogTrialStatusRequest;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSqlLogTrialStatusResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\FailoverDBClusterRequest;
@@ -169,10 +176,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBEndpointAddressRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBEndpointAddressResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeClassRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeClassResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalDatabaseNetworkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RemoveDBClusterFromGDNRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RemoveDBClusterFromGDNResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeRequest;
@@ -183,6 +194,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\TransformDBClusterPayTypeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\TransformDBClusterPayTypeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterMinorVersionRequest;
@@ -612,6 +625,62 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @param CreateGlobalDatabaseNetworkRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateGlobalDatabaseNetworkResponse
+     */
+    public function createGlobalDatabaseNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateGlobalDatabaseNetworkResponse::fromMap($this->doRPCRequest('CreateGlobalDatabaseNetwork', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateGlobalDatabaseNetworkRequest $request
+     *
+     * @return CreateGlobalDatabaseNetworkResponse
+     */
+    public function createGlobalDatabaseNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGlobalDatabaseNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateParameterGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateParameterGroupResponse
+     */
+    public function createParameterGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateParameterGroupResponse::fromMap($this->doRPCRequest('CreateParameterGroup', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateParameterGroupRequest $request
+     *
+     * @return CreateParameterGroupResponse
+     */
+    public function createParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteAccountRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -833,6 +902,62 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDBNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGlobalDatabaseNetworkRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteGlobalDatabaseNetworkResponse
+     */
+    public function deleteGlobalDatabaseNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteGlobalDatabaseNetworkResponse::fromMap($this->doRPCRequest('DeleteGlobalDatabaseNetwork', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGlobalDatabaseNetworkRequest $request
+     *
+     * @return DeleteGlobalDatabaseNetworkResponse
+     */
+    public function deleteGlobalDatabaseNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGlobalDatabaseNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteParameterGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteParameterGroupResponse
+     */
+    public function deleteParameterGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteParameterGroupResponse::fromMap($this->doRPCRequest('DeleteParameterGroup', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteParameterGroupRequest $request
+     *
+     * @return DeleteParameterGroupResponse
+     */
+    public function deleteParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteParameterGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1564,6 +1689,34 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @param DescribeGlobalDatabaseNetworkRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeGlobalDatabaseNetworkResponse
+     */
+    public function describeGlobalDatabaseNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeGlobalDatabaseNetworkResponse::fromMap($this->doRPCRequest('DescribeGlobalDatabaseNetwork', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeGlobalDatabaseNetworkRequest $request
+     *
+     * @return DescribeGlobalDatabaseNetworkResponse
+     */
+    public function describeGlobalDatabaseNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGlobalDatabaseNetworkWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeGlobalDatabaseNetworksRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -1648,6 +1801,90 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @param DescribeParameterGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeParameterGroupResponse
+     */
+    public function describeParameterGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeParameterGroupResponse::fromMap($this->doRPCRequest('DescribeParameterGroup', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeParameterGroupRequest $request
+     *
+     * @return DescribeParameterGroupResponse
+     */
+    public function describeParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeParameterGroupsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeParameterGroupsResponse
+     */
+    public function describeParameterGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeParameterGroupsResponse::fromMap($this->doRPCRequest('DescribeParameterGroups', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeParameterGroupsRequest $request
+     *
+     * @return DescribeParameterGroupsResponse
+     */
+    public function describeParameterGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParameterGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeParameterTemplatesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeParameterTemplatesResponse
+     */
+    public function describeParameterTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeParameterTemplatesResponse::fromMap($this->doRPCRequest('DescribeParameterTemplates', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeParameterTemplatesRequest $request
+     *
+     * @return DescribeParameterTemplatesResponse
+     */
+    public function describeParameterTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParameterTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePendingMaintenanceActionRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -1701,6 +1938,35 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePendingMaintenanceActionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePolarSQLCollectorPolicyRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribePolarSQLCollectorPolicyResponse
+     */
+    public function describePolarSQLCollectorPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return DescribePolarSQLCollectorPolicyResponse::fromMap($this->doRPCRequest('DescribePolarSQLCollectorPolicy', '2017-08-01', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePolarSQLCollectorPolicyRequest $request
+     *
+     * @return DescribePolarSQLCollectorPolicyResponse
+     */
+    public function describePolarSQLCollectorPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarSQLCollectorPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1785,174 +2051,6 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSlowLogRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLExplorerPolicyRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeSQLExplorerPolicyResponse
-     */
-    public function describeSQLExplorerPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSQLExplorerPolicyResponse::fromMap($this->doRPCRequest('DescribeSQLExplorerPolicy', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLExplorerPolicyRequest $request
-     *
-     * @return DescribeSQLExplorerPolicyResponse
-     */
-    public function describeSQLExplorerPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLExplorerPolicyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLExplorerRetentionRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeSQLExplorerRetentionResponse
-     */
-    public function describeSQLExplorerRetentionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSQLExplorerRetentionResponse::fromMap($this->doRPCRequest('DescribeSQLExplorerRetention', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLExplorerRetentionRequest $request
-     *
-     * @return DescribeSQLExplorerRetentionResponse
-     */
-    public function describeSQLExplorerRetention($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLExplorerRetentionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLExplorerVersionRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeSQLExplorerVersionResponse
-     */
-    public function describeSQLExplorerVersionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSQLExplorerVersionResponse::fromMap($this->doRPCRequest('DescribeSQLExplorerVersion', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLExplorerVersionRequest $request
-     *
-     * @return DescribeSQLExplorerVersionResponse
-     */
-    public function describeSQLExplorerVersion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLExplorerVersionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLLogRecordsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeSQLLogRecordsResponse
-     */
-    public function describeSQLLogRecordsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSQLLogRecordsResponse::fromMap($this->doRPCRequest('DescribeSQLLogRecords', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLLogRecordsRequest $request
-     *
-     * @return DescribeSQLLogRecordsResponse
-     */
-    public function describeSQLLogRecords($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLLogRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLLogTemplatesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeSQLLogTemplatesResponse
-     */
-    public function describeSQLLogTemplatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSQLLogTemplatesResponse::fromMap($this->doRPCRequest('DescribeSQLLogTemplates', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLLogTemplatesRequest $request
-     *
-     * @return DescribeSQLLogTemplatesResponse
-     */
-    public function describeSQLLogTemplates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLLogTemplatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSqlLogTrialStatusRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeSqlLogTrialStatusResponse
-     */
-    public function describeSqlLogTrialStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSqlLogTrialStatusResponse::fromMap($this->doRPCRequest('DescribeSqlLogTrialStatus', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSqlLogTrialStatusRequest $request
-     *
-     * @return DescribeSqlLogTrialStatusResponse
-     */
-    public function describeSqlLogTrialStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSqlLogTrialStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -2572,6 +2670,34 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @param ModifyGlobalDatabaseNetworkRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyGlobalDatabaseNetworkResponse
+     */
+    public function modifyGlobalDatabaseNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyGlobalDatabaseNetworkResponse::fromMap($this->doRPCRequest('ModifyGlobalDatabaseNetwork', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyGlobalDatabaseNetworkRequest $request
+     *
+     * @return ModifyGlobalDatabaseNetworkResponse
+     */
+    public function modifyGlobalDatabaseNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGlobalDatabaseNetworkWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyLogBackupPolicyRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2625,6 +2751,34 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPendingMaintenanceActionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveDBClusterFromGDNRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RemoveDBClusterFromGDNResponse
+     */
+    public function removeDBClusterFromGDNWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveDBClusterFromGDNResponse::fromMap($this->doRPCRequest('RemoveDBClusterFromGDN', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveDBClusterFromGDNRequest $request
+     *
+     * @return RemoveDBClusterFromGDNResponse
+     */
+    public function removeDBClusterFromGDN($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDBClusterFromGDNWithOptions($request, $runtime);
     }
 
     /**
@@ -2765,6 +2919,34 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TransformDBClusterPayTypeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return TransformDBClusterPayTypeResponse
+     */
+    public function transformDBClusterPayTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TransformDBClusterPayTypeResponse::fromMap($this->doRPCRequest('TransformDBClusterPayType', '2017-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TransformDBClusterPayTypeRequest $request
+     *
+     * @return TransformDBClusterPayTypeResponse
+     */
+    public function transformDBClusterPayType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->transformDBClusterPayTypeWithOptions($request, $runtime);
     }
 
     /**

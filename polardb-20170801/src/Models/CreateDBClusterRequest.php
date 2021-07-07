@@ -31,12 +31,12 @@ class CreateDBClusterRequest extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $engine;
+    public $zoneId;
 
     /**
      * @var string
@@ -157,13 +157,18 @@ class CreateDBClusterRequest extends Model
      * @var string
      */
     public $DBMinorVersion;
+
+    /**
+     * @var string
+     */
+    public $parameterGroupId;
     protected $_name = [
         'ownerId'                                => 'OwnerId',
         'resourceOwnerAccount'                   => 'ResourceOwnerAccount',
         'resourceOwnerId'                        => 'ResourceOwnerId',
         'ownerAccount'                           => 'OwnerAccount',
+        'regionId'                               => 'RegionId',
         'zoneId'                                 => 'ZoneId',
-        'engine'                                 => 'Engine',
         'DBType'                                 => 'DBType',
         'DBVersion'                              => 'DBVersion',
         'DBNodeClass'                            => 'DBNodeClass',
@@ -188,6 +193,7 @@ class CreateDBClusterRequest extends Model
         'lowerCaseTableNames'                    => 'LowerCaseTableNames',
         'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
         'DBMinorVersion'                         => 'DBMinorVersion',
+        'parameterGroupId'                       => 'ParameterGroupId',
     ];
 
     public function validate()
@@ -209,11 +215,11 @@ class CreateDBClusterRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
         }
         if (null !== $this->DBType) {
             $res['DBType'] = $this->DBType;
@@ -287,6 +293,9 @@ class CreateDBClusterRequest extends Model
         if (null !== $this->DBMinorVersion) {
             $res['DBMinorVersion'] = $this->DBMinorVersion;
         }
+        if (null !== $this->parameterGroupId) {
+            $res['ParameterGroupId'] = $this->parameterGroupId;
+        }
 
         return $res;
     }
@@ -311,11 +320,11 @@ class CreateDBClusterRequest extends Model
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
         }
         if (isset($map['DBType'])) {
             $model->DBType = $map['DBType'];
@@ -388,6 +397,9 @@ class CreateDBClusterRequest extends Model
         }
         if (isset($map['DBMinorVersion'])) {
             $model->DBMinorVersion = $map['DBMinorVersion'];
+        }
+        if (isset($map['ParameterGroupId'])) {
+            $model->parameterGroupId = $map['ParameterGroupId'];
         }
 
         return $model;

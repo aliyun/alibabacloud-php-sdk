@@ -31,11 +31,6 @@ class DescribeBackupTasksRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $DBClusterId;
 
     /**
@@ -52,7 +47,6 @@ class DescribeBackupTasksRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
         'DBClusterId'          => 'DBClusterId',
         'backupJobId'          => 'BackupJobId',
         'backupMode'           => 'BackupMode',
@@ -76,9 +70,6 @@ class DescribeBackupTasksRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
@@ -112,9 +103,6 @@ class DescribeBackupTasksRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];

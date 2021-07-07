@@ -34,14 +34,18 @@ class ModifyDBClusterParametersRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description Parameters与ParamGroupId二选一必传
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @description Parameters与ParamGroupId二选一必传
+     *
      * @var string
      */
-    public $effectiveTime;
+    public $parameterGroupId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -49,7 +53,7 @@ class ModifyDBClusterParametersRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'DBClusterId'          => 'DBClusterId',
         'parameters'           => 'Parameters',
-        'effectiveTime'        => 'EffectiveTime',
+        'parameterGroupId'     => 'ParameterGroupId',
     ];
 
     public function validate()
@@ -77,8 +81,8 @@ class ModifyDBClusterParametersRequest extends Model
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
-        if (null !== $this->effectiveTime) {
-            $res['EffectiveTime'] = $this->effectiveTime;
+        if (null !== $this->parameterGroupId) {
+            $res['ParameterGroupId'] = $this->parameterGroupId;
         }
 
         return $res;
@@ -110,8 +114,8 @@ class ModifyDBClusterParametersRequest extends Model
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
-        if (isset($map['EffectiveTime'])) {
-            $model->effectiveTime = $map['EffectiveTime'];
+        if (isset($map['ParameterGroupId'])) {
+            $model->parameterGroupId = $map['ParameterGroupId'];
         }
 
         return $model;
