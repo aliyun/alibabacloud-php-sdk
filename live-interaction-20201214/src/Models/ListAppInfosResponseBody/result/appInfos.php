@@ -42,12 +42,20 @@ class appInfos extends Model
      * @var string
      */
     public $prodVersion;
+
+    /**
+     * @description 实例Id
+     *
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
         'appId'       => 'AppId',
         'appName'     => 'AppName',
         'createTime'  => 'CreateTime',
         'appStatus'   => 'AppStatus',
         'prodVersion' => 'ProdVersion',
+        'instanceId'  => 'InstanceId',
     ];
 
     public function validate()
@@ -71,6 +79,9 @@ class appInfos extends Model
         }
         if (null !== $this->prodVersion) {
             $res['ProdVersion'] = $this->prodVersion;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -98,6 +109,9 @@ class appInfos extends Model
         }
         if (isset($map['ProdVersion'])) {
             $model->prodVersion = $map['ProdVersion'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

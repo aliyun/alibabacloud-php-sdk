@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetMediaUrlShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetMessageByIdRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetMessageByIdResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetMessageByIdShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetRoomStatisticsRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetRoomStatisticsResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetUserMuteSettingRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetUserMuteSettingResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetUserMuteSettingShrinkRequest;
@@ -75,6 +77,7 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\KickOffShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListAppInfosRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListAppInfosResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListAppInfosShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListCallbackApiIdsResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListDetailReportStatisticsRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListDetailReportStatisticsResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListDetailReportStatisticsShrinkRequest;
@@ -84,14 +87,16 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListGroupAllMembersShrinkR
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListGroupSilenceMembersRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListGroupSilenceMembersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListGroupSilenceMembersShrinkRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListRoomMessagesRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListRoomMessagesResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListRoomUsersRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\ListRoomUsersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\MuteUsersShrinkRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RecallMessageShrinkRequest;
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveExtensionByKeysRequest;
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveExtensionByKeysResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupExtensionByKeysRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupExtensionByKeysResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveGroupExtensionByKeysShrinkRequest;
@@ -116,13 +121,13 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveSingleChatExtensionB
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveUserConversationExtensionByKeysRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveUserConversationExtensionByKeysResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveUserConversationExtensionByKeysShrinkRequest;
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveUserExtensionByKeysRequest;
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\RemoveUserExtensionByKeysResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SendCustomMessageRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SendCustomMessageResponse;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SendCustomMessageToRoomUsersRequest;
+use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SendCustomMessageToRoomUsersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SendMessageRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SendMessageResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SendMessageShrinkRequest;
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetExtensionByKeysRequest;
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetExtensionByKeysResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupExtensionByKeysRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupExtensionByKeysResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetGroupExtensionByKeysShrinkRequest;
@@ -141,8 +146,6 @@ use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetSingleChatExtensionByKe
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetUserConversationExtensionByKeysRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetUserConversationExtensionByKeysResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetUserConversationExtensionByKeysShrinkRequest;
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetUserExtensionByKeysRequest;
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SetUserExtensionByKeysResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SilenceAllGroupMembersRequest;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SilenceAllGroupMembersResponse;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\SilenceAllGroupMembersShrinkRequest;
@@ -209,264 +212,15 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
-     * @param AddGroupMembersRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return AddGroupMembersResponse
-     */
-    public function addGroupMembersWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new AddGroupMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddGroupMembersResponse::fromMap($this->doRPCRequest('AddGroupMembers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddGroupMembersRequest $request
-     *
-     * @return AddGroupMembersResponse
-     */
-    public function addGroupMembers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addGroupMembersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddGroupSilenceBlacklistRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return AddGroupSilenceBlacklistResponse
-     */
-    public function addGroupSilenceBlacklistWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new AddGroupSilenceBlacklistShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddGroupSilenceBlacklistResponse::fromMap($this->doRPCRequest('AddGroupSilenceBlacklist', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddGroupSilenceBlacklistRequest $request
-     *
-     * @return AddGroupSilenceBlacklistResponse
-     */
-    public function addGroupSilenceBlacklist($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addGroupSilenceBlacklistWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddGroupSilenceWhitelistRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return AddGroupSilenceWhitelistResponse
-     */
-    public function addGroupSilenceWhitelistWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new AddGroupSilenceWhitelistShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddGroupSilenceWhitelistResponse::fromMap($this->doRPCRequest('AddGroupSilenceWhitelist', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddGroupSilenceWhitelistRequest $request
-     *
-     * @return AddGroupSilenceWhitelistResponse
-     */
-    public function addGroupSilenceWhitelist($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addGroupSilenceWhitelistWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CancelSilenceAllGroupMembersRequest $tmpReq
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return CancelSilenceAllGroupMembersResponse
-     */
-    public function cancelSilenceAllGroupMembersWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CancelSilenceAllGroupMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CancelSilenceAllGroupMembersResponse::fromMap($this->doRPCRequest('CancelSilenceAllGroupMembers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CancelSilenceAllGroupMembersRequest $request
-     *
-     * @return CancelSilenceAllGroupMembersResponse
-     */
-    public function cancelSilenceAllGroupMembers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cancelSilenceAllGroupMembersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateGroupRequest $tmpReq
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateGroupResponse
-     */
-    public function createGroupWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateGroupResponse::fromMap($this->doRPCRequest('CreateGroup', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateGroupRequest $request
-     *
-     * @return CreateGroupResponse
-     */
-    public function createGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateRoomRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateRoomResponse
-     */
-    public function createRoomWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateRoomResponse::fromMap($this->doRPCRequest('CreateRoom', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateRoomRequest $request
-     *
-     * @return CreateRoomResponse
-     */
-    public function createRoom($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRoomWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteAppRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return DeleteAppResponse
-     */
-    public function deleteAppWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteAppResponse::fromMap($this->doRPCRequest('DeleteApp', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAppRequest $request
-     *
-     * @return DeleteAppResponse
-     */
-    public function deleteApp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAppWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DestroyRoomRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DestroyRoomResponse
-     */
-    public function destroyRoomWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DestroyRoomResponse::fromMap($this->doRPCRequest('DestroyRoom', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DestroyRoomRequest $request
-     *
-     * @return DestroyRoomResponse
-     */
-    public function destroyRoom($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->destroyRoomWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DismissGroupRequest $tmpReq
+     * @param ListAppInfosRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
-     * @return DismissGroupResponse
+     * @return ListAppInfosResponse
      */
-    public function dismissGroupWithOptions($tmpReq, $runtime)
+    public function listAppInfosWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new DismissGroupShrinkRequest([]);
+        $request = new ListAppInfosShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -475,59 +229,31 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return DismissGroupResponse::fromMap($this->doRPCRequest('DismissGroup', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAppInfosResponse::fromMap($this->doRPCRequest('ListAppInfos', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DismissGroupRequest $request
+     * @param ListAppInfosRequest $request
      *
-     * @return DismissGroupResponse
+     * @return ListAppInfosResponse
      */
-    public function dismissGroup($request)
+    public function listAppInfos($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->dismissGroupWithOptions($request, $runtime);
+        return $this->listAppInfosWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetCommonConfigRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param RemoveSingleChatExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
      *
-     * @return GetCommonConfigResponse
+     * @return RemoveSingleChatExtensionByKeysResponse
      */
-    public function getCommonConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetCommonConfigResponse::fromMap($this->doRPCRequest('GetCommonConfig', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetCommonConfigRequest $request
-     *
-     * @return GetCommonConfigResponse
-     */
-    public function getCommonConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getCommonConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetGroupByIdRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetGroupByIdResponse
-     */
-    public function getGroupByIdWithOptions($tmpReq, $runtime)
+    public function removeSingleChatExtensionByKeysWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new GetGroupByIdShrinkRequest([]);
+        $request = new RemoveSingleChatExtensionByKeysShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -536,311 +262,19 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return GetGroupByIdResponse::fromMap($this->doRPCRequest('GetGroupById', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveSingleChatExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveSingleChatExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetGroupByIdRequest $request
+     * @param RemoveSingleChatExtensionByKeysRequest $request
      *
-     * @return GetGroupByIdResponse
+     * @return RemoveSingleChatExtensionByKeysResponse
      */
-    public function getGroupById($request)
+    public function removeSingleChatExtensionByKeys($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getGroupByIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetGroupMemberByIdsRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetGroupMemberByIdsResponse
-     */
-    public function getGroupMemberByIdsWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GetGroupMemberByIdsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetGroupMemberByIdsResponse::fromMap($this->doRPCRequest('GetGroupMemberByIds', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetGroupMemberByIdsRequest $request
-     *
-     * @return GetGroupMemberByIdsResponse
-     */
-    public function getGroupMemberByIds($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getGroupMemberByIdsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetIMConfigRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetIMConfigResponse
-     */
-    public function getIMConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetIMConfigResponse::fromMap($this->doRPCRequest('GetIMConfig', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetIMConfigRequest $request
-     *
-     * @return GetIMConfigResponse
-     */
-    public function getIMConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getIMConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetLoginTokenRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetLoginTokenResponse
-     */
-    public function getLoginTokenWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GetLoginTokenShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetLoginTokenResponse::fromMap($this->doRPCRequest('GetLoginToken', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetLoginTokenRequest $request
-     *
-     * @return GetLoginTokenResponse
-     */
-    public function getLoginToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getLoginTokenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetMediaUploadUrlRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetMediaUploadUrlResponse
-     */
-    public function getMediaUploadUrlWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GetMediaUploadUrlShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetMediaUploadUrlResponse::fromMap($this->doRPCRequest('GetMediaUploadUrl', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetMediaUploadUrlRequest $request
-     *
-     * @return GetMediaUploadUrlResponse
-     */
-    public function getMediaUploadUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMediaUploadUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetMediaUrlRequest $tmpReq
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetMediaUrlResponse
-     */
-    public function getMediaUrlWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GetMediaUrlShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetMediaUrlResponse::fromMap($this->doRPCRequest('GetMediaUrl', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetMediaUrlRequest $request
-     *
-     * @return GetMediaUrlResponse
-     */
-    public function getMediaUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMediaUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetMessageByIdRequest $tmpReq
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetMessageByIdResponse
-     */
-    public function getMessageByIdWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GetMessageByIdShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetMessageByIdResponse::fromMap($this->doRPCRequest('GetMessageById', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetMessageByIdRequest $request
-     *
-     * @return GetMessageByIdResponse
-     */
-    public function getMessageById($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMessageByIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetUserMuteSettingRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetUserMuteSettingResponse
-     */
-    public function getUserMuteSettingWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new GetUserMuteSettingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetUserMuteSettingResponse::fromMap($this->doRPCRequest('GetUserMuteSetting', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetUserMuteSettingRequest $request
-     *
-     * @return GetUserMuteSettingResponse
-     */
-    public function getUserMuteSetting($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getUserMuteSettingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ImportGroupChatConversationRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ImportGroupChatConversationResponse
-     */
-    public function importGroupChatConversationWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ImportGroupChatConversationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ImportGroupChatConversationResponse::fromMap($this->doRPCRequest('ImportGroupChatConversation', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ImportGroupChatConversationRequest $request
-     *
-     * @return ImportGroupChatConversationResponse
-     */
-    public function importGroupChatConversation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->importGroupChatConversationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ImportGroupChatMemberRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ImportGroupChatMemberResponse
-     */
-    public function importGroupChatMemberWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ImportGroupChatMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ImportGroupChatMemberResponse::fromMap($this->doRPCRequest('ImportGroupChatMember', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ImportGroupChatMemberRequest $request
-     *
-     * @return ImportGroupChatMemberResponse
-     */
-    public function importGroupChatMember($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->importGroupChatMemberWithOptions($request, $runtime);
+        return $this->removeSingleChatExtensionByKeysWithOptions($request, $runtime);
     }
 
     /**
@@ -877,15 +311,15 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
-     * @param ImportSingleConversationRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @param SilenceAllGroupMembersRequest $tmpReq
+     * @param RuntimeOptions                $runtime
      *
-     * @return ImportSingleConversationResponse
+     * @return SilenceAllGroupMembersResponse
      */
-    public function importSingleConversationWithOptions($tmpReq, $runtime)
+    public function silenceAllGroupMembersWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new ImportSingleConversationShrinkRequest([]);
+        $request = new SilenceAllGroupMembersShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -894,59 +328,59 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return ImportSingleConversationResponse::fromMap($this->doRPCRequest('ImportSingleConversation', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SilenceAllGroupMembersResponse::fromMap($this->doRPCRequest('SilenceAllGroupMembers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ImportSingleConversationRequest $request
+     * @param SilenceAllGroupMembersRequest $request
      *
-     * @return ImportSingleConversationResponse
+     * @return SilenceAllGroupMembersResponse
      */
-    public function importSingleConversation($request)
+    public function silenceAllGroupMembers($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->importSingleConversationWithOptions($request, $runtime);
+        return $this->silenceAllGroupMembersWithOptions($request, $runtime);
     }
 
     /**
-     * @param InitTenantRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param ListRoomMessagesRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return InitTenantResponse
+     * @return ListRoomMessagesResponse
      */
-    public function initTenantWithOptions($request, $runtime)
+    public function listRoomMessagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return InitTenantResponse::fromMap($this->doRPCRequest('InitTenant', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRoomMessagesResponse::fromMap($this->doRPCRequest('ListRoomMessages', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param InitTenantRequest $request
+     * @param ListRoomMessagesRequest $request
      *
-     * @return InitTenantResponse
+     * @return ListRoomMessagesResponse
      */
-    public function initTenant($request)
+    public function listRoomMessages($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->initTenantWithOptions($request, $runtime);
+        return $this->listRoomMessagesWithOptions($request, $runtime);
     }
 
     /**
-     * @param KickOffRequest $tmpReq
-     * @param RuntimeOptions $runtime
+     * @param SetGroupExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
      *
-     * @return KickOffResponse
+     * @return SetGroupExtensionByKeysResponse
      */
-    public function kickOffWithOptions($tmpReq, $runtime)
+    public function setGroupExtensionByKeysWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new KickOffShrinkRequest([]);
+        $request = new SetGroupExtensionByKeysShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -955,31 +389,31 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return KickOffResponse::fromMap($this->doRPCRequest('KickOff', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetGroupExtensionByKeysResponse::fromMap($this->doRPCRequest('SetGroupExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param KickOffRequest $request
+     * @param SetGroupExtensionByKeysRequest $request
      *
-     * @return KickOffResponse
+     * @return SetGroupExtensionByKeysResponse
      */
-    public function kickOff($request)
+    public function setGroupExtensionByKeys($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->kickOffWithOptions($request, $runtime);
+        return $this->setGroupExtensionByKeysWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListAppInfosRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @param RemoveGroupMemberExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
      *
-     * @return ListAppInfosResponse
+     * @return RemoveGroupMemberExtensionByKeysResponse
      */
-    public function listAppInfosWithOptions($tmpReq, $runtime)
+    public function removeGroupMemberExtensionByKeysWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new ListAppInfosShrinkRequest([]);
+        $request = new RemoveGroupMemberExtensionByKeysShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -988,19 +422,85 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return ListAppInfosResponse::fromMap($this->doRPCRequest('ListAppInfos', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveGroupMemberExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveGroupMemberExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListAppInfosRequest $request
+     * @param RemoveGroupMemberExtensionByKeysRequest $request
      *
-     * @return ListAppInfosResponse
+     * @return RemoveGroupMemberExtensionByKeysResponse
      */
-    public function listAppInfos($request)
+    public function removeGroupMemberExtensionByKeys($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listAppInfosWithOptions($request, $runtime);
+        return $this->removeGroupMemberExtensionByKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddGroupSilenceBlacklistRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AddGroupSilenceBlacklistResponse
+     */
+    public function addGroupSilenceBlacklistWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddGroupSilenceBlacklistShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddGroupSilenceBlacklistResponse::fromMap($this->doRPCRequest('AddGroupSilenceBlacklist', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddGroupSilenceBlacklistRequest $request
+     *
+     * @return AddGroupSilenceBlacklistResponse
+     */
+    public function addGroupSilenceBlacklist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addGroupSilenceBlacklistWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveGroupSilenceWhitelistRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RemoveGroupSilenceWhitelistResponse
+     */
+    public function removeGroupSilenceWhitelistWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveGroupSilenceWhitelistShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveGroupSilenceWhitelistResponse::fromMap($this->doRPCRequest('RemoveGroupSilenceWhitelist', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveGroupSilenceWhitelistRequest $request
+     *
+     * @return RemoveGroupSilenceWhitelistResponse
+     */
+    public function removeGroupSilenceWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeGroupSilenceWhitelistWithOptions($request, $runtime);
     }
 
     /**
@@ -1037,6 +537,293 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
+     * @param SetUserConversationExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SetUserConversationExtensionByKeysResponse
+     */
+    public function setUserConversationExtensionByKeysWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetUserConversationExtensionByKeysShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetUserConversationExtensionByKeysResponse::fromMap($this->doRPCRequest('SetUserConversationExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetUserConversationExtensionByKeysRequest $request
+     *
+     * @return SetUserConversationExtensionByKeysResponse
+     */
+    public function setUserConversationExtensionByKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setUserConversationExtensionByKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetGroupByIdRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetGroupByIdResponse
+     */
+    public function getGroupByIdWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetGroupByIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetGroupByIdResponse::fromMap($this->doRPCRequest('GetGroupById', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetGroupByIdRequest $request
+     *
+     * @return GetGroupByIdResponse
+     */
+    public function getGroupById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGroupByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTenantStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateTenantStatusResponse
+     */
+    public function updateTenantStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateTenantStatusResponse::fromMap($this->doRPCRequest('UpdateTenantStatus', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTenantStatusRequest $request
+     *
+     * @return UpdateTenantStatusResponse
+     */
+    public function updateTenantStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTenantStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCommonConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetCommonConfigResponse
+     */
+    public function getCommonConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetCommonConfigResponse::fromMap($this->doRPCRequest('GetCommonConfig', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetCommonConfigRequest $request
+     *
+     * @return GetCommonConfigResponse
+     */
+    public function getCommonConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCommonConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendMessageRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SendMessageResponse
+     */
+    public function sendMessageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SendMessageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SendMessageResponse::fromMap($this->doRPCRequest('SendMessage', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SendMessageRequest $request
+     *
+     * @return SendMessageResponse
+     */
+    public function sendMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGroupMembersRoleRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateGroupMembersRoleResponse
+     */
+    public function updateGroupMembersRoleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateGroupMembersRoleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateGroupMembersRoleResponse::fromMap($this->doRPCRequest('UpdateGroupMembersRole', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGroupMembersRoleRequest $request
+     *
+     * @return UpdateGroupMembersRoleResponse
+     */
+    public function updateGroupMembersRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGroupMembersRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelSilenceAllGroupMembersRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CancelSilenceAllGroupMembersResponse
+     */
+    public function cancelSilenceAllGroupMembersWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CancelSilenceAllGroupMembersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelSilenceAllGroupMembersResponse::fromMap($this->doRPCRequest('CancelSilenceAllGroupMembers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelSilenceAllGroupMembersRequest $request
+     *
+     * @return CancelSilenceAllGroupMembersResponse
+     */
+    public function cancelSilenceAllGroupMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelSilenceAllGroupMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGroupIconRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateGroupIconResponse
+     */
+    public function updateGroupIconWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateGroupIconShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateGroupIconResponse::fromMap($this->doRPCRequest('UpdateGroupIcon', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGroupIconRequest $request
+     *
+     * @return UpdateGroupIconResponse
+     */
+    public function updateGroupIcon($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGroupIconWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveGroupMembersRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RemoveGroupMembersResponse
+     */
+    public function removeGroupMembersWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveGroupMembersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveGroupMembersResponse::fromMap($this->doRPCRequest('RemoveGroupMembers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveGroupMembersRequest $request
+     *
+     * @return RemoveGroupMembersResponse
+     */
+    public function removeGroupMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeGroupMembersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListGroupAllMembersRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
@@ -1070,15 +857,15 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
-     * @param ListGroupSilenceMembersRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @param GetUserMuteSettingRequest $tmpReq
+     * @param RuntimeOptions            $runtime
      *
-     * @return ListGroupSilenceMembersResponse
+     * @return GetUserMuteSettingResponse
      */
-    public function listGroupSilenceMembersWithOptions($tmpReq, $runtime)
+    public function getUserMuteSettingWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new ListGroupSilenceMembersShrinkRequest([]);
+        $request = new GetUserMuteSettingShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -1087,19 +874,268 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return ListGroupSilenceMembersResponse::fromMap($this->doRPCRequest('ListGroupSilenceMembers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserMuteSettingResponse::fromMap($this->doRPCRequest('GetUserMuteSetting', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListGroupSilenceMembersRequest $request
+     * @param GetUserMuteSettingRequest $request
      *
-     * @return ListGroupSilenceMembersResponse
+     * @return GetUserMuteSettingResponse
      */
-    public function listGroupSilenceMembers($request)
+    public function getUserMuteSetting($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listGroupSilenceMembersWithOptions($request, $runtime);
+        return $this->getUserMuteSettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRoomStatisticsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRoomStatisticsResponse
+     */
+    public function getRoomStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetRoomStatisticsResponse::fromMap($this->doRPCRequest('GetRoomStatistics', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetRoomStatisticsRequest $request
+     *
+     * @return GetRoomStatisticsResponse
+     */
+    public function getRoomStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoomStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddGroupMembersRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddGroupMembersResponse
+     */
+    public function addGroupMembersWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddGroupMembersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddGroupMembersResponse::fromMap($this->doRPCRequest('AddGroupMembers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddGroupMembersRequest $request
+     *
+     * @return AddGroupMembersResponse
+     */
+    public function addGroupMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addGroupMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetGroupMemberByIdsRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetGroupMemberByIdsResponse
+     */
+    public function getGroupMemberByIdsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetGroupMemberByIdsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetGroupMemberByIdsResponse::fromMap($this->doRPCRequest('GetGroupMemberByIds', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetGroupMemberByIdsRequest $request
+     *
+     * @return GetGroupMemberByIdsResponse
+     */
+    public function getGroupMemberByIds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGroupMemberByIdsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendCustomMessageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SendCustomMessageResponse
+     */
+    public function sendCustomMessageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SendCustomMessageResponse::fromMap($this->doRPCRequest('SendCustomMessage', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SendCustomMessageRequest $request
+     *
+     * @return SendCustomMessageResponse
+     */
+    public function sendCustomMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendCustomMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAppNameRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateAppNameResponse
+     */
+    public function updateAppNameWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateAppNameShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateAppNameResponse::fromMap($this->doRPCRequest('UpdateAppName', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAppNameRequest $request
+     *
+     * @return UpdateAppNameResponse
+     */
+    public function updateAppName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetIMConfigRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetIMConfigResponse
+     */
+    public function getIMConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetIMConfigResponse::fromMap($this->doRPCRequest('GetIMConfig', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetIMConfigRequest $request
+     *
+     * @return GetIMConfigResponse
+     */
+    public function getIMConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIMConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetSingleChatExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SetSingleChatExtensionByKeysResponse
+     */
+    public function setSingleChatExtensionByKeysWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetSingleChatExtensionByKeysShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetSingleChatExtensionByKeysResponse::fromMap($this->doRPCRequest('SetSingleChatExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetSingleChatExtensionByKeysRequest $request
+     *
+     * @return SetSingleChatExtensionByKeysResponse
+     */
+    public function setSingleChatExtensionByKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setSingleChatExtensionByKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAppStatusRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAppStatusResponse
+     */
+    public function updateAppStatusWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateAppStatusShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateAppStatusResponse::fromMap($this->doRPCRequest('UpdateAppStatus', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAppStatusRequest $request
+     *
+     * @return UpdateAppStatusResponse
+     */
+    public function updateAppStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -1169,43 +1205,15 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
-     * @param RemoveExtensionByKeysRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param AddGroupSilenceWhitelistRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
      *
-     * @return RemoveExtensionByKeysResponse
+     * @return AddGroupSilenceWhitelistResponse
      */
-    public function removeExtensionByKeysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveExtensionByKeysRequest $request
-     *
-     * @return RemoveExtensionByKeysResponse
-     */
-    public function removeExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveGroupExtensionByKeysRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return RemoveGroupExtensionByKeysResponse
-     */
-    public function removeGroupExtensionByKeysWithOptions($tmpReq, $runtime)
+    public function addGroupSilenceWhitelistWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new RemoveGroupExtensionByKeysShrinkRequest([]);
+        $request = new AddGroupSilenceWhitelistShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -1214,405 +1222,19 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return RemoveGroupExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveGroupExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddGroupSilenceWhitelistResponse::fromMap($this->doRPCRequest('AddGroupSilenceWhitelist', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param RemoveGroupExtensionByKeysRequest $request
+     * @param AddGroupSilenceWhitelistRequest $request
      *
-     * @return RemoveGroupExtensionByKeysResponse
+     * @return AddGroupSilenceWhitelistResponse
      */
-    public function removeGroupExtensionByKeys($request)
+    public function addGroupSilenceWhitelist($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->removeGroupExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveGroupMemberExtensionByKeysRequest $tmpReq
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return RemoveGroupMemberExtensionByKeysResponse
-     */
-    public function removeGroupMemberExtensionByKeysWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RemoveGroupMemberExtensionByKeysShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveGroupMemberExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveGroupMemberExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveGroupMemberExtensionByKeysRequest $request
-     *
-     * @return RemoveGroupMemberExtensionByKeysResponse
-     */
-    public function removeGroupMemberExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeGroupMemberExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveGroupMembersRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return RemoveGroupMembersResponse
-     */
-    public function removeGroupMembersWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RemoveGroupMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveGroupMembersResponse::fromMap($this->doRPCRequest('RemoveGroupMembers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveGroupMembersRequest $request
-     *
-     * @return RemoveGroupMembersResponse
-     */
-    public function removeGroupMembers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeGroupMembersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveGroupSilenceBlacklistRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RemoveGroupSilenceBlacklistResponse
-     */
-    public function removeGroupSilenceBlacklistWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RemoveGroupSilenceBlacklistShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveGroupSilenceBlacklistResponse::fromMap($this->doRPCRequest('RemoveGroupSilenceBlacklist', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveGroupSilenceBlacklistRequest $request
-     *
-     * @return RemoveGroupSilenceBlacklistResponse
-     */
-    public function removeGroupSilenceBlacklist($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeGroupSilenceBlacklistWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveGroupSilenceWhitelistRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RemoveGroupSilenceWhitelistResponse
-     */
-    public function removeGroupSilenceWhitelistWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RemoveGroupSilenceWhitelistShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveGroupSilenceWhitelistResponse::fromMap($this->doRPCRequest('RemoveGroupSilenceWhitelist', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveGroupSilenceWhitelistRequest $request
-     *
-     * @return RemoveGroupSilenceWhitelistResponse
-     */
-    public function removeGroupSilenceWhitelist($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeGroupSilenceWhitelistWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveMessageExtensionByKeysRequest $tmpReq
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return RemoveMessageExtensionByKeysResponse
-     */
-    public function removeMessageExtensionByKeysWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RemoveMessageExtensionByKeysShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveMessageExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveMessageExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveMessageExtensionByKeysRequest $request
-     *
-     * @return RemoveMessageExtensionByKeysResponse
-     */
-    public function removeMessageExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeMessageExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveSingleChatExtensionByKeysRequest $tmpReq
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return RemoveSingleChatExtensionByKeysResponse
-     */
-    public function removeSingleChatExtensionByKeysWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RemoveSingleChatExtensionByKeysShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveSingleChatExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveSingleChatExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveSingleChatExtensionByKeysRequest $request
-     *
-     * @return RemoveSingleChatExtensionByKeysResponse
-     */
-    public function removeSingleChatExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeSingleChatExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveUserConversationExtensionByKeysRequest $tmpReq
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return RemoveUserConversationExtensionByKeysResponse
-     */
-    public function removeUserConversationExtensionByKeysWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RemoveUserConversationExtensionByKeysShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveUserConversationExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveUserConversationExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveUserConversationExtensionByKeysRequest $request
-     *
-     * @return RemoveUserConversationExtensionByKeysResponse
-     */
-    public function removeUserConversationExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeUserConversationExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveUserExtensionByKeysRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return RemoveUserExtensionByKeysResponse
-     */
-    public function removeUserExtensionByKeysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveUserExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveUserExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveUserExtensionByKeysRequest $request
-     *
-     * @return RemoveUserExtensionByKeysResponse
-     */
-    public function removeUserExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeUserExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SendMessageRequest $tmpReq
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SendMessageResponse
-     */
-    public function sendMessageWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new SendMessageShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SendMessageResponse::fromMap($this->doRPCRequest('SendMessage', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SendMessageRequest $request
-     *
-     * @return SendMessageResponse
-     */
-    public function sendMessage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->sendMessageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetExtensionByKeysRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SetExtensionByKeysResponse
-     */
-    public function setExtensionByKeysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SetExtensionByKeysResponse::fromMap($this->doRPCRequest('SetExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SetExtensionByKeysRequest $request
-     *
-     * @return SetExtensionByKeysResponse
-     */
-    public function setExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetGroupExtensionByKeysRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return SetGroupExtensionByKeysResponse
-     */
-    public function setGroupExtensionByKeysWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new SetGroupExtensionByKeysShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SetGroupExtensionByKeysResponse::fromMap($this->doRPCRequest('SetGroupExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SetGroupExtensionByKeysRequest $request
-     *
-     * @return SetGroupExtensionByKeysResponse
-     */
-    public function setGroupExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setGroupExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetGroupMemberExtensionByKeysRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return SetGroupMemberExtensionByKeysResponse
-     */
-    public function setGroupMemberExtensionByKeysWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new SetGroupMemberExtensionByKeysShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SetGroupMemberExtensionByKeysResponse::fromMap($this->doRPCRequest('SetGroupMemberExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SetGroupMemberExtensionByKeysRequest $request
-     *
-     * @return SetGroupMemberExtensionByKeysResponse
-     */
-    public function setGroupMemberExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setGroupMemberExtensionByKeysWithOptions($request, $runtime);
+        return $this->addGroupSilenceWhitelistWithOptions($request, $runtime);
     }
 
     /**
@@ -1649,142 +1271,71 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
-     * @param SetMessageExtensionByKeysRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @param ListRoomUsersRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return SetMessageExtensionByKeysResponse
+     * @return ListRoomUsersResponse
      */
-    public function setMessageExtensionByKeysWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new SetMessageExtensionByKeysShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SetMessageExtensionByKeysResponse::fromMap($this->doRPCRequest('SetMessageExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SetMessageExtensionByKeysRequest $request
-     *
-     * @return SetMessageExtensionByKeysResponse
-     */
-    public function setMessageExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setMessageExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetSingleChatExtensionByKeysRequest $tmpReq
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return SetSingleChatExtensionByKeysResponse
-     */
-    public function setSingleChatExtensionByKeysWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new SetSingleChatExtensionByKeysShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SetSingleChatExtensionByKeysResponse::fromMap($this->doRPCRequest('SetSingleChatExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SetSingleChatExtensionByKeysRequest $request
-     *
-     * @return SetSingleChatExtensionByKeysResponse
-     */
-    public function setSingleChatExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setSingleChatExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetUserConversationExtensionByKeysRequest $tmpReq
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return SetUserConversationExtensionByKeysResponse
-     */
-    public function setUserConversationExtensionByKeysWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new SetUserConversationExtensionByKeysShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requestParams)) {
-            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SetUserConversationExtensionByKeysResponse::fromMap($this->doRPCRequest('SetUserConversationExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SetUserConversationExtensionByKeysRequest $request
-     *
-     * @return SetUserConversationExtensionByKeysResponse
-     */
-    public function setUserConversationExtensionByKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setUserConversationExtensionByKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetUserExtensionByKeysRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return SetUserExtensionByKeysResponse
-     */
-    public function setUserExtensionByKeysWithOptions($request, $runtime)
+    public function listRoomUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return SetUserExtensionByKeysResponse::fromMap($this->doRPCRequest('SetUserExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRoomUsersResponse::fromMap($this->doRPCRequest('ListRoomUsers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param SetUserExtensionByKeysRequest $request
+     * @param ListRoomUsersRequest $request
      *
-     * @return SetUserExtensionByKeysResponse
+     * @return ListRoomUsersResponse
      */
-    public function setUserExtensionByKeys($request)
+    public function listRoomUsers($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->setUserExtensionByKeysWithOptions($request, $runtime);
+        return $this->listRoomUsersWithOptions($request, $runtime);
     }
 
     /**
-     * @param SilenceAllGroupMembersRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @param DeleteAppRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return SilenceAllGroupMembersResponse
+     * @return DeleteAppResponse
      */
-    public function silenceAllGroupMembersWithOptions($tmpReq, $runtime)
+    public function deleteAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteAppResponse::fromMap($this->doRPCRequest('DeleteApp', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAppRequest $request
+     *
+     * @return DeleteAppResponse
+     */
+    public function deleteApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveGroupSilenceBlacklistRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RemoveGroupSilenceBlacklistResponse
+     */
+    public function removeGroupSilenceBlacklistWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new SilenceAllGroupMembersShrinkRequest([]);
+        $request = new RemoveGroupSilenceBlacklistShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -1793,31 +1344,31 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return SilenceAllGroupMembersResponse::fromMap($this->doRPCRequest('SilenceAllGroupMembers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveGroupSilenceBlacklistResponse::fromMap($this->doRPCRequest('RemoveGroupSilenceBlacklist', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param SilenceAllGroupMembersRequest $request
+     * @param RemoveGroupSilenceBlacklistRequest $request
      *
-     * @return SilenceAllGroupMembersResponse
+     * @return RemoveGroupSilenceBlacklistResponse
      */
-    public function silenceAllGroupMembers($request)
+    public function removeGroupSilenceBlacklist($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->silenceAllGroupMembersWithOptions($request, $runtime);
+        return $this->removeGroupSilenceBlacklistWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateAppNameRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @param RemoveMessageExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
      *
-     * @return UpdateAppNameResponse
+     * @return RemoveMessageExtensionByKeysResponse
      */
-    public function updateAppNameWithOptions($tmpReq, $runtime)
+    public function removeMessageExtensionByKeysWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new UpdateAppNameShrinkRequest([]);
+        $request = new RemoveMessageExtensionByKeysShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -1826,31 +1377,31 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateAppNameResponse::fromMap($this->doRPCRequest('UpdateAppName', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveMessageExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveMessageExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateAppNameRequest $request
+     * @param RemoveMessageExtensionByKeysRequest $request
      *
-     * @return UpdateAppNameResponse
+     * @return RemoveMessageExtensionByKeysResponse
      */
-    public function updateAppName($request)
+    public function removeMessageExtensionByKeys($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateAppNameWithOptions($request, $runtime);
+        return $this->removeMessageExtensionByKeysWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateAppStatusRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @param GetMediaUploadUrlRequest $tmpReq
+     * @param RuntimeOptions           $runtime
      *
-     * @return UpdateAppStatusResponse
+     * @return GetMediaUploadUrlResponse
      */
-    public function updateAppStatusWithOptions($tmpReq, $runtime)
+    public function getMediaUploadUrlWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new UpdateAppStatusShrinkRequest([]);
+        $request = new GetMediaUploadUrlShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -1859,19 +1410,85 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateAppStatusResponse::fromMap($this->doRPCRequest('UpdateAppStatus', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMediaUploadUrlResponse::fromMap($this->doRPCRequest('GetMediaUploadUrl', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateAppStatusRequest $request
+     * @param GetMediaUploadUrlRequest $request
      *
-     * @return UpdateAppStatusResponse
+     * @return GetMediaUploadUrlResponse
      */
-    public function updateAppStatus($request)
+    public function getMediaUploadUrl($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateAppStatusWithOptions($request, $runtime);
+        return $this->getMediaUploadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMediaUrlRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetMediaUrlResponse
+     */
+    public function getMediaUrlWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetMediaUrlShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMediaUrlResponse::fromMap($this->doRPCRequest('GetMediaUrl', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMediaUrlRequest $request
+     *
+     * @return GetMediaUrlResponse
+     */
+    public function getMediaUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportSingleConversationRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ImportSingleConversationResponse
+     */
+    public function importSingleConversationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ImportSingleConversationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ImportSingleConversationResponse::fromMap($this->doRPCRequest('ImportSingleConversation', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ImportSingleConversationRequest $request
+     *
+     * @return ImportSingleConversationResponse
+     */
+    public function importSingleConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importSingleConversationWithOptions($request, $runtime);
     }
 
     /**
@@ -1908,15 +1525,43 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupIconRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @param InitTenantRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return UpdateGroupIconResponse
+     * @return InitTenantResponse
      */
-    public function updateGroupIconWithOptions($tmpReq, $runtime)
+    public function initTenantWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return InitTenantResponse::fromMap($this->doRPCRequest('InitTenant', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param InitTenantRequest $request
+     *
+     * @return InitTenantResponse
+     */
+    public function initTenant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initTenantWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportGroupChatMemberRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ImportGroupChatMemberResponse
+     */
+    public function importGroupChatMemberWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new UpdateGroupIconShrinkRequest([]);
+        $request = new ImportGroupChatMemberShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -1925,31 +1570,31 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateGroupIconResponse::fromMap($this->doRPCRequest('UpdateGroupIcon', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ImportGroupChatMemberResponse::fromMap($this->doRPCRequest('ImportGroupChatMember', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateGroupIconRequest $request
+     * @param ImportGroupChatMemberRequest $request
      *
-     * @return UpdateGroupIconResponse
+     * @return ImportGroupChatMemberResponse
      */
-    public function updateGroupIcon($request)
+    public function importGroupChatMember($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateGroupIconWithOptions($request, $runtime);
+        return $this->importGroupChatMemberWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateGroupMembersRoleRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @param ListGroupSilenceMembersRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
      *
-     * @return UpdateGroupMembersRoleResponse
+     * @return ListGroupSilenceMembersResponse
      */
-    public function updateGroupMembersRoleWithOptions($tmpReq, $runtime)
+    public function listGroupSilenceMembersWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new UpdateGroupMembersRoleShrinkRequest([]);
+        $request = new ListGroupSilenceMembersShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -1958,31 +1603,31 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateGroupMembersRoleResponse::fromMap($this->doRPCRequest('UpdateGroupMembersRole', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListGroupSilenceMembersResponse::fromMap($this->doRPCRequest('ListGroupSilenceMembers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateGroupMembersRoleRequest $request
+     * @param ListGroupSilenceMembersRequest $request
      *
-     * @return UpdateGroupMembersRoleResponse
+     * @return ListGroupSilenceMembersResponse
      */
-    public function updateGroupMembersRole($request)
+    public function listGroupSilenceMembers($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateGroupMembersRoleWithOptions($request, $runtime);
+        return $this->listGroupSilenceMembersWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateGroupTitleRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @param RemoveGroupExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
      *
-     * @return UpdateGroupTitleResponse
+     * @return RemoveGroupExtensionByKeysResponse
      */
-    public function updateGroupTitleWithOptions($tmpReq, $runtime)
+    public function removeGroupExtensionByKeysWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new UpdateGroupTitleShrinkRequest([]);
+        $request = new RemoveGroupExtensionByKeysShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->requestParams)) {
             $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
@@ -1991,19 +1636,201 @@ class Liveinteraction extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateGroupTitleResponse::fromMap($this->doRPCRequest('UpdateGroupTitle', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveGroupExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveGroupExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateGroupTitleRequest $request
+     * @param RemoveGroupExtensionByKeysRequest $request
      *
-     * @return UpdateGroupTitleResponse
+     * @return RemoveGroupExtensionByKeysResponse
      */
-    public function updateGroupTitle($request)
+    public function removeGroupExtensionByKeys($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateGroupTitleWithOptions($request, $runtime);
+        return $this->removeGroupExtensionByKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetGroupMemberExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SetGroupMemberExtensionByKeysResponse
+     */
+    public function setGroupMemberExtensionByKeysWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetGroupMemberExtensionByKeysShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetGroupMemberExtensionByKeysResponse::fromMap($this->doRPCRequest('SetGroupMemberExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetGroupMemberExtensionByKeysRequest $request
+     *
+     * @return SetGroupMemberExtensionByKeysResponse
+     */
+    public function setGroupMemberExtensionByKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setGroupMemberExtensionByKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateGroupRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateGroupResponse
+     */
+    public function createGroupWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateGroupResponse::fromMap($this->doRPCRequest('CreateGroup', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateGroupRequest $request
+     *
+     * @return CreateGroupResponse
+     */
+    public function createGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMessageByIdRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetMessageByIdResponse
+     */
+    public function getMessageByIdWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetMessageByIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMessageByIdResponse::fromMap($this->doRPCRequest('GetMessageById', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMessageByIdRequest $request
+     *
+     * @return GetMessageByIdResponse
+     */
+    public function getMessageById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMessageByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DestroyRoomRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DestroyRoomResponse
+     */
+    public function destroyRoomWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DestroyRoomResponse::fromMap($this->doRPCRequest('DestroyRoom', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DestroyRoomRequest $request
+     *
+     * @return DestroyRoomResponse
+     */
+    public function destroyRoom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->destroyRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param KickOffRequest $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return KickOffResponse
+     */
+    public function kickOffWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new KickOffShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return KickOffResponse::fromMap($this->doRPCRequest('KickOff', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param KickOffRequest $request
+     *
+     * @return KickOffResponse
+     */
+    public function kickOff($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->kickOffWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListCallbackApiIdsResponse
+     */
+    public function listCallbackApiIdsWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return ListCallbackApiIdsResponse::fromMap($this->doRPCRequest('ListCallbackApiIds', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return ListCallbackApiIdsResponse
+     */
+    public function listCallbackApiIds()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCallbackApiIdsWithOptions($runtime);
     }
 
     /**
@@ -2040,30 +1867,256 @@ class Liveinteraction extends OpenApiClient
     }
 
     /**
-     * @param UpdateTenantStatusRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param SendCustomMessageToRoomUsersRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return UpdateTenantStatusResponse
+     * @return SendCustomMessageToRoomUsersResponse
      */
-    public function updateTenantStatusWithOptions($request, $runtime)
+    public function sendCustomMessageToRoomUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateTenantStatusResponse::fromMap($this->doRPCRequest('UpdateTenantStatus', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SendCustomMessageToRoomUsersResponse::fromMap($this->doRPCRequest('SendCustomMessageToRoomUsers', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateTenantStatusRequest $request
+     * @param SendCustomMessageToRoomUsersRequest $request
      *
-     * @return UpdateTenantStatusResponse
+     * @return SendCustomMessageToRoomUsersResponse
      */
-    public function updateTenantStatus($request)
+    public function sendCustomMessageToRoomUsers($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateTenantStatusWithOptions($request, $runtime);
+        return $this->sendCustomMessageToRoomUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGroupTitleRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateGroupTitleResponse
+     */
+    public function updateGroupTitleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateGroupTitleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateGroupTitleResponse::fromMap($this->doRPCRequest('UpdateGroupTitle', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGroupTitleRequest $request
+     *
+     * @return UpdateGroupTitleResponse
+     */
+    public function updateGroupTitle($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGroupTitleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLoginTokenRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetLoginTokenResponse
+     */
+    public function getLoginTokenWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetLoginTokenShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetLoginTokenResponse::fromMap($this->doRPCRequest('GetLoginToken', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetLoginTokenRequest $request
+     *
+     * @return GetLoginTokenResponse
+     */
+    public function getLoginToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLoginTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DismissGroupRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DismissGroupResponse
+     */
+    public function dismissGroupWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DismissGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DismissGroupResponse::fromMap($this->doRPCRequest('DismissGroup', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DismissGroupRequest $request
+     *
+     * @return DismissGroupResponse
+     */
+    public function dismissGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dismissGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportGroupChatConversationRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ImportGroupChatConversationResponse
+     */
+    public function importGroupChatConversationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ImportGroupChatConversationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ImportGroupChatConversationResponse::fromMap($this->doRPCRequest('ImportGroupChatConversation', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ImportGroupChatConversationRequest $request
+     *
+     * @return ImportGroupChatConversationResponse
+     */
+    public function importGroupChatConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importGroupChatConversationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateRoomRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateRoomResponse
+     */
+    public function createRoomWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateRoomResponse::fromMap($this->doRPCRequest('CreateRoom', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateRoomRequest $request
+     *
+     * @return CreateRoomResponse
+     */
+    public function createRoom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveUserConversationExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return RemoveUserConversationExtensionByKeysResponse
+     */
+    public function removeUserConversationExtensionByKeysWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveUserConversationExtensionByKeysShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveUserConversationExtensionByKeysResponse::fromMap($this->doRPCRequest('RemoveUserConversationExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveUserConversationExtensionByKeysRequest $request
+     *
+     * @return RemoveUserConversationExtensionByKeysResponse
+     */
+    public function removeUserConversationExtensionByKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeUserConversationExtensionByKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetMessageExtensionByKeysRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SetMessageExtensionByKeysResponse
+     */
+    public function setMessageExtensionByKeysWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetMessageExtensionByKeysShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requestParams)) {
+            $request->requestParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->requestParams), 'RequestParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetMessageExtensionByKeysResponse::fromMap($this->doRPCRequest('SetMessageExtensionByKeys', '2020-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetMessageExtensionByKeysRequest $request
+     *
+     * @return SetMessageExtensionByKeysResponse
+     */
+    public function setMessageExtensionByKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setMessageExtensionByKeysWithOptions($request, $runtime);
     }
 }

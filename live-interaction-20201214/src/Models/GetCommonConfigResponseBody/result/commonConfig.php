@@ -5,9 +5,7 @@
 namespace AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetCommonConfigResponseBody\result;
 
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetCommonConfigResponseBody\result\commonConfig\appConfigs;
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetCommonConfigResponseBody\result\commonConfig\connectionConfig;
 use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetCommonConfigResponseBody\result\commonConfig\loginConfig;
-use AlibabaCloud\SDK\Liveinteraction\V20201214\Models\GetCommonConfigResponseBody\result\commonConfig\mediaConfig;
 use AlibabaCloud\Tea\Model;
 
 class commonConfig extends Model
@@ -25,25 +23,9 @@ class commonConfig extends Model
      * @var appConfigs[]
      */
     public $appConfigs;
-
-    /**
-     * @description 多媒体配置
-     *
-     * @var mediaConfig
-     */
-    public $mediaConfig;
-
-    /**
-     * @description 长连接配置
-     *
-     * @var connectionConfig
-     */
-    public $connectionConfig;
     protected $_name = [
-        'loginConfig'      => 'LoginConfig',
-        'appConfigs'       => 'AppConfigs',
-        'mediaConfig'      => 'MediaConfig',
-        'connectionConfig' => 'ConnectionConfig',
+        'loginConfig' => 'LoginConfig',
+        'appConfigs'  => 'AppConfigs',
     ];
 
     public function validate()
@@ -64,12 +46,6 @@ class commonConfig extends Model
                     $res['AppConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->mediaConfig) {
-            $res['MediaConfig'] = null !== $this->mediaConfig ? $this->mediaConfig->toMap() : null;
-        }
-        if (null !== $this->connectionConfig) {
-            $res['ConnectionConfig'] = null !== $this->connectionConfig ? $this->connectionConfig->toMap() : null;
         }
 
         return $res;
@@ -94,12 +70,6 @@ class commonConfig extends Model
                     $model->appConfigs[$n++] = null !== $item ? appConfigs::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['MediaConfig'])) {
-            $model->mediaConfig = mediaConfig::fromMap($map['MediaConfig']);
-        }
-        if (isset($map['ConnectionConfig'])) {
-            $model->connectionConfig = connectionConfig::fromMap($map['ConnectionConfig']);
         }
 
         return $model;

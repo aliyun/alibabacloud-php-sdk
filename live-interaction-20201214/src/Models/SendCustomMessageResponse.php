@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Liveinteraction\V20201214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetExtensionByKeysResponse extends Model
+class SendCustomMessageResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class SetExtensionByKeysResponse extends Model
     public $headers;
 
     /**
-     * @var SetExtensionByKeysResponseBody
+     * @var SendCustomMessageResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class SetExtensionByKeysResponse extends Model
     /**
      * @param array $map
      *
-     * @return SetExtensionByKeysResponse
+     * @return SendCustomMessageResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class SetExtensionByKeysResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = SetExtensionByKeysResponseBody::fromMap($map['body']);
+            $model->body = SendCustomMessageResponseBody::fromMap($map['body']);
         }
 
         return $model;
