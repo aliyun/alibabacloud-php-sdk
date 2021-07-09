@@ -35,11 +35,19 @@ class CreateEditingProjectRequest extends Model
      * @var string
      */
     public $coverURL;
+
+    /**
+     * @description FEExtend
+     *
+     * @var string
+     */
+    public $FEExtend;
     protected $_name = [
         'title'       => 'Title',
         'description' => 'Description',
         'timeline'    => 'Timeline',
         'coverURL'    => 'CoverURL',
+        'FEExtend'    => 'FEExtend',
     ];
 
     public function validate()
@@ -60,6 +68,9 @@ class CreateEditingProjectRequest extends Model
         }
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
+        }
+        if (null !== $this->FEExtend) {
+            $res['FEExtend'] = $this->FEExtend;
         }
 
         return $res;
@@ -84,6 +95,9 @@ class CreateEditingProjectRequest extends Model
         }
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
+        }
+        if (isset($map['FEExtend'])) {
+            $model->FEExtend = $map['FEExtend'];
         }
 
         return $model;

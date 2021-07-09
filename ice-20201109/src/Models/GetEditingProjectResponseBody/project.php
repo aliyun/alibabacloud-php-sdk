@@ -65,19 +65,45 @@ class project extends Model
     public $duration;
 
     /**
+     * @description 云剪辑工程状态
+     *
      * @var string
      */
     public $status;
+
+    /**
+     * @description 云剪辑工程创建来源
+     *
+     * @var string
+     */
+    public $createSource;
+
+    /**
+     * @description 云剪辑工程模板类型
+     *
+     * @var string
+     */
+    public $templateType;
+
+    /**
+     * @description 云剪辑工程修改来源
+     *
+     * @var string
+     */
+    public $modifiedSource;
     protected $_name = [
-        'projectId'    => 'ProjectId',
-        'title'        => 'Title',
-        'timeline'     => 'Timeline',
-        'description'  => 'Description',
-        'coverURL'     => 'CoverURL',
-        'createTime'   => 'CreateTime',
-        'modifiedTime' => 'ModifiedTime',
-        'duration'     => 'Duration',
-        'status'       => 'Status',
+        'projectId'      => 'ProjectId',
+        'title'          => 'Title',
+        'timeline'       => 'Timeline',
+        'description'    => 'Description',
+        'coverURL'       => 'CoverURL',
+        'createTime'     => 'CreateTime',
+        'modifiedTime'   => 'ModifiedTime',
+        'duration'       => 'Duration',
+        'status'         => 'Status',
+        'createSource'   => 'CreateSource',
+        'templateType'   => 'TemplateType',
+        'modifiedSource' => 'ModifiedSource',
     ];
 
     public function validate()
@@ -113,6 +139,15 @@ class project extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->createSource) {
+            $res['CreateSource'] = $this->createSource;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
+        }
+        if (null !== $this->modifiedSource) {
+            $res['ModifiedSource'] = $this->modifiedSource;
         }
 
         return $res;
@@ -152,6 +187,15 @@ class project extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['CreateSource'])) {
+            $model->createSource = $map['CreateSource'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
+        }
+        if (isset($map['ModifiedSource'])) {
+            $model->modifiedSource = $map['ModifiedSource'];
         }
 
         return $model;

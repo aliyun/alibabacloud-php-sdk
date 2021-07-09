@@ -70,16 +70,56 @@ class projectList extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @description 云剪辑工程合成失败的错误码
+     *
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @description 云剪辑工程合成失败的消息
+     *
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @description 创建来源
+     *
+     * @var string
+     */
+    public $createSource;
+
+    /**
+     * @description 最后一次修改来源
+     *
+     * @var string
+     */
+    public $modifiedSource;
+
+    /**
+     * @description 模板类型
+     *
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
-        'projectId'    => 'ProjectId',
-        'title'        => 'Title',
-        'timeline'     => 'Timeline',
-        'description'  => 'Description',
-        'coverURL'     => 'CoverURL',
-        'createTime'   => 'CreateTime',
-        'modifiedTime' => 'ModifiedTime',
-        'duration'     => 'Duration',
-        'status'       => 'Status',
+        'projectId'      => 'ProjectId',
+        'title'          => 'Title',
+        'timeline'       => 'Timeline',
+        'description'    => 'Description',
+        'coverURL'       => 'CoverURL',
+        'createTime'     => 'CreateTime',
+        'modifiedTime'   => 'ModifiedTime',
+        'duration'       => 'Duration',
+        'status'         => 'Status',
+        'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
+        'createSource'   => 'CreateSource',
+        'modifiedSource' => 'ModifiedSource',
+        'templateType'   => 'TemplateType',
     ];
 
     public function validate()
@@ -115,6 +155,21 @@ class projectList extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->createSource) {
+            $res['CreateSource'] = $this->createSource;
+        }
+        if (null !== $this->modifiedSource) {
+            $res['ModifiedSource'] = $this->modifiedSource;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -154,6 +209,21 @@ class projectList extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['CreateSource'])) {
+            $model->createSource = $map['CreateSource'];
+        }
+        if (isset($map['ModifiedSource'])) {
+            $model->modifiedSource = $map['ModifiedSource'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

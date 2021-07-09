@@ -50,14 +50,22 @@ class SubmitDelogoJobRequest extends Model
      * @var bool
      */
     public $overwrite;
+
+    /**
+     * @description 输出类型
+     *
+     * @var string
+     */
+    public $outputMediaTarget;
     protected $_name = [
-        'inputFile'    => 'InputFile',
-        'userData'     => 'UserData',
-        'title'        => 'Title',
-        'description'  => 'Description',
-        'outputConfig' => 'OutputConfig',
-        'inputType'    => 'InputType',
-        'overwrite'    => 'Overwrite',
+        'inputFile'         => 'InputFile',
+        'userData'          => 'UserData',
+        'title'             => 'Title',
+        'description'       => 'Description',
+        'outputConfig'      => 'OutputConfig',
+        'inputType'         => 'InputType',
+        'overwrite'         => 'Overwrite',
+        'outputMediaTarget' => 'OutputMediaTarget',
     ];
 
     public function validate()
@@ -87,6 +95,9 @@ class SubmitDelogoJobRequest extends Model
         }
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
+        }
+        if (null !== $this->outputMediaTarget) {
+            $res['OutputMediaTarget'] = $this->outputMediaTarget;
         }
 
         return $res;
@@ -120,6 +131,9 @@ class SubmitDelogoJobRequest extends Model
         }
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
+        }
+        if (isset($map['OutputMediaTarget'])) {
+            $model->outputMediaTarget = $map['OutputMediaTarget'];
         }
 
         return $model;

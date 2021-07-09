@@ -49,13 +49,29 @@ class SearchEditingProjectRequest extends Model
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @description 创建来源
+     *
+     * @var string
+     */
+    public $createSource;
+
+    /**
+     * @description 模板类型
+     *
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
-        'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
-        'status'     => 'Status',
-        'sortBy'     => 'SortBy',
-        'nextToken'  => 'NextToken',
-        'maxResults' => 'MaxResults',
+        'startTime'    => 'StartTime',
+        'endTime'      => 'EndTime',
+        'status'       => 'Status',
+        'sortBy'       => 'SortBy',
+        'nextToken'    => 'NextToken',
+        'maxResults'   => 'MaxResults',
+        'createSource' => 'CreateSource',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -82,6 +98,12 @@ class SearchEditingProjectRequest extends Model
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->createSource) {
+            $res['CreateSource'] = $this->createSource;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -112,6 +134,12 @@ class SearchEditingProjectRequest extends Model
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['CreateSource'])) {
+            $model->createSource = $map['CreateSource'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

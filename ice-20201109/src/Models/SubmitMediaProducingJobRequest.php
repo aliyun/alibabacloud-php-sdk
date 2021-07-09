@@ -52,6 +52,11 @@ class SubmitMediaProducingJobRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'projectId'         => 'ProjectId',
         'timeline'          => 'Timeline',
@@ -62,6 +67,7 @@ class SubmitMediaProducingJobRequest extends Model
         'outputMediaConfig' => 'OutputMediaConfig',
         'userData'          => 'UserData',
         'clientToken'       => 'ClientToken',
+        'source'            => 'Source',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class SubmitMediaProducingJobRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class SubmitMediaProducingJobRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

@@ -41,6 +41,11 @@ class project extends Model
     /**
      * @var string
      */
+    public $statusName;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -52,16 +57,35 @@ class project extends Model
      * @var float
      */
     public $duration;
+
+    /**
+     * @var string
+     */
+    public $createSource;
+
+    /**
+     * @var string
+     */
+    public $modifiedSource;
+
+    /**
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
-        'projectId'    => 'ProjectId',
-        'title'        => 'Title',
-        'description'  => 'Description',
-        'timeline'     => 'Timeline',
-        'coverURL'     => 'CoverURL',
-        'status'       => 'Status',
-        'createTime'   => 'CreateTime',
-        'modifiedTime' => 'ModifiedTime',
-        'duration'     => 'Duration',
+        'projectId'      => 'ProjectId',
+        'title'          => 'Title',
+        'description'    => 'Description',
+        'timeline'       => 'Timeline',
+        'coverURL'       => 'CoverURL',
+        'status'         => 'Status',
+        'statusName'     => 'StatusName',
+        'createTime'     => 'CreateTime',
+        'modifiedTime'   => 'ModifiedTime',
+        'duration'       => 'Duration',
+        'createSource'   => 'CreateSource',
+        'modifiedSource' => 'ModifiedSource',
+        'templateType'   => 'TemplateType',
     ];
 
     public function validate()
@@ -89,6 +113,9 @@ class project extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->statusName) {
+            $res['StatusName'] = $this->statusName;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -97,6 +124,15 @@ class project extends Model
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->createSource) {
+            $res['CreateSource'] = $this->createSource;
+        }
+        if (null !== $this->modifiedSource) {
+            $res['ModifiedSource'] = $this->modifiedSource;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -128,6 +164,9 @@ class project extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['StatusName'])) {
+            $model->statusName = $map['StatusName'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -136,6 +175,15 @@ class project extends Model
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['CreateSource'])) {
+            $model->createSource = $map['CreateSource'];
+        }
+        if (isset($map['ModifiedSource'])) {
+            $model->modifiedSource = $map['ModifiedSource'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;
