@@ -79,7 +79,7 @@ class result extends Model
     public $tasksCount;
 
     /**
-     * @var int
+     * @var string
      */
     public $roleId;
 

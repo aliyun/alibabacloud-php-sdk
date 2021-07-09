@@ -33,12 +33,18 @@ class ListDevopsProjectSprintsResponseBody extends Model
      * @var object[]
      */
     public $object;
+
+    /**
+     * @var string
+     */
+    public $nextPageToken;
     protected $_name = [
-        'errorMsg'   => 'ErrorMsg',
-        'requestId'  => 'RequestId',
-        'successful' => 'Successful',
-        'errorCode'  => 'ErrorCode',
-        'object'     => 'Object',
+        'errorMsg'      => 'ErrorMsg',
+        'requestId'     => 'RequestId',
+        'successful'    => 'Successful',
+        'errorCode'     => 'ErrorCode',
+        'object'        => 'Object',
+        'nextPageToken' => 'NextPageToken',
     ];
 
     public function validate()
@@ -68,6 +74,9 @@ class ListDevopsProjectSprintsResponseBody extends Model
                     $res['Object'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextPageToken) {
+            $res['NextPageToken'] = $this->nextPageToken;
         }
 
         return $res;
@@ -101,6 +110,9 @@ class ListDevopsProjectSprintsResponseBody extends Model
                     $model->object[$n++] = null !== $item ? object::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextPageToken'])) {
+            $model->nextPageToken = $map['NextPageToken'];
         }
 
         return $model;

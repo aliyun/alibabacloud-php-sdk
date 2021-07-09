@@ -123,11 +123,6 @@ class result extends Model
     public $untilDate;
 
     /**
-     * @var int
-     */
-    public $pos;
-
-    /**
      * @var string
      */
     public $storyPoint;
@@ -323,7 +318,6 @@ class result extends Model
         'objectType'            => 'ObjectType',
         'progress'              => 'Progress',
         'untilDate'             => 'UntilDate',
-        'pos'                   => 'Pos',
         'storyPoint'            => 'StoryPoint',
         'objectlinksCount'      => 'ObjectlinksCount',
         'startDate'             => 'StartDate',
@@ -430,9 +424,6 @@ class result extends Model
         }
         if (null !== $this->untilDate) {
             $res['UntilDate'] = $this->untilDate;
-        }
-        if (null !== $this->pos) {
-            $res['Pos'] = $this->pos;
         }
         if (null !== $this->storyPoint) {
             $res['StoryPoint'] = $this->storyPoint;
@@ -619,9 +610,6 @@ class result extends Model
         }
         if (isset($map['UntilDate'])) {
             $model->untilDate = $map['UntilDate'];
-        }
-        if (isset($map['Pos'])) {
-            $model->pos = $map['Pos'];
         }
         if (isset($map['StoryPoint'])) {
             $model->storyPoint = $map['StoryPoint'];
