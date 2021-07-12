@@ -16,11 +16,6 @@ class CreateDirectoryRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -39,7 +34,6 @@ class CreateDirectoryRequest extends Model
     public $parentId;
     protected $_name = [
         'ownerId'     => 'OwnerId',
-        'showLog'     => 'ShowLog',
         'name'        => 'Name',
         'description' => 'Description',
         'groupId'     => 'GroupId',
@@ -55,9 +49,6 @@ class CreateDirectoryRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -85,9 +76,6 @@ class CreateDirectoryRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

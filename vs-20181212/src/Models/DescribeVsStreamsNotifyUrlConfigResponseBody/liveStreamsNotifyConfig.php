@@ -16,22 +16,22 @@ class liveStreamsNotifyConfig extends Model
     /**
      * @var string
      */
-    public $notifyUrl;
-
-    /**
-     * @var string
-     */
     public $authKey;
 
     /**
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var string
+     */
+    public $notifyUrl;
     protected $_name = [
         'authType'   => 'AuthType',
-        'notifyUrl'  => 'NotifyUrl',
         'authKey'    => 'AuthKey',
         'domainName' => 'DomainName',
+        'notifyUrl'  => 'NotifyUrl',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class liveStreamsNotifyConfig extends Model
         if (null !== $this->authType) {
             $res['AuthType'] = $this->authType;
         }
-        if (null !== $this->notifyUrl) {
-            $res['NotifyUrl'] = $this->notifyUrl;
-        }
         if (null !== $this->authKey) {
             $res['AuthKey'] = $this->authKey;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->notifyUrl) {
+            $res['NotifyUrl'] = $this->notifyUrl;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class liveStreamsNotifyConfig extends Model
         if (isset($map['AuthType'])) {
             $model->authType = $map['AuthType'];
         }
-        if (isset($map['NotifyUrl'])) {
-            $model->notifyUrl = $map['NotifyUrl'];
-        }
         if (isset($map['AuthKey'])) {
             $model->authKey = $map['AuthKey'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['NotifyUrl'])) {
+            $model->notifyUrl = $map['NotifyUrl'];
         }
 
         return $model;

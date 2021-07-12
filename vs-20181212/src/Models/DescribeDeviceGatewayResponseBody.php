@@ -11,16 +11,6 @@ class DescribeDeviceGatewayResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $port;
-
-    /**
-     * @var string
-     */
     public $host;
 
     /**
@@ -31,12 +21,22 @@ class DescribeDeviceGatewayResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $port;
+
+    /**
+     * @var string
+     */
     public $protocol;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'port'      => 'Port',
         'host'      => 'Host',
         'token'     => 'Token',
+        'requestId' => 'RequestId',
+        'port'      => 'Port',
         'protocol'  => 'Protocol',
     ];
 
@@ -47,17 +47,17 @@ class DescribeDeviceGatewayResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
@@ -74,17 +74,17 @@ class DescribeDeviceGatewayResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];

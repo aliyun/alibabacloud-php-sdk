@@ -16,11 +16,6 @@ class BatchSetVsDomainConfigsRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $domainNames;
 
     /**
@@ -29,7 +24,6 @@ class BatchSetVsDomainConfigsRequest extends Model
     public $functions;
     protected $_name = [
         'ownerId'     => 'OwnerId',
-        'showLog'     => 'ShowLog',
         'domainNames' => 'DomainNames',
         'functions'   => 'Functions',
     ];
@@ -43,9 +37,6 @@ class BatchSetVsDomainConfigsRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
@@ -67,9 +58,6 @@ class BatchSetVsDomainConfigsRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];

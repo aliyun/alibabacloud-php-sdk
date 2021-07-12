@@ -16,11 +16,6 @@ class ModifyDeviceChannelsRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $id;
 
     /**
@@ -39,7 +34,6 @@ class ModifyDeviceChannelsRequest extends Model
     public $channels;
     protected $_name = [
         'ownerId'      => 'OwnerId',
-        'showLog'      => 'ShowLog',
         'id'           => 'Id',
         'dsn'          => 'Dsn',
         'deviceStatus' => 'DeviceStatus',
@@ -55,9 +49,6 @@ class ModifyDeviceChannelsRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -85,9 +76,6 @@ class ModifyDeviceChannelsRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

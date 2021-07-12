@@ -11,37 +11,12 @@ class CreateStreamSnapshotResponseBody extends Model
     /**
      * @var string
      */
-    public $format;
+    public $ossObject;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $ossEndpoint;
-
-    /**
-     * @var string
-     */
-    public $ossBucket;
-
-    /**
-     * @var string
-     */
-    public $ossObject;
-
-    /**
-     * @var int
-     */
-    public $height;
-
-    /**
-     * @var string
-     */
-    public $id;
 
     /**
      * @var int
@@ -51,23 +26,48 @@ class CreateStreamSnapshotResponseBody extends Model
     /**
      * @var int
      */
-    public $timestamp;
+    public $height;
 
     /**
      * @var string
      */
     public $url;
+
+    /**
+     * @var int
+     */
+    public $timestamp;
+
+    /**
+     * @var string
+     */
+    public $ossBucket;
+
+    /**
+     * @var string
+     */
+    public $format;
+
+    /**
+     * @var string
+     */
+    public $ossEndpoint;
+
+    /**
+     * @var string
+     */
+    public $id;
     protected $_name = [
-        'format'      => 'Format',
-        'requestId'   => 'RequestId',
-        'ossEndpoint' => 'OssEndpoint',
-        'ossBucket'   => 'OssBucket',
         'ossObject'   => 'OssObject',
-        'height'      => 'Height',
-        'id'          => 'Id',
+        'requestId'   => 'RequestId',
         'width'       => 'Width',
-        'timestamp'   => 'Timestamp',
+        'height'      => 'Height',
         'url'         => 'Url',
+        'timestamp'   => 'Timestamp',
+        'ossBucket'   => 'OssBucket',
+        'format'      => 'Format',
+        'ossEndpoint' => 'OssEndpoint',
+        'id'          => 'Id',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class CreateStreamSnapshotResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->format) {
-            $res['Format'] = $this->format;
+        if (null !== $this->ossObject) {
+            $res['OssObject'] = $this->ossObject;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->ossEndpoint) {
-            $res['OssEndpoint'] = $this->ossEndpoint;
-        }
-        if (null !== $this->ossBucket) {
-            $res['OssBucket'] = $this->ossBucket;
-        }
-        if (null !== $this->ossObject) {
-            $res['OssObject'] = $this->ossObject;
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->ossBucket) {
+            $res['OssBucket'] = $this->ossBucket;
+        }
+        if (null !== $this->format) {
+            $res['Format'] = $this->format;
+        }
+        if (null !== $this->ossEndpoint) {
+            $res['OssEndpoint'] = $this->ossEndpoint;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class CreateStreamSnapshotResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Format'])) {
-            $model->format = $map['Format'];
+        if (isset($map['OssObject'])) {
+            $model->ossObject = $map['OssObject'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['OssEndpoint'])) {
-            $model->ossEndpoint = $map['OssEndpoint'];
-        }
-        if (isset($map['OssBucket'])) {
-            $model->ossBucket = $map['OssBucket'];
-        }
-        if (isset($map['OssObject'])) {
-            $model->ossObject = $map['OssObject'];
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['OssBucket'])) {
+            $model->ossBucket = $map['OssBucket'];
+        }
+        if (isset($map['Format'])) {
+            $model->format = $map['Format'];
+        }
+        if (isset($map['OssEndpoint'])) {
+            $model->ossEndpoint = $map['OssEndpoint'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

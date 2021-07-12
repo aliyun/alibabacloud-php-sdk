@@ -26,12 +26,7 @@ class devices extends Model
     /**
      * @var string
      */
-    public $groupName;
-
-    /**
-     * @var string
-     */
-    public $groupId;
+    public $description;
 
     /**
      * @var string
@@ -41,7 +36,12 @@ class devices extends Model
     /**
      * @var string
      */
-    public $description;
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupName;
 
     /**
      * @var string
@@ -61,25 +61,25 @@ class devices extends Model
     /**
      * @var string
      */
-    public $orderId;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $orderId;
     protected $_name = [
         'type'         => 'Type',
         'subType'      => 'SubType',
         'vendor'       => 'Vendor',
-        'groupName'    => 'GroupName',
-        'groupId'      => 'GroupId',
-        'registerCode' => 'RegisterCode',
         'description'  => 'Description',
+        'registerCode' => 'RegisterCode',
+        'groupId'      => 'GroupId',
+        'groupName'    => 'GroupName',
         'region'       => 'Region',
         'name'         => 'Name',
         'createdTime'  => 'CreatedTime',
-        'orderId'      => 'OrderId',
         'id'           => 'Id',
+        'orderId'      => 'OrderId',
     ];
 
     public function validate()
@@ -98,17 +98,17 @@ class devices extends Model
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->registerCode) {
             $res['RegisterCode'] = $this->registerCode;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -119,11 +119,11 @@ class devices extends Model
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         return $res;
@@ -146,17 +146,17 @@ class devices extends Model
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
         }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['RegisterCode'])) {
             $model->registerCode = $map['RegisterCode'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
@@ -167,11 +167,11 @@ class devices extends Model
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         return $model;

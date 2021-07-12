@@ -16,11 +16,6 @@ class BatchUnbindTemplateRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $templateId;
 
     /**
@@ -39,7 +34,6 @@ class BatchUnbindTemplateRequest extends Model
     public $instanceType;
     protected $_name = [
         'ownerId'      => 'OwnerId',
-        'showLog'      => 'ShowLog',
         'templateId'   => 'TemplateId',
         'templateType' => 'TemplateType',
         'instanceId'   => 'InstanceId',
@@ -55,9 +49,6 @@ class BatchUnbindTemplateRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -85,9 +76,6 @@ class BatchUnbindTemplateRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

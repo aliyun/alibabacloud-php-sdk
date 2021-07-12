@@ -15,11 +15,6 @@ class forbidResultInfo extends Model
     public $result;
 
     /**
-     * @var channels
-     */
-    public $channels;
-
-    /**
      * @var int
      */
     public $count;
@@ -28,11 +23,16 @@ class forbidResultInfo extends Model
      * @var string
      */
     public $detail;
+
+    /**
+     * @var channels
+     */
+    public $channels;
     protected $_name = [
         'result'   => 'Result',
-        'channels' => 'Channels',
         'count'    => 'Count',
         'detail'   => 'Detail',
+        'channels' => 'Channels',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class forbidResultInfo extends Model
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
-        if (null !== $this->channels) {
-            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
+        }
+        if (null !== $this->channels) {
+            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class forbidResultInfo extends Model
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
-        if (isset($map['Channels'])) {
-            $model->channels = channels::fromMap($map['Channels']);
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
+        }
+        if (isset($map['Channels'])) {
+            $model->channels = channels::fromMap($map['Channels']);
         }
 
         return $model;

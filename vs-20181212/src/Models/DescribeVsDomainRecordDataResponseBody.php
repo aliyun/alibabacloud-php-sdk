@@ -17,6 +17,11 @@ class DescribeVsDomainRecordDataResponseBody extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -28,17 +33,12 @@ class DescribeVsDomainRecordDataResponseBody extends Model
      * @var recordDataPerInterval
      */
     public $recordDataPerInterval;
-
-    /**
-     * @var string
-     */
-    public $startTime;
     protected $_name = [
         'endTime'               => 'EndTime',
+        'startTime'             => 'StartTime',
         'requestId'             => 'RequestId',
         'domainName'            => 'DomainName',
         'recordDataPerInterval' => 'RecordDataPerInterval',
-        'startTime'             => 'StartTime',
     ];
 
     public function validate()
@@ -51,6 +51,9 @@ class DescribeVsDomainRecordDataResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,9 +62,6 @@ class DescribeVsDomainRecordDataResponseBody extends Model
         }
         if (null !== $this->recordDataPerInterval) {
             $res['RecordDataPerInterval'] = null !== $this->recordDataPerInterval ? $this->recordDataPerInterval->toMap() : null;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class DescribeVsDomainRecordDataResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -86,9 +89,6 @@ class DescribeVsDomainRecordDataResponseBody extends Model
         }
         if (isset($map['RecordDataPerInterval'])) {
             $model->recordDataPerInterval = recordDataPerInterval::fromMap($map['RecordDataPerInterval']);
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -16,16 +16,16 @@ class StartStreamResponseBody extends Model
     /**
      * @var string
      */
-    public $id;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $id;
     protected $_name = [
         'requestId' => 'RequestId',
-        'id'        => 'Id',
         'name'      => 'Name',
+        'id'        => 'Id',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class StartStreamResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class StartStreamResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

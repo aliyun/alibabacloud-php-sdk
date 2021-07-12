@@ -16,11 +16,6 @@ class DescribeVodStreamURLRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $url;
 
     /**
@@ -29,7 +24,6 @@ class DescribeVodStreamURLRequest extends Model
     public $txId;
     protected $_name = [
         'ownerId' => 'OwnerId',
-        'showLog' => 'ShowLog',
         'url'     => 'Url',
         'txId'    => 'TxId',
     ];
@@ -43,9 +37,6 @@ class DescribeVodStreamURLRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -67,9 +58,6 @@ class DescribeVodStreamURLRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

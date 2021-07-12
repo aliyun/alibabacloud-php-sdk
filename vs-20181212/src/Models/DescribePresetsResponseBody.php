@@ -12,21 +12,21 @@ class DescribePresetsResponseBody extends Model
     /**
      * @var string
      */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var presets[]
      */
     public $presets;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
+        'id'        => 'Id',
         'requestId' => 'RequestId',
         'presets'   => 'Presets',
-        'id'        => 'Id',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class DescribePresetsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,9 +50,6 @@ class DescribePresetsResponseBody extends Model
                     $res['Presets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -63,6 +63,9 @@ class DescribePresetsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -74,9 +77,6 @@ class DescribePresetsResponseBody extends Model
                     $model->presets[$n++] = null !== $item ? presets::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

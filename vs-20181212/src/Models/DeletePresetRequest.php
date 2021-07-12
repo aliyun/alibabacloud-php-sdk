@@ -16,22 +16,22 @@ class DeletePresetRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $id;
 
     /**
      * @var string
      */
     public $presetId;
+
+    /**
+     * @var string
+     */
+    public $subProtocol;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
-        'showLog'  => 'ShowLog',
-        'id'       => 'Id',
-        'presetId' => 'PresetId',
+        'ownerId'     => 'OwnerId',
+        'id'          => 'Id',
+        'presetId'    => 'PresetId',
+        'subProtocol' => 'SubProtocol',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DeletePresetRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->presetId) {
             $res['PresetId'] = $this->presetId;
+        }
+        if (null !== $this->subProtocol) {
+            $res['SubProtocol'] = $this->subProtocol;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DeletePresetRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['PresetId'])) {
             $model->presetId = $map['PresetId'];
+        }
+        if (isset($map['SubProtocol'])) {
+            $model->subProtocol = $map['SubProtocol'];
         }
 
         return $model;

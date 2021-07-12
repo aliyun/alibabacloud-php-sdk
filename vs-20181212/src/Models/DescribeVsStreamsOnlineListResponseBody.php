@@ -12,11 +12,6 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
     /**
      * @var int
      */
-    public $totalNum;
-
-    /**
-     * @var int
-     */
     public $totalPage;
 
     /**
@@ -35,15 +30,20 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $totalNum;
+
+    /**
      * @var onlineInfo
      */
     public $onlineInfo;
     protected $_name = [
-        'totalNum'   => 'TotalNum',
         'totalPage'  => 'TotalPage',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
+        'totalNum'   => 'TotalNum',
         'onlineInfo' => 'OnlineInfo',
     ];
 
@@ -54,9 +54,6 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
-        }
         if (null !== $this->totalPage) {
             $res['TotalPage'] = $this->totalPage;
         }
@@ -68,6 +65,9 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
         }
         if (null !== $this->onlineInfo) {
             $res['OnlineInfo'] = null !== $this->onlineInfo ? $this->onlineInfo->toMap() : null;
@@ -84,9 +84,6 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
-        }
         if (isset($map['TotalPage'])) {
             $model->totalPage = $map['TotalPage'];
         }
@@ -98,6 +95,9 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
         }
         if (isset($map['OnlineInfo'])) {
             $model->onlineInfo = onlineInfo::fromMap($map['OnlineInfo']);

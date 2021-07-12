@@ -16,22 +16,12 @@ class DescribeDirectoryResponseBody extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $createdTime;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var string
      */
-    public $id;
+    public $description;
 
     /**
      * @var string
@@ -42,14 +32,24 @@ class DescribeDirectoryResponseBody extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $createdTime;
+
+    /**
+     * @var string
+     */
+    public $id;
     protected $_name = [
         'parentId'    => 'ParentId',
-        'description' => 'Description',
-        'createdTime' => 'CreatedTime',
         'requestId'   => 'RequestId',
-        'id'          => 'Id',
+        'description' => 'Description',
         'groupId'     => 'GroupId',
         'name'        => 'Name',
+        'createdTime' => 'CreatedTime',
+        'id'          => 'Id',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class DescribeDirectoryResponseBody extends Model
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class DescribeDirectoryResponseBody extends Model
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

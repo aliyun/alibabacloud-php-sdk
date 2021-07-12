@@ -16,11 +16,6 @@ class ContinuousMoveRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $id;
 
     /**
@@ -37,13 +32,18 @@ class ContinuousMoveRequest extends Model
      * @var string
      */
     public $zoom;
+
+    /**
+     * @var string
+     */
+    public $subProtocol;
     protected $_name = [
-        'ownerId' => 'OwnerId',
-        'showLog' => 'ShowLog',
-        'id'      => 'Id',
-        'pan'     => 'Pan',
-        'tilt'    => 'Tilt',
-        'zoom'    => 'Zoom',
+        'ownerId'     => 'OwnerId',
+        'id'          => 'Id',
+        'pan'         => 'Pan',
+        'tilt'        => 'Tilt',
+        'zoom'        => 'Zoom',
+        'subProtocol' => 'SubProtocol',
     ];
 
     public function validate()
@@ -56,9 +56,6 @@ class ContinuousMoveRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -70,6 +67,9 @@ class ContinuousMoveRequest extends Model
         }
         if (null !== $this->zoom) {
             $res['Zoom'] = $this->zoom;
+        }
+        if (null !== $this->subProtocol) {
+            $res['SubProtocol'] = $this->subProtocol;
         }
 
         return $res;
@@ -86,9 +86,6 @@ class ContinuousMoveRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -100,6 +97,9 @@ class ContinuousMoveRequest extends Model
         }
         if (isset($map['Zoom'])) {
             $model->zoom = $map['Zoom'];
+        }
+        if (isset($map['SubProtocol'])) {
+            $model->subProtocol = $map['SubProtocol'];
         }
 
         return $model;

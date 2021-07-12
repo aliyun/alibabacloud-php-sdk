@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class BatchForbidVsStreamResponseBody extends Model
 {
     /**
-     * @var forbidResult
-     */
-    public $forbidResult;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var forbidResult
+     */
+    public $forbidResult;
     protected $_name = [
-        'forbidResult' => 'ForbidResult',
         'requestId'    => 'RequestId',
+        'forbidResult' => 'ForbidResult',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class BatchForbidVsStreamResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->forbidResult) {
-            $res['ForbidResult'] = null !== $this->forbidResult ? $this->forbidResult->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->forbidResult) {
+            $res['ForbidResult'] = null !== $this->forbidResult ? $this->forbidResult->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class BatchForbidVsStreamResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ForbidResult'])) {
-            $model->forbidResult = forbidResult::fromMap($map['ForbidResult']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ForbidResult'])) {
+            $model->forbidResult = forbidResult::fromMap($map['ForbidResult']);
         }
 
         return $model;

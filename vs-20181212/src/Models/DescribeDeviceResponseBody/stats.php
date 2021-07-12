@@ -21,23 +21,23 @@ class stats extends Model
     /**
      * @var int
      */
+    public $channelNum;
+
+    /**
+     * @var int
+     */
     public $onlineNum;
 
     /**
      * @var int
      */
     public $offlineNum;
-
-    /**
-     * @var int
-     */
-    public $channelNum;
     protected $_name = [
         'failedNum'  => 'FailedNum',
         'streamNum'  => 'StreamNum',
+        'channelNum' => 'ChannelNum',
         'onlineNum'  => 'OnlineNum',
         'offlineNum' => 'OfflineNum',
-        'channelNum' => 'ChannelNum',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class stats extends Model
         if (null !== $this->streamNum) {
             $res['StreamNum'] = $this->streamNum;
         }
+        if (null !== $this->channelNum) {
+            $res['ChannelNum'] = $this->channelNum;
+        }
         if (null !== $this->onlineNum) {
             $res['OnlineNum'] = $this->onlineNum;
         }
         if (null !== $this->offlineNum) {
             $res['OfflineNum'] = $this->offlineNum;
-        }
-        if (null !== $this->channelNum) {
-            $res['ChannelNum'] = $this->channelNum;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class stats extends Model
         if (isset($map['StreamNum'])) {
             $model->streamNum = $map['StreamNum'];
         }
+        if (isset($map['ChannelNum'])) {
+            $model->channelNum = $map['ChannelNum'];
+        }
         if (isset($map['OnlineNum'])) {
             $model->onlineNum = $map['OnlineNum'];
         }
         if (isset($map['OfflineNum'])) {
             $model->offlineNum = $map['OfflineNum'];
-        }
-        if (isset($map['ChannelNum'])) {
-            $model->channelNum = $map['ChannelNum'];
         }
 
         return $model;

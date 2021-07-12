@@ -16,15 +16,9 @@ class DescribeVsCertificateDetailRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $certName;
     protected $_name = [
         'ownerId'  => 'OwnerId',
-        'showLog'  => 'ShowLog',
         'certName' => 'CertName',
     ];
 
@@ -37,9 +31,6 @@ class DescribeVsCertificateDetailRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
@@ -58,9 +49,6 @@ class DescribeVsCertificateDetailRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];

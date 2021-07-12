@@ -16,11 +16,6 @@ class DescribeVsTopDomainsByFlowRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $startTime;
 
     /**
@@ -34,7 +29,6 @@ class DescribeVsTopDomainsByFlowRequest extends Model
     public $limit;
     protected $_name = [
         'ownerId'   => 'OwnerId',
-        'showLog'   => 'ShowLog',
         'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
         'limit'     => 'Limit',
@@ -49,9 +43,6 @@ class DescribeVsTopDomainsByFlowRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -76,9 +67,6 @@ class DescribeVsTopDomainsByFlowRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

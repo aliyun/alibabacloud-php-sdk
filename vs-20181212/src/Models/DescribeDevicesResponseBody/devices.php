@@ -78,7 +78,7 @@ class devices extends Model
     /**
      * @var string
      */
-    public $directoryId;
+    public $channelSyncTime;
 
     /**
      * @var string
@@ -88,17 +88,12 @@ class devices extends Model
     /**
      * @var string
      */
-    public $channelSyncTime;
+    public $directoryId;
 
     /**
      * @var string
      */
     public $registeredTime;
-
-    /**
-     * @var stats
-     */
-    public $stats;
 
     /**
      * @var string
@@ -108,22 +103,22 @@ class devices extends Model
     /**
      * @var string
      */
-    public $url;
-
-    /**
-     * @var string
-     */
     public $ip;
 
     /**
      * @var string
      */
-    public $vendor;
+    public $url;
 
     /**
      * @var bool
      */
     public $autoStart;
+
+    /**
+     * @var string
+     */
+    public $vendor;
 
     /**
      * @var string
@@ -146,11 +141,6 @@ class devices extends Model
     public $latitude;
 
     /**
-     * @var directory
-     */
-    public $directory;
-
-    /**
      * @var string
      */
     public $id;
@@ -159,6 +149,16 @@ class devices extends Model
      * @var string
      */
     public $username;
+
+    /**
+     * @var stats
+     */
+    public $stats;
+
+    /**
+     * @var directory
+     */
+    public $directory;
     protected $_name = [
         'type'            => 'Type',
         'status'          => 'Status',
@@ -173,23 +173,23 @@ class devices extends Model
         'description'     => 'Description',
         'enabled'         => 'Enabled',
         'name'            => 'Name',
-        'directoryId'     => 'DirectoryId',
-        'createdTime'     => 'CreatedTime',
         'channelSyncTime' => 'ChannelSyncTime',
+        'createdTime'     => 'CreatedTime',
+        'directoryId'     => 'DirectoryId',
         'registeredTime'  => 'RegisteredTime',
-        'stats'           => 'Stats',
         'protocol'        => 'Protocol',
-        'url'             => 'Url',
         'ip'              => 'Ip',
-        'vendor'          => 'Vendor',
+        'url'             => 'Url',
         'autoStart'       => 'AutoStart',
+        'vendor'          => 'Vendor',
         'gbId'            => 'GbId',
         'groupId'         => 'GroupId',
         'longitude'       => 'Longitude',
         'latitude'        => 'Latitude',
-        'directory'       => 'Directory',
         'id'              => 'Id',
         'username'        => 'Username',
+        'stats'           => 'Stats',
+        'directory'       => 'Directory',
     ];
 
     public function validate()
@@ -238,35 +238,32 @@ class devices extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->directoryId) {
-            $res['DirectoryId'] = $this->directoryId;
+        if (null !== $this->channelSyncTime) {
+            $res['ChannelSyncTime'] = $this->channelSyncTime;
         }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
-        if (null !== $this->channelSyncTime) {
-            $res['ChannelSyncTime'] = $this->channelSyncTime;
+        if (null !== $this->directoryId) {
+            $res['DirectoryId'] = $this->directoryId;
         }
         if (null !== $this->registeredTime) {
             $res['RegisteredTime'] = $this->registeredTime;
         }
-        if (null !== $this->stats) {
-            $res['Stats'] = null !== $this->stats ? $this->stats->toMap() : null;
-        }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
-        if (null !== $this->vendor) {
-            $res['Vendor'] = $this->vendor;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
         if (null !== $this->autoStart) {
             $res['AutoStart'] = $this->autoStart;
+        }
+        if (null !== $this->vendor) {
+            $res['Vendor'] = $this->vendor;
         }
         if (null !== $this->gbId) {
             $res['GbId'] = $this->gbId;
@@ -280,14 +277,17 @@ class devices extends Model
         if (null !== $this->latitude) {
             $res['Latitude'] = $this->latitude;
         }
-        if (null !== $this->directory) {
-            $res['Directory'] = null !== $this->directory ? $this->directory->toMap() : null;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
+        }
+        if (null !== $this->stats) {
+            $res['Stats'] = null !== $this->stats ? $this->stats->toMap() : null;
+        }
+        if (null !== $this->directory) {
+            $res['Directory'] = null !== $this->directory ? $this->directory->toMap() : null;
         }
 
         return $res;
@@ -340,35 +340,32 @@ class devices extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['DirectoryId'])) {
-            $model->directoryId = $map['DirectoryId'];
+        if (isset($map['ChannelSyncTime'])) {
+            $model->channelSyncTime = $map['ChannelSyncTime'];
         }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
-        if (isset($map['ChannelSyncTime'])) {
-            $model->channelSyncTime = $map['ChannelSyncTime'];
+        if (isset($map['DirectoryId'])) {
+            $model->directoryId = $map['DirectoryId'];
         }
         if (isset($map['RegisteredTime'])) {
             $model->registeredTime = $map['RegisteredTime'];
         }
-        if (isset($map['Stats'])) {
-            $model->stats = stats::fromMap($map['Stats']);
-        }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
-        if (isset($map['Vendor'])) {
-            $model->vendor = $map['Vendor'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
         if (isset($map['AutoStart'])) {
             $model->autoStart = $map['AutoStart'];
+        }
+        if (isset($map['Vendor'])) {
+            $model->vendor = $map['Vendor'];
         }
         if (isset($map['GbId'])) {
             $model->gbId = $map['GbId'];
@@ -382,14 +379,17 @@ class devices extends Model
         if (isset($map['Latitude'])) {
             $model->latitude = $map['Latitude'];
         }
-        if (isset($map['Directory'])) {
-            $model->directory = directory::fromMap($map['Directory']);
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
+        }
+        if (isset($map['Stats'])) {
+            $model->stats = stats::fromMap($map['Stats']);
+        }
+        if (isset($map['Directory'])) {
+            $model->directory = directory::fromMap($map['Directory']);
         }
 
         return $model;

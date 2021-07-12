@@ -16,11 +16,6 @@ class DescribeDirectoriesRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $groupId;
 
     /**
@@ -54,7 +49,6 @@ class DescribeDirectoriesRequest extends Model
     public $noPagination;
     protected $_name = [
         'ownerId'       => 'OwnerId',
-        'showLog'       => 'ShowLog',
         'groupId'       => 'GroupId',
         'parentId'      => 'ParentId',
         'sortBy'        => 'SortBy',
@@ -73,9 +67,6 @@ class DescribeDirectoriesRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -112,9 +103,6 @@ class DescribeDirectoriesRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

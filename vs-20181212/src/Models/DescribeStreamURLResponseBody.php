@@ -11,21 +11,21 @@ class DescribeStreamURLResponseBody extends Model
     /**
      * @var string
      */
+    public $url;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var int
      */
     public $expireTime;
-
-    /**
-     * @var string
-     */
-    public $url;
     protected $_name = [
+        'url'        => 'Url',
         'requestId'  => 'RequestId',
         'expireTime' => 'ExpireTime',
-        'url'        => 'Url',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeStreamURLResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeStreamURLResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
         }
 
         return $model;

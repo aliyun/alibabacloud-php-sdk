@@ -22,66 +22,6 @@ class groups extends Model
     /**
      * @var string
      */
-    public $callback;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $app;
-
-    /**
-     * @var string
-     */
-    public $region;
-
-    /**
-     * @var bool
-     */
-    public $enabled;
-
-    /**
-     * @var string
-     */
-    public $inProtocol;
-
-    /**
-     * @var string
-     */
-    public $outProtocol;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $pushDomain;
-
-    /**
-     * @var string
-     */
-    public $createdTime;
-
-    /**
-     * @var int
-     */
-    public $captureVideo;
-
-    /**
-     * @var stats
-     */
-    public $stats;
-
-    /**
-     * @var string
-     */
     public $playDomain;
 
     /**
@@ -95,9 +35,9 @@ class groups extends Model
     public $captureInterval;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $gbTcpPorts;
+    public $callback;
 
     /**
      * @var string
@@ -117,7 +57,32 @@ class groups extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $app;
+
+    /**
+     * @var string
+     */
     public $aliasId;
+
+    /**
+     * @var bool
+     */
+    public $enabled;
+
+    /**
+     * @var string
+     */
+    public $inProtocol;
 
     /**
      * @var string
@@ -130,41 +95,76 @@ class groups extends Model
     public $captureOssBucket;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $gbUdpPorts;
+    public $outProtocol;
+
+    /**
+     * @var string
+     */
+    public $pushDomain;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $createdTime;
+
+    /**
+     * @var int
+     */
+    public $captureVideo;
 
     /**
      * @var string
      */
     public $id;
+
+    /**
+     * @var string[]
+     */
+    public $gbTcpPorts;
+
+    /**
+     * @var string[]
+     */
+    public $gbUdpPorts;
+
+    /**
+     * @var stats
+     */
+    public $stats;
     protected $_name = [
         'status'           => 'Status',
         'lazyPull'         => 'LazyPull',
-        'callback'         => 'Callback',
-        'description'      => 'Description',
-        'app'              => 'App',
-        'region'           => 'Region',
-        'enabled'          => 'Enabled',
-        'inProtocol'       => 'InProtocol',
-        'outProtocol'      => 'OutProtocol',
-        'name'             => 'Name',
-        'pushDomain'       => 'PushDomain',
-        'createdTime'      => 'CreatedTime',
-        'captureVideo'     => 'CaptureVideo',
-        'stats'            => 'Stats',
         'playDomain'       => 'PlayDomain',
         'gbPort'           => 'GbPort',
         'captureInterval'  => 'CaptureInterval',
-        'gbTcpPorts'       => 'GbTcpPorts',
+        'callback'         => 'Callback',
         'gbId'             => 'GbId',
         'gbIp'             => 'GbIp',
         'captureImage'     => 'CaptureImage',
+        'description'      => 'Description',
+        'region'           => 'Region',
+        'app'              => 'App',
         'aliasId'          => 'AliasId',
+        'enabled'          => 'Enabled',
+        'inProtocol'       => 'InProtocol',
         'captureOssPath'   => 'CaptureOssPath',
         'captureOssBucket' => 'CaptureOssBucket',
-        'gbUdpPorts'       => 'GbUdpPorts',
+        'outProtocol'      => 'OutProtocol',
+        'pushDomain'       => 'PushDomain',
+        'name'             => 'Name',
+        'createdTime'      => 'CreatedTime',
+        'captureVideo'     => 'CaptureVideo',
         'id'               => 'Id',
+        'gbTcpPorts'       => 'GbTcpPorts',
+        'gbUdpPorts'       => 'GbUdpPorts',
+        'stats'            => 'Stats',
     ];
 
     public function validate()
@@ -180,42 +180,6 @@ class groups extends Model
         if (null !== $this->lazyPull) {
             $res['LazyPull'] = $this->lazyPull;
         }
-        if (null !== $this->callback) {
-            $res['Callback'] = $this->callback;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->app) {
-            $res['App'] = $this->app;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
-        }
-        if (null !== $this->inProtocol) {
-            $res['InProtocol'] = $this->inProtocol;
-        }
-        if (null !== $this->outProtocol) {
-            $res['OutProtocol'] = $this->outProtocol;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->pushDomain) {
-            $res['PushDomain'] = $this->pushDomain;
-        }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
-        }
-        if (null !== $this->captureVideo) {
-            $res['CaptureVideo'] = $this->captureVideo;
-        }
-        if (null !== $this->stats) {
-            $res['Stats'] = null !== $this->stats ? $this->stats->toMap() : null;
-        }
         if (null !== $this->playDomain) {
             $res['PlayDomain'] = $this->playDomain;
         }
@@ -225,8 +189,8 @@ class groups extends Model
         if (null !== $this->captureInterval) {
             $res['CaptureInterval'] = $this->captureInterval;
         }
-        if (null !== $this->gbTcpPorts) {
-            $res['GbTcpPorts'] = $this->gbTcpPorts;
+        if (null !== $this->callback) {
+            $res['Callback'] = $this->callback;
         }
         if (null !== $this->gbId) {
             $res['GbId'] = $this->gbId;
@@ -237,8 +201,23 @@ class groups extends Model
         if (null !== $this->captureImage) {
             $res['CaptureImage'] = $this->captureImage;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->app) {
+            $res['App'] = $this->app;
+        }
         if (null !== $this->aliasId) {
             $res['AliasId'] = $this->aliasId;
+        }
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->inProtocol) {
+            $res['InProtocol'] = $this->inProtocol;
         }
         if (null !== $this->captureOssPath) {
             $res['CaptureOssPath'] = $this->captureOssPath;
@@ -246,11 +225,32 @@ class groups extends Model
         if (null !== $this->captureOssBucket) {
             $res['CaptureOssBucket'] = $this->captureOssBucket;
         }
-        if (null !== $this->gbUdpPorts) {
-            $res['GbUdpPorts'] = $this->gbUdpPorts;
+        if (null !== $this->outProtocol) {
+            $res['OutProtocol'] = $this->outProtocol;
+        }
+        if (null !== $this->pushDomain) {
+            $res['PushDomain'] = $this->pushDomain;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
+        }
+        if (null !== $this->captureVideo) {
+            $res['CaptureVideo'] = $this->captureVideo;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->gbTcpPorts) {
+            $res['GbTcpPorts'] = $this->gbTcpPorts;
+        }
+        if (null !== $this->gbUdpPorts) {
+            $res['GbUdpPorts'] = $this->gbUdpPorts;
+        }
+        if (null !== $this->stats) {
+            $res['Stats'] = null !== $this->stats ? $this->stats->toMap() : null;
         }
 
         return $res;
@@ -270,42 +270,6 @@ class groups extends Model
         if (isset($map['LazyPull'])) {
             $model->lazyPull = $map['LazyPull'];
         }
-        if (isset($map['Callback'])) {
-            $model->callback = $map['Callback'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['App'])) {
-            $model->app = $map['App'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
-        }
-        if (isset($map['InProtocol'])) {
-            $model->inProtocol = $map['InProtocol'];
-        }
-        if (isset($map['OutProtocol'])) {
-            $model->outProtocol = $map['OutProtocol'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['PushDomain'])) {
-            $model->pushDomain = $map['PushDomain'];
-        }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
-        }
-        if (isset($map['CaptureVideo'])) {
-            $model->captureVideo = $map['CaptureVideo'];
-        }
-        if (isset($map['Stats'])) {
-            $model->stats = stats::fromMap($map['Stats']);
-        }
         if (isset($map['PlayDomain'])) {
             $model->playDomain = $map['PlayDomain'];
         }
@@ -315,10 +279,8 @@ class groups extends Model
         if (isset($map['CaptureInterval'])) {
             $model->captureInterval = $map['CaptureInterval'];
         }
-        if (isset($map['GbTcpPorts'])) {
-            if (!empty($map['GbTcpPorts'])) {
-                $model->gbTcpPorts = $map['GbTcpPorts'];
-            }
+        if (isset($map['Callback'])) {
+            $model->callback = $map['Callback'];
         }
         if (isset($map['GbId'])) {
             $model->gbId = $map['GbId'];
@@ -329,8 +291,23 @@ class groups extends Model
         if (isset($map['CaptureImage'])) {
             $model->captureImage = $map['CaptureImage'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['App'])) {
+            $model->app = $map['App'];
+        }
         if (isset($map['AliasId'])) {
             $model->aliasId = $map['AliasId'];
+        }
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['InProtocol'])) {
+            $model->inProtocol = $map['InProtocol'];
         }
         if (isset($map['CaptureOssPath'])) {
             $model->captureOssPath = $map['CaptureOssPath'];
@@ -338,13 +315,36 @@ class groups extends Model
         if (isset($map['CaptureOssBucket'])) {
             $model->captureOssBucket = $map['CaptureOssBucket'];
         }
+        if (isset($map['OutProtocol'])) {
+            $model->outProtocol = $map['OutProtocol'];
+        }
+        if (isset($map['PushDomain'])) {
+            $model->pushDomain = $map['PushDomain'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
+        }
+        if (isset($map['CaptureVideo'])) {
+            $model->captureVideo = $map['CaptureVideo'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['GbTcpPorts'])) {
+            if (!empty($map['GbTcpPorts'])) {
+                $model->gbTcpPorts = $map['GbTcpPorts'];
+            }
+        }
         if (isset($map['GbUdpPorts'])) {
             if (!empty($map['GbUdpPorts'])) {
                 $model->gbUdpPorts = $map['GbUdpPorts'];
             }
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Stats'])) {
+            $model->stats = stats::fromMap($map['Stats']);
         }
 
         return $model;

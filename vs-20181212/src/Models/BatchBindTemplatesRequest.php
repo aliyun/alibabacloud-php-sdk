@@ -16,11 +16,6 @@ class BatchBindTemplatesRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $templateId;
 
     /**
@@ -49,7 +44,6 @@ class BatchBindTemplatesRequest extends Model
     public $replace;
     protected $_name = [
         'ownerId'      => 'OwnerId',
-        'showLog'      => 'ShowLog',
         'templateId'   => 'TemplateId',
         'templateType' => 'TemplateType',
         'instanceId'   => 'InstanceId',
@@ -67,9 +61,6 @@ class BatchBindTemplatesRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -103,9 +94,6 @@ class BatchBindTemplatesRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

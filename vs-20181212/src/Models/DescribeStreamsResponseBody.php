@@ -12,11 +12,6 @@ class DescribeStreamsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
     public $pageNum;
 
     /**
@@ -32,6 +27,11 @@ class DescribeStreamsResponseBody extends Model
     /**
      * @var int
      */
+    public $totalCount;
+
+    /**
+     * @var int
+     */
     public $pageCount;
 
     /**
@@ -39,10 +39,10 @@ class DescribeStreamsResponseBody extends Model
      */
     public $streams;
     protected $_name = [
-        'totalCount' => 'TotalCount',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
         'pageCount'  => 'PageCount',
         'streams'    => 'Streams',
     ];
@@ -54,9 +54,6 @@ class DescribeStreamsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -65,6 +62,9 @@ class DescribeStreamsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
@@ -90,9 +90,6 @@ class DescribeStreamsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -101,6 +98,9 @@ class DescribeStreamsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];

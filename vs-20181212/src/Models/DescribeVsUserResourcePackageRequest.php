@@ -17,15 +17,9 @@ class DescribeVsUserResourcePackageRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $showLog;
     protected $_name = [
         'securityToken' => 'SecurityToken',
         'ownerId'       => 'OwnerId',
-        'showLog'       => 'ShowLog',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class DescribeVsUserResourcePackageRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class DescribeVsUserResourcePackageRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
 
         return $model;

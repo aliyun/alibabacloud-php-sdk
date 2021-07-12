@@ -26,12 +26,12 @@ class liveStreamPublishInfo extends Model
     /**
      * @var string
      */
-    public $stopTime;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $stopTime;
 
     /**
      * @var string
@@ -46,12 +46,12 @@ class liveStreamPublishInfo extends Model
     /**
      * @var string
      */
-    public $publishTime;
+    public $appName;
 
     /**
      * @var string
      */
-    public $appName;
+    public $publishTime;
 
     /**
      * @var string
@@ -76,12 +76,12 @@ class liveStreamPublishInfo extends Model
         'edgeNodeAddr'  => 'EdgeNodeAddr',
         'publishUrl'    => 'PublishUrl',
         'streamName'    => 'StreamName',
-        'stopTime'      => 'StopTime',
         'domainName'    => 'DomainName',
+        'stopTime'      => 'StopTime',
         'transcodeId'   => 'TranscodeId',
         'publishDomain' => 'PublishDomain',
-        'publishTime'   => 'PublishTime',
         'appName'       => 'AppName',
+        'publishTime'   => 'PublishTime',
         'publishType'   => 'PublishType',
         'transcoded'    => 'Transcoded',
         'clientAddr'    => 'ClientAddr',
@@ -104,11 +104,11 @@ class liveStreamPublishInfo extends Model
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
-        if (null !== $this->stopTime) {
-            $res['StopTime'] = $this->stopTime;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->stopTime) {
+            $res['StopTime'] = $this->stopTime;
         }
         if (null !== $this->transcodeId) {
             $res['TranscodeId'] = $this->transcodeId;
@@ -116,11 +116,11 @@ class liveStreamPublishInfo extends Model
         if (null !== $this->publishDomain) {
             $res['PublishDomain'] = $this->publishDomain;
         }
-        if (null !== $this->publishTime) {
-            $res['PublishTime'] = $this->publishTime;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->publishTime) {
+            $res['PublishTime'] = $this->publishTime;
         }
         if (null !== $this->publishType) {
             $res['PublishType'] = $this->publishType;
@@ -155,11 +155,11 @@ class liveStreamPublishInfo extends Model
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }
-        if (isset($map['StopTime'])) {
-            $model->stopTime = $map['StopTime'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['StopTime'])) {
+            $model->stopTime = $map['StopTime'];
         }
         if (isset($map['TranscodeId'])) {
             $model->transcodeId = $map['TranscodeId'];
@@ -167,11 +167,11 @@ class liveStreamPublishInfo extends Model
         if (isset($map['PublishDomain'])) {
             $model->publishDomain = $map['PublishDomain'];
         }
-        if (isset($map['PublishTime'])) {
-            $model->publishTime = $map['PublishTime'];
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['PublishTime'])) {
+            $model->publishTime = $map['PublishTime'];
         }
         if (isset($map['PublishType'])) {
             $model->publishType = $map['PublishType'];

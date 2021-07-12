@@ -16,11 +16,6 @@ class BindPurchasedDeviceRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $region;
 
     /**
@@ -34,7 +29,6 @@ class BindPurchasedDeviceRequest extends Model
     public $deviceId;
     protected $_name = [
         'ownerId'  => 'OwnerId',
-        'showLog'  => 'ShowLog',
         'region'   => 'Region',
         'groupId'  => 'GroupId',
         'deviceId' => 'DeviceId',
@@ -49,9 +43,6 @@ class BindPurchasedDeviceRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -76,9 +67,6 @@ class BindPurchasedDeviceRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

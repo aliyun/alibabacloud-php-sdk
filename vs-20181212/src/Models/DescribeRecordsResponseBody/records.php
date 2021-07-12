@@ -41,12 +41,12 @@ class records extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $ossObject;
 
     /**
      * @var string
      */
-    public $ossObject;
+    public $endTime;
 
     /**
      * @var string
@@ -79,8 +79,8 @@ class records extends Model
         'ossBucket'   => 'OssBucket',
         'fileFormat'  => 'FileFormat',
         'streamId'    => 'StreamId',
-        'endTime'     => 'EndTime',
         'ossObject'   => 'OssObject',
+        'endTime'     => 'EndTime',
         'startTime'   => 'StartTime',
         'width'       => 'Width',
         'templateId'  => 'TemplateId',
@@ -113,11 +113,11 @@ class records extends Model
         if (null !== $this->streamId) {
             $res['StreamId'] = $this->streamId;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
         if (null !== $this->ossObject) {
             $res['OssObject'] = $this->ossObject;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -164,11 +164,11 @@ class records extends Model
         if (isset($map['StreamId'])) {
             $model->streamId = $map['StreamId'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
         if (isset($map['OssObject'])) {
             $model->ossObject = $map['OssObject'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

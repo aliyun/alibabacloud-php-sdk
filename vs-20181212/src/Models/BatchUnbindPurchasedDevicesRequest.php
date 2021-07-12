@@ -16,15 +16,9 @@ class BatchUnbindPurchasedDevicesRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $deviceId;
     protected $_name = [
         'ownerId'  => 'OwnerId',
-        'showLog'  => 'ShowLog',
         'deviceId' => 'DeviceId',
     ];
 
@@ -37,9 +31,6 @@ class BatchUnbindPurchasedDevicesRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
@@ -58,9 +49,6 @@ class BatchUnbindPurchasedDevicesRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];

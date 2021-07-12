@@ -16,15 +16,9 @@ class DescribeVsDomainDetailRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $domainName;
     protected $_name = [
         'ownerId'    => 'OwnerId',
-        'showLog'    => 'ShowLog',
         'domainName' => 'DomainName',
     ];
 
@@ -37,9 +31,6 @@ class DescribeVsDomainDetailRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -58,9 +49,6 @@ class DescribeVsDomainDetailRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

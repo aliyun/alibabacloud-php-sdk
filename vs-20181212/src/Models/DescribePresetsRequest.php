@@ -16,16 +16,16 @@ class DescribePresetsRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $subProtocol;
     protected $_name = [
-        'ownerId' => 'OwnerId',
-        'showLog' => 'ShowLog',
-        'id'      => 'Id',
+        'ownerId'     => 'OwnerId',
+        'id'          => 'Id',
+        'subProtocol' => 'SubProtocol',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribePresetsRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->subProtocol) {
+            $res['SubProtocol'] = $this->subProtocol;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribePresetsRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['SubProtocol'])) {
+            $model->subProtocol = $map['SubProtocol'];
         }
 
         return $model;

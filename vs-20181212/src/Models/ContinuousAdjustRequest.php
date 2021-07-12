@@ -16,11 +16,6 @@ class ContinuousAdjustRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $id;
 
     /**
@@ -32,12 +27,17 @@ class ContinuousAdjustRequest extends Model
      * @var string
      */
     public $focus;
+
+    /**
+     * @var string
+     */
+    public $subProtocol;
     protected $_name = [
-        'ownerId' => 'OwnerId',
-        'showLog' => 'ShowLog',
-        'id'      => 'Id',
-        'iris'    => 'Iris',
-        'focus'   => 'Focus',
+        'ownerId'     => 'OwnerId',
+        'id'          => 'Id',
+        'iris'        => 'Iris',
+        'focus'       => 'Focus',
+        'subProtocol' => 'SubProtocol',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class ContinuousAdjustRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -61,6 +58,9 @@ class ContinuousAdjustRequest extends Model
         }
         if (null !== $this->focus) {
             $res['Focus'] = $this->focus;
+        }
+        if (null !== $this->subProtocol) {
+            $res['SubProtocol'] = $this->subProtocol;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class ContinuousAdjustRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -88,6 +85,9 @@ class ContinuousAdjustRequest extends Model
         }
         if (isset($map['Focus'])) {
             $model->focus = $map['Focus'];
+        }
+        if (isset($map['SubProtocol'])) {
+            $model->subProtocol = $map['SubProtocol'];
         }
 
         return $model;

@@ -17,6 +17,11 @@ class DescribeVsDomainReqBpsDataResponseBody extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -25,26 +30,21 @@ class DescribeVsDomainReqBpsDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @var reqBpsDataPerInterval
-     */
-    public $reqBpsDataPerInterval;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
      * @var string
      */
     public $dataInterval;
+
+    /**
+     * @var reqBpsDataPerInterval
+     */
+    public $reqBpsDataPerInterval;
     protected $_name = [
         'endTime'               => 'EndTime',
+        'startTime'             => 'StartTime',
         'requestId'             => 'RequestId',
         'domainName'            => 'DomainName',
-        'reqBpsDataPerInterval' => 'ReqBpsDataPerInterval',
-        'startTime'             => 'StartTime',
         'dataInterval'          => 'DataInterval',
+        'reqBpsDataPerInterval' => 'ReqBpsDataPerInterval',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class DescribeVsDomainReqBpsDataResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->reqBpsDataPerInterval) {
-            $res['ReqBpsDataPerInterval'] = null !== $this->reqBpsDataPerInterval ? $this->reqBpsDataPerInterval->toMap() : null;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
+        }
+        if (null !== $this->reqBpsDataPerInterval) {
+            $res['ReqBpsDataPerInterval'] = null !== $this->reqBpsDataPerInterval ? $this->reqBpsDataPerInterval->toMap() : null;
         }
 
         return $res;
@@ -87,20 +87,20 @@ class DescribeVsDomainReqBpsDataResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['ReqBpsDataPerInterval'])) {
-            $model->reqBpsDataPerInterval = reqBpsDataPerInterval::fromMap($map['ReqBpsDataPerInterval']);
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
+        }
+        if (isset($map['ReqBpsDataPerInterval'])) {
+            $model->reqBpsDataPerInterval = reqBpsDataPerInterval::fromMap($map['ReqBpsDataPerInterval']);
         }
 
         return $model;

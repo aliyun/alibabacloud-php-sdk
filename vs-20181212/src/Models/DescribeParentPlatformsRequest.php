@@ -16,11 +16,6 @@ class DescribeParentPlatformsRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $gbId;
 
     /**
@@ -49,7 +44,6 @@ class DescribeParentPlatformsRequest extends Model
     public $pageNum;
     protected $_name = [
         'ownerId'       => 'OwnerId',
-        'showLog'       => 'ShowLog',
         'gbId'          => 'GbId',
         'status'        => 'Status',
         'sortBy'        => 'SortBy',
@@ -67,9 +61,6 @@ class DescribeParentPlatformsRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->gbId) {
             $res['GbId'] = $this->gbId;
@@ -103,9 +94,6 @@ class DescribeParentPlatformsRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['GbId'])) {
             $model->gbId = $map['GbId'];

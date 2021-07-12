@@ -21,12 +21,12 @@ class platforms extends Model
     /**
      * @var string
      */
-    public $clientGbId;
+    public $protocol;
 
     /**
      * @var string
      */
-    public $protocol;
+    public $clientGbId;
 
     /**
      * @var string
@@ -41,12 +41,12 @@ class platforms extends Model
     /**
      * @var string
      */
-    public $clientPassword;
+    public $clientUsername;
 
     /**
      * @var string
      */
-    public $clientUsername;
+    public $clientPassword;
 
     /**
      * @var bool
@@ -90,12 +90,12 @@ class platforms extends Model
     protected $_name = [
         'status'         => 'Status',
         'clientPort'     => 'ClientPort',
-        'clientGbId'     => 'ClientGbId',
         'protocol'       => 'Protocol',
+        'clientGbId'     => 'ClientGbId',
         'ip'             => 'Ip',
         'port'           => 'Port',
-        'clientPassword' => 'ClientPassword',
         'clientUsername' => 'ClientUsername',
+        'clientPassword' => 'ClientPassword',
         'autoStart'      => 'AutoStart',
         'clientAuth'     => 'ClientAuth',
         'gbId'           => 'GbId',
@@ -119,11 +119,11 @@ class platforms extends Model
         if (null !== $this->clientPort) {
             $res['ClientPort'] = $this->clientPort;
         }
-        if (null !== $this->clientGbId) {
-            $res['ClientGbId'] = $this->clientGbId;
-        }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->clientGbId) {
+            $res['ClientGbId'] = $this->clientGbId;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
@@ -131,11 +131,11 @@ class platforms extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->clientPassword) {
-            $res['ClientPassword'] = $this->clientPassword;
-        }
         if (null !== $this->clientUsername) {
             $res['ClientUsername'] = $this->clientUsername;
+        }
+        if (null !== $this->clientPassword) {
+            $res['ClientPassword'] = $this->clientPassword;
         }
         if (null !== $this->autoStart) {
             $res['AutoStart'] = $this->autoStart;
@@ -179,11 +179,11 @@ class platforms extends Model
         if (isset($map['ClientPort'])) {
             $model->clientPort = $map['ClientPort'];
         }
-        if (isset($map['ClientGbId'])) {
-            $model->clientGbId = $map['ClientGbId'];
-        }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['ClientGbId'])) {
+            $model->clientGbId = $map['ClientGbId'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
@@ -191,11 +191,11 @@ class platforms extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['ClientPassword'])) {
-            $model->clientPassword = $map['ClientPassword'];
-        }
         if (isset($map['ClientUsername'])) {
             $model->clientUsername = $map['ClientUsername'];
+        }
+        if (isset($map['ClientPassword'])) {
+            $model->clientPassword = $map['ClientPassword'];
         }
         if (isset($map['AutoStart'])) {
             $model->autoStart = $map['AutoStart'];

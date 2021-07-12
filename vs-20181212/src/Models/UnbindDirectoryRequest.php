@@ -16,11 +16,6 @@ class UnbindDirectoryRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $directoryId;
 
     /**
@@ -29,7 +24,6 @@ class UnbindDirectoryRequest extends Model
     public $deviceId;
     protected $_name = [
         'ownerId'     => 'OwnerId',
-        'showLog'     => 'ShowLog',
         'directoryId' => 'DirectoryId',
         'deviceId'    => 'DeviceId',
     ];
@@ -43,9 +37,6 @@ class UnbindDirectoryRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
@@ -67,9 +58,6 @@ class UnbindDirectoryRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];

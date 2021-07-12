@@ -12,62 +12,7 @@ class DescribeTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $createdTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $hlsTs;
-
-    /**
-     * @var string
-     */
-    public $ossBucket;
-
-    /**
-     * @var int
-     */
-    public $retention;
-
-    /**
-     * @var string
-     */
-    public $fileFormat;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $mp4;
-
-    /**
-     * @var string
-     */
-    public $jpgOnDemand;
-
-    /**
-     * @var string
-     */
-    public $flv;
-
-    /**
-     * @var string
-     */
-    public $ossFilePrefix;
+    public $type;
 
     /**
      * @var string
@@ -77,37 +22,12 @@ class DescribeTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $ossEndpoint;
+    public $hlsTs;
 
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var transConfigs[]
-     */
-    public $transConfigs;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $jpgSequence;
-
-    /**
-     * @var string
-     */
-    public $callback;
+    public $mp4;
 
     /**
      * @var string
@@ -117,12 +37,27 @@ class DescribeTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $region;
+    public $callback;
 
     /**
      * @var string
      */
-    public $id;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $region;
+
+    /**
+     * @var int
+     */
+    public $retention;
 
     /**
      * @var string
@@ -130,35 +65,100 @@ class DescribeTemplateResponseBody extends Model
     public $hlsM3u8;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $flv;
+
+    /**
+     * @var string
+     */
+    public $createdTime;
+
+    /**
+     * @var string
+     */
+    public $ossEndpoint;
+
+    /**
+     * @var string
+     */
+    public $ossFilePrefix;
+
+    /**
+     * @var string
+     */
+    public $jpgOnDemand;
+
+    /**
+     * @var string
+     */
+    public $ossBucket;
+
+    /**
+     * @var string
+     */
+    public $fileFormat;
+
+    /**
+     * @var string
+     */
+    public $jpgSequence;
+
+    /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
      * @var int
      */
     public $interval;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var transConfigs[]
+     */
+    public $transConfigs;
     protected $_name = [
-        'description'   => 'Description',
-        'createdTime'   => 'CreatedTime',
-        'endTime'       => 'EndTime',
-        'hlsTs'         => 'HlsTs',
-        'ossBucket'     => 'OssBucket',
-        'retention'     => 'Retention',
-        'fileFormat'    => 'FileFormat',
-        'name'          => 'Name',
-        'mp4'           => 'Mp4',
-        'jpgOnDemand'   => 'JpgOnDemand',
-        'flv'           => 'Flv',
-        'ossFilePrefix' => 'OssFilePrefix',
-        'trigger'       => 'Trigger',
-        'ossEndpoint'   => 'OssEndpoint',
-        'requestId'     => 'RequestId',
-        'transConfigs'  => 'TransConfigs',
-        'startTime'     => 'StartTime',
         'type'          => 'Type',
-        'jpgSequence'   => 'JpgSequence',
-        'callback'      => 'Callback',
+        'trigger'       => 'Trigger',
+        'hlsTs'         => 'HlsTs',
+        'mp4'           => 'Mp4',
         'jpgOverwrite'  => 'JpgOverwrite',
+        'callback'      => 'Callback',
+        'requestId'     => 'RequestId',
+        'description'   => 'Description',
         'region'        => 'Region',
-        'id'            => 'Id',
+        'retention'     => 'Retention',
         'hlsM3u8'       => 'HlsM3u8',
+        'name'          => 'Name',
+        'flv'           => 'Flv',
+        'createdTime'   => 'CreatedTime',
+        'ossEndpoint'   => 'OssEndpoint',
+        'ossFilePrefix' => 'OssFilePrefix',
+        'jpgOnDemand'   => 'JpgOnDemand',
+        'ossBucket'     => 'OssBucket',
+        'fileFormat'    => 'FileFormat',
+        'jpgSequence'   => 'JpgSequence',
+        'endTime'       => 'EndTime',
+        'startTime'     => 'StartTime',
         'interval'      => 'Interval',
+        'id'            => 'Id',
+        'transConfigs'  => 'TransConfigs',
     ];
 
     public function validate()
@@ -168,50 +168,77 @@ class DescribeTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->hlsTs) {
-            $res['HlsTs'] = $this->hlsTs;
-        }
-        if (null !== $this->ossBucket) {
-            $res['OssBucket'] = $this->ossBucket;
-        }
-        if (null !== $this->retention) {
-            $res['Retention'] = $this->retention;
-        }
-        if (null !== $this->fileFormat) {
-            $res['FileFormat'] = $this->fileFormat;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->mp4) {
-            $res['Mp4'] = $this->mp4;
-        }
-        if (null !== $this->jpgOnDemand) {
-            $res['JpgOnDemand'] = $this->jpgOnDemand;
-        }
-        if (null !== $this->flv) {
-            $res['Flv'] = $this->flv;
-        }
-        if (null !== $this->ossFilePrefix) {
-            $res['OssFilePrefix'] = $this->ossFilePrefix;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->trigger) {
             $res['Trigger'] = $this->trigger;
         }
-        if (null !== $this->ossEndpoint) {
-            $res['OssEndpoint'] = $this->ossEndpoint;
+        if (null !== $this->hlsTs) {
+            $res['HlsTs'] = $this->hlsTs;
+        }
+        if (null !== $this->mp4) {
+            $res['Mp4'] = $this->mp4;
+        }
+        if (null !== $this->jpgOverwrite) {
+            $res['JpgOverwrite'] = $this->jpgOverwrite;
+        }
+        if (null !== $this->callback) {
+            $res['Callback'] = $this->callback;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->retention) {
+            $res['Retention'] = $this->retention;
+        }
+        if (null !== $this->hlsM3u8) {
+            $res['HlsM3u8'] = $this->hlsM3u8;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->flv) {
+            $res['Flv'] = $this->flv;
+        }
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
+        }
+        if (null !== $this->ossEndpoint) {
+            $res['OssEndpoint'] = $this->ossEndpoint;
+        }
+        if (null !== $this->ossFilePrefix) {
+            $res['OssFilePrefix'] = $this->ossFilePrefix;
+        }
+        if (null !== $this->jpgOnDemand) {
+            $res['JpgOnDemand'] = $this->jpgOnDemand;
+        }
+        if (null !== $this->ossBucket) {
+            $res['OssBucket'] = $this->ossBucket;
+        }
+        if (null !== $this->fileFormat) {
+            $res['FileFormat'] = $this->fileFormat;
+        }
+        if (null !== $this->jpgSequence) {
+            $res['JpgSequence'] = $this->jpgSequence;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->transConfigs) {
             $res['TransConfigs'] = [];
@@ -221,33 +248,6 @@ class DescribeTemplateResponseBody extends Model
                     $res['TransConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->jpgSequence) {
-            $res['JpgSequence'] = $this->jpgSequence;
-        }
-        if (null !== $this->callback) {
-            $res['Callback'] = $this->callback;
-        }
-        if (null !== $this->jpgOverwrite) {
-            $res['JpgOverwrite'] = $this->jpgOverwrite;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->hlsM3u8) {
-            $res['HlsM3u8'] = $this->hlsM3u8;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
         }
 
         return $res;
@@ -261,50 +261,77 @@ class DescribeTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['HlsTs'])) {
-            $model->hlsTs = $map['HlsTs'];
-        }
-        if (isset($map['OssBucket'])) {
-            $model->ossBucket = $map['OssBucket'];
-        }
-        if (isset($map['Retention'])) {
-            $model->retention = $map['Retention'];
-        }
-        if (isset($map['FileFormat'])) {
-            $model->fileFormat = $map['FileFormat'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Mp4'])) {
-            $model->mp4 = $map['Mp4'];
-        }
-        if (isset($map['JpgOnDemand'])) {
-            $model->jpgOnDemand = $map['JpgOnDemand'];
-        }
-        if (isset($map['Flv'])) {
-            $model->flv = $map['Flv'];
-        }
-        if (isset($map['OssFilePrefix'])) {
-            $model->ossFilePrefix = $map['OssFilePrefix'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['Trigger'])) {
             $model->trigger = $map['Trigger'];
         }
-        if (isset($map['OssEndpoint'])) {
-            $model->ossEndpoint = $map['OssEndpoint'];
+        if (isset($map['HlsTs'])) {
+            $model->hlsTs = $map['HlsTs'];
+        }
+        if (isset($map['Mp4'])) {
+            $model->mp4 = $map['Mp4'];
+        }
+        if (isset($map['JpgOverwrite'])) {
+            $model->jpgOverwrite = $map['JpgOverwrite'];
+        }
+        if (isset($map['Callback'])) {
+            $model->callback = $map['Callback'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['Retention'])) {
+            $model->retention = $map['Retention'];
+        }
+        if (isset($map['HlsM3u8'])) {
+            $model->hlsM3u8 = $map['HlsM3u8'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Flv'])) {
+            $model->flv = $map['Flv'];
+        }
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
+        }
+        if (isset($map['OssEndpoint'])) {
+            $model->ossEndpoint = $map['OssEndpoint'];
+        }
+        if (isset($map['OssFilePrefix'])) {
+            $model->ossFilePrefix = $map['OssFilePrefix'];
+        }
+        if (isset($map['JpgOnDemand'])) {
+            $model->jpgOnDemand = $map['JpgOnDemand'];
+        }
+        if (isset($map['OssBucket'])) {
+            $model->ossBucket = $map['OssBucket'];
+        }
+        if (isset($map['FileFormat'])) {
+            $model->fileFormat = $map['FileFormat'];
+        }
+        if (isset($map['JpgSequence'])) {
+            $model->jpgSequence = $map['JpgSequence'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['TransConfigs'])) {
             if (!empty($map['TransConfigs'])) {
@@ -314,33 +341,6 @@ class DescribeTemplateResponseBody extends Model
                     $model->transConfigs[$n++] = null !== $item ? transConfigs::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['JpgSequence'])) {
-            $model->jpgSequence = $map['JpgSequence'];
-        }
-        if (isset($map['Callback'])) {
-            $model->callback = $map['Callback'];
-        }
-        if (isset($map['JpgOverwrite'])) {
-            $model->jpgOverwrite = $map['JpgOverwrite'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['HlsM3u8'])) {
-            $model->hlsM3u8 = $map['HlsM3u8'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
         }
 
         return $model;

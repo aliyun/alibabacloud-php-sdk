@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Vs\V20181212;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\SDK\Vs\V20181212\Models\AddDeviceRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\AddDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddVsPullStreamInfoConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchBindDirectoriesRequest;
@@ -61,6 +63,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceAlarmRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceAlarmResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceSnapshotRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceSnapshotResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDirectoryRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDirectoryResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupRequest;
@@ -71,6 +75,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\CreateStreamSnapshotRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateStreamSnapshotResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateTemplateResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteBucketRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteBucketResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDirectoryRequest;
@@ -167,6 +173,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainUvDataRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsDomainUvDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsPullStreamInfoConfigResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStorageUsageDataRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStorageUsageDataResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStreamsNotifyUrlConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStreamsNotifyUrlConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsStreamsOnlineListRequest;
@@ -181,8 +189,18 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUserResourcePackageRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsUserResourcePackageResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ForbidVsStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ForbidVsStreamResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\GetBucketInfoRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\GetBucketInfoResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GotoPresetRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\GotoPresetResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListBucketsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListBucketsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListDeviceChannelsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListDeviceChannelsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListDeviceRecordsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListDeviceRecordsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListObjectsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListObjectsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDeviceAlarmRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDeviceAlarmResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDeviceCaptureRequest;
@@ -200,6 +218,10 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\OpenVsServiceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\PrepareUploadRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\PrepareUploadResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\PutBucketRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\PutBucketResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ResumeVsStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ResumeVsStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\SetPresetRequest;
@@ -232,6 +254,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\StopTransferStreamRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\StopTransferStreamResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\SyncCatalogsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\SyncCatalogsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\SyncDeviceChannelsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\SyncDeviceChannelsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindDirectoryRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindDirectoryResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindParentPlatformDeviceRequest;
@@ -242,8 +266,12 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnbindTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnlockDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnlockDeviceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateBucketInfoRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateBucketInfoResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateVsPullStreamInfoConfigResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UploadDeviceRecordRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UploadDeviceRecordResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -280,6 +308,34 @@ class Vs extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddDeviceRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AddDeviceResponse
+     */
+    public function addDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddDeviceResponse::fromMap($this->doRPCRequest('AddDevice', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddDeviceRequest $request
+     *
+     * @return AddDeviceResponse
+     */
+    public function addDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -1067,6 +1123,34 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param CreateDeviceSnapshotRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDeviceSnapshotResponse
+     */
+    public function createDeviceSnapshotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDeviceSnapshotResponse::fromMap($this->doRPCRequest('CreateDeviceSnapshot', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDeviceSnapshotRequest $request
+     *
+     * @return CreateDeviceSnapshotResponse
+     */
+    public function createDeviceSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDeviceSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDirectoryRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1204,6 +1288,34 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBucketRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteBucketResponse
+     */
+    public function deleteBucketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteBucketResponse::fromMap($this->doRPCRequest('DeleteBucket', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBucketRequest $request
+     *
+     * @return DeleteBucketResponse
+     */
+    public function deleteBucket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBucketWithOptions($request, $runtime);
     }
 
     /**
@@ -2551,6 +2663,34 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param DescribeVsStorageUsageDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeVsStorageUsageDataResponse
+     */
+    public function describeVsStorageUsageDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeVsStorageUsageDataResponse::fromMap($this->doRPCRequest('DescribeVsStorageUsageData', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVsStorageUsageDataRequest $request
+     *
+     * @return DescribeVsStorageUsageDataResponse
+     */
+    public function describeVsStorageUsageData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVsStorageUsageDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVsStreamsNotifyUrlConfigRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -2747,6 +2887,34 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param GetBucketInfoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetBucketInfoResponse
+     */
+    public function getBucketInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetBucketInfoResponse::fromMap($this->doRPCRequest('GetBucketInfo', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetBucketInfoRequest $request
+     *
+     * @return GetBucketInfoResponse
+     */
+    public function getBucketInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBucketInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GotoPresetRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -2772,6 +2940,118 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->gotoPresetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBucketsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListBucketsResponse
+     */
+    public function listBucketsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBucketsResponse::fromMap($this->doRPCRequest('ListBuckets', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBucketsRequest $request
+     *
+     * @return ListBucketsResponse
+     */
+    public function listBuckets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBucketsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDeviceChannelsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListDeviceChannelsResponse
+     */
+    public function listDeviceChannelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDeviceChannelsResponse::fromMap($this->doRPCRequest('ListDeviceChannels', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDeviceChannelsRequest $request
+     *
+     * @return ListDeviceChannelsResponse
+     */
+    public function listDeviceChannels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeviceChannelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDeviceRecordsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDeviceRecordsResponse
+     */
+    public function listDeviceRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDeviceRecordsResponse::fromMap($this->doRPCRequest('ListDeviceRecords', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDeviceRecordsRequest $request
+     *
+     * @return ListDeviceRecordsResponse
+     */
+    public function listDeviceRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeviceRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListObjectsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListObjectsResponse
+     */
+    public function listObjectsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListObjectsResponse::fromMap($this->doRPCRequest('ListObjects', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListObjectsRequest $request
+     *
+     * @return ListObjectsResponse
+     */
+    public function listObjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listObjectsWithOptions($request, $runtime);
     }
 
     /**
@@ -3018,6 +3298,62 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openVsServiceWithOptions($runtime);
+    }
+
+    /**
+     * @param PrepareUploadRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PrepareUploadResponse
+     */
+    public function prepareUploadWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PrepareUploadResponse::fromMap($this->doRPCRequest('PrepareUpload', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PrepareUploadRequest $request
+     *
+     * @return PrepareUploadResponse
+     */
+    public function prepareUpload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->prepareUploadWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PutBucketRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return PutBucketResponse
+     */
+    public function putBucketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PutBucketResponse::fromMap($this->doRPCRequest('PutBucket', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PutBucketRequest $request
+     *
+     * @return PutBucketResponse
+     */
+    public function putBucket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putBucketWithOptions($request, $runtime);
     }
 
     /**
@@ -3469,6 +3805,34 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param SyncDeviceChannelsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SyncDeviceChannelsResponse
+     */
+    public function syncDeviceChannelsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SyncDeviceChannelsResponse::fromMap($this->doRPCRequest('SyncDeviceChannels', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SyncDeviceChannelsRequest $request
+     *
+     * @return SyncDeviceChannelsResponse
+     */
+    public function syncDeviceChannels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncDeviceChannelsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UnbindDirectoryRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -3609,6 +3973,34 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @param UpdateBucketInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateBucketInfoResponse
+     */
+    public function updateBucketInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateBucketInfoResponse::fromMap($this->doRPCRequest('UpdateBucketInfo', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateBucketInfoRequest $request
+     *
+     * @return UpdateBucketInfoResponse
+     */
+    public function updateBucketInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBucketInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateVsPullStreamInfoConfigRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -3634,5 +4026,33 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateVsPullStreamInfoConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UploadDeviceRecordRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UploadDeviceRecordResponse
+     */
+    public function uploadDeviceRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UploadDeviceRecordResponse::fromMap($this->doRPCRequest('UploadDeviceRecord', '2018-12-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UploadDeviceRecordRequest $request
+     *
+     * @return UploadDeviceRecordResponse
+     */
+    public function uploadDeviceRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadDeviceRecordWithOptions($request, $runtime);
     }
 }

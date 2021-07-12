@@ -16,11 +16,6 @@ class DescribeRecordsRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $type;
 
     /**
@@ -64,7 +59,6 @@ class DescribeRecordsRequest extends Model
     public $pageNum;
     protected $_name = [
         'ownerId'       => 'OwnerId',
-        'showLog'       => 'ShowLog',
         'type'          => 'Type',
         'streamId'      => 'StreamId',
         'startTime'     => 'StartTime',
@@ -85,9 +79,6 @@ class DescribeRecordsRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -130,9 +121,6 @@ class DescribeRecordsRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -16,11 +16,6 @@ class ModifyDeviceRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $id;
 
     /**
@@ -124,7 +119,6 @@ class ModifyDeviceRequest extends Model
     public $params;
     protected $_name = [
         'ownerId'     => 'OwnerId',
-        'showLog'     => 'ShowLog',
         'id'          => 'Id',
         'name'        => 'Name',
         'description' => 'Description',
@@ -157,9 +151,6 @@ class ModifyDeviceRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -238,9 +229,6 @@ class ModifyDeviceRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

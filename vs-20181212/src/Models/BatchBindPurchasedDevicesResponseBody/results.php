@@ -11,6 +11,11 @@ class results extends Model
     /**
      * @var string
      */
+    public $error;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -22,16 +27,11 @@ class results extends Model
      * @var string
      */
     public $region;
-
-    /**
-     * @var string
-     */
-    public $error;
     protected $_name = [
+        'error'    => 'Error',
         'groupId'  => 'GroupId',
         'deviceId' => 'DeviceId',
         'region'   => 'Region',
-        'error'    => 'Error',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class results extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->error) {
+            $res['Error'] = $this->error;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -49,9 +52,6 @@ class results extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
-        }
-        if (null !== $this->error) {
-            $res['Error'] = $this->error;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Error'])) {
+            $model->error = $map['Error'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
@@ -73,9 +76,6 @@ class results extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
-        }
-        if (isset($map['Error'])) {
-            $model->error = $map['Error'];
         }
 
         return $model;

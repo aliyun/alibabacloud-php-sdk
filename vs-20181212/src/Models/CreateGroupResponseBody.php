@@ -11,6 +11,11 @@ class CreateGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $gbId;
+
+    /**
+     * @var string
+     */
     public $gbIp;
 
     /**
@@ -19,25 +24,20 @@ class CreateGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $gbId;
+    public $gbPort;
 
     /**
      * @var string
      */
     public $id;
-
-    /**
-     * @var int
-     */
-    public $gbPort;
     protected $_name = [
+        'gbId'      => 'GbId',
         'gbIp'      => 'GbIp',
         'requestId' => 'RequestId',
-        'gbId'      => 'GbId',
-        'id'        => 'Id',
         'gbPort'    => 'GbPort',
+        'id'        => 'Id',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->gbId) {
+            $res['GbId'] = $this->gbId;
+        }
         if (null !== $this->gbIp) {
             $res['GbIp'] = $this->gbIp;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->gbId) {
-            $res['GbId'] = $this->gbId;
+        if (null !== $this->gbPort) {
+            $res['GbPort'] = $this->gbPort;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->gbPort) {
-            $res['GbPort'] = $this->gbPort;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GbId'])) {
+            $model->gbId = $map['GbId'];
+        }
         if (isset($map['GbIp'])) {
             $model->gbIp = $map['GbIp'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['GbId'])) {
-            $model->gbId = $map['GbId'];
+        if (isset($map['GbPort'])) {
+            $model->gbPort = $map['GbPort'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['GbPort'])) {
-            $model->gbPort = $map['GbPort'];
         }
 
         return $model;

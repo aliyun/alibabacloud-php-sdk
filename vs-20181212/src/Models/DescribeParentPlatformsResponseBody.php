@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeParentPlatformsResponseBody extends Model
 {
     /**
-     * @var platforms[]
-     */
-    public $platforms;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var int
      */
     public $pageNum;
@@ -37,14 +27,24 @@ class DescribeParentPlatformsResponseBody extends Model
     /**
      * @var int
      */
+    public $totalCount;
+
+    /**
+     * @var int
+     */
     public $pageCount;
+
+    /**
+     * @var platforms[]
+     */
+    public $platforms;
     protected $_name = [
-        'platforms'  => 'Platforms',
-        'totalCount' => 'TotalCount',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
         'pageCount'  => 'PageCount',
+        'platforms'  => 'Platforms',
     ];
 
     public function validate()
@@ -54,18 +54,6 @@ class DescribeParentPlatformsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->platforms) {
-            $res['Platforms'] = [];
-            if (null !== $this->platforms && \is_array($this->platforms)) {
-                $n = 0;
-                foreach ($this->platforms as $item) {
-                    $res['Platforms'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -75,8 +63,20 @@ class DescribeParentPlatformsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
+        }
+        if (null !== $this->platforms) {
+            $res['Platforms'] = [];
+            if (null !== $this->platforms && \is_array($this->platforms)) {
+                $n = 0;
+                foreach ($this->platforms as $item) {
+                    $res['Platforms'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -90,18 +90,6 @@ class DescribeParentPlatformsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Platforms'])) {
-            if (!empty($map['Platforms'])) {
-                $model->platforms = [];
-                $n                = 0;
-                foreach ($map['Platforms'] as $item) {
-                    $model->platforms[$n++] = null !== $item ? platforms::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -111,8 +99,20 @@ class DescribeParentPlatformsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];
+        }
+        if (isset($map['Platforms'])) {
+            if (!empty($map['Platforms'])) {
+                $model->platforms = [];
+                $n                = 0;
+                foreach ($map['Platforms'] as $item) {
+                    $model->platforms[$n++] = null !== $item ? platforms::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -16,11 +16,6 @@ class CreateGroupRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -94,7 +89,6 @@ class CreateGroupRequest extends Model
     public $captureOssPath;
     protected $_name = [
         'ownerId'          => 'OwnerId',
-        'showLog'          => 'ShowLog',
         'name'             => 'Name',
         'description'      => 'Description',
         'app'              => 'App',
@@ -121,9 +115,6 @@ class CreateGroupRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -184,9 +175,6 @@ class CreateGroupRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
