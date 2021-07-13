@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CancelClusterUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterRequest;
@@ -1165,6 +1167,55 @@ class CS extends OpenApiClient
         ]);
 
         return DescribeAddonsResponse::fromMap($this->doROARequest('DescribeAddons', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/components/metadata', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string                         $ClusterId
+     * @param CreateAutoscalingConfigRequest $request
+     *
+     * @return CreateAutoscalingConfigResponse
+     */
+    public function createAutoscalingConfig($ClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAutoscalingConfigWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $ClusterId
+     * @param CreateAutoscalingConfigRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAutoscalingConfigResponse
+     */
+    public function createAutoscalingConfigWithOptions($ClusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->coolDownDuration)) {
+            @$body['cool_down_duration'] = $request->coolDownDuration;
+        }
+        if (!Utils::isUnset($request->unneededDuration)) {
+            @$body['unneeded_duration'] = $request->unneededDuration;
+        }
+        if (!Utils::isUnset($request->utilizationThreshold)) {
+            @$body['utilization_threshold'] = $request->utilizationThreshold;
+        }
+        if (!Utils::isUnset($request->gpuUtilizationThreshold)) {
+            @$body['gpu_utilization_threshold'] = $request->gpuUtilizationThreshold;
+        }
+        if (!Utils::isUnset($request->scanInterval)) {
+            @$body['scan_interval'] = $request->scanInterval;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return CreateAutoscalingConfigResponse::fromMap($this->doROARequest('CreateAutoscalingConfig', '2015-12-15', 'HTTPS', 'POST', 'AK', '/cluster/' . $ClusterId . '/autoscale/config/', 'none', $req, $runtime));
     }
 
     /**
