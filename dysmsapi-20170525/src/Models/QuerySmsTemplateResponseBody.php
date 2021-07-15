@@ -11,7 +11,7 @@ class QuerySmsTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $templateCode;
+    public $templateContent;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class QuerySmsTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
+    public $templateCode;
+
+    /**
+     * @var int
+     */
+    public $templateStatus;
 
     /**
      * @var string
      */
-    public $templateContent;
-
-    /**
-     * @var string
-     */
-    public $templateName;
+    public $code;
 
     /**
      * @var int
@@ -41,7 +41,12 @@ class QuerySmsTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $templateName;
 
     /**
      * @var string
@@ -52,22 +57,17 @@ class QuerySmsTemplateResponseBody extends Model
      * @var string
      */
     public $reason;
-
-    /**
-     * @var int
-     */
-    public $templateStatus;
     protected $_name = [
-        'templateCode'    => 'TemplateCode',
-        'requestId'       => 'RequestId',
-        'message'         => 'Message',
         'templateContent' => 'TemplateContent',
-        'templateName'    => 'TemplateName',
-        'templateType'    => 'TemplateType',
+        'requestId'       => 'RequestId',
+        'templateCode'    => 'TemplateCode',
+        'templateStatus'  => 'TemplateStatus',
         'code'            => 'Code',
+        'templateType'    => 'TemplateType',
+        'message'         => 'Message',
+        'templateName'    => 'TemplateName',
         'createDate'      => 'CreateDate',
         'reason'          => 'Reason',
-        'templateStatus'  => 'TemplateStatus',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class QuerySmsTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateCode) {
-            $res['TemplateCode'] = $this->templateCode;
+        if (null !== $this->templateContent) {
+            $res['TemplateContent'] = $this->templateContent;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->templateCode) {
+            $res['TemplateCode'] = $this->templateCode;
         }
-        if (null !== $this->templateContent) {
-            $res['TemplateContent'] = $this->templateContent;
+        if (null !== $this->templateStatus) {
+            $res['TemplateStatus'] = $this->templateStatus;
         }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
-        }
-        if (null !== $this->templateStatus) {
-            $res['TemplateStatus'] = $this->templateStatus;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class QuerySmsTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateCode'])) {
-            $model->templateCode = $map['TemplateCode'];
+        if (isset($map['TemplateContent'])) {
+            $model->templateContent = $map['TemplateContent'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['TemplateCode'])) {
+            $model->templateCode = $map['TemplateCode'];
         }
-        if (isset($map['TemplateContent'])) {
-            $model->templateContent = $map['TemplateContent'];
+        if (isset($map['TemplateStatus'])) {
+            $model->templateStatus = $map['TemplateStatus'];
         }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
-        }
-        if (isset($map['TemplateStatus'])) {
-            $model->templateStatus = $map['TemplateStatus'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteShortUrlResponse extends Model
+class SendMessageToGlobeResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DeleteShortUrlResponse extends Model
     public $headers;
 
     /**
-     * @var DeleteShortUrlResponseBody
+     * @var SendMessageToGlobeResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DeleteShortUrlResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteShortUrlResponse
+     * @return SendMessageToGlobeResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DeleteShortUrlResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DeleteShortUrlResponseBody::fromMap($map['body']);
+            $model->body = SendMessageToGlobeResponseBody::fromMap($map['body']);
         }
 
         return $model;

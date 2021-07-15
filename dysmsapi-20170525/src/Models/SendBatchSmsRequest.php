@@ -54,7 +54,7 @@ class SendBatchSmsRequest extends Model
         'phoneNumberJson'      => 'PhoneNumberJson',
         'signNameJson'         => 'SignNameJson',
         'templateCode'         => 'TemplateCode',
-        'templateParamJson'    => 'templateParamJson',
+        'templateParamJson'    => 'TemplateParamJson',
         'smsUpExtendCodeJson'  => 'SmsUpExtendCodeJson',
     ];
 
@@ -84,7 +84,7 @@ class SendBatchSmsRequest extends Model
             $res['TemplateCode'] = $this->templateCode;
         }
         if (null !== $this->templateParamJson) {
-            $res['templateParamJson'] = $this->templateParamJson;
+            $res['TemplateParamJson'] = $this->templateParamJson;
         }
         if (null !== $this->smsUpExtendCodeJson) {
             $res['SmsUpExtendCodeJson'] = $this->smsUpExtendCodeJson;
@@ -119,8 +119,8 @@ class SendBatchSmsRequest extends Model
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
         }
-        if (isset($map['templateParamJson'])) {
-            $model->templateParamJson = $map['templateParamJson'];
+        if (isset($map['TemplateParamJson'])) {
+            $model->templateParamJson = $map['TemplateParamJson'];
         }
         if (isset($map['SmsUpExtendCodeJson'])) {
             $model->smsUpExtendCodeJson = $map['SmsUpExtendCodeJson'];

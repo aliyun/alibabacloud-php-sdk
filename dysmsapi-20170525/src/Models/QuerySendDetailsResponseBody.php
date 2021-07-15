@@ -12,7 +12,7 @@ class QuerySendDetailsResponseBody extends Model
     /**
      * @var string
      */
-    public $totalCount;
+    public $code;
 
     /**
      * @var string
@@ -27,17 +27,17 @@ class QuerySendDetailsResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $totalCount;
 
     /**
      * @var smsSendDetailDTOs
      */
     public $smsSendDetailDTOs;
     protected $_name = [
-        'totalCount'        => 'TotalCount',
+        'code'              => 'Code',
         'message'           => 'Message',
         'requestId'         => 'RequestId',
-        'code'              => 'Code',
+        'totalCount'        => 'TotalCount',
         'smsSendDetailDTOs' => 'SmsSendDetailDTOs',
     ];
 
@@ -48,8 +48,8 @@ class QuerySendDetailsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -57,8 +57,8 @@ class QuerySendDetailsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->smsSendDetailDTOs) {
             $res['SmsSendDetailDTOs'] = null !== $this->smsSendDetailDTOs ? $this->smsSendDetailDTOs->toMap() : null;
@@ -75,8 +75,8 @@ class QuerySendDetailsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -84,8 +84,8 @@ class QuerySendDetailsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['SmsSendDetailDTOs'])) {
             $model->smsSendDetailDTOs = smsSendDetailDTOs::fromMap($map['SmsSendDetailDTOs']);

@@ -1,3 +1,6 @@
+2021-07-15 Version: 1.0.2
+- Generated php 2017-05-25 for Dysmsapi.
+
 2021-01-04 Version: 1.0.1
 - AMP Version Change.
 

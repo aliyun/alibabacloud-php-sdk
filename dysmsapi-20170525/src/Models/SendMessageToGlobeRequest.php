@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteShortUrlRequest extends Model
+class SendMessageToGlobeRequest extends Model
 {
     /**
      * @var int
@@ -26,18 +26,30 @@ class DeleteShortUrlRequest extends Model
     /**
      * @var string
      */
-    public $sourceUrl;
+    public $to;
 
     /**
      * @var string
      */
-    public $prodCode;
+    public $from;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'sourceUrl'            => 'SourceUrl',
-        'prodCode'             => 'ProdCode',
+        'to'                   => 'To',
+        'from'                 => 'From',
+        'message'              => 'Message',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -56,11 +68,17 @@ class DeleteShortUrlRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->sourceUrl) {
-            $res['SourceUrl'] = $this->sourceUrl;
+        if (null !== $this->to) {
+            $res['To'] = $this->to;
         }
-        if (null !== $this->prodCode) {
-            $res['ProdCode'] = $this->prodCode;
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -69,7 +87,7 @@ class DeleteShortUrlRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteShortUrlRequest
+     * @return SendMessageToGlobeRequest
      */
     public static function fromMap($map = [])
     {
@@ -83,11 +101,17 @@ class DeleteShortUrlRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['SourceUrl'])) {
-            $model->sourceUrl = $map['SourceUrl'];
+        if (isset($map['To'])) {
+            $model->to = $map['To'];
         }
-        if (isset($map['ProdCode'])) {
-            $model->prodCode = $map['ProdCode'];
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

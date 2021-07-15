@@ -5,16 +5,10 @@
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddShortUrlRequest;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateResponse;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateShortParamRequest;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateShortParamResponse;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlRequest;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsTemplateRequest;
@@ -25,14 +19,14 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ModifySmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsResponse;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlRequest;
-use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchSmsResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendMessageToGlobeRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendMessageToGlobeResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -47,21 +41,10 @@ class Dysmsapi extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'central';
         $this->_endpointMap  = [
-            'ap-northeast-1'     => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2-pop' => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'ap-south-1'         => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-1'     => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'     => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3'     => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5'     => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'cn-beijing'         => 'dysmsapi-proxy.cn-beijing.aliyuncs.com',
-            'eu-central-1'       => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'eu-west-1'          => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'eu-west-1-oxs'      => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'me-east-1'          => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'rus-west-1-pop'     => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'us-east-1'          => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'us-west-1'          => 'dysmsapi.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-1' => 'dysmsapi.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'dysmsapi-xman.ap-southeast-5.aliyuncs.com',
+            'cn-beijing'     => 'dysmsapi-proxy.cn-beijing.aliyuncs.com',
+            'cn-hongkong'    => 'dysmsapi-xman.cn-hongkong.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dysmsapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -88,34 +71,6 @@ class Dysmsapi extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * @param AddShortUrlRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return AddShortUrlResponse
-     */
-    public function addShortUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddShortUrlResponse::fromMap($this->doRPCRequest('AddShortUrl', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddShortUrlRequest $request
-     *
-     * @return AddShortUrlResponse
-     */
-    public function addShortUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addShortUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -172,62 +127,6 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addSmsTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateShortParamRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateShortParamResponse
-     */
-    public function createShortParamWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateShortParamResponse::fromMap($this->doRPCRequest('CreateShortParam', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateShortParamRequest $request
-     *
-     * @return CreateShortParamResponse
-     */
-    public function createShortParam($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createShortParamWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteShortUrlRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteShortUrlResponse
-     */
-    public function deleteShortUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteShortUrlResponse::fromMap($this->doRPCRequest('DeleteShortUrl', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteShortUrlRequest $request
-     *
-     * @return DeleteShortUrlResponse
-     */
-    public function deleteShortUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteShortUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -371,34 +270,6 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryShortUrlRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return QueryShortUrlResponse
-     */
-    public function queryShortUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryShortUrlResponse::fromMap($this->doRPCRequest('QueryShortUrl', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryShortUrlRequest $request
-     *
-     * @return QueryShortUrlResponse
-     */
-    public function queryShortUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryShortUrlWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QuerySmsSignRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -480,6 +351,34 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendBatchSmsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendMessageToGlobeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SendMessageToGlobeResponse
+     */
+    public function sendMessageToGlobeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SendMessageToGlobeResponse::fromMap($this->doRPCRequest('SendMessageToGlobe', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SendMessageToGlobeRequest $request
+     *
+     * @return SendMessageToGlobeResponse
+     */
+    public function sendMessageToGlobe($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendMessageToGlobeWithOptions($request, $runtime);
     }
 
     /**
