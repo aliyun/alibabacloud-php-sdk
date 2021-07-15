@@ -4,18 +4,25 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateResponseBody\template;
 use AlibabaCloud\Tea\Model;
 
-class UpdateTemplateResponseBody extends Model
+class GetTemplateResponseBody extends Model
 {
     /**
-     * @description 请求ID
+     * @description Id of the request
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var template
+     */
+    public $template;
     protected $_name = [
         'requestId' => 'RequestId',
+        'template'  => 'Template',
     ];
 
     public function validate()
@@ -28,6 +35,9 @@ class UpdateTemplateResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->template) {
+            $res['Template'] = null !== $this->template ? $this->template->toMap() : null;
+        }
 
         return $res;
     }
@@ -35,13 +45,16 @@ class UpdateTemplateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateTemplateResponseBody
+     * @return GetTemplateResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Template'])) {
+            $model->template = template::fromMap($map['Template']);
         }
 
         return $model;

@@ -2,14 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateResponseBody;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class template extends Model
 {
     /**
-     * @description 模板Id
+     * @description 模板ID
      *
      * @var string
      */
@@ -30,21 +30,14 @@ class template extends Model
     public $type;
 
     /**
-     * @description 参见Timeline模板Config文档
+     * @description 模板配置
      *
      * @var string
      */
     public $config;
 
     /**
-     * @description 模板封面
-     *
-     * @var string
-     */
-    public $coverUrl;
-
-    /**
-     * @description 预览视频媒资id
+     * @description 预览素材
      *
      * @var string
      */
@@ -58,28 +51,59 @@ class template extends Model
     public $status;
 
     /**
-     * @description 模板创建来源
+     * @description 创建来源
      *
      * @var string
      */
     public $createSource;
 
     /**
-     * @description 模板修改来源
+     * @description 修改来源
      *
      * @var string
      */
     public $modifiedSource;
+
+    /**
+     * @description 预览素材状态
+     *
+     * @var string
+     */
+    public $previewMediaStatus;
+
+    /**
+     * @description 创建时间
+     *
+     * @var string
+     */
+    public $creationTime;
+
+    /**
+     * @description 修改时间
+     *
+     * @var string
+     */
+    public $modifiedTime;
+
+    /**
+     * @description 封面URL
+     *
+     * @var string
+     */
+    public $coverURL;
     protected $_name = [
-        'templateId'     => 'TemplateId',
-        'name'           => 'Name',
-        'type'           => 'Type',
-        'config'         => 'Config',
-        'coverUrl'       => 'CoverUrl',
-        'previewMedia'   => 'PreviewMedia',
-        'status'         => 'Status',
-        'createSource'   => 'CreateSource',
-        'modifiedSource' => 'ModifiedSource',
+        'templateId'         => 'TemplateId',
+        'name'               => 'Name',
+        'type'               => 'Type',
+        'config'             => 'Config',
+        'previewMedia'       => 'PreviewMedia',
+        'status'             => 'Status',
+        'createSource'       => 'CreateSource',
+        'modifiedSource'     => 'ModifiedSource',
+        'previewMediaStatus' => 'PreviewMediaStatus',
+        'creationTime'       => 'CreationTime',
+        'modifiedTime'       => 'ModifiedTime',
+        'coverURL'           => 'CoverURL',
     ];
 
     public function validate()
@@ -101,9 +125,6 @@ class template extends Model
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
-        if (null !== $this->coverUrl) {
-            $res['CoverUrl'] = $this->coverUrl;
-        }
         if (null !== $this->previewMedia) {
             $res['PreviewMedia'] = $this->previewMedia;
         }
@@ -115,6 +136,18 @@ class template extends Model
         }
         if (null !== $this->modifiedSource) {
             $res['ModifiedSource'] = $this->modifiedSource;
+        }
+        if (null !== $this->previewMediaStatus) {
+            $res['PreviewMediaStatus'] = $this->previewMediaStatus;
+        }
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->coverURL) {
+            $res['CoverURL'] = $this->coverURL;
         }
 
         return $res;
@@ -140,9 +173,6 @@ class template extends Model
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
-        if (isset($map['CoverUrl'])) {
-            $model->coverUrl = $map['CoverUrl'];
-        }
         if (isset($map['PreviewMedia'])) {
             $model->previewMedia = $map['PreviewMedia'];
         }
@@ -154,6 +184,18 @@ class template extends Model
         }
         if (isset($map['ModifiedSource'])) {
             $model->modifiedSource = $map['ModifiedSource'];
+        }
+        if (isset($map['PreviewMediaStatus'])) {
+            $model->previewMediaStatus = $map['PreviewMediaStatus'];
+        }
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['CoverURL'])) {
+            $model->coverURL = $map['CoverURL'];
         }
 
         return $model;

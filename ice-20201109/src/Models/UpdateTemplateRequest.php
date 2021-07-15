@@ -9,53 +9,61 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
+     * @description 模板ID
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description 模板名称
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 参见Timeline模板Config文档
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description 模板封面
+     *
      * @var string
      */
     public $coverUrl;
 
     /**
+     * @description 预览视频媒资id
+     *
      * @var string
      */
     public $previewMedia;
 
     /**
+     * @description 模板状态
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description 修改来源，默认OpenAPI
+     *
      * @var string
      */
     public $source;
-
-    /**
-     * @var string
-     */
-    public $relatedMediaids;
     protected $_name = [
-        'templateId'      => 'TemplateId',
-        'name'            => 'Name',
-        'config'          => 'Config',
-        'coverUrl'        => 'CoverUrl',
-        'previewMedia'    => 'PreviewMedia',
-        'status'          => 'Status',
-        'source'          => 'Source',
-        'relatedMediaids' => 'RelatedMediaids',
+        'templateId'   => 'TemplateId',
+        'name'         => 'Name',
+        'config'       => 'Config',
+        'coverUrl'     => 'CoverUrl',
+        'previewMedia' => 'PreviewMedia',
+        'status'       => 'Status',
+        'source'       => 'Source',
     ];
 
     public function validate()
@@ -85,9 +93,6 @@ class UpdateTemplateRequest extends Model
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
-        }
-        if (null !== $this->relatedMediaids) {
-            $res['RelatedMediaids'] = $this->relatedMediaids;
         }
 
         return $res;
@@ -121,9 +126,6 @@ class UpdateTemplateRequest extends Model
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
-        }
-        if (isset($map['RelatedMediaids'])) {
-            $model->relatedMediaids = $map['RelatedMediaids'];
         }
 
         return $model;

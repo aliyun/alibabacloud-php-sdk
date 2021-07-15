@@ -9,37 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
+     * @description 模板类型
+     *
      * @var string
      */
     public $type;
 
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
+     * @description 模板状态
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description 创建来源
+     *
      * @var string
      */
     public $createSource;
 
     /**
+     * @description 搜索关键词，可以根据模板id和title搜索
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description 排序参数，默认根据创建时间倒序
+     *
      * @var string
      */
     public $sortType;
     protected $_name = [
         'type'         => 'Type',
-        'nextToken'    => 'NextToken',
         'status'       => 'Status',
         'createSource' => 'CreateSource',
         'keyword'      => 'Keyword',
@@ -55,9 +59,6 @@ class ListTemplatesRequest extends Model
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -85,9 +86,6 @@ class ListTemplatesRequest extends Model
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -9,71 +9,88 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
+     * @description 模板ID
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description 模板名称
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 模板类型
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description 模板配置
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description 预览素材
+     *
      * @var string
      */
     public $previewMedia;
 
     /**
+     * @description 模板状态
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description 创建来源
+     *
      * @var string
      */
     public $createSource;
 
     /**
+     * @description 修改来源
+     *
      * @var string
      */
     public $modifiedSource;
 
     /**
+     * @description 预览素材状态
+     *
      * @var string
      */
     public $previewMediaStatus;
 
     /**
+     * @description 创建时间
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description 修改时间
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
-     * @var string
-     */
-    public $coverURL;
-
-    /**
-     * @description ClipsParam
+     * @description 封面URL
      *
      * @var string
      */
-    public $clipsParam;
+    public $coverURL;
     protected $_name = [
         'templateId'         => 'TemplateId',
         'name'               => 'Name',
@@ -87,7 +104,6 @@ class templates extends Model
         'creationTime'       => 'CreationTime',
         'modifiedTime'       => 'ModifiedTime',
         'coverURL'           => 'CoverURL',
-        'clipsParam'         => 'ClipsParam',
     ];
 
     public function validate()
@@ -132,9 +148,6 @@ class templates extends Model
         }
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
-        }
-        if (null !== $this->clipsParam) {
-            $res['ClipsParam'] = $this->clipsParam;
         }
 
         return $res;
@@ -183,9 +196,6 @@ class templates extends Model
         }
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
-        }
-        if (isset($map['ClipsParam'])) {
-            $model->clipsParam = $map['ClipsParam'];
         }
 
         return $model;

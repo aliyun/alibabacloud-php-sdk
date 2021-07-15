@@ -9,51 +9,61 @@ use AlibabaCloud\Tea\Model;
 class AddTemplateRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $templateId;
-
-    /**
+     * @description 模板名称
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 模板类型，取值范围：Timeline
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description 参见Timeline模板Config文档
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description 模板封面
+     *
      * @var string
      */
     public $coverUrl;
 
     /**
+     * @description 预览视频媒资id
+     *
      * @var string
      */
     public $previewMedia;
 
     /**
+     * @description 模板状态
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description 模板创建来源，默认OpenAPI
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description 模板相关素材，模板编辑器使用
+     *
      * @var string
      */
     public $relatedMediaids;
     protected $_name = [
-        'templateId'      => 'TemplateId',
         'name'            => 'Name',
         'type'            => 'Type',
         'config'          => 'Config',
@@ -71,9 +81,6 @@ class AddTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -110,9 +117,6 @@ class AddTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

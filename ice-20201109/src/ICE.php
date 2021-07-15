@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaBasicInfosRequest;
@@ -457,6 +459,35 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setEventCallbackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTemplateRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetTemplateResponse
+     */
+    public function getTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetTemplateResponse::fromMap($this->doRPCRequest('GetTemplate', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetTemplateRequest $request
+     *
+     * @return GetTemplateResponse
+     */
+    public function getTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTemplateWithOptions($request, $runtime);
     }
 
     /**

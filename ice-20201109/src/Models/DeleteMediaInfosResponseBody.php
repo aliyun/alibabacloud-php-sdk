@@ -18,7 +18,7 @@ class DeleteMediaInfosResponseBody extends Model
     /**
      * @description 出现获取错误的ID或inputUr
      *
-     * @var string
+     * @var string[]
      */
     public $ignoredList;
     protected $_name = [
@@ -55,7 +55,9 @@ class DeleteMediaInfosResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['IgnoredList'])) {
-            $model->ignoredList = $map['IgnoredList'];
+            if (!empty($map['IgnoredList'])) {
+                $model->ignoredList = $map['IgnoredList'];
+            }
         }
 
         return $model;

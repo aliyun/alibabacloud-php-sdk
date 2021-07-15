@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteTemplateRequest extends Model
+class GetTemplateRequest extends Model
 {
     /**
-     * @description 模板id，多个id用英文逗号隔开
+     * @description 模板Id
      *
      * @var string
      */
-    public $templateIds;
+    public $templateId;
     protected $_name = [
-        'templateIds' => 'TemplateIds',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class DeleteTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateIds) {
-            $res['TemplateIds'] = $this->templateIds;
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class DeleteTemplateRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteTemplateRequest
+     * @return GetTemplateRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateIds'])) {
-            $model->templateIds = $map['TemplateIds'];
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

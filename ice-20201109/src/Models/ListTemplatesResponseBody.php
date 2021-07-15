@@ -10,32 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description 请求ID
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description TotalCount本次请求条件下的数据总量，此参数为可选参数，默认可不返回
+     * @description 本次请求条件下的数据总量。
      *
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @description 表示当前调用返回读取到的位置，空代表数据已经读取完毕
-     *
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @description MaxResults本次请求所返回的最大记录条数
-     *
-     * @var int
-     */
-    public $maxResults;
 
     /**
      * @var templates[]
@@ -44,8 +30,6 @@ class ListTemplatesResponseBody extends Model
     protected $_name = [
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'nextToken'  => 'NextToken',
-        'maxResults' => 'MaxResults',
         'templates'  => 'Templates',
     ];
 
@@ -61,12 +45,6 @@ class ListTemplatesResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->templates) {
             $res['Templates'] = [];
@@ -94,12 +72,6 @@ class ListTemplatesResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['Templates'])) {
             if (!empty($map['Templates'])) {
