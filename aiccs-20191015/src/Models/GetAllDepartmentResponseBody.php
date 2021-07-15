@@ -4,47 +4,59 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetHotlineAgentDetailReportResponseBody\data;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetAllDepartmentResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetHotlineAgentDetailReportResponseBody extends Model
+class GetAllDepartmentResponseBody extends Model
 {
     /**
+     * @description message
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description requestId
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var data
+     * @description httpStatusCode
+     *
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
+     * @description data
+     *
+     * @var data[]
      */
     public $data;
 
     /**
+     * @description code
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @var string
+     * @description success
+     *
+     * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $httpStatusCode;
     protected $_name = [
         'message'        => 'Message',
         'requestId'      => 'RequestId',
+        'httpStatusCode' => 'HttpStatusCode',
         'data'           => 'Data',
         'code'           => 'Code',
         'success'        => 'Success',
-        'httpStatusCode' => 'HttpStatusCode',
     ];
 
     public function validate()
@@ -60,17 +72,23 @@ class GetHotlineAgentDetailReportResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
 
         return $res;
@@ -79,7 +97,7 @@ class GetHotlineAgentDetailReportResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetHotlineAgentDetailReportResponseBody
+     * @return GetAllDepartmentResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -90,17 +108,23 @@ class GetHotlineAgentDetailReportResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
         }
 
         return $model;

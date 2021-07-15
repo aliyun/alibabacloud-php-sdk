@@ -6,48 +6,56 @@ namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QuerySkillGroupsRequest extends Model
+class QueryHotlineNumberRequest extends Model
 {
     /**
+     * @description 实例id
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description 当前页码
+     *
      * @var int
      */
-    public $pageNo;
+    public $currentPage;
 
     /**
+     * @description 每页大小
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 号码（支持模糊查询）
+     *
      * @var string
      */
-    public $clientToken;
+    public $hotlineNumber;
 
     /**
-     * @description 技能组类型（1：热线，2：在线，4：工单）
-     *
-     * @var int
-     */
-    public $channelType;
-
-    /**
-     * @description 部门ID
+     * @description 部门id（技能组分组）
      *
      * @var int
      */
     public $departmentId;
+
+    /**
+     * @description 技能组列表
+     *
+     * @var int[]
+     */
+    public $groupIds;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'pageNo'       => 'PageNo',
-        'pageSize'     => 'PageSize',
-        'clientToken'  => 'ClientToken',
-        'channelType'  => 'ChannelType',
-        'departmentId' => 'DepartmentId',
+        'instanceId'    => 'InstanceId',
+        'currentPage'   => 'CurrentPage',
+        'pageSize'      => 'PageSize',
+        'hotlineNumber' => 'HotlineNumber',
+        'departmentId'  => 'DepartmentId',
+        'groupIds'      => 'GroupIds',
     ];
 
     public function validate()
@@ -60,20 +68,20 @@ class QuerySkillGroupsRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->channelType) {
-            $res['ChannelType'] = $this->channelType;
+        if (null !== $this->hotlineNumber) {
+            $res['HotlineNumber'] = $this->hotlineNumber;
         }
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
+        }
+        if (null !== $this->groupIds) {
+            $res['GroupIds'] = $this->groupIds;
         }
 
         return $res;
@@ -82,7 +90,7 @@ class QuerySkillGroupsRequest extends Model
     /**
      * @param array $map
      *
-     * @return QuerySkillGroupsRequest
+     * @return QueryHotlineNumberRequest
      */
     public static function fromMap($map = [])
     {
@@ -90,20 +98,22 @@ class QuerySkillGroupsRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['ChannelType'])) {
-            $model->channelType = $map['ChannelType'];
+        if (isset($map['HotlineNumber'])) {
+            $model->hotlineNumber = $map['HotlineNumber'];
         }
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
+        }
+        if (isset($map['GroupIds'])) {
+            if (!empty($map['GroupIds'])) {
+                $model->groupIds = $map['GroupIds'];
+            }
         }
 
         return $model;

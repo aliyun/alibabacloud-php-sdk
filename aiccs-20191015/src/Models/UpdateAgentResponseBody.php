@@ -27,11 +27,17 @@ class UpdateAgentResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
     protected $_name = [
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'code'      => 'Code',
-        'success'   => 'Success',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
+        'code'           => 'Code',
+        'success'        => 'Success',
+        'httpStatusCode' => 'HttpStatusCode',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class UpdateAgentResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class UpdateAgentResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
 
         return $model;

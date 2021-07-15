@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetHotlineAgentDetailReportResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetHotlineAgentDetailReportResponseBody extends Model
+class AiccsSmartCallResponseBody extends Model
 {
     /**
      * @var string
@@ -20,7 +19,7 @@ class GetHotlineAgentDetailReportResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data
+     * @var string
      */
     public $data;
 
@@ -28,23 +27,11 @@ class GetHotlineAgentDetailReportResponseBody extends Model
      * @var string
      */
     public $code;
-
-    /**
-     * @var string
-     */
-    public $success;
-
-    /**
-     * @var int
-     */
-    public $httpStatusCode;
     protected $_name = [
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'data'           => 'Data',
-        'code'           => 'Code',
-        'success'        => 'Success',
-        'httpStatusCode' => 'HttpStatusCode',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'data'      => 'Data',
+        'code'      => 'Code',
     ];
 
     public function validate()
@@ -61,16 +48,10 @@ class GetHotlineAgentDetailReportResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
 
         return $res;
@@ -79,7 +60,7 @@ class GetHotlineAgentDetailReportResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetHotlineAgentDetailReportResponseBody
+     * @return AiccsSmartCallResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -91,16 +72,10 @@ class GetHotlineAgentDetailReportResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
         }
 
         return $model;

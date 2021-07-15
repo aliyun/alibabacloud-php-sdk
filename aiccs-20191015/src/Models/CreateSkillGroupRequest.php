@@ -37,6 +37,13 @@ class CreateSkillGroupRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @description 部门ID
+     *
+     * @var int
+     */
+    public $departmentId;
     protected $_name = [
         'instanceId'     => 'InstanceId',
         'skillGroupName' => 'SkillGroupName',
@@ -44,6 +51,7 @@ class CreateSkillGroupRequest extends Model
         'displayName'    => 'DisplayName',
         'channelType'    => 'ChannelType',
         'clientToken'    => 'ClientToken',
+        'departmentId'   => 'DepartmentId',
     ];
 
     public function validate()
@@ -70,6 +78,9 @@ class CreateSkillGroupRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->departmentId) {
+            $res['DepartmentId'] = $this->departmentId;
         }
 
         return $res;
@@ -100,6 +111,9 @@ class CreateSkillGroupRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DepartmentId'])) {
+            $model->departmentId = $map['DepartmentId'];
         }
 
         return $model;
