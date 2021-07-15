@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupServersResponseBody;
+namespace AlibabaCloud\SDK\Alb\V20200616\Models\ReplaceServersInServerGroupRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class servers extends Model
+class addedServers extends Model
 {
     /**
      * @description 描述信息
@@ -16,21 +16,21 @@ class servers extends Model
     public $description;
 
     /**
-     * @description 端口
+     * @description 后端端口号
      *
      * @var int
      */
     public $port;
 
     /**
-     * @description 服务器id
+     * @description 后端服务器id
      *
      * @var string
      */
     public $serverId;
 
     /**
-     * @description 服务器ip
+     * @description 后端服务器ip
      *
      * @var string
      */
@@ -44,34 +44,18 @@ class servers extends Model
     public $serverType;
 
     /**
-     * @description 状态
-     *
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @description 权重
+     * @description 后端服务器权重
      *
      * @var int
      */
     public $weight;
-
-    /**
-     * @description 服务器组id
-     *
-     * @var string
-     */
-    public $serverGroupId;
     protected $_name = [
-        'description'   => 'Description',
-        'port'          => 'Port',
-        'serverId'      => 'ServerId',
-        'serverIp'      => 'ServerIp',
-        'serverType'    => 'ServerType',
-        'status'        => 'Status',
-        'weight'        => 'Weight',
-        'serverGroupId' => 'ServerGroupId',
+        'description' => 'Description',
+        'port'        => 'Port',
+        'serverId'    => 'ServerId',
+        'serverIp'    => 'ServerIp',
+        'serverType'  => 'ServerType',
+        'weight'      => 'Weight',
     ];
 
     public function validate()
@@ -96,14 +80,8 @@ class servers extends Model
         if (null !== $this->serverType) {
             $res['ServerType'] = $this->serverType;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
-        }
-        if (null !== $this->serverGroupId) {
-            $res['ServerGroupId'] = $this->serverGroupId;
         }
 
         return $res;
@@ -112,7 +90,7 @@ class servers extends Model
     /**
      * @param array $map
      *
-     * @return servers
+     * @return addedServers
      */
     public static function fromMap($map = [])
     {
@@ -132,14 +110,8 @@ class servers extends Model
         if (isset($map['ServerType'])) {
             $model->serverType = $map['ServerType'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
-        }
-        if (isset($map['ServerGroupId'])) {
-            $model->serverGroupId = $map['ServerGroupId'];
         }
 
         return $model;

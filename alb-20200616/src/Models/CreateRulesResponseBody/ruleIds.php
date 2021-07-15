@@ -14,8 +14,16 @@ class ruleIds extends Model
      * @var string
      */
     public $ruleId;
+
+    /**
+     * @description 转发规则优先级
+     *
+     * @var int
+     */
+    public $priority;
     protected $_name = [
-        'ruleId' => 'RuleId',
+        'ruleId'   => 'RuleId',
+        'priority' => 'Priority',
     ];
 
     public function validate()
@@ -27,6 +35,9 @@ class ruleIds extends Model
         $res = [];
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         return $res;
@@ -42,6 +53,9 @@ class ruleIds extends Model
         $model = new self();
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         return $model;

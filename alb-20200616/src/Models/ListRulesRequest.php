@@ -35,11 +35,19 @@ class ListRulesRequest extends Model
      * @var string[]
      */
     public $listenerIds;
+
+    /**
+     * @description 实例ID列表
+     *
+     * @var string[]
+     */
+    public $loadBalancerIds;
     protected $_name = [
-        'nextToken'   => 'NextToken',
-        'maxResults'  => 'MaxResults',
-        'ruleIds'     => 'RuleIds',
-        'listenerIds' => 'ListenerIds',
+        'nextToken'       => 'NextToken',
+        'maxResults'      => 'MaxResults',
+        'ruleIds'         => 'RuleIds',
+        'listenerIds'     => 'ListenerIds',
+        'loadBalancerIds' => 'LoadBalancerIds',
     ];
 
     public function validate()
@@ -60,6 +68,9 @@ class ListRulesRequest extends Model
         }
         if (null !== $this->listenerIds) {
             $res['ListenerIds'] = $this->listenerIds;
+        }
+        if (null !== $this->loadBalancerIds) {
+            $res['LoadBalancerIds'] = $this->loadBalancerIds;
         }
 
         return $res;
@@ -87,6 +98,11 @@ class ListRulesRequest extends Model
         if (isset($map['ListenerIds'])) {
             if (!empty($map['ListenerIds'])) {
                 $model->listenerIds = $map['ListenerIds'];
+            }
+        }
+        if (isset($map['LoadBalancerIds'])) {
+            if (!empty($map['LoadBalancerIds'])) {
+                $model->loadBalancerIds = $map['LoadBalancerIds'];
             }
         }
 

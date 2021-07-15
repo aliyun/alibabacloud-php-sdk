@@ -105,6 +105,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\RemoveEntriesFromAclRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\RemoveEntriesFromAclResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\RemoveServersFromServerGroupRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\RemoveServersFromServerGroupResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ReplaceServersInServerGroupRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ReplaceServersInServerGroupResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\StartListenerRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\StartListenerResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\StopListenerRequest;
@@ -127,6 +129,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerEditionRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateLoadBalancerEditionResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRuleAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRuleAttributeResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateSecurityPolicyAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateSecurityPolicyAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest;
@@ -158,13 +162,8 @@ class Alb extends OpenApiClient
             'eu-central-1'   => 'alb.eu-central-1.aliyuncs.com',
             'ap-south-1'     => 'alb.ap-south-1.aliyuncs.com',
             'ap-northeast-1' => 'alb.ap-northeast-1.aliyuncs.com',
-            'ap-southeast-3' => 'alb.ap-southeast-3.aliyuncs.com',
             'cn-chengdu'     => 'alb.cn-chengdu.aliyuncs.com',
-            'cn-huhehaote'   => 'alb.cn-huhehaote.aliyuncs.com',
-            'cn-qingdao'     => 'alb.cn-qingdao.aliyuncs.com',
             'cn-wulanchabu'  => 'alb.cn-wulanchabu.aliyuncs.com',
-            'eu-west-1'      => 'alb.eu-west-1.aliyuncs.com',
-            'us-west-1'      => 'alb.us-west-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('alb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1050,6 +1049,34 @@ class Alb extends OpenApiClient
     }
 
     /**
+     * @param UpdateRulesAttributeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateRulesAttributeResponse
+     */
+    public function updateRulesAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateRulesAttributeResponse::fromMap($this->doRPCRequest('UpdateRulesAttribute', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRulesAttributeRequest $request
+     *
+     * @return UpdateRulesAttributeResponse
+     */
+    public function updateRulesAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRulesAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListListenersRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1635,6 +1662,34 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeServersFromServerGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReplaceServersInServerGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ReplaceServersInServerGroupResponse
+     */
+    public function replaceServersInServerGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ReplaceServersInServerGroupResponse::fromMap($this->doRPCRequest('ReplaceServersInServerGroup', '2020-06-16', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ReplaceServersInServerGroupRequest $request
+     *
+     * @return ReplaceServersInServerGroupResponse
+     */
+    public function replaceServersInServerGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->replaceServersInServerGroupWithOptions($request, $runtime);
     }
 
     /**

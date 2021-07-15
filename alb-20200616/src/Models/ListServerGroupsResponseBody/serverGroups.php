@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody;
 
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\healthCheckConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\stickySessionConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\tags;
 use AlibabaCloud\Tea\Model;
 
 class serverGroups extends Model
@@ -72,6 +73,13 @@ class serverGroups extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @description 标签列表
+     *
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'healthCheckConfig'   => 'HealthCheckConfig',
         'protocol'            => 'Protocol',
@@ -82,6 +90,7 @@ class serverGroups extends Model
         'serverGroupStatus'   => 'ServerGroupStatus',
         'stickySessionConfig' => 'StickySessionConfig',
         'vpcId'               => 'VpcId',
+        'tags'                => 'Tags',
     ];
 
     public function validate()
@@ -117,6 +126,15 @@ class serverGroups extends Model
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -156,6 +174,15 @@ class serverGroups extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

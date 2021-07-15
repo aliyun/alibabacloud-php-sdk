@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupServersRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListServerGroupServersRequest extends Model
@@ -33,11 +34,17 @@ class ListServerGroupServersRequest extends Model
      * @var string[]
      */
     public $serverIds;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'nextToken'     => 'NextToken',
         'maxResults'    => 'MaxResults',
         'serverGroupId' => 'ServerGroupId',
         'serverIds'     => 'ServerIds',
+        'tag'           => 'Tag',
     ];
 
     public function validate()
@@ -58,6 +65,15 @@ class ListServerGroupServersRequest extends Model
         }
         if (null !== $this->serverIds) {
             $res['ServerIds'] = $this->serverIds;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -83,6 +99,15 @@ class ListServerGroupServersRequest extends Model
         if (isset($map['ServerIds'])) {
             if (!empty($map['ServerIds'])) {
                 $model->serverIds = $map['ServerIds'];
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
             }
         }
 
