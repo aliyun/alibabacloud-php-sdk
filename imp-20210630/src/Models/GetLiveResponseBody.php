@@ -20,25 +20,9 @@ class GetLiveResponseBody extends Model
      * @var result
      */
     public $result;
-
-    /**
-     * @description 错误码
-     *
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @description 错误信息
-     *
-     * @var string
-     */
-    public $errorMessage;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'result'       => 'Result',
-        'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
+        'requestId' => 'RequestId',
+        'result'    => 'Result',
     ];
 
     public function validate()
@@ -53,12 +37,6 @@ class GetLiveResponseBody extends Model
         }
         if (null !== $this->result) {
             $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
         }
 
         return $res;
@@ -77,12 +55,6 @@ class GetLiveResponseBody extends Model
         }
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
         }
 
         return $model;

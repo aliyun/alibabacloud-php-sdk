@@ -16,30 +16,14 @@ class GetImpProductStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 错误码
-     *
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @description 错误信息
-     *
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
      * @description 开通状态
      *
      * @var bool
      */
     public $result;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
-        'result'       => 'Result',
+        'requestId' => 'RequestId',
+        'result'    => 'Result',
     ];
 
     public function validate()
@@ -51,12 +35,6 @@ class GetImpProductStatusResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
@@ -75,12 +53,6 @@ class GetImpProductStatusResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
