@@ -5,8 +5,6 @@
 namespace AlibabaCloud\SDK\Tdsr\V20200101;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddBucketRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddBucketResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddProjectRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddProjectResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddRelativePositionRequest;
@@ -15,10 +13,6 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSubSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddSubSceneResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\BucketIsExistRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\BucketIsExistResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckPermissionRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckPermissionResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckResourceRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckResourceResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\CreateProjectRequest;
@@ -35,8 +29,6 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailSubSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailSubSceneResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\DropBucketRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\DropBucketResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DropProjectRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DropProjectResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DropSceneRequest;
@@ -49,6 +41,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotConfigRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotConfigResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotTagRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotTagResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetJobRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetJobResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetLayoutDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetLayoutDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetOriginLayoutDataRequest;
@@ -61,28 +55,18 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetRectifyImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetRectifyImageResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSceneBuildTaskStatusRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSceneBuildTaskStatusResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSceneDataRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSceneDataResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSceneListRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSceneListResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSingleConnDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSingleConnDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSubSceneTaskStatusRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSubSceneTaskStatusResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetTaskStatusRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetTaskStatusResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetUserBucketConfigResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetUserOssStatusResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetWindowConfigRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetWindowConfigResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\IsEnableOssRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\IsEnableOssResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\LabelBuildRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\LabelBuildResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\LinkImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\LinkImageResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListMainScenesRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListMainScenesResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListProjectRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListProjectResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ListSceneRequest;
@@ -99,34 +83,20 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredImageResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishSceneRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectifyImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectifyImageResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectVerticalRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RectVerticalResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveFileRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveFileResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotConfigRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotConfigResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotTagRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotTagResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ScenePublishRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ScenePublishResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\StatisExportSceneInfoRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\StatisExportSceneInfoResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\StatisListSceneInfoRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\StatisListSceneInfoResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\StatisQueryByDayRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\StatisQueryByDayResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\StatisQueryByTypeRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\StatisQueryByTypeResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\TempPreviewRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\TempPreviewResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\TempPreviewStatusRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\TempPreviewStatusResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateBucketRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateBucketResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateConnDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateConnDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateLayoutDataRequest;
@@ -235,34 +205,6 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param GetSceneDataRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetSceneDataResponse
-     */
-    public function getSceneDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSceneDataResponse::fromMap($this->doRPCRequest('GetSceneData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSceneDataRequest $request
-     *
-     * @return GetSceneDataResponse
-     */
-    public function getSceneData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSceneDataWithOptions($request, $runtime);
-    }
-
-    /**
      * @param LinkImageRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -344,34 +286,6 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateConnDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BucketIsExistRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return BucketIsExistResponse
-     */
-    public function bucketIsExistWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BucketIsExistResponse::fromMap($this->doRPCRequest('BucketIsExist', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BucketIsExistRequest $request
-     *
-     * @return BucketIsExistResponse
-     */
-    public function bucketIsExist($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->bucketIsExistWithOptions($request, $runtime);
     }
 
     /**
@@ -767,34 +681,6 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param CheckPermissionRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CheckPermissionResponse
-     */
-    public function checkPermissionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CheckPermissionResponse::fromMap($this->doRPCRequest('CheckPermission', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CheckPermissionRequest $request
-     *
-     * @return CheckPermissionResponse
-     */
-    public function checkPermission($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkPermissionWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -991,34 +877,6 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param ListMainScenesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListMainScenesResponse
-     */
-    public function listMainScenesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListMainScenesResponse::fromMap($this->doRPCRequest('ListMainScenes', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListMainScenesRequest $request
-     *
-     * @return ListMainScenesResponse
-     */
-    public function listMainScenes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listMainScenesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DetailSubSceneRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1103,6 +961,34 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param GetJobRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetJobResponse
+     */
+    public function getJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetJobResponse::fromMap($this->doRPCRequest('GetJob', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetJobRequest $request
+     *
+     * @return GetJobResponse
+     */
+    public function getJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1128,84 +1014,6 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DropBucketRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DropBucketResponse
-     */
-    public function dropBucketWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DropBucketResponse::fromMap($this->doRPCRequest('DropBucket', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DropBucketRequest $request
-     *
-     * @return DropBucketResponse
-     */
-    public function dropBucket($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->dropBucketWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetUserBucketConfigResponse
-     */
-    public function getUserBucketConfigWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return GetUserBucketConfigResponse::fromMap($this->doRPCRequest('GetUserBucketConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return GetUserBucketConfigResponse
-     */
-    public function getUserBucketConfig()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getUserBucketConfigWithOptions($runtime);
-    }
-
-    /**
-     * @param AddBucketRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return AddBucketResponse
-     */
-    public function addBucketWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddBucketResponse::fromMap($this->doRPCRequest('AddBucket', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddBucketRequest $request
-     *
-     * @return AddBucketResponse
-     */
-    public function addBucket($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addBucketWithOptions($request, $runtime);
     }
 
     /**
@@ -1262,62 +1070,6 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWindowConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StatisQueryByTypeRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return StatisQueryByTypeResponse
-     */
-    public function statisQueryByTypeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StatisQueryByTypeResponse::fromMap($this->doRPCRequest('StatisQueryByType', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StatisQueryByTypeRequest $request
-     *
-     * @return StatisQueryByTypeResponse
-     */
-    public function statisQueryByType($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->statisQueryByTypeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StatisExportSceneInfoRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return StatisExportSceneInfoResponse
-     */
-    public function statisExportSceneInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StatisExportSceneInfoResponse::fromMap($this->doRPCRequest('StatisExportSceneInfo', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StatisExportSceneInfoRequest $request
-     *
-     * @return StatisExportSceneInfoResponse
-     */
-    public function statisExportSceneInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->statisExportSceneInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -1405,34 +1157,6 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param PublishSceneRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return PublishSceneResponse
-     */
-    public function publishSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PublishSceneResponse::fromMap($this->doRPCRequest('PublishScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PublishSceneRequest $request
-     *
-     * @return PublishSceneResponse
-     */
-    public function publishScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->publishSceneWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DetailProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1517,34 +1241,6 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param IsEnableOssRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return IsEnableOssResponse
-     */
-    public function isEnableOssWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return IsEnableOssResponse::fromMap($this->doRPCRequest('IsEnableOss', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param IsEnableOssRequest $request
-     *
-     * @return IsEnableOssResponse
-     */
-    public function isEnableOss($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->isEnableOssWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetHotspotTagRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1598,28 +1294,6 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dropProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetUserOssStatusResponse
-     */
-    public function getUserOssStatusWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return GetUserOssStatusResponse::fromMap($this->doRPCRequest('GetUserOssStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return GetUserOssStatusResponse
-     */
-    public function getUserOssStatus()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getUserOssStatusWithOptions($runtime);
     }
 
     /**
@@ -1679,34 +1353,6 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param StatisListSceneInfoRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return StatisListSceneInfoResponse
-     */
-    public function statisListSceneInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StatisListSceneInfoResponse::fromMap($this->doRPCRequest('StatisListSceneInfo', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StatisListSceneInfoRequest $request
-     *
-     * @return StatisListSceneInfoResponse
-     */
-    public function statisListSceneInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->statisListSceneInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ScenePublishRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1732,34 +1378,6 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->scenePublishWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveFileRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return SaveFileResponse
-     */
-    public function saveFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SaveFileResponse::fromMap($this->doRPCRequest('SaveFile', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SaveFileRequest $request
-     *
-     * @return SaveFileResponse
-     */
-    public function saveFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveFileWithOptions($request, $runtime);
     }
 
     /**
@@ -1816,90 +1434,6 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateBucketRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UpdateBucketResponse
-     */
-    public function updateBucketWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateBucketResponse::fromMap($this->doRPCRequest('UpdateBucket', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateBucketRequest $request
-     *
-     * @return UpdateBucketResponse
-     */
-    public function updateBucket($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateBucketWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StatisQueryByDayRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return StatisQueryByDayResponse
-     */
-    public function statisQueryByDayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StatisQueryByDayResponse::fromMap($this->doRPCRequest('StatisQueryByDay', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StatisQueryByDayRequest $request
-     *
-     * @return StatisQueryByDayResponse
-     */
-    public function statisQueryByDay($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->statisQueryByDayWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetSceneListRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetSceneListResponse
-     */
-    public function getSceneListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSceneListResponse::fromMap($this->doRPCRequest('GetSceneList', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSceneListRequest $request
-     *
-     * @return GetSceneListResponse
-     */
-    public function getSceneList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSceneListWithOptions($request, $runtime);
     }
 
     /**

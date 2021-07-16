@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class IsEnableOssResponseBody extends Model
+class GetJobResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description 请求ID，与入参requestId对应
      *
      * @var string
      */
@@ -37,9 +37,9 @@ class IsEnableOssResponseBody extends Model
     public $message;
 
     /**
-     * @description 操作是否成功
+     * @description 任务运行状态
      *
-     * @var bool
+     * @var int
      */
     public $status;
     protected $_name = [
@@ -79,7 +79,7 @@ class IsEnableOssResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return IsEnableOssResponseBody
+     * @return GetJobResponseBody
      */
     public static function fromMap($map = [])
     {

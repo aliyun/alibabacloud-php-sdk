@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DropBucketRequest extends Model
+class GetJobRequest extends Model
 {
     /**
-     * @description bucket数据ID
+     * @description 任务实例ID
      *
      * @var string
      */
-    public $id;
+    public $instanceId;
     protected $_name = [
-        'id' => 'Id',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class DropBucketRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class DropBucketRequest extends Model
     /**
      * @param array $map
      *
-     * @return DropBucketRequest
+     * @return GetJobRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;
