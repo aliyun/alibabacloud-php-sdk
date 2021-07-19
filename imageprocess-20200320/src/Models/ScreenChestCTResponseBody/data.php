@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody;
 
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\analyzeChestVessel;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\CACS;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\covid;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\detectRibFracture;
@@ -36,12 +37,18 @@ class data extends Model
      * @var string
      */
     public $errorMessage;
+
+    /**
+     * @var analyzeChestVessel
+     */
+    public $analyzeChestVessel;
     protected $_name = [
-        'lungNodule'        => 'LungNodule',
-        'CACS'              => 'CACS',
-        'covid'             => 'Covid',
-        'detectRibFracture' => 'DetectRibFracture',
-        'errorMessage'      => 'ErrorMessage',
+        'lungNodule'         => 'LungNodule',
+        'CACS'               => 'CACS',
+        'covid'              => 'Covid',
+        'detectRibFracture'  => 'DetectRibFracture',
+        'errorMessage'       => 'ErrorMessage',
+        'analyzeChestVessel' => 'AnalyzeChestVessel',
     ];
 
     public function validate()
@@ -65,6 +72,9 @@ class data extends Model
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->analyzeChestVessel) {
+            $res['AnalyzeChestVessel'] = null !== $this->analyzeChestVessel ? $this->analyzeChestVessel->toMap() : null;
         }
 
         return $res;
@@ -92,6 +102,9 @@ class data extends Model
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['AnalyzeChestVessel'])) {
+            $model->analyzeChestVessel = analyzeChestVessel::fromMap($map['AnalyzeChestVessel']);
         }
 
         return $model;
