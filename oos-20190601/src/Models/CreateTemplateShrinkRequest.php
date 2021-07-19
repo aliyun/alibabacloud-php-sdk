@@ -32,12 +32,18 @@ class CreateTemplateShrinkRequest extends Model
      * @var string
      */
     public $versionName;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'templateName' => 'TemplateName',
-        'content'      => 'Content',
-        'tagsShrink'   => 'Tags',
-        'versionName'  => 'VersionName',
+        'regionId'        => 'RegionId',
+        'templateName'    => 'TemplateName',
+        'content'         => 'Content',
+        'tagsShrink'      => 'Tags',
+        'versionName'     => 'VersionName',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class CreateTemplateShrinkRequest extends Model
         }
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class CreateTemplateShrinkRequest extends Model
         }
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

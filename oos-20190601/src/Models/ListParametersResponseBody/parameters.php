@@ -16,17 +16,22 @@ class parameters extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $updatedDate;
 
     /**
      * @var string
      */
     public $updatedBy;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -36,12 +41,17 @@ class parameters extends Model
     /**
      * @var string
      */
-    public $parameterVersion;
+    public $resourceGroupId;
 
     /**
      * @var string
      */
     public $createdDate;
+
+    /**
+     * @var string
+     */
+    public $parameterVersion;
 
     /**
      * @var string
@@ -59,12 +69,14 @@ class parameters extends Model
     public $shareType;
     protected $_name = [
         'type'             => 'Type',
-        'description'      => 'Description',
         'updatedDate'      => 'UpdatedDate',
         'updatedBy'        => 'UpdatedBy',
+        'tags'             => 'Tags',
+        'description'      => 'Description',
         'createdBy'        => 'CreatedBy',
-        'parameterVersion' => 'ParameterVersion',
+        'resourceGroupId'  => 'ResourceGroupId',
         'createdDate'      => 'CreatedDate',
+        'parameterVersion' => 'ParameterVersion',
         'name'             => 'Name',
         'id'               => 'Id',
         'shareType'        => 'ShareType',
@@ -80,23 +92,29 @@ class parameters extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->updatedDate) {
             $res['UpdatedDate'] = $this->updatedDate;
         }
         if (null !== $this->updatedBy) {
             $res['UpdatedBy'] = $this->updatedBy;
         }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
         }
-        if (null !== $this->parameterVersion) {
-            $res['ParameterVersion'] = $this->parameterVersion;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->createdDate) {
             $res['CreatedDate'] = $this->createdDate;
+        }
+        if (null !== $this->parameterVersion) {
+            $res['ParameterVersion'] = $this->parameterVersion;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -122,23 +140,29 @@ class parameters extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['UpdatedDate'])) {
             $model->updatedDate = $map['UpdatedDate'];
         }
         if (isset($map['UpdatedBy'])) {
             $model->updatedBy = $map['UpdatedBy'];
         }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
         }
-        if (isset($map['ParameterVersion'])) {
-            $model->parameterVersion = $map['ParameterVersion'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['CreatedDate'])) {
             $model->createdDate = $map['CreatedDate'];
+        }
+        if (isset($map['ParameterVersion'])) {
+            $model->parameterVersion = $map['ParameterVersion'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

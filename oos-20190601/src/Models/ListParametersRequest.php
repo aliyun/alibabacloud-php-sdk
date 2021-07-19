@@ -52,16 +52,28 @@ class ListParametersRequest extends Model
      * @var bool
      */
     public $recursive;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'name'       => 'Name',
-        'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'sortField'  => 'SortField',
-        'sortOrder'  => 'SortOrder',
-        'type'       => 'Type',
-        'path'       => 'Path',
-        'recursive'  => 'Recursive',
+        'regionId'        => 'RegionId',
+        'name'            => 'Name',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'sortField'       => 'SortField',
+        'sortOrder'       => 'SortOrder',
+        'type'            => 'Type',
+        'path'            => 'Path',
+        'recursive'       => 'Recursive',
+        'tags'            => 'Tags',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -97,6 +109,12 @@ class ListParametersRequest extends Model
         }
         if (null !== $this->recursive) {
             $res['Recursive'] = $this->recursive;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -136,6 +154,12 @@ class ListParametersRequest extends Model
         }
         if (isset($map['Recursive'])) {
             $model->recursive = $map['Recursive'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

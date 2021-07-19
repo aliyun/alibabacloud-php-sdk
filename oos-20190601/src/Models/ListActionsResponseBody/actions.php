@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class actions extends Model
 {
     /**
+     * @var int
+     */
+    public $popularity;
+
+    /**
      * @var string
      */
     public $actionType;
@@ -38,6 +43,7 @@ class actions extends Model
      */
     public $properties;
     protected $_name = [
+        'popularity'      => 'Popularity',
         'actionType'      => 'ActionType',
         'description'     => 'Description',
         'createdDate'     => 'CreatedDate',
@@ -53,6 +59,9 @@ class actions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->popularity) {
+            $res['Popularity'] = $this->popularity;
+        }
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
         }
@@ -83,6 +92,9 @@ class actions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Popularity'])) {
+            $model->popularity = $map['Popularity'];
+        }
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
         }

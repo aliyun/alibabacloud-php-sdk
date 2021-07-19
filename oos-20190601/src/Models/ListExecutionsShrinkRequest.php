@@ -112,6 +112,11 @@ class ListExecutionsShrinkRequest extends Model
      * @var string
      */
     public $resourceTemplateName;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'regionId'              => 'RegionId',
         'templateName'          => 'TemplateName',
@@ -134,6 +139,7 @@ class ListExecutionsShrinkRequest extends Model
         'sortOrder'             => 'SortOrder',
         'resourceId'            => 'ResourceId',
         'resourceTemplateName'  => 'ResourceTemplateName',
+        'resourceGroupId'       => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -205,6 +211,9 @@ class ListExecutionsShrinkRequest extends Model
         }
         if (null !== $this->resourceTemplateName) {
             $res['ResourceTemplateName'] = $this->resourceTemplateName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -280,6 +289,9 @@ class ListExecutionsShrinkRequest extends Model
         }
         if (isset($map['ResourceTemplateName'])) {
             $model->resourceTemplateName = $map['ResourceTemplateName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

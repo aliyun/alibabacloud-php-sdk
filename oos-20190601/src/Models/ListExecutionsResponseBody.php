@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionsResponseBody extends Model
 {
     /**
-     * @var executions[]
-     */
-    public $executions;
-
-    /**
      * @var string
      */
     public $nextToken;
@@ -28,11 +23,16 @@ class ListExecutionsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var executions[]
+     */
+    public $executions;
     protected $_name = [
-        'executions' => 'Executions',
         'nextToken'  => 'NextToken',
         'requestId'  => 'RequestId',
         'maxResults' => 'MaxResults',
+        'executions' => 'Executions',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class ListExecutionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->executions) {
-            $res['Executions'] = [];
-            if (null !== $this->executions && \is_array($this->executions)) {
-                $n = 0;
-                foreach ($this->executions as $item) {
-                    $res['Executions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -59,6 +50,15 @@ class ListExecutionsResponseBody extends Model
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->executions) {
+            $res['Executions'] = [];
+            if (null !== $this->executions && \is_array($this->executions)) {
+                $n = 0;
+                foreach ($this->executions as $item) {
+                    $res['Executions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -72,15 +72,6 @@ class ListExecutionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Executions'])) {
-            if (!empty($map['Executions'])) {
-                $model->executions = [];
-                $n                 = 0;
-                foreach ($map['Executions'] as $item) {
-                    $model->executions[$n++] = null !== $item ? executions::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
@@ -89,6 +80,15 @@ class ListExecutionsResponseBody extends Model
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['Executions'])) {
+            if (!empty($map['Executions'])) {
+                $model->executions = [];
+                $n                 = 0;
+                foreach ($map['Executions'] as $item) {
+                    $model->executions[$n++] = null !== $item ? executions::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

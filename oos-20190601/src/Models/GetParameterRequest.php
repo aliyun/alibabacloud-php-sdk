@@ -22,10 +22,16 @@ class GetParameterRequest extends Model
      * @var int
      */
     public $parameterVersion;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'regionId'         => 'RegionId',
         'name'             => 'Name',
         'parameterVersion' => 'ParameterVersion',
+        'resourceGroupId'  => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class GetParameterRequest extends Model
         }
         if (null !== $this->parameterVersion) {
             $res['ParameterVersion'] = $this->parameterVersion;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class GetParameterRequest extends Model
         }
         if (isset($map['ParameterVersion'])) {
             $model->parameterVersion = $map['ParameterVersion'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

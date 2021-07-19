@@ -82,6 +82,11 @@ class ListTemplatesShrinkRequest extends Model
      * @var string
      */
     public $templateType;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'regionId'          => 'RegionId',
         'templateName'      => 'TemplateName',
@@ -98,6 +103,7 @@ class ListTemplatesShrinkRequest extends Model
         'sortOrder'         => 'SortOrder',
         'hasTrigger'        => 'HasTrigger',
         'templateType'      => 'TemplateType',
+        'resourceGroupId'   => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -151,6 +157,9 @@ class ListTemplatesShrinkRequest extends Model
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -208,6 +217,9 @@ class ListTemplatesShrinkRequest extends Model
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

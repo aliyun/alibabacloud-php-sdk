@@ -32,12 +32,24 @@ class SetServiceSettingsRequest extends Model
      * @var bool
      */
     public $deliverySlsEnabled;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $rdcEnterpriseId;
     protected $_name = [
         'deliveryOssEnabled'     => 'DeliveryOssEnabled',
         'deliveryOssBucketName'  => 'DeliveryOssBucketName',
         'deliveryOssKeyPrefix'   => 'DeliveryOssKeyPrefix',
         'deliverySlsProjectName' => 'DeliverySlsProjectName',
         'deliverySlsEnabled'     => 'DeliverySlsEnabled',
+        'regionId'               => 'RegionId',
+        'rdcEnterpriseId'        => 'RdcEnterpriseId',
     ];
 
     public function validate()
@@ -61,6 +73,12 @@ class SetServiceSettingsRequest extends Model
         }
         if (null !== $this->deliverySlsEnabled) {
             $res['DeliverySlsEnabled'] = $this->deliverySlsEnabled;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->rdcEnterpriseId) {
+            $res['RdcEnterpriseId'] = $this->rdcEnterpriseId;
         }
 
         return $res;
@@ -88,6 +106,12 @@ class SetServiceSettingsRequest extends Model
         }
         if (isset($map['DeliverySlsEnabled'])) {
             $model->deliverySlsEnabled = $map['DeliverySlsEnabled'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RdcEnterpriseId'])) {
+            $model->rdcEnterpriseId = $map['RdcEnterpriseId'];
         }
 
         return $model;

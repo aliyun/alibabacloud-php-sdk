@@ -8,19 +8,39 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CancelExecutionRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CancelExecutionResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationGroupRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationGroupResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateParameterResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateParameterShrinkRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreatePatchBaselineRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreatePatchBaselineResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateSecretParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateSecretParameterResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateStateConfigurationRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateStateConfigurationResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateStateConfigurationShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateTemplateShrinkRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteApplicationGroupRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteApplicationGroupResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteApplicationRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteExecutionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteExecutionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteParameterResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeletePatchBaselineRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeletePatchBaselineResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteSecretParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteSecretParameterResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteStateConfigurationsRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteStateConfigurationsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteTemplatesRequest;
@@ -29,6 +49,10 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GenerateExecutionPolicyRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GenerateExecutionPolicyResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetApplicationGroupRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetApplicationGroupResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetApplicationRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetExecutionTemplateRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetExecutionTemplateResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetInventorySchemaRequest;
@@ -39,17 +63,24 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\GetParametersByPathRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetParametersByPathResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetParametersRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetParametersResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetPatchBaselineRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetPatchBaselineResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetSecretParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetSecretParameterResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetSecretParametersByPathRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetSecretParametersByPathResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetSecretParametersRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetSecretParametersResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetServiceSettingsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetServiceSettingsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetTemplateRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListActionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListActionsResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationGroupsRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationGroupsResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationsRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionLogsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionLogsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionRiskyTasksRequest;
@@ -57,18 +88,31 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionRiskyTasksResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionsShrinkRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchesRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchesResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchStatesRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchStatesResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstanceStateReportsRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstanceStateReportsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInventoryEntriesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInventoryEntriesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListParametersRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListParametersResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListParametersShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListParameterVersionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListParameterVersionsResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListPatchBaselinesRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListPatchBaselinesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListResourceExecutionStatusRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListResourceExecutionStatusResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListSecretParametersRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListSecretParametersResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListSecretParametersShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListSecretParameterVersionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListSecretParameterVersionsResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListStateConfigurationsRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListStateConfigurationsResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListStateConfigurationsShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListTagResourcesRequest;
@@ -85,6 +129,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ListTemplateVersionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListTemplateVersionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\NotifyExecutionRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\NotifyExecutionResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\RegisterDefaultPatchBaselineRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\RegisterDefaultPatchBaselineResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\SearchInventoryRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\SearchInventoryResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\SetServiceSettingsRequest;
@@ -100,14 +146,22 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\TriggerExecutionResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UntagResourcesShrinkRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationGroupRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationGroupResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateExecutionRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateExecutionResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateInstanceInformationRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateInstanceInformationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateParameterResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdatePatchBaselineRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdatePatchBaselineResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateSecretParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateSecretParameterResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateSecretParameterShrinkRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateStateConfigurationRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateStateConfigurationResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateStateConfigurationShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateTemplateShrinkRequest;
@@ -180,14 +234,103 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateParameterRequest $request
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->doRPCRequest('ChangeResourceGroup', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateApplicationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateApplicationResponse
+     */
+    public function createApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateApplicationResponse::fromMap($this->doRPCRequest('CreateApplication', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateApplicationRequest $request
+     *
+     * @return CreateApplicationResponse
+     */
+    public function createApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateApplicationGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateApplicationGroupResponse
+     */
+    public function createApplicationGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateApplicationGroupResponse::fromMap($this->doRPCRequest('CreateApplicationGroup', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateApplicationGroupRequest $request
+     *
+     * @return CreateApplicationGroupResponse
+     */
+    public function createApplicationGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateParameterRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return CreateParameterResponse
      */
-    public function createParameterWithOptions($request, $runtime)
+    public function createParameterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateParameterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
@@ -205,6 +348,34 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createParameterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePatchBaselineRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreatePatchBaselineResponse
+     */
+    public function createPatchBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreatePatchBaselineResponse::fromMap($this->doRPCRequest('CreatePatchBaseline', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreatePatchBaselineRequest $request
+     *
+     * @return CreatePatchBaselineResponse
+     */
+    public function createPatchBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPatchBaselineWithOptions($request, $runtime);
     }
 
     /**
@@ -233,6 +404,39 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSecretParameterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateStateConfigurationRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateStateConfigurationResponse
+     */
+    public function createStateConfigurationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateStateConfigurationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateStateConfigurationResponse::fromMap($this->doRPCRequest('CreateStateConfiguration', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateStateConfigurationRequest $request
+     *
+     * @return CreateStateConfigurationResponse
+     */
+    public function createStateConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStateConfigurationWithOptions($request, $runtime);
     }
 
     /**
@@ -266,6 +470,62 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteApplicationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteApplicationResponse
+     */
+    public function deleteApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteApplicationResponse::fromMap($this->doRPCRequest('DeleteApplication', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteApplicationRequest $request
+     *
+     * @return DeleteApplicationResponse
+     */
+    public function deleteApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteApplicationGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteApplicationGroupResponse
+     */
+    public function deleteApplicationGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteApplicationGroupResponse::fromMap($this->doRPCRequest('DeleteApplicationGroup', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteApplicationGroupRequest $request
+     *
+     * @return DeleteApplicationGroupResponse
+     */
+    public function deleteApplicationGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -325,6 +585,34 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @param DeletePatchBaselineRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeletePatchBaselineResponse
+     */
+    public function deletePatchBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeletePatchBaselineResponse::fromMap($this->doRPCRequest('DeletePatchBaseline', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeletePatchBaselineRequest $request
+     *
+     * @return DeletePatchBaselineResponse
+     */
+    public function deletePatchBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePatchBaselineWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteSecretParameterRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -350,6 +638,34 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSecretParameterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteStateConfigurationsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteStateConfigurationsResponse
+     */
+    public function deleteStateConfigurationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteStateConfigurationsResponse::fromMap($this->doRPCRequest('DeleteStateConfigurations', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteStateConfigurationsRequest $request
+     *
+     * @return DeleteStateConfigurationsResponse
+     */
+    public function deleteStateConfigurations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStateConfigurationsWithOptions($request, $runtime);
     }
 
     /**
@@ -462,6 +778,62 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateExecutionPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetApplicationRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetApplicationResponse
+     */
+    public function getApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetApplicationResponse::fromMap($this->doRPCRequest('GetApplication', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetApplicationRequest $request
+     *
+     * @return GetApplicationResponse
+     */
+    public function getApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetApplicationGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetApplicationGroupResponse
+     */
+    public function getApplicationGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetApplicationGroupResponse::fromMap($this->doRPCRequest('GetApplicationGroup', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetApplicationGroupRequest $request
+     *
+     * @return GetApplicationGroupResponse
+     */
+    public function getApplicationGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -605,6 +977,34 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @param GetPatchBaselineRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetPatchBaselineResponse
+     */
+    public function getPatchBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetPatchBaselineResponse::fromMap($this->doRPCRequest('GetPatchBaseline', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetPatchBaselineRequest $request
+     *
+     * @return GetPatchBaselineResponse
+     */
+    public function getPatchBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPatchBaselineWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetSecretParameterRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -689,25 +1089,31 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetServiceSettingsRequest $request
+     * @param RuntimeOptions            $runtime
      *
      * @return GetServiceSettingsResponse
      */
-    public function getServiceSettingsWithOptions($runtime)
+    public function getServiceSettingsWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
         return GetServiceSettingsResponse::fromMap($this->doRPCRequest('GetServiceSettings', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
+     * @param GetServiceSettingsRequest $request
+     *
      * @return GetServiceSettingsResponse
      */
-    public function getServiceSettings()
+    public function getServiceSettings($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getServiceSettingsWithOptions($runtime);
+        return $this->getServiceSettingsWithOptions($request, $runtime);
     }
 
     /**
@@ -764,6 +1170,62 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listActionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListApplicationGroupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListApplicationGroupsResponse
+     */
+    public function listApplicationGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListApplicationGroupsResponse::fromMap($this->doRPCRequest('ListApplicationGroups', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListApplicationGroupsRequest $request
+     *
+     * @return ListApplicationGroupsResponse
+     */
+    public function listApplicationGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListApplicationsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListApplicationsResponse
+     */
+    public function listApplicationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListApplicationsResponse::fromMap($this->doRPCRequest('ListApplications', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListApplicationsRequest $request
+     *
+     * @return ListApplicationsResponse
+     */
+    public function listApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationsWithOptions($request, $runtime);
     }
 
     /**
@@ -856,6 +1318,90 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @param ListInstancePatchesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListInstancePatchesResponse
+     */
+    public function listInstancePatchesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListInstancePatchesResponse::fromMap($this->doRPCRequest('ListInstancePatches', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListInstancePatchesRequest $request
+     *
+     * @return ListInstancePatchesResponse
+     */
+    public function listInstancePatches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstancePatchesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInstancePatchStatesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListInstancePatchStatesResponse
+     */
+    public function listInstancePatchStatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListInstancePatchStatesResponse::fromMap($this->doRPCRequest('ListInstancePatchStates', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListInstancePatchStatesRequest $request
+     *
+     * @return ListInstancePatchStatesResponse
+     */
+    public function listInstancePatchStates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstancePatchStatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInstanceStateReportsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListInstanceStateReportsResponse
+     */
+    public function listInstanceStateReportsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListInstanceStateReportsResponse::fromMap($this->doRPCRequest('ListInstanceStateReports', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListInstanceStateReportsRequest $request
+     *
+     * @return ListInstanceStateReportsResponse
+     */
+    public function listInstanceStateReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceStateReportsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListInventoryEntriesRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -884,14 +1430,19 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListParametersRequest $request
+     * @param ListParametersRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return ListParametersResponse
      */
-    public function listParametersWithOptions($request, $runtime)
+    public function listParametersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListParametersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
@@ -940,6 +1491,34 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @param ListPatchBaselinesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListPatchBaselinesResponse
+     */
+    public function listPatchBaselinesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListPatchBaselinesResponse::fromMap($this->doRPCRequest('ListPatchBaselines', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListPatchBaselinesRequest $request
+     *
+     * @return ListPatchBaselinesResponse
+     */
+    public function listPatchBaselines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPatchBaselinesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListResourceExecutionStatusRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -968,14 +1547,19 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListSecretParametersRequest $request
+     * @param ListSecretParametersRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
      * @return ListSecretParametersResponse
      */
-    public function listSecretParametersWithOptions($request, $runtime)
+    public function listSecretParametersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListSecretParametersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
@@ -1021,6 +1605,39 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSecretParameterVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListStateConfigurationsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListStateConfigurationsResponse
+     */
+    public function listStateConfigurationsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListStateConfigurationsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListStateConfigurationsResponse::fromMap($this->doRPCRequest('ListStateConfigurations', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListStateConfigurationsRequest $request
+     *
+     * @return ListStateConfigurationsResponse
+     */
+    public function listStateConfigurations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStateConfigurationsWithOptions($request, $runtime);
     }
 
     /**
@@ -1233,6 +1850,34 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @param RegisterDefaultPatchBaselineRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RegisterDefaultPatchBaselineResponse
+     */
+    public function registerDefaultPatchBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RegisterDefaultPatchBaselineResponse::fromMap($this->doRPCRequest('RegisterDefaultPatchBaseline', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RegisterDefaultPatchBaselineRequest $request
+     *
+     * @return RegisterDefaultPatchBaselineResponse
+     */
+    public function registerDefaultPatchBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerDefaultPatchBaselineWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SearchInventoryRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1422,6 +2067,34 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @param UpdateApplicationGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateApplicationGroupResponse
+     */
+    public function updateApplicationGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateApplicationGroupResponse::fromMap($this->doRPCRequest('UpdateApplicationGroup', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateApplicationGroupRequest $request
+     *
+     * @return UpdateApplicationGroupResponse
+     */
+    public function updateApplicationGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateExecutionRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1506,14 +2179,47 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateSecretParameterRequest $request
+     * @param UpdatePatchBaselineRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdatePatchBaselineResponse
+     */
+    public function updatePatchBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdatePatchBaselineResponse::fromMap($this->doRPCRequest('UpdatePatchBaseline', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePatchBaselineRequest $request
+     *
+     * @return UpdatePatchBaselineResponse
+     */
+    public function updatePatchBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePatchBaselineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSecretParameterRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return UpdateSecretParameterResponse
      */
-    public function updateSecretParameterWithOptions($request, $runtime)
+    public function updateSecretParameterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateSecretParameterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
@@ -1531,6 +2237,42 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSecretParameterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateStateConfigurationRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateStateConfigurationResponse
+     */
+    public function updateStateConfigurationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateStateConfigurationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateStateConfigurationResponse::fromMap($this->doRPCRequest('UpdateStateConfiguration', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateStateConfigurationRequest $request
+     *
+     * @return UpdateStateConfigurationResponse
+     */
+    public function updateStateConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStateConfigurationWithOptions($request, $runtime);
     }
 
     /**

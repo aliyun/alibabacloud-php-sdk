@@ -24,14 +24,14 @@ class templates extends Model
     public $updatedBy;
 
     /**
-     * @var mixed[]
-     */
-    public $tags;
-
-    /**
      * @var string
      */
     public $templateType;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -54,14 +54,19 @@ class templates extends Model
     public $popularity;
 
     /**
+     * @var int
+     */
+    public $totalExecutionCount;
+
+    /**
      * @var string
      */
     public $description;
 
     /**
-     * @var int
+     * @var string
      */
-    public $totalExecutionCount;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -96,14 +101,15 @@ class templates extends Model
         'hash'                => 'Hash',
         'updatedDate'         => 'UpdatedDate',
         'updatedBy'           => 'UpdatedBy',
-        'tags'                => 'Tags',
         'templateType'        => 'TemplateType',
+        'tags'                => 'Tags',
         'templateName'        => 'TemplateName',
         'templateVersion'     => 'TemplateVersion',
         'templateFormat'      => 'TemplateFormat',
         'popularity'          => 'Popularity',
-        'description'         => 'Description',
         'totalExecutionCount' => 'TotalExecutionCount',
+        'description'         => 'Description',
+        'resourceGroupId'     => 'ResourceGroupId',
         'createdBy'           => 'CreatedBy',
         'createdDate'         => 'CreatedDate',
         'category'            => 'Category',
@@ -128,11 +134,11 @@ class templates extends Model
         if (null !== $this->updatedBy) {
             $res['UpdatedBy'] = $this->updatedBy;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
@@ -146,11 +152,14 @@ class templates extends Model
         if (null !== $this->popularity) {
             $res['Popularity'] = $this->popularity;
         }
+        if (null !== $this->totalExecutionCount) {
+            $res['TotalExecutionCount'] = $this->totalExecutionCount;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->totalExecutionCount) {
-            $res['TotalExecutionCount'] = $this->totalExecutionCount;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
@@ -191,11 +200,11 @@ class templates extends Model
         if (isset($map['UpdatedBy'])) {
             $model->updatedBy = $map['UpdatedBy'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
@@ -209,11 +218,14 @@ class templates extends Model
         if (isset($map['Popularity'])) {
             $model->popularity = $map['Popularity'];
         }
+        if (isset($map['TotalExecutionCount'])) {
+            $model->totalExecutionCount = $map['TotalExecutionCount'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['TotalExecutionCount'])) {
-            $model->totalExecutionCount = $map['TotalExecutionCount'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];

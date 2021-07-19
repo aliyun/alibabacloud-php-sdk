@@ -11,15 +11,15 @@ class attributes extends Model
     /**
      * @var string
      */
-    public $dataType;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $dataType;
     protected $_name = [
-        'dataType' => 'DataType',
         'name'     => 'Name',
+        'dataType' => 'DataType',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class attributes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dataType) {
-            $res['DataType'] = $this->dataType;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->dataType) {
+            $res['DataType'] = $this->dataType;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class attributes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DataType'])) {
-            $model->dataType = $map['DataType'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['DataType'])) {
+            $model->dataType = $map['DataType'];
         }
 
         return $model;

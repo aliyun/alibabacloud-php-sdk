@@ -20,9 +20,9 @@ class ListExecutionLogsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var executionLogs[]
+     * @var bool
      */
-    public $executionLogs;
+    public $isTruncated;
 
     /**
      * @var int
@@ -30,15 +30,15 @@ class ListExecutionLogsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @var bool
+     * @var executionLogs[]
      */
-    public $isTruncated;
+    public $executionLogs;
     protected $_name = [
         'nextToken'     => 'NextToken',
         'requestId'     => 'RequestId',
-        'executionLogs' => 'ExecutionLogs',
-        'maxResults'    => 'MaxResults',
         'isTruncated'   => 'IsTruncated',
+        'maxResults'    => 'MaxResults',
+        'executionLogs' => 'ExecutionLogs',
     ];
 
     public function validate()
@@ -54,6 +54,12 @@ class ListExecutionLogsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->isTruncated) {
+            $res['IsTruncated'] = $this->isTruncated;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->executionLogs) {
             $res['ExecutionLogs'] = [];
             if (null !== $this->executionLogs && \is_array($this->executionLogs)) {
@@ -62,12 +68,6 @@ class ListExecutionLogsResponseBody extends Model
                     $res['ExecutionLogs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->isTruncated) {
-            $res['IsTruncated'] = $this->isTruncated;
         }
 
         return $res;
@@ -87,6 +87,12 @@ class ListExecutionLogsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['IsTruncated'])) {
+            $model->isTruncated = $map['IsTruncated'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['ExecutionLogs'])) {
             if (!empty($map['ExecutionLogs'])) {
                 $model->executionLogs = [];
@@ -95,12 +101,6 @@ class ListExecutionLogsResponseBody extends Model
                     $model->executionLogs[$n++] = null !== $item ? executionLogs::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['IsTruncated'])) {
-            $model->isTruncated = $map['IsTruncated'];
         }
 
         return $model;

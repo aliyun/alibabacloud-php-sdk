@@ -12,12 +12,7 @@ class ValidateTemplateContentResponseBody extends Model
     /**
      * @var string
      */
-    public $parameters;
-
-    /**
-     * @var tasks[]
-     */
-    public $tasks;
+    public $outputs;
 
     /**
      * @var string
@@ -27,18 +22,23 @@ class ValidateTemplateContentResponseBody extends Model
     /**
      * @var string
      */
-    public $outputs;
+    public $parameters;
 
     /**
      * @var string
      */
     public $ramRole;
+
+    /**
+     * @var tasks[]
+     */
+    public $tasks;
     protected $_name = [
-        'parameters' => 'Parameters',
-        'tasks'      => 'Tasks',
-        'requestId'  => 'RequestId',
         'outputs'    => 'Outputs',
+        'requestId'  => 'RequestId',
+        'parameters' => 'Parameters',
         'ramRole'    => 'RamRole',
+        'tasks'      => 'Tasks',
     ];
 
     public function validate()
@@ -48,8 +48,17 @@ class ValidateTemplateContentResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->outputs) {
+            $res['Outputs'] = $this->outputs;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
+        }
+        if (null !== $this->ramRole) {
+            $res['RamRole'] = $this->ramRole;
         }
         if (null !== $this->tasks) {
             $res['Tasks'] = [];
@@ -59,15 +68,6 @@ class ValidateTemplateContentResponseBody extends Model
                     $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->outputs) {
-            $res['Outputs'] = $this->outputs;
-        }
-        if (null !== $this->ramRole) {
-            $res['RamRole'] = $this->ramRole;
         }
 
         return $res;
@@ -81,8 +81,17 @@ class ValidateTemplateContentResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Outputs'])) {
+            $model->outputs = $map['Outputs'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
+        }
+        if (isset($map['RamRole'])) {
+            $model->ramRole = $map['RamRole'];
         }
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
@@ -92,15 +101,6 @@ class ValidateTemplateContentResponseBody extends Model
                     $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Outputs'])) {
-            $model->outputs = $map['Outputs'];
-        }
-        if (isset($map['RamRole'])) {
-            $model->ramRole = $map['RamRole'];
         }
 
         return $model;

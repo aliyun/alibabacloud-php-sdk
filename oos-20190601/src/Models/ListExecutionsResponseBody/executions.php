@@ -65,9 +65,9 @@ class executions extends Model
     public $createDate;
 
     /**
-     * @var currentTasks[]
+     * @var string
      */
-    public $currentTasks;
+    public $updateDate;
 
     /**
      * @var string
@@ -77,17 +77,12 @@ class executions extends Model
     /**
      * @var string
      */
-    public $updateDate;
+    public $lastTriggerTime;
 
     /**
      * @var string
      */
     public $parentExecutionId;
-
-    /**
-     * @var string
-     */
-    public $lastTriggerTime;
 
     /**
      * @var string
@@ -107,12 +102,12 @@ class executions extends Model
     /**
      * @var string
      */
-    public $endDate;
+    public $executedBy;
 
     /**
      * @var string
      */
-    public $executedBy;
+    public $endDate;
 
     /**
      * @var bool
@@ -142,6 +137,11 @@ class executions extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $category;
 
     /**
@@ -158,6 +158,11 @@ class executions extends Model
      * @var string
      */
     public $resourceStatus;
+
+    /**
+     * @var currentTasks[]
+     */
+    public $currentTasks;
     protected $_name = [
         'status'                    => 'Status',
         'waitingStatus'             => 'WaitingStatus',
@@ -170,25 +175,26 @@ class executions extends Model
         'templateName'              => 'TemplateName',
         'templateVersion'           => 'TemplateVersion',
         'createDate'                => 'CreateDate',
-        'currentTasks'              => 'CurrentTasks',
-        'description'               => 'Description',
         'updateDate'                => 'UpdateDate',
-        'parentExecutionId'         => 'ParentExecutionId',
+        'description'               => 'Description',
         'lastTriggerTime'           => 'LastTriggerTime',
+        'parentExecutionId'         => 'ParentExecutionId',
         'lastTriggerStatus'         => 'LastTriggerStatus',
         'statusMessage'             => 'StatusMessage',
         'outputs'                   => 'Outputs',
-        'endDate'                   => 'EndDate',
         'executedBy'                => 'ExecutedBy',
+        'endDate'                   => 'EndDate',
         'isParent'                  => 'IsParent',
         'startDate'                 => 'StartDate',
         'executionId'               => 'ExecutionId',
         'parameters'                => 'Parameters',
         'counters'                  => 'Counters',
+        'resourceGroupId'           => 'ResourceGroupId',
         'category'                  => 'Category',
         'templateId'                => 'TemplateId',
         'ramRole'                   => 'RamRole',
         'resourceStatus'            => 'ResourceStatus',
+        'currentTasks'              => 'CurrentTasks',
     ];
 
     public function validate()
@@ -231,26 +237,17 @@ class executions extends Model
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
-        if (null !== $this->currentTasks) {
-            $res['CurrentTasks'] = [];
-            if (null !== $this->currentTasks && \is_array($this->currentTasks)) {
-                $n = 0;
-                foreach ($this->currentTasks as $item) {
-                    $res['CurrentTasks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->updateDate) {
+            $res['UpdateDate'] = $this->updateDate;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->updateDate) {
-            $res['UpdateDate'] = $this->updateDate;
+        if (null !== $this->lastTriggerTime) {
+            $res['LastTriggerTime'] = $this->lastTriggerTime;
         }
         if (null !== $this->parentExecutionId) {
             $res['ParentExecutionId'] = $this->parentExecutionId;
-        }
-        if (null !== $this->lastTriggerTime) {
-            $res['LastTriggerTime'] = $this->lastTriggerTime;
         }
         if (null !== $this->lastTriggerStatus) {
             $res['LastTriggerStatus'] = $this->lastTriggerStatus;
@@ -261,11 +258,11 @@ class executions extends Model
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
         }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
-        }
         if (null !== $this->executedBy) {
             $res['ExecutedBy'] = $this->executedBy;
+        }
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
         }
         if (null !== $this->isParent) {
             $res['IsParent'] = $this->isParent;
@@ -282,6 +279,9 @@ class executions extends Model
         if (null !== $this->counters) {
             $res['Counters'] = $this->counters;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -293,6 +293,15 @@ class executions extends Model
         }
         if (null !== $this->resourceStatus) {
             $res['ResourceStatus'] = $this->resourceStatus;
+        }
+        if (null !== $this->currentTasks) {
+            $res['CurrentTasks'] = [];
+            if (null !== $this->currentTasks && \is_array($this->currentTasks)) {
+                $n = 0;
+                foreach ($this->currentTasks as $item) {
+                    $res['CurrentTasks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -339,26 +348,17 @@ class executions extends Model
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
-        if (isset($map['CurrentTasks'])) {
-            if (!empty($map['CurrentTasks'])) {
-                $model->currentTasks = [];
-                $n                   = 0;
-                foreach ($map['CurrentTasks'] as $item) {
-                    $model->currentTasks[$n++] = null !== $item ? currentTasks::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['UpdateDate'])) {
+            $model->updateDate = $map['UpdateDate'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['UpdateDate'])) {
-            $model->updateDate = $map['UpdateDate'];
+        if (isset($map['LastTriggerTime'])) {
+            $model->lastTriggerTime = $map['LastTriggerTime'];
         }
         if (isset($map['ParentExecutionId'])) {
             $model->parentExecutionId = $map['ParentExecutionId'];
-        }
-        if (isset($map['LastTriggerTime'])) {
-            $model->lastTriggerTime = $map['LastTriggerTime'];
         }
         if (isset($map['LastTriggerStatus'])) {
             $model->lastTriggerStatus = $map['LastTriggerStatus'];
@@ -369,11 +369,11 @@ class executions extends Model
         if (isset($map['Outputs'])) {
             $model->outputs = $map['Outputs'];
         }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
-        }
         if (isset($map['ExecutedBy'])) {
             $model->executedBy = $map['ExecutedBy'];
+        }
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
         }
         if (isset($map['IsParent'])) {
             $model->isParent = $map['IsParent'];
@@ -390,6 +390,9 @@ class executions extends Model
         if (isset($map['Counters'])) {
             $model->counters = $map['Counters'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -401,6 +404,15 @@ class executions extends Model
         }
         if (isset($map['ResourceStatus'])) {
             $model->resourceStatus = $map['ResourceStatus'];
+        }
+        if (isset($map['CurrentTasks'])) {
+            if (!empty($map['CurrentTasks'])) {
+                $model->currentTasks = [];
+                $n                   = 0;
+                foreach ($map['CurrentTasks'] as $item) {
+                    $model->currentTasks[$n++] = null !== $item ? currentTasks::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

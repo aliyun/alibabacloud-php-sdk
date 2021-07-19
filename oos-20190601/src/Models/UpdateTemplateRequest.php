@@ -32,12 +32,18 @@ class UpdateTemplateRequest extends Model
      * @var string
      */
     public $versionName;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'templateName' => 'TemplateName',
-        'content'      => 'Content',
-        'tags'         => 'Tags',
-        'versionName'  => 'VersionName',
+        'regionId'        => 'RegionId',
+        'templateName'    => 'TemplateName',
+        'content'         => 'Content',
+        'tags'            => 'Tags',
+        'versionName'     => 'VersionName',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class UpdateTemplateRequest extends Model
         }
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class UpdateTemplateRequest extends Model
         }
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

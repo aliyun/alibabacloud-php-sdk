@@ -15,18 +15,18 @@ class schemas extends Model
     public $version;
 
     /**
-     * @var attributes[]
-     */
-    public $attributes;
-
-    /**
      * @var string
      */
     public $typeName;
+
+    /**
+     * @var attributes[]
+     */
+    public $attributes;
     protected $_name = [
         'version'    => 'Version',
-        'attributes' => 'Attributes',
         'typeName'   => 'TypeName',
+        'attributes' => 'Attributes',
     ];
 
     public function validate()
@@ -39,6 +39,9 @@ class schemas extends Model
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
+        if (null !== $this->typeName) {
+            $res['TypeName'] = $this->typeName;
+        }
         if (null !== $this->attributes) {
             $res['Attributes'] = [];
             if (null !== $this->attributes && \is_array($this->attributes)) {
@@ -47,9 +50,6 @@ class schemas extends Model
                     $res['Attributes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->typeName) {
-            $res['TypeName'] = $this->typeName;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class schemas extends Model
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }
+        if (isset($map['TypeName'])) {
+            $model->typeName = $map['TypeName'];
+        }
         if (isset($map['Attributes'])) {
             if (!empty($map['Attributes'])) {
                 $model->attributes = [];
@@ -74,9 +77,6 @@ class schemas extends Model
                     $model->attributes[$n++] = null !== $item ? attributes::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['TypeName'])) {
-            $model->typeName = $map['TypeName'];
         }
 
         return $model;

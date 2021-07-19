@@ -15,26 +15,6 @@ class ListParameterVersionsResponseBody extends Model
     public $type;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var parameterVersions[]
-     */
-    public $parameterVersions;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $createdBy;
-
-    /**
      * @var string
      */
     public $nextToken;
@@ -45,9 +25,19 @@ class ListParameterVersionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $createdBy;
 
     /**
      * @var string
@@ -57,24 +47,34 @@ class ListParameterVersionsResponseBody extends Model
     /**
      * @var string
      */
-    public $id;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
 
     /**
      * @var string
      */
-    public $name;
+    public $id;
+
+    /**
+     * @var parameterVersions[]
+     */
+    public $parameterVersions;
     protected $_name = [
         'type'              => 'Type',
-        'totalCount'        => 'TotalCount',
-        'parameterVersions' => 'ParameterVersions',
-        'description'       => 'Description',
-        'createdBy'         => 'CreatedBy',
         'nextToken'         => 'NextToken',
         'requestId'         => 'RequestId',
+        'description'       => 'Description',
         'maxResults'        => 'MaxResults',
+        'createdBy'         => 'CreatedBy',
         'createdDate'       => 'CreatedDate',
-        'id'                => 'Id',
         'name'              => 'Name',
+        'totalCount'        => 'TotalCount',
+        'id'                => 'Id',
+        'parameterVersions' => 'ParameterVersions',
     ];
 
     public function validate()
@@ -87,8 +87,32 @@ class ListParameterVersionsResponseBody extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->createdBy) {
+            $res['CreatedBy'] = $this->createdBy;
+        }
+        if (null !== $this->createdDate) {
+            $res['CreatedDate'] = $this->createdDate;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->parameterVersions) {
             $res['ParameterVersions'] = [];
@@ -98,30 +122,6 @@ class ListParameterVersionsResponseBody extends Model
                     $res['ParameterVersions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->createdBy) {
-            $res['CreatedBy'] = $this->createdBy;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->createdDate) {
-            $res['CreatedDate'] = $this->createdDate;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -138,8 +138,32 @@ class ListParameterVersionsResponseBody extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['CreatedBy'])) {
+            $model->createdBy = $map['CreatedBy'];
+        }
+        if (isset($map['CreatedDate'])) {
+            $model->createdDate = $map['CreatedDate'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['ParameterVersions'])) {
             if (!empty($map['ParameterVersions'])) {
@@ -149,30 +173,6 @@ class ListParameterVersionsResponseBody extends Model
                     $model->parameterVersions[$n++] = null !== $item ? parameterVersions::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['CreatedBy'])) {
-            $model->createdBy = $map['CreatedBy'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['CreatedDate'])) {
-            $model->createdDate = $map['CreatedDate'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

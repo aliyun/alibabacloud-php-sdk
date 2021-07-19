@@ -20,13 +20,19 @@ class GetInventorySchemaResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $maxResults;
+
+    /**
      * @var schemas[]
      */
     public $schemas;
     protected $_name = [
-        'nextToken' => 'NextToken',
-        'requestId' => 'RequestId',
-        'schemas'   => 'Schemas',
+        'nextToken'  => 'NextToken',
+        'requestId'  => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'schemas'    => 'Schemas',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class GetInventorySchemaResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->schemas) {
             $res['Schemas'] = [];
@@ -68,6 +77,9 @@ class GetInventorySchemaResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['Schemas'])) {
             if (!empty($map['Schemas'])) {

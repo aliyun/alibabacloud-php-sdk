@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class StartExecutionResponseBody extends Model
 {
     /**
-     * @var execution
-     */
-    public $execution;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var execution
+     */
+    public $execution;
     protected $_name = [
-        'execution' => 'Execution',
         'requestId' => 'RequestId',
+        'execution' => 'Execution',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class StartExecutionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->execution) {
-            $res['Execution'] = null !== $this->execution ? $this->execution->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->execution) {
+            $res['Execution'] = null !== $this->execution ? $this->execution->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class StartExecutionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Execution'])) {
-            $model->execution = execution::fromMap($map['Execution']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Execution'])) {
+            $model->execution = execution::fromMap($map['Execution']);
         }
 
         return $model;

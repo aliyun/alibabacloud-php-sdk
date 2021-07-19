@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class parameterVersions extends Model
 {
     /**
+     * @var int
+     */
+    public $parameterVersion;
+
+    /**
      * @var string
      */
     public $value;
@@ -22,16 +27,11 @@ class parameterVersions extends Model
      * @var string
      */
     public $updatedBy;
-
-    /**
-     * @var int
-     */
-    public $parameterVersion;
     protected $_name = [
+        'parameterVersion' => 'ParameterVersion',
         'value'            => 'Value',
         'updatedDate'      => 'UpdatedDate',
         'updatedBy'        => 'UpdatedBy',
-        'parameterVersion' => 'ParameterVersion',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class parameterVersions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->parameterVersion) {
+            $res['ParameterVersion'] = $this->parameterVersion;
+        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,9 +52,6 @@ class parameterVersions extends Model
         }
         if (null !== $this->updatedBy) {
             $res['UpdatedBy'] = $this->updatedBy;
-        }
-        if (null !== $this->parameterVersion) {
-            $res['ParameterVersion'] = $this->parameterVersion;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class parameterVersions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ParameterVersion'])) {
+            $model->parameterVersion = $map['ParameterVersion'];
+        }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
@@ -73,9 +76,6 @@ class parameterVersions extends Model
         }
         if (isset($map['UpdatedBy'])) {
             $model->updatedBy = $map['UpdatedBy'];
-        }
-        if (isset($map['ParameterVersion'])) {
-            $model->parameterVersion = $map['ParameterVersion'];
         }
 
         return $model;

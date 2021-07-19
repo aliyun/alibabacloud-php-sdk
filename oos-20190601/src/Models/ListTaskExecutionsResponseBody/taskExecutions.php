@@ -11,7 +11,7 @@ class taskExecutions extends Model
     /**
      * @var string
      */
-    public $status;
+    public $childExecutionId;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class taskExecutions extends Model
     /**
      * @var string
      */
-    public $childExecutionId;
+    public $status;
 
     /**
      * @var string
@@ -103,9 +103,9 @@ class taskExecutions extends Model
      */
     public $properties;
     protected $_name = [
-        'status'                => 'Status',
-        'outputs'               => 'Outputs',
         'childExecutionId'      => 'ChildExecutionId',
+        'outputs'               => 'Outputs',
+        'status'                => 'Status',
         'endDate'               => 'EndDate',
         'parentTaskExecutionId' => 'ParentTaskExecutionId',
         'taskName'              => 'TaskName',
@@ -131,14 +131,14 @@ class taskExecutions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->childExecutionId) {
+            $res['ChildExecutionId'] = $this->childExecutionId;
         }
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
         }
-        if (null !== $this->childExecutionId) {
-            $res['ChildExecutionId'] = $this->childExecutionId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
@@ -200,14 +200,14 @@ class taskExecutions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ChildExecutionId'])) {
+            $model->childExecutionId = $map['ChildExecutionId'];
         }
         if (isset($map['Outputs'])) {
             $model->outputs = $map['Outputs'];
         }
-        if (isset($map['ChildExecutionId'])) {
-            $model->childExecutionId = $map['ChildExecutionId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];

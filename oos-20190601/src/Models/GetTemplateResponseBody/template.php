@@ -24,14 +24,14 @@ class template extends Model
     public $updatedBy;
 
     /**
-     * @var mixed[]
-     */
-    public $tags;
-
-    /**
      * @var string
      */
     public $templateType;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -52,6 +52,11 @@ class template extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -86,12 +91,13 @@ class template extends Model
         'hash'            => 'Hash',
         'updatedDate'     => 'UpdatedDate',
         'updatedBy'       => 'UpdatedBy',
-        'tags'            => 'Tags',
         'templateType'    => 'TemplateType',
+        'tags'            => 'Tags',
         'templateName'    => 'TemplateName',
         'templateVersion' => 'TemplateVersion',
         'templateFormat'  => 'TemplateFormat',
         'description'     => 'Description',
+        'resourceGroupId' => 'ResourceGroupId',
         'createdBy'       => 'CreatedBy',
         'createdDate'     => 'CreatedDate',
         'versionName'     => 'VersionName',
@@ -116,11 +122,11 @@ class template extends Model
         if (null !== $this->updatedBy) {
             $res['UpdatedBy'] = $this->updatedBy;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
@@ -133,6 +139,9 @@ class template extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
@@ -173,11 +182,11 @@ class template extends Model
         if (isset($map['UpdatedBy'])) {
             $model->updatedBy = $map['UpdatedBy'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
@@ -190,6 +199,9 @@ class template extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];

@@ -27,11 +27,23 @@ class UpdateSecretParameterRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'name'        => 'Name',
-        'value'       => 'Value',
-        'description' => 'Description',
+        'regionId'        => 'RegionId',
+        'name'            => 'Name',
+        'value'           => 'Value',
+        'description'     => 'Description',
+        'tags'            => 'Tags',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -52,6 +64,12 @@ class UpdateSecretParameterRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -76,6 +94,12 @@ class UpdateSecretParameterRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

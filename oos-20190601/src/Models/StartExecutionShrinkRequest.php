@@ -67,6 +67,11 @@ class StartExecutionShrinkRequest extends Model
      * @var string
      */
     public $templateContent;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'regionId'          => 'RegionId',
         'templateName'      => 'TemplateName',
@@ -80,6 +85,7 @@ class StartExecutionShrinkRequest extends Model
         'tagsShrink'        => 'Tags',
         'description'       => 'Description',
         'templateContent'   => 'TemplateContent',
+        'resourceGroupId'   => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -124,6 +130,9 @@ class StartExecutionShrinkRequest extends Model
         }
         if (null !== $this->templateContent) {
             $res['TemplateContent'] = $this->templateContent;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -172,6 +181,9 @@ class StartExecutionShrinkRequest extends Model
         }
         if (isset($map['TemplateContent'])) {
             $model->templateContent = $map['TemplateContent'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

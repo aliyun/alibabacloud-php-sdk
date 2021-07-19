@@ -12,17 +12,12 @@ class execution extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $outputs;
 
     /**
      * @var string
      */
-    public $executedBy;
+    public $status;
 
     /**
      * @var string
@@ -30,14 +25,14 @@ class execution extends Model
     public $endDate;
 
     /**
+     * @var string
+     */
+    public $executedBy;
+
+    /**
      * @var bool
      */
     public $isParent;
-
-    /**
-     * @var string
-     */
-    public $startDate;
 
     /**
      * @var mixed[]
@@ -47,7 +42,7 @@ class execution extends Model
     /**
      * @var string
      */
-    public $mode;
+    public $startDate;
 
     /**
      * @var string
@@ -57,12 +52,12 @@ class execution extends Model
     /**
      * @var string
      */
-    public $templateName;
+    public $mode;
 
     /**
      * @var string
      */
-    public $templateVersion;
+    public $templateName;
 
     /**
      * @var string
@@ -72,12 +67,12 @@ class execution extends Model
     /**
      * @var string
      */
-    public $executionId;
+    public $templateVersion;
 
     /**
-     * @var currentTasks[]
+     * @var string
      */
-    public $currentTasks;
+    public $executionId;
 
     /**
      * @var string
@@ -98,6 +93,11 @@ class execution extends Model
      * @var string
      */
     public $updateDate;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -123,30 +123,36 @@ class execution extends Model
      * @var string
      */
     public $loopMode;
+
+    /**
+     * @var currentTasks[]
+     */
+    public $currentTasks;
     protected $_name = [
-        'status'            => 'Status',
         'outputs'           => 'Outputs',
-        'executedBy'        => 'ExecutedBy',
+        'status'            => 'Status',
         'endDate'           => 'EndDate',
+        'executedBy'        => 'ExecutedBy',
         'isParent'          => 'IsParent',
-        'startDate'         => 'StartDate',
         'tags'              => 'Tags',
-        'mode'              => 'Mode',
+        'startDate'         => 'StartDate',
         'safetyCheck'       => 'SafetyCheck',
+        'mode'              => 'Mode',
         'templateName'      => 'TemplateName',
-        'templateVersion'   => 'TemplateVersion',
         'createDate'        => 'CreateDate',
+        'templateVersion'   => 'TemplateVersion',
         'executionId'       => 'ExecutionId',
-        'currentTasks'      => 'CurrentTasks',
         'parameters'        => 'Parameters',
         'description'       => 'Description',
         'counters'          => 'Counters',
         'updateDate'        => 'UpdateDate',
+        'resourceGroupId'   => 'ResourceGroupId',
         'parentExecutionId' => 'ParentExecutionId',
         'ramRole'           => 'RamRole',
         'templateId'        => 'TemplateId',
         'statusMessage'     => 'StatusMessage',
         'loopMode'          => 'LoopMode',
+        'currentTasks'      => 'CurrentTasks',
     ];
 
     public function validate()
@@ -156,53 +162,44 @@ class execution extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
         }
-        if (null !== $this->executedBy) {
-            $res['ExecutedBy'] = $this->executedBy;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+        if (null !== $this->executedBy) {
+            $res['ExecutedBy'] = $this->executedBy;
+        }
         if (null !== $this->isParent) {
             $res['IsParent'] = $this->isParent;
-        }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
         if (null !== $this->safetyCheck) {
             $res['SafetyCheck'] = $this->safetyCheck;
         }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
         }
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
+        }
         if (null !== $this->executionId) {
             $res['ExecutionId'] = $this->executionId;
-        }
-        if (null !== $this->currentTasks) {
-            $res['CurrentTasks'] = [];
-            if (null !== $this->currentTasks && \is_array($this->currentTasks)) {
-                $n = 0;
-                foreach ($this->currentTasks as $item) {
-                    $res['CurrentTasks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
@@ -215,6 +212,9 @@ class execution extends Model
         }
         if (null !== $this->updateDate) {
             $res['UpdateDate'] = $this->updateDate;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->parentExecutionId) {
             $res['ParentExecutionId'] = $this->parentExecutionId;
@@ -231,6 +231,15 @@ class execution extends Model
         if (null !== $this->loopMode) {
             $res['LoopMode'] = $this->loopMode;
         }
+        if (null !== $this->currentTasks) {
+            $res['CurrentTasks'] = [];
+            if (null !== $this->currentTasks && \is_array($this->currentTasks)) {
+                $n = 0;
+                foreach ($this->currentTasks as $item) {
+                    $res['CurrentTasks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -243,53 +252,44 @@ class execution extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Outputs'])) {
             $model->outputs = $map['Outputs'];
         }
-        if (isset($map['ExecutedBy'])) {
-            $model->executedBy = $map['ExecutedBy'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+        if (isset($map['ExecutedBy'])) {
+            $model->executedBy = $map['ExecutedBy'];
+        }
         if (isset($map['IsParent'])) {
             $model->isParent = $map['IsParent'];
-        }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
         if (isset($map['SafetyCheck'])) {
             $model->safetyCheck = $map['SafetyCheck'];
         }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
         }
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
+        }
         if (isset($map['ExecutionId'])) {
             $model->executionId = $map['ExecutionId'];
-        }
-        if (isset($map['CurrentTasks'])) {
-            if (!empty($map['CurrentTasks'])) {
-                $model->currentTasks = [];
-                $n                   = 0;
-                foreach ($map['CurrentTasks'] as $item) {
-                    $model->currentTasks[$n++] = null !== $item ? currentTasks::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
@@ -302,6 +302,9 @@ class execution extends Model
         }
         if (isset($map['UpdateDate'])) {
             $model->updateDate = $map['UpdateDate'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ParentExecutionId'])) {
             $model->parentExecutionId = $map['ParentExecutionId'];
@@ -317,6 +320,15 @@ class execution extends Model
         }
         if (isset($map['LoopMode'])) {
             $model->loopMode = $map['LoopMode'];
+        }
+        if (isset($map['CurrentTasks'])) {
+            if (!empty($map['CurrentTasks'])) {
+                $model->currentTasks = [];
+                $n                   = 0;
+                foreach ($map['CurrentTasks'] as $item) {
+                    $model->currentTasks[$n++] = null !== $item ? currentTasks::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

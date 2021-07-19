@@ -12,20 +12,20 @@ class GetExecutionTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $requestId;
 
     /**
      * @var template
      */
     public $template;
     protected $_name = [
-        'requestId' => 'RequestId',
         'content'   => 'Content',
+        'requestId' => 'RequestId',
         'template'  => 'Template',
     ];
 
@@ -36,11 +36,11 @@ class GetExecutionTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->template) {
             $res['Template'] = null !== $this->template ? $this->template->toMap() : null;
@@ -57,11 +57,11 @@ class GetExecutionTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Template'])) {
             $model->template = template::fromMap($map['Template']);

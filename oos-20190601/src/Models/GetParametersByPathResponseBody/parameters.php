@@ -31,12 +31,12 @@ class parameters extends Model
     /**
      * @var string
      */
-    public $constraints;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $constraints;
 
     /**
      * @var string
@@ -44,14 +44,14 @@ class parameters extends Model
     public $createdBy;
 
     /**
-     * @var int
-     */
-    public $parameterVersion;
-
-    /**
      * @var string
      */
     public $createdDate;
+
+    /**
+     * @var int
+     */
+    public $parameterVersion;
 
     /**
      * @var string
@@ -72,11 +72,11 @@ class parameters extends Model
         'updatedDate'      => 'UpdatedDate',
         'updatedBy'        => 'UpdatedBy',
         'value'            => 'Value',
-        'constraints'      => 'Constraints',
         'description'      => 'Description',
+        'constraints'      => 'Constraints',
         'createdBy'        => 'CreatedBy',
-        'parameterVersion' => 'ParameterVersion',
         'createdDate'      => 'CreatedDate',
+        'parameterVersion' => 'ParameterVersion',
         'name'             => 'Name',
         'id'               => 'Id',
         'shareType'        => 'ShareType',
@@ -101,20 +101,20 @@ class parameters extends Model
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
-        if (null !== $this->constraints) {
-            $res['Constraints'] = $this->constraints;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->constraints) {
+            $res['Constraints'] = $this->constraints;
         }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
         }
-        if (null !== $this->parameterVersion) {
-            $res['ParameterVersion'] = $this->parameterVersion;
-        }
         if (null !== $this->createdDate) {
             $res['CreatedDate'] = $this->createdDate;
+        }
+        if (null !== $this->parameterVersion) {
+            $res['ParameterVersion'] = $this->parameterVersion;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -149,20 +149,20 @@ class parameters extends Model
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
-        if (isset($map['Constraints'])) {
-            $model->constraints = $map['Constraints'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Constraints'])) {
+            $model->constraints = $map['Constraints'];
         }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
         }
-        if (isset($map['ParameterVersion'])) {
-            $model->parameterVersion = $map['ParameterVersion'];
-        }
         if (isset($map['CreatedDate'])) {
             $model->createdDate = $map['CreatedDate'];
+        }
+        if (isset($map['ParameterVersion'])) {
+            $model->parameterVersion = $map['ParameterVersion'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

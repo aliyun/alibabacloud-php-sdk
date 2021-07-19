@@ -47,15 +47,27 @@ class CreateSecretParameterRequest extends Model
      * @var string
      */
     public $constraints;
+
+    /**
+     * @var string
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'name'        => 'Name',
-        'type'        => 'Type',
-        'value'       => 'Value',
-        'description' => 'Description',
-        'keyId'       => 'KeyId',
-        'clientToken' => 'ClientToken',
-        'constraints' => 'Constraints',
+        'regionId'        => 'RegionId',
+        'name'            => 'Name',
+        'type'            => 'Type',
+        'value'           => 'Value',
+        'description'     => 'Description',
+        'keyId'           => 'KeyId',
+        'clientToken'     => 'ClientToken',
+        'constraints'     => 'Constraints',
+        'tags'            => 'Tags',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -88,6 +100,12 @@ class CreateSecretParameterRequest extends Model
         }
         if (null !== $this->constraints) {
             $res['Constraints'] = $this->constraints;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -124,6 +142,12 @@ class CreateSecretParameterRequest extends Model
         }
         if (isset($map['Constraints'])) {
             $model->constraints = $map['Constraints'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

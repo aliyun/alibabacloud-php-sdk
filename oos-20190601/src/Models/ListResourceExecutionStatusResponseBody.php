@@ -20,19 +20,19 @@ class ListResourceExecutionStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @var resourceExecutionStatus[]
-     */
-    public $resourceExecutionStatus;
-
-    /**
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var resourceExecutionStatus[]
+     */
+    public $resourceExecutionStatus;
     protected $_name = [
         'nextToken'               => 'NextToken',
         'requestId'               => 'RequestId',
-        'resourceExecutionStatus' => 'ResourceExecutionStatus',
         'maxResults'              => 'MaxResults',
+        'resourceExecutionStatus' => 'ResourceExecutionStatus',
     ];
 
     public function validate()
@@ -48,6 +48,9 @@ class ListResourceExecutionStatusResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->resourceExecutionStatus) {
             $res['ResourceExecutionStatus'] = [];
             if (null !== $this->resourceExecutionStatus && \is_array($this->resourceExecutionStatus)) {
@@ -56,9 +59,6 @@ class ListResourceExecutionStatusResponseBody extends Model
                     $res['ResourceExecutionStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class ListResourceExecutionStatusResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['ResourceExecutionStatus'])) {
             if (!empty($map['ResourceExecutionStatus'])) {
                 $model->resourceExecutionStatus = [];
@@ -86,9 +89,6 @@ class ListResourceExecutionStatusResponseBody extends Model
                     $model->resourceExecutionStatus[$n++] = null !== $item ? resourceExecutionStatus::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
 
         return $model;

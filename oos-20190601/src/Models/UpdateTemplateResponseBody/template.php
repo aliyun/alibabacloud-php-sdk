@@ -51,6 +51,11 @@ class template extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $createdBy;
 
     /**
@@ -59,14 +64,14 @@ class template extends Model
     public $createdDate;
 
     /**
-     * @var bool
-     */
-    public $hasTrigger;
-
-    /**
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var bool
+     */
+    public $hasTrigger;
 
     /**
      * @var string
@@ -81,10 +86,11 @@ class template extends Model
         'templateVersion' => 'TemplateVersion',
         'templateFormat'  => 'TemplateFormat',
         'description'     => 'Description',
+        'resourceGroupId' => 'ResourceGroupId',
         'createdBy'       => 'CreatedBy',
         'createdDate'     => 'CreatedDate',
-        'hasTrigger'      => 'HasTrigger',
         'templateId'      => 'TemplateId',
+        'hasTrigger'      => 'HasTrigger',
         'shareType'       => 'ShareType',
     ];
 
@@ -119,17 +125,20 @@ class template extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
         }
         if (null !== $this->createdDate) {
             $res['CreatedDate'] = $this->createdDate;
         }
-        if (null !== $this->hasTrigger) {
-            $res['HasTrigger'] = $this->hasTrigger;
-        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->hasTrigger) {
+            $res['HasTrigger'] = $this->hasTrigger;
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
@@ -170,17 +179,20 @@ class template extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
         }
         if (isset($map['CreatedDate'])) {
             $model->createdDate = $map['CreatedDate'];
         }
-        if (isset($map['HasTrigger'])) {
-            $model->hasTrigger = $map['HasTrigger'];
-        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['HasTrigger'])) {
+            $model->hasTrigger = $map['HasTrigger'];
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];

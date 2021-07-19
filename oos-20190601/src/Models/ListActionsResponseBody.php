@@ -20,19 +20,19 @@ class ListActionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var actions[]
-     */
-    public $actions;
-
-    /**
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var actions[]
+     */
+    public $actions;
     protected $_name = [
         'nextToken'  => 'NextToken',
         'requestId'  => 'RequestId',
-        'actions'    => 'Actions',
         'maxResults' => 'MaxResults',
+        'actions'    => 'Actions',
     ];
 
     public function validate()
@@ -48,6 +48,9 @@ class ListActionsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->actions) {
             $res['Actions'] = [];
             if (null !== $this->actions && \is_array($this->actions)) {
@@ -56,9 +59,6 @@ class ListActionsResponseBody extends Model
                     $res['Actions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
 
         return $res;
@@ -78,6 +78,9 @@ class ListActionsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['Actions'])) {
             if (!empty($map['Actions'])) {
                 $model->actions = [];
@@ -86,9 +89,6 @@ class ListActionsResponseBody extends Model
                     $model->actions[$n++] = null !== $item ? actions::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
 
         return $model;
