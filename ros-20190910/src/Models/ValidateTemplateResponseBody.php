@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\outputs;
 use AlibabaCloud\Tea\Model;
 
 class ValidateTemplateResponseBody extends Model
@@ -22,10 +23,16 @@ class ValidateTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var outputs[]
+     */
+    public $outputs;
     protected $_name = [
         'description' => 'Description',
         'parameters'  => 'Parameters',
         'requestId'   => 'RequestId',
+        'outputs'     => 'Outputs',
     ];
 
     public function validate()
@@ -43,6 +50,15 @@ class ValidateTemplateResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->outputs) {
+            $res['Outputs'] = [];
+            if (null !== $this->outputs && \is_array($this->outputs)) {
+                $n = 0;
+                foreach ($this->outputs as $item) {
+                    $res['Outputs'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -66,6 +82,15 @@ class ValidateTemplateResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Outputs'])) {
+            if (!empty($map['Outputs'])) {
+                $model->outputs = [];
+                $n              = 0;
+                foreach ($map['Outputs'] as $item) {
+                    $model->outputs[$n++] = null !== $item ? outputs::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

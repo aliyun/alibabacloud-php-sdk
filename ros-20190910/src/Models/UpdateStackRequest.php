@@ -43,11 +43,6 @@ class UpdateStackRequest extends Model
     /**
      * @var string
      */
-    public $updateAllowPolicy;
-
-    /**
-     * @var string
-     */
     public $stackPolicyDuringUpdateURL;
 
     /**
@@ -69,11 +64,6 @@ class UpdateStackRequest extends Model
      * @var bool
      */
     public $disableRollback;
-
-    /**
-     * @var bool
-     */
-    public $enableRecover;
 
     /**
      * @var string
@@ -116,13 +106,11 @@ class UpdateStackRequest extends Model
         'timeoutInMinutes'            => 'TimeoutInMinutes',
         'templateBody'                => 'TemplateBody',
         'stackPolicyURL'              => 'StackPolicyURL',
-        'updateAllowPolicy'           => 'UpdateAllowPolicy',
         'stackPolicyDuringUpdateURL'  => 'StackPolicyDuringUpdateURL',
         'stackPolicyBody'             => 'StackPolicyBody',
         'usePreviousParameters'       => 'UsePreviousParameters',
         'regionId'                    => 'RegionId',
         'disableRollback'             => 'DisableRollback',
-        'enableRecover'               => 'EnableRecover',
         'templateURL'                 => 'TemplateURL',
         'ramRoleName'                 => 'RamRoleName',
         'replacementOption'           => 'ReplacementOption',
@@ -157,9 +145,6 @@ class UpdateStackRequest extends Model
         if (null !== $this->stackPolicyURL) {
             $res['StackPolicyURL'] = $this->stackPolicyURL;
         }
-        if (null !== $this->updateAllowPolicy) {
-            $res['UpdateAllowPolicy'] = $this->updateAllowPolicy;
-        }
         if (null !== $this->stackPolicyDuringUpdateURL) {
             $res['StackPolicyDuringUpdateURL'] = $this->stackPolicyDuringUpdateURL;
         }
@@ -174,9 +159,6 @@ class UpdateStackRequest extends Model
         }
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
-        }
-        if (null !== $this->enableRecover) {
-            $res['EnableRecover'] = $this->enableRecover;
         }
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
@@ -241,9 +223,6 @@ class UpdateStackRequest extends Model
         if (isset($map['StackPolicyURL'])) {
             $model->stackPolicyURL = $map['StackPolicyURL'];
         }
-        if (isset($map['UpdateAllowPolicy'])) {
-            $model->updateAllowPolicy = $map['UpdateAllowPolicy'];
-        }
         if (isset($map['StackPolicyDuringUpdateURL'])) {
             $model->stackPolicyDuringUpdateURL = $map['StackPolicyDuringUpdateURL'];
         }
@@ -258,9 +237,6 @@ class UpdateStackRequest extends Model
         }
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];
-        }
-        if (isset($map['EnableRecover'])) {
-            $model->enableRecover = $map['EnableRecover'];
         }
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];

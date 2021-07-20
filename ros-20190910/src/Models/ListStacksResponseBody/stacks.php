@@ -78,6 +78,11 @@ class stacks extends Model
      * @var string
      */
     public $stackType;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'status'             => 'Status',
         'updateTime'         => 'UpdateTime',
@@ -93,6 +98,7 @@ class stacks extends Model
         'stackId'            => 'StackId',
         'stackDriftStatus'   => 'StackDriftStatus',
         'stackType'          => 'StackType',
+        'resourceGroupId'    => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -149,6 +155,9 @@ class stacks extends Model
         }
         if (null !== $this->stackType) {
             $res['StackType'] = $this->stackType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -209,6 +218,9 @@ class stacks extends Model
         }
         if (isset($map['StackType'])) {
             $model->stackType = $map['StackType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

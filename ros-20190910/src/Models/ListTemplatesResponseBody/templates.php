@@ -52,6 +52,11 @@ class templates extends Model
      * @var string
      */
     public $shareType;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'templateARN'     => 'TemplateARN',
         'updateTime'      => 'UpdateTime',
@@ -62,6 +67,7 @@ class templates extends Model
         'templateId'      => 'TemplateId',
         'ownerId'         => 'OwnerId',
         'shareType'       => 'ShareType',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class templates extends Model
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class templates extends Model
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

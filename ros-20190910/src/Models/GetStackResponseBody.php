@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\parameters;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\resourceProgress;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -124,6 +125,16 @@ class GetStackResponseBody extends Model
      * @var string
      */
     public $stackId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var resourceProgress
+     */
+    public $resourceProgress;
     protected $_name = [
         'status'              => 'Status',
         'description'         => 'Description',
@@ -148,6 +159,8 @@ class GetStackResponseBody extends Model
         'tags'                => 'Tags',
         'timeoutInMinutes'    => 'TimeoutInMinutes',
         'stackId'             => 'StackId',
+        'resourceGroupId'     => 'ResourceGroupId',
+        'resourceProgress'    => 'ResourceProgress',
     ];
 
     public function validate()
@@ -237,6 +250,12 @@ class GetStackResponseBody extends Model
         }
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceProgress) {
+            $res['ResourceProgress'] = null !== $this->resourceProgress ? $this->resourceProgress->toMap() : null;
         }
 
         return $res;
@@ -334,6 +353,12 @@ class GetStackResponseBody extends Model
         }
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceProgress'])) {
+            $model->resourceProgress = resourceProgress::fromMap($map['ResourceProgress']);
         }
 
         return $model;

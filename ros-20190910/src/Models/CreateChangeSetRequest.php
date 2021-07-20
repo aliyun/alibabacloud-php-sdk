@@ -18,11 +18,6 @@ class CreateChangeSetRequest extends Model
     /**
      * @var string
      */
-    public $channelId;
-
-    /**
-     * @var string
-     */
     public $stackPolicyURL;
 
     /**
@@ -76,24 +71,9 @@ class CreateChangeSetRequest extends Model
     public $templateBody;
 
     /**
-     * @var string
-     */
-    public $updateAllowPolicy;
-
-    /**
      * @var int
      */
     public $timeoutInMinutes;
-
-    /**
-     * @var string
-     */
-    public $activityId;
-
-    /**
-     * @var string
-     */
-    public $orderSource;
 
     /**
      * @var bool
@@ -146,7 +126,6 @@ class CreateChangeSetRequest extends Model
     public $resourcesToImport;
     protected $_name = [
         'stackId'                     => 'StackId',
-        'channelId'                   => 'ChannelId',
         'stackPolicyURL'              => 'StackPolicyURL',
         'stackPolicyBody'             => 'StackPolicyBody',
         'stackName'                   => 'StackName',
@@ -158,10 +137,7 @@ class CreateChangeSetRequest extends Model
         'templateURL'                 => 'TemplateURL',
         'stackPolicyDuringUpdateURL'  => 'StackPolicyDuringUpdateURL',
         'templateBody'                => 'TemplateBody',
-        'updateAllowPolicy'           => 'UpdateAllowPolicy',
         'timeoutInMinutes'            => 'TimeoutInMinutes',
-        'activityId'                  => 'ActivityId',
-        'orderSource'                 => 'OrderSource',
         'disableRollback'             => 'DisableRollback',
         'changeSetName'               => 'ChangeSetName',
         'stackPolicyDuringUpdateBody' => 'StackPolicyDuringUpdateBody',
@@ -183,9 +159,6 @@ class CreateChangeSetRequest extends Model
         $res = [];
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
-        }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->stackPolicyURL) {
             $res['StackPolicyURL'] = $this->stackPolicyURL;
@@ -220,17 +193,8 @@ class CreateChangeSetRequest extends Model
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
         }
-        if (null !== $this->updateAllowPolicy) {
-            $res['UpdateAllowPolicy'] = $this->updateAllowPolicy;
-        }
         if (null !== $this->timeoutInMinutes) {
             $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
-        }
-        if (null !== $this->activityId) {
-            $res['ActivityId'] = $this->activityId;
-        }
-        if (null !== $this->orderSource) {
-            $res['OrderSource'] = $this->orderSource;
         }
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
@@ -289,9 +253,6 @@ class CreateChangeSetRequest extends Model
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
-        }
         if (isset($map['StackPolicyURL'])) {
             $model->stackPolicyURL = $map['StackPolicyURL'];
         }
@@ -325,17 +286,8 @@ class CreateChangeSetRequest extends Model
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }
-        if (isset($map['UpdateAllowPolicy'])) {
-            $model->updateAllowPolicy = $map['UpdateAllowPolicy'];
-        }
         if (isset($map['TimeoutInMinutes'])) {
             $model->timeoutInMinutes = $map['TimeoutInMinutes'];
-        }
-        if (isset($map['ActivityId'])) {
-            $model->activityId = $map['ActivityId'];
-        }
-        if (isset($map['OrderSource'])) {
-            $model->orderSource = $map['OrderSource'];
         }
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];

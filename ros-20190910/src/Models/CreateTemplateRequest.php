@@ -27,11 +27,17 @@ class CreateTemplateRequest extends Model
      * @var string
      */
     public $templateName;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'templateURL'  => 'TemplateURL',
-        'description'  => 'Description',
-        'templateBody' => 'TemplateBody',
-        'templateName' => 'TemplateName',
+        'templateURL'     => 'TemplateURL',
+        'description'     => 'Description',
+        'templateBody'    => 'TemplateBody',
+        'templateName'    => 'TemplateName',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class CreateTemplateRequest extends Model
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class CreateTemplateRequest extends Model
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

@@ -54,6 +54,11 @@ class stackGroup extends Model
      * @var stackGroupDriftDetectionDetail
      */
     public $stackGroupDriftDetectionDetail;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'stackGroupId'                   => 'StackGroupId',
         'status'                         => 'Status',
@@ -64,6 +69,7 @@ class stackGroup extends Model
         'executionRoleName'              => 'ExecutionRoleName',
         'templateBody'                   => 'TemplateBody',
         'stackGroupDriftDetectionDetail' => 'StackGroupDriftDetectionDetail',
+        'resourceGroupId'                => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -105,6 +111,9 @@ class stackGroup extends Model
         }
         if (null !== $this->stackGroupDriftDetectionDetail) {
             $res['StackGroupDriftDetectionDetail'] = null !== $this->stackGroupDriftDetectionDetail ? $this->stackGroupDriftDetectionDetail->toMap() : null;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -150,6 +159,9 @@ class stackGroup extends Model
         }
         if (isset($map['StackGroupDriftDetectionDetail'])) {
             $model->stackGroupDriftDetectionDetail = stackGroupDriftDetectionDetail::fromMap($map['StackGroupDriftDetectionDetail']);
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

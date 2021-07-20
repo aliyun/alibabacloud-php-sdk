@@ -63,6 +63,11 @@ class CreateStackGroupRequest extends Model
      * @var parameters[]
      */
     public $parameters;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'regionId'               => 'RegionId',
         'stackGroupName'         => 'StackGroupName',
@@ -75,6 +80,7 @@ class CreateStackGroupRequest extends Model
         'templateId'             => 'TemplateId',
         'templateVersion'        => 'TemplateVersion',
         'parameters'             => 'Parameters',
+        'resourceGroupId'        => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -122,6 +128,9 @@ class CreateStackGroupRequest extends Model
                     $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -173,6 +182,9 @@ class CreateStackGroupRequest extends Model
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

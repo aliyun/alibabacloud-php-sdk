@@ -36,11 +36,6 @@ class SignalResourceRequest extends Model
     /**
      * @var string
      */
-    public $data;
-
-    /**
-     * @var string
-     */
     public $logicalResourceId;
     protected $_name = [
         'stackId'           => 'StackId',
@@ -48,7 +43,6 @@ class SignalResourceRequest extends Model
         'regionId'          => 'RegionId',
         'uniqueId'          => 'UniqueId',
         'clientToken'       => 'ClientToken',
-        'data'              => 'Data',
         'logicalResourceId' => 'LogicalResourceId',
     ];
 
@@ -73,9 +67,6 @@ class SignalResourceRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
         }
         if (null !== $this->logicalResourceId) {
             $res['LogicalResourceId'] = $this->logicalResourceId;
@@ -106,9 +97,6 @@ class SignalResourceRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
         }
         if (isset($map['LogicalResourceId'])) {
             $model->logicalResourceId = $map['LogicalResourceId'];

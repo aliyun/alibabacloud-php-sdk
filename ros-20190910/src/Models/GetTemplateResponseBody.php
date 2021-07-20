@@ -88,6 +88,11 @@ class GetTemplateResponseBody extends Model
      * @var string
      */
     public $shareType;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'templateARN'     => 'TemplateARN',
         'description'     => 'Description',
@@ -105,6 +110,7 @@ class GetTemplateResponseBody extends Model
         'templateId'      => 'TemplateId',
         'stackId'         => 'StackId',
         'shareType'       => 'ShareType',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -167,6 +173,9 @@ class GetTemplateResponseBody extends Model
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -233,6 +242,9 @@ class GetTemplateResponseBody extends Model
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

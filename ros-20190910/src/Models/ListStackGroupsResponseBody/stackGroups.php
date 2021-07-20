@@ -37,6 +37,11 @@ class stackGroups extends Model
      * @var string
      */
     public $stackGroupName;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'stackGroupId'          => 'StackGroupId',
         'status'                => 'Status',
@@ -44,6 +49,7 @@ class stackGroups extends Model
         'description'           => 'Description',
         'stackGroupDriftStatus' => 'StackGroupDriftStatus',
         'stackGroupName'        => 'StackGroupName',
+        'resourceGroupId'       => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class stackGroups extends Model
         }
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class stackGroups extends Model
         }
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

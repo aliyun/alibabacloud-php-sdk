@@ -33,12 +33,18 @@ class ListTemplatesRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'templateName' => 'TemplateName',
-        'shareType'    => 'ShareType',
-        'tag'          => 'Tag',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'templateName'    => 'TemplateName',
+        'shareType'       => 'ShareType',
+        'tag'             => 'Tag',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -68,6 +74,9 @@ class ListTemplatesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -101,6 +110,9 @@ class ListTemplatesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

@@ -22,10 +22,22 @@ class GetStackRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $outputOption;
+
+    /**
+     * @var string
+     */
+    public $showResourceProgress;
     protected $_name = [
-        'stackId'     => 'StackId',
-        'regionId'    => 'RegionId',
-        'clientToken' => 'ClientToken',
+        'stackId'              => 'StackId',
+        'regionId'             => 'RegionId',
+        'clientToken'          => 'ClientToken',
+        'outputOption'         => 'OutputOption',
+        'showResourceProgress' => 'ShowResourceProgress',
     ];
 
     public function validate()
@@ -43,6 +55,12 @@ class GetStackRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->outputOption) {
+            $res['OutputOption'] = $this->outputOption;
+        }
+        if (null !== $this->showResourceProgress) {
+            $res['ShowResourceProgress'] = $this->showResourceProgress;
         }
 
         return $res;
@@ -64,6 +82,12 @@ class GetStackRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OutputOption'])) {
+            $model->outputOption = $map['OutputOption'];
+        }
+        if (isset($map['ShowResourceProgress'])) {
+            $model->showResourceProgress = $map['ShowResourceProgress'];
         }
 
         return $model;

@@ -102,6 +102,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplatesResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateVersionsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateVersionsResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\MoveResourceGroupRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetDeletionProtectionRequest;
@@ -1505,6 +1507,34 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTemplateVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return MoveResourceGroupResponse::fromMap($this->doRPCRequest('MoveResourceGroup', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveResourceGroupWithOptions($request, $runtime);
     }
 
     /**

@@ -18,11 +18,6 @@ class CreateStackRequest extends Model
     /**
      * @var string
      */
-    public $channelId;
-
-    /**
-     * @var string
-     */
     public $templateBody;
 
     /**
@@ -49,16 +44,6 @@ class CreateStackRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $activityId;
-
-    /**
-     * @var string
-     */
-    public $orderSource;
 
     /**
      * @var string
@@ -109,17 +94,19 @@ class CreateStackRequest extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'disableRollback'    => 'DisableRollback',
-        'channelId'          => 'ChannelId',
         'templateBody'       => 'TemplateBody',
         'stackPolicyURL'     => 'StackPolicyURL',
         'timeoutInMinutes'   => 'TimeoutInMinutes',
         'stackPolicyBody'    => 'StackPolicyBody',
         'stackName'          => 'StackName',
         'regionId'           => 'RegionId',
-        'activityId'         => 'ActivityId',
-        'orderSource'        => 'OrderSource',
         'clientToken'        => 'ClientToken',
         'templateURL'        => 'TemplateURL',
         'ramRoleName'        => 'RamRoleName',
@@ -130,6 +117,7 @@ class CreateStackRequest extends Model
         'parameters'         => 'Parameters',
         'notificationURLs'   => 'NotificationURLs',
         'tags'               => 'Tags',
+        'resourceGroupId'    => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -141,9 +129,6 @@ class CreateStackRequest extends Model
         $res = [];
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
-        }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
@@ -162,12 +147,6 @@ class CreateStackRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->activityId) {
-            $res['ActivityId'] = $this->activityId;
-        }
-        if (null !== $this->orderSource) {
-            $res['OrderSource'] = $this->orderSource;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -211,6 +190,9 @@ class CreateStackRequest extends Model
                 }
             }
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
 
         return $res;
     }
@@ -225,9 +207,6 @@ class CreateStackRequest extends Model
         $model = new self();
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];
-        }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
@@ -246,12 +225,6 @@ class CreateStackRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ActivityId'])) {
-            $model->activityId = $map['ActivityId'];
-        }
-        if (isset($map['OrderSource'])) {
-            $model->orderSource = $map['OrderSource'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -296,6 +269,9 @@ class CreateStackRequest extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;
