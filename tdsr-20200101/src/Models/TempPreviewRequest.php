@@ -13,9 +13,9 @@ class TempPreviewRequest extends Model
      *
      * @var string
      */
-    public $id;
+    public $sceneId;
     protected $_name = [
-        'id' => 'Id',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class TempPreviewRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -40,8 +40,8 @@ class TempPreviewRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;
