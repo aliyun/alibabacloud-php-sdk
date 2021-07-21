@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @var alertResults[]
-     */
-    public $alertResults;
-
-    /**
      * @var int
      */
     public $groupId;
+
+    /**
+     * @var alertResults[]
+     */
+    public $alertResults;
     protected $_name = [
-        'alertResults' => 'AlertResults',
         'groupId'      => 'GroupId',
+        'alertResults' => 'AlertResults',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class resource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
         if (null !== $this->alertResults) {
             $res['AlertResults'] = [];
             if (null !== $this->alertResults && \is_array($this->alertResults)) {
@@ -38,9 +41,6 @@ class resource extends Model
                     $res['AlertResults'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class resource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
         if (isset($map['AlertResults'])) {
             if (!empty($map['AlertResults'])) {
                 $model->alertResults = [];
@@ -62,9 +65,6 @@ class resource extends Model
                     $model->alertResults[$n++] = null !== $item ? alertResults::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
         }
 
         return $model;

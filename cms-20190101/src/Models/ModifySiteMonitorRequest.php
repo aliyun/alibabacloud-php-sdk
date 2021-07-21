@@ -11,6 +11,11 @@ class ModifySiteMonitorRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $address;
 
     /**
@@ -42,14 +47,21 @@ class ModifySiteMonitorRequest extends Model
      * @var string
      */
     public $alertIds;
+
+    /**
+     * @var string
+     */
+    public $intervalUnit;
     protected $_name = [
-        'address'     => 'Address',
-        'taskId'      => 'TaskId',
-        'taskName'    => 'TaskName',
-        'interval'    => 'Interval',
-        'ispCities'   => 'IspCities',
-        'optionsJson' => 'OptionsJson',
-        'alertIds'    => 'AlertIds',
+        'regionId'     => 'RegionId',
+        'address'      => 'Address',
+        'taskId'       => 'TaskId',
+        'taskName'     => 'TaskName',
+        'interval'     => 'Interval',
+        'ispCities'    => 'IspCities',
+        'optionsJson'  => 'OptionsJson',
+        'alertIds'     => 'AlertIds',
+        'intervalUnit' => 'IntervalUnit',
     ];
 
     public function validate()
@@ -59,6 +71,9 @@ class ModifySiteMonitorRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
@@ -80,6 +95,9 @@ class ModifySiteMonitorRequest extends Model
         if (null !== $this->alertIds) {
             $res['AlertIds'] = $this->alertIds;
         }
+        if (null !== $this->intervalUnit) {
+            $res['IntervalUnit'] = $this->intervalUnit;
+        }
 
         return $res;
     }
@@ -92,6 +110,9 @@ class ModifySiteMonitorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
@@ -112,6 +133,9 @@ class ModifySiteMonitorRequest extends Model
         }
         if (isset($map['AlertIds'])) {
             $model->alertIds = $map['AlertIds'];
+        }
+        if (isset($map['IntervalUnit'])) {
+            $model->intervalUnit = $map['IntervalUnit'];
         }
 
         return $model;

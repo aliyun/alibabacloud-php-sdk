@@ -11,12 +11,12 @@ class eventInfo extends Model
     /**
      * @var string
      */
-    public $time;
+    public $eventName;
 
     /**
      * @var string
      */
-    public $eventName;
+    public $time;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class eventInfo extends Model
      */
     public $content;
     protected $_name = [
-        'time'      => 'Time',
         'eventName' => 'EventName',
+        'time'      => 'Time',
         'groupId'   => 'GroupId',
         'content'   => 'Content',
     ];
@@ -41,11 +41,11 @@ class eventInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -65,11 +65,11 @@ class eventInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

@@ -11,6 +11,11 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $policyType;
 
     /**
@@ -28,6 +33,7 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
      */
     public $endTime;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'policyType' => 'PolicyType',
         'groupId'    => 'GroupId',
         'startTime'  => 'StartTime',
@@ -41,6 +47,9 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
@@ -65,6 +74,9 @@ class CreateMonitorGroupNotifyPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }

@@ -15,6 +15,16 @@ class DescribeLogMonitorListResponseBody extends Model
     public $requestId;
 
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var string
      */
     public $message;
@@ -38,25 +48,15 @@ class DescribeLogMonitorListResponseBody extends Model
      * @var logMonitorList[]
      */
     public $logMonitorList;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'requestId'      => 'RequestId',
+        'success'        => 'Success',
+        'code'           => 'Code',
         'message'        => 'Message',
         'pageSize'       => 'PageSize',
         'pageNumber'     => 'PageNumber',
         'total'          => 'Total',
         'logMonitorList' => 'LogMonitorList',
-        'code'           => 'Code',
-        'success'        => 'Success',
     ];
 
     public function validate()
@@ -68,6 +68,12 @@ class DescribeLogMonitorListResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -90,12 +96,6 @@ class DescribeLogMonitorListResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
 
         return $res;
     }
@@ -110,6 +110,12 @@ class DescribeLogMonitorListResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -131,12 +137,6 @@ class DescribeLogMonitorListResponseBody extends Model
                     $model->logMonitorList[$n++] = null !== $item ? logMonitorList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

@@ -47,6 +47,11 @@ class DescribeMetricDataRequest extends Model
      * @var string
      */
     public $length;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'namespace'  => 'Namespace',
         'metricName' => 'MetricName',
@@ -56,6 +61,7 @@ class DescribeMetricDataRequest extends Model
         'dimensions' => 'Dimensions',
         'express'    => 'Express',
         'length'     => 'Length',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class DescribeMetricDataRequest extends Model
         }
         if (null !== $this->length) {
             $res['Length'] = $this->length;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class DescribeMetricDataRequest extends Model
         }
         if (isset($map['Length'])) {
             $model->length = $map['Length'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

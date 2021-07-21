@@ -52,6 +52,11 @@ class DescribeMetricLastRequest extends Model
      * @var string
      */
     public $express;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'namespace'  => 'Namespace',
         'metricName' => 'MetricName',
@@ -62,6 +67,7 @@ class DescribeMetricLastRequest extends Model
         'nextToken'  => 'NextToken',
         'length'     => 'Length',
         'express'    => 'Express',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class DescribeMetricLastRequest extends Model
         }
         if (null !== $this->express) {
             $res['Express'] = $this->express;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class DescribeMetricLastRequest extends Model
         }
         if (isset($map['Express'])) {
             $model->express = $map['Express'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class DeleteSiteMonitorsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $taskIds;
 
     /**
@@ -18,6 +23,7 @@ class DeleteSiteMonitorsRequest extends Model
      */
     public $isDeleteAlarms;
     protected $_name = [
+        'regionId'       => 'RegionId',
         'taskIds'        => 'TaskIds',
         'isDeleteAlarms' => 'IsDeleteAlarms',
     ];
@@ -29,6 +35,9 @@ class DeleteSiteMonitorsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->taskIds) {
             $res['TaskIds'] = $this->taskIds;
         }
@@ -47,6 +56,9 @@ class DeleteSiteMonitorsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['TaskIds'])) {
             $model->taskIds = $map['TaskIds'];
         }

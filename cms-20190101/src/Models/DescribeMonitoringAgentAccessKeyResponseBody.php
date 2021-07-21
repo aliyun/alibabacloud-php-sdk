@@ -11,6 +11,11 @@ class DescribeMonitoringAgentAccessKeyResponseBody extends Model
     /**
      * @var string
      */
+    public $accessKey;
+
+    /**
+     * @var string
+     */
     public $secretKey;
 
     /**
@@ -19,14 +24,9 @@ class DescribeMonitoringAgentAccessKeyResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $accessKey;
+    public $success;
 
     /**
      * @var int
@@ -34,16 +34,16 @@ class DescribeMonitoringAgentAccessKeyResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $message;
     protected $_name = [
+        'accessKey' => 'AccessKey',
         'secretKey' => 'SecretKey',
         'requestId' => 'RequestId',
-        'message'   => 'Message',
-        'accessKey' => 'AccessKey',
-        'code'      => 'Code',
         'success'   => 'Success',
+        'code'      => 'Code',
+        'message'   => 'Message',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeMonitoringAgentAccessKeyResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessKey) {
+            $res['AccessKey'] = $this->accessKey;
+        }
         if (null !== $this->secretKey) {
             $res['SecretKey'] = $this->secretKey;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->accessKey) {
-            $res['AccessKey'] = $this->accessKey;
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeMonitoringAgentAccessKeyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessKey'])) {
+            $model->accessKey = $map['AccessKey'];
+        }
         if (isset($map['SecretKey'])) {
             $model->secretKey = $map['SecretKey'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['AccessKey'])) {
-            $model->accessKey = $map['AccessKey'];
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         return $model;

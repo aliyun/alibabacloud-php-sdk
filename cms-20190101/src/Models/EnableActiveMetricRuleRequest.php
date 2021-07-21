@@ -11,9 +11,15 @@ class EnableActiveMetricRuleRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $product;
     protected $_name = [
-        'product' => 'Product',
+        'regionId' => 'RegionId',
+        'product'  => 'Product',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class EnableActiveMetricRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
@@ -38,6 +47,9 @@ class EnableActiveMetricRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }

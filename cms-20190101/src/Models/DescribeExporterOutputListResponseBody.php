@@ -15,6 +15,16 @@ class DescribeExporterOutputListResponseBody extends Model
     public $requestId;
 
     /**
+     * @var bool
+     */
+    public $success;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var string
      */
     public $message;
@@ -33,24 +43,14 @@ class DescribeExporterOutputListResponseBody extends Model
      * @var datapoints
      */
     public $datapoints;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'requestId'  => 'RequestId',
+        'success'    => 'Success',
+        'code'       => 'Code',
         'message'    => 'Message',
         'pageNumber' => 'PageNumber',
         'total'      => 'Total',
         'datapoints' => 'Datapoints',
-        'code'       => 'Code',
-        'success'    => 'Success',
     ];
 
     public function validate()
@@ -63,6 +63,12 @@ class DescribeExporterOutputListResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -74,12 +80,6 @@ class DescribeExporterOutputListResponseBody extends Model
         }
         if (null !== $this->datapoints) {
             $res['Datapoints'] = null !== $this->datapoints ? $this->datapoints->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -96,6 +96,12 @@ class DescribeExporterOutputListResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -107,12 +113,6 @@ class DescribeExporterOutputListResponseBody extends Model
         }
         if (isset($map['Datapoints'])) {
             $model->datapoints = datapoints::fromMap($map['Datapoints']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class DescribeMetricMetaListRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $namespace;
 
     /**
@@ -33,6 +38,7 @@ class DescribeMetricMetaListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'namespace'  => 'Namespace',
         'labels'     => 'Labels',
         'metricName' => 'MetricName',
@@ -47,6 +53,9 @@ class DescribeMetricMetaListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -74,6 +83,9 @@ class DescribeMetricMetaListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

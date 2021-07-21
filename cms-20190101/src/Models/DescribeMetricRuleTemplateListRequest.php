@@ -11,6 +11,11 @@ class DescribeMetricRuleTemplateListRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -38,6 +43,7 @@ class DescribeMetricRuleTemplateListRequest extends Model
      */
     public $history;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'name'       => 'Name',
         'keyword'    => 'Keyword',
         'templateId' => 'TemplateId',
@@ -53,6 +59,9 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -83,6 +92,9 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

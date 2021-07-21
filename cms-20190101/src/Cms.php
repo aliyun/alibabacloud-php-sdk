@@ -88,6 +88,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeActiveMetricRuleListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeActiveMetricRuleListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertHistoryListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertHistoryListResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertingMetricRuleResourcesRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertingMetricRuleResourcesResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertLogCountRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertLogCountResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertLogHistogramRequest;
@@ -160,7 +162,9 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupNotifyPolicyListRe
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupNotifyPolicyListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupsRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupsResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentAccessKeyRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentAccessKeyResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentConfigRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentConfigResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentHostsRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentHostsResponse;
@@ -168,11 +172,13 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentProcessesReques
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentProcessesResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentStatusesRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentStatusesResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringConfigRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringConfigResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductResourceTagKeyListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductResourceTagKeyListResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductsOfActiveMetricRuleRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductsOfActiveMetricRuleResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProjectMetaRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProjectMetaResponse;
@@ -182,6 +188,7 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorDataRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorDataResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorListResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorQuotaRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorQuotaResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorStatisticsRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorStatisticsResponse;
@@ -1462,6 +1469,35 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param DescribeAlertingMetricRuleResourcesRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeAlertingMetricRuleResourcesResponse
+     */
+    public function describeAlertingMetricRuleResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return DescribeAlertingMetricRuleResourcesResponse::fromMap($this->doRPCRequest('DescribeAlertingMetricRuleResources', '2019-01-01', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAlertingMetricRuleResourcesRequest $request
+     *
+     * @return DescribeAlertingMetricRuleResourcesResponse
+     */
+    public function describeAlertingMetricRuleResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAlertingMetricRuleResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAlertLogCountRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2472,47 +2508,59 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeMonitoringAgentAccessKeyRequest $request
+     * @param RuntimeOptions                          $runtime
      *
      * @return DescribeMonitoringAgentAccessKeyResponse
      */
-    public function describeMonitoringAgentAccessKeyWithOptions($runtime)
+    public function describeMonitoringAgentAccessKeyWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
         return DescribeMonitoringAgentAccessKeyResponse::fromMap($this->doRPCRequest('DescribeMonitoringAgentAccessKey', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
+     * @param DescribeMonitoringAgentAccessKeyRequest $request
+     *
      * @return DescribeMonitoringAgentAccessKeyResponse
      */
-    public function describeMonitoringAgentAccessKey()
+    public function describeMonitoringAgentAccessKey($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeMonitoringAgentAccessKeyWithOptions($runtime);
+        return $this->describeMonitoringAgentAccessKeyWithOptions($request, $runtime);
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeMonitoringAgentConfigRequest $request
+     * @param RuntimeOptions                       $runtime
      *
      * @return DescribeMonitoringAgentConfigResponse
      */
-    public function describeMonitoringAgentConfigWithOptions($runtime)
+    public function describeMonitoringAgentConfigWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
         return DescribeMonitoringAgentConfigResponse::fromMap($this->doRPCRequest('DescribeMonitoringAgentConfig', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
+     * @param DescribeMonitoringAgentConfigRequest $request
+     *
      * @return DescribeMonitoringAgentConfigResponse
      */
-    public function describeMonitoringAgentConfig()
+    public function describeMonitoringAgentConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeMonitoringAgentConfigWithOptions($runtime);
+        return $this->describeMonitoringAgentConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -2600,25 +2648,31 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeMonitoringConfigRequest $request
+     * @param RuntimeOptions                  $runtime
      *
      * @return DescribeMonitoringConfigResponse
      */
-    public function describeMonitoringConfigWithOptions($runtime)
+    public function describeMonitoringConfigWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
         return DescribeMonitoringConfigResponse::fromMap($this->doRPCRequest('DescribeMonitoringConfig', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
+     * @param DescribeMonitoringConfigRequest $request
+     *
      * @return DescribeMonitoringConfigResponse
      */
-    public function describeMonitoringConfig()
+    public function describeMonitoringConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeMonitoringConfigWithOptions($runtime);
+        return $this->describeMonitoringConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -2678,25 +2732,31 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeProductsOfActiveMetricRuleRequest $request
+     * @param RuntimeOptions                            $runtime
      *
      * @return DescribeProductsOfActiveMetricRuleResponse
      */
-    public function describeProductsOfActiveMetricRuleWithOptions($runtime)
+    public function describeProductsOfActiveMetricRuleWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
         return DescribeProductsOfActiveMetricRuleResponse::fromMap($this->doRPCRequest('DescribeProductsOfActiveMetricRule', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
+     * @param DescribeProductsOfActiveMetricRuleRequest $request
+     *
      * @return DescribeProductsOfActiveMetricRuleResponse
      */
-    public function describeProductsOfActiveMetricRule()
+    public function describeProductsOfActiveMetricRule($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeProductsOfActiveMetricRuleWithOptions($runtime);
+        return $this->describeProductsOfActiveMetricRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -2812,25 +2872,31 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeSiteMonitorQuotaRequest $request
+     * @param RuntimeOptions                  $runtime
      *
      * @return DescribeSiteMonitorQuotaResponse
      */
-    public function describeSiteMonitorQuotaWithOptions($runtime)
+    public function describeSiteMonitorQuotaWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
         return DescribeSiteMonitorQuotaResponse::fromMap($this->doRPCRequest('DescribeSiteMonitorQuota', '2019-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
+     * @param DescribeSiteMonitorQuotaRequest $request
+     *
      * @return DescribeSiteMonitorQuotaResponse
      */
-    public function describeSiteMonitorQuota()
+    public function describeSiteMonitorQuota($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeSiteMonitorQuotaWithOptions($runtime);
+        return $this->describeSiteMonitorQuotaWithOptions($request, $runtime);
     }
 
     /**

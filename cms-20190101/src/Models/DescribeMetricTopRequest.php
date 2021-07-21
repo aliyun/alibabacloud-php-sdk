@@ -57,6 +57,11 @@ class DescribeMetricTopRequest extends Model
      * @var string
      */
     public $express;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'period'     => 'Period',
         'namespace'  => 'Namespace',
@@ -68,6 +73,7 @@ class DescribeMetricTopRequest extends Model
         'orderDesc'  => 'OrderDesc',
         'length'     => 'Length',
         'express'    => 'Express',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -106,6 +112,9 @@ class DescribeMetricTopRequest extends Model
         }
         if (null !== $this->express) {
             $res['Express'] = $this->express;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -148,6 +157,9 @@ class DescribeMetricTopRequest extends Model
         }
         if (isset($map['Express'])) {
             $model->express = $map['Express'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -17,9 +17,9 @@ class contact extends Model
     public $updateTime;
 
     /**
-     * @var channelsState
+     * @var string
      */
-    public $channelsState;
+    public $name;
 
     /**
      * @var int
@@ -32,6 +32,11 @@ class contact extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $desc;
+
+    /**
      * @var contactGroups
      */
     public $contactGroups;
@@ -42,23 +47,18 @@ class contact extends Model
     public $channels;
 
     /**
-     * @var string
+     * @var channelsState
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $desc;
+    public $channelsState;
     protected $_name = [
         'updateTime'    => 'UpdateTime',
-        'channelsState' => 'ChannelsState',
+        'name'          => 'Name',
         'createTime'    => 'CreateTime',
         'lang'          => 'Lang',
+        'desc'          => 'Desc',
         'contactGroups' => 'ContactGroups',
         'channels'      => 'Channels',
-        'name'          => 'Name',
-        'desc'          => 'Desc',
+        'channelsState' => 'ChannelsState',
     ];
 
     public function validate()
@@ -71,8 +71,8 @@ class contact extends Model
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
-        if (null !== $this->channelsState) {
-            $res['ChannelsState'] = null !== $this->channelsState ? $this->channelsState->toMap() : null;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -80,17 +80,17 @@ class contact extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
+        }
         if (null !== $this->contactGroups) {
             $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toMap() : null;
         }
         if (null !== $this->channels) {
             $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->desc) {
-            $res['Desc'] = $this->desc;
+        if (null !== $this->channelsState) {
+            $res['ChannelsState'] = null !== $this->channelsState ? $this->channelsState->toMap() : null;
         }
 
         return $res;
@@ -107,8 +107,8 @@ class contact extends Model
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
-        if (isset($map['ChannelsState'])) {
-            $model->channelsState = channelsState::fromMap($map['ChannelsState']);
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -116,17 +116,17 @@ class contact extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
+        }
         if (isset($map['ContactGroups'])) {
             $model->contactGroups = contactGroups::fromMap($map['ContactGroups']);
         }
         if (isset($map['Channels'])) {
             $model->channels = channels::fromMap($map['Channels']);
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Desc'])) {
-            $model->desc = $map['Desc'];
+        if (isset($map['ChannelsState'])) {
+            $model->channelsState = channelsState::fromMap($map['ChannelsState']);
         }
 
         return $model;

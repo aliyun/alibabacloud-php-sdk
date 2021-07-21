@@ -12,6 +12,11 @@ class PutMetricRuleTargetsResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -20,25 +25,20 @@ class PutMetricRuleTargetsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var failData
-     */
-    public $failData;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var failData
+     */
+    public $failData;
     protected $_name = [
+        'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'failData'  => 'FailData',
-        'code'      => 'Code',
         'success'   => 'Success',
+        'failData'  => 'FailData',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class PutMetricRuleTargetsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->failData) {
-            $res['FailData'] = null !== $this->failData ? $this->failData->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->failData) {
+            $res['FailData'] = null !== $this->failData ? $this->failData->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class PutMetricRuleTargetsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['FailData'])) {
-            $model->failData = failData::fromMap($map['FailData']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['FailData'])) {
+            $model->failData = failData::fromMap($map['FailData']);
         }
 
         return $model;

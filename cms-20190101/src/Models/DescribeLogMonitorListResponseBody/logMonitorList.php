@@ -25,11 +25,6 @@ class logMonitorList extends Model
     public $metricName;
 
     /**
-     * @var valueFilter[]
-     */
-    public $valueFilter;
-
-    /**
      * @var int
      */
     public $groupId;
@@ -53,16 +48,21 @@ class logMonitorList extends Model
      * @var string
      */
     public $slsProject;
+
+    /**
+     * @var valueFilter[]
+     */
+    public $valueFilter;
     protected $_name = [
         'valueFilterRelation' => 'ValueFilterRelation',
         'slsLogstore'         => 'SlsLogstore',
         'metricName'          => 'MetricName',
-        'valueFilter'         => 'ValueFilter',
         'groupId'             => 'GroupId',
         'logId'               => 'LogId',
         'slsRegionId'         => 'SlsRegionId',
         'gmtCreate'           => 'GmtCreate',
         'slsProject'          => 'SlsProject',
+        'valueFilter'         => 'ValueFilter',
     ];
 
     public function validate()
@@ -81,15 +81,6 @@ class logMonitorList extends Model
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
-        if (null !== $this->valueFilter) {
-            $res['ValueFilter'] = [];
-            if (null !== $this->valueFilter && \is_array($this->valueFilter)) {
-                $n = 0;
-                foreach ($this->valueFilter as $item) {
-                    $res['ValueFilter'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -104,6 +95,15 @@ class logMonitorList extends Model
         }
         if (null !== $this->slsProject) {
             $res['SlsProject'] = $this->slsProject;
+        }
+        if (null !== $this->valueFilter) {
+            $res['ValueFilter'] = [];
+            if (null !== $this->valueFilter && \is_array($this->valueFilter)) {
+                $n = 0;
+                foreach ($this->valueFilter as $item) {
+                    $res['ValueFilter'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -126,15 +126,6 @@ class logMonitorList extends Model
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
-        if (isset($map['ValueFilter'])) {
-            if (!empty($map['ValueFilter'])) {
-                $model->valueFilter = [];
-                $n                  = 0;
-                foreach ($map['ValueFilter'] as $item) {
-                    $model->valueFilter[$n++] = null !== $item ? valueFilter::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
@@ -149,6 +140,15 @@ class logMonitorList extends Model
         }
         if (isset($map['SlsProject'])) {
             $model->slsProject = $map['SlsProject'];
+        }
+        if (isset($map['ValueFilter'])) {
+            if (!empty($map['ValueFilter'])) {
+                $model->valueFilter = [];
+                $n                  = 0;
+                foreach ($map['ValueFilter'] as $item) {
+                    $model->valueFilter[$n++] = null !== $item ? valueFilter::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

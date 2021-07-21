@@ -11,6 +11,11 @@ class DescribeCustomEventAttributeRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -48,6 +53,7 @@ class DescribeCustomEventAttributeRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'regionId'       => 'RegionId',
         'name'           => 'Name',
         'eventId'        => 'EventId',
         'groupId'        => 'GroupId',
@@ -65,6 +71,9 @@ class DescribeCustomEventAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -101,6 +110,9 @@ class DescribeCustomEventAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

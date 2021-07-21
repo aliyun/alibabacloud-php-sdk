@@ -11,6 +11,11 @@ class DescribeMetricRuleCountRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $namespace;
 
     /**
@@ -18,6 +23,7 @@ class DescribeMetricRuleCountRequest extends Model
      */
     public $metricName;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'namespace'  => 'Namespace',
         'metricName' => 'MetricName',
     ];
@@ -29,6 +35,9 @@ class DescribeMetricRuleCountRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -47,6 +56,9 @@ class DescribeMetricRuleCountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

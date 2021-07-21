@@ -12,6 +12,11 @@ class ModifyGroupMonitoringAgentProcessRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $id;
 
     /**
@@ -29,6 +34,7 @@ class ModifyGroupMonitoringAgentProcessRequest extends Model
      */
     public $alertConfig;
     protected $_name = [
+        'regionId'                   => 'RegionId',
         'id'                         => 'Id',
         'groupId'                    => 'GroupId',
         'matchExpressFilterRelation' => 'MatchExpressFilterRelation',
@@ -42,6 +48,9 @@ class ModifyGroupMonitoringAgentProcessRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -72,6 +81,9 @@ class ModifyGroupMonitoringAgentProcessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

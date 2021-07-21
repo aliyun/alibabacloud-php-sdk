@@ -20,11 +20,6 @@ class contactGroup extends Model
     public $updateTime;
 
     /**
-     * @var contacts
-     */
-    public $contacts;
-
-    /**
      * @var int
      */
     public $createTime;
@@ -43,14 +38,19 @@ class contactGroup extends Model
      * @var bool
      */
     public $enableSubscribed;
+
+    /**
+     * @var contacts
+     */
+    public $contacts;
     protected $_name = [
         'describe'            => 'Describe',
         'updateTime'          => 'UpdateTime',
-        'contacts'            => 'Contacts',
         'createTime'          => 'CreateTime',
         'enabledWeeklyReport' => 'EnabledWeeklyReport',
         'name'                => 'Name',
         'enableSubscribed'    => 'EnableSubscribed',
+        'contacts'            => 'Contacts',
     ];
 
     public function validate()
@@ -66,9 +66,6 @@ class contactGroup extends Model
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
-        if (null !== $this->contacts) {
-            $res['Contacts'] = null !== $this->contacts ? $this->contacts->toMap() : null;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -80,6 +77,9 @@ class contactGroup extends Model
         }
         if (null !== $this->enableSubscribed) {
             $res['EnableSubscribed'] = $this->enableSubscribed;
+        }
+        if (null !== $this->contacts) {
+            $res['Contacts'] = null !== $this->contacts ? $this->contacts->toMap() : null;
         }
 
         return $res;
@@ -99,9 +99,6 @@ class contactGroup extends Model
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
-        if (isset($map['Contacts'])) {
-            $model->contacts = contacts::fromMap($map['Contacts']);
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -113,6 +110,9 @@ class contactGroup extends Model
         }
         if (isset($map['EnableSubscribed'])) {
             $model->enableSubscribed = $map['EnableSubscribed'];
+        }
+        if (isset($map['Contacts'])) {
+            $model->contacts = contacts::fromMap($map['Contacts']);
         }
 
         return $model;

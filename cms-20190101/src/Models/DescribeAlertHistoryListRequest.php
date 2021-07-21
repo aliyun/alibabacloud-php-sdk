@@ -11,6 +11,11 @@ class DescribeAlertHistoryListRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $ruleId;
 
     /**
@@ -68,6 +73,7 @@ class DescribeAlertHistoryListRequest extends Model
      */
     public $page;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'ruleId'     => 'RuleId',
         'ruleName'   => 'RuleName',
         'namespace'  => 'Namespace',
@@ -89,6 +95,9 @@ class DescribeAlertHistoryListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -137,6 +146,9 @@ class DescribeAlertHistoryListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

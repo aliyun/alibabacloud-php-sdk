@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttr
 
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\api;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\customMonitor;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\enterpriseQuota;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\eventMonitor;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\logMonitor;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorResourceQuotaAttributeResponseBody\resourceQuota\phone;
@@ -18,14 +19,34 @@ use AlibabaCloud\Tea\Model;
 class resourceQuota extends Model
 {
     /**
-     * @var api
+     * @var string
      */
-    public $api;
+    public $suitInfo;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
      */
     public $expireTime;
+
+    /**
+     * @var siteMonitorEcsProbe
+     */
+    public $siteMonitorEcsProbe;
+
+    /**
+     * @var siteMonitorOperatorProbe
+     */
+    public $siteMonitorOperatorProbe;
+
+    /**
+     * @var siteMonitorTask
+     */
+    public $siteMonitorTask;
 
     /**
      * @var customMonitor
@@ -38,24 +59,14 @@ class resourceQuota extends Model
     public $eventMonitor;
 
     /**
-     * @var string
+     * @var logMonitor
      */
-    public $instanceId;
+    public $logMonitor;
 
     /**
-     * @var siteMonitorTask
+     * @var api
      */
-    public $siteMonitorTask;
-
-    /**
-     * @var phone
-     */
-    public $phone;
-
-    /**
-     * @var string
-     */
-    public $suitInfo;
+    public $api;
 
     /**
      * @var SMS
@@ -63,32 +74,28 @@ class resourceQuota extends Model
     public $SMS;
 
     /**
-     * @var logMonitor
+     * @var phone
      */
-    public $logMonitor;
+    public $phone;
 
     /**
-     * @var siteMonitorOperatorProbe
+     * @var enterpriseQuota
      */
-    public $siteMonitorOperatorProbe;
-
-    /**
-     * @var siteMonitorEcsProbe
-     */
-    public $siteMonitorEcsProbe;
+    public $enterpriseQuota;
     protected $_name = [
-        'api'                      => 'Api',
+        'suitInfo'                 => 'SuitInfo',
+        'instanceId'               => 'InstanceId',
         'expireTime'               => 'ExpireTime',
+        'siteMonitorEcsProbe'      => 'SiteMonitorEcsProbe',
+        'siteMonitorOperatorProbe' => 'SiteMonitorOperatorProbe',
+        'siteMonitorTask'          => 'SiteMonitorTask',
         'customMonitor'            => 'CustomMonitor',
         'eventMonitor'             => 'EventMonitor',
-        'instanceId'               => 'InstanceId',
-        'siteMonitorTask'          => 'SiteMonitorTask',
-        'phone'                    => 'Phone',
-        'suitInfo'                 => 'SuitInfo',
-        'SMS'                      => 'SMS',
         'logMonitor'               => 'LogMonitor',
-        'siteMonitorOperatorProbe' => 'SiteMonitorOperatorProbe',
-        'siteMonitorEcsProbe'      => 'SiteMonitorEcsProbe',
+        'api'                      => 'Api',
+        'SMS'                      => 'SMS',
+        'phone'                    => 'Phone',
+        'enterpriseQuota'          => 'EnterpriseQuota',
     ];
 
     public function validate()
@@ -98,11 +105,23 @@ class resourceQuota extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->api) {
-            $res['Api'] = null !== $this->api ? $this->api->toMap() : null;
+        if (null !== $this->suitInfo) {
+            $res['SuitInfo'] = $this->suitInfo;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->siteMonitorEcsProbe) {
+            $res['SiteMonitorEcsProbe'] = null !== $this->siteMonitorEcsProbe ? $this->siteMonitorEcsProbe->toMap() : null;
+        }
+        if (null !== $this->siteMonitorOperatorProbe) {
+            $res['SiteMonitorOperatorProbe'] = null !== $this->siteMonitorOperatorProbe ? $this->siteMonitorOperatorProbe->toMap() : null;
+        }
+        if (null !== $this->siteMonitorTask) {
+            $res['SiteMonitorTask'] = null !== $this->siteMonitorTask ? $this->siteMonitorTask->toMap() : null;
         }
         if (null !== $this->customMonitor) {
             $res['CustomMonitor'] = null !== $this->customMonitor ? $this->customMonitor->toMap() : null;
@@ -110,29 +129,20 @@ class resourceQuota extends Model
         if (null !== $this->eventMonitor) {
             $res['EventMonitor'] = null !== $this->eventMonitor ? $this->eventMonitor->toMap() : null;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->logMonitor) {
+            $res['LogMonitor'] = null !== $this->logMonitor ? $this->logMonitor->toMap() : null;
         }
-        if (null !== $this->siteMonitorTask) {
-            $res['SiteMonitorTask'] = null !== $this->siteMonitorTask ? $this->siteMonitorTask->toMap() : null;
-        }
-        if (null !== $this->phone) {
-            $res['Phone'] = null !== $this->phone ? $this->phone->toMap() : null;
-        }
-        if (null !== $this->suitInfo) {
-            $res['SuitInfo'] = $this->suitInfo;
+        if (null !== $this->api) {
+            $res['Api'] = null !== $this->api ? $this->api->toMap() : null;
         }
         if (null !== $this->SMS) {
             $res['SMS'] = null !== $this->SMS ? $this->SMS->toMap() : null;
         }
-        if (null !== $this->logMonitor) {
-            $res['LogMonitor'] = null !== $this->logMonitor ? $this->logMonitor->toMap() : null;
+        if (null !== $this->phone) {
+            $res['Phone'] = null !== $this->phone ? $this->phone->toMap() : null;
         }
-        if (null !== $this->siteMonitorOperatorProbe) {
-            $res['SiteMonitorOperatorProbe'] = null !== $this->siteMonitorOperatorProbe ? $this->siteMonitorOperatorProbe->toMap() : null;
-        }
-        if (null !== $this->siteMonitorEcsProbe) {
-            $res['SiteMonitorEcsProbe'] = null !== $this->siteMonitorEcsProbe ? $this->siteMonitorEcsProbe->toMap() : null;
+        if (null !== $this->enterpriseQuota) {
+            $res['EnterpriseQuota'] = null !== $this->enterpriseQuota ? $this->enterpriseQuota->toMap() : null;
         }
 
         return $res;
@@ -146,11 +156,23 @@ class resourceQuota extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Api'])) {
-            $model->api = api::fromMap($map['Api']);
+        if (isset($map['SuitInfo'])) {
+            $model->suitInfo = $map['SuitInfo'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['SiteMonitorEcsProbe'])) {
+            $model->siteMonitorEcsProbe = siteMonitorEcsProbe::fromMap($map['SiteMonitorEcsProbe']);
+        }
+        if (isset($map['SiteMonitorOperatorProbe'])) {
+            $model->siteMonitorOperatorProbe = siteMonitorOperatorProbe::fromMap($map['SiteMonitorOperatorProbe']);
+        }
+        if (isset($map['SiteMonitorTask'])) {
+            $model->siteMonitorTask = siteMonitorTask::fromMap($map['SiteMonitorTask']);
         }
         if (isset($map['CustomMonitor'])) {
             $model->customMonitor = customMonitor::fromMap($map['CustomMonitor']);
@@ -158,29 +180,20 @@ class resourceQuota extends Model
         if (isset($map['EventMonitor'])) {
             $model->eventMonitor = eventMonitor::fromMap($map['EventMonitor']);
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['LogMonitor'])) {
+            $model->logMonitor = logMonitor::fromMap($map['LogMonitor']);
         }
-        if (isset($map['SiteMonitorTask'])) {
-            $model->siteMonitorTask = siteMonitorTask::fromMap($map['SiteMonitorTask']);
-        }
-        if (isset($map['Phone'])) {
-            $model->phone = phone::fromMap($map['Phone']);
-        }
-        if (isset($map['SuitInfo'])) {
-            $model->suitInfo = $map['SuitInfo'];
+        if (isset($map['Api'])) {
+            $model->api = api::fromMap($map['Api']);
         }
         if (isset($map['SMS'])) {
             $model->SMS = SMS::fromMap($map['SMS']);
         }
-        if (isset($map['LogMonitor'])) {
-            $model->logMonitor = logMonitor::fromMap($map['LogMonitor']);
+        if (isset($map['Phone'])) {
+            $model->phone = phone::fromMap($map['Phone']);
         }
-        if (isset($map['SiteMonitorOperatorProbe'])) {
-            $model->siteMonitorOperatorProbe = siteMonitorOperatorProbe::fromMap($map['SiteMonitorOperatorProbe']);
-        }
-        if (isset($map['SiteMonitorEcsProbe'])) {
-            $model->siteMonitorEcsProbe = siteMonitorEcsProbe::fromMap($map['SiteMonitorEcsProbe']);
+        if (isset($map['EnterpriseQuota'])) {
+            $model->enterpriseQuota = enterpriseQuota::fromMap($map['EnterpriseQuota']);
         }
 
         return $model;

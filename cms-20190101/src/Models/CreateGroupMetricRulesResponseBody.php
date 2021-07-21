@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupMetricRulesResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
      * @var string
      */
     public $message;
@@ -20,25 +25,20 @@ class CreateGroupMetricRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var resources
-     */
-    public $resources;
-
-    /**
-     * @var int
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var resources
+     */
+    public $resources;
     protected $_name = [
+        'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'resources' => 'Resources',
-        'code'      => 'Code',
         'success'   => 'Success',
+        'resources' => 'Resources',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class CreateGroupMetricRulesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->resources) {
-            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->resources) {
+            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class CreateGroupMetricRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Resources'])) {
-            $model->resources = resources::fromMap($map['Resources']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Resources'])) {
+            $model->resources = resources::fromMap($map['Resources']);
         }
 
         return $model;

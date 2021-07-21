@@ -22,6 +22,11 @@ class CreateHostAvailabilityRequest extends Model
     public $alertConfig;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $groupId;
@@ -53,6 +58,7 @@ class CreateHostAvailabilityRequest extends Model
     protected $_name = [
         'taskOption'                => 'TaskOption',
         'alertConfig'               => 'AlertConfig',
+        'regionId'                  => 'RegionId',
         'groupId'                   => 'GroupId',
         'taskName'                  => 'TaskName',
         'taskScope'                 => 'TaskScope',
@@ -73,6 +79,9 @@ class CreateHostAvailabilityRequest extends Model
         }
         if (null !== $this->alertConfig) {
             $res['AlertConfig'] = null !== $this->alertConfig ? $this->alertConfig->toMap() : null;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -115,6 +124,9 @@ class CreateHostAvailabilityRequest extends Model
         }
         if (isset($map['AlertConfig'])) {
             $model->alertConfig = alertConfig::fromMap($map['AlertConfig']);
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

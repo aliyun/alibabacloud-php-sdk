@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -38,6 +43,7 @@ class DescribeMonitorGroupInstancesRequest extends Model
      */
     public $instanceIds;
     protected $_name = [
+        'regionId'    => 'RegionId',
         'pageSize'    => 'PageSize',
         'pageNumber'  => 'PageNumber',
         'groupId'     => 'GroupId',
@@ -53,6 +59,9 @@ class DescribeMonitorGroupInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -83,6 +92,9 @@ class DescribeMonitorGroupInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

@@ -11,6 +11,11 @@ class CreateSiteMonitorRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $address;
 
     /**
@@ -31,6 +36,11 @@ class CreateSiteMonitorRequest extends Model
     /**
      * @var string
      */
+    public $intervalUnit;
+
+    /**
+     * @var string
+     */
     public $ispCities;
 
     /**
@@ -43,13 +53,15 @@ class CreateSiteMonitorRequest extends Model
      */
     public $alertIds;
     protected $_name = [
-        'address'     => 'Address',
-        'taskType'    => 'TaskType',
-        'taskName'    => 'TaskName',
-        'interval'    => 'Interval',
-        'ispCities'   => 'IspCities',
-        'optionsJson' => 'OptionsJson',
-        'alertIds'    => 'AlertIds',
+        'regionId'     => 'RegionId',
+        'address'      => 'Address',
+        'taskType'     => 'TaskType',
+        'taskName'     => 'TaskName',
+        'interval'     => 'Interval',
+        'intervalUnit' => 'IntervalUnit',
+        'ispCities'    => 'IspCities',
+        'optionsJson'  => 'OptionsJson',
+        'alertIds'     => 'AlertIds',
     ];
 
     public function validate()
@@ -59,6 +71,9 @@ class CreateSiteMonitorRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
@@ -70,6 +85,9 @@ class CreateSiteMonitorRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->intervalUnit) {
+            $res['IntervalUnit'] = $this->intervalUnit;
         }
         if (null !== $this->ispCities) {
             $res['IspCities'] = $this->ispCities;
@@ -92,6 +110,9 @@ class CreateSiteMonitorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
@@ -103,6 +124,9 @@ class CreateSiteMonitorRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['IntervalUnit'])) {
+            $model->intervalUnit = $map['IntervalUnit'];
         }
         if (isset($map['IspCities'])) {
             $model->ispCities = $map['IspCities'];

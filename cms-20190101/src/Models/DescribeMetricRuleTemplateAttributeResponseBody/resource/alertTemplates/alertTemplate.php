@@ -25,11 +25,6 @@ class alertTemplate extends Model
     public $webhook;
 
     /**
-     * @var escalations
-     */
-    public $escalations;
-
-    /**
      * @var string
      */
     public $namespace;
@@ -43,14 +38,19 @@ class alertTemplate extends Model
      * @var string
      */
     public $ruleName;
+
+    /**
+     * @var escalations
+     */
+    public $escalations;
     protected $_name = [
         'metricName'  => 'MetricName',
         'selector'    => 'Selector',
         'webhook'     => 'Webhook',
-        'escalations' => 'Escalations',
         'namespace'   => 'Namespace',
         'category'    => 'Category',
         'ruleName'    => 'RuleName',
+        'escalations' => 'Escalations',
     ];
 
     public function validate()
@@ -69,9 +69,6 @@ class alertTemplate extends Model
         if (null !== $this->webhook) {
             $res['Webhook'] = $this->webhook;
         }
-        if (null !== $this->escalations) {
-            $res['Escalations'] = null !== $this->escalations ? $this->escalations->toMap() : null;
-        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -80,6 +77,9 @@ class alertTemplate extends Model
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->escalations) {
+            $res['Escalations'] = null !== $this->escalations ? $this->escalations->toMap() : null;
         }
 
         return $res;
@@ -102,9 +102,6 @@ class alertTemplate extends Model
         if (isset($map['Webhook'])) {
             $model->webhook = $map['Webhook'];
         }
-        if (isset($map['Escalations'])) {
-            $model->escalations = escalations::fromMap($map['Escalations']);
-        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
@@ -113,6 +110,9 @@ class alertTemplate extends Model
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['Escalations'])) {
+            $model->escalations = escalations::fromMap($map['Escalations']);
         }
 
         return $model;

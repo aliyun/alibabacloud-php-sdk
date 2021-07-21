@@ -15,30 +15,30 @@ class contact extends Model
     public $updateTime;
 
     /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @var channels
-     */
-    public $channels;
-
-    /**
      * @var string
      */
     public $name;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @var string
      */
     public $desc;
+
+    /**
+     * @var channels
+     */
+    public $channels;
     protected $_name = [
         'updateTime' => 'UpdateTime',
-        'createTime' => 'CreateTime',
-        'channels'   => 'Channels',
         'name'       => 'Name',
+        'createTime' => 'CreateTime',
         'desc'       => 'Desc',
+        'channels'   => 'Channels',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class contact extends Model
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->channels) {
-            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->channels) {
+            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class contact extends Model
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['Channels'])) {
-            $model->channels = channels::fromMap($map['Channels']);
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['Channels'])) {
+            $model->channels = channels::fromMap($map['Channels']);
         }
 
         return $model;

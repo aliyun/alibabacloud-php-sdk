@@ -30,14 +30,14 @@ class alertTemplates extends Model
     public $namespace;
 
     /**
-     * @var string
-     */
-    public $ruleName;
-
-    /**
      * @var int
      */
     public $period;
+
+    /**
+     * @var string
+     */
+    public $ruleName;
 
     /**
      * @var string
@@ -53,8 +53,8 @@ class alertTemplates extends Model
         'metricName'  => 'MetricName',
         'webhook'     => 'Webhook',
         'namespace'   => 'Namespace',
-        'ruleName'    => 'RuleName',
         'period'      => 'Period',
+        'ruleName'    => 'RuleName',
         'selector'    => 'Selector',
         'category'    => 'Category',
     ];
@@ -79,11 +79,11 @@ class alertTemplates extends Model
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
         if (null !== $this->selector) {
             $res['Selector'] = $this->selector;
@@ -115,11 +115,11 @@ class alertTemplates extends Model
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
         if (isset($map['Selector'])) {
             $model->selector = $map['Selector'];

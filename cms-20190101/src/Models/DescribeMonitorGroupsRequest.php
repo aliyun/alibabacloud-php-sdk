@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var bool
      */
     public $selectContactGroups;
@@ -57,23 +62,24 @@ class DescribeMonitorGroupsRequest extends Model
     /**
      * @var string
      */
+    public $groupFounderTagKey;
+
+    /**
+     * @var string
+     */
+    public $groupFounderTagValue;
+
+    /**
+     * @var string
+     */
     public $groupId;
-
-    /**
-     * @var string
-     */
-    public $serviceId;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
+        'regionId'               => 'RegionId',
         'selectContactGroups'    => 'SelectContactGroups',
         'pageNumber'             => 'PageNumber',
         'pageSize'               => 'PageSize',
@@ -83,9 +89,9 @@ class DescribeMonitorGroupsRequest extends Model
         'includeTemplateHistory' => 'IncludeTemplateHistory',
         'type'                   => 'Type',
         'dynamicTagRuleId'       => 'DynamicTagRuleId',
+        'groupFounderTagKey'     => 'GroupFounderTagKey',
+        'groupFounderTagValue'   => 'GroupFounderTagValue',
         'groupId'                => 'GroupId',
-        'serviceId'              => 'ServiceId',
-        'resourceGroupId'        => 'ResourceGroupId',
         'tag'                    => 'Tag',
     ];
 
@@ -96,6 +102,9 @@ class DescribeMonitorGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->selectContactGroups) {
             $res['SelectContactGroups'] = $this->selectContactGroups;
         }
@@ -123,14 +132,14 @@ class DescribeMonitorGroupsRequest extends Model
         if (null !== $this->dynamicTagRuleId) {
             $res['DynamicTagRuleId'] = $this->dynamicTagRuleId;
         }
+        if (null !== $this->groupFounderTagKey) {
+            $res['GroupFounderTagKey'] = $this->groupFounderTagKey;
+        }
+        if (null !== $this->groupFounderTagValue) {
+            $res['GroupFounderTagValue'] = $this->groupFounderTagValue;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->serviceId) {
-            $res['ServiceId'] = $this->serviceId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -153,6 +162,9 @@ class DescribeMonitorGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['SelectContactGroups'])) {
             $model->selectContactGroups = $map['SelectContactGroups'];
         }
@@ -180,14 +192,14 @@ class DescribeMonitorGroupsRequest extends Model
         if (isset($map['DynamicTagRuleId'])) {
             $model->dynamicTagRuleId = $map['DynamicTagRuleId'];
         }
+        if (isset($map['GroupFounderTagKey'])) {
+            $model->groupFounderTagKey = $map['GroupFounderTagKey'];
+        }
+        if (isset($map['GroupFounderTagValue'])) {
+            $model->groupFounderTagValue = $map['GroupFounderTagValue'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['ServiceId'])) {
-            $model->serviceId = $map['ServiceId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

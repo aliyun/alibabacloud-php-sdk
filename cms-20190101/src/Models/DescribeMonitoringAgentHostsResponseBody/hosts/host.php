@@ -19,6 +19,11 @@ class host extends Model
     public $natIp;
 
     /**
+     * @var string
+     */
+    public $hostName;
+
+    /**
      * @var int
      */
     public $aliUid;
@@ -26,17 +31,12 @@ class host extends Model
     /**
      * @var string
      */
-    public $hostName;
+    public $networkType;
 
     /**
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $networkType;
 
     /**
      * @var bool
@@ -56,12 +56,12 @@ class host extends Model
     /**
      * @var string
      */
-    public $eipId;
+    public $ipGroup;
 
     /**
      * @var string
      */
-    public $ipGroup;
+    public $eipId;
 
     /**
      * @var string
@@ -80,15 +80,15 @@ class host extends Model
     protected $_name = [
         'serialNumber'       => 'SerialNumber',
         'natIp'              => 'NatIp',
-        'aliUid'             => 'AliUid',
         'hostName'           => 'HostName',
-        'instanceId'         => 'InstanceId',
+        'aliUid'             => 'AliUid',
         'networkType'        => 'NetworkType',
+        'instanceId'         => 'InstanceId',
         'isAliyunHost'       => 'isAliyunHost',
         'eipAddress'         => 'EipAddress',
         'agentVersion'       => 'AgentVersion',
-        'eipId'              => 'EipId',
         'ipGroup'            => 'IpGroup',
+        'eipId'              => 'EipId',
         'region'             => 'Region',
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'operatingSystem'    => 'OperatingSystem',
@@ -107,17 +107,17 @@ class host extends Model
         if (null !== $this->natIp) {
             $res['NatIp'] = $this->natIp;
         }
-        if (null !== $this->aliUid) {
-            $res['AliUid'] = $this->aliUid;
-        }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->aliUid) {
+            $res['AliUid'] = $this->aliUid;
         }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->isAliyunHost) {
             $res['isAliyunHost'] = $this->isAliyunHost;
@@ -128,11 +128,11 @@ class host extends Model
         if (null !== $this->agentVersion) {
             $res['AgentVersion'] = $this->agentVersion;
         }
-        if (null !== $this->eipId) {
-            $res['EipId'] = $this->eipId;
-        }
         if (null !== $this->ipGroup) {
             $res['IpGroup'] = $this->ipGroup;
+        }
+        if (null !== $this->eipId) {
+            $res['EipId'] = $this->eipId;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -161,17 +161,17 @@ class host extends Model
         if (isset($map['NatIp'])) {
             $model->natIp = $map['NatIp'];
         }
-        if (isset($map['AliUid'])) {
-            $model->aliUid = $map['AliUid'];
-        }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['AliUid'])) {
+            $model->aliUid = $map['AliUid'];
         }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['isAliyunHost'])) {
             $model->isAliyunHost = $map['isAliyunHost'];
@@ -182,11 +182,11 @@ class host extends Model
         if (isset($map['AgentVersion'])) {
             $model->agentVersion = $map['AgentVersion'];
         }
-        if (isset($map['EipId'])) {
-            $model->eipId = $map['EipId'];
-        }
         if (isset($map['IpGroup'])) {
             $model->ipGroup = $map['IpGroup'];
+        }
+        if (isset($map['EipId'])) {
+            $model->eipId = $map['EipId'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

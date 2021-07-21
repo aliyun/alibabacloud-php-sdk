@@ -12,6 +12,11 @@ class DescribeHostAvailabilityListResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -25,26 +30,21 @@ class DescribeHostAvailabilityListResponseBody extends Model
     public $total;
 
     /**
-     * @var taskList
-     */
-    public $taskList;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var taskList
+     */
+    public $taskList;
     protected $_name = [
+        'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'total'     => 'Total',
-        'taskList'  => 'TaskList',
-        'code'      => 'Code',
         'success'   => 'Success',
+        'taskList'  => 'TaskList',
     ];
 
     public function validate()
@@ -54,6 +54,9 @@ class DescribeHostAvailabilityListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -63,14 +66,11 @@ class DescribeHostAvailabilityListResponseBody extends Model
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->taskList) {
-            $res['TaskList'] = null !== $this->taskList ? $this->taskList->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->taskList) {
+            $res['TaskList'] = null !== $this->taskList ? $this->taskList->toMap() : null;
         }
 
         return $res;
@@ -84,6 +84,9 @@ class DescribeHostAvailabilityListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -93,14 +96,11 @@ class DescribeHostAvailabilityListResponseBody extends Model
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-        if (isset($map['TaskList'])) {
-            $model->taskList = taskList::fromMap($map['TaskList']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TaskList'])) {
+            $model->taskList = taskList::fromMap($map['TaskList']);
         }
 
         return $model;

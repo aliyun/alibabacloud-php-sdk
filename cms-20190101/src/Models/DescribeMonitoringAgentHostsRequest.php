@@ -11,6 +11,11 @@ class DescribeMonitoringAgentHostsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $keyWord;
 
     /**
@@ -53,6 +58,7 @@ class DescribeMonitoringAgentHostsRequest extends Model
      */
     public $status;
     protected $_name = [
+        'regionId'         => 'RegionId',
         'keyWord'          => 'KeyWord',
         'hostName'         => 'HostName',
         'instanceIds'      => 'InstanceIds',
@@ -71,6 +77,9 @@ class DescribeMonitoringAgentHostsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->keyWord) {
             $res['KeyWord'] = $this->keyWord;
         }
@@ -110,6 +119,9 @@ class DescribeMonitoringAgentHostsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['KeyWord'])) {
             $model->keyWord = $map['KeyWord'];
         }

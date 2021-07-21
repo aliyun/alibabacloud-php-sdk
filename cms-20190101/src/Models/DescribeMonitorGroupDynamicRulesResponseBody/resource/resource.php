@@ -12,21 +12,21 @@ class resource extends Model
     /**
      * @var string
      */
+    public $category;
+
+    /**
+     * @var string
+     */
     public $filterRelation;
 
     /**
      * @var filters
      */
     public $filters;
-
-    /**
-     * @var string
-     */
-    public $category;
     protected $_name = [
+        'category'       => 'Category',
         'filterRelation' => 'FilterRelation',
         'filters'        => 'Filters',
-        'category'       => 'Category',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class resource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->filterRelation) {
             $res['FilterRelation'] = $this->filterRelation;
         }
         if (null !== $this->filters) {
             $res['Filters'] = null !== $this->filters ? $this->filters->toMap() : null;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class resource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['FilterRelation'])) {
             $model->filterRelation = $map['FilterRelation'];
         }
         if (isset($map['Filters'])) {
             $model->filters = filters::fromMap($map['Filters']);
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
         }
 
         return $model;

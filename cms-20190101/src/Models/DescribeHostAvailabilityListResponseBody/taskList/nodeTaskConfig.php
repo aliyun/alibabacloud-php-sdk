@@ -27,11 +27,6 @@ class nodeTaskConfig extends Model
     public $groupId;
 
     /**
-     * @var taskOption
-     */
-    public $taskOption;
-
-    /**
      * @var string
      */
     public $taskName;
@@ -42,14 +37,14 @@ class nodeTaskConfig extends Model
     public $disabled;
 
     /**
-     * @var alertConfig
-     */
-    public $alertConfig;
-
-    /**
      * @var string
      */
     public $taskScope;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @var instances
@@ -57,20 +52,25 @@ class nodeTaskConfig extends Model
     public $instances;
 
     /**
-     * @var int
+     * @var taskOption
      */
-    public $id;
+    public $taskOption;
+
+    /**
+     * @var alertConfig
+     */
+    public $alertConfig;
     protected $_name = [
         'taskType'    => 'TaskType',
         'groupName'   => 'GroupName',
         'groupId'     => 'GroupId',
-        'taskOption'  => 'TaskOption',
         'taskName'    => 'TaskName',
         'disabled'    => 'Disabled',
-        'alertConfig' => 'AlertConfig',
         'taskScope'   => 'TaskScope',
-        'instances'   => 'Instances',
         'id'          => 'Id',
+        'instances'   => 'Instances',
+        'taskOption'  => 'TaskOption',
+        'alertConfig' => 'AlertConfig',
     ];
 
     public function validate()
@@ -89,26 +89,26 @@ class nodeTaskConfig extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->taskOption) {
-            $res['TaskOption'] = null !== $this->taskOption ? $this->taskOption->toMap() : null;
-        }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
         if (null !== $this->disabled) {
             $res['Disabled'] = $this->disabled;
         }
-        if (null !== $this->alertConfig) {
-            $res['AlertConfig'] = null !== $this->alertConfig ? $this->alertConfig->toMap() : null;
-        }
         if (null !== $this->taskScope) {
             $res['TaskScope'] = $this->taskScope;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->instances) {
             $res['Instances'] = null !== $this->instances ? $this->instances->toMap() : null;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->taskOption) {
+            $res['TaskOption'] = null !== $this->taskOption ? $this->taskOption->toMap() : null;
+        }
+        if (null !== $this->alertConfig) {
+            $res['AlertConfig'] = null !== $this->alertConfig ? $this->alertConfig->toMap() : null;
         }
 
         return $res;
@@ -131,26 +131,26 @@ class nodeTaskConfig extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['TaskOption'])) {
-            $model->taskOption = taskOption::fromMap($map['TaskOption']);
-        }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
         if (isset($map['Disabled'])) {
             $model->disabled = $map['Disabled'];
         }
-        if (isset($map['AlertConfig'])) {
-            $model->alertConfig = alertConfig::fromMap($map['AlertConfig']);
-        }
         if (isset($map['TaskScope'])) {
             $model->taskScope = $map['TaskScope'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Instances'])) {
             $model->instances = instances::fromMap($map['Instances']);
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['TaskOption'])) {
+            $model->taskOption = taskOption::fromMap($map['TaskOption']);
+        }
+        if (isset($map['AlertConfig'])) {
+            $model->alertConfig = alertConfig::fromMap($map['AlertConfig']);
         }
 
         return $model;

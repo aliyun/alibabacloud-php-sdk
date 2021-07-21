@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class InstallMonitoringAgentRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var bool
      */
     public $force;
@@ -18,6 +23,7 @@ class InstallMonitoringAgentRequest extends Model
      */
     public $instanceIds;
     protected $_name = [
+        'regionId'    => 'RegionId',
         'force'       => 'Force',
         'instanceIds' => 'InstanceIds',
     ];
@@ -29,6 +35,9 @@ class InstallMonitoringAgentRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
@@ -47,6 +56,9 @@ class InstallMonitoringAgentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }

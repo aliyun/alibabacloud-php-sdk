@@ -11,8 +11,14 @@ class DeleteMetricRuleTemplateRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $templateId;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'templateId' => 'TemplateId',
     ];
 
@@ -23,6 +29,9 @@ class DeleteMetricRuleTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -38,6 +47,9 @@ class DeleteMetricRuleTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

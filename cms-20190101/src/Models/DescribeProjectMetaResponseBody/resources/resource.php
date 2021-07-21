@@ -11,21 +11,21 @@ class resource extends Model
     /**
      * @var string
      */
+    public $namespace;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
      * @var string
      */
     public $labels;
-
-    /**
-     * @var string
-     */
-    public $namespace;
     protected $_name = [
+        'namespace'   => 'Namespace',
         'description' => 'Description',
         'labels'      => 'Labels',
-        'namespace'   => 'Namespace',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class resource extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
-        }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class resource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
-        }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
         }
 
         return $model;

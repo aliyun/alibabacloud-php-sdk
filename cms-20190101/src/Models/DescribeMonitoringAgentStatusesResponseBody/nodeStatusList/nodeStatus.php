@@ -14,18 +14,18 @@ class nodeStatus extends Model
     public $status;
 
     /**
-     * @var bool
-     */
-    public $autoInstall;
-
-    /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $autoInstall;
     protected $_name = [
         'status'      => 'Status',
-        'autoInstall' => 'AutoInstall',
         'instanceId'  => 'InstanceId',
+        'autoInstall' => 'AutoInstall',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class nodeStatus extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->autoInstall) {
-            $res['AutoInstall'] = $this->autoInstall;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->autoInstall) {
+            $res['AutoInstall'] = $this->autoInstall;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class nodeStatus extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['AutoInstall'])) {
-            $model->autoInstall = $map['AutoInstall'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['AutoInstall'])) {
+            $model->autoInstall = $map['AutoInstall'];
         }
 
         return $model;

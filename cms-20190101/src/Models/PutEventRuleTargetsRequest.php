@@ -16,6 +16,11 @@ class PutEventRuleTargetsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $ruleName;
 
     /**
@@ -43,6 +48,7 @@ class PutEventRuleTargetsRequest extends Model
      */
     public $slsParameters;
     protected $_name = [
+        'regionId'          => 'RegionId',
         'ruleName'          => 'RuleName',
         'fcParameters'      => 'FcParameters',
         'contactParameters' => 'ContactParameters',
@@ -58,6 +64,9 @@ class PutEventRuleTargetsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -118,6 +127,9 @@ class PutEventRuleTargetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

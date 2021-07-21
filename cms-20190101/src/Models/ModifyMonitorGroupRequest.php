@@ -11,12 +11,7 @@ class ModifyMonitorGroupRequest extends Model
     /**
      * @var string
      */
-    public $bindUrls;
-
-    /**
-     * @var int
-     */
-    public $serviceId;
+    public $regionId;
 
     /**
      * @var string
@@ -33,8 +28,7 @@ class ModifyMonitorGroupRequest extends Model
      */
     public $contactGroups;
     protected $_name = [
-        'bindUrls'      => 'BindUrls',
-        'serviceId'     => 'ServiceId',
+        'regionId'      => 'RegionId',
         'groupId'       => 'GroupId',
         'groupName'     => 'GroupName',
         'contactGroups' => 'ContactGroups',
@@ -47,11 +41,8 @@ class ModifyMonitorGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bindUrls) {
-            $res['BindUrls'] = $this->bindUrls;
-        }
-        if (null !== $this->serviceId) {
-            $res['ServiceId'] = $this->serviceId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -74,11 +65,8 @@ class ModifyMonitorGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BindUrls'])) {
-            $model->bindUrls = $map['BindUrls'];
-        }
-        if (isset($map['ServiceId'])) {
-            $model->serviceId = $map['ServiceId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];

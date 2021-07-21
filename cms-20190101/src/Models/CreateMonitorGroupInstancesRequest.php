@@ -12,6 +12,11 @@ class CreateMonitorGroupInstancesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -19,6 +24,7 @@ class CreateMonitorGroupInstancesRequest extends Model
      */
     public $instances;
     protected $_name = [
+        'regionId'  => 'RegionId',
         'groupId'   => 'GroupId',
         'instances' => 'Instances',
     ];
@@ -30,6 +36,9 @@ class CreateMonitorGroupInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -54,6 +63,9 @@ class CreateMonitorGroupInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

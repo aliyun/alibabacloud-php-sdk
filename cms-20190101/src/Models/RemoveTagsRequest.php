@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class RemoveTagsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -19,6 +24,7 @@ class RemoveTagsRequest extends Model
      */
     public $groupIds;
     protected $_name = [
+        'regionId' => 'RegionId',
         'tag'      => 'Tag',
         'groupIds' => 'GroupIds',
     ];
@@ -30,6 +36,9 @@ class RemoveTagsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -54,6 +63,9 @@ class RemoveTagsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];

@@ -16,11 +16,6 @@ class siteMonitors extends Model
     public $taskType;
 
     /**
-     * @var optionJson
-     */
-    public $optionJson;
-
-    /**
      * @var string
      */
     public $interval;
@@ -41,23 +36,28 @@ class siteMonitors extends Model
     public $address;
 
     /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
      * @var ispCities
      */
     public $ispCities;
 
     /**
-     * @var string
+     * @var optionJson
      */
-    public $taskId;
+    public $optionJson;
     protected $_name = [
         'taskType'   => 'TaskType',
-        'optionJson' => 'OptionJson',
         'interval'   => 'Interval',
         'taskState'  => 'TaskState',
         'taskName'   => 'TaskName',
         'address'    => 'Address',
-        'ispCities'  => 'IspCities',
         'taskId'     => 'TaskId',
+        'ispCities'  => 'IspCities',
+        'optionJson' => 'OptionJson',
     ];
 
     public function validate()
@@ -69,9 +69,6 @@ class siteMonitors extends Model
         $res = [];
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
-        }
-        if (null !== $this->optionJson) {
-            $res['OptionJson'] = null !== $this->optionJson ? $this->optionJson->toMap() : null;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
@@ -85,11 +82,14 @@ class siteMonitors extends Model
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
         if (null !== $this->ispCities) {
             $res['IspCities'] = null !== $this->ispCities ? $this->ispCities->toMap() : null;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->optionJson) {
+            $res['OptionJson'] = null !== $this->optionJson ? $this->optionJson->toMap() : null;
         }
 
         return $res;
@@ -106,9 +106,6 @@ class siteMonitors extends Model
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
-        if (isset($map['OptionJson'])) {
-            $model->optionJson = optionJson::fromMap($map['OptionJson']);
-        }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
@@ -121,11 +118,14 @@ class siteMonitors extends Model
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
         if (isset($map['IspCities'])) {
             $model->ispCities = ispCities::fromMap($map['IspCities']);
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['OptionJson'])) {
+            $model->optionJson = optionJson::fromMap($map['OptionJson']);
         }
 
         return $model;

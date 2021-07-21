@@ -11,11 +11,6 @@ class configJson extends Model
     /**
      * @var string
      */
-    public $as;
-
-    /**
-     * @var string
-     */
     public $ak;
 
     /**
@@ -32,12 +27,17 @@ class configJson extends Model
      * @var string
      */
     public $logstore;
+
+    /**
+     * @var string
+     */
+    public $as;
     protected $_name = [
-        'as'       => 'as',
         'ak'       => 'ak',
         'endpoint' => 'endpoint',
         'project'  => 'project',
         'logstore' => 'logstore',
+        'as'       => 'as',
     ];
 
     public function validate()
@@ -47,9 +47,6 @@ class configJson extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->as) {
-            $res['as'] = $this->as;
-        }
         if (null !== $this->ak) {
             $res['ak'] = $this->ak;
         }
@@ -61,6 +58,9 @@ class configJson extends Model
         }
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
+        }
+        if (null !== $this->as) {
+            $res['as'] = $this->as;
         }
 
         return $res;
@@ -74,9 +74,6 @@ class configJson extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['as'])) {
-            $model->as = $map['as'];
-        }
         if (isset($map['ak'])) {
             $model->ak = $map['ak'];
         }
@@ -88,6 +85,9 @@ class configJson extends Model
         }
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];
+        }
+        if (isset($map['as'])) {
+            $model->as = $map['as'];
         }
 
         return $model;

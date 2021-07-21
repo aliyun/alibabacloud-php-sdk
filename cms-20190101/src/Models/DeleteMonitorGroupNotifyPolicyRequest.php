@@ -11,6 +11,11 @@ class DeleteMonitorGroupNotifyPolicyRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $policyType;
 
     /**
@@ -18,6 +23,7 @@ class DeleteMonitorGroupNotifyPolicyRequest extends Model
      */
     public $groupId;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'policyType' => 'PolicyType',
         'groupId'    => 'GroupId',
     ];
@@ -29,6 +35,9 @@ class DeleteMonitorGroupNotifyPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
@@ -47,6 +56,9 @@ class DeleteMonitorGroupNotifyPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }

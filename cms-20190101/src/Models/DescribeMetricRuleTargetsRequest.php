@@ -11,9 +11,15 @@ class DescribeMetricRuleTargetsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $ruleId;
     protected $_name = [
-        'ruleId' => 'RuleId',
+        'regionId' => 'RegionId',
+        'ruleId'   => 'RuleId',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class DescribeMetricRuleTargetsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -38,6 +47,9 @@ class DescribeMetricRuleTargetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

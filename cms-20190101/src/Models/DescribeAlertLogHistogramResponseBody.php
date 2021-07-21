@@ -12,6 +12,11 @@ class DescribeAlertLogHistogramResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -20,25 +25,20 @@ class DescribeAlertLogHistogramResponseBody extends Model
     public $requestId;
 
     /**
-     * @var alertLogHistogramList[]
-     */
-    public $alertLogHistogramList;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var alertLogHistogramList[]
+     */
+    public $alertLogHistogramList;
     protected $_name = [
+        'code'                  => 'Code',
         'message'               => 'Message',
         'requestId'             => 'RequestId',
-        'alertLogHistogramList' => 'AlertLogHistogramList',
-        'code'                  => 'Code',
         'success'               => 'Success',
+        'alertLogHistogramList' => 'AlertLogHistogramList',
     ];
 
     public function validate()
@@ -48,11 +48,17 @@ class DescribeAlertLogHistogramResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->alertLogHistogramList) {
             $res['AlertLogHistogramList'] = [];
@@ -62,12 +68,6 @@ class DescribeAlertLogHistogramResponseBody extends Model
                     $res['AlertLogHistogramList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -81,11 +81,17 @@ class DescribeAlertLogHistogramResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['AlertLogHistogramList'])) {
             if (!empty($map['AlertLogHistogramList'])) {
@@ -95,12 +101,6 @@ class DescribeAlertLogHistogramResponseBody extends Model
                     $model->alertLogHistogramList[$n++] = null !== $item ? alertLogHistogramList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

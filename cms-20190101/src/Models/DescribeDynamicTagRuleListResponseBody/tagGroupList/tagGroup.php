@@ -16,21 +16,6 @@ class tagGroup extends Model
     public $status;
 
     /**
-     * @var matchExpress
-     */
-    public $matchExpress;
-
-    /**
-     * @var templateIdList
-     */
-    public $templateIdList;
-
-    /**
-     * @var string
-     */
-    public $dynamicTagRuleId;
-
-    /**
      * @var string
      */
     public $matchExpressFilterRelation;
@@ -44,14 +29,29 @@ class tagGroup extends Model
      * @var string
      */
     public $tagKey;
+
+    /**
+     * @var string
+     */
+    public $dynamicTagRuleId;
+
+    /**
+     * @var matchExpress
+     */
+    public $matchExpress;
+
+    /**
+     * @var templateIdList
+     */
+    public $templateIdList;
     protected $_name = [
         'status'                     => 'Status',
-        'matchExpress'               => 'MatchExpress',
-        'templateIdList'             => 'TemplateIdList',
-        'dynamicTagRuleId'           => 'DynamicTagRuleId',
         'matchExpressFilterRelation' => 'MatchExpressFilterRelation',
         'regionId'                   => 'RegionId',
         'tagKey'                     => 'TagKey',
+        'dynamicTagRuleId'           => 'DynamicTagRuleId',
+        'matchExpress'               => 'MatchExpress',
+        'templateIdList'             => 'TemplateIdList',
     ];
 
     public function validate()
@@ -64,15 +64,6 @@ class tagGroup extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->matchExpress) {
-            $res['MatchExpress'] = null !== $this->matchExpress ? $this->matchExpress->toMap() : null;
-        }
-        if (null !== $this->templateIdList) {
-            $res['TemplateIdList'] = null !== $this->templateIdList ? $this->templateIdList->toMap() : null;
-        }
-        if (null !== $this->dynamicTagRuleId) {
-            $res['DynamicTagRuleId'] = $this->dynamicTagRuleId;
-        }
         if (null !== $this->matchExpressFilterRelation) {
             $res['MatchExpressFilterRelation'] = $this->matchExpressFilterRelation;
         }
@@ -81,6 +72,15 @@ class tagGroup extends Model
         }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
+        }
+        if (null !== $this->dynamicTagRuleId) {
+            $res['DynamicTagRuleId'] = $this->dynamicTagRuleId;
+        }
+        if (null !== $this->matchExpress) {
+            $res['MatchExpress'] = null !== $this->matchExpress ? $this->matchExpress->toMap() : null;
+        }
+        if (null !== $this->templateIdList) {
+            $res['TemplateIdList'] = null !== $this->templateIdList ? $this->templateIdList->toMap() : null;
         }
 
         return $res;
@@ -97,15 +97,6 @@ class tagGroup extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['MatchExpress'])) {
-            $model->matchExpress = matchExpress::fromMap($map['MatchExpress']);
-        }
-        if (isset($map['TemplateIdList'])) {
-            $model->templateIdList = templateIdList::fromMap($map['TemplateIdList']);
-        }
-        if (isset($map['DynamicTagRuleId'])) {
-            $model->dynamicTagRuleId = $map['DynamicTagRuleId'];
-        }
         if (isset($map['MatchExpressFilterRelation'])) {
             $model->matchExpressFilterRelation = $map['MatchExpressFilterRelation'];
         }
@@ -114,6 +105,15 @@ class tagGroup extends Model
         }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
+        }
+        if (isset($map['DynamicTagRuleId'])) {
+            $model->dynamicTagRuleId = $map['DynamicTagRuleId'];
+        }
+        if (isset($map['MatchExpress'])) {
+            $model->matchExpress = matchExpress::fromMap($map['MatchExpress']);
+        }
+        if (isset($map['TemplateIdList'])) {
+            $model->templateIdList = templateIdList::fromMap($map['TemplateIdList']);
         }
 
         return $model;

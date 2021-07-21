@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $groupId;
     protected $_name = [
-        'groupId' => 'GroupId',
+        'regionId' => 'RegionId',
+        'groupId'  => 'GroupId',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class DeleteMonitorGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -38,6 +47,9 @@ class DeleteMonitorGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

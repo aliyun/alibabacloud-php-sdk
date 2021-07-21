@@ -11,6 +11,11 @@ class DescribeSiteMonitorListRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -33,6 +38,7 @@ class DescribeSiteMonitorListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'regionId' => 'RegionId',
         'taskId'   => 'TaskId',
         'taskType' => 'TaskType',
         'keyword'  => 'Keyword',
@@ -47,6 +53,9 @@ class DescribeSiteMonitorListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -74,6 +83,9 @@ class DescribeSiteMonitorListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

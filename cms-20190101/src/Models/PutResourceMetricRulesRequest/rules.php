@@ -22,12 +22,12 @@ class rules extends Model
     /**
      * @var string
      */
-    public $noEffectiveInterval;
+    public $effectiveInterval;
 
     /**
      * @var string
      */
-    public $effectiveInterval;
+    public $noEffectiveInterval;
 
     /**
      * @var string
@@ -81,8 +81,8 @@ class rules extends Model
     protected $_name = [
         'escalations'         => 'Escalations',
         'metricName'          => 'MetricName',
-        'noEffectiveInterval' => 'NoEffectiveInterval',
         'effectiveInterval'   => 'EffectiveInterval',
+        'noEffectiveInterval' => 'NoEffectiveInterval',
         'ruleId'              => 'RuleId',
         'resources'           => 'Resources',
         'silenceTime'         => 'SilenceTime',
@@ -109,11 +109,11 @@ class rules extends Model
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
-        if (null !== $this->noEffectiveInterval) {
-            $res['NoEffectiveInterval'] = $this->noEffectiveInterval;
-        }
         if (null !== $this->effectiveInterval) {
             $res['EffectiveInterval'] = $this->effectiveInterval;
+        }
+        if (null !== $this->noEffectiveInterval) {
+            $res['NoEffectiveInterval'] = $this->noEffectiveInterval;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
@@ -163,11 +163,11 @@ class rules extends Model
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
-        if (isset($map['NoEffectiveInterval'])) {
-            $model->noEffectiveInterval = $map['NoEffectiveInterval'];
-        }
         if (isset($map['EffectiveInterval'])) {
             $model->effectiveInterval = $map['EffectiveInterval'];
+        }
+        if (isset($map['NoEffectiveInterval'])) {
+            $model->noEffectiveInterval = $map['NoEffectiveInterval'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];

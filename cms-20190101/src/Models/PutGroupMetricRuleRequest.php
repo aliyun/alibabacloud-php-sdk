@@ -52,6 +52,11 @@ class PutGroupMetricRuleRequest extends Model
     /**
      * @var string
      */
+    public $extraDimensionJson;
+
+    /**
+     * @var string
+     */
     public $effectiveInterval;
 
     /**
@@ -97,6 +102,7 @@ class PutGroupMetricRuleRequest extends Model
         'namespace'           => 'Namespace',
         'metricName'          => 'MetricName',
         'dimensions'          => 'Dimensions',
+        'extraDimensionJson'  => 'ExtraDimensionJson',
         'effectiveInterval'   => 'EffectiveInterval',
         'noEffectiveInterval' => 'NoEffectiveInterval',
         'silenceTime'         => 'SilenceTime',
@@ -137,6 +143,9 @@ class PutGroupMetricRuleRequest extends Model
         }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = $this->dimensions;
+        }
+        if (null !== $this->extraDimensionJson) {
+            $res['ExtraDimensionJson'] = $this->extraDimensionJson;
         }
         if (null !== $this->effectiveInterval) {
             $res['EffectiveInterval'] = $this->effectiveInterval;
@@ -197,6 +206,9 @@ class PutGroupMetricRuleRequest extends Model
         }
         if (isset($map['Dimensions'])) {
             $model->dimensions = $map['Dimensions'];
+        }
+        if (isset($map['ExtraDimensionJson'])) {
+            $model->extraDimensionJson = $map['ExtraDimensionJson'];
         }
         if (isset($map['EffectiveInterval'])) {
             $model->effectiveInterval = $map['EffectiveInterval'];

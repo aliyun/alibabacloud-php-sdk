@@ -9,10 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorResourceQuotaAttributeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var bool
      */
     public $showUsed;
     protected $_name = [
+        'regionId' => 'RegionId',
         'showUsed' => 'ShowUsed',
     ];
 
@@ -23,6 +29,9 @@ class DescribeMonitorResourceQuotaAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->showUsed) {
             $res['ShowUsed'] = $this->showUsed;
         }
@@ -38,6 +47,9 @@ class DescribeMonitorResourceQuotaAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ShowUsed'])) {
             $model->showUsed = $map['ShowUsed'];
         }

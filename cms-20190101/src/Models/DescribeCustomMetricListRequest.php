@@ -11,6 +11,11 @@ class DescribeCustomMetricListRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -38,6 +43,7 @@ class DescribeCustomMetricListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'groupId'    => 'GroupId',
         'metricName' => 'MetricName',
         'dimension'  => 'Dimension',
@@ -53,6 +59,9 @@ class DescribeCustomMetricListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -83,6 +92,9 @@ class DescribeCustomMetricListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertLogListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -83,6 +88,7 @@ class DescribeAlertLogListRequest extends Model
      */
     public $groupBy;
     protected $_name = [
+        'regionId'     => 'RegionId',
         'startTime'    => 'StartTime',
         'endTime'      => 'EndTime',
         'pageNumber'   => 'PageNumber',
@@ -107,6 +113,9 @@ class DescribeAlertLogListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -164,6 +173,9 @@ class DescribeAlertLogListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

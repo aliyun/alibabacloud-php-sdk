@@ -16,11 +16,6 @@ class aggregates extends Model
     /**
      * @var string
      */
-    public $fieldName;
-
-    /**
-     * @var string
-     */
     public $min;
 
     /**
@@ -32,12 +27,17 @@ class aggregates extends Model
      * @var string
      */
     public $alias;
+
+    /**
+     * @var string
+     */
+    public $fieldName;
     protected $_name = [
         'max'       => 'Max',
-        'fieldName' => 'FieldName',
         'min'       => 'Min',
         'function'  => 'Function',
         'alias'     => 'Alias',
+        'fieldName' => 'FieldName',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class aggregates extends Model
         if (null !== $this->max) {
             $res['Max'] = $this->max;
         }
-        if (null !== $this->fieldName) {
-            $res['FieldName'] = $this->fieldName;
-        }
         if (null !== $this->min) {
             $res['Min'] = $this->min;
         }
@@ -61,6 +58,9 @@ class aggregates extends Model
         }
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
+        }
+        if (null !== $this->fieldName) {
+            $res['FieldName'] = $this->fieldName;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class aggregates extends Model
         if (isset($map['Max'])) {
             $model->max = $map['Max'];
         }
-        if (isset($map['FieldName'])) {
-            $model->fieldName = $map['FieldName'];
-        }
         if (isset($map['Min'])) {
             $model->min = $map['Min'];
         }
@@ -88,6 +85,9 @@ class aggregates extends Model
         }
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
+        }
+        if (isset($map['FieldName'])) {
+            $model->fieldName = $map['FieldName'];
         }
 
         return $model;

@@ -35,11 +35,6 @@ class datapoint extends Model
     public $enabled;
 
     /**
-     * @var dstName
-     */
-    public $dstName;
-
-    /**
      * @var string
      */
     public $dimension;
@@ -53,16 +48,21 @@ class datapoint extends Model
      * @var string
      */
     public $ruleName;
+
+    /**
+     * @var dstName
+     */
+    public $dstName;
     protected $_name = [
         'metricName'    => 'MetricName',
         'describe'      => 'Describe',
         'targetWindows' => 'TargetWindows',
         'createTime'    => 'CreateTime',
         'enabled'       => 'Enabled',
-        'dstName'       => 'DstName',
         'dimension'     => 'Dimension',
         'namespace'     => 'Namespace',
         'ruleName'      => 'RuleName',
+        'dstName'       => 'DstName',
     ];
 
     public function validate()
@@ -87,9 +87,6 @@ class datapoint extends Model
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
-        if (null !== $this->dstName) {
-            $res['DstName'] = null !== $this->dstName ? $this->dstName->toMap() : null;
-        }
         if (null !== $this->dimension) {
             $res['Dimension'] = $this->dimension;
         }
@@ -98,6 +95,9 @@ class datapoint extends Model
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->dstName) {
+            $res['DstName'] = null !== $this->dstName ? $this->dstName->toMap() : null;
         }
 
         return $res;
@@ -126,9 +126,6 @@ class datapoint extends Model
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
-        if (isset($map['DstName'])) {
-            $model->dstName = dstName::fromMap($map['DstName']);
-        }
         if (isset($map['Dimension'])) {
             $model->dimension = $map['Dimension'];
         }
@@ -137,6 +134,9 @@ class datapoint extends Model
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['DstName'])) {
+            $model->dstName = dstName::fromMap($map['DstName']);
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyMetricRuleTemplateRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $templateId;
@@ -34,6 +39,7 @@ class ModifyMetricRuleTemplateRequest extends Model
      */
     public $alertTemplates;
     protected $_name = [
+        'regionId'       => 'RegionId',
         'templateId'     => 'TemplateId',
         'name'           => 'Name',
         'description'    => 'Description',
@@ -48,6 +54,9 @@ class ModifyMetricRuleTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -81,6 +90,9 @@ class ModifyMetricRuleTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

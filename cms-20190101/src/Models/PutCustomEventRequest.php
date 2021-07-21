@@ -10,10 +10,16 @@ use AlibabaCloud\Tea\Model;
 class PutCustomEventRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var eventInfo[]
      */
     public $eventInfo;
     protected $_name = [
+        'regionId'  => 'RegionId',
         'eventInfo' => 'EventInfo',
     ];
 
@@ -24,6 +30,9 @@ class PutCustomEventRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->eventInfo) {
             $res['EventInfo'] = [];
             if (null !== $this->eventInfo && \is_array($this->eventInfo)) {
@@ -45,6 +54,9 @@ class PutCustomEventRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['EventInfo'])) {
             if (!empty($map['EventInfo'])) {
                 $model->eventInfo = [];

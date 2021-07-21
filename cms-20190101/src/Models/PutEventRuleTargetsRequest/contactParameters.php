@@ -16,16 +16,16 @@ class contactParameters extends Model
     /**
      * @var string
      */
-    public $level;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $level;
     protected $_name = [
         'contactGroupName' => 'ContactGroupName',
-        'level'            => 'Level',
         'id'               => 'Id',
+        'level'            => 'Level',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class contactParameters extends Model
         if (null !== $this->contactGroupName) {
             $res['ContactGroupName'] = $this->contactGroupName;
         }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class contactParameters extends Model
         if (isset($map['ContactGroupName'])) {
             $model->contactGroupName = $map['ContactGroupName'];
         }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
 
         return $model;

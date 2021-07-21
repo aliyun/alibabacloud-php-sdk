@@ -11,6 +11,11 @@ class CreateMonitoringAgentProcessRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $processName;
 
     /**
@@ -23,6 +28,7 @@ class CreateMonitoringAgentProcessRequest extends Model
      */
     public $processUser;
     protected $_name = [
+        'regionId'    => 'RegionId',
         'processName' => 'ProcessName',
         'instanceId'  => 'InstanceId',
         'processUser' => 'ProcessUser',
@@ -35,6 +41,9 @@ class CreateMonitoringAgentProcessRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->processName) {
             $res['ProcessName'] = $this->processName;
         }
@@ -56,6 +65,9 @@ class CreateMonitoringAgentProcessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ProcessName'])) {
             $model->processName = $map['ProcessName'];
         }

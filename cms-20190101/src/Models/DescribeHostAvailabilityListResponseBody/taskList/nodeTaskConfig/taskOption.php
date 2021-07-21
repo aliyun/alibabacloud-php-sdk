@@ -14,6 +14,11 @@ class taskOption extends Model
     public $httpMethod;
 
     /**
+     * @var int
+     */
+    public $interval;
+
+    /**
      * @var string
      */
     public $httpURI;
@@ -44,6 +49,7 @@ class taskOption extends Model
     public $httpKeyword;
     protected $_name = [
         'httpMethod'          => 'HttpMethod',
+        'interval'            => 'Interval',
         'httpURI'             => 'HttpURI',
         'telnetOrPingHost'    => 'TelnetOrPingHost',
         'httpResponseCharset' => 'HttpResponseCharset',
@@ -61,6 +67,9 @@ class taskOption extends Model
         $res = [];
         if (null !== $this->httpMethod) {
             $res['HttpMethod'] = $this->httpMethod;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
         if (null !== $this->httpURI) {
             $res['HttpURI'] = $this->httpURI;
@@ -94,6 +103,9 @@ class taskOption extends Model
         $model = new self();
         if (isset($map['HttpMethod'])) {
             $model->httpMethod = $map['HttpMethod'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
         if (isset($map['HttpURI'])) {
             $model->httpURI = $map['HttpURI'];

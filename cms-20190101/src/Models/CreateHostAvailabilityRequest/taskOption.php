@@ -42,6 +42,16 @@ class taskOption extends Model
      * @var bool
      */
     public $httpNegative;
+
+    /**
+     * @var string
+     */
+    public $httpHeader;
+
+    /**
+     * @var int
+     */
+    public $interval;
     protected $_name = [
         'httpURI'                  => 'HttpURI',
         'telnetOrPingHost'         => 'TelnetOrPingHost',
@@ -50,6 +60,8 @@ class taskOption extends Model
         'httpResponseMatchContent' => 'HttpResponseMatchContent',
         'httpMethod'               => 'HttpMethod',
         'httpNegative'             => 'HttpNegative',
+        'httpHeader'               => 'HttpHeader',
+        'interval'                 => 'Interval',
     ];
 
     public function validate()
@@ -79,6 +91,12 @@ class taskOption extends Model
         }
         if (null !== $this->httpNegative) {
             $res['HttpNegative'] = $this->httpNegative;
+        }
+        if (null !== $this->httpHeader) {
+            $res['HttpHeader'] = $this->httpHeader;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
 
         return $res;
@@ -112,6 +130,12 @@ class taskOption extends Model
         }
         if (isset($map['HttpNegative'])) {
             $model->httpNegative = $map['HttpNegative'];
+        }
+        if (isset($map['HttpHeader'])) {
+            $model->httpHeader = $map['HttpHeader'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
 
         return $model;

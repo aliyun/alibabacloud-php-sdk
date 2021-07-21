@@ -11,6 +11,11 @@ class DescribeSiteMonitorStatisticsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -28,6 +33,7 @@ class DescribeSiteMonitorStatisticsRequest extends Model
      */
     public $metricName;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'taskId'     => 'TaskId',
         'timeRange'  => 'TimeRange',
         'startTime'  => 'StartTime',
@@ -41,6 +47,9 @@ class DescribeSiteMonitorStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -65,6 +74,9 @@ class DescribeSiteMonitorStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

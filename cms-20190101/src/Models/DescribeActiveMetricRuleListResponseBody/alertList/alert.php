@@ -25,11 +25,6 @@ class alert extends Model
     public $webhook;
 
     /**
-     * @var escalations
-     */
-    public $escalations;
-
-    /**
      * @var string
      */
     public $contactGroups;
@@ -42,7 +37,7 @@ class alert extends Model
     /**
      * @var string
      */
-    public $mailSubject;
+    public $effectiveInterval;
 
     /**
      * @var string
@@ -52,7 +47,7 @@ class alert extends Model
     /**
      * @var string
      */
-    public $effectiveInterval;
+    public $mailSubject;
 
     /**
      * @var string
@@ -62,7 +57,7 @@ class alert extends Model
     /**
      * @var string
      */
-    public $alertState;
+    public $ruleId;
 
     /**
      * @var string
@@ -72,7 +67,7 @@ class alert extends Model
     /**
      * @var string
      */
-    public $ruleId;
+    public $alertState;
 
     /**
      * @var string
@@ -88,23 +83,28 @@ class alert extends Model
      * @var string
      */
     public $resources;
+
+    /**
+     * @var escalations
+     */
+    public $escalations;
     protected $_name = [
         'silenceTime'         => 'SilenceTime',
         'metricName'          => 'MetricName',
         'webhook'             => 'Webhook',
-        'escalations'         => 'Escalations',
         'contactGroups'       => 'ContactGroups',
         'namespace'           => 'Namespace',
-        'mailSubject'         => 'MailSubject',
-        'noEffectiveInterval' => 'NoEffectiveInterval',
         'effectiveInterval'   => 'EffectiveInterval',
+        'noEffectiveInterval' => 'NoEffectiveInterval',
+        'mailSubject'         => 'MailSubject',
         'ruleName'            => 'RuleName',
-        'alertState'          => 'AlertState',
-        'period'              => 'Period',
         'ruleId'              => 'RuleId',
+        'period'              => 'Period',
+        'alertState'          => 'AlertState',
         'dimensions'          => 'Dimensions',
         'enableState'         => 'EnableState',
         'resources'           => 'Resources',
+        'escalations'         => 'Escalations',
     ];
 
     public function validate()
@@ -123,35 +123,32 @@ class alert extends Model
         if (null !== $this->webhook) {
             $res['Webhook'] = $this->webhook;
         }
-        if (null !== $this->escalations) {
-            $res['Escalations'] = null !== $this->escalations ? $this->escalations->toMap() : null;
-        }
         if (null !== $this->contactGroups) {
             $res['ContactGroups'] = $this->contactGroups;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-        if (null !== $this->mailSubject) {
-            $res['MailSubject'] = $this->mailSubject;
+        if (null !== $this->effectiveInterval) {
+            $res['EffectiveInterval'] = $this->effectiveInterval;
         }
         if (null !== $this->noEffectiveInterval) {
             $res['NoEffectiveInterval'] = $this->noEffectiveInterval;
         }
-        if (null !== $this->effectiveInterval) {
-            $res['EffectiveInterval'] = $this->effectiveInterval;
+        if (null !== $this->mailSubject) {
+            $res['MailSubject'] = $this->mailSubject;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-        if (null !== $this->alertState) {
-            $res['AlertState'] = $this->alertState;
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+        if (null !== $this->alertState) {
+            $res['AlertState'] = $this->alertState;
         }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = $this->dimensions;
@@ -161,6 +158,9 @@ class alert extends Model
         }
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
+        }
+        if (null !== $this->escalations) {
+            $res['Escalations'] = null !== $this->escalations ? $this->escalations->toMap() : null;
         }
 
         return $res;
@@ -183,35 +183,32 @@ class alert extends Model
         if (isset($map['Webhook'])) {
             $model->webhook = $map['Webhook'];
         }
-        if (isset($map['Escalations'])) {
-            $model->escalations = escalations::fromMap($map['Escalations']);
-        }
         if (isset($map['ContactGroups'])) {
             $model->contactGroups = $map['ContactGroups'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-        if (isset($map['MailSubject'])) {
-            $model->mailSubject = $map['MailSubject'];
+        if (isset($map['EffectiveInterval'])) {
+            $model->effectiveInterval = $map['EffectiveInterval'];
         }
         if (isset($map['NoEffectiveInterval'])) {
             $model->noEffectiveInterval = $map['NoEffectiveInterval'];
         }
-        if (isset($map['EffectiveInterval'])) {
-            $model->effectiveInterval = $map['EffectiveInterval'];
+        if (isset($map['MailSubject'])) {
+            $model->mailSubject = $map['MailSubject'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-        if (isset($map['AlertState'])) {
-            $model->alertState = $map['AlertState'];
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['AlertState'])) {
+            $model->alertState = $map['AlertState'];
         }
         if (isset($map['Dimensions'])) {
             $model->dimensions = $map['Dimensions'];
@@ -221,6 +218,9 @@ class alert extends Model
         }
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
+        }
+        if (isset($map['Escalations'])) {
+            $model->escalations = escalations::fromMap($map['Escalations']);
         }
 
         return $model;

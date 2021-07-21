@@ -12,6 +12,11 @@ class CreateDynamicTagGroupRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $tagKey;
 
     /**
@@ -44,6 +49,7 @@ class CreateDynamicTagGroupRequest extends Model
      */
     public $templateIdList;
     protected $_name = [
+        'regionId'                   => 'RegionId',
         'tagKey'                     => 'TagKey',
         'enableSubscribeEvent'       => 'EnableSubscribeEvent',
         'enableInstallAgent'         => 'EnableInstallAgent',
@@ -60,6 +66,9 @@ class CreateDynamicTagGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
@@ -99,6 +108,9 @@ class CreateDynamicTagGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }

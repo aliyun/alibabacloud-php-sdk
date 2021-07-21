@@ -17,24 +17,9 @@ class resource extends Model
     public $instanceName;
 
     /**
-     * @var region
-     */
-    public $region;
-
-    /**
-     * @var vpc
-     */
-    public $vpc;
-
-    /**
      * @var string
      */
     public $dimension;
-
-    /**
-     * @var tags
-     */
-    public $tags;
 
     /**
      * @var string
@@ -55,16 +40,31 @@ class resource extends Model
      * @var string
      */
     public $desc;
+
+    /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
+     * @var region
+     */
+    public $region;
+
+    /**
+     * @var vpc
+     */
+    public $vpc;
     protected $_name = [
         'instanceName' => 'InstanceName',
-        'region'       => 'Region',
-        'vpc'          => 'Vpc',
         'dimension'    => 'Dimension',
-        'tags'         => 'Tags',
         'category'     => 'Category',
         'instanceId'   => 'InstanceId',
         'networkType'  => 'NetworkType',
         'desc'         => 'Desc',
+        'tags'         => 'Tags',
+        'region'       => 'Region',
+        'vpc'          => 'Vpc',
     ];
 
     public function validate()
@@ -77,17 +77,8 @@ class resource extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->region) {
-            $res['Region'] = null !== $this->region ? $this->region->toMap() : null;
-        }
-        if (null !== $this->vpc) {
-            $res['Vpc'] = null !== $this->vpc ? $this->vpc->toMap() : null;
-        }
         if (null !== $this->dimension) {
             $res['Dimension'] = $this->dimension;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
@@ -100,6 +91,15 @@ class resource extends Model
         }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = null !== $this->region ? $this->region->toMap() : null;
+        }
+        if (null !== $this->vpc) {
+            $res['Vpc'] = null !== $this->vpc ? $this->vpc->toMap() : null;
         }
 
         return $res;
@@ -116,17 +116,8 @@ class resource extends Model
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['Region'])) {
-            $model->region = region::fromMap($map['Region']);
-        }
-        if (isset($map['Vpc'])) {
-            $model->vpc = vpc::fromMap($map['Vpc']);
-        }
         if (isset($map['Dimension'])) {
             $model->dimension = $map['Dimension'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
@@ -139,6 +130,15 @@ class resource extends Model
         }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['Region'])) {
+            $model->region = region::fromMap($map['Region']);
+        }
+        if (isset($map['Vpc'])) {
+            $model->vpc = vpc::fromMap($map['Vpc']);
         }
 
         return $model;

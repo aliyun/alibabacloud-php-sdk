@@ -11,21 +11,21 @@ class mnsParameter extends Model
     /**
      * @var string
      */
-    public $region;
-
-    /**
-     * @var string
-     */
     public $queue;
 
     /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $region;
     protected $_name = [
-        'region' => 'Region',
         'queue'  => 'Queue',
         'id'     => 'Id',
+        'region' => 'Region',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class mnsParameter extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
         if (null !== $this->queue) {
             $res['Queue'] = $this->queue;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class mnsParameter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
         if (isset($map['Queue'])) {
             $model->queue = $map['Queue'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;

@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringConfigResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $autoInstall;
+
+    /**
+     * @var bool
+     */
+    public $success;
 
     /**
      * @var bool
@@ -21,29 +31,19 @@ class DescribeMonitoringConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $code;
 
     /**
      * @var string
      */
     public $message;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
-        'autoInstall'              => 'AutoInstall',
-        'enableInstallAgentNewECS' => 'EnableInstallAgentNewECS',
         'requestId'                => 'RequestId',
-        'message'                  => 'Message',
-        'code'                     => 'Code',
+        'autoInstall'              => 'AutoInstall',
         'success'                  => 'Success',
+        'enableInstallAgentNewECS' => 'EnableInstallAgentNewECS',
+        'code'                     => 'Code',
+        'message'                  => 'Message',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeMonitoringConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->autoInstall) {
             $res['AutoInstall'] = $this->autoInstall;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
         if (null !== $this->enableInstallAgentNewECS) {
             $res['EnableInstallAgentNewECS'] = $this->enableInstallAgentNewECS;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeMonitoringConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['AutoInstall'])) {
             $model->autoInstall = $map['AutoInstall'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
         if (isset($map['EnableInstallAgentNewECS'])) {
             $model->enableInstallAgentNewECS = $map['EnableInstallAgentNewECS'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         return $model;

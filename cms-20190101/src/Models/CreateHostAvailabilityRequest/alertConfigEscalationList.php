@@ -11,12 +11,12 @@ class alertConfigEscalationList extends Model
     /**
      * @var string
      */
-    public $value;
+    public $metricName;
 
     /**
      * @var string
      */
-    public $metricName;
+    public $value;
 
     /**
      * @var int
@@ -33,8 +33,8 @@ class alertConfigEscalationList extends Model
      */
     public $aggregate;
     protected $_name = [
-        'value'      => 'Value',
         'metricName' => 'MetricName',
+        'value'      => 'Value',
         'times'      => 'Times',
         'operator'   => 'Operator',
         'aggregate'  => 'Aggregate',
@@ -47,11 +47,11 @@ class alertConfigEscalationList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
         if (null !== $this->times) {
             $res['Times'] = $this->times;
@@ -74,11 +74,11 @@ class alertConfigEscalationList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
         if (isset($map['Times'])) {
             $model->times = $map['Times'];

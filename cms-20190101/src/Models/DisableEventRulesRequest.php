@@ -9,10 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DisableEventRulesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string[]
      */
     public $ruleNames;
     protected $_name = [
+        'regionId'  => 'RegionId',
         'ruleNames' => 'RuleNames',
     ];
 
@@ -23,6 +29,9 @@ class DisableEventRulesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->ruleNames) {
             $res['RuleNames'] = $this->ruleNames;
         }
@@ -38,6 +47,9 @@ class DisableEventRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RuleNames'])) {
             if (!empty($map['RuleNames'])) {
                 $model->ruleNames = $map['RuleNames'];

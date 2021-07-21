@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactGroupListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -18,6 +23,7 @@ class DescribeContactGroupListRequest extends Model
      */
     public $pageNumber;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
     ];
@@ -29,6 +35,9 @@ class DescribeContactGroupListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -47,6 +56,9 @@ class DescribeContactGroupListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

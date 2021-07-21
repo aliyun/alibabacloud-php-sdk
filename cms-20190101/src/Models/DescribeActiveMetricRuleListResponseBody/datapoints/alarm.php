@@ -46,7 +46,7 @@ class alarm extends Model
     /**
      * @var string
      */
-    public $period;
+    public $ruleName;
 
     /**
      * @var string
@@ -56,17 +56,17 @@ class alarm extends Model
     /**
      * @var string
      */
-    public $ruleName;
-
-    /**
-     * @var string
-     */
-    public $endTime;
+    public $period;
 
     /**
      * @var string
      */
     public $comparisonOperator;
+
+    /**
+     * @var string
+     */
+    public $endTime;
 
     /**
      * @var string
@@ -95,11 +95,11 @@ class alarm extends Model
         'state'              => 'State',
         'contactGroups'      => 'ContactGroups',
         'namespace'          => 'Namespace',
-        'period'             => 'Period',
-        'ruleId'             => 'RuleId',
         'ruleName'           => 'RuleName',
-        'endTime'            => 'EndTime',
+        'ruleId'             => 'RuleId',
+        'period'             => 'Period',
         'comparisonOperator' => 'ComparisonOperator',
+        'endTime'            => 'EndTime',
         'startTime'          => 'StartTime',
         'threshold'          => 'Threshold',
         'statistics'         => 'Statistics',
@@ -134,20 +134,20 @@ class alarm extends Model
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
         }
         if (null !== $this->comparisonOperator) {
             $res['ComparisonOperator'] = $this->comparisonOperator;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -194,20 +194,20 @@ class alarm extends Model
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
         }
         if (isset($map['ComparisonOperator'])) {
             $model->comparisonOperator = $map['ComparisonOperator'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

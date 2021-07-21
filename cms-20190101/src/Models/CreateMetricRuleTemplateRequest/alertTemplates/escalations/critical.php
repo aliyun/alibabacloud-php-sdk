@@ -21,17 +21,17 @@ class critical extends Model
     /**
      * @var string
      */
-    public $comparisonOperator;
+    public $statistics;
 
     /**
      * @var string
      */
-    public $statistics;
+    public $comparisonOperator;
     protected $_name = [
         'times'              => 'Times',
         'threshold'          => 'Threshold',
-        'comparisonOperator' => 'ComparisonOperator',
         'statistics'         => 'Statistics',
+        'comparisonOperator' => 'ComparisonOperator',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class critical extends Model
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
-        if (null !== $this->comparisonOperator) {
-            $res['ComparisonOperator'] = $this->comparisonOperator;
-        }
         if (null !== $this->statistics) {
             $res['Statistics'] = $this->statistics;
+        }
+        if (null !== $this->comparisonOperator) {
+            $res['ComparisonOperator'] = $this->comparisonOperator;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class critical extends Model
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }
-        if (isset($map['ComparisonOperator'])) {
-            $model->comparisonOperator = $map['ComparisonOperator'];
-        }
         if (isset($map['Statistics'])) {
             $model->statistics = $map['Statistics'];
+        }
+        if (isset($map['ComparisonOperator'])) {
+            $model->comparisonOperator = $map['ComparisonOperator'];
         }
 
         return $model;

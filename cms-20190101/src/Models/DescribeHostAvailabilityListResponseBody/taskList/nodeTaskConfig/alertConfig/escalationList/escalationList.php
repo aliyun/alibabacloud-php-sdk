@@ -21,12 +21,12 @@ class escalationList extends Model
     /**
      * @var string
      */
-    public $times;
+    public $operator;
 
     /**
      * @var string
      */
-    public $operator;
+    public $times;
 
     /**
      * @var string
@@ -35,8 +35,8 @@ class escalationList extends Model
     protected $_name = [
         'value'      => 'Value',
         'metricName' => 'MetricName',
-        'times'      => 'Times',
         'operator'   => 'Operator',
+        'times'      => 'Times',
         'aggregate'  => 'Aggregate',
     ];
 
@@ -53,11 +53,11 @@ class escalationList extends Model
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
-        if (null !== $this->times) {
-            $res['Times'] = $this->times;
-        }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
+        }
+        if (null !== $this->times) {
+            $res['Times'] = $this->times;
         }
         if (null !== $this->aggregate) {
             $res['Aggregate'] = $this->aggregate;
@@ -80,11 +80,11 @@ class escalationList extends Model
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
-        if (isset($map['Times'])) {
-            $model->times = $map['Times'];
-        }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
+        }
+        if (isset($map['Times'])) {
+            $model->times = $map['Times'];
         }
         if (isset($map['Aggregate'])) {
             $model->aggregate = $map['Aggregate'];

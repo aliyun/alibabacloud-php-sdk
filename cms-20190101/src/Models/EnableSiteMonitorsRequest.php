@@ -11,9 +11,15 @@ class EnableSiteMonitorsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $taskIds;
     protected $_name = [
-        'taskIds' => 'TaskIds',
+        'regionId' => 'RegionId',
+        'taskIds'  => 'TaskIds',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class EnableSiteMonitorsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->taskIds) {
             $res['TaskIds'] = $this->taskIds;
         }
@@ -38,6 +47,9 @@ class EnableSiteMonitorsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['TaskIds'])) {
             $model->taskIds = $map['TaskIds'];
         }

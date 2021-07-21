@@ -11,6 +11,11 @@ class DescribeEventRuleListRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $namePrefix;
 
     /**
@@ -28,6 +33,7 @@ class DescribeEventRuleListRequest extends Model
      */
     public $groupId;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'namePrefix' => 'NamePrefix',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
@@ -41,6 +47,9 @@ class DescribeEventRuleListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->namePrefix) {
             $res['NamePrefix'] = $this->namePrefix;
         }
@@ -65,6 +74,9 @@ class DescribeEventRuleListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['NamePrefix'])) {
             $model->namePrefix = $map['NamePrefix'];
         }

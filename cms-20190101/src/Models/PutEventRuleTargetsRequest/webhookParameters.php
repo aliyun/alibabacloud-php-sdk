@@ -16,12 +16,12 @@ class webhookParameters extends Model
     /**
      * @var string
      */
-    public $method;
+    public $url;
 
     /**
      * @var string
      */
-    public $url;
+    public $method;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class webhookParameters extends Model
     public $id;
     protected $_name = [
         'protocol' => 'Protocol',
-        'method'   => 'Method',
         'url'      => 'Url',
+        'method'   => 'Method',
         'id'       => 'Id',
     ];
 
@@ -44,11 +44,11 @@ class webhookParameters extends Model
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
-        if (null !== $this->method) {
-            $res['Method'] = $this->method;
-        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
+        }
+        if (null !== $this->method) {
+            $res['Method'] = $this->method;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -68,11 +68,11 @@ class webhookParameters extends Model
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
-        if (isset($map['Method'])) {
-            $model->method = $map['Method'];
-        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
+        }
+        if (isset($map['Method'])) {
+            $model->method = $map['Method'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

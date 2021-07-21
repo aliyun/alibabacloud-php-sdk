@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupResponseBody extends Model
 {
     /**
-     * @var group
+     * @var int
      */
-    public $group;
+    public $code;
 
     /**
      * @var string
@@ -25,20 +25,20 @@ class DeleteMonitorGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var group
+     */
+    public $group;
     protected $_name = [
-        'group'     => 'Group',
+        'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'code'      => 'Code',
         'success'   => 'Success',
+        'group'     => 'Group',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class DeleteMonitorGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->group) {
-            $res['Group'] = null !== $this->group ? $this->group->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -57,11 +57,11 @@ class DeleteMonitorGroupResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->group) {
+            $res['Group'] = null !== $this->group ? $this->group->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class DeleteMonitorGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Group'])) {
-            $model->group = group::fromMap($map['Group']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -84,11 +84,11 @@ class DeleteMonitorGroupResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Group'])) {
+            $model->group = group::fromMap($map['Group']);
         }
 
         return $model;

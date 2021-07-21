@@ -11,14 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactGroupListResponseBody extends Model
 {
     /**
-     * @var contactGroupList
+     * @var string
      */
-    public $contactGroupList;
-
-    /**
-     * @var contactGroups
-     */
-    public $contactGroups;
+    public $code;
 
     /**
      * @var string
@@ -36,22 +31,27 @@ class DescribeContactGroupListResponseBody extends Model
     public $total;
 
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var contactGroups
+     */
+    public $contactGroups;
+
+    /**
+     * @var contactGroupList
+     */
+    public $contactGroupList;
     protected $_name = [
-        'contactGroupList' => 'ContactGroupList',
-        'contactGroups'    => 'ContactGroups',
+        'code'             => 'Code',
         'message'          => 'Message',
         'requestId'        => 'RequestId',
         'total'            => 'Total',
-        'code'             => 'Code',
         'success'          => 'Success',
+        'contactGroups'    => 'ContactGroups',
+        'contactGroupList' => 'ContactGroupList',
     ];
 
     public function validate()
@@ -61,11 +61,8 @@ class DescribeContactGroupListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->contactGroupList) {
-            $res['ContactGroupList'] = null !== $this->contactGroupList ? $this->contactGroupList->toMap() : null;
-        }
-        if (null !== $this->contactGroups) {
-            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -76,11 +73,14 @@ class DescribeContactGroupListResponseBody extends Model
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->contactGroups) {
+            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toMap() : null;
+        }
+        if (null !== $this->contactGroupList) {
+            $res['ContactGroupList'] = null !== $this->contactGroupList ? $this->contactGroupList->toMap() : null;
         }
 
         return $res;
@@ -94,11 +94,8 @@ class DescribeContactGroupListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ContactGroupList'])) {
-            $model->contactGroupList = contactGroupList::fromMap($map['ContactGroupList']);
-        }
-        if (isset($map['ContactGroups'])) {
-            $model->contactGroups = contactGroups::fromMap($map['ContactGroups']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -109,11 +106,14 @@ class DescribeContactGroupListResponseBody extends Model
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['ContactGroups'])) {
+            $model->contactGroups = contactGroups::fromMap($map['ContactGroups']);
+        }
+        if (isset($map['ContactGroupList'])) {
+            $model->contactGroupList = contactGroupList::fromMap($map['ContactGroupList']);
         }
 
         return $model;

@@ -36,7 +36,7 @@ class metricRule extends Model
     /**
      * @var string
      */
-    public $period;
+    public $ruleId;
 
     /**
      * @var string
@@ -46,7 +46,7 @@ class metricRule extends Model
     /**
      * @var string
      */
-    public $ruleId;
+    public $period;
 
     /**
      * @var string
@@ -93,9 +93,9 @@ class metricRule extends Model
         'namespace'          => 'Namespace',
         'okActions'          => 'OkActions',
         'alarmActions'       => 'AlarmActions',
-        'period'             => 'Period',
-        'ruleName'           => 'RuleName',
         'ruleId'             => 'RuleId',
+        'ruleName'           => 'RuleName',
+        'period'             => 'Period',
         'comparisonOperator' => 'ComparisonOperator',
         'expression'         => 'Expression',
         'dimensions'         => 'Dimensions',
@@ -128,14 +128,14 @@ class metricRule extends Model
         if (null !== $this->alarmActions) {
             $res['AlarmActions'] = $this->alarmActions;
         }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
         }
         if (null !== $this->comparisonOperator) {
             $res['ComparisonOperator'] = $this->comparisonOperator;
@@ -188,14 +188,14 @@ class metricRule extends Model
         if (isset($map['AlarmActions'])) {
             $model->alarmActions = $map['AlarmActions'];
         }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
         }
         if (isset($map['ComparisonOperator'])) {
             $model->comparisonOperator = $map['ComparisonOperator'];

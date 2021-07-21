@@ -24,11 +24,6 @@ class alarmHistory extends Model
     public $metricName;
 
     /**
-     * @var contacts
-     */
-    public $contacts;
-
-    /**
      * @var int
      */
     public $evaluationCount;
@@ -37,11 +32,6 @@ class alarmHistory extends Model
      * @var string
      */
     public $state;
-
-    /**
-     * @var contactGroups
-     */
-    public $contactGroups;
 
     /**
      * @var string
@@ -56,12 +46,12 @@ class alarmHistory extends Model
     /**
      * @var string
      */
-    public $ruleId;
+    public $ruleName;
 
     /**
      * @var string
      */
-    public $ruleName;
+    public $ruleId;
 
     /**
      * @var int
@@ -94,19 +84,9 @@ class alarmHistory extends Model
     public $instanceName;
 
     /**
-     * @var contactSmses
-     */
-    public $contactSmses;
-
-    /**
      * @var string
      */
     public $dimensions;
-
-    /**
-     * @var contactALIIMs
-     */
-    public $contactALIIMs;
 
     /**
      * @var string
@@ -114,31 +94,51 @@ class alarmHistory extends Model
     public $level;
 
     /**
+     * @var contacts
+     */
+    public $contacts;
+
+    /**
+     * @var contactALIIMs
+     */
+    public $contactALIIMs;
+
+    /**
      * @var contactMails
      */
     public $contactMails;
+
+    /**
+     * @var contactSmses
+     */
+    public $contactSmses;
+
+    /**
+     * @var contactGroups
+     */
+    public $contactGroups;
     protected $_name = [
         'status'          => 'Status',
         'metricName'      => 'MetricName',
-        'contacts'        => 'Contacts',
         'evaluationCount' => 'EvaluationCount',
         'state'           => 'State',
-        'contactGroups'   => 'ContactGroups',
         'namespace'       => 'Namespace',
         'webhooks'        => 'Webhooks',
-        'ruleId'          => 'RuleId',
         'ruleName'        => 'RuleName',
+        'ruleId'          => 'RuleId',
         'lastTime'        => 'LastTime',
         'value'           => 'Value',
         'expression'      => 'Expression',
         'groupId'         => 'GroupId',
         'alertTime'       => 'AlertTime',
         'instanceName'    => 'InstanceName',
-        'contactSmses'    => 'ContactSmses',
         'dimensions'      => 'Dimensions',
-        'contactALIIMs'   => 'ContactALIIMs',
         'level'           => 'Level',
+        'contacts'        => 'Contacts',
+        'contactALIIMs'   => 'ContactALIIMs',
         'contactMails'    => 'ContactMails',
+        'contactSmses'    => 'ContactSmses',
+        'contactGroups'   => 'ContactGroups',
     ];
 
     public function validate()
@@ -154,17 +154,11 @@ class alarmHistory extends Model
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
-        if (null !== $this->contacts) {
-            $res['Contacts'] = null !== $this->contacts ? $this->contacts->toMap() : null;
-        }
         if (null !== $this->evaluationCount) {
             $res['EvaluationCount'] = $this->evaluationCount;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
-        }
-        if (null !== $this->contactGroups) {
-            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toMap() : null;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -172,11 +166,11 @@ class alarmHistory extends Model
         if (null !== $this->webhooks) {
             $res['Webhooks'] = $this->webhooks;
         }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
-        }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
         if (null !== $this->lastTime) {
             $res['LastTime'] = $this->lastTime;
@@ -196,20 +190,26 @@ class alarmHistory extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->contactSmses) {
-            $res['ContactSmses'] = null !== $this->contactSmses ? $this->contactSmses->toMap() : null;
-        }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = $this->dimensions;
-        }
-        if (null !== $this->contactALIIMs) {
-            $res['ContactALIIMs'] = null !== $this->contactALIIMs ? $this->contactALIIMs->toMap() : null;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+        if (null !== $this->contacts) {
+            $res['Contacts'] = null !== $this->contacts ? $this->contacts->toMap() : null;
+        }
+        if (null !== $this->contactALIIMs) {
+            $res['ContactALIIMs'] = null !== $this->contactALIIMs ? $this->contactALIIMs->toMap() : null;
+        }
         if (null !== $this->contactMails) {
             $res['ContactMails'] = null !== $this->contactMails ? $this->contactMails->toMap() : null;
+        }
+        if (null !== $this->contactSmses) {
+            $res['ContactSmses'] = null !== $this->contactSmses ? $this->contactSmses->toMap() : null;
+        }
+        if (null !== $this->contactGroups) {
+            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toMap() : null;
         }
 
         return $res;
@@ -229,17 +229,11 @@ class alarmHistory extends Model
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
-        if (isset($map['Contacts'])) {
-            $model->contacts = contacts::fromMap($map['Contacts']);
-        }
         if (isset($map['EvaluationCount'])) {
             $model->evaluationCount = $map['EvaluationCount'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
-        }
-        if (isset($map['ContactGroups'])) {
-            $model->contactGroups = contactGroups::fromMap($map['ContactGroups']);
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
@@ -247,11 +241,11 @@ class alarmHistory extends Model
         if (isset($map['Webhooks'])) {
             $model->webhooks = $map['Webhooks'];
         }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
-        }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
         if (isset($map['LastTime'])) {
             $model->lastTime = $map['LastTime'];
@@ -271,20 +265,26 @@ class alarmHistory extends Model
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['ContactSmses'])) {
-            $model->contactSmses = contactSmses::fromMap($map['ContactSmses']);
-        }
         if (isset($map['Dimensions'])) {
             $model->dimensions = $map['Dimensions'];
-        }
-        if (isset($map['ContactALIIMs'])) {
-            $model->contactALIIMs = contactALIIMs::fromMap($map['ContactALIIMs']);
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+        if (isset($map['Contacts'])) {
+            $model->contacts = contacts::fromMap($map['Contacts']);
+        }
+        if (isset($map['ContactALIIMs'])) {
+            $model->contactALIIMs = contactALIIMs::fromMap($map['ContactALIIMs']);
+        }
         if (isset($map['ContactMails'])) {
             $model->contactMails = contactMails::fromMap($map['ContactMails']);
+        }
+        if (isset($map['ContactSmses'])) {
+            $model->contactSmses = contactSmses::fromMap($map['ContactSmses']);
+        }
+        if (isset($map['ContactGroups'])) {
+            $model->contactGroups = contactGroups::fromMap($map['ContactGroups']);
         }
 
         return $model;

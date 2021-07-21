@@ -22,6 +22,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -30,20 +35,15 @@ class result extends Model
     public $state;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var eventPattern
      */
     public $eventPattern;
     protected $_name = [
         'eventType'    => 'EventType',
         'groupId'      => 'GroupId',
+        'name'         => 'Name',
         'description'  => 'Description',
         'state'        => 'State',
-        'name'         => 'Name',
         'eventPattern' => 'EventPattern',
     ];
 
@@ -60,14 +60,14 @@ class result extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->eventPattern) {
             $res['EventPattern'] = null !== $this->eventPattern ? $this->eventPattern->toMap() : null;
@@ -90,14 +90,14 @@ class result extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['EventPattern'])) {
             $model->eventPattern = eventPattern::fromMap($map['EventPattern']);

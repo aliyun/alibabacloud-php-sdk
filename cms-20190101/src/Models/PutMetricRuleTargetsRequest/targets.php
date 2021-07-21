@@ -11,21 +11,21 @@ class targets extends Model
     /**
      * @var string
      */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $arn;
 
     /**
      * @var string
      */
     public $level;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
+        'id'    => 'Id',
         'arn'   => 'Arn',
         'level' => 'Level',
-        'id'    => 'Id',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class targets extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->arn) {
             $res['Arn'] = $this->arn;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class targets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Arn'])) {
             $model->arn = $map['Arn'];
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

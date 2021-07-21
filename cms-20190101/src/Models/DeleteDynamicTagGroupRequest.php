@@ -11,8 +11,14 @@ class DeleteDynamicTagGroupRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $dynamicTagRuleId;
     protected $_name = [
+        'regionId'         => 'RegionId',
         'dynamicTagRuleId' => 'DynamicTagRuleId',
     ];
 
@@ -23,6 +29,9 @@ class DeleteDynamicTagGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->dynamicTagRuleId) {
             $res['DynamicTagRuleId'] = $this->dynamicTagRuleId;
         }
@@ -38,6 +47,9 @@ class DeleteDynamicTagGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['DynamicTagRuleId'])) {
             $model->dynamicTagRuleId = $map['DynamicTagRuleId'];
         }

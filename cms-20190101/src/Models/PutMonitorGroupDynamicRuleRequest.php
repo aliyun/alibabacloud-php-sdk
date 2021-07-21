@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class PutMonitorGroupDynamicRuleRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $groupId;
@@ -19,6 +24,7 @@ class PutMonitorGroupDynamicRuleRequest extends Model
      */
     public $groupRules;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'groupId'    => 'GroupId',
         'groupRules' => 'GroupRules',
     ];
@@ -30,6 +36,9 @@ class PutMonitorGroupDynamicRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -54,6 +63,9 @@ class PutMonitorGroupDynamicRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

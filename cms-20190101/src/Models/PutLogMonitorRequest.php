@@ -14,6 +14,11 @@ class PutLogMonitorRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $logId;
 
     /**
@@ -76,6 +81,7 @@ class PutLogMonitorRequest extends Model
      */
     public $valueFilter;
     protected $_name = [
+        'regionId'            => 'RegionId',
         'logId'               => 'LogId',
         'slsRegionId'         => 'SlsRegionId',
         'slsProject'          => 'SlsProject',
@@ -98,6 +104,9 @@ class PutLogMonitorRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->logId) {
             $res['LogId'] = $this->logId;
         }
@@ -167,6 +176,9 @@ class PutLogMonitorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['LogId'])) {
             $model->logId = $map['LogId'];
         }

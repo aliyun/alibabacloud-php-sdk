@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomEventAttributeResponseBody extends Model
 {
     /**
-     * @var customEvents
+     * @var string
      */
-    public $customEvents;
+    public $code;
 
     /**
      * @var string
@@ -27,18 +27,18 @@ class DescribeCustomEventAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $success;
 
     /**
-     * @var string
+     * @var customEvents
      */
-    public $success;
+    public $customEvents;
     protected $_name = [
-        'customEvents' => 'CustomEvents',
+        'code'         => 'Code',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
-        'code'         => 'Code',
         'success'      => 'Success',
+        'customEvents' => 'CustomEvents',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class DescribeCustomEventAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->customEvents) {
-            $res['CustomEvents'] = null !== $this->customEvents ? $this->customEvents->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -57,11 +57,11 @@ class DescribeCustomEventAttributeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->customEvents) {
+            $res['CustomEvents'] = null !== $this->customEvents ? $this->customEvents->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class DescribeCustomEventAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CustomEvents'])) {
-            $model->customEvents = customEvents::fromMap($map['CustomEvents']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -84,11 +84,11 @@ class DescribeCustomEventAttributeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['CustomEvents'])) {
+            $model->customEvents = customEvents::fromMap($map['CustomEvents']);
         }
 
         return $model;

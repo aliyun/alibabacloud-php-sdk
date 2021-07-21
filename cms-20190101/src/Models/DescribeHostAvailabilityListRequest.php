@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostAvailabilityListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $id;
@@ -33,6 +38,7 @@ class DescribeHostAvailabilityListRequest extends Model
      */
     public $groupId;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'id'         => 'Id',
         'taskName'   => 'TaskName',
         'pageNumber' => 'PageNumber',
@@ -47,6 +53,9 @@ class DescribeHostAvailabilityListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -74,6 +83,9 @@ class DescribeHostAvailabilityListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

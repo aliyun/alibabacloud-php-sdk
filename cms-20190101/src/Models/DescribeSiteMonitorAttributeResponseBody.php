@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorAttributeResponseBody extends Model
 {
     /**
-     * @var metricRules
+     * @var string
      */
-    public $metricRules;
+    public $code;
 
     /**
      * @var string
@@ -26,11 +26,6 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
@@ -39,13 +34,18 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
      * @var siteMonitors
      */
     public $siteMonitors;
+
+    /**
+     * @var metricRules
+     */
+    public $metricRules;
     protected $_name = [
-        'metricRules'  => 'MetricRules',
+        'code'         => 'Code',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
-        'code'         => 'Code',
         'success'      => 'Success',
         'siteMonitors' => 'SiteMonitors',
+        'metricRules'  => 'MetricRules',
     ];
 
     public function validate()
@@ -55,8 +55,8 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->metricRules) {
-            $res['MetricRules'] = null !== $this->metricRules ? $this->metricRules->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -64,14 +64,14 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
         if (null !== $this->siteMonitors) {
             $res['SiteMonitors'] = null !== $this->siteMonitors ? $this->siteMonitors->toMap() : null;
+        }
+        if (null !== $this->metricRules) {
+            $res['MetricRules'] = null !== $this->metricRules ? $this->metricRules->toMap() : null;
         }
 
         return $res;
@@ -85,8 +85,8 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MetricRules'])) {
-            $model->metricRules = metricRules::fromMap($map['MetricRules']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -94,14 +94,14 @@ class DescribeSiteMonitorAttributeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
         if (isset($map['SiteMonitors'])) {
             $model->siteMonitors = siteMonitors::fromMap($map['SiteMonitors']);
+        }
+        if (isset($map['MetricRules'])) {
+            $model->metricRules = metricRules::fromMap($map['MetricRules']);
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupMetricRulesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $groupId;
@@ -19,6 +24,7 @@ class CreateGroupMetricRulesRequest extends Model
      */
     public $groupMetricRules;
     protected $_name = [
+        'regionId'         => 'RegionId',
         'groupId'          => 'GroupId',
         'groupMetricRules' => 'GroupMetricRules',
     ];
@@ -30,6 +36,9 @@ class CreateGroupMetricRulesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -54,6 +63,9 @@ class CreateGroupMetricRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

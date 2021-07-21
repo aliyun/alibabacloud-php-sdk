@@ -12,6 +12,11 @@ class DescribeEventRuleListResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -25,26 +30,21 @@ class DescribeEventRuleListResponseBody extends Model
     public $total;
 
     /**
-     * @var eventRules
-     */
-    public $eventRules;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var eventRules
+     */
+    public $eventRules;
     protected $_name = [
+        'code'       => 'Code',
         'message'    => 'Message',
         'requestId'  => 'RequestId',
         'total'      => 'Total',
-        'eventRules' => 'EventRules',
-        'code'       => 'Code',
         'success'    => 'Success',
+        'eventRules' => 'EventRules',
     ];
 
     public function validate()
@@ -54,6 +54,9 @@ class DescribeEventRuleListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -63,14 +66,11 @@ class DescribeEventRuleListResponseBody extends Model
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->eventRules) {
-            $res['EventRules'] = null !== $this->eventRules ? $this->eventRules->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->eventRules) {
+            $res['EventRules'] = null !== $this->eventRules ? $this->eventRules->toMap() : null;
         }
 
         return $res;
@@ -84,6 +84,9 @@ class DescribeEventRuleListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -93,14 +96,11 @@ class DescribeEventRuleListResponseBody extends Model
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-        if (isset($map['EventRules'])) {
-            $model->eventRules = eventRules::fromMap($map['EventRules']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['EventRules'])) {
+            $model->eventRules = eventRules::fromMap($map['EventRules']);
         }
 
         return $model;

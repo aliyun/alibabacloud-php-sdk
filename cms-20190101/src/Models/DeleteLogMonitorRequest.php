@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteLogMonitorRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $logId;
     protected $_name = [
-        'logId' => 'LogId',
+        'regionId' => 'RegionId',
+        'logId'    => 'LogId',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class DeleteLogMonitorRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->logId) {
             $res['LogId'] = $this->logId;
         }
@@ -38,6 +47,9 @@ class DeleteLogMonitorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['LogId'])) {
             $model->logId = $map['LogId'];
         }

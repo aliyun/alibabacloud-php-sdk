@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class nodeTaskInstance extends Model
 {
     /**
-     * @var instanceList
-     */
-    public $instanceList;
-
-    /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var instanceList
+     */
+    public $instanceList;
     protected $_name = [
-        'instanceList' => 'InstanceList',
         'id'           => 'Id',
+        'instanceList' => 'InstanceList',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class nodeTaskInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceList) {
-            $res['InstanceList'] = null !== $this->instanceList ? $this->instanceList->toMap() : null;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->instanceList) {
+            $res['InstanceList'] = null !== $this->instanceList ? $this->instanceList->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class nodeTaskInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceList'])) {
-            $model->instanceList = instanceList::fromMap($map['InstanceList']);
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['InstanceList'])) {
+            $model->instanceList = instanceList::fromMap($map['InstanceList']);
         }
 
         return $model;

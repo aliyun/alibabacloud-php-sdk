@@ -11,8 +11,14 @@ class DescribeContactListByContactGroupRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $contactGroupName;
     protected $_name = [
+        'regionId'         => 'RegionId',
         'contactGroupName' => 'ContactGroupName',
     ];
 
@@ -23,6 +29,9 @@ class DescribeContactListByContactGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->contactGroupName) {
             $res['ContactGroupName'] = $this->contactGroupName;
         }
@@ -38,6 +47,9 @@ class DescribeContactListByContactGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ContactGroupName'])) {
             $model->contactGroupName = $map['ContactGroupName'];
         }

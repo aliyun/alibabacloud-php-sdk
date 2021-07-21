@@ -11,7 +11,17 @@ class DescribeDynamicTagRuleListRequest extends Model
     /**
      * @var string
      */
+    public $tagRegionId;
+
+    /**
+     * @var string
+     */
     public $tagKey;
+
+    /**
+     * @var string
+     */
+    public $tagValue;
 
     /**
      * @var string
@@ -23,9 +33,11 @@ class DescribeDynamicTagRuleListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'tagKey'     => 'TagKey',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'tagRegionId' => 'TagRegionId',
+        'tagKey'      => 'TagKey',
+        'tagValue'    => 'TagValue',
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
     ];
 
     public function validate()
@@ -35,8 +47,14 @@ class DescribeDynamicTagRuleListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->tagRegionId) {
+            $res['TagRegionId'] = $this->tagRegionId;
+        }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
+        }
+        if (null !== $this->tagValue) {
+            $res['TagValue'] = $this->tagValue;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -56,8 +74,14 @@ class DescribeDynamicTagRuleListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TagRegionId'])) {
+            $model->tagRegionId = $map['TagRegionId'];
+        }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
+        }
+        if (isset($map['TagValue'])) {
+            $model->tagValue = $map['TagValue'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

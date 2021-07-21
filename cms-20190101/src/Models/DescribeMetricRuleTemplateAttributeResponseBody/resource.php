@@ -15,11 +15,6 @@ class resource extends Model
     public $description;
 
     /**
-     * @var alertTemplates
-     */
-    public $alertTemplates;
-
-    /**
      * @var string
      */
     public $name;
@@ -33,12 +28,17 @@ class resource extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var alertTemplates
+     */
+    public $alertTemplates;
     protected $_name = [
         'description'    => 'Description',
-        'alertTemplates' => 'AlertTemplates',
         'name'           => 'Name',
         'restVersion'    => 'RestVersion',
         'templateId'     => 'TemplateId',
+        'alertTemplates' => 'AlertTemplates',
     ];
 
     public function validate()
@@ -51,9 +51,6 @@ class resource extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->alertTemplates) {
-            $res['AlertTemplates'] = null !== $this->alertTemplates ? $this->alertTemplates->toMap() : null;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -62,6 +59,9 @@ class resource extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->alertTemplates) {
+            $res['AlertTemplates'] = null !== $this->alertTemplates ? $this->alertTemplates->toMap() : null;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class resource extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['AlertTemplates'])) {
-            $model->alertTemplates = alertTemplates::fromMap($map['AlertTemplates']);
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -89,6 +86,9 @@ class resource extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['AlertTemplates'])) {
+            $model->alertTemplates = alertTemplates::fromMap($map['AlertTemplates']);
         }
 
         return $model;

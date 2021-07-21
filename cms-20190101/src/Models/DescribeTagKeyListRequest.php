@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagKeyListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -18,6 +23,7 @@ class DescribeTagKeyListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'regionId'   => 'RegionId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -29,6 +35,9 @@ class DescribeTagKeyListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -47,6 +56,9 @@ class DescribeTagKeyListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

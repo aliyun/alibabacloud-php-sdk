@@ -16,6 +16,11 @@ class DescribeEventRuleTargetListResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -29,9 +34,14 @@ class DescribeEventRuleTargetListResponseBody extends Model
     public $contactParameters;
 
     /**
-     * @var slsParameters
+     * @var fcParameters
      */
-    public $slsParameters;
+    public $fcParameters;
+
+    /**
+     * @var mnsParameters
+     */
+    public $mnsParameters;
 
     /**
      * @var webhookParameters
@@ -39,28 +49,18 @@ class DescribeEventRuleTargetListResponseBody extends Model
     public $webhookParameters;
 
     /**
-     * @var fcParameters
+     * @var slsParameters
      */
-    public $fcParameters;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var mnsParameters
-     */
-    public $mnsParameters;
+    public $slsParameters;
     protected $_name = [
+        'code'              => 'Code',
         'message'           => 'Message',
         'requestId'         => 'RequestId',
         'contactParameters' => 'ContactParameters',
-        'slsParameters'     => 'SlsParameters',
-        'webhookParameters' => 'WebhookParameters',
         'fcParameters'      => 'FcParameters',
-        'code'              => 'Code',
         'mnsParameters'     => 'MnsParameters',
+        'webhookParameters' => 'WebhookParameters',
+        'slsParameters'     => 'SlsParameters',
     ];
 
     public function validate()
@@ -70,6 +70,9 @@ class DescribeEventRuleTargetListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -79,20 +82,17 @@ class DescribeEventRuleTargetListResponseBody extends Model
         if (null !== $this->contactParameters) {
             $res['ContactParameters'] = null !== $this->contactParameters ? $this->contactParameters->toMap() : null;
         }
-        if (null !== $this->slsParameters) {
-            $res['SlsParameters'] = null !== $this->slsParameters ? $this->slsParameters->toMap() : null;
+        if (null !== $this->fcParameters) {
+            $res['FcParameters'] = null !== $this->fcParameters ? $this->fcParameters->toMap() : null;
+        }
+        if (null !== $this->mnsParameters) {
+            $res['MnsParameters'] = null !== $this->mnsParameters ? $this->mnsParameters->toMap() : null;
         }
         if (null !== $this->webhookParameters) {
             $res['WebhookParameters'] = null !== $this->webhookParameters ? $this->webhookParameters->toMap() : null;
         }
-        if (null !== $this->fcParameters) {
-            $res['FcParameters'] = null !== $this->fcParameters ? $this->fcParameters->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->mnsParameters) {
-            $res['MnsParameters'] = null !== $this->mnsParameters ? $this->mnsParameters->toMap() : null;
+        if (null !== $this->slsParameters) {
+            $res['SlsParameters'] = null !== $this->slsParameters ? $this->slsParameters->toMap() : null;
         }
 
         return $res;
@@ -106,6 +106,9 @@ class DescribeEventRuleTargetListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -115,20 +118,17 @@ class DescribeEventRuleTargetListResponseBody extends Model
         if (isset($map['ContactParameters'])) {
             $model->contactParameters = contactParameters::fromMap($map['ContactParameters']);
         }
-        if (isset($map['SlsParameters'])) {
-            $model->slsParameters = slsParameters::fromMap($map['SlsParameters']);
+        if (isset($map['FcParameters'])) {
+            $model->fcParameters = fcParameters::fromMap($map['FcParameters']);
+        }
+        if (isset($map['MnsParameters'])) {
+            $model->mnsParameters = mnsParameters::fromMap($map['MnsParameters']);
         }
         if (isset($map['WebhookParameters'])) {
             $model->webhookParameters = webhookParameters::fromMap($map['WebhookParameters']);
         }
-        if (isset($map['FcParameters'])) {
-            $model->fcParameters = fcParameters::fromMap($map['FcParameters']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['MnsParameters'])) {
-            $model->mnsParameters = mnsParameters::fromMap($map['MnsParameters']);
+        if (isset($map['SlsParameters'])) {
+            $model->slsParameters = slsParameters::fromMap($map['SlsParameters']);
         }
 
         return $model;

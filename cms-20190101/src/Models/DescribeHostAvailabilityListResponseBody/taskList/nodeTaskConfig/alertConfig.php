@@ -25,6 +25,11 @@ class alertConfig extends Model
     public $startTime;
 
     /**
+     * @var string
+     */
+    public $webHook;
+
+    /**
      * @var int
      */
     public $notifyType;
@@ -33,18 +38,13 @@ class alertConfig extends Model
      * @var escalationList
      */
     public $escalationList;
-
-    /**
-     * @var string
-     */
-    public $webHook;
     protected $_name = [
         'silenceTime'    => 'SilenceTime',
         'endTime'        => 'EndTime',
         'startTime'      => 'StartTime',
+        'webHook'        => 'WebHook',
         'notifyType'     => 'NotifyType',
         'escalationList' => 'EscalationList',
-        'webHook'        => 'WebHook',
     ];
 
     public function validate()
@@ -63,14 +63,14 @@ class alertConfig extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+        if (null !== $this->webHook) {
+            $res['WebHook'] = $this->webHook;
+        }
         if (null !== $this->notifyType) {
             $res['NotifyType'] = $this->notifyType;
         }
         if (null !== $this->escalationList) {
             $res['EscalationList'] = null !== $this->escalationList ? $this->escalationList->toMap() : null;
-        }
-        if (null !== $this->webHook) {
-            $res['WebHook'] = $this->webHook;
         }
 
         return $res;
@@ -93,14 +93,14 @@ class alertConfig extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+        if (isset($map['WebHook'])) {
+            $model->webHook = $map['WebHook'];
+        }
         if (isset($map['NotifyType'])) {
             $model->notifyType = $map['NotifyType'];
         }
         if (isset($map['EscalationList'])) {
             $model->escalationList = escalationList::fromMap($map['EscalationList']);
-        }
-        if (isset($map['WebHook'])) {
-            $model->webHook = $map['WebHook'];
         }
 
         return $model;

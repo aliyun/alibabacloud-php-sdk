@@ -16,16 +16,16 @@ class filters extends Model
     /**
      * @var string
      */
-    public $function;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $function;
     protected $_name = [
         'value'    => 'Value',
-        'function' => 'Function',
         'name'     => 'Name',
+        'function' => 'Function',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class filters extends Model
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
-        if (null !== $this->function) {
-            $res['Function'] = $this->function;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->function) {
+            $res['Function'] = $this->function;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class filters extends Model
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
-        if (isset($map['Function'])) {
-            $model->function = $map['Function'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Function'])) {
+            $model->function = $map['Function'];
         }
 
         return $model;

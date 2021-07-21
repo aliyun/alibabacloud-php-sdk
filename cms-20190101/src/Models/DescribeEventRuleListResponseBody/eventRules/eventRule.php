@@ -27,12 +27,12 @@ class eventRule extends Model
     /**
      * @var string
      */
-    public $state;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $state;
 
     /**
      * @var eventPattern
@@ -42,8 +42,8 @@ class eventRule extends Model
         'eventType'    => 'EventType',
         'description'  => 'Description',
         'groupId'      => 'GroupId',
-        'state'        => 'State',
         'name'         => 'Name',
+        'state'        => 'State',
         'eventPattern' => 'EventPattern',
     ];
 
@@ -63,11 +63,11 @@ class eventRule extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->eventPattern) {
             $res['EventPattern'] = null !== $this->eventPattern ? $this->eventPattern->toMap() : null;
@@ -93,11 +93,11 @@ class eventRule extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['EventPattern'])) {
             $model->eventPattern = eventPattern::fromMap($map['EventPattern']);

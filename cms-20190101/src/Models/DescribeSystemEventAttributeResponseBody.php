@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemEventAttributeResponseBody extends Model
 {
     /**
-     * @var systemEvents
+     * @var string
      */
-    public $systemEvents;
+    public $code;
 
     /**
      * @var string
@@ -27,18 +27,18 @@ class DescribeSystemEventAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $success;
 
     /**
-     * @var string
+     * @var systemEvents
      */
-    public $success;
+    public $systemEvents;
     protected $_name = [
-        'systemEvents' => 'SystemEvents',
+        'code'         => 'Code',
         'message'      => 'Message',
         'requestId'    => 'RequestId',
-        'code'         => 'Code',
         'success'      => 'Success',
+        'systemEvents' => 'SystemEvents',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class DescribeSystemEventAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->systemEvents) {
-            $res['SystemEvents'] = null !== $this->systemEvents ? $this->systemEvents->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -57,11 +57,11 @@ class DescribeSystemEventAttributeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->systemEvents) {
+            $res['SystemEvents'] = null !== $this->systemEvents ? $this->systemEvents->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class DescribeSystemEventAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SystemEvents'])) {
-            $model->systemEvents = systemEvents::fromMap($map['SystemEvents']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -84,11 +84,11 @@ class DescribeSystemEventAttributeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['SystemEvents'])) {
+            $model->systemEvents = systemEvents::fromMap($map['SystemEvents']);
         }
 
         return $model;

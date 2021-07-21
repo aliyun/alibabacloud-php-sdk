@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
-     * @var applyHistories
-     */
-    public $applyHistories;
-
-    /**
      * @var string
      */
     public $description;
@@ -43,14 +38,19 @@ class template extends Model
      * @var int
      */
     public $templateId;
+
+    /**
+     * @var applyHistories
+     */
+    public $applyHistories;
     protected $_name = [
-        'applyHistories' => 'ApplyHistories',
         'description'    => 'Description',
         'gmtCreate'      => 'GmtCreate',
         'name'           => 'Name',
         'restVersion'    => 'RestVersion',
         'gmtModified'    => 'GmtModified',
         'templateId'     => 'TemplateId',
+        'applyHistories' => 'ApplyHistories',
     ];
 
     public function validate()
@@ -60,9 +60,6 @@ class template extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->applyHistories) {
-            $res['ApplyHistories'] = null !== $this->applyHistories ? $this->applyHistories->toMap() : null;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -81,6 +78,9 @@ class template extends Model
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+        if (null !== $this->applyHistories) {
+            $res['ApplyHistories'] = null !== $this->applyHistories ? $this->applyHistories->toMap() : null;
+        }
 
         return $res;
     }
@@ -93,9 +93,6 @@ class template extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApplyHistories'])) {
-            $model->applyHistories = applyHistories::fromMap($map['ApplyHistories']);
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -113,6 +110,9 @@ class template extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['ApplyHistories'])) {
+            $model->applyHistories = applyHistories::fromMap($map['ApplyHistories']);
         }
 
         return $model;

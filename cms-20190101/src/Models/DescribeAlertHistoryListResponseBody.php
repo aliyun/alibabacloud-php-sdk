@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertHistoryListResponseBody extends Model
 {
     /**
-     * @var alarmHistoryList
+     * @var string
      */
-    public $alarmHistoryList;
+    public $code;
 
     /**
      * @var string
@@ -30,21 +30,21 @@ class DescribeAlertHistoryListResponseBody extends Model
     public $total;
 
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var alarmHistoryList
+     */
+    public $alarmHistoryList;
     protected $_name = [
-        'alarmHistoryList' => 'AlarmHistoryList',
+        'code'             => 'Code',
         'message'          => 'Message',
         'requestId'        => 'RequestId',
         'total'            => 'Total',
-        'code'             => 'Code',
         'success'          => 'Success',
+        'alarmHistoryList' => 'AlarmHistoryList',
     ];
 
     public function validate()
@@ -54,8 +54,8 @@ class DescribeAlertHistoryListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->alarmHistoryList) {
-            $res['AlarmHistoryList'] = null !== $this->alarmHistoryList ? $this->alarmHistoryList->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -66,11 +66,11 @@ class DescribeAlertHistoryListResponseBody extends Model
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->alarmHistoryList) {
+            $res['AlarmHistoryList'] = null !== $this->alarmHistoryList ? $this->alarmHistoryList->toMap() : null;
         }
 
         return $res;
@@ -84,8 +84,8 @@ class DescribeAlertHistoryListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AlarmHistoryList'])) {
-            $model->alarmHistoryList = alarmHistoryList::fromMap($map['AlarmHistoryList']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -96,11 +96,11 @@ class DescribeAlertHistoryListResponseBody extends Model
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['AlarmHistoryList'])) {
+            $model->alarmHistoryList = alarmHistoryList::fromMap($map['AlarmHistoryList']);
         }
 
         return $model;

@@ -36,12 +36,12 @@ class alertConfig extends Model
     /**
      * @var string
      */
-    public $noEffectiveInterval;
+    public $effectiveInterval;
 
     /**
      * @var string
      */
-    public $effectiveInterval;
+    public $noEffectiveInterval;
 
     /**
      * @var string
@@ -58,8 +58,8 @@ class alertConfig extends Model
         'webhook'             => 'Webhook',
         'times'               => 'Times',
         'escalationsLevel'    => 'EscalationsLevel',
-        'noEffectiveInterval' => 'NoEffectiveInterval',
         'effectiveInterval'   => 'EffectiveInterval',
+        'noEffectiveInterval' => 'NoEffectiveInterval',
         'threshold'           => 'Threshold',
         'statistics'          => 'Statistics',
     ];
@@ -86,11 +86,11 @@ class alertConfig extends Model
         if (null !== $this->escalationsLevel) {
             $res['EscalationsLevel'] = $this->escalationsLevel;
         }
-        if (null !== $this->noEffectiveInterval) {
-            $res['NoEffectiveInterval'] = $this->noEffectiveInterval;
-        }
         if (null !== $this->effectiveInterval) {
             $res['EffectiveInterval'] = $this->effectiveInterval;
+        }
+        if (null !== $this->noEffectiveInterval) {
+            $res['NoEffectiveInterval'] = $this->noEffectiveInterval;
         }
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
@@ -125,11 +125,11 @@ class alertConfig extends Model
         if (isset($map['EscalationsLevel'])) {
             $model->escalationsLevel = $map['EscalationsLevel'];
         }
-        if (isset($map['NoEffectiveInterval'])) {
-            $model->noEffectiveInterval = $map['NoEffectiveInterval'];
-        }
         if (isset($map['EffectiveInterval'])) {
             $model->effectiveInterval = $map['EffectiveInterval'];
+        }
+        if (isset($map['NoEffectiveInterval'])) {
+            $model->noEffectiveInterval = $map['NoEffectiveInterval'];
         }
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];

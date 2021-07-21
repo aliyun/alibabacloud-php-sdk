@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PutMonitoringConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var bool
      */
     public $autoInstall;
@@ -18,6 +23,7 @@ class PutMonitoringConfigRequest extends Model
      */
     public $enableInstallAgentNewECS;
     protected $_name = [
+        'regionId'                 => 'RegionId',
         'autoInstall'              => 'AutoInstall',
         'enableInstallAgentNewECS' => 'EnableInstallAgentNewECS',
     ];
@@ -29,6 +35,9 @@ class PutMonitoringConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->autoInstall) {
             $res['AutoInstall'] = $this->autoInstall;
         }
@@ -47,6 +56,9 @@ class PutMonitoringConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['AutoInstall'])) {
             $model->autoInstall = $map['AutoInstall'];
         }

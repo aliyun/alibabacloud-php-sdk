@@ -11,15 +11,15 @@ class logs extends Model
     /**
      * @var string
      */
-    public $value;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $value;
     protected $_name = [
-        'value' => 'Value',
         'name'  => 'Name',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class logs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class logs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class DescribeMetricRuleListRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $metricName;
 
     /**
@@ -58,6 +63,7 @@ class DescribeMetricRuleListRequest extends Model
      */
     public $ruleIds;
     protected $_name = [
+        'regionId'    => 'RegionId',
         'metricName'  => 'MetricName',
         'enableState' => 'EnableState',
         'namespace'   => 'Namespace',
@@ -77,6 +83,9 @@ class DescribeMetricRuleListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
@@ -119,6 +128,9 @@ class DescribeMetricRuleListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }

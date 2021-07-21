@@ -11,7 +11,7 @@ class CreateMonitorGroupRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $regionId;
 
     /**
      * @var string
@@ -19,31 +19,13 @@ class CreateMonitorGroupRequest extends Model
     public $groupName;
 
     /**
-     * @var int
-     */
-    public $serviceId;
-
-    /**
-     * @var string
-     */
-    public $bindUrl;
-
-    /**
      * @var string
      */
     public $contactGroups;
-
-    /**
-     * @var string
-     */
-    public $options;
     protected $_name = [
-        'type'          => 'Type',
+        'regionId'      => 'RegionId',
         'groupName'     => 'GroupName',
-        'serviceId'     => 'ServiceId',
-        'bindUrl'       => 'BindUrl',
         'contactGroups' => 'ContactGroups',
-        'options'       => 'Options',
     ];
 
     public function validate()
@@ -53,23 +35,14 @@ class CreateMonitorGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->serviceId) {
-            $res['ServiceId'] = $this->serviceId;
-        }
-        if (null !== $this->bindUrl) {
-            $res['BindUrl'] = $this->bindUrl;
-        }
         if (null !== $this->contactGroups) {
             $res['ContactGroups'] = $this->contactGroups;
-        }
-        if (null !== $this->options) {
-            $res['Options'] = $this->options;
         }
 
         return $res;
@@ -83,23 +56,14 @@ class CreateMonitorGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['ServiceId'])) {
-            $model->serviceId = $map['ServiceId'];
-        }
-        if (isset($map['BindUrl'])) {
-            $model->bindUrl = $map['BindUrl'];
-        }
         if (isset($map['ContactGroups'])) {
             $model->contactGroups = $map['ContactGroups'];
-        }
-        if (isset($map['Options'])) {
-            $model->options = $map['Options'];
         }
 
         return $model;

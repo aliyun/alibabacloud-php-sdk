@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
 {
     /**
-     * @var notifyPolicyList
+     * @var string
      */
-    public $notifyPolicyList;
+    public $code;
 
     /**
      * @var string
@@ -32,19 +32,19 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $success;
 
     /**
-     * @var string
+     * @var notifyPolicyList
      */
-    public $success;
+    public $notifyPolicyList;
     protected $_name = [
-        'notifyPolicyList' => 'NotifyPolicyList',
+        'code'             => 'Code',
         'message'          => 'Message',
         'requestId'        => 'RequestId',
         'total'            => 'Total',
-        'code'             => 'Code',
         'success'          => 'Success',
+        'notifyPolicyList' => 'NotifyPolicyList',
     ];
 
     public function validate()
@@ -54,8 +54,8 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->notifyPolicyList) {
-            $res['NotifyPolicyList'] = null !== $this->notifyPolicyList ? $this->notifyPolicyList->toMap() : null;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -66,11 +66,11 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->notifyPolicyList) {
+            $res['NotifyPolicyList'] = null !== $this->notifyPolicyList ? $this->notifyPolicyList->toMap() : null;
         }
 
         return $res;
@@ -84,8 +84,8 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NotifyPolicyList'])) {
-            $model->notifyPolicyList = notifyPolicyList::fromMap($map['NotifyPolicyList']);
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -96,11 +96,11 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['NotifyPolicyList'])) {
+            $model->notifyPolicyList = notifyPolicyList::fromMap($map['NotifyPolicyList']);
         }
 
         return $model;

@@ -11,8 +11,14 @@ class DescribeMonitoringAgentStatusesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $instanceIds;
     protected $_name = [
+        'regionId'    => 'RegionId',
         'instanceIds' => 'InstanceIds',
     ];
 
@@ -23,6 +29,9 @@ class DescribeMonitoringAgentStatusesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
@@ -38,6 +47,9 @@ class DescribeMonitoringAgentStatusesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }

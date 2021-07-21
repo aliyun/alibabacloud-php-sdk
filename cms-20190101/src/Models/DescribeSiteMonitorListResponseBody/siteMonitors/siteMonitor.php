@@ -30,11 +30,6 @@ class siteMonitor extends Model
     public $taskState;
 
     /**
-     * @var optionsJson
-     */
-    public $optionsJson;
-
-    /**
      * @var string
      */
     public $createTime;
@@ -53,16 +48,21 @@ class siteMonitor extends Model
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var optionsJson
+     */
+    public $optionsJson;
     protected $_name = [
         'taskType'    => 'TaskType',
         'updateTime'  => 'UpdateTime',
         'interval'    => 'Interval',
         'taskState'   => 'TaskState',
-        'optionsJson' => 'OptionsJson',
         'createTime'  => 'CreateTime',
         'taskName'    => 'TaskName',
         'address'     => 'Address',
         'taskId'      => 'TaskId',
+        'optionsJson' => 'OptionsJson',
     ];
 
     public function validate()
@@ -84,9 +84,6 @@ class siteMonitor extends Model
         if (null !== $this->taskState) {
             $res['TaskState'] = $this->taskState;
         }
-        if (null !== $this->optionsJson) {
-            $res['OptionsJson'] = null !== $this->optionsJson ? $this->optionsJson->toMap() : null;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -98,6 +95,9 @@ class siteMonitor extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->optionsJson) {
+            $res['OptionsJson'] = null !== $this->optionsJson ? $this->optionsJson->toMap() : null;
         }
 
         return $res;
@@ -123,9 +123,6 @@ class siteMonitor extends Model
         if (isset($map['TaskState'])) {
             $model->taskState = $map['TaskState'];
         }
-        if (isset($map['OptionsJson'])) {
-            $model->optionsJson = optionsJson::fromMap($map['OptionsJson']);
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -137,6 +134,9 @@ class siteMonitor extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['OptionsJson'])) {
+            $model->optionsJson = optionsJson::fromMap($map['OptionsJson']);
         }
 
         return $model;

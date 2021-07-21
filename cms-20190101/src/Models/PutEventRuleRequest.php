@@ -12,6 +12,11 @@ class PutEventRuleRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $ruleName;
 
     /**
@@ -39,6 +44,7 @@ class PutEventRuleRequest extends Model
      */
     public $eventPattern;
     protected $_name = [
+        'regionId'     => 'RegionId',
         'ruleName'     => 'RuleName',
         'groupId'      => 'GroupId',
         'eventType'    => 'EventType',
@@ -54,6 +60,9 @@ class PutEventRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -90,6 +99,9 @@ class PutEventRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

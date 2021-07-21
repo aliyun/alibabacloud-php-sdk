@@ -12,11 +12,6 @@ use AlibabaCloud\Tea\Model;
 class eventPattern extends Model
 {
     /**
-     * @var eventTypeList
-     */
-    public $eventTypeList;
-
-    /**
      * @var string
      */
     public $product;
@@ -27,13 +22,18 @@ class eventPattern extends Model
     public $levelList;
 
     /**
+     * @var eventTypeList
+     */
+    public $eventTypeList;
+
+    /**
      * @var nameList
      */
     public $nameList;
     protected $_name = [
-        'eventTypeList' => 'EventTypeList',
         'product'       => 'Product',
         'levelList'     => 'LevelList',
+        'eventTypeList' => 'EventTypeList',
         'nameList'      => 'NameList',
     ];
 
@@ -44,14 +44,14 @@ class eventPattern extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventTypeList) {
-            $res['EventTypeList'] = null !== $this->eventTypeList ? $this->eventTypeList->toMap() : null;
-        }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
         if (null !== $this->levelList) {
             $res['LevelList'] = null !== $this->levelList ? $this->levelList->toMap() : null;
+        }
+        if (null !== $this->eventTypeList) {
+            $res['EventTypeList'] = null !== $this->eventTypeList ? $this->eventTypeList->toMap() : null;
         }
         if (null !== $this->nameList) {
             $res['NameList'] = null !== $this->nameList ? $this->nameList->toMap() : null;
@@ -68,14 +68,14 @@ class eventPattern extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EventTypeList'])) {
-            $model->eventTypeList = eventTypeList::fromMap($map['EventTypeList']);
-        }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
         if (isset($map['LevelList'])) {
             $model->levelList = levelList::fromMap($map['LevelList']);
+        }
+        if (isset($map['EventTypeList'])) {
+            $model->eventTypeList = eventTypeList::fromMap($map['EventTypeList']);
         }
         if (isset($map['NameList'])) {
             $model->nameList = nameList::fromMap($map['NameList']);
