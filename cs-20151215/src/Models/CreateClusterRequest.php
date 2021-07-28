@@ -238,6 +238,20 @@ class CreateClusterRequest extends Model
     public $osType;
 
     /**
+     * @description 等保安全加固
+     *
+     * @var bool
+     */
+    public $socEnabled;
+
+    /**
+     * @description CIS安全加固
+     *
+     * @var bool
+     */
+    public $cisEnabled;
+
+    /**
      * @description CPU策略
      *
      * @var string
@@ -399,6 +413,13 @@ class CreateClusterRequest extends Model
     public $workerSystemDiskSnapshotPolicyId;
 
     /**
+     * @description 集群Worker节点磁盘性能，只对ESSD类型磁盘生效
+     *
+     * @var string
+     */
+    public $workerSystemDiskPerformanceLevel;
+
+    /**
      * @description 集群Worker节点数据盘配置
      *
      * @var DataDisk[]
@@ -490,6 +511,34 @@ class CreateClusterRequest extends Model
     public $profile;
 
     /**
+     * @description ASK 集群开启日志服务
+     *
+     * @var string
+     */
+    public $loggingType;
+
+    /**
+     * @description 控制平面日志
+     *
+     * @var string
+     */
+    public $controlplaneLogTtl;
+
+    /**
+     * @description 使用已有log project时，需要指定log project
+     *
+     * @var string
+     */
+    public $controlplaneLogProject;
+
+    /**
+     * @description 需要采集日志的组件
+     *
+     * @var string[]
+     */
+    public $controlplaneLogComponents;
+
+    /**
      * @description 集群删除保护
      *
      * @var bool
@@ -543,6 +592,8 @@ class CreateClusterRequest extends Model
         'cloudMonitorFlags'                => 'cloud_monitor_flags',
         'platform'                         => 'platform',
         'osType'                           => 'os_type',
+        'socEnabled'                       => 'soc_enabled',
+        'cisEnabled'                       => 'cis_enabled',
         'cpuPolicy'                        => 'cpu_policy',
         'proxyMode'                        => 'proxy_mode',
         'nodePortRange'                    => 'node_port_range',
@@ -566,6 +617,7 @@ class CreateClusterRequest extends Model
         'workerSystemDiskCategory'         => 'worker_system_disk_category',
         'workerSystemDiskSize'             => 'worker_system_disk_size',
         'workerSystemDiskSnapshotPolicyId' => 'worker_system_disk_snapshot_policy_id',
+        'workerSystemDiskPerformanceLevel' => 'worker_system_disk_performance_level',
         'workerDataDisks'                  => 'worker_data_disks',
         'workerInstanceChargeType'         => 'worker_instance_charge_type',
         'workerPeriodUnit'                 => 'worker_period_unit',
@@ -579,6 +631,10 @@ class CreateClusterRequest extends Model
         'natGateway'                       => 'nat_gateway',
         'zoneId'                           => 'zone_id',
         'profile'                          => 'profile',
+        'loggingType'                      => 'logging_type',
+        'controlplaneLogTtl'               => 'controlplane_log_ttl',
+        'controlplaneLogProject'           => 'controlplane_log_project',
+        'controlplaneLogComponents'        => 'controlplane_log_components',
         'deletionProtection'               => 'deletion_protection',
         'disableRollback'                  => 'disable_rollback',
         'timeoutMins'                      => 'timeout_mins',
@@ -708,6 +764,12 @@ class CreateClusterRequest extends Model
         if (null !== $this->osType) {
             $res['os_type'] = $this->osType;
         }
+        if (null !== $this->socEnabled) {
+            $res['soc_enabled'] = $this->socEnabled;
+        }
+        if (null !== $this->cisEnabled) {
+            $res['cis_enabled'] = $this->cisEnabled;
+        }
         if (null !== $this->cpuPolicy) {
             $res['cpu_policy'] = $this->cpuPolicy;
         }
@@ -777,6 +839,9 @@ class CreateClusterRequest extends Model
         if (null !== $this->workerSystemDiskSnapshotPolicyId) {
             $res['worker_system_disk_snapshot_policy_id'] = $this->workerSystemDiskSnapshotPolicyId;
         }
+        if (null !== $this->workerSystemDiskPerformanceLevel) {
+            $res['worker_system_disk_performance_level'] = $this->workerSystemDiskPerformanceLevel;
+        }
         if (null !== $this->workerDataDisks) {
             $res['worker_data_disks'] = [];
             if (null !== $this->workerDataDisks && \is_array($this->workerDataDisks)) {
@@ -821,6 +886,18 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->profile) {
             $res['profile'] = $this->profile;
+        }
+        if (null !== $this->loggingType) {
+            $res['logging_type'] = $this->loggingType;
+        }
+        if (null !== $this->controlplaneLogTtl) {
+            $res['controlplane_log_ttl'] = $this->controlplaneLogTtl;
+        }
+        if (null !== $this->controlplaneLogProject) {
+            $res['controlplane_log_project'] = $this->controlplaneLogProject;
+        }
+        if (null !== $this->controlplaneLogComponents) {
+            $res['controlplane_log_components'] = $this->controlplaneLogComponents;
         }
         if (null !== $this->deletionProtection) {
             $res['deletion_protection'] = $this->deletionProtection;
@@ -964,6 +1041,12 @@ class CreateClusterRequest extends Model
         if (isset($map['os_type'])) {
             $model->osType = $map['os_type'];
         }
+        if (isset($map['soc_enabled'])) {
+            $model->socEnabled = $map['soc_enabled'];
+        }
+        if (isset($map['cis_enabled'])) {
+            $model->cisEnabled = $map['cis_enabled'];
+        }
         if (isset($map['cpu_policy'])) {
             $model->cpuPolicy = $map['cpu_policy'];
         }
@@ -1043,6 +1126,9 @@ class CreateClusterRequest extends Model
         if (isset($map['worker_system_disk_snapshot_policy_id'])) {
             $model->workerSystemDiskSnapshotPolicyId = $map['worker_system_disk_snapshot_policy_id'];
         }
+        if (isset($map['worker_system_disk_performance_level'])) {
+            $model->workerSystemDiskPerformanceLevel = $map['worker_system_disk_performance_level'];
+        }
         if (isset($map['worker_data_disks'])) {
             if (!empty($map['worker_data_disks'])) {
                 $model->workerDataDisks = [];
@@ -1091,6 +1177,20 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['profile'])) {
             $model->profile = $map['profile'];
+        }
+        if (isset($map['logging_type'])) {
+            $model->loggingType = $map['logging_type'];
+        }
+        if (isset($map['controlplane_log_ttl'])) {
+            $model->controlplaneLogTtl = $map['controlplane_log_ttl'];
+        }
+        if (isset($map['controlplane_log_project'])) {
+            $model->controlplaneLogProject = $map['controlplane_log_project'];
+        }
+        if (isset($map['controlplane_log_components'])) {
+            if (!empty($map['controlplane_log_components'])) {
+                $model->controlplaneLogComponents = $map['controlplane_log_components'];
+            }
         }
         if (isset($map['deletion_protection'])) {
             $model->deletionProtection = $map['deletion_protection'];

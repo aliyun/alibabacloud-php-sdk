@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteClusterNodesResponse extends Model
+class CreateTriggerResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DeleteClusterNodesResponse extends Model
     public $headers;
 
     /**
-     * @var DeleteClusterNodesResponseBody
+     * @var CreateTriggerResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DeleteClusterNodesResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteClusterNodesResponse
+     * @return CreateTriggerResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DeleteClusterNodesResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DeleteClusterNodesResponseBody::fromMap($map['body']);
+            $model->body = CreateTriggerResponseBody::fromMap($map['body']);
         }
 
         return $model;

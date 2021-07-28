@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodepoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesResponse;
@@ -30,6 +32,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteTemplateResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescirbeWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponse;
@@ -67,6 +70,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplateAttributeRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplateAttributeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTriggerRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserPermissionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserQuotaResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeWorkflowsResponse;
@@ -845,6 +850,52 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string               $clusterId
+     * @param CreateTriggerRequest $request
+     *
+     * @return CreateTriggerResponse
+     */
+    public function createTrigger($clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTriggerWithOptions($clusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $clusterId
+     * @param CreateTriggerRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateTriggerResponse
+     */
+    public function createTriggerWithOptions($clusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            @$body['cluster_id'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            @$body['project_id'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->action)) {
+            @$body['action'] = $request->action;
+        }
+        if (!Utils::isUnset($request->type)) {
+            @$body['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+
+        return CreateTriggerResponse::fromMap($this->doROARequest('CreateTrigger', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterId . '/triggers', 'json', $req, $runtime));
+    }
+
+    /**
      * @param string                      $ClusterId
      * @param string                      $NodepoolId
      * @param ScaleClusterNodePoolRequest $request
@@ -912,6 +963,52 @@ class CS extends OpenApiClient
         ]);
 
         return DescribeClusterNodePoolDetailResponse::fromMap($this->doROARequest('DescribeClusterNodePoolDetail', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string                 $clusterId
+     * @param DescribeTriggerRequest $request
+     *
+     * @return DescribeTriggerResponse
+     */
+    public function describeTrigger($clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeTriggerWithOptions($clusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $clusterId
+     * @param DescribeTriggerRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeTriggerResponse
+     */
+    public function describeTriggerWithOptions($clusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            @$query['Namespace_'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->type)) {
+            @$query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->name)) {
+            @$query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->action)) {
+            @$query['action'] = $request->action;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+
+        return DescribeTriggerResponse::fromMap($this->doROARequest('DescribeTrigger', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/[cluster_id]/triggers', 'array', $req, $runtime));
     }
 
     /**
@@ -1341,6 +1438,12 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->osType)) {
             @$body['os_type'] = $request->osType;
         }
+        if (!Utils::isUnset($request->socEnabled)) {
+            @$body['soc_enabled'] = $request->socEnabled;
+        }
+        if (!Utils::isUnset($request->cisEnabled)) {
+            @$body['cis_enabled'] = $request->cisEnabled;
+        }
         if (!Utils::isUnset($request->cpuPolicy)) {
             @$body['cpu_policy'] = $request->cpuPolicy;
         }
@@ -1410,6 +1513,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->workerSystemDiskSnapshotPolicyId)) {
             @$body['worker_system_disk_snapshot_policy_id'] = $request->workerSystemDiskSnapshotPolicyId;
         }
+        if (!Utils::isUnset($request->workerSystemDiskPerformanceLevel)) {
+            @$body['worker_system_disk_performance_level'] = $request->workerSystemDiskPerformanceLevel;
+        }
         if (!Utils::isUnset($request->workerDataDisks)) {
             @$body['worker_data_disks'] = $request->workerDataDisks;
         }
@@ -1448,6 +1554,18 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->profile)) {
             @$body['profile'] = $request->profile;
+        }
+        if (!Utils::isUnset($request->loggingType)) {
+            @$body['logging_type'] = $request->loggingType;
+        }
+        if (!Utils::isUnset($request->controlplaneLogTtl)) {
+            @$body['controlplane_log_ttl'] = $request->controlplaneLogTtl;
+        }
+        if (!Utils::isUnset($request->controlplaneLogProject)) {
+            @$body['controlplane_log_project'] = $request->controlplaneLogProject;
+        }
+        if (!Utils::isUnset($request->controlplaneLogComponents)) {
+            @$body['controlplane_log_components'] = $request->controlplaneLogComponents;
         }
         if (!Utils::isUnset($request->deletionProtection)) {
             @$body['deletion_protection'] = $request->deletionProtection;
@@ -2026,6 +2144,37 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string $clusterId
+     * @param string $Id
+     *
+     * @return DeleteTriggerResponse
+     */
+    public function deleteTrigger($clusterId, $Id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTriggerWithOptions($clusterId, $Id, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterId
+     * @param string         $Id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteTriggerResponse
+     */
+    public function deleteTriggerWithOptions($clusterId, $Id, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+
+        return DeleteTriggerResponse::fromMap($this->doROARequest('DeleteTrigger', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/clusters/[cluster_id]/triggers/[Id]', 'none', $req, $runtime));
+    }
+
+    /**
      * @param string                        $ClusterId
      * @param UnInstallClusterAddonsRequest $request
      *
@@ -2480,7 +2629,7 @@ class CS extends OpenApiClient
             'headers' => $headers,
         ]);
 
-        return DeleteClusterNodepoolResponse::fromMap($this->doROARequest('DeleteClusterNodepool', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '', 'none', $req, $runtime));
+        return DeleteClusterNodepoolResponse::fromMap($this->doROARequest('DeleteClusterNodepool', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '', 'json', $req, $runtime));
     }
 
     /**
@@ -3130,6 +3279,6 @@ class CS extends OpenApiClient
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
 
-        return DeleteClusterNodesResponse::fromMap($this->doROARequest('DeleteClusterNodes', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/nodes', 'none', $req, $runtime));
+        return DeleteClusterNodesResponse::fromMap($this->doROARequest('DeleteClusterNodes', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/nodes', 'json', $req, $runtime));
     }
 }

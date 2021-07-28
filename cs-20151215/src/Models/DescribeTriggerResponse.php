@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTriggerResponse\body;
 use AlibabaCloud\Tea\Model;
 
-class DeleteClusterNodesResponse extends Model
+class DescribeTriggerResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +15,7 @@ class DeleteClusterNodesResponse extends Model
     public $headers;
 
     /**
-     * @var DeleteClusterNodesResponseBody
+     * @var body[]
      */
     public $body;
     protected $_name = [
@@ -35,7 +36,13 @@ class DeleteClusterNodesResponse extends Model
             $res['headers'] = $this->headers;
         }
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['body'] = [];
+            if (null !== $this->body && \is_array($this->body)) {
+                $n = 0;
+                foreach ($this->body as $item) {
+                    $res['body'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -44,7 +51,7 @@ class DeleteClusterNodesResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteClusterNodesResponse
+     * @return DescribeTriggerResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +60,13 @@ class DeleteClusterNodesResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DeleteClusterNodesResponseBody::fromMap($map['body']);
+            if (!empty($map['body'])) {
+                $model->body = [];
+                $n           = 0;
+                foreach ($map['body'] as $item) {
+                    $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
