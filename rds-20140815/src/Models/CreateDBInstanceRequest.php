@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateDBInstanceRequest extends Model
@@ -217,6 +218,11 @@ class CreateDBInstanceRequest extends Model
      * @var string
      */
     public $userBackupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'resourceOwnerId'                => 'ResourceOwnerId',
         'regionId'                       => 'RegionId',
@@ -260,6 +266,7 @@ class CreateDBInstanceRequest extends Model
         'storageUpperBound'              => 'StorageUpperBound',
         'dryRun'                         => 'DryRun',
         'userBackupId'                   => 'UserBackupId',
+        'tag'                            => 'Tag',
     ];
 
     public function validate()
@@ -394,6 +401,15 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->userBackupId) {
             $res['UserBackupId'] = $this->userBackupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -532,6 +548,15 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['UserBackupId'])) {
             $model->userBackupId = $map['UserBackupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

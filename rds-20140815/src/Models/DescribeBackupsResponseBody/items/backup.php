@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeBackupsResponseBody\items;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeBackupsResponseBody\items\backup\backupDownloadLinkByDB;
 use AlibabaCloud\Tea\Model;
 
 class backup extends Model
@@ -107,6 +108,11 @@ class backup extends Model
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var backupDownloadLinkByDB
+     */
+    public $backupDownloadLinkByDB;
     protected $_name = [
         'storageClass'              => 'StorageClass',
         'encryption'                => 'Encryption',
@@ -128,6 +134,7 @@ class backup extends Model
         'backupSize'                => 'BackupSize',
         'backupMode'                => 'BackupMode',
         'DBInstanceId'              => 'DBInstanceId',
+        'backupDownloadLinkByDB'    => 'BackupDownloadLinkByDB',
     ];
 
     public function validate()
@@ -196,6 +203,9 @@ class backup extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->backupDownloadLinkByDB) {
+            $res['BackupDownloadLinkByDB'] = null !== $this->backupDownloadLinkByDB ? $this->backupDownloadLinkByDB->toMap() : null;
         }
 
         return $res;
@@ -268,6 +278,9 @@ class backup extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['BackupDownloadLinkByDB'])) {
+            $model->backupDownloadLinkByDB = backupDownloadLinkByDB::fromMap($map['BackupDownloadLinkByDB']);
         }
 
         return $model;

@@ -14,6 +14,11 @@ class CreateDBInstanceResponseBody extends Model
     public $dryRunResult;
 
     /**
+     * @var bool
+     */
+    public $tagResult;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -44,6 +49,7 @@ class CreateDBInstanceResponseBody extends Model
     public $orderId;
     protected $_name = [
         'dryRunResult'     => 'DryRunResult',
+        'tagResult'        => 'TagResult',
         'requestId'        => 'RequestId',
         'connectionString' => 'ConnectionString',
         'DBInstanceId'     => 'DBInstanceId',
@@ -61,6 +67,9 @@ class CreateDBInstanceResponseBody extends Model
         $res = [];
         if (null !== $this->dryRunResult) {
             $res['DryRunResult'] = $this->dryRunResult;
+        }
+        if (null !== $this->tagResult) {
+            $res['TagResult'] = $this->tagResult;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -94,6 +103,9 @@ class CreateDBInstanceResponseBody extends Model
         $model = new self();
         if (isset($map['DryRunResult'])) {
             $model->dryRunResult = $map['DryRunResult'];
+        }
+        if (isset($map['TagResult'])) {
+            $model->tagResult = $map['TagResult'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
