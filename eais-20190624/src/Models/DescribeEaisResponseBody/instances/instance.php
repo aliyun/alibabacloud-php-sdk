@@ -22,31 +22,6 @@ class instance extends Model
     /**
      * @var string
      */
-    public $clientInstanceType;
-
-    /**
-     * @var string
-     */
-    public $clientInstanceId;
-
-    /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $clientInstanceName;
 
     /**
@@ -67,20 +42,45 @@ class instance extends Model
     /**
      * @var string
      */
+    public $clientInstanceType;
+
+    /**
+     * @var string
+     */
+    public $clientInstanceId;
+
+    /**
+     * @var string
+     */
     public $zoneId;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'status'                       => 'Status',
         'creationTime'                 => 'CreationTime',
-        'clientInstanceType'           => 'ClientInstanceType',
-        'clientInstanceId'             => 'ClientInstanceId',
-        'tags'                         => 'Tags',
-        'instanceType'                 => 'InstanceType',
-        'regionId'                     => 'RegionId',
         'clientInstanceName'           => 'ClientInstanceName',
         'description'                  => 'Description',
         'elasticAcceleratedInstanceId' => 'ElasticAcceleratedInstanceId',
         'instanceName'                 => 'InstanceName',
+        'clientInstanceType'           => 'ClientInstanceType',
+        'clientInstanceId'             => 'ClientInstanceId',
         'zoneId'                       => 'ZoneId',
+        'instanceType'                 => 'InstanceType',
+        'regionId'                     => 'RegionId',
+        'tags'                         => 'Tags',
     ];
 
     public function validate()
@@ -96,21 +96,6 @@ class instance extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->clientInstanceType) {
-            $res['ClientInstanceType'] = $this->clientInstanceType;
-        }
-        if (null !== $this->clientInstanceId) {
-            $res['ClientInstanceId'] = $this->clientInstanceId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientInstanceName) {
             $res['ClientInstanceName'] = $this->clientInstanceName;
         }
@@ -123,8 +108,23 @@ class instance extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+        if (null !== $this->clientInstanceType) {
+            $res['ClientInstanceType'] = $this->clientInstanceType;
+        }
+        if (null !== $this->clientInstanceId) {
+            $res['ClientInstanceId'] = $this->clientInstanceId;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -144,21 +144,6 @@ class instance extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['ClientInstanceType'])) {
-            $model->clientInstanceType = $map['ClientInstanceType'];
-        }
-        if (isset($map['ClientInstanceId'])) {
-            $model->clientInstanceId = $map['ClientInstanceId'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientInstanceName'])) {
             $model->clientInstanceName = $map['ClientInstanceName'];
         }
@@ -171,8 +156,23 @@ class instance extends Model
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+        if (isset($map['ClientInstanceType'])) {
+            $model->clientInstanceType = $map['ClientInstanceType'];
+        }
+        if (isset($map['ClientInstanceId'])) {
+            $model->clientInstanceId = $map['ClientInstanceId'];
+        }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

@@ -16,16 +16,16 @@ class CreateEaiAllResponseBody extends Model
     /**
      * @var string
      */
-    public $clientInstanceId;
+    public $elasticAcceleratedInstanceId;
 
     /**
      * @var string
      */
-    public $elasticAcceleratedInstanceId;
+    public $clientInstanceId;
     protected $_name = [
         'requestId'                    => 'RequestId',
-        'clientInstanceId'             => 'ClientInstanceId',
         'elasticAcceleratedInstanceId' => 'ElasticAcceleratedInstanceId',
+        'clientInstanceId'             => 'ClientInstanceId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class CreateEaiAllResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->clientInstanceId) {
-            $res['ClientInstanceId'] = $this->clientInstanceId;
-        }
         if (null !== $this->elasticAcceleratedInstanceId) {
             $res['ElasticAcceleratedInstanceId'] = $this->elasticAcceleratedInstanceId;
+        }
+        if (null !== $this->clientInstanceId) {
+            $res['ClientInstanceId'] = $this->clientInstanceId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class CreateEaiAllResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ClientInstanceId'])) {
-            $model->clientInstanceId = $map['ClientInstanceId'];
-        }
         if (isset($map['ElasticAcceleratedInstanceId'])) {
             $model->elasticAcceleratedInstanceId = $map['ElasticAcceleratedInstanceId'];
+        }
+        if (isset($map['ClientInstanceId'])) {
+            $model->clientInstanceId = $map['ClientInstanceId'];
         }
 
         return $model;
