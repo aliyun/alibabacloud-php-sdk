@@ -9,32 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DestroyRoomResponseBody extends Model
 {
     /**
-     * @description 错误码
+     * @description 错误码。
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
+     * @description 错误信息。
      *
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description 请求ID。
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否销毁成功
+     * @description 请求是否成功。
      *
-     * @var bool
-     */
-    public $result;
-
-    /**
      * @var bool
      */
     public $responseSuccess;
@@ -42,7 +39,6 @@ class DestroyRoomResponseBody extends Model
         'errorCode'       => 'errorCode',
         'errorMsg'        => 'errorMsg',
         'requestId'       => 'RequestId',
-        'result'          => 'result',
         'responseSuccess' => 'ResponseSuccess',
     ];
 
@@ -61,9 +57,6 @@ class DestroyRoomResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->result) {
-            $res['result'] = $this->result;
         }
         if (null !== $this->responseSuccess) {
             $res['ResponseSuccess'] = $this->responseSuccess;
@@ -88,9 +81,6 @@ class DestroyRoomResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['result'])) {
-            $model->result = $map['result'];
         }
         if (isset($map['ResponseSuccess'])) {
             $model->responseSuccess = $map['ResponseSuccess'];

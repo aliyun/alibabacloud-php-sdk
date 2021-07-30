@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class request extends Model
 {
     /**
-     * @description 应用appKey
+     * @description 应用的appKey。
      *
      * @var string
      */
     public $domain;
 
     /**
-     * @description 房间id
+     * @description 房间ID，由调用CreateRoom时返回。
      *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 操作人id
+     * @description 操作人ID。
      *
      * @var string
      */
