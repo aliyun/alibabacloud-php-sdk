@@ -14,14 +14,19 @@ class pushTask extends Model
     public $jobKey;
 
     /**
+     * @var bool
+     */
+    public $iOSSilentNotification;
+
+    /**
      * @var string
      */
     public $iOSNotificationCollapseId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $iOSSilentNotification;
+    public $androidRenderStyle;
 
     /**
      * @var bool
@@ -31,12 +36,12 @@ class pushTask extends Model
     /**
      * @var string
      */
-    public $iOSNotificationCategory;
+    public $iOSSubtitle;
 
     /**
      * @var string
      */
-    public $iOSSubtitle;
+    public $iOSNotificationCategory;
 
     /**
      * @var string
@@ -94,6 +99,11 @@ class pushTask extends Model
     public $androidNotifyType;
 
     /**
+     * @var string
+     */
+    public $androidBigBody;
+
+    /**
      * @var bool
      */
     public $iOSMutableContent;
@@ -107,6 +117,11 @@ class pushTask extends Model
      * @var string
      */
     public $androidOpenUrl;
+
+    /**
+     * @var string
+     */
+    public $androidBigTitle;
 
     /**
      * @var int
@@ -126,12 +141,12 @@ class pushTask extends Model
     /**
      * @var string
      */
-    public $androidOpenType;
+    public $deviceType;
 
     /**
      * @var string
      */
-    public $deviceType;
+    public $androidOpenType;
 
     /**
      * @var string
@@ -181,6 +196,11 @@ class pushTask extends Model
     /**
      * @var string
      */
+    public $androidXiaomiBigPictureUrl;
+
+    /**
+     * @var string
+     */
     public $targetValue;
 
     /**
@@ -201,12 +221,12 @@ class pushTask extends Model
     /**
      * @var int
      */
-    public $iOSBadge;
+    public $sendSpeed;
 
     /**
      * @var int
      */
-    public $sendSpeed;
+    public $iOSBadge;
 
     /**
      * @var string
@@ -224,11 +244,12 @@ class pushTask extends Model
     public $androidMusic;
     protected $_name = [
         'jobKey'                           => 'JobKey',
-        'iOSNotificationCollapseId'        => 'iOSNotificationCollapseId',
         'iOSSilentNotification'            => 'iOSSilentNotification',
+        'iOSNotificationCollapseId'        => 'iOSNotificationCollapseId',
+        'androidRenderStyle'               => 'AndroidRenderStyle',
         'storeOffline'                     => 'StoreOffline',
-        'iOSNotificationCategory'          => 'iOSNotificationCategory',
         'iOSSubtitle'                      => 'iOSSubtitle',
+        'iOSNotificationCategory'          => 'iOSNotificationCategory',
         'androidNotificationChannel'       => 'AndroidNotificationChannel',
         'androidNotificationHuaweiChannel' => 'AndroidNotificationHuaweiChannel',
         'iOSApnsEnv'                       => 'iOSApnsEnv',
@@ -240,14 +261,16 @@ class pushTask extends Model
         'iOSRemindBody'                    => 'iOSRemindBody',
         'androidActivity'                  => 'AndroidActivity',
         'androidNotifyType'                => 'AndroidNotifyType',
+        'androidBigBody'                   => 'AndroidBigBody',
         'iOSMutableContent'                => 'iOSMutableContent',
         'target'                           => 'Target',
         'androidOpenUrl'                   => 'AndroidOpenUrl',
+        'androidBigTitle'                  => 'AndroidBigTitle',
         'androidNotificationNotifyId'      => 'AndroidNotificationNotifyId',
         'expireTime'                       => 'ExpireTime',
         'androidNotificationVivoChannel'   => 'AndroidNotificationVivoChannel',
-        'androidOpenType'                  => 'AndroidOpenType',
         'deviceType'                       => 'DeviceType',
+        'androidOpenType'                  => 'AndroidOpenType',
         'androidPopupActivity'             => 'AndroidPopupActivity',
         'androidRemind'                    => 'AndroidRemind',
         'androidPopupBody'                 => 'AndroidPopupBody',
@@ -257,12 +280,13 @@ class pushTask extends Model
         'body'                             => 'Body',
         'androidNotificationBarType'       => 'AndroidNotificationBarType',
         'androidNotificationBarPriority'   => 'AndroidNotificationBarPriority',
+        'androidXiaomiBigPictureUrl'       => 'AndroidXiaomiBigPictureUrl',
         'targetValue'                      => 'TargetValue',
         'iOSMusic'                         => 'iOSMusic',
         'iOSRemind'                        => 'iOSRemind',
         'pushType'                         => 'PushType',
-        'iOSBadge'                         => 'iOSBadge',
         'sendSpeed'                        => 'SendSpeed',
+        'iOSBadge'                         => 'iOSBadge',
         'title'                            => 'Title',
         'pushTime'                         => 'PushTime',
         'androidMusic'                     => 'AndroidMusic',
@@ -278,20 +302,23 @@ class pushTask extends Model
         if (null !== $this->jobKey) {
             $res['JobKey'] = $this->jobKey;
         }
+        if (null !== $this->iOSSilentNotification) {
+            $res['iOSSilentNotification'] = $this->iOSSilentNotification;
+        }
         if (null !== $this->iOSNotificationCollapseId) {
             $res['iOSNotificationCollapseId'] = $this->iOSNotificationCollapseId;
         }
-        if (null !== $this->iOSSilentNotification) {
-            $res['iOSSilentNotification'] = $this->iOSSilentNotification;
+        if (null !== $this->androidRenderStyle) {
+            $res['AndroidRenderStyle'] = $this->androidRenderStyle;
         }
         if (null !== $this->storeOffline) {
             $res['StoreOffline'] = $this->storeOffline;
         }
-        if (null !== $this->iOSNotificationCategory) {
-            $res['iOSNotificationCategory'] = $this->iOSNotificationCategory;
-        }
         if (null !== $this->iOSSubtitle) {
             $res['iOSSubtitle'] = $this->iOSSubtitle;
+        }
+        if (null !== $this->iOSNotificationCategory) {
+            $res['iOSNotificationCategory'] = $this->iOSNotificationCategory;
         }
         if (null !== $this->androidNotificationChannel) {
             $res['AndroidNotificationChannel'] = $this->androidNotificationChannel;
@@ -326,6 +353,9 @@ class pushTask extends Model
         if (null !== $this->androidNotifyType) {
             $res['AndroidNotifyType'] = $this->androidNotifyType;
         }
+        if (null !== $this->androidBigBody) {
+            $res['AndroidBigBody'] = $this->androidBigBody;
+        }
         if (null !== $this->iOSMutableContent) {
             $res['iOSMutableContent'] = $this->iOSMutableContent;
         }
@@ -334,6 +364,9 @@ class pushTask extends Model
         }
         if (null !== $this->androidOpenUrl) {
             $res['AndroidOpenUrl'] = $this->androidOpenUrl;
+        }
+        if (null !== $this->androidBigTitle) {
+            $res['AndroidBigTitle'] = $this->androidBigTitle;
         }
         if (null !== $this->androidNotificationNotifyId) {
             $res['AndroidNotificationNotifyId'] = $this->androidNotificationNotifyId;
@@ -344,11 +377,11 @@ class pushTask extends Model
         if (null !== $this->androidNotificationVivoChannel) {
             $res['AndroidNotificationVivoChannel'] = $this->androidNotificationVivoChannel;
         }
-        if (null !== $this->androidOpenType) {
-            $res['AndroidOpenType'] = $this->androidOpenType;
-        }
         if (null !== $this->deviceType) {
             $res['DeviceType'] = $this->deviceType;
+        }
+        if (null !== $this->androidOpenType) {
+            $res['AndroidOpenType'] = $this->androidOpenType;
         }
         if (null !== $this->androidPopupActivity) {
             $res['AndroidPopupActivity'] = $this->androidPopupActivity;
@@ -377,6 +410,9 @@ class pushTask extends Model
         if (null !== $this->androidNotificationBarPriority) {
             $res['AndroidNotificationBarPriority'] = $this->androidNotificationBarPriority;
         }
+        if (null !== $this->androidXiaomiBigPictureUrl) {
+            $res['AndroidXiaomiBigPictureUrl'] = $this->androidXiaomiBigPictureUrl;
+        }
         if (null !== $this->targetValue) {
             $res['TargetValue'] = $this->targetValue;
         }
@@ -389,11 +425,11 @@ class pushTask extends Model
         if (null !== $this->pushType) {
             $res['PushType'] = $this->pushType;
         }
-        if (null !== $this->iOSBadge) {
-            $res['iOSBadge'] = $this->iOSBadge;
-        }
         if (null !== $this->sendSpeed) {
             $res['SendSpeed'] = $this->sendSpeed;
+        }
+        if (null !== $this->iOSBadge) {
+            $res['iOSBadge'] = $this->iOSBadge;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -419,20 +455,23 @@ class pushTask extends Model
         if (isset($map['JobKey'])) {
             $model->jobKey = $map['JobKey'];
         }
+        if (isset($map['iOSSilentNotification'])) {
+            $model->iOSSilentNotification = $map['iOSSilentNotification'];
+        }
         if (isset($map['iOSNotificationCollapseId'])) {
             $model->iOSNotificationCollapseId = $map['iOSNotificationCollapseId'];
         }
-        if (isset($map['iOSSilentNotification'])) {
-            $model->iOSSilentNotification = $map['iOSSilentNotification'];
+        if (isset($map['AndroidRenderStyle'])) {
+            $model->androidRenderStyle = $map['AndroidRenderStyle'];
         }
         if (isset($map['StoreOffline'])) {
             $model->storeOffline = $map['StoreOffline'];
         }
-        if (isset($map['iOSNotificationCategory'])) {
-            $model->iOSNotificationCategory = $map['iOSNotificationCategory'];
-        }
         if (isset($map['iOSSubtitle'])) {
             $model->iOSSubtitle = $map['iOSSubtitle'];
+        }
+        if (isset($map['iOSNotificationCategory'])) {
+            $model->iOSNotificationCategory = $map['iOSNotificationCategory'];
         }
         if (isset($map['AndroidNotificationChannel'])) {
             $model->androidNotificationChannel = $map['AndroidNotificationChannel'];
@@ -467,6 +506,9 @@ class pushTask extends Model
         if (isset($map['AndroidNotifyType'])) {
             $model->androidNotifyType = $map['AndroidNotifyType'];
         }
+        if (isset($map['AndroidBigBody'])) {
+            $model->androidBigBody = $map['AndroidBigBody'];
+        }
         if (isset($map['iOSMutableContent'])) {
             $model->iOSMutableContent = $map['iOSMutableContent'];
         }
@@ -475,6 +517,9 @@ class pushTask extends Model
         }
         if (isset($map['AndroidOpenUrl'])) {
             $model->androidOpenUrl = $map['AndroidOpenUrl'];
+        }
+        if (isset($map['AndroidBigTitle'])) {
+            $model->androidBigTitle = $map['AndroidBigTitle'];
         }
         if (isset($map['AndroidNotificationNotifyId'])) {
             $model->androidNotificationNotifyId = $map['AndroidNotificationNotifyId'];
@@ -485,11 +530,11 @@ class pushTask extends Model
         if (isset($map['AndroidNotificationVivoChannel'])) {
             $model->androidNotificationVivoChannel = $map['AndroidNotificationVivoChannel'];
         }
-        if (isset($map['AndroidOpenType'])) {
-            $model->androidOpenType = $map['AndroidOpenType'];
-        }
         if (isset($map['DeviceType'])) {
             $model->deviceType = $map['DeviceType'];
+        }
+        if (isset($map['AndroidOpenType'])) {
+            $model->androidOpenType = $map['AndroidOpenType'];
         }
         if (isset($map['AndroidPopupActivity'])) {
             $model->androidPopupActivity = $map['AndroidPopupActivity'];
@@ -518,6 +563,9 @@ class pushTask extends Model
         if (isset($map['AndroidNotificationBarPriority'])) {
             $model->androidNotificationBarPriority = $map['AndroidNotificationBarPriority'];
         }
+        if (isset($map['AndroidXiaomiBigPictureUrl'])) {
+            $model->androidXiaomiBigPictureUrl = $map['AndroidXiaomiBigPictureUrl'];
+        }
         if (isset($map['TargetValue'])) {
             $model->targetValue = $map['TargetValue'];
         }
@@ -530,11 +578,11 @@ class pushTask extends Model
         if (isset($map['PushType'])) {
             $model->pushType = $map['PushType'];
         }
-        if (isset($map['iOSBadge'])) {
-            $model->iOSBadge = $map['iOSBadge'];
-        }
         if (isset($map['SendSpeed'])) {
             $model->sendSpeed = $map['SendSpeed'];
+        }
+        if (isset($map['iOSBadge'])) {
+            $model->iOSBadge = $map['iOSBadge'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Push\V20160801\Models\BindTagRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\BindTagResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\CancelPushRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\CancelPushResponse;
+use AlibabaCloud\SDK\Push\V20160801\Models\CheckCertificateRequest;
+use AlibabaCloud\SDK\Push\V20160801\Models\CheckCertificateResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\CheckDeviceRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\CheckDeviceResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\CheckDevicesRequest;
@@ -270,6 +272,34 @@ class Push extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelPushWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckCertificateRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CheckCertificateResponse
+     */
+    public function checkCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckCertificateResponse::fromMap($this->doRPCRequest('CheckCertificate', '2016-08-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckCertificateRequest $request
+     *
+     * @return CheckCertificateResponse
+     */
+    public function checkCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkCertificateWithOptions($request, $runtime);
     }
 
     /**

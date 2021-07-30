@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class QueryPushRecordsResponseBody extends Model
 {
     /**
-     * @var pushInfos
-     */
-    public $pushInfos;
-
-    /**
      * @var string
      */
     public $nextToken;
@@ -38,13 +33,18 @@ class QueryPushRecordsResponseBody extends Model
      * @var int
      */
     public $page;
+
+    /**
+     * @var pushInfos
+     */
+    public $pushInfos;
     protected $_name = [
-        'pushInfos' => 'PushInfos',
         'nextToken' => 'NextToken',
         'pageSize'  => 'PageSize',
         'requestId' => 'RequestId',
         'total'     => 'Total',
         'page'      => 'Page',
+        'pushInfos' => 'PushInfos',
     ];
 
     public function validate()
@@ -54,9 +54,6 @@ class QueryPushRecordsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pushInfos) {
-            $res['PushInfos'] = null !== $this->pushInfos ? $this->pushInfos->toMap() : null;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -72,6 +69,9 @@ class QueryPushRecordsResponseBody extends Model
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+        if (null !== $this->pushInfos) {
+            $res['PushInfos'] = null !== $this->pushInfos ? $this->pushInfos->toMap() : null;
+        }
 
         return $res;
     }
@@ -84,9 +84,6 @@ class QueryPushRecordsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PushInfos'])) {
-            $model->pushInfos = pushInfos::fromMap($map['PushInfos']);
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
@@ -101,6 +98,9 @@ class QueryPushRecordsResponseBody extends Model
         }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
+        }
+        if (isset($map['PushInfos'])) {
+            $model->pushInfos = pushInfos::fromMap($map['PushInfos']);
         }
 
         return $model;

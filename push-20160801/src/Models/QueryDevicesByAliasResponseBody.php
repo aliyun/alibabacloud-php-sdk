@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicesByAliasResponseBody extends Model
 {
     /**
-     * @var deviceIds
-     */
-    public $deviceIds;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var deviceIds
+     */
+    public $deviceIds;
     protected $_name = [
-        'deviceIds' => 'DeviceIds',
         'requestId' => 'RequestId',
+        'deviceIds' => 'DeviceIds',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class QueryDevicesByAliasResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deviceIds) {
-            $res['DeviceIds'] = null !== $this->deviceIds ? $this->deviceIds->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->deviceIds) {
+            $res['DeviceIds'] = null !== $this->deviceIds ? $this->deviceIds->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class QueryDevicesByAliasResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeviceIds'])) {
-            $model->deviceIds = deviceIds::fromMap($map['DeviceIds']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['DeviceIds'])) {
+            $model->deviceIds = deviceIds::fromMap($map['DeviceIds']);
         }
 
         return $model;

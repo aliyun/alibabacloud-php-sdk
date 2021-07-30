@@ -252,6 +252,26 @@ class PushRequest extends Model
      * @var string
      */
     public $iOSNotificationCollapseId;
+
+    /**
+     * @var int
+     */
+    public $androidRenderStyle;
+
+    /**
+     * @var string
+     */
+    public $androidBigTitle;
+
+    /**
+     * @var string
+     */
+    public $androidBigBody;
+
+    /**
+     * @var string
+     */
+    public $androidXiaomiBigPictureUrl;
     protected $_name = [
         'appKey'                           => 'AppKey',
         'pushType'                         => 'PushType',
@@ -302,6 +322,10 @@ class PushRequest extends Model
         'androidNotificationHuaweiChannel' => 'AndroidNotificationHuaweiChannel',
         'androidNotificationNotifyId'      => 'AndroidNotificationNotifyId',
         'iOSNotificationCollapseId'        => 'iOSNotificationCollapseId',
+        'androidRenderStyle'               => 'AndroidRenderStyle',
+        'androidBigTitle'                  => 'AndroidBigTitle',
+        'androidBigBody'                   => 'AndroidBigBody',
+        'androidXiaomiBigPictureUrl'       => 'AndroidXiaomiBigPictureUrl',
     ];
 
     public function validate()
@@ -457,6 +481,18 @@ class PushRequest extends Model
         }
         if (null !== $this->iOSNotificationCollapseId) {
             $res['iOSNotificationCollapseId'] = $this->iOSNotificationCollapseId;
+        }
+        if (null !== $this->androidRenderStyle) {
+            $res['AndroidRenderStyle'] = $this->androidRenderStyle;
+        }
+        if (null !== $this->androidBigTitle) {
+            $res['AndroidBigTitle'] = $this->androidBigTitle;
+        }
+        if (null !== $this->androidBigBody) {
+            $res['AndroidBigBody'] = $this->androidBigBody;
+        }
+        if (null !== $this->androidXiaomiBigPictureUrl) {
+            $res['AndroidXiaomiBigPictureUrl'] = $this->androidXiaomiBigPictureUrl;
         }
 
         return $res;
@@ -616,6 +652,18 @@ class PushRequest extends Model
         }
         if (isset($map['iOSNotificationCollapseId'])) {
             $model->iOSNotificationCollapseId = $map['iOSNotificationCollapseId'];
+        }
+        if (isset($map['AndroidRenderStyle'])) {
+            $model->androidRenderStyle = $map['AndroidRenderStyle'];
+        }
+        if (isset($map['AndroidBigTitle'])) {
+            $model->androidBigTitle = $map['AndroidBigTitle'];
+        }
+        if (isset($map['AndroidBigBody'])) {
+            $model->androidBigBody = $map['AndroidBigBody'];
+        }
+        if (isset($map['AndroidXiaomiBigPictureUrl'])) {
+            $model->androidXiaomiBigPictureUrl = $map['AndroidXiaomiBigPictureUrl'];
         }
 
         return $model;

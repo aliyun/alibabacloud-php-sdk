@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryTagsResponseBody extends Model
 {
     /**
-     * @var tagInfos
-     */
-    public $tagInfos;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var tagInfos
+     */
+    public $tagInfos;
     protected $_name = [
-        'tagInfos'  => 'TagInfos',
         'requestId' => 'RequestId',
+        'tagInfos'  => 'TagInfos',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class QueryTagsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagInfos) {
-            $res['TagInfos'] = null !== $this->tagInfos ? $this->tagInfos->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->tagInfos) {
+            $res['TagInfos'] = null !== $this->tagInfos ? $this->tagInfos->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class QueryTagsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagInfos'])) {
-            $model->tagInfos = tagInfos::fromMap($map['TagInfos']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TagInfos'])) {
+            $model->tagInfos = tagInfos::fromMap($map['TagInfos']);
         }
 
         return $model;
