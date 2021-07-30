@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoubleCallSeatRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoubleCallSeatResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetRtcTokenRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetRtcTokenResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTokenRequest;
@@ -49,6 +51,10 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskDetailRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskDetailResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListCallTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferNumberRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferNumberResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListOrderedNumbersRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListOrderedNumbersResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListOutboundStrategiesRequest;
@@ -59,6 +65,10 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallDetailByCallIdRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallDetailByCallIdResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallDetailByTaskIdRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallDetailByTaskIdResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallInPoolTransferConfigRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallInPoolTransferConfigResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallInTransferRecordRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallInTransferRecordResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotInfoListRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotInfoListResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotTaskCallDetailRequest;
@@ -81,6 +91,10 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoipNumberBindInfosRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoipNumberBindInfosResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ReportVoipProblemsRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ReportVoipProblemsResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SendVerificationRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SendVerificationResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SetTransferCalleePoolConfigRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SetTransferCalleePoolConfigResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SingleCallByTtsRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SingleCallByTtsResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SingleCallByVoiceRequest;
@@ -95,6 +109,8 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StartRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StartRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StopRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StopRobotTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SubmitHotlineTransferRegisterRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SubmitHotlineTransferRegisterResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UnbindNumberAndVoipIdRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UnbindNumberAndVoipIdResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UndoRtcNumberAuthRequest;
@@ -620,6 +636,34 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param GetHotlineQualificationByOrderRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetHotlineQualificationByOrderResponse
+     */
+    public function getHotlineQualificationByOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetHotlineQualificationByOrderResponse::fromMap($this->doRPCRequest('GetHotlineQualificationByOrder', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetHotlineQualificationByOrderRequest $request
+     *
+     * @return GetHotlineQualificationByOrderResponse
+     */
+    public function getHotlineQualificationByOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHotlineQualificationByOrderWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRtcTokenRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -760,6 +804,62 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param ListHotlineTransferNumberRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListHotlineTransferNumberResponse
+     */
+    public function listHotlineTransferNumberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListHotlineTransferNumberResponse::fromMap($this->doRPCRequest('ListHotlineTransferNumber', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListHotlineTransferNumberRequest $request
+     *
+     * @return ListHotlineTransferNumberResponse
+     */
+    public function listHotlineTransferNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHotlineTransferNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListHotlineTransferRegisterFileRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListHotlineTransferRegisterFileResponse
+     */
+    public function listHotlineTransferRegisterFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListHotlineTransferRegisterFileResponse::fromMap($this->doRPCRequest('ListHotlineTransferRegisterFile', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListHotlineTransferRegisterFileRequest $request
+     *
+     * @return ListHotlineTransferRegisterFileResponse
+     */
+    public function listHotlineTransferRegisterFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHotlineTransferRegisterFileWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListOrderedNumbersRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -897,6 +997,62 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryCallDetailByTaskIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCallInPoolTransferConfigRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return QueryCallInPoolTransferConfigResponse
+     */
+    public function queryCallInPoolTransferConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryCallInPoolTransferConfigResponse::fromMap($this->doRPCRequest('QueryCallInPoolTransferConfig', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryCallInPoolTransferConfigRequest $request
+     *
+     * @return QueryCallInPoolTransferConfigResponse
+     */
+    public function queryCallInPoolTransferConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCallInPoolTransferConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCallInTransferRecordRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryCallInTransferRecordResponse
+     */
+    public function queryCallInTransferRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryCallInTransferRecordResponse::fromMap($this->doRPCRequest('QueryCallInTransferRecord', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryCallInTransferRecordRequest $request
+     *
+     * @return QueryCallInTransferRecordResponse
+     */
+    public function queryCallInTransferRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCallInTransferRecordWithOptions($request, $runtime);
     }
 
     /**
@@ -1208,6 +1364,62 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param SendVerificationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SendVerificationResponse
+     */
+    public function sendVerificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SendVerificationResponse::fromMap($this->doRPCRequest('SendVerification', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SendVerificationRequest $request
+     *
+     * @return SendVerificationResponse
+     */
+    public function sendVerification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendVerificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetTransferCalleePoolConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetTransferCalleePoolConfigResponse
+     */
+    public function setTransferCalleePoolConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetTransferCalleePoolConfigResponse::fromMap($this->doRPCRequest('SetTransferCalleePoolConfig', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetTransferCalleePoolConfigRequest $request
+     *
+     * @return SetTransferCalleePoolConfigResponse
+     */
+    public function setTransferCalleePoolConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setTransferCalleePoolConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SingleCallByTtsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1401,6 +1613,34 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopRobotTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitHotlineTransferRegisterRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SubmitHotlineTransferRegisterResponse
+     */
+    public function submitHotlineTransferRegisterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitHotlineTransferRegisterResponse::fromMap($this->doRPCRequest('SubmitHotlineTransferRegister', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitHotlineTransferRegisterRequest $request
+     *
+     * @return SubmitHotlineTransferRegisterResponse
+     */
+    public function submitHotlineTransferRegister($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitHotlineTransferRegisterWithOptions($request, $runtime);
     }
 
     /**
