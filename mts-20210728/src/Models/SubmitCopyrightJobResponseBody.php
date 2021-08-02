@@ -14,7 +14,7 @@ class SubmitCopyrightJobResponseBody extends Model
      *
      * @var string
      */
-    public $requestId;
+    public $requestID;
 
     /**
      * @description 返回信息
@@ -37,7 +37,7 @@ class SubmitCopyrightJobResponseBody extends Model
      */
     public $statusCode;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestID'  => 'RequestID',
         'message'    => 'Message',
         'data'       => 'Data',
         'statusCode' => 'StatusCode',
@@ -50,8 +50,8 @@ class SubmitCopyrightJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->requestID) {
+            $res['RequestID'] = $this->requestID;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -74,8 +74,8 @@ class SubmitCopyrightJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['RequestID'])) {
+            $model->requestID = $map['RequestID'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

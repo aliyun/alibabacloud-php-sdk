@@ -12,7 +12,7 @@ class QueryCopyrightResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $requestID;
 
     /**
      * @var data[]
@@ -26,7 +26,7 @@ class QueryCopyrightResponseBody extends Model
      */
     public $statusCode;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestID'  => 'RequestID',
         'data'       => 'Data',
         'statusCode' => 'StatusCode',
     ];
@@ -38,8 +38,8 @@ class QueryCopyrightResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->requestID) {
+            $res['RequestID'] = $this->requestID;
         }
         if (null !== $this->data) {
             $res['Data'] = [];
@@ -65,8 +65,8 @@ class QueryCopyrightResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['RequestID'])) {
+            $model->requestID = $map['RequestID'];
         }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {

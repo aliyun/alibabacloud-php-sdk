@@ -28,7 +28,7 @@ class SubmitImageCopyrightResponseBody extends Model
      *
      * @var string
      */
-    public $requestId;
+    public $requestID;
 
     /**
      * @description 状态码
@@ -39,7 +39,7 @@ class SubmitImageCopyrightResponseBody extends Model
     protected $_name = [
         'data'       => 'Data',
         'message'    => 'Message',
-        'requestId'  => 'RequestId',
+        'requestID'  => 'RequestID',
         'statusCode' => 'StatusCode',
     ];
 
@@ -56,8 +56,8 @@ class SubmitImageCopyrightResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->requestID) {
+            $res['RequestID'] = $this->requestID;
         }
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
@@ -80,8 +80,8 @@ class SubmitImageCopyrightResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['RequestID'])) {
+            $model->requestID = $map['RequestID'];
         }
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];

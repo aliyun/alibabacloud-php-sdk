@@ -93,17 +93,17 @@ class data extends Model
     public $userId;
     protected $_name = [
         'callback'    => 'Callback',
-        'gmtCreate'   => 'Gmt_create',
-        'gmtModified' => 'Gmt_modified',
+        'gmtCreate'   => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
         'input'       => 'Input',
-        'jobId'       => 'Job_id',
+        'jobId'       => 'JobId',
         'level'       => 'Level',
         'message'     => 'Message',
-        'messageId'   => 'Message_id',
+        'messageId'   => 'MessageId',
         'output'      => 'Output',
         'status'      => 'Status',
-        'userData'    => 'User_data',
-        'userId'      => 'User_id',
+        'userData'    => 'UserData',
+        'userId'      => 'UserId',
     ];
 
     public function validate()
@@ -117,16 +117,16 @@ class data extends Model
             $res['Callback'] = $this->callback;
         }
         if (null !== $this->gmtCreate) {
-            $res['Gmt_create'] = $this->gmtCreate;
+            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
-            $res['Gmt_modified'] = $this->gmtModified;
+            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->input) {
             $res['Input'] = $this->input;
         }
         if (null !== $this->jobId) {
-            $res['Job_id'] = $this->jobId;
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
@@ -135,7 +135,7 @@ class data extends Model
             $res['Message'] = $this->message;
         }
         if (null !== $this->messageId) {
-            $res['Message_id'] = $this->messageId;
+            $res['MessageId'] = $this->messageId;
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
@@ -144,10 +144,10 @@ class data extends Model
             $res['Status'] = $this->status;
         }
         if (null !== $this->userData) {
-            $res['User_data'] = $this->userData;
+            $res['UserData'] = $this->userData;
         }
         if (null !== $this->userId) {
-            $res['User_id'] = $this->userId;
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -164,17 +164,17 @@ class data extends Model
         if (isset($map['Callback'])) {
             $model->callback = $map['Callback'];
         }
-        if (isset($map['Gmt_create'])) {
-            $model->gmtCreate = $map['Gmt_create'];
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['Gmt_modified'])) {
-            $model->gmtModified = $map['Gmt_modified'];
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
         }
-        if (isset($map['Job_id'])) {
-            $model->jobId = $map['Job_id'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
@@ -182,8 +182,8 @@ class data extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Message_id'])) {
-            $model->messageId = $map['Message_id'];
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
@@ -191,11 +191,11 @@ class data extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['User_data'])) {
-            $model->userData = $map['User_data'];
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
-        if (isset($map['User_id'])) {
-            $model->userId = $map['User_id'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;
