@@ -13,8 +13,14 @@ class TaggingImageAdvanceRequest extends Model
      * @var Stream
      */
     public $imageURLObject;
+
+    /**
+     * @var string
+     */
+    public $mode;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
+        'mode'           => 'Mode',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class TaggingImageAdvanceRequest extends Model
         $res = [];
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class TaggingImageAdvanceRequest extends Model
         $model = new self();
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
 
         return $model;

@@ -12,8 +12,14 @@ class TaggingImageRequest extends Model
      * @var string
      */
     public $imageURL;
+
+    /**
+     * @var string
+     */
+    public $mode;
     protected $_name = [
         'imageURL' => 'ImageURL',
+        'mode'     => 'Mode',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class TaggingImageRequest extends Model
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class TaggingImageRequest extends Model
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
 
         return $model;
