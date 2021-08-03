@@ -47,6 +47,11 @@ class SearchByPicRequest extends Model
      * @var int
      */
     public $relationId;
+
+    /**
+     * @var string
+     */
+    public $pid;
     protected $_name = [
         'picContent' => 'PicContent',
         'categoryId' => 'CategoryId',
@@ -56,6 +61,7 @@ class SearchByPicRequest extends Model
         'num'        => 'Num',
         'fields'     => 'Fields',
         'relationId' => 'RelationId',
+        'pid'        => 'Pid',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class SearchByPicRequest extends Model
         }
         if (null !== $this->relationId) {
             $res['RelationId'] = $this->relationId;
+        }
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
         }
 
         return $res;
@@ -124,6 +133,9 @@ class SearchByPicRequest extends Model
         }
         if (isset($map['RelationId'])) {
             $model->relationId = $map['RelationId'];
+        }
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
         }
 
         return $model;
