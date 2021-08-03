@@ -177,6 +177,11 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $healthCheckMethod;
+
+    /**
+     * @var string
+     */
     public $healthCheck;
 
     /**
@@ -217,6 +222,7 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
         'XForwardedFor_proto'    => 'XForwardedFor_proto',
         'XForwardedFor_SLBIP'    => 'XForwardedFor_SLBIP',
         'stickySession'          => 'StickySession',
+        'healthCheckMethod'      => 'HealthCheckMethod',
         'healthCheck'            => 'HealthCheck',
         'rules'                  => 'Rules',
     ];
@@ -326,6 +332,9 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
         }
         if (null !== $this->stickySession) {
             $res['StickySession'] = $this->stickySession;
+        }
+        if (null !== $this->healthCheckMethod) {
+            $res['HealthCheckMethod'] = $this->healthCheckMethod;
         }
         if (null !== $this->healthCheck) {
             $res['HealthCheck'] = $this->healthCheck;
@@ -443,6 +452,9 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
         }
         if (isset($map['StickySession'])) {
             $model->stickySession = $map['StickySession'];
+        }
+        if (isset($map['HealthCheckMethod'])) {
+            $model->healthCheckMethod = $map['HealthCheckMethod'];
         }
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = $map['HealthCheck'];

@@ -98,6 +98,11 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $healthCheckMethod;
+
+    /**
+     * @var string
+     */
     public $TLSCipherPolicy;
 
     /**
@@ -247,6 +252,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
         'stickySessionType'                    => 'StickySessionType',
         'scheduler'                            => 'Scheduler',
         'XForwardedFor_proto'                  => 'XForwardedFor_proto',
+        'healthCheckMethod'                    => 'HealthCheckMethod',
         'TLSCipherPolicy'                      => 'TLSCipherPolicy',
         'status'                               => 'Status',
         'VServerGroupId'                       => 'VServerGroupId',
@@ -333,6 +339,9 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
         }
         if (null !== $this->XForwardedFor_proto) {
             $res['XForwardedFor_proto'] = $this->XForwardedFor_proto;
+        }
+        if (null !== $this->healthCheckMethod) {
+            $res['HealthCheckMethod'] = $this->healthCheckMethod;
         }
         if (null !== $this->TLSCipherPolicy) {
             $res['TLSCipherPolicy'] = $this->TLSCipherPolicy;
@@ -477,6 +486,9 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
         }
         if (isset($map['XForwardedFor_proto'])) {
             $model->XForwardedFor_proto = $map['XForwardedFor_proto'];
+        }
+        if (isset($map['HealthCheckMethod'])) {
+            $model->healthCheckMethod = $map['HealthCheckMethod'];
         }
         if (isset($map['TLSCipherPolicy'])) {
             $model->TLSCipherPolicy = $map['TLSCipherPolicy'];

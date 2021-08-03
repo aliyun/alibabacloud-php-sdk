@@ -28,12 +28,12 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $aclName;
+    public $resourceGroupId;
 
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $aclName;
 
     /**
      * @var aclEntrys
@@ -48,8 +48,8 @@ class DescribeAccessControlListAttributeResponseBody extends Model
         'aclId'            => 'AclId',
         'addressIPVersion' => 'AddressIPVersion',
         'requestId'        => 'RequestId',
-        'aclName'          => 'AclName',
         'resourceGroupId'  => 'ResourceGroupId',
+        'aclName'          => 'AclName',
         'aclEntrys'        => 'AclEntrys',
         'relatedListeners' => 'RelatedListeners',
     ];
@@ -70,11 +70,11 @@ class DescribeAccessControlListAttributeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->aclName) {
-            $res['AclName'] = $this->aclName;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->aclName) {
+            $res['AclName'] = $this->aclName;
         }
         if (null !== $this->aclEntrys) {
             $res['AclEntrys'] = null !== $this->aclEntrys ? $this->aclEntrys->toMap() : null;
@@ -103,11 +103,11 @@ class DescribeAccessControlListAttributeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['AclName'])) {
-            $model->aclName = $map['AclName'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['AclName'])) {
+            $model->aclName = $map['AclName'];
         }
         if (isset($map['AclEntrys'])) {
             $model->aclEntrys = aclEntrys::fromMap($map['AclEntrys']);

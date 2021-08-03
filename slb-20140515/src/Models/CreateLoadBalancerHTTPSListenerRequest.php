@@ -86,6 +86,11 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     /**
      * @var string
      */
+    public $healthCheckMethod;
+
+    /**
+     * @var string
+     */
     public $healthCheckDomain;
 
     /**
@@ -218,6 +223,7 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
         'cookieTimeout'          => 'CookieTimeout',
         'cookie'                 => 'Cookie',
         'healthCheck'            => 'HealthCheck',
+        'healthCheckMethod'      => 'HealthCheckMethod',
         'healthCheckDomain'      => 'HealthCheckDomain',
         'healthCheckURI'         => 'HealthCheckURI',
         'healthyThreshold'       => 'HealthyThreshold',
@@ -295,6 +301,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
         }
         if (null !== $this->healthCheck) {
             $res['HealthCheck'] = $this->healthCheck;
+        }
+        if (null !== $this->healthCheckMethod) {
+            $res['HealthCheckMethod'] = $this->healthCheckMethod;
         }
         if (null !== $this->healthCheckDomain) {
             $res['HealthCheckDomain'] = $this->healthCheckDomain;
@@ -424,6 +433,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
         }
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = $map['HealthCheck'];
+        }
+        if (isset($map['HealthCheckMethod'])) {
+            $model->healthCheckMethod = $map['HealthCheckMethod'];
         }
         if (isset($map['HealthCheckDomain'])) {
             $model->healthCheckDomain = $map['HealthCheckDomain'];
