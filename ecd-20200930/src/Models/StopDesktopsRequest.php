@@ -14,18 +14,22 @@ class StopDesktopsRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $stoppedMode;
+
+    /**
      * @var string[]
      */
     public $desktopId;
     protected $_name = [
-        'regionId'  => 'RegionId',
-        'desktopId' => 'DesktopId',
+        'regionId'    => 'RegionId',
+        'stoppedMode' => 'StoppedMode',
+        'desktopId'   => 'DesktopId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('desktopId', $this->desktopId, true);
     }
 
     public function toMap()
@@ -33,6 +37,9 @@ class StopDesktopsRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stoppedMode) {
+            $res['StoppedMode'] = $this->stoppedMode;
         }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
@@ -51,6 +58,9 @@ class StopDesktopsRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StoppedMode'])) {
+            $model->stoppedMode = $map['StoppedMode'];
         }
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {

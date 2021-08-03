@@ -29,29 +29,25 @@ class RunCommandRequest extends Model
     public $timeout;
 
     /**
-     * @var string[]
-     */
-    public $desktopId;
-
-    /**
      * @var string
      */
     public $contentEncoding;
+
+    /**
+     * @var string[]
+     */
+    public $desktopId;
     protected $_name = [
         'regionId'        => 'RegionId',
         'type'            => 'Type',
         'commandContent'  => 'CommandContent',
         'timeout'         => 'Timeout',
-        'desktopId'       => 'DesktopId',
         'contentEncoding' => 'ContentEncoding',
+        'desktopId'       => 'DesktopId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('type', $this->type, true);
-        Model::validateRequired('commandContent', $this->commandContent, true);
-        Model::validateRequired('desktopId', $this->desktopId, true);
     }
 
     public function toMap()
@@ -69,11 +65,11 @@ class RunCommandRequest extends Model
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
-        if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
-        }
         if (null !== $this->contentEncoding) {
             $res['ContentEncoding'] = $this->contentEncoding;
+        }
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
 
         return $res;
@@ -99,13 +95,13 @@ class RunCommandRequest extends Model
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }
+        if (isset($map['ContentEncoding'])) {
+            $model->contentEncoding = $map['ContentEncoding'];
+        }
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = $map['DesktopId'];
             }
-        }
-        if (isset($map['ContentEncoding'])) {
-            $model->contentEncoding = $map['ContentEncoding'];
         }
 
         return $model;

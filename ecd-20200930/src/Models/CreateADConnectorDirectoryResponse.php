@@ -4,65 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateADConnectorDirectoryResponse\adConnectors;
 use AlibabaCloud\Tea\Model;
 
 class CreateADConnectorDirectoryResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $directoryId;
+    public $headers;
 
     /**
-     * @var string
+     * @var CreateADConnectorDirectoryResponseBody
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $trustPassword;
-
-    /**
-     * @var adConnectors[]
-     */
-    public $adConnectors;
+    public $body;
     protected $_name = [
-        'directoryId'   => 'DirectoryId',
-        'requestId'     => 'RequestId',
-        'trustPassword' => 'TrustPassword',
-        'adConnectors'  => 'AdConnectors',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('directoryId', $this->directoryId, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('trustPassword', $this->trustPassword, true);
-        Model::validateRequired('adConnectors', $this->adConnectors, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->directoryId) {
-            $res['DirectoryId'] = $this->directoryId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->trustPassword) {
-            $res['TrustPassword'] = $this->trustPassword;
-        }
-        if (null !== $this->adConnectors) {
-            $res['AdConnectors'] = [];
-            if (null !== $this->adConnectors && \is_array($this->adConnectors)) {
-                $n = 0;
-                foreach ($this->adConnectors as $item) {
-                    $res['AdConnectors'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -76,23 +49,11 @@ class CreateADConnectorDirectoryResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DirectoryId'])) {
-            $model->directoryId = $map['DirectoryId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TrustPassword'])) {
-            $model->trustPassword = $map['TrustPassword'];
-        }
-        if (isset($map['AdConnectors'])) {
-            if (!empty($map['AdConnectors'])) {
-                $model->adConnectors = [];
-                $n                   = 0;
-                foreach ($map['AdConnectors'] as $item) {
-                    $model->adConnectors[$n++] = null !== $item ? adConnectors::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = CreateADConnectorDirectoryResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -24,8 +24,6 @@ class DeleteSnapshotRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('snapshotId', $this->snapshotId, true);
     }
 
     public function toMap()

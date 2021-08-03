@@ -4,55 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnapshotsResponse\snapshots;
 use AlibabaCloud\Tea\Model;
 
 class DescribeSnapshotsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeSnapshotsResponseBody
      */
-    public $nextToken;
-
-    /**
-     * @var snapshots[]
-     */
-    public $snapshots;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'nextToken' => 'NextToken',
-        'snapshots' => 'Snapshots',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('snapshots', $this->snapshots, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->snapshots) {
-            $res['Snapshots'] = [];
-            if (null !== $this->snapshots && \is_array($this->snapshots)) {
-                $n = 0;
-                foreach ($this->snapshots as $item) {
-                    $res['Snapshots'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +49,11 @@ class DescribeSnapshotsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['Snapshots'])) {
-            if (!empty($map['Snapshots'])) {
-                $model->snapshots = [];
-                $n                = 0;
-                foreach ($map['Snapshots'] as $item) {
-                    $model->snapshots[$n++] = null !== $item ? snapshots::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeSnapshotsResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -22,15 +22,32 @@ class DescribeDesktopTypesRequest extends Model
      * @var string
      */
     public $instanceTypeFamily;
+
+    /**
+     * @var int
+     */
+    public $cpuCount;
+
+    /**
+     * @var int
+     */
+    public $memorySize;
+
+    /**
+     * @var float
+     */
+    public $gpuCount;
     protected $_name = [
         'regionId'           => 'RegionId',
         'desktopTypeId'      => 'DesktopTypeId',
         'instanceTypeFamily' => 'InstanceTypeFamily',
+        'cpuCount'           => 'CpuCount',
+        'memorySize'         => 'MemorySize',
+        'gpuCount'           => 'GpuCount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -44,6 +61,15 @@ class DescribeDesktopTypesRequest extends Model
         }
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
+        }
+        if (null !== $this->cpuCount) {
+            $res['CpuCount'] = $this->cpuCount;
+        }
+        if (null !== $this->memorySize) {
+            $res['MemorySize'] = $this->memorySize;
+        }
+        if (null !== $this->gpuCount) {
+            $res['GpuCount'] = $this->gpuCount;
         }
 
         return $res;
@@ -65,6 +91,15 @@ class DescribeDesktopTypesRequest extends Model
         }
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
+        }
+        if (isset($map['CpuCount'])) {
+            $model->cpuCount = $map['CpuCount'];
+        }
+        if (isset($map['MemorySize'])) {
+            $model->memorySize = $map['MemorySize'];
+        }
+        if (isset($map['GpuCount'])) {
+            $model->gpuCount = $map['GpuCount'];
         }
 
         return $model;

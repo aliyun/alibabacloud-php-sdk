@@ -30,9 +30,6 @@ class SetDirectorySsoStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('directoryId', $this->directoryId, true);
-        Model::validateRequired('enableSso', $this->enableSso, true);
     }
 
     public function toMap()

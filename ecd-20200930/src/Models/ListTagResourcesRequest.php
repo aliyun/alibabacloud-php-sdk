@@ -20,16 +20,6 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @var string[]
-     */
-    public $resourceId;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
      * @var int
      */
     public $maxResults;
@@ -38,19 +28,27 @@ class ListTagResourcesRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string[]
+     */
+    public $resourceId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'regionId'     => 'RegionId',
         'resourceType' => 'ResourceType',
-        'resourceId'   => 'ResourceId',
-        'tag'          => 'Tag',
         'maxResults'   => 'MaxResults',
         'nextToken'    => 'NextToken',
+        'resourceId'   => 'ResourceId',
+        'tag'          => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('resourceType', $this->resourceType, true);
     }
 
     public function toMap()
@@ -61,6 +59,12 @@ class ListTagResourcesRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -73,12 +77,6 @@ class ListTagResourcesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -98,6 +96,12 @@ class ListTagResourcesRequest extends Model
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
@@ -111,12 +115,6 @@ class ListTagResourcesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

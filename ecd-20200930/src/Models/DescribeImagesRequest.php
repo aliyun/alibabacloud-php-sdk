@@ -34,27 +34,32 @@ class DescribeImagesRequest extends Model
     public $imageStatus;
 
     /**
-     * @var string[]
-     */
-    public $imageId;
-
-    /**
      * @var bool
      */
     public $gpuCategory;
+
+    /**
+     * @var string
+     */
+    public $protocolType;
+
+    /**
+     * @var string[]
+     */
+    public $imageId;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'imageType'   => 'ImageType',
-        'imageStatus' => 'ImageStatus',
-        'imageId'     => 'ImageId',
-        'gpuCategory' => 'GpuCategory',
+        'regionId'     => 'RegionId',
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
+        'imageType'    => 'ImageType',
+        'imageStatus'  => 'ImageStatus',
+        'gpuCategory'  => 'GpuCategory',
+        'protocolType' => 'ProtocolType',
+        'imageId'      => 'ImageId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -75,11 +80,14 @@ class DescribeImagesRequest extends Model
         if (null !== $this->imageStatus) {
             $res['ImageStatus'] = $this->imageStatus;
         }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
-        }
         if (null !== $this->gpuCategory) {
             $res['GpuCategory'] = $this->gpuCategory;
+        }
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         return $res;
@@ -108,13 +116,16 @@ class DescribeImagesRequest extends Model
         if (isset($map['ImageStatus'])) {
             $model->imageStatus = $map['ImageStatus'];
         }
+        if (isset($map['GpuCategory'])) {
+            $model->gpuCategory = $map['GpuCategory'];
+        }
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
+        }
         if (isset($map['ImageId'])) {
             if (!empty($map['ImageId'])) {
                 $model->imageId = $map['ImageId'];
             }
-        }
-        if (isset($map['GpuCategory'])) {
-            $model->gpuCategory = $map['GpuCategory'];
         }
 
         return $model;

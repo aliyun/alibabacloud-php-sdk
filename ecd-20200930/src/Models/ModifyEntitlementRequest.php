@@ -30,9 +30,6 @@ class ModifyEntitlementRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('desktopId', $this->desktopId, true);
-        Model::validateRequired('endUserId', $this->endUserId, true);
     }
 
     public function toMap()

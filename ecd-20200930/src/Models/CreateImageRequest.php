@@ -27,17 +27,33 @@ class CreateImageRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $snapshotId;
+
+    /**
+     * @var string
+     */
+    public $imageResourceType;
+
+    /**
+     * @var string[]
+     */
+    public $snapshotIds;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'desktopId'   => 'DesktopId',
-        'imageName'   => 'ImageName',
-        'description' => 'Description',
+        'regionId'          => 'RegionId',
+        'desktopId'         => 'DesktopId',
+        'imageName'         => 'ImageName',
+        'description'       => 'Description',
+        'snapshotId'        => 'SnapshotId',
+        'imageResourceType' => 'ImageResourceType',
+        'snapshotIds'       => 'SnapshotIds',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('desktopId', $this->desktopId, true);
     }
 
     public function toMap()
@@ -54,6 +70,15 @@ class CreateImageRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
+        }
+        if (null !== $this->imageResourceType) {
+            $res['ImageResourceType'] = $this->imageResourceType;
+        }
+        if (null !== $this->snapshotIds) {
+            $res['SnapshotIds'] = $this->snapshotIds;
         }
 
         return $res;
@@ -78,6 +103,17 @@ class CreateImageRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
+        }
+        if (isset($map['ImageResourceType'])) {
+            $model->imageResourceType = $map['ImageResourceType'];
+        }
+        if (isset($map['SnapshotIds'])) {
+            if (!empty($map['SnapshotIds'])) {
+                $model->snapshotIds = $map['SnapshotIds'];
+            }
         }
 
         return $model;

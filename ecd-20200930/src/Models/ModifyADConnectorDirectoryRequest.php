@@ -34,19 +34,9 @@ class ModifyADConnectorDirectoryRequest extends Model
     public $domainPassword;
 
     /**
-     * @var string[]
-     */
-    public $dnsAddress;
-
-    /**
      * @var string
      */
     public $directoryName;
-
-    /**
-     * @var string[]
-     */
-    public $subDomainDnsAddress;
 
     /**
      * @var string
@@ -57,23 +47,31 @@ class ModifyADConnectorDirectoryRequest extends Model
      * @var bool
      */
     public $mfaEnabled;
+
+    /**
+     * @var string[]
+     */
+    public $dnsAddress;
+
+    /**
+     * @var string[]
+     */
+    public $subDomainDnsAddress;
     protected $_name = [
         'regionId'            => 'RegionId',
         'directoryId'         => 'DirectoryId',
         'domainName'          => 'DomainName',
         'domainUserName'      => 'DomainUserName',
         'domainPassword'      => 'DomainPassword',
-        'dnsAddress'          => 'DnsAddress',
         'directoryName'       => 'DirectoryName',
-        'subDomainDnsAddress' => 'SubDomainDnsAddress',
         'subDomainName'       => 'SubDomainName',
         'mfaEnabled'          => 'MfaEnabled',
+        'dnsAddress'          => 'DnsAddress',
+        'subDomainDnsAddress' => 'SubDomainDnsAddress',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('directoryId', $this->directoryId, true);
     }
 
     public function toMap()
@@ -94,20 +92,20 @@ class ModifyADConnectorDirectoryRequest extends Model
         if (null !== $this->domainPassword) {
             $res['DomainPassword'] = $this->domainPassword;
         }
-        if (null !== $this->dnsAddress) {
-            $res['DnsAddress'] = $this->dnsAddress;
-        }
         if (null !== $this->directoryName) {
             $res['DirectoryName'] = $this->directoryName;
-        }
-        if (null !== $this->subDomainDnsAddress) {
-            $res['SubDomainDnsAddress'] = $this->subDomainDnsAddress;
         }
         if (null !== $this->subDomainName) {
             $res['SubDomainName'] = $this->subDomainName;
         }
         if (null !== $this->mfaEnabled) {
             $res['MfaEnabled'] = $this->mfaEnabled;
+        }
+        if (null !== $this->dnsAddress) {
+            $res['DnsAddress'] = $this->dnsAddress;
+        }
+        if (null !== $this->subDomainDnsAddress) {
+            $res['SubDomainDnsAddress'] = $this->subDomainDnsAddress;
         }
 
         return $res;
@@ -136,24 +134,24 @@ class ModifyADConnectorDirectoryRequest extends Model
         if (isset($map['DomainPassword'])) {
             $model->domainPassword = $map['DomainPassword'];
         }
-        if (isset($map['DnsAddress'])) {
-            if (!empty($map['DnsAddress'])) {
-                $model->dnsAddress = $map['DnsAddress'];
-            }
-        }
         if (isset($map['DirectoryName'])) {
             $model->directoryName = $map['DirectoryName'];
-        }
-        if (isset($map['SubDomainDnsAddress'])) {
-            if (!empty($map['SubDomainDnsAddress'])) {
-                $model->subDomainDnsAddress = $map['SubDomainDnsAddress'];
-            }
         }
         if (isset($map['SubDomainName'])) {
             $model->subDomainName = $map['SubDomainName'];
         }
         if (isset($map['MfaEnabled'])) {
             $model->mfaEnabled = $map['MfaEnabled'];
+        }
+        if (isset($map['DnsAddress'])) {
+            if (!empty($map['DnsAddress'])) {
+                $model->dnsAddress = $map['DnsAddress'];
+            }
+        }
+        if (isset($map['SubDomainDnsAddress'])) {
+            if (!empty($map['SubDomainDnsAddress'])) {
+                $model->subDomainDnsAddress = $map['SubDomainDnsAddress'];
+            }
         }
 
         return $model;

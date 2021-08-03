@@ -21,18 +21,21 @@ class SetIdpMetadataRequest extends Model
     /**
      * @var string
      */
+    public $officeSiteId;
+
+    /**
+     * @var string
+     */
     public $idpMetadata;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'directoryId' => 'DirectoryId',
-        'idpMetadata' => 'IdpMetadata',
+        'regionId'     => 'RegionId',
+        'directoryId'  => 'DirectoryId',
+        'officeSiteId' => 'OfficeSiteId',
+        'idpMetadata'  => 'IdpMetadata',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('directoryId', $this->directoryId, true);
-        Model::validateRequired('idpMetadata', $this->idpMetadata, true);
     }
 
     public function toMap()
@@ -43,6 +46,9 @@ class SetIdpMetadataRequest extends Model
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
         if (null !== $this->idpMetadata) {
             $res['IdpMetadata'] = $this->idpMetadata;
@@ -64,6 +70,9 @@ class SetIdpMetadataRequest extends Model
         }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
         if (isset($map['IdpMetadata'])) {
             $model->idpMetadata = $map['IdpMetadata'];

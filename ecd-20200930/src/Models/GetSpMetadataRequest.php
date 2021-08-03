@@ -17,15 +17,19 @@ class GetSpMetadataRequest extends Model
      * @var string
      */
     public $directoryId;
+
+    /**
+     * @var string
+     */
+    public $officeSiteId;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'directoryId' => 'DirectoryId',
+        'regionId'     => 'RegionId',
+        'directoryId'  => 'DirectoryId',
+        'officeSiteId' => 'OfficeSiteId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('directoryId', $this->directoryId, true);
     }
 
     public function toMap()
@@ -36,6 +40,9 @@ class GetSpMetadataRequest extends Model
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
 
         return $res;
@@ -54,6 +61,9 @@ class GetSpMetadataRequest extends Model
         }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
 
         return $model;

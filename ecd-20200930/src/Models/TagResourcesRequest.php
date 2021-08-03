@@ -37,10 +37,6 @@ class TagResourcesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('resourceType', $this->resourceType, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
-        Model::validateRequired('tag', $this->tag, true);
     }
 
     public function toMap()

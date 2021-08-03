@@ -51,7 +51,22 @@ class DescribeDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $officeSiteId;
+
+    /**
+     * @var string
+     */
     public $policyGroupId;
+
+    /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
+    public $expiredTime;
 
     /**
      * @var string[]
@@ -71,14 +86,16 @@ class DescribeDesktopsRequest extends Model
         'userName'      => 'UserName',
         'desktopName'   => 'DesktopName',
         'directoryId'   => 'DirectoryId',
+        'officeSiteId'  => 'OfficeSiteId',
         'policyGroupId' => 'PolicyGroupId',
+        'chargeType'    => 'ChargeType',
+        'expiredTime'   => 'ExpiredTime',
         'desktopId'     => 'DesktopId',
         'endUserId'     => 'EndUserId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -108,8 +125,17 @@ class DescribeDesktopsRequest extends Model
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
+        }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
         }
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
@@ -153,8 +179,17 @@ class DescribeDesktopsRequest extends Model
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
+        }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
+        }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
         }
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {

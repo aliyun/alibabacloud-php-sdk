@@ -4,45 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeZonesResponse\zones;
 use AlibabaCloud\Tea\Model;
 
 class DescribeZonesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var zones[]
+     * @var DescribeZonesResponseBody
      */
-    public $zones;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'zones'     => 'Zones',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('zones', $this->zones, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->zones) {
-            $res['Zones'] = [];
-            if (null !== $this->zones && \is_array($this->zones)) {
-                $n = 0;
-                foreach ($this->zones as $item) {
-                    $res['Zones'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +49,11 @@ class DescribeZonesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Zones'])) {
-            if (!empty($map['Zones'])) {
-                $model->zones = [];
-                $n            = 0;
-                foreach ($map['Zones'] as $item) {
-                    $model->zones[$n++] = null !== $item ? zones::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeZonesResponseBody::fromMap($map['body']);
         }
 
         return $model;

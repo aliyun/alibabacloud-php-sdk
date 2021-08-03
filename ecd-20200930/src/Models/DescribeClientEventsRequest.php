@@ -36,6 +36,11 @@ class DescribeClientEventsRequest extends Model
     /**
      * @var string
      */
+    public $officeSiteId;
+
+    /**
+     * @var string
+     */
     public $eventType;
 
     /**
@@ -58,21 +63,21 @@ class DescribeClientEventsRequest extends Model
      */
     public $nextToken;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'endUserId'   => 'EndUserId',
-        'desktopId'   => 'DesktopId',
-        'desktopIp'   => 'DesktopIp',
-        'directoryId' => 'DirectoryId',
-        'eventType'   => 'EventType',
-        'startTime'   => 'StartTime',
-        'endTime'     => 'EndTime',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
+        'regionId'     => 'RegionId',
+        'endUserId'    => 'EndUserId',
+        'desktopId'    => 'DesktopId',
+        'desktopIp'    => 'DesktopIp',
+        'directoryId'  => 'DirectoryId',
+        'officeSiteId' => 'OfficeSiteId',
+        'eventType'    => 'EventType',
+        'startTime'    => 'StartTime',
+        'endTime'      => 'EndTime',
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
     }
 
     public function toMap()
@@ -92,6 +97,9 @@ class DescribeClientEventsRequest extends Model
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
@@ -134,6 +142,9 @@ class DescribeClientEventsRequest extends Model
         }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];

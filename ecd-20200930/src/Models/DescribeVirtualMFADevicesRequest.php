@@ -29,21 +29,25 @@ class DescribeVirtualMFADevicesRequest extends Model
     public $directoryId;
 
     /**
+     * @var string
+     */
+    public $officeSiteId;
+
+    /**
      * @var string[]
      */
     public $endUserId;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'directoryId' => 'DirectoryId',
-        'endUserId'   => 'EndUserId',
+        'regionId'     => 'RegionId',
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
+        'directoryId'  => 'DirectoryId',
+        'officeSiteId' => 'OfficeSiteId',
+        'endUserId'    => 'EndUserId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('directoryId', $this->directoryId, true);
     }
 
     public function toMap()
@@ -60,6 +64,9 @@ class DescribeVirtualMFADevicesRequest extends Model
         }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
+        }
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
@@ -87,6 +94,9 @@ class DescribeVirtualMFADevicesRequest extends Model
         }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
+        }
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
         if (isset($map['EndUserId'])) {
             if (!empty($map['EndUserId'])) {
