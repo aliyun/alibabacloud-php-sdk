@@ -32,12 +32,18 @@ class ImageDuplicationRequest extends Model
      * @var int
      */
     public $imageWidth;
+
+    /**
+     * @var int
+     */
+    public $outputImageNum;
     protected $_name = [
-        'instanceName' => 'InstanceName',
-        'picUrlList'   => 'PicUrlList',
-        'picNumList'   => 'PicNumList',
-        'imageHeight'  => 'ImageHeight',
-        'imageWidth'   => 'ImageWidth',
+        'instanceName'   => 'InstanceName',
+        'picUrlList'     => 'PicUrlList',
+        'picNumList'     => 'PicNumList',
+        'imageHeight'    => 'ImageHeight',
+        'imageWidth'     => 'ImageWidth',
+        'outputImageNum' => 'OutputImageNum',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class ImageDuplicationRequest extends Model
         }
         if (null !== $this->imageWidth) {
             $res['ImageWidth'] = $this->imageWidth;
+        }
+        if (null !== $this->outputImageNum) {
+            $res['OutputImageNum'] = $this->outputImageNum;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class ImageDuplicationRequest extends Model
         }
         if (isset($map['ImageWidth'])) {
             $model->imageWidth = $map['ImageWidth'];
+        }
+        if (isset($map['OutputImageNum'])) {
+            $model->outputImageNum = $map['OutputImageNum'];
         }
 
         return $model;
