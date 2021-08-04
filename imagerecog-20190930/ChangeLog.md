@@ -1,3 +1,6 @@
+2021-08-04 Version: 2.0.4
+- Relaese TaggingAdImage.
+
 2021-08-02 Version: 2.0.3
 - Update TaggingImage.
 
