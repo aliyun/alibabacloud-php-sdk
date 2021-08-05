@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppTemplateRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppTemplateResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAuthTokenRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAuthTokenResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetDomainOwnerVerifyContentRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetDomainOwnerVerifyContentResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetImpProductStatusResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusResponse;
@@ -47,6 +49,10 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToAllRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToAllResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToUsersRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToUsersResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\StopLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\StopLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppRequest;
@@ -60,6 +66,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateRoomResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\VerifyDomainOwnerRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\VerifyDomainOwnerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -96,6 +104,34 @@ class Imp extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param VerifyDomainOwnerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return VerifyDomainOwnerResponse
+     */
+    public function verifyDomainOwnerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return VerifyDomainOwnerResponse::fromMap($this->doRPCRequest('VerifyDomainOwner', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param VerifyDomainOwnerRequest $request
+     *
+     * @return VerifyDomainOwnerResponse
+     */
+    public function verifyDomainOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyDomainOwnerWithOptions($request, $runtime);
     }
 
     /**
@@ -587,6 +623,90 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLiveDomainStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendCustomMessageToAllRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SendCustomMessageToAllResponse
+     */
+    public function sendCustomMessageToAllWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SendCustomMessageToAllResponse::fromMap($this->doRPCRequest('SendCustomMessageToAll', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SendCustomMessageToAllRequest $request
+     *
+     * @return SendCustomMessageToAllResponse
+     */
+    public function sendCustomMessageToAll($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendCustomMessageToAllWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDomainOwnerVerifyContentRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetDomainOwnerVerifyContentResponse
+     */
+    public function getDomainOwnerVerifyContentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDomainOwnerVerifyContentResponse::fromMap($this->doRPCRequest('GetDomainOwnerVerifyContent', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDomainOwnerVerifyContentRequest $request
+     *
+     * @return GetDomainOwnerVerifyContentResponse
+     */
+    public function getDomainOwnerVerifyContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDomainOwnerVerifyContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendCustomMessageToUsersRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SendCustomMessageToUsersResponse
+     */
+    public function sendCustomMessageToUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SendCustomMessageToUsersResponse::fromMap($this->doRPCRequest('SendCustomMessageToUsers', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SendCustomMessageToUsersRequest $request
+     *
+     * @return SendCustomMessageToUsersResponse
+     */
+    public function sendCustomMessageToUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendCustomMessageToUsersWithOptions($request, $runtime);
     }
 
     /**
