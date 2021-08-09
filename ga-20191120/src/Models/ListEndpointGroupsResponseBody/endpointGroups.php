@@ -21,6 +21,11 @@ class endpointGroups extends Model
     public $endpointGroupIpList;
 
     /**
+     * @var string[]
+     */
+    public $endpointGroupUnconfirmedIpList;
+
+    /**
      * @var string
      */
     public $state;
@@ -104,26 +109,33 @@ class endpointGroups extends Model
      * @var int
      */
     public $healthCheckPort;
+
+    /**
+     * @var bool
+     */
+    public $healthCheckEnabled;
     protected $_name = [
-        'endpointGroupId'            => 'EndpointGroupId',
-        'endpointGroupIpList'        => 'EndpointGroupIpList',
-        'state'                      => 'State',
-        'healthCheckPath'            => 'HealthCheckPath',
-        'endpointGroupRegion'        => 'EndpointGroupRegion',
-        'healthCheckIntervalSeconds' => 'HealthCheckIntervalSeconds',
-        'trafficPercentage'          => 'TrafficPercentage',
-        'healthCheckProtocol'        => 'HealthCheckProtocol',
-        'thresholdCount'             => 'ThresholdCount',
-        'listenerId'                 => 'ListenerId',
-        'acceleratorId'              => 'AcceleratorId',
-        'endpointConfigurations'     => 'EndpointConfigurations',
-        'portOverrides'              => 'PortOverrides',
-        'forwardingRuleIds'          => 'ForwardingRuleIds',
-        'endpointGroupType'          => 'EndpointGroupType',
-        'endpointRequestProtocol'    => 'EndpointRequestProtocol',
-        'description'                => 'Description',
-        'name'                       => 'Name',
-        'healthCheckPort'            => 'HealthCheckPort',
+        'endpointGroupId'                => 'EndpointGroupId',
+        'endpointGroupIpList'            => 'EndpointGroupIpList',
+        'endpointGroupUnconfirmedIpList' => 'EndpointGroupUnconfirmedIpList',
+        'state'                          => 'State',
+        'healthCheckPath'                => 'HealthCheckPath',
+        'endpointGroupRegion'            => 'EndpointGroupRegion',
+        'healthCheckIntervalSeconds'     => 'HealthCheckIntervalSeconds',
+        'trafficPercentage'              => 'TrafficPercentage',
+        'healthCheckProtocol'            => 'HealthCheckProtocol',
+        'thresholdCount'                 => 'ThresholdCount',
+        'listenerId'                     => 'ListenerId',
+        'acceleratorId'                  => 'AcceleratorId',
+        'endpointConfigurations'         => 'EndpointConfigurations',
+        'portOverrides'                  => 'PortOverrides',
+        'forwardingRuleIds'              => 'ForwardingRuleIds',
+        'endpointGroupType'              => 'EndpointGroupType',
+        'endpointRequestProtocol'        => 'EndpointRequestProtocol',
+        'description'                    => 'Description',
+        'name'                           => 'Name',
+        'healthCheckPort'                => 'HealthCheckPort',
+        'healthCheckEnabled'             => 'HealthCheckEnabled',
     ];
 
     public function validate()
@@ -138,6 +150,9 @@ class endpointGroups extends Model
         }
         if (null !== $this->endpointGroupIpList) {
             $res['EndpointGroupIpList'] = $this->endpointGroupIpList;
+        }
+        if (null !== $this->endpointGroupUnconfirmedIpList) {
+            $res['EndpointGroupUnconfirmedIpList'] = $this->endpointGroupUnconfirmedIpList;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -202,6 +217,9 @@ class endpointGroups extends Model
         if (null !== $this->healthCheckPort) {
             $res['HealthCheckPort'] = $this->healthCheckPort;
         }
+        if (null !== $this->healthCheckEnabled) {
+            $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
+        }
 
         return $res;
     }
@@ -220,6 +238,11 @@ class endpointGroups extends Model
         if (isset($map['EndpointGroupIpList'])) {
             if (!empty($map['EndpointGroupIpList'])) {
                 $model->endpointGroupIpList = $map['EndpointGroupIpList'];
+            }
+        }
+        if (isset($map['EndpointGroupUnconfirmedIpList'])) {
+            if (!empty($map['EndpointGroupUnconfirmedIpList'])) {
+                $model->endpointGroupUnconfirmedIpList = $map['EndpointGroupUnconfirmedIpList'];
             }
         }
         if (isset($map['State'])) {
@@ -286,6 +309,9 @@ class endpointGroups extends Model
         }
         if (isset($map['HealthCheckPort'])) {
             $model->healthCheckPort = $map['HealthCheckPort'];
+        }
+        if (isset($map['HealthCheckEnabled'])) {
+            $model->healthCheckEnabled = $map['HealthCheckEnabled'];
         }
 
         return $model;

@@ -31,6 +31,16 @@ class DescribeEndpointGroupResponseBody extends Model
     public $description;
 
     /**
+     * @var string[]
+     */
+    public $endpointGroupIpList;
+
+    /**
+     * @var string[]
+     */
+    public $endpointGroupUnconfirmedIpList;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -134,32 +144,40 @@ class DescribeEndpointGroupResponseBody extends Model
      * @var bool
      */
     public $enableAccessLog;
+
+    /**
+     * @var bool
+     */
+    public $healthCheckEnabled;
     protected $_name = [
-        'healthCheckIntervalSeconds' => 'HealthCheckIntervalSeconds',
-        'trafficPercentage'          => 'TrafficPercentage',
-        'endpointGroupId'            => 'EndpointGroupId',
-        'description'                => 'Description',
-        'requestId'                  => 'RequestId',
-        'healthCheckPath'            => 'HealthCheckPath',
-        'thresholdCount'             => 'ThresholdCount',
-        'name'                       => 'Name',
-        'endpointGroupRegion'        => 'EndpointGroupRegion',
-        'totalCount'                 => 'TotalCount',
-        'state'                      => 'State',
-        'healthCheckProtocol'        => 'HealthCheckProtocol',
-        'healthCheckPort'            => 'HealthCheckPort',
-        'endpointConfigurations'     => 'EndpointConfigurations',
-        'portOverrides'              => 'PortOverrides',
-        'endpointRequestProtocol'    => 'EndpointRequestProtocol',
-        'endpointGroupType'          => 'EndpointGroupType',
-        'forwardingRuleIds'          => 'ForwardingRuleIds',
-        'acceleratorId'              => 'AcceleratorId',
-        'listenerId'                 => 'ListenerId',
-        'slsRegion'                  => 'SlsRegion',
-        'slsProjectName'             => 'SlsProjectName',
-        'slsLogStoreName'            => 'SlsLogStoreName',
-        'accessLogSwitch'            => 'AccessLogSwitch',
-        'enableAccessLog'            => 'EnableAccessLog',
+        'healthCheckIntervalSeconds'     => 'HealthCheckIntervalSeconds',
+        'trafficPercentage'              => 'TrafficPercentage',
+        'endpointGroupId'                => 'EndpointGroupId',
+        'description'                    => 'Description',
+        'endpointGroupIpList'            => 'EndpointGroupIpList',
+        'endpointGroupUnconfirmedIpList' => 'EndpointGroupUnconfirmedIpList',
+        'requestId'                      => 'RequestId',
+        'healthCheckPath'                => 'HealthCheckPath',
+        'thresholdCount'                 => 'ThresholdCount',
+        'name'                           => 'Name',
+        'endpointGroupRegion'            => 'EndpointGroupRegion',
+        'totalCount'                     => 'TotalCount',
+        'state'                          => 'State',
+        'healthCheckProtocol'            => 'HealthCheckProtocol',
+        'healthCheckPort'                => 'HealthCheckPort',
+        'endpointConfigurations'         => 'EndpointConfigurations',
+        'portOverrides'                  => 'PortOverrides',
+        'endpointRequestProtocol'        => 'EndpointRequestProtocol',
+        'endpointGroupType'              => 'EndpointGroupType',
+        'forwardingRuleIds'              => 'ForwardingRuleIds',
+        'acceleratorId'                  => 'AcceleratorId',
+        'listenerId'                     => 'ListenerId',
+        'slsRegion'                      => 'SlsRegion',
+        'slsProjectName'                 => 'SlsProjectName',
+        'slsLogStoreName'                => 'SlsLogStoreName',
+        'accessLogSwitch'                => 'AccessLogSwitch',
+        'enableAccessLog'                => 'EnableAccessLog',
+        'healthCheckEnabled'             => 'HealthCheckEnabled',
     ];
 
     public function validate()
@@ -180,6 +198,12 @@ class DescribeEndpointGroupResponseBody extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->endpointGroupIpList) {
+            $res['EndpointGroupIpList'] = $this->endpointGroupIpList;
+        }
+        if (null !== $this->endpointGroupUnconfirmedIpList) {
+            $res['EndpointGroupUnconfirmedIpList'] = $this->endpointGroupUnconfirmedIpList;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -256,6 +280,9 @@ class DescribeEndpointGroupResponseBody extends Model
         if (null !== $this->enableAccessLog) {
             $res['EnableAccessLog'] = $this->enableAccessLog;
         }
+        if (null !== $this->healthCheckEnabled) {
+            $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
+        }
 
         return $res;
     }
@@ -279,6 +306,16 @@ class DescribeEndpointGroupResponseBody extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EndpointGroupIpList'])) {
+            if (!empty($map['EndpointGroupIpList'])) {
+                $model->endpointGroupIpList = $map['EndpointGroupIpList'];
+            }
+        }
+        if (isset($map['EndpointGroupUnconfirmedIpList'])) {
+            if (!empty($map['EndpointGroupUnconfirmedIpList'])) {
+                $model->endpointGroupUnconfirmedIpList = $map['EndpointGroupUnconfirmedIpList'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -356,6 +393,9 @@ class DescribeEndpointGroupResponseBody extends Model
         }
         if (isset($map['EnableAccessLog'])) {
             $model->enableAccessLog = $map['EnableAccessLog'];
+        }
+        if (isset($map['HealthCheckEnabled'])) {
+            $model->healthCheckEnabled = $map['HealthCheckEnabled'];
         }
 
         return $model;

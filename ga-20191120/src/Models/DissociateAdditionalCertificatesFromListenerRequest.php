@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListAcceleratorsRequest extends Model
+class DissociateAdditionalCertificatesFromListenerRequest extends Model
 {
     /**
      * @var string
@@ -14,14 +14,9 @@ class ListAcceleratorsRequest extends Model
     public $regionId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $clientToken;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class ListAcceleratorsRequest extends Model
     /**
      * @var string
      */
-    public $state;
+    public $listenerId;
+
+    /**
+     * @var string[]
+     */
+    public $domains;
     protected $_name = [
         'regionId'      => 'RegionId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'clientToken'   => 'ClientToken',
         'acceleratorId' => 'AcceleratorId',
-        'state'         => 'State',
+        'listenerId'    => 'ListenerId',
+        'domains'       => 'Domains',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class ListAcceleratorsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->domains) {
+            $res['Domains'] = $this->domains;
         }
 
         return $res;
@@ -69,7 +69,7 @@ class ListAcceleratorsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListAcceleratorsRequest
+     * @return DissociateAdditionalCertificatesFromListenerRequest
      */
     public static function fromMap($map = [])
     {
@@ -77,17 +77,19 @@ class ListAcceleratorsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['Domains'])) {
+            if (!empty($map['Domains'])) {
+                $model->domains = $map['Domains'];
+            }
         }
 
         return $model;

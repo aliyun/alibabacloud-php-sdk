@@ -37,6 +37,11 @@ class endpointConfigurations extends Model
      * @var int
      */
     public $probePort;
+
+    /**
+     * @var string
+     */
+    public $endpointId;
     protected $_name = [
         'type'                       => 'Type',
         'enableClientIPPreservation' => 'EnableClientIPPreservation',
@@ -44,6 +49,7 @@ class endpointConfigurations extends Model
         'probeProtocol'              => 'ProbeProtocol',
         'endpoint'                   => 'Endpoint',
         'probePort'                  => 'ProbePort',
+        'endpointId'                 => 'EndpointId',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class endpointConfigurations extends Model
         }
         if (null !== $this->probePort) {
             $res['ProbePort'] = $this->probePort;
+        }
+        if (null !== $this->endpointId) {
+            $res['EndpointId'] = $this->endpointId;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class endpointConfigurations extends Model
         }
         if (isset($map['ProbePort'])) {
             $model->probePort = $map['ProbePort'];
+        }
+        if (isset($map['EndpointId'])) {
+            $model->endpointId = $map['EndpointId'];
         }
 
         return $model;

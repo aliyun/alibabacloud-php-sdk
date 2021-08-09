@@ -84,6 +84,11 @@ class UpdateEndpointGroupRequest extends Model
      * @var portOverrides[]
      */
     public $portOverrides;
+
+    /**
+     * @var bool
+     */
+    public $healthCheckEnabled;
     protected $_name = [
         'regionId'                   => 'RegionId',
         'clientToken'                => 'ClientToken',
@@ -100,6 +105,7 @@ class UpdateEndpointGroupRequest extends Model
         'endpointConfigurations'     => 'EndpointConfigurations',
         'endpointRequestProtocol'    => 'EndpointRequestProtocol',
         'portOverrides'              => 'PortOverrides',
+        'healthCheckEnabled'         => 'HealthCheckEnabled',
     ];
 
     public function validate()
@@ -165,6 +171,9 @@ class UpdateEndpointGroupRequest extends Model
                     $res['PortOverrides'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->healthCheckEnabled) {
+            $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
         }
 
         return $res;
@@ -234,6 +243,9 @@ class UpdateEndpointGroupRequest extends Model
                     $model->portOverrides[$n++] = null !== $item ? portOverrides::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['HealthCheckEnabled'])) {
+            $model->healthCheckEnabled = $map['HealthCheckEnabled'];
         }
 
         return $model;

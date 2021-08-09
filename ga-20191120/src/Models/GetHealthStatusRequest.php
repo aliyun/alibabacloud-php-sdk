@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListAcceleratorsRequest extends Model
+class GetHealthStatusRequest extends Model
 {
     /**
      * @var string
@@ -14,14 +14,14 @@ class ListAcceleratorsRequest extends Model
     public $regionId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $clientToken;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $pageSize;
+    public $dryRun;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class ListAcceleratorsRequest extends Model
     /**
      * @var string
      */
-    public $state;
+    public $listenerId;
     protected $_name = [
         'regionId'      => 'RegionId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'clientToken'   => 'ClientToken',
+        'dryRun'        => 'DryRun',
         'acceleratorId' => 'AcceleratorId',
-        'state'         => 'State',
+        'listenerId'    => 'ListenerId',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class ListAcceleratorsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
         }
 
         return $res;
@@ -69,7 +69,7 @@ class ListAcceleratorsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListAcceleratorsRequest
+     * @return GetHealthStatusRequest
      */
     public static function fromMap($map = [])
     {
@@ -77,17 +77,17 @@ class ListAcceleratorsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
         }
 
         return $model;

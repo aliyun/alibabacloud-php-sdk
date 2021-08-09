@@ -2,38 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ga\V20191120\Models;
+namespace AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest;
 
-use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupRequest\endpointConfigurations;
-use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupRequest\portOverrides;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations\endpointConfigurations;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest\endpointGroupConfigurations\portOverrides;
 use AlibabaCloud\Tea\Model;
 
-class CreateEndpointGroupRequest extends Model
+class endpointGroupConfigurations extends Model
 {
     /**
      * @var string
      */
-    public $regionId;
+    public $endpointGroupName;
 
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $acceleratorId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $endpointGroupDescription;
 
     /**
      * @var string
@@ -41,14 +26,14 @@ class CreateEndpointGroupRequest extends Model
     public $endpointGroupRegion;
 
     /**
-     * @var string
-     */
-    public $listenerId;
-
-    /**
      * @var int
      */
     public $trafficPercentage;
+
+    /**
+     * @var bool
+     */
+    public $healthCheckEnabled;
 
     /**
      * @var int
@@ -98,26 +83,29 @@ class CreateEndpointGroupRequest extends Model
     /**
      * @var bool
      */
-    public $healthCheckEnabled;
+    public $enableClientIPPreservationToa;
+
+    /**
+     * @var bool
+     */
+    public $enableClientIPPreservationProxyProtocol;
     protected $_name = [
-        'regionId'                   => 'RegionId',
-        'clientToken'                => 'ClientToken',
-        'acceleratorId'              => 'AcceleratorId',
-        'name'                       => 'Name',
-        'description'                => 'Description',
-        'endpointGroupRegion'        => 'EndpointGroupRegion',
-        'listenerId'                 => 'ListenerId',
-        'trafficPercentage'          => 'TrafficPercentage',
-        'healthCheckIntervalSeconds' => 'HealthCheckIntervalSeconds',
-        'healthCheckPath'            => 'HealthCheckPath',
-        'healthCheckPort'            => 'HealthCheckPort',
-        'healthCheckProtocol'        => 'HealthCheckProtocol',
-        'thresholdCount'             => 'ThresholdCount',
-        'endpointConfigurations'     => 'EndpointConfigurations',
-        'endpointRequestProtocol'    => 'EndpointRequestProtocol',
-        'endpointGroupType'          => 'EndpointGroupType',
-        'portOverrides'              => 'PortOverrides',
-        'healthCheckEnabled'         => 'HealthCheckEnabled',
+        'endpointGroupName'                       => 'EndpointGroupName',
+        'endpointGroupDescription'                => 'EndpointGroupDescription',
+        'endpointGroupRegion'                     => 'EndpointGroupRegion',
+        'trafficPercentage'                       => 'TrafficPercentage',
+        'healthCheckEnabled'                      => 'HealthCheckEnabled',
+        'healthCheckIntervalSeconds'              => 'HealthCheckIntervalSeconds',
+        'healthCheckPath'                         => 'HealthCheckPath',
+        'healthCheckPort'                         => 'HealthCheckPort',
+        'healthCheckProtocol'                     => 'HealthCheckProtocol',
+        'thresholdCount'                          => 'ThresholdCount',
+        'endpointConfigurations'                  => 'EndpointConfigurations',
+        'endpointRequestProtocol'                 => 'EndpointRequestProtocol',
+        'endpointGroupType'                       => 'EndpointGroupType',
+        'portOverrides'                           => 'PortOverrides',
+        'enableClientIPPreservationToa'           => 'EnableClientIPPreservationToa',
+        'enableClientIPPreservationProxyProtocol' => 'EnableClientIPPreservationProxyProtocol',
     ];
 
     public function validate()
@@ -127,29 +115,20 @@ class CreateEndpointGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->endpointGroupName) {
+            $res['EndpointGroupName'] = $this->endpointGroupName;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->endpointGroupDescription) {
+            $res['EndpointGroupDescription'] = $this->endpointGroupDescription;
         }
         if (null !== $this->endpointGroupRegion) {
             $res['EndpointGroupRegion'] = $this->endpointGroupRegion;
         }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
-        }
         if (null !== $this->trafficPercentage) {
             $res['TrafficPercentage'] = $this->trafficPercentage;
+        }
+        if (null !== $this->healthCheckEnabled) {
+            $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
         }
         if (null !== $this->healthCheckIntervalSeconds) {
             $res['HealthCheckIntervalSeconds'] = $this->healthCheckIntervalSeconds;
@@ -190,8 +169,11 @@ class CreateEndpointGroupRequest extends Model
                 }
             }
         }
-        if (null !== $this->healthCheckEnabled) {
-            $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
+        if (null !== $this->enableClientIPPreservationToa) {
+            $res['EnableClientIPPreservationToa'] = $this->enableClientIPPreservationToa;
+        }
+        if (null !== $this->enableClientIPPreservationProxyProtocol) {
+            $res['EnableClientIPPreservationProxyProtocol'] = $this->enableClientIPPreservationProxyProtocol;
         }
 
         return $res;
@@ -200,34 +182,25 @@ class CreateEndpointGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateEndpointGroupRequest
+     * @return endpointGroupConfigurations
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['EndpointGroupName'])) {
+            $model->endpointGroupName = $map['EndpointGroupName'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['EndpointGroupDescription'])) {
+            $model->endpointGroupDescription = $map['EndpointGroupDescription'];
         }
         if (isset($map['EndpointGroupRegion'])) {
             $model->endpointGroupRegion = $map['EndpointGroupRegion'];
         }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
-        }
         if (isset($map['TrafficPercentage'])) {
             $model->trafficPercentage = $map['TrafficPercentage'];
+        }
+        if (isset($map['HealthCheckEnabled'])) {
+            $model->healthCheckEnabled = $map['HealthCheckEnabled'];
         }
         if (isset($map['HealthCheckIntervalSeconds'])) {
             $model->healthCheckIntervalSeconds = $map['HealthCheckIntervalSeconds'];
@@ -268,8 +241,11 @@ class CreateEndpointGroupRequest extends Model
                 }
             }
         }
-        if (isset($map['HealthCheckEnabled'])) {
-            $model->healthCheckEnabled = $map['HealthCheckEnabled'];
+        if (isset($map['EnableClientIPPreservationToa'])) {
+            $model->enableClientIPPreservationToa = $map['EnableClientIPPreservationToa'];
+        }
+        if (isset($map['EnableClientIPPreservationProxyProtocol'])) {
+            $model->enableClientIPPreservationProxyProtocol = $map['EnableClientIPPreservationProxyProtocol'];
         }
 
         return $model;
