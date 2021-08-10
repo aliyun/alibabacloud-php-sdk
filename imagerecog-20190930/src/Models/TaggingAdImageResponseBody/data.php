@@ -4,17 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imagerecog\V20190930\Models\TaggingAdImageResponseBody;
 
-use AlibabaCloud\SDK\Imagerecog\V20190930\Models\TaggingAdImageResponseBody\data\tags;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @var tags[]
+     * @var mixed[]
      */
-    public $tags;
+    public $tagInfo;
     protected $_name = [
-        'tags' => 'Tags',
+        'tagInfo' => 'TagInfo',
     ];
 
     public function validate()
@@ -24,14 +23,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagInfo) {
+            $res['TagInfo'] = $this->tagInfo;
         }
 
         return $res;
@@ -45,14 +38,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['TagInfo'])) {
+            $model->tagInfo = $map['TagInfo'];
         }
 
         return $model;
