@@ -6,19 +6,32 @@ namespace AlibabaCloud\SDK\Imp\V20210630;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Imp\V20210630\Models\AddMemberRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\AddMemberResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\AgreeLinkMicRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\AgreeLinkMicResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ApplyLinkMicRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ApplyLinkMicResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CancelApplyLinkMicRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CancelApplyLinkMicResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppTemplateRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppTemplateResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppTemplateShrinkRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CreateConferenceRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CreateConferenceResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateRoomResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CreateRoomShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteAppRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteAppResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteAppTemplateRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteAppTemplateResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteConferenceRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteConferenceResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteRoomRequest;
@@ -29,6 +42,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppTemplateRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAppTemplateResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAuthTokenRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetAuthTokenResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetConferenceRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetConferenceResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetDomainOwnerVerifyContentRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetDomainOwnerVerifyContentResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetImpProductStatusResponse;
@@ -39,16 +54,26 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetRoomResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListApplyLinkMicUsersRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListApplyLinkMicUsersResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppTemplatesRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppTemplatesResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListComponentsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListComponentsResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomLivesRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomLivesResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\RejectLinkMicRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\RejectLinkMicResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\RemoveMemberRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\RemoveMemberResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToAllRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToAllResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToUsersRequest;
@@ -62,6 +87,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateConfigResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateConfigShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateConferenceRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateConferenceResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateRoomRequest;
@@ -163,6 +190,34 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param RemoveMemberRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RemoveMemberResponse
+     */
+    public function removeMemberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveMemberResponse::fromMap($this->doRPCRequest('RemoveMember', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveMemberRequest $request
+     *
+     * @return RemoveMemberResponse
+     */
+    public function removeMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeMemberWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteAppRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -188,6 +243,62 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListApplyLinkMicUsersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListApplyLinkMicUsersResponse
+     */
+    public function listApplyLinkMicUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListApplyLinkMicUsersResponse::fromMap($this->doRPCRequest('ListApplyLinkMicUsers', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListApplyLinkMicUsersRequest $request
+     *
+     * @return ListApplyLinkMicUsersResponse
+     */
+    public function listApplyLinkMicUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplyLinkMicUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRoomLivesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListRoomLivesResponse
+     */
+    public function listRoomLivesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListRoomLivesResponse::fromMap($this->doRPCRequest('ListRoomLives', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListRoomLivesRequest $request
+     *
+     * @return ListRoomLivesResponse
+     */
+    public function listRoomLives($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRoomLivesWithOptions($request, $runtime);
     }
 
     /**
@@ -308,6 +419,62 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param GetConferenceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetConferenceResponse
+     */
+    public function getConferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetConferenceResponse::fromMap($this->doRPCRequest('GetConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetConferenceRequest $request
+     *
+     * @return GetConferenceResponse
+     */
+    public function getConference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RejectLinkMicRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RejectLinkMicResponse
+     */
+    public function rejectLinkMicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RejectLinkMicResponse::fromMap($this->doRPCRequest('RejectLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RejectLinkMicRequest $request
+     *
+     * @return RejectLinkMicResponse
+     */
+    public function rejectLinkMic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rejectLinkMicWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAppsRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -333,6 +500,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddMemberRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AddMemberResponse
+     */
+    public function addMemberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddMemberResponse::fromMap($this->doRPCRequest('AddMember', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddMemberRequest $request
+     *
+     * @return AddMemberResponse
+     */
+    public function addMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMemberWithOptions($request, $runtime);
     }
 
     /**
@@ -389,6 +584,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListConferenceUsersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListConferenceUsersResponse
+     */
+    public function listConferenceUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListConferenceUsersResponse::fromMap($this->doRPCRequest('ListConferenceUsers', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListConferenceUsersRequest $request
+     *
+     * @return ListConferenceUsersResponse
+     */
+    public function listConferenceUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConferenceUsersWithOptions($request, $runtime);
     }
 
     /**
@@ -509,6 +732,62 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param ApplyLinkMicRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ApplyLinkMicResponse
+     */
+    public function applyLinkMicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ApplyLinkMicResponse::fromMap($this->doRPCRequest('ApplyLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ApplyLinkMicRequest $request
+     *
+     * @return ApplyLinkMicResponse
+     */
+    public function applyLinkMic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyLinkMicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelApplyLinkMicRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CancelApplyLinkMicResponse
+     */
+    public function cancelApplyLinkMicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelApplyLinkMicResponse::fromMap($this->doRPCRequest('CancelApplyLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelApplyLinkMicRequest $request
+     *
+     * @return CancelApplyLinkMicResponse
+     */
+    public function cancelApplyLinkMic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelApplyLinkMicWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StopLiveRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -562,6 +841,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateConferenceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateConferenceResponse
+     */
+    public function createConferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateConferenceResponse::fromMap($this->doRPCRequest('CreateConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateConferenceRequest $request
+     *
+     * @return CreateConferenceResponse
+     */
+    public function createConference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createConferenceWithOptions($request, $runtime);
     }
 
     /**
@@ -651,6 +958,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendCustomMessageToAllWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AgreeLinkMicRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AgreeLinkMicResponse
+     */
+    public function agreeLinkMicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AgreeLinkMicResponse::fromMap($this->doRPCRequest('AgreeLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AgreeLinkMicRequest $request
+     *
+     * @return AgreeLinkMicResponse
+     */
+    public function agreeLinkMic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->agreeLinkMicWithOptions($request, $runtime);
     }
 
     /**
@@ -900,14 +1235,19 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param CreateRoomRequest $request
+     * @param CreateRoomRequest $tmpReq
      * @param RuntimeOptions    $runtime
      *
      * @return CreateRoomResponse
      */
-    public function createRoomWithOptions($request, $runtime)
+    public function createRoomWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateRoomShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extension)) {
+            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
+        }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
@@ -925,6 +1265,62 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateConferenceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateConferenceResponse
+     */
+    public function updateConferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateConferenceResponse::fromMap($this->doRPCRequest('UpdateConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateConferenceRequest $request
+     *
+     * @return UpdateConferenceResponse
+     */
+    public function updateConference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateConferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteConferenceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteConferenceResponse
+     */
+    public function deleteConferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteConferenceResponse::fromMap($this->doRPCRequest('DeleteConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteConferenceRequest $request
+     *
+     * @return DeleteConferenceResponse
+     */
+    public function deleteConference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteConferenceWithOptions($request, $runtime);
     }
 
     /**
