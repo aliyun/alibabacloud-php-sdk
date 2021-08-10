@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetConnDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetConnDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotConfigRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotConfigResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotSceneDataRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotSceneDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotTagRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetHotspotTagResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetJobRequest;
@@ -55,6 +57,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetRectifyImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetRectifyImageResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSceneBuildTaskStatusRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSceneBuildTaskStatusResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewInfoRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetScenePreviewInfoResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSingleConnDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSingleConnDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetSubSceneTaskStatusRequest;
@@ -1353,6 +1357,34 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param GetHotspotSceneDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetHotspotSceneDataResponse
+     */
+    public function getHotspotSceneDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetHotspotSceneDataResponse::fromMap($this->doRPCRequest('GetHotspotSceneData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetHotspotSceneDataRequest $request
+     *
+     * @return GetHotspotSceneDataResponse
+     */
+    public function getHotspotSceneData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHotspotSceneDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ScenePublishRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1518,6 +1550,34 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetScenePreviewInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetScenePreviewInfoResponse
+     */
+    public function getScenePreviewInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetScenePreviewInfoResponse::fromMap($this->doRPCRequest('GetScenePreviewInfo', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetScenePreviewInfoRequest $request
+     *
+     * @return GetScenePreviewInfoResponse
+     */
+    public function getScenePreviewInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getScenePreviewInfoWithOptions($request, $runtime);
     }
 
     /**
