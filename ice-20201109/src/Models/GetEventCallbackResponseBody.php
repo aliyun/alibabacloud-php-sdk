@@ -19,9 +19,15 @@ class GetEventCallbackResponseBody extends Model
      * @var string
      */
     public $callbackQueueName;
+
+    /**
+     * @var string
+     */
+    public $eventTypeList;
     protected $_name = [
         'requestId'         => 'RequestId',
         'callbackQueueName' => 'CallbackQueueName',
+        'eventTypeList'     => 'EventTypeList',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class GetEventCallbackResponseBody extends Model
         }
         if (null !== $this->callbackQueueName) {
             $res['CallbackQueueName'] = $this->callbackQueueName;
+        }
+        if (null !== $this->eventTypeList) {
+            $res['EventTypeList'] = $this->eventTypeList;
         }
 
         return $res;
@@ -54,6 +63,9 @@ class GetEventCallbackResponseBody extends Model
         }
         if (isset($map['CallbackQueueName'])) {
             $model->callbackQueueName = $map['CallbackQueueName'];
+        }
+        if (isset($map['EventTypeList'])) {
+            $model->eventTypeList = $map['EventTypeList'];
         }
 
         return $model;

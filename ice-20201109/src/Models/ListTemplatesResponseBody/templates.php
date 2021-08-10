@@ -91,6 +91,13 @@ class templates extends Model
      * @var string
      */
     public $coverURL;
+
+    /**
+     * @description ClipsParam
+     *
+     * @var string
+     */
+    public $clipsParam;
     protected $_name = [
         'templateId'         => 'TemplateId',
         'name'               => 'Name',
@@ -104,6 +111,7 @@ class templates extends Model
         'creationTime'       => 'CreationTime',
         'modifiedTime'       => 'ModifiedTime',
         'coverURL'           => 'CoverURL',
+        'clipsParam'         => 'ClipsParam',
     ];
 
     public function validate()
@@ -148,6 +156,9 @@ class templates extends Model
         }
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
+        }
+        if (null !== $this->clipsParam) {
+            $res['ClipsParam'] = $this->clipsParam;
         }
 
         return $res;
@@ -196,6 +207,9 @@ class templates extends Model
         }
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
+        }
+        if (isset($map['ClipsParam'])) {
+            $model->clipsParam = $map['ClipsParam'];
         }
 
         return $model;
