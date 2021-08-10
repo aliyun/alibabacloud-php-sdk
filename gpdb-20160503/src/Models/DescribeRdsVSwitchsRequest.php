@@ -36,6 +36,11 @@ class DescribeRdsVSwitchsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $vpcId;
 
     /**
@@ -48,6 +53,7 @@ class DescribeRdsVSwitchsRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
         'vpcId'                => 'VpcId',
         'zoneId'               => 'ZoneId',
     ];
@@ -73,6 +79,9 @@ class DescribeRdsVSwitchsRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -106,6 +115,9 @@ class DescribeRdsVSwitchsRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

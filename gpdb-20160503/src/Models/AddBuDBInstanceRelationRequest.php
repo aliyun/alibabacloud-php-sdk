@@ -30,8 +30,6 @@ class AddBuDBInstanceRelationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('businessUnit', $this->businessUnit, true);
     }
 
     public function toMap()

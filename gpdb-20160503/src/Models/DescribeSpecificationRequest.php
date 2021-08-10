@@ -42,9 +42,6 @@ class DescribeSpecificationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('storageType', $this->storageType, true);
-        Model::validateRequired('cpuCores', $this->cpuCores, true);
-        Model::validateRequired('totalNodeNum', $this->totalNodeNum, true);
     }
 
     public function toMap()

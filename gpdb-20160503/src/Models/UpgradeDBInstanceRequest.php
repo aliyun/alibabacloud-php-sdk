@@ -48,10 +48,6 @@ class UpgradeDBInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('DBInstanceClass', $this->DBInstanceClass, true);
-        Model::validateRequired('DBInstanceGroupCount', $this->DBInstanceGroupCount, true);
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
     }
 
     public function toMap()

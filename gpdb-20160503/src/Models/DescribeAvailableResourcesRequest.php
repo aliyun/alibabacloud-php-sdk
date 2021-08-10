@@ -30,8 +30,6 @@ class DescribeAvailableResourcesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('region', $this->region, true);
-        Model::validateRequired('zoneId', $this->zoneId, true);
     }
 
     public function toMap()

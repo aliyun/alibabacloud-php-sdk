@@ -36,8 +36,6 @@ class ModifySecurityIpsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('securityIPList', $this->securityIPList, true);
     }
 
     public function toMap()

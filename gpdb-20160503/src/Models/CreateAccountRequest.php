@@ -48,9 +48,6 @@ class CreateAccountRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('accountName', $this->accountName, true);
-        Model::validateRequired('accountPassword', $this->accountPassword, true);
     }
 
     public function toMap()

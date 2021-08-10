@@ -114,14 +114,6 @@ class CreateDBInstanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('zoneId', $this->zoneId, true);
-        Model::validateRequired('engineVersion', $this->engineVersion, true);
-        Model::validateRequired('engine', $this->engine, true);
-        Model::validateRequired('DBInstanceClass', $this->DBInstanceClass, true);
-        Model::validateRequired('DBInstanceGroupCount', $this->DBInstanceGroupCount, true);
-        Model::validateRequired('securityIPList', $this->securityIPList, true);
-        Model::validateRequired('clientToken', $this->clientToken, true);
     }
 
     public function toMap()

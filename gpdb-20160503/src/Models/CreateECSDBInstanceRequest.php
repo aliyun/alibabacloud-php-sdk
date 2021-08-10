@@ -117,6 +117,16 @@ class CreateECSDBInstanceRequest extends Model
      * @var int
      */
     public $masterNodeNum;
+
+    /**
+     * @var string
+     */
+    public $srcDbInstanceName;
+
+    /**
+     * @var string
+     */
+    public $backupId;
     protected $_name = [
         'ownerId'               => 'OwnerId',
         'regionId'              => 'RegionId',
@@ -140,18 +150,12 @@ class CreateECSDBInstanceRequest extends Model
         'encryptionKey'         => 'EncryptionKey',
         'encryptionType'        => 'EncryptionType',
         'masterNodeNum'         => 'MasterNodeNum',
+        'srcDbInstanceName'     => 'SrcDbInstanceName',
+        'backupId'              => 'BackupId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('zoneId', $this->zoneId, true);
-        Model::validateRequired('engineVersion', $this->engineVersion, true);
-        Model::validateRequired('engine', $this->engine, true);
-        Model::validateRequired('instanceSpec', $this->instanceSpec, true);
-        Model::validateRequired('segNodeNum', $this->segNodeNum, true);
-        Model::validateRequired('segStorageType', $this->segStorageType, true);
-        Model::validateRequired('storageSize', $this->storageSize, true);
     }
 
     public function toMap()
@@ -222,6 +226,12 @@ class CreateECSDBInstanceRequest extends Model
         }
         if (null !== $this->masterNodeNum) {
             $res['MasterNodeNum'] = $this->masterNodeNum;
+        }
+        if (null !== $this->srcDbInstanceName) {
+            $res['SrcDbInstanceName'] = $this->srcDbInstanceName;
+        }
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
         }
 
         return $res;
@@ -300,6 +310,12 @@ class CreateECSDBInstanceRequest extends Model
         }
         if (isset($map['MasterNodeNum'])) {
             $model->masterNodeNum = $map['MasterNodeNum'];
+        }
+        if (isset($map['SrcDbInstanceName'])) {
+            $model->srcDbInstanceName = $map['SrcDbInstanceName'];
+        }
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
         }
 
         return $model;

@@ -30,9 +30,6 @@ class SwitchDBInstanceNetTypeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('connectionStringPrefix', $this->connectionStringPrefix, true);
-        Model::validateRequired('port', $this->port, true);
     }
 
     public function toMap()

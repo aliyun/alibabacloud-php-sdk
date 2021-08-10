@@ -24,8 +24,6 @@ class ModifyDBInstanceDescriptionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('DBInstanceDescription', $this->DBInstanceDescription, true);
     }
 
     public function toMap()

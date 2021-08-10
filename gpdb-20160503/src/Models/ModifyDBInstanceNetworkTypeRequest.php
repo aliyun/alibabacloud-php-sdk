@@ -42,8 +42,6 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('instanceNetworkType', $this->instanceNetworkType, true);
     }
 
     public function toMap()

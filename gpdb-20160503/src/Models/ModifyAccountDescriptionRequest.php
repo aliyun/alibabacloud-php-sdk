@@ -30,9 +30,6 @@ class ModifyAccountDescriptionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('accountName', $this->accountName, true);
-        Model::validateRequired('accountDescription', $this->accountDescription, true);
     }
 
     public function toMap()

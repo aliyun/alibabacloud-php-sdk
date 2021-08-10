@@ -9,53 +9,33 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBVersionResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var UpgradeDBVersionResponseBody
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceName;
-
-    /**
-     * @var string
-     */
-    public $taskId;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'DBInstanceId'   => 'DBInstanceId',
-        'DBInstanceName' => 'DBInstanceName',
-        'taskId'         => 'TaskId',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('DBInstanceName', $this->DBInstanceName, true);
-        Model::validateRequired('taskId', $this->taskId, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -69,17 +49,11 @@ class UpgradeDBVersionResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['body'])) {
+            $model->body = UpgradeDBVersionResponseBody::fromMap($map['body']);
         }
 
         return $model;

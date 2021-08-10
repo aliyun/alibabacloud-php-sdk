@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class AddBuDBInstanceRelationResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var AddBuDBInstanceRelationResponseBody
      */
-    public $businessUnit;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceName;
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'businessUnit'   => 'BusinessUnit',
-        'DBInstanceName' => 'DBInstanceName',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('businessUnit', $this->businessUnit, true);
-        Model::validateRequired('DBInstanceName', $this->DBInstanceName, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->businessUnit) {
-            $res['BusinessUnit'] = $this->businessUnit;
-        }
-        if (null !== $this->DBInstanceName) {
-            $res['DBInstanceName'] = $this->DBInstanceName;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class AddBuDBInstanceRelationResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['BusinessUnit'])) {
-            $model->businessUnit = $map['BusinessUnit'];
-        }
-        if (isset($map['DBInstanceName'])) {
-            $model->DBInstanceName = $map['DBInstanceName'];
+        if (isset($map['body'])) {
+            $model->body = AddBuDBInstanceRelationResponseBody::fromMap($map['body']);
         }
 
         return $model;

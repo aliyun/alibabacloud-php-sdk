@@ -24,8 +24,6 @@ class ModifySQLCollectorPolicyRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('SQLCollectorStatus', $this->SQLCollectorStatus, true);
     }
 
     public function toMap()

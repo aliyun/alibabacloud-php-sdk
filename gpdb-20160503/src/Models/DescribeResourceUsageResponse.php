@@ -9,83 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeResourceUsageResponseBody
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $engine;
-
-    /**
-     * @var int
-     */
-    public $diskUsed;
-
-    /**
-     * @var int
-     */
-    public $dataSize;
-
-    /**
-     * @var int
-     */
-    public $logSize;
-
-    /**
-     * @var int
-     */
-    public $backupSize;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'DBInstanceId' => 'DBInstanceId',
-        'engine'       => 'Engine',
-        'diskUsed'     => 'DiskUsed',
-        'dataSize'     => 'DataSize',
-        'logSize'      => 'LogSize',
-        'backupSize'   => 'BackupSize',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('engine', $this->engine, true);
-        Model::validateRequired('diskUsed', $this->diskUsed, true);
-        Model::validateRequired('dataSize', $this->dataSize, true);
-        Model::validateRequired('logSize', $this->logSize, true);
-        Model::validateRequired('backupSize', $this->backupSize, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
-        }
-        if (null !== $this->diskUsed) {
-            $res['DiskUsed'] = $this->diskUsed;
-        }
-        if (null !== $this->dataSize) {
-            $res['DataSize'] = $this->dataSize;
-        }
-        if (null !== $this->logSize) {
-            $res['LogSize'] = $this->logSize;
-        }
-        if (null !== $this->backupSize) {
-            $res['BackupSize'] = $this->backupSize;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -99,26 +49,11 @@ class DescribeResourceUsageResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
-        }
-        if (isset($map['DiskUsed'])) {
-            $model->diskUsed = $map['DiskUsed'];
-        }
-        if (isset($map['DataSize'])) {
-            $model->dataSize = $map['DataSize'];
-        }
-        if (isset($map['LogSize'])) {
-            $model->logSize = $map['LogSize'];
-        }
-        if (isset($map['BackupSize'])) {
-            $model->backupSize = $map['BackupSize'];
+        if (isset($map['body'])) {
+            $model->body = DescribeResourceUsageResponseBody::fromMap($map['body']);
         }
 
         return $model;

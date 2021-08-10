@@ -30,8 +30,6 @@ class ReleaseInstancePublicConnectionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('currentConnectionString', $this->currentConnectionString, true);
     }
 
     public function toMap()

@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceNetInfoResponse\DBInstanceNetInfos;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstanceNetInfoResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var DescribeDBInstanceNetInfoResponseBody
      */
-    public $instanceNetworkType;
-
-    /**
-     * @var DBInstanceNetInfos
-     */
-    public $DBInstanceNetInfos;
+    public $body;
     protected $_name = [
-        'requestId'           => 'RequestId',
-        'instanceNetworkType' => 'InstanceNetworkType',
-        'DBInstanceNetInfos'  => 'DBInstanceNetInfos',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('instanceNetworkType', $this->instanceNetworkType, true);
-        Model::validateRequired('DBInstanceNetInfos', $this->DBInstanceNetInfos, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->instanceNetworkType) {
-            $res['InstanceNetworkType'] = $this->instanceNetworkType;
-        }
-        if (null !== $this->DBInstanceNetInfos) {
-            $res['DBInstanceNetInfos'] = null !== $this->DBInstanceNetInfos ? $this->DBInstanceNetInfos->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class DescribeDBInstanceNetInfoResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['InstanceNetworkType'])) {
-            $model->instanceNetworkType = $map['InstanceNetworkType'];
-        }
-        if (isset($map['DBInstanceNetInfos'])) {
-            $model->DBInstanceNetInfos = DBInstanceNetInfos::fromMap($map['DBInstanceNetInfos']);
+        if (isset($map['body'])) {
+            $model->body = DescribeDBInstanceNetInfoResponseBody::fromMap($map['body']);
         }
 
         return $model;

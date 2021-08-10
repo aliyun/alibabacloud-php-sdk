@@ -36,6 +36,11 @@ class DescribeRdsVpcsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'securityToken'        => 'SecurityToken',
@@ -43,6 +48,7 @@ class DescribeRdsVpcsRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
+        'regionId'             => 'RegionId',
         'zoneId'               => 'ZoneId',
     ];
 
@@ -67,6 +73,9 @@ class DescribeRdsVpcsRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -97,6 +106,9 @@ class DescribeRdsVpcsRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

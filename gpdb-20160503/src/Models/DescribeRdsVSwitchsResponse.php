@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVSwitchsResponse\vSwitches;
 use AlibabaCloud\Tea\Model;
 
 class DescribeRdsVSwitchsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var vSwitches
+     * @var DescribeRdsVSwitchsResponseBody
      */
-    public $vSwitches;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'vSwitches' => 'VSwitches',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('vSwitches', $this->vSwitches, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->vSwitches) {
-            $res['VSwitches'] = null !== $this->vSwitches ? $this->vSwitches->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeRdsVSwitchsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['VSwitches'])) {
-            $model->vSwitches = vSwitches::fromMap($map['VSwitches']);
+        if (isset($map['body'])) {
+            $model->body = DescribeRdsVSwitchsResponseBody::fromMap($map['body']);
         }
 
         return $model;

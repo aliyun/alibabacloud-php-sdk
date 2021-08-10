@@ -24,8 +24,6 @@ class ModifyDBInstanceConnectionModeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('connectionMode', $this->connectionMode, true);
     }
 
     public function toMap()

@@ -30,8 +30,6 @@ class ModifyParametersRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('parameters', $this->parameters, true);
     }
 
     public function toMap()

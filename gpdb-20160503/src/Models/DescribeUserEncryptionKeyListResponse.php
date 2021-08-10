@@ -4,45 +4,38 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeUserEncryptionKeyListResponse\kmsKeys;
 use AlibabaCloud\Tea\Model;
 
 class DescribeUserEncryptionKeyListResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var kmsKeys[]
+     * @var DescribeUserEncryptionKeyListResponseBody
      */
-    public $kmsKeys;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'kmsKeys'   => 'KmsKeys',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('kmsKeys', $this->kmsKeys, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->kmsKeys) {
-            $res['KmsKeys'] = [];
-            if (null !== $this->kmsKeys && \is_array($this->kmsKeys)) {
-                $n = 0;
-                foreach ($this->kmsKeys as $item) {
-                    $res['KmsKeys'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +49,11 @@ class DescribeUserEncryptionKeyListResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['KmsKeys'])) {
-            if (!empty($map['KmsKeys'])) {
-                $model->kmsKeys = [];
-                $n              = 0;
-                foreach ($map['KmsKeys'] as $item) {
-                    $model->kmsKeys[$n++] = null !== $item ? kmsKeys::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeUserEncryptionKeyListResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -18,7 +18,6 @@ class DescribeDBInstanceNetInfoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
     }
 
     public function toMap()

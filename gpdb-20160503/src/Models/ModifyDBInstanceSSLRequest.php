@@ -30,8 +30,6 @@ class ModifyDBInstanceSSLRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DBInstanceId', $this->DBInstanceId, true);
-        Model::validateRequired('SSLEnabled', $this->SSLEnabled, true);
     }
 
     public function toMap()
