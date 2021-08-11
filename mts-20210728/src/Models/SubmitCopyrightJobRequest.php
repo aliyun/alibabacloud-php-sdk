@@ -44,6 +44,20 @@ class SubmitCopyrightJobRequest extends Model
     public $message;
 
     /**
+     * @description 水印起始时间(单位是秒)，不填写默认为0
+     *
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @description 水印结束时间(单位是秒)，不填默认为60000
+     *
+     * @var int
+     */
+    public $totalTime;
+
+    /**
      * @description 输出的视频，oss三元组
      *
      * @var string
@@ -62,6 +76,8 @@ class SubmitCopyrightJobRequest extends Model
         'input'       => 'Input',
         'level'       => 'Level',
         'message'     => 'Message',
+        'startTime'   => 'StartTime',
+        'totalTime'   => 'TotalTime',
         'output'      => 'Output',
         'userData'    => 'UserData',
     ];
@@ -87,6 +103,12 @@ class SubmitCopyrightJobRequest extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->totalTime) {
+            $res['TotalTime'] = $this->totalTime;
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
@@ -120,6 +142,12 @@ class SubmitCopyrightJobRequest extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TotalTime'])) {
+            $model->totalTime = $map['TotalTime'];
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];

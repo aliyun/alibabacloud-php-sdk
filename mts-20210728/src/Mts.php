@@ -463,6 +463,12 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->message)) {
             @$body['Message'] = $request->message;
         }
+        if (!Utils::isUnset($request->startTime)) {
+            @$body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->totalTime)) {
+            @$body['TotalTime'] = $request->totalTime;
+        }
         if (!Utils::isUnset($request->output)) {
             @$body['Output'] = $request->output;
         }
