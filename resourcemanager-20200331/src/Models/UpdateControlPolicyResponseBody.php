@@ -4,23 +4,23 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateCloudAccountResponseBody\account;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateControlPolicyResponseBody\controlPolicy;
 use AlibabaCloud\Tea\Model;
 
-class CreateCloudAccountResponseBody extends Model
+class UpdateControlPolicyResponseBody extends Model
 {
+    /**
+     * @var controlPolicy
+     */
+    public $controlPolicy;
+
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var account
-     */
-    public $account;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'account'   => 'Account',
+        'controlPolicy' => 'ControlPolicy',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class CreateCloudAccountResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->controlPolicy) {
+            $res['ControlPolicy'] = null !== $this->controlPolicy ? $this->controlPolicy->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->account) {
-            $res['Account'] = null !== $this->account ? $this->account->toMap() : null;
         }
 
         return $res;
@@ -43,16 +43,16 @@ class CreateCloudAccountResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateCloudAccountResponseBody
+     * @return UpdateControlPolicyResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ControlPolicy'])) {
+            $model->controlPolicy = controlPolicy::fromMap($map['ControlPolicy']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Account'])) {
-            $model->account = account::fromMap($map['Account']);
         }
 
         return $model;

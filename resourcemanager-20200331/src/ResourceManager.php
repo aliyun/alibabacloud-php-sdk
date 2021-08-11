@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\ResourceManager\V20200331;
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AcceptHandshakeRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AcceptHandshakeResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AttachControlPolicyRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AttachControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AttachPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AttachPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelCreateCloudAccountRequest;
@@ -17,6 +19,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelPromoteResourceAccou
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelPromoteResourceAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateCloudAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateCloudAccountResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateControlPolicyRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateFolderRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateFolderResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreatePolicyRequest;
@@ -33,6 +37,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateServiceLinkedRoleReq
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeclineHandshakeRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeclineHandshakeResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteControlPolicyRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteFolderRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteFolderResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeletePolicyRequest;
@@ -45,11 +51,20 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteRoleRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteRoleResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteServiceLinkedRoleResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeregisterDelegatedAdministratorRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeregisterDelegatedAdministratorResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DestroyResourceDirectoryResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachControlPolicyRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachPolicyResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableControlPolicyResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetControlPolicyEnablementStatusResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetControlPolicyRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetFolderRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetFolderResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetHandshakeRequest;
@@ -76,6 +91,14 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAccountsRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAccountsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAncestorsRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAncestorsResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListControlPoliciesRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListControlPoliciesResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListControlPolicyAttachmentsForTargetRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListControlPolicyAttachmentsForTargetResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListDelegatedAdministratorsRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListDelegatedAdministratorsResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListDelegatedServicesForAccountRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListDelegatedServicesForAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListFoldersForParentRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListFoldersForParentResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListHandshakesForAccountRequest;
@@ -94,12 +117,16 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourcesRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourcesResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListRolesRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListRolesResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTargetAttachmentsForControlPolicyRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTargetAttachmentsForControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTrustedServiceStatusRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTrustedServiceStatusResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\MoveAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\MoveAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\PromoteResourceAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\PromoteResourceAccountResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\RegisterDelegatedAdministratorRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\RegisterDelegatedAdministratorResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\RemoveCloudAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\RemoveCloudAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ResendCreateCloudAccountEmailRequest;
@@ -110,6 +137,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SetDefaultPolicyVersionReq
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SetDefaultPolicyVersionResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAccountResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateControlPolicyRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateFolderRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateFolderResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateResourceGroupRequest;
@@ -180,6 +209,34 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->acceptHandshakeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AttachControlPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AttachControlPolicyResponse
+     */
+    public function attachControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AttachControlPolicyResponse::fromMap($this->doRPCRequest('AttachControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AttachControlPolicyRequest $request
+     *
+     * @return AttachControlPolicyResponse
+     */
+    public function attachControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachControlPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -320,6 +377,34 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCloudAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateControlPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateControlPolicyResponse
+     */
+    public function createControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateControlPolicyResponse::fromMap($this->doRPCRequest('CreateControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateControlPolicyRequest $request
+     *
+     * @return CreateControlPolicyResponse
+     */
+    public function createControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createControlPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -547,6 +632,34 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param DeleteControlPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteControlPolicyResponse
+     */
+    public function deleteControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteControlPolicyResponse::fromMap($this->doRPCRequest('DeleteControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteControlPolicyRequest $request
+     *
+     * @return DeleteControlPolicyResponse
+     */
+    public function deleteControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteFolderRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -715,6 +828,34 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param DeregisterDelegatedAdministratorRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DeregisterDelegatedAdministratorResponse
+     */
+    public function deregisterDelegatedAdministratorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeregisterDelegatedAdministratorResponse::fromMap($this->doRPCRequest('DeregisterDelegatedAdministrator', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeregisterDelegatedAdministratorRequest $request
+     *
+     * @return DeregisterDelegatedAdministratorResponse
+     */
+    public function deregisterDelegatedAdministrator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deregisterDelegatedAdministratorWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return DestroyResourceDirectoryResponse
@@ -734,6 +875,34 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->destroyResourceDirectoryWithOptions($runtime);
+    }
+
+    /**
+     * @param DetachControlPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DetachControlPolicyResponse
+     */
+    public function detachControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetachControlPolicyResponse::fromMap($this->doRPCRequest('DetachControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetachControlPolicyRequest $request
+     *
+     * @return DetachControlPolicyResponse
+     */
+    public function detachControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachControlPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -765,6 +934,50 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisableControlPolicyResponse
+     */
+    public function disableControlPolicyWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return DisableControlPolicyResponse::fromMap($this->doRPCRequest('DisableControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return DisableControlPolicyResponse
+     */
+    public function disableControlPolicy()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableControlPolicyWithOptions($runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableControlPolicyResponse
+     */
+    public function enableControlPolicyWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return EnableControlPolicyResponse::fromMap($this->doRPCRequest('EnableControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return EnableControlPolicyResponse
+     */
+    public function enableControlPolicy()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableControlPolicyWithOptions($runtime);
+    }
+
+    /**
      * @param GetAccountRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -790,6 +1003,56 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetControlPolicyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetControlPolicyResponse
+     */
+    public function getControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetControlPolicyResponse::fromMap($this->doRPCRequest('GetControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetControlPolicyRequest $request
+     *
+     * @return GetControlPolicyResponse
+     */
+    public function getControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetControlPolicyEnablementStatusResponse
+     */
+    public function getControlPolicyEnablementStatusWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return GetControlPolicyEnablementStatusResponse::fromMap($this->doRPCRequest('GetControlPolicyEnablementStatus', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return GetControlPolicyEnablementStatusResponse
+     */
+    public function getControlPolicyEnablementStatus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getControlPolicyEnablementStatusWithOptions($runtime);
     }
 
     /**
@@ -1173,6 +1436,118 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param ListControlPoliciesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListControlPoliciesResponse
+     */
+    public function listControlPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListControlPoliciesResponse::fromMap($this->doRPCRequest('ListControlPolicies', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListControlPoliciesRequest $request
+     *
+     * @return ListControlPoliciesResponse
+     */
+    public function listControlPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listControlPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListControlPolicyAttachmentsForTargetRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListControlPolicyAttachmentsForTargetResponse
+     */
+    public function listControlPolicyAttachmentsForTargetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListControlPolicyAttachmentsForTargetResponse::fromMap($this->doRPCRequest('ListControlPolicyAttachmentsForTarget', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListControlPolicyAttachmentsForTargetRequest $request
+     *
+     * @return ListControlPolicyAttachmentsForTargetResponse
+     */
+    public function listControlPolicyAttachmentsForTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listControlPolicyAttachmentsForTargetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDelegatedAdministratorsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListDelegatedAdministratorsResponse
+     */
+    public function listDelegatedAdministratorsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDelegatedAdministratorsResponse::fromMap($this->doRPCRequest('ListDelegatedAdministrators', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDelegatedAdministratorsRequest $request
+     *
+     * @return ListDelegatedAdministratorsResponse
+     */
+    public function listDelegatedAdministrators($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDelegatedAdministratorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDelegatedServicesForAccountRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListDelegatedServicesForAccountResponse
+     */
+    public function listDelegatedServicesForAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDelegatedServicesForAccountResponse::fromMap($this->doRPCRequest('ListDelegatedServicesForAccount', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDelegatedServicesForAccountRequest $request
+     *
+     * @return ListDelegatedServicesForAccountResponse
+     */
+    public function listDelegatedServicesForAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDelegatedServicesForAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListFoldersForParentRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1425,6 +1800,34 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param ListTargetAttachmentsForControlPolicyRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListTargetAttachmentsForControlPolicyResponse
+     */
+    public function listTargetAttachmentsForControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListTargetAttachmentsForControlPolicyResponse::fromMap($this->doRPCRequest('ListTargetAttachmentsForControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListTargetAttachmentsForControlPolicyRequest $request
+     *
+     * @return ListTargetAttachmentsForControlPolicyResponse
+     */
+    public function listTargetAttachmentsForControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTargetAttachmentsForControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTrustedServiceStatusRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1506,6 +1909,34 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->promoteResourceAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RegisterDelegatedAdministratorRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RegisterDelegatedAdministratorResponse
+     */
+    public function registerDelegatedAdministratorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RegisterDelegatedAdministratorResponse::fromMap($this->doRPCRequest('RegisterDelegatedAdministrator', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RegisterDelegatedAdministratorRequest $request
+     *
+     * @return RegisterDelegatedAdministratorResponse
+     */
+    public function registerDelegatedAdministrator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerDelegatedAdministratorWithOptions($request, $runtime);
     }
 
     /**
@@ -1646,6 +2077,34 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateControlPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateControlPolicyResponse
+     */
+    public function updateControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateControlPolicyResponse::fromMap($this->doRPCRequest('UpdateControlPolicy', '2020-03-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateControlPolicyRequest $request
+     *
+     * @return UpdateControlPolicyResponse
+     */
+    public function updateControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateControlPolicyWithOptions($request, $runtime);
     }
 
     /**

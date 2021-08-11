@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListTrustedServiceStatusRequest extends Model
+class ListTargetAttachmentsForControlPolicyRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $policyId;
+
     /**
      * @var int
      */
@@ -17,15 +22,10 @@ class ListTrustedServiceStatusRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $adminAccountId;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'adminAccountId' => 'AdminAccountId',
+        'policyId'   => 'PolicyId',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListTrustedServiceStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->adminAccountId) {
-            $res['AdminAccountId'] = $this->adminAccountId;
         }
 
         return $res;
@@ -51,19 +51,19 @@ class ListTrustedServiceStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListTrustedServiceStatusRequest
+     * @return ListTargetAttachmentsForControlPolicyRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['AdminAccountId'])) {
-            $model->adminAccountId = $map['AdminAccountId'];
         }
 
         return $model;

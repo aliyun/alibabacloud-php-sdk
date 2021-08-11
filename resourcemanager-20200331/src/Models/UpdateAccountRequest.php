@@ -16,9 +16,15 @@ class UpdateAccountRequest extends Model
     /**
      * @var string
      */
+    public $newAccountType;
+
+    /**
+     * @var string
+     */
     public $accountId;
     protected $_name = [
         'newDisplayName' => 'NewDisplayName',
+        'newAccountType' => 'NewAccountType',
         'accountId'      => 'AccountId',
     ];
 
@@ -31,6 +37,9 @@ class UpdateAccountRequest extends Model
         $res = [];
         if (null !== $this->newDisplayName) {
             $res['NewDisplayName'] = $this->newDisplayName;
+        }
+        if (null !== $this->newAccountType) {
+            $res['NewAccountType'] = $this->newAccountType;
         }
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
@@ -49,6 +58,9 @@ class UpdateAccountRequest extends Model
         $model = new self();
         if (isset($map['NewDisplayName'])) {
             $model->newDisplayName = $map['NewDisplayName'];
+        }
+        if (isset($map['NewAccountType'])) {
+            $model->newAccountType = $map['NewAccountType'];
         }
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];

@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateCloudAccountResponseBody\account;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListDelegatedServicesForAccountResponseBody\delegatedServices;
 use AlibabaCloud\Tea\Model;
 
-class CreateCloudAccountResponseBody extends Model
+class ListDelegatedServicesForAccountResponseBody extends Model
 {
     /**
      * @var string
@@ -15,12 +15,12 @@ class CreateCloudAccountResponseBody extends Model
     public $requestId;
 
     /**
-     * @var account
+     * @var delegatedServices
      */
-    public $account;
+    public $delegatedServices;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'account'   => 'Account',
+        'requestId'         => 'RequestId',
+        'delegatedServices' => 'DelegatedServices',
     ];
 
     public function validate()
@@ -33,8 +33,8 @@ class CreateCloudAccountResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->account) {
-            $res['Account'] = null !== $this->account ? $this->account->toMap() : null;
+        if (null !== $this->delegatedServices) {
+            $res['DelegatedServices'] = null !== $this->delegatedServices ? $this->delegatedServices->toMap() : null;
         }
 
         return $res;
@@ -43,7 +43,7 @@ class CreateCloudAccountResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateCloudAccountResponseBody
+     * @return ListDelegatedServicesForAccountResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -51,8 +51,8 @@ class CreateCloudAccountResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Account'])) {
-            $model->account = account::fromMap($map['Account']);
+        if (isset($map['DelegatedServices'])) {
+            $model->delegatedServices = delegatedServices::fromMap($map['DelegatedServices']);
         }
 
         return $model;

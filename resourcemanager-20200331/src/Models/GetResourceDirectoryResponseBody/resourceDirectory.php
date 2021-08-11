@@ -32,12 +32,18 @@ class resourceDirectory extends Model
      * @var string
      */
     public $masterAccountName;
+
+    /**
+     * @var string
+     */
+    public $controlPolicyStatus;
     protected $_name = [
         'rootFolderId'        => 'RootFolderId',
         'resourceDirectoryId' => 'ResourceDirectoryId',
         'createTime'          => 'CreateTime',
         'masterAccountId'     => 'MasterAccountId',
         'masterAccountName'   => 'MasterAccountName',
+        'controlPolicyStatus' => 'ControlPolicyStatus',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class resourceDirectory extends Model
         }
         if (null !== $this->masterAccountName) {
             $res['MasterAccountName'] = $this->masterAccountName;
+        }
+        if (null !== $this->controlPolicyStatus) {
+            $res['ControlPolicyStatus'] = $this->controlPolicyStatus;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class resourceDirectory extends Model
         }
         if (isset($map['MasterAccountName'])) {
             $model->masterAccountName = $map['MasterAccountName'];
+        }
+        if (isset($map['ControlPolicyStatus'])) {
+            $model->controlPolicyStatus = $map['ControlPolicyStatus'];
         }
 
         return $model;

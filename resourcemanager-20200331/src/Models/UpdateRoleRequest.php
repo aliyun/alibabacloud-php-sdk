@@ -22,10 +22,16 @@ class UpdateRoleRequest extends Model
      * @var int
      */
     public $newMaxSessionDuration;
+
+    /**
+     * @var string
+     */
+    public $newDescription;
     protected $_name = [
         'roleName'                    => 'RoleName',
         'newAssumeRolePolicyDocument' => 'NewAssumeRolePolicyDocument',
         'newMaxSessionDuration'       => 'NewMaxSessionDuration',
+        'newDescription'              => 'NewDescription',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class UpdateRoleRequest extends Model
         }
         if (null !== $this->newMaxSessionDuration) {
             $res['NewMaxSessionDuration'] = $this->newMaxSessionDuration;
+        }
+        if (null !== $this->newDescription) {
+            $res['NewDescription'] = $this->newDescription;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class UpdateRoleRequest extends Model
         }
         if (isset($map['NewMaxSessionDuration'])) {
             $model->newMaxSessionDuration = $map['NewMaxSessionDuration'];
+        }
+        if (isset($map['NewDescription'])) {
+            $model->newDescription = $map['NewDescription'];
         }
 
         return $model;
