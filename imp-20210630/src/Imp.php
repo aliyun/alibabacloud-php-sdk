@@ -12,8 +12,16 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\AgreeLinkMicRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\AgreeLinkMicResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ApplyLinkMicRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ApplyLinkMicResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\BanAllCommentRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\BanAllCommentResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\BanCommentRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\BanCommentResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CancelApplyLinkMicRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CancelApplyLinkMicResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CancelBanAllCommentRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CancelBanAllCommentResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CancelBanCommentRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CancelBanCommentResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppTemplateRequest;
@@ -74,6 +82,9 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\RejectLinkMicRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\RejectLinkMicResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\RemoveMemberRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\RemoveMemberResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\SendCommentRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\SendCommentResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\SendCommentShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToAllRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToAllResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\SendCustomMessageToUsersRequest;
@@ -386,6 +397,39 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param SendCommentRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SendCommentResponse
+     */
+    public function sendCommentWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SendCommentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extension)) {
+            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SendCommentResponse::fromMap($this->doRPCRequest('SendComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SendCommentRequest $request
+     *
+     * @return SendCommentResponse
+     */
+    public function sendComment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendCommentWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateAppTemplateRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
@@ -444,6 +488,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getConferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BanCommentRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return BanCommentResponse
+     */
+    public function banCommentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BanCommentResponse::fromMap($this->doRPCRequest('BanComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BanCommentRequest $request
+     *
+     * @return BanCommentResponse
+     */
+    public function banComment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->banCommentWithOptions($request, $runtime);
     }
 
     /**
@@ -531,6 +603,34 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param CancelBanAllCommentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CancelBanAllCommentResponse
+     */
+    public function cancelBanAllCommentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelBanAllCommentResponse::fromMap($this->doRPCRequest('CancelBanAllComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelBanAllCommentRequest $request
+     *
+     * @return CancelBanAllCommentResponse
+     */
+    public function cancelBanAllComment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelBanAllCommentWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListRoomsRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -612,6 +712,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConferenceUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelBanCommentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CancelBanCommentResponse
+     */
+    public function cancelBanCommentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelBanCommentResponse::fromMap($this->doRPCRequest('CancelBanComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelBanCommentRequest $request
+     *
+     * @return CancelBanCommentResponse
+     */
+    public function cancelBanComment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelBanCommentWithOptions($request, $runtime);
     }
 
     /**
@@ -1042,6 +1170,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendCustomMessageToUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BanAllCommentRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return BanAllCommentResponse
+     */
+    public function banAllCommentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BanAllCommentResponse::fromMap($this->doRPCRequest('BanAllComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BanAllCommentRequest $request
+     *
+     * @return BanAllCommentResponse
+     */
+    public function banAllComment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->banAllCommentWithOptions($request, $runtime);
     }
 
     /**
