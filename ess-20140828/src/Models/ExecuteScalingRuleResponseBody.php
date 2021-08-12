@@ -11,15 +11,15 @@ class ExecuteScalingRuleResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $scalingActivityId;
 
     /**
      * @var string
      */
-    public $scalingActivityId;
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'scalingActivityId' => 'ScalingActivityId',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ExecuteScalingRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->scalingActivityId) {
             $res['ScalingActivityId'] = $this->scalingActivityId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ExecuteScalingRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ScalingActivityId'])) {
             $model->scalingActivityId = $map['ScalingActivityId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

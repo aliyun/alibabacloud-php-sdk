@@ -115,9 +115,9 @@ class ModifyScalingGroupRequest extends Model
     public $groupDeletionProtection;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $scaleOutAmountCheck;
+    public $multiAZPolicy;
 
     /**
      * @var string[]
@@ -150,7 +150,7 @@ class ModifyScalingGroupRequest extends Model
         'spotInstancePools'                   => 'SpotInstancePools',
         'desiredCapacity'                     => 'DesiredCapacity',
         'groupDeletionProtection'             => 'GroupDeletionProtection',
-        'scaleOutAmountCheck'                 => 'ScaleOutAmountCheck',
+        'multiAZPolicy'                       => 'MultiAZPolicy',
         'vSwitchIds'                          => 'VSwitchIds',
         'launchTemplateOverride'              => 'LaunchTemplateOverride',
     ];
@@ -225,8 +225,8 @@ class ModifyScalingGroupRequest extends Model
         if (null !== $this->groupDeletionProtection) {
             $res['GroupDeletionProtection'] = $this->groupDeletionProtection;
         }
-        if (null !== $this->scaleOutAmountCheck) {
-            $res['ScaleOutAmountCheck'] = $this->scaleOutAmountCheck;
+        if (null !== $this->multiAZPolicy) {
+            $res['MultiAZPolicy'] = $this->multiAZPolicy;
         }
         if (null !== $this->vSwitchIds) {
             $res['VSwitchIds'] = $this->vSwitchIds;
@@ -317,8 +317,8 @@ class ModifyScalingGroupRequest extends Model
         if (isset($map['GroupDeletionProtection'])) {
             $model->groupDeletionProtection = $map['GroupDeletionProtection'];
         }
-        if (isset($map['ScaleOutAmountCheck'])) {
-            $model->scaleOutAmountCheck = $map['ScaleOutAmountCheck'];
+        if (isset($map['MultiAZPolicy'])) {
+            $model->multiAZPolicy = $map['MultiAZPolicy'];
         }
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {

@@ -35,11 +35,6 @@ class alarm extends Model
     public $alarmTaskName;
 
     /**
-     * @var dimensions
-     */
-    public $dimensions;
-
-    /**
      * @var string
      */
     public $metricType;
@@ -53,16 +48,21 @@ class alarm extends Model
      * @var string
      */
     public $statistics;
+
+    /**
+     * @var dimensions
+     */
+    public $dimensions;
     protected $_name = [
         'alarmTaskId'        => 'AlarmTaskId',
         'comparisonOperator' => 'ComparisonOperator',
         'metricName'         => 'MetricName',
         'evaluationCount'    => 'EvaluationCount',
         'alarmTaskName'      => 'AlarmTaskName',
-        'dimensions'         => 'Dimensions',
         'metricType'         => 'MetricType',
         'threshold'          => 'Threshold',
         'statistics'         => 'Statistics',
+        'dimensions'         => 'Dimensions',
     ];
 
     public function validate()
@@ -87,9 +87,6 @@ class alarm extends Model
         if (null !== $this->alarmTaskName) {
             $res['AlarmTaskName'] = $this->alarmTaskName;
         }
-        if (null !== $this->dimensions) {
-            $res['Dimensions'] = null !== $this->dimensions ? $this->dimensions->toMap() : null;
-        }
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
         }
@@ -98,6 +95,9 @@ class alarm extends Model
         }
         if (null !== $this->statistics) {
             $res['Statistics'] = $this->statistics;
+        }
+        if (null !== $this->dimensions) {
+            $res['Dimensions'] = null !== $this->dimensions ? $this->dimensions->toMap() : null;
         }
 
         return $res;
@@ -126,9 +126,6 @@ class alarm extends Model
         if (isset($map['AlarmTaskName'])) {
             $model->alarmTaskName = $map['AlarmTaskName'];
         }
-        if (isset($map['Dimensions'])) {
-            $model->dimensions = dimensions::fromMap($map['Dimensions']);
-        }
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
         }
@@ -137,6 +134,9 @@ class alarm extends Model
         }
         if (isset($map['Statistics'])) {
             $model->statistics = $map['Statistics'];
+        }
+        if (isset($map['Dimensions'])) {
+            $model->dimensions = dimensions::fromMap($map['Dimensions']);
         }
 
         return $model;

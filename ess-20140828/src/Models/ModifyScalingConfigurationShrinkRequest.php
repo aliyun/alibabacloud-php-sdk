@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ess\V20140828\Models;
 
 use AlibabaCloud\SDK\Ess\V20140828\Models\ModifyScalingConfigurationShrinkRequest\dataDisk;
+use AlibabaCloud\SDK\Ess\V20140828\Models\ModifyScalingConfigurationShrinkRequest\instancePatternInfo;
 use AlibabaCloud\SDK\Ess\V20140828\Models\ModifyScalingConfigurationShrinkRequest\instanceTypeOverride;
 use AlibabaCloud\SDK\Ess\V20140828\Models\ModifyScalingConfigurationShrinkRequest\privatePoolOptions;
 use AlibabaCloud\SDK\Ess\V20140828\Models\ModifyScalingConfigurationShrinkRequest\spotPriceLimit;
@@ -232,6 +233,16 @@ class ModifyScalingConfigurationShrinkRequest extends Model
      * @var string[]
      */
     public $securityGroupIds;
+
+    /**
+     * @var instancePatternInfo[]
+     */
+    public $instancePatternInfo;
+
+    /**
+     * @var string[]
+     */
+    public $systemDiskCategory;
     protected $_name = [
         'systemDisk'               => 'SystemDisk',
         'privatePoolOptions'       => 'PrivatePoolOptions',
@@ -277,6 +288,8 @@ class ModifyScalingConfigurationShrinkRequest extends Model
         'instanceTypes'            => 'InstanceTypes',
         'instanceTypeOverride'     => 'InstanceTypeOverride',
         'securityGroupIds'         => 'SecurityGroupIds',
+        'instancePatternInfo'      => 'InstancePatternInfo',
+        'systemDiskCategory'       => 'SystemDiskCategory',
     ];
 
     public function validate()
@@ -435,6 +448,18 @@ class ModifyScalingConfigurationShrinkRequest extends Model
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->instancePatternInfo) {
+            $res['InstancePatternInfo'] = [];
+            if (null !== $this->instancePatternInfo && \is_array($this->instancePatternInfo)) {
+                $n = 0;
+                foreach ($this->instancePatternInfo as $item) {
+                    $res['InstancePatternInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->systemDiskCategory) {
+            $res['SystemDiskCategory'] = $this->systemDiskCategory;
         }
 
         return $res;
@@ -600,6 +625,20 @@ class ModifyScalingConfigurationShrinkRequest extends Model
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
+            }
+        }
+        if (isset($map['InstancePatternInfo'])) {
+            if (!empty($map['InstancePatternInfo'])) {
+                $model->instancePatternInfo = [];
+                $n                          = 0;
+                foreach ($map['InstancePatternInfo'] as $item) {
+                    $model->instancePatternInfo[$n++] = null !== $item ? instancePatternInfo::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['SystemDiskCategory'])) {
+            if (!empty($map['SystemDiskCategory'])) {
+                $model->systemDiskCategory = $map['SystemDiskCategory'];
             }
         }
 

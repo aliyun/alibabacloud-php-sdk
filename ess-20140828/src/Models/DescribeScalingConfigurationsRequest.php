@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingConfigurationsRequest extends Model
 {
     /**
-     * @var string[]
-     */
-    public $scalingConfigurationId;
-
-    /**
-     * @var string[]
-     */
-    public $scalingConfigurationName;
-
-    /**
      * @var int
      */
     public $ownerId;
@@ -57,9 +47,17 @@ class DescribeScalingConfigurationsRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
+    /**
+     * @var string[]
+     */
+    public $scalingConfigurationId;
+
+    /**
+     * @var string[]
+     */
+    public $scalingConfigurationName;
     protected $_name = [
-        'scalingConfigurationId'   => 'ScalingConfigurationId',
-        'scalingConfigurationName' => 'ScalingConfigurationName',
         'ownerId'                  => 'OwnerId',
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
@@ -68,6 +66,8 @@ class DescribeScalingConfigurationsRequest extends Model
         'pageSize'                 => 'PageSize',
         'scalingGroupId'           => 'ScalingGroupId',
         'ownerAccount'             => 'OwnerAccount',
+        'scalingConfigurationId'   => 'ScalingConfigurationId',
+        'scalingConfigurationName' => 'ScalingConfigurationName',
     ];
 
     public function validate()
@@ -77,12 +77,6 @@ class DescribeScalingConfigurationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scalingConfigurationId) {
-            $res['ScalingConfigurationId'] = $this->scalingConfigurationId;
-        }
-        if (null !== $this->scalingConfigurationName) {
-            $res['ScalingConfigurationName'] = $this->scalingConfigurationName;
-        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -107,6 +101,12 @@ class DescribeScalingConfigurationsRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+        if (null !== $this->scalingConfigurationId) {
+            $res['ScalingConfigurationId'] = $this->scalingConfigurationId;
+        }
+        if (null !== $this->scalingConfigurationName) {
+            $res['ScalingConfigurationName'] = $this->scalingConfigurationName;
+        }
 
         return $res;
     }
@@ -119,16 +119,6 @@ class DescribeScalingConfigurationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScalingConfigurationId'])) {
-            if (!empty($map['ScalingConfigurationId'])) {
-                $model->scalingConfigurationId = $map['ScalingConfigurationId'];
-            }
-        }
-        if (isset($map['ScalingConfigurationName'])) {
-            if (!empty($map['ScalingConfigurationName'])) {
-                $model->scalingConfigurationName = $map['ScalingConfigurationName'];
-            }
-        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -152,6 +142,16 @@ class DescribeScalingConfigurationsRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['ScalingConfigurationId'])) {
+            if (!empty($map['ScalingConfigurationId'])) {
+                $model->scalingConfigurationId = $map['ScalingConfigurationId'];
+            }
+        }
+        if (isset($map['ScalingConfigurationName'])) {
+            if (!empty($map['ScalingConfigurationName'])) {
+                $model->scalingConfigurationName = $map['ScalingConfigurationName'];
+            }
         }
 
         return $model;

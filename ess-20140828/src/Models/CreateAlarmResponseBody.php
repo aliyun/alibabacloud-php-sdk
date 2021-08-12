@@ -11,15 +11,15 @@ class CreateAlarmResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $alarmTaskId;
 
     /**
      * @var string
      */
-    public $alarmTaskId;
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'alarmTaskId' => 'AlarmTaskId',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateAlarmResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->alarmTaskId) {
             $res['AlarmTaskId'] = $this->alarmTaskId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateAlarmResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AlarmTaskId'])) {
             $model->alarmTaskId = $map['AlarmTaskId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -16,14 +16,19 @@ class scalingRule extends Model
     public $metricName;
 
     /**
+     * @var string
+     */
+    public $adjustmentType;
+
+    /**
      * @var int
      */
     public $initialMaxSize;
 
     /**
-     * @var alarms
+     * @var int
      */
-    public $alarms;
+    public $estimatedInstanceWarmup;
 
     /**
      * @var int
@@ -38,12 +43,22 @@ class scalingRule extends Model
     /**
      * @var int
      */
-    public $minSize;
+    public $minAdjustmentMagnitude;
+
+    /**
+     * @var string
+     */
+    public $scalingRuleAri;
 
     /**
      * @var int
      */
     public $predictiveTaskBufferTime;
+
+    /**
+     * @var int
+     */
+    public $minSize;
 
     /**
      * @var string
@@ -56,9 +71,24 @@ class scalingRule extends Model
     public $predictiveValueBehavior;
 
     /**
+     * @var float
+     */
+    public $targetValue;
+
+    /**
      * @var int
      */
     public $cooldown;
+
+    /**
+     * @var int
+     */
+    public $maxSize;
+
+    /**
+     * @var int
+     */
+    public $predictiveValueBuffer;
 
     /**
      * @var string
@@ -68,7 +98,7 @@ class scalingRule extends Model
     /**
      * @var int
      */
-    public $predictiveValueBuffer;
+    public $adjustmentValue;
 
     /**
      * @var int
@@ -88,72 +118,42 @@ class scalingRule extends Model
     /**
      * @var string
      */
-    public $adjustmentType;
+    public $scalingRuleId;
 
     /**
-     * @var int
+     * @var alarms
      */
-    public $estimatedInstanceWarmup;
-
-    /**
-     * @var int
-     */
-    public $minAdjustmentMagnitude;
-
-    /**
-     * @var string
-     */
-    public $scalingRuleAri;
+    public $alarms;
 
     /**
      * @var stepAdjustments
      */
     public $stepAdjustments;
-
-    /**
-     * @var float
-     */
-    public $targetValue;
-
-    /**
-     * @var int
-     */
-    public $maxSize;
-
-    /**
-     * @var int
-     */
-    public $adjustmentValue;
-
-    /**
-     * @var string
-     */
-    public $scalingRuleId;
     protected $_name = [
         'metricName'               => 'MetricName',
+        'adjustmentType'           => 'AdjustmentType',
         'initialMaxSize'           => 'InitialMaxSize',
-        'alarms'                   => 'Alarms',
+        'estimatedInstanceWarmup'  => 'EstimatedInstanceWarmup',
         'scaleOutEvaluationCount'  => 'ScaleOutEvaluationCount',
         'predictiveScalingMode'    => 'PredictiveScalingMode',
-        'minSize'                  => 'MinSize',
+        'minAdjustmentMagnitude'   => 'MinAdjustmentMagnitude',
+        'scalingRuleAri'           => 'ScalingRuleAri',
         'predictiveTaskBufferTime' => 'PredictiveTaskBufferTime',
+        'minSize'                  => 'MinSize',
         'scalingGroupId'           => 'ScalingGroupId',
         'predictiveValueBehavior'  => 'PredictiveValueBehavior',
+        'targetValue'              => 'TargetValue',
         'cooldown'                 => 'Cooldown',
-        'scalingRuleType'          => 'ScalingRuleType',
+        'maxSize'                  => 'MaxSize',
         'predictiveValueBuffer'    => 'PredictiveValueBuffer',
+        'scalingRuleType'          => 'ScalingRuleType',
+        'adjustmentValue'          => 'AdjustmentValue',
         'scaleInEvaluationCount'   => 'ScaleInEvaluationCount',
         'disableScaleIn'           => 'DisableScaleIn',
         'scalingRuleName'          => 'ScalingRuleName',
-        'adjustmentType'           => 'AdjustmentType',
-        'estimatedInstanceWarmup'  => 'EstimatedInstanceWarmup',
-        'minAdjustmentMagnitude'   => 'MinAdjustmentMagnitude',
-        'scalingRuleAri'           => 'ScalingRuleAri',
-        'stepAdjustments'          => 'StepAdjustments',
-        'targetValue'              => 'TargetValue',
-        'maxSize'                  => 'MaxSize',
-        'adjustmentValue'          => 'AdjustmentValue',
         'scalingRuleId'            => 'ScalingRuleId',
+        'alarms'                   => 'Alarms',
+        'stepAdjustments'          => 'StepAdjustments',
     ];
 
     public function validate()
@@ -166,11 +166,14 @@ class scalingRule extends Model
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+        if (null !== $this->adjustmentType) {
+            $res['AdjustmentType'] = $this->adjustmentType;
+        }
         if (null !== $this->initialMaxSize) {
             $res['InitialMaxSize'] = $this->initialMaxSize;
         }
-        if (null !== $this->alarms) {
-            $res['Alarms'] = null !== $this->alarms ? $this->alarms->toMap() : null;
+        if (null !== $this->estimatedInstanceWarmup) {
+            $res['EstimatedInstanceWarmup'] = $this->estimatedInstanceWarmup;
         }
         if (null !== $this->scaleOutEvaluationCount) {
             $res['ScaleOutEvaluationCount'] = $this->scaleOutEvaluationCount;
@@ -178,11 +181,17 @@ class scalingRule extends Model
         if (null !== $this->predictiveScalingMode) {
             $res['PredictiveScalingMode'] = $this->predictiveScalingMode;
         }
-        if (null !== $this->minSize) {
-            $res['MinSize'] = $this->minSize;
+        if (null !== $this->minAdjustmentMagnitude) {
+            $res['MinAdjustmentMagnitude'] = $this->minAdjustmentMagnitude;
+        }
+        if (null !== $this->scalingRuleAri) {
+            $res['ScalingRuleAri'] = $this->scalingRuleAri;
         }
         if (null !== $this->predictiveTaskBufferTime) {
             $res['PredictiveTaskBufferTime'] = $this->predictiveTaskBufferTime;
+        }
+        if (null !== $this->minSize) {
+            $res['MinSize'] = $this->minSize;
         }
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
@@ -190,14 +199,23 @@ class scalingRule extends Model
         if (null !== $this->predictiveValueBehavior) {
             $res['PredictiveValueBehavior'] = $this->predictiveValueBehavior;
         }
+        if (null !== $this->targetValue) {
+            $res['TargetValue'] = $this->targetValue;
+        }
         if (null !== $this->cooldown) {
             $res['Cooldown'] = $this->cooldown;
+        }
+        if (null !== $this->maxSize) {
+            $res['MaxSize'] = $this->maxSize;
+        }
+        if (null !== $this->predictiveValueBuffer) {
+            $res['PredictiveValueBuffer'] = $this->predictiveValueBuffer;
         }
         if (null !== $this->scalingRuleType) {
             $res['ScalingRuleType'] = $this->scalingRuleType;
         }
-        if (null !== $this->predictiveValueBuffer) {
-            $res['PredictiveValueBuffer'] = $this->predictiveValueBuffer;
+        if (null !== $this->adjustmentValue) {
+            $res['AdjustmentValue'] = $this->adjustmentValue;
         }
         if (null !== $this->scaleInEvaluationCount) {
             $res['ScaleInEvaluationCount'] = $this->scaleInEvaluationCount;
@@ -208,32 +226,14 @@ class scalingRule extends Model
         if (null !== $this->scalingRuleName) {
             $res['ScalingRuleName'] = $this->scalingRuleName;
         }
-        if (null !== $this->adjustmentType) {
-            $res['AdjustmentType'] = $this->adjustmentType;
+        if (null !== $this->scalingRuleId) {
+            $res['ScalingRuleId'] = $this->scalingRuleId;
         }
-        if (null !== $this->estimatedInstanceWarmup) {
-            $res['EstimatedInstanceWarmup'] = $this->estimatedInstanceWarmup;
-        }
-        if (null !== $this->minAdjustmentMagnitude) {
-            $res['MinAdjustmentMagnitude'] = $this->minAdjustmentMagnitude;
-        }
-        if (null !== $this->scalingRuleAri) {
-            $res['ScalingRuleAri'] = $this->scalingRuleAri;
+        if (null !== $this->alarms) {
+            $res['Alarms'] = null !== $this->alarms ? $this->alarms->toMap() : null;
         }
         if (null !== $this->stepAdjustments) {
             $res['StepAdjustments'] = null !== $this->stepAdjustments ? $this->stepAdjustments->toMap() : null;
-        }
-        if (null !== $this->targetValue) {
-            $res['TargetValue'] = $this->targetValue;
-        }
-        if (null !== $this->maxSize) {
-            $res['MaxSize'] = $this->maxSize;
-        }
-        if (null !== $this->adjustmentValue) {
-            $res['AdjustmentValue'] = $this->adjustmentValue;
-        }
-        if (null !== $this->scalingRuleId) {
-            $res['ScalingRuleId'] = $this->scalingRuleId;
         }
 
         return $res;
@@ -250,11 +250,14 @@ class scalingRule extends Model
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+        if (isset($map['AdjustmentType'])) {
+            $model->adjustmentType = $map['AdjustmentType'];
+        }
         if (isset($map['InitialMaxSize'])) {
             $model->initialMaxSize = $map['InitialMaxSize'];
         }
-        if (isset($map['Alarms'])) {
-            $model->alarms = alarms::fromMap($map['Alarms']);
+        if (isset($map['EstimatedInstanceWarmup'])) {
+            $model->estimatedInstanceWarmup = $map['EstimatedInstanceWarmup'];
         }
         if (isset($map['ScaleOutEvaluationCount'])) {
             $model->scaleOutEvaluationCount = $map['ScaleOutEvaluationCount'];
@@ -262,11 +265,17 @@ class scalingRule extends Model
         if (isset($map['PredictiveScalingMode'])) {
             $model->predictiveScalingMode = $map['PredictiveScalingMode'];
         }
-        if (isset($map['MinSize'])) {
-            $model->minSize = $map['MinSize'];
+        if (isset($map['MinAdjustmentMagnitude'])) {
+            $model->minAdjustmentMagnitude = $map['MinAdjustmentMagnitude'];
+        }
+        if (isset($map['ScalingRuleAri'])) {
+            $model->scalingRuleAri = $map['ScalingRuleAri'];
         }
         if (isset($map['PredictiveTaskBufferTime'])) {
             $model->predictiveTaskBufferTime = $map['PredictiveTaskBufferTime'];
+        }
+        if (isset($map['MinSize'])) {
+            $model->minSize = $map['MinSize'];
         }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
@@ -274,14 +283,23 @@ class scalingRule extends Model
         if (isset($map['PredictiveValueBehavior'])) {
             $model->predictiveValueBehavior = $map['PredictiveValueBehavior'];
         }
+        if (isset($map['TargetValue'])) {
+            $model->targetValue = $map['TargetValue'];
+        }
         if (isset($map['Cooldown'])) {
             $model->cooldown = $map['Cooldown'];
+        }
+        if (isset($map['MaxSize'])) {
+            $model->maxSize = $map['MaxSize'];
+        }
+        if (isset($map['PredictiveValueBuffer'])) {
+            $model->predictiveValueBuffer = $map['PredictiveValueBuffer'];
         }
         if (isset($map['ScalingRuleType'])) {
             $model->scalingRuleType = $map['ScalingRuleType'];
         }
-        if (isset($map['PredictiveValueBuffer'])) {
-            $model->predictiveValueBuffer = $map['PredictiveValueBuffer'];
+        if (isset($map['AdjustmentValue'])) {
+            $model->adjustmentValue = $map['AdjustmentValue'];
         }
         if (isset($map['ScaleInEvaluationCount'])) {
             $model->scaleInEvaluationCount = $map['ScaleInEvaluationCount'];
@@ -292,32 +310,14 @@ class scalingRule extends Model
         if (isset($map['ScalingRuleName'])) {
             $model->scalingRuleName = $map['ScalingRuleName'];
         }
-        if (isset($map['AdjustmentType'])) {
-            $model->adjustmentType = $map['AdjustmentType'];
+        if (isset($map['ScalingRuleId'])) {
+            $model->scalingRuleId = $map['ScalingRuleId'];
         }
-        if (isset($map['EstimatedInstanceWarmup'])) {
-            $model->estimatedInstanceWarmup = $map['EstimatedInstanceWarmup'];
-        }
-        if (isset($map['MinAdjustmentMagnitude'])) {
-            $model->minAdjustmentMagnitude = $map['MinAdjustmentMagnitude'];
-        }
-        if (isset($map['ScalingRuleAri'])) {
-            $model->scalingRuleAri = $map['ScalingRuleAri'];
+        if (isset($map['Alarms'])) {
+            $model->alarms = alarms::fromMap($map['Alarms']);
         }
         if (isset($map['StepAdjustments'])) {
             $model->stepAdjustments = stepAdjustments::fromMap($map['StepAdjustments']);
-        }
-        if (isset($map['TargetValue'])) {
-            $model->targetValue = $map['TargetValue'];
-        }
-        if (isset($map['MaxSize'])) {
-            $model->maxSize = $map['MaxSize'];
-        }
-        if (isset($map['AdjustmentValue'])) {
-            $model->adjustmentValue = $map['AdjustmentValue'];
-        }
-        if (isset($map['ScalingRuleId'])) {
-            $model->scalingRuleId = $map['ScalingRuleId'];
         }
 
         return $model;

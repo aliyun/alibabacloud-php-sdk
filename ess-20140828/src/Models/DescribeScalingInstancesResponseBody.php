@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingInstancesResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -30,21 +25,26 @@ class DescribeScalingInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var scalingInstances
+     * @var int
      */
-    public $scalingInstances;
+    public $totalSpotCount;
 
     /**
      * @var int
      */
-    public $totalSpotCount;
+    public $totalCount;
+
+    /**
+     * @var scalingInstances
+     */
+    public $scalingInstances;
     protected $_name = [
-        'totalCount'       => 'TotalCount',
         'requestId'        => 'RequestId',
         'pageSize'         => 'PageSize',
         'pageNumber'       => 'PageNumber',
-        'scalingInstances' => 'ScalingInstances',
         'totalSpotCount'   => 'TotalSpotCount',
+        'totalCount'       => 'TotalCount',
+        'scalingInstances' => 'ScalingInstances',
     ];
 
     public function validate()
@@ -54,9 +54,6 @@ class DescribeScalingInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -66,11 +63,14 @@ class DescribeScalingInstancesResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->scalingInstances) {
-            $res['ScalingInstances'] = null !== $this->scalingInstances ? $this->scalingInstances->toMap() : null;
-        }
         if (null !== $this->totalSpotCount) {
             $res['TotalSpotCount'] = $this->totalSpotCount;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->scalingInstances) {
+            $res['ScalingInstances'] = null !== $this->scalingInstances ? $this->scalingInstances->toMap() : null;
         }
 
         return $res;
@@ -84,9 +84,6 @@ class DescribeScalingInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -96,11 +93,14 @@ class DescribeScalingInstancesResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['ScalingInstances'])) {
-            $model->scalingInstances = scalingInstances::fromMap($map['ScalingInstances']);
-        }
         if (isset($map['TotalSpotCount'])) {
             $model->totalSpotCount = $map['TotalSpotCount'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['ScalingInstances'])) {
+            $model->scalingInstances = scalingInstances::fromMap($map['ScalingInstances']);
         }
 
         return $model;

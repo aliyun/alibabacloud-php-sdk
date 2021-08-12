@@ -31,17 +31,17 @@ class scalingInstance extends Model
     /**
      * @var string
      */
+    public $spotStrategy;
+
+    /**
+     * @var string
+     */
     public $launchTemplateVersion;
 
     /**
      * @var string
      */
     public $healthStatus;
-
-    /**
-     * @var string
-     */
-    public $spotStrategy;
 
     /**
      * @var string
@@ -66,6 +66,11 @@ class scalingInstance extends Model
     /**
      * @var string
      */
+    public $zoneId;
+
+    /**
+     * @var string
+     */
     public $scalingConfigurationId;
 
     /**
@@ -82,22 +87,29 @@ class scalingInstance extends Model
      * @var string
      */
     public $createdTime;
+
+    /**
+     * @var string
+     */
+    public $scalingActivityId;
     protected $_name = [
         'creationTime'           => 'CreationTime',
         'loadBalancerWeight'     => 'LoadBalancerWeight',
         'launchTemplateId'       => 'LaunchTemplateId',
         'instanceId'             => 'InstanceId',
+        'spotStrategy'           => 'SpotStrategy',
         'launchTemplateVersion'  => 'LaunchTemplateVersion',
         'healthStatus'           => 'HealthStatus',
-        'spotStrategy'           => 'SpotStrategy',
         'scalingGroupId'         => 'ScalingGroupId',
         'warmupState'            => 'WarmupState',
         'lifecycleState'         => 'LifecycleState',
         'creationType'           => 'CreationType',
+        'zoneId'                 => 'ZoneId',
         'scalingConfigurationId' => 'ScalingConfigurationId',
         'entrusted'              => 'Entrusted',
         'weightedCapacity'       => 'WeightedCapacity',
         'createdTime'            => 'CreatedTime',
+        'scalingActivityId'      => 'ScalingActivityId',
     ];
 
     public function validate()
@@ -119,14 +131,14 @@ class scalingInstance extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
+        }
         if (null !== $this->launchTemplateVersion) {
             $res['LaunchTemplateVersion'] = $this->launchTemplateVersion;
         }
         if (null !== $this->healthStatus) {
             $res['HealthStatus'] = $this->healthStatus;
-        }
-        if (null !== $this->spotStrategy) {
-            $res['SpotStrategy'] = $this->spotStrategy;
         }
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
@@ -140,6 +152,9 @@ class scalingInstance extends Model
         if (null !== $this->creationType) {
             $res['CreationType'] = $this->creationType;
         }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
         if (null !== $this->scalingConfigurationId) {
             $res['ScalingConfigurationId'] = $this->scalingConfigurationId;
         }
@@ -151,6 +166,9 @@ class scalingInstance extends Model
         }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
+        }
+        if (null !== $this->scalingActivityId) {
+            $res['ScalingActivityId'] = $this->scalingActivityId;
         }
 
         return $res;
@@ -176,14 +194,14 @@ class scalingInstance extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
+        }
         if (isset($map['LaunchTemplateVersion'])) {
             $model->launchTemplateVersion = $map['LaunchTemplateVersion'];
         }
         if (isset($map['HealthStatus'])) {
             $model->healthStatus = $map['HealthStatus'];
-        }
-        if (isset($map['SpotStrategy'])) {
-            $model->spotStrategy = $map['SpotStrategy'];
         }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
@@ -197,6 +215,9 @@ class scalingInstance extends Model
         if (isset($map['CreationType'])) {
             $model->creationType = $map['CreationType'];
         }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
+        }
         if (isset($map['ScalingConfigurationId'])) {
             $model->scalingConfigurationId = $map['ScalingConfigurationId'];
         }
@@ -208,6 +229,9 @@ class scalingInstance extends Model
         }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
+        }
+        if (isset($map['ScalingActivityId'])) {
+            $model->scalingActivityId = $map['ScalingActivityId'];
         }
 
         return $model;

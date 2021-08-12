@@ -19,14 +19,14 @@ class scheduledTask extends Model
     public $recurrenceValue;
 
     /**
-     * @var int
-     */
-    public $maxValue;
-
-    /**
      * @var string
      */
     public $recurrenceType;
+
+    /**
+     * @var int
+     */
+    public $maxValue;
 
     /**
      * @var string
@@ -39,14 +39,14 @@ class scheduledTask extends Model
     public $recurrenceEndTime;
 
     /**
-     * @var string
-     */
-    public $scheduledTaskId;
-
-    /**
      * @var int
      */
     public $desiredCapacity;
+
+    /**
+     * @var string
+     */
+    public $scheduledTaskId;
 
     /**
      * @var int
@@ -80,12 +80,12 @@ class scheduledTask extends Model
     protected $_name = [
         'taskEnabled'          => 'TaskEnabled',
         'recurrenceValue'      => 'RecurrenceValue',
-        'maxValue'             => 'MaxValue',
         'recurrenceType'       => 'RecurrenceType',
+        'maxValue'             => 'MaxValue',
         'scheduledTaskName'    => 'ScheduledTaskName',
         'recurrenceEndTime'    => 'RecurrenceEndTime',
-        'scheduledTaskId'      => 'ScheduledTaskId',
         'desiredCapacity'      => 'DesiredCapacity',
+        'scheduledTaskId'      => 'ScheduledTaskId',
         'minValue'             => 'MinValue',
         'scalingGroupId'       => 'ScalingGroupId',
         'launchExpirationTime' => 'LaunchExpirationTime',
@@ -107,11 +107,11 @@ class scheduledTask extends Model
         if (null !== $this->recurrenceValue) {
             $res['RecurrenceValue'] = $this->recurrenceValue;
         }
-        if (null !== $this->maxValue) {
-            $res['MaxValue'] = $this->maxValue;
-        }
         if (null !== $this->recurrenceType) {
             $res['RecurrenceType'] = $this->recurrenceType;
+        }
+        if (null !== $this->maxValue) {
+            $res['MaxValue'] = $this->maxValue;
         }
         if (null !== $this->scheduledTaskName) {
             $res['ScheduledTaskName'] = $this->scheduledTaskName;
@@ -119,11 +119,11 @@ class scheduledTask extends Model
         if (null !== $this->recurrenceEndTime) {
             $res['RecurrenceEndTime'] = $this->recurrenceEndTime;
         }
-        if (null !== $this->scheduledTaskId) {
-            $res['ScheduledTaskId'] = $this->scheduledTaskId;
-        }
         if (null !== $this->desiredCapacity) {
             $res['DesiredCapacity'] = $this->desiredCapacity;
+        }
+        if (null !== $this->scheduledTaskId) {
+            $res['ScheduledTaskId'] = $this->scheduledTaskId;
         }
         if (null !== $this->minValue) {
             $res['MinValue'] = $this->minValue;
@@ -161,11 +161,11 @@ class scheduledTask extends Model
         if (isset($map['RecurrenceValue'])) {
             $model->recurrenceValue = $map['RecurrenceValue'];
         }
-        if (isset($map['MaxValue'])) {
-            $model->maxValue = $map['MaxValue'];
-        }
         if (isset($map['RecurrenceType'])) {
             $model->recurrenceType = $map['RecurrenceType'];
+        }
+        if (isset($map['MaxValue'])) {
+            $model->maxValue = $map['MaxValue'];
         }
         if (isset($map['ScheduledTaskName'])) {
             $model->scheduledTaskName = $map['ScheduledTaskName'];
@@ -173,11 +173,11 @@ class scheduledTask extends Model
         if (isset($map['RecurrenceEndTime'])) {
             $model->recurrenceEndTime = $map['RecurrenceEndTime'];
         }
-        if (isset($map['ScheduledTaskId'])) {
-            $model->scheduledTaskId = $map['ScheduledTaskId'];
-        }
         if (isset($map['DesiredCapacity'])) {
             $model->desiredCapacity = $map['DesiredCapacity'];
+        }
+        if (isset($map['ScheduledTaskId'])) {
+            $model->scheduledTaskId = $map['ScheduledTaskId'];
         }
         if (isset($map['MinValue'])) {
             $model->minValue = $map['MinValue'];

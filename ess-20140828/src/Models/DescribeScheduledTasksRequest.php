@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeScheduledTasksRequest extends Model
 {
     /**
-     * @var string[]
-     */
-    public $scheduledAction;
-
-    /**
-     * @var string[]
-     */
-    public $scheduledTaskId;
-
-    /**
-     * @var string[]
-     */
-    public $scheduledTaskName;
-
-    /**
      * @var int
      */
     public $ownerId;
@@ -62,10 +47,22 @@ class DescribeScheduledTasksRequest extends Model
      * @var string
      */
     public $scalingGroupId;
+
+    /**
+     * @var string[]
+     */
+    public $scheduledAction;
+
+    /**
+     * @var string[]
+     */
+    public $scheduledTaskId;
+
+    /**
+     * @var string[]
+     */
+    public $scheduledTaskName;
     protected $_name = [
-        'scheduledAction'      => 'ScheduledAction',
-        'scheduledTaskId'      => 'ScheduledTaskId',
-        'scheduledTaskName'    => 'ScheduledTaskName',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -74,6 +71,9 @@ class DescribeScheduledTasksRequest extends Model
         'pageSize'             => 'PageSize',
         'ownerAccount'         => 'OwnerAccount',
         'scalingGroupId'       => 'ScalingGroupId',
+        'scheduledAction'      => 'ScheduledAction',
+        'scheduledTaskId'      => 'ScheduledTaskId',
+        'scheduledTaskName'    => 'ScheduledTaskName',
     ];
 
     public function validate()
@@ -83,15 +83,6 @@ class DescribeScheduledTasksRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scheduledAction) {
-            $res['ScheduledAction'] = $this->scheduledAction;
-        }
-        if (null !== $this->scheduledTaskId) {
-            $res['ScheduledTaskId'] = $this->scheduledTaskId;
-        }
-        if (null !== $this->scheduledTaskName) {
-            $res['ScheduledTaskName'] = $this->scheduledTaskName;
-        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -116,6 +107,15 @@ class DescribeScheduledTasksRequest extends Model
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
         }
+        if (null !== $this->scheduledAction) {
+            $res['ScheduledAction'] = $this->scheduledAction;
+        }
+        if (null !== $this->scheduledTaskId) {
+            $res['ScheduledTaskId'] = $this->scheduledTaskId;
+        }
+        if (null !== $this->scheduledTaskName) {
+            $res['ScheduledTaskName'] = $this->scheduledTaskName;
+        }
 
         return $res;
     }
@@ -128,21 +128,6 @@ class DescribeScheduledTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScheduledAction'])) {
-            if (!empty($map['ScheduledAction'])) {
-                $model->scheduledAction = $map['ScheduledAction'];
-            }
-        }
-        if (isset($map['ScheduledTaskId'])) {
-            if (!empty($map['ScheduledTaskId'])) {
-                $model->scheduledTaskId = $map['ScheduledTaskId'];
-            }
-        }
-        if (isset($map['ScheduledTaskName'])) {
-            if (!empty($map['ScheduledTaskName'])) {
-                $model->scheduledTaskName = $map['ScheduledTaskName'];
-            }
-        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -166,6 +151,21 @@ class DescribeScheduledTasksRequest extends Model
         }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
+        }
+        if (isset($map['ScheduledAction'])) {
+            if (!empty($map['ScheduledAction'])) {
+                $model->scheduledAction = $map['ScheduledAction'];
+            }
+        }
+        if (isset($map['ScheduledTaskId'])) {
+            if (!empty($map['ScheduledTaskId'])) {
+                $model->scheduledTaskId = $map['ScheduledTaskId'];
+            }
+        }
+        if (isset($map['ScheduledTaskName'])) {
+            if (!empty($map['ScheduledTaskName'])) {
+                $model->scheduledTaskName = $map['ScheduledTaskName'];
+            }
         }
 
         return $model;

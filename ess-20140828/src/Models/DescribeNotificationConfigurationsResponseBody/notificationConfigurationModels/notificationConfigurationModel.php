@@ -15,18 +15,18 @@ class notificationConfigurationModel extends Model
     public $notificationArn;
 
     /**
-     * @var notificationTypes
-     */
-    public $notificationTypes;
-
-    /**
      * @var string
      */
     public $scalingGroupId;
+
+    /**
+     * @var notificationTypes
+     */
+    public $notificationTypes;
     protected $_name = [
         'notificationArn'   => 'NotificationArn',
-        'notificationTypes' => 'NotificationTypes',
         'scalingGroupId'    => 'ScalingGroupId',
+        'notificationTypes' => 'NotificationTypes',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class notificationConfigurationModel extends Model
         if (null !== $this->notificationArn) {
             $res['NotificationArn'] = $this->notificationArn;
         }
-        if (null !== $this->notificationTypes) {
-            $res['NotificationTypes'] = null !== $this->notificationTypes ? $this->notificationTypes->toMap() : null;
-        }
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
+        }
+        if (null !== $this->notificationTypes) {
+            $res['NotificationTypes'] = null !== $this->notificationTypes ? $this->notificationTypes->toMap() : null;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class notificationConfigurationModel extends Model
         if (isset($map['NotificationArn'])) {
             $model->notificationArn = $map['NotificationArn'];
         }
-        if (isset($map['NotificationTypes'])) {
-            $model->notificationTypes = notificationTypes::fromMap($map['NotificationTypes']);
-        }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
+        }
+        if (isset($map['NotificationTypes'])) {
+            $model->notificationTypes = notificationTypes::fromMap($map['NotificationTypes']);
         }
 
         return $model;

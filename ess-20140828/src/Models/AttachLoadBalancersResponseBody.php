@@ -11,9 +11,15 @@ class AttachLoadBalancersResponseBody extends Model
     /**
      * @var string
      */
+    public $scalingActivityId;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'scalingActivityId' => 'ScalingActivityId',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class AttachLoadBalancersResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->scalingActivityId) {
+            $res['ScalingActivityId'] = $this->scalingActivityId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -38,6 +47,9 @@ class AttachLoadBalancersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ScalingActivityId'])) {
+            $model->scalingActivityId = $map['ScalingActivityId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

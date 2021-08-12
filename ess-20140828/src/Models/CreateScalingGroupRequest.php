@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20140828\Models;
 
+use AlibabaCloud\SDK\Ess\V20140828\Models\CreateScalingGroupRequest\albServerGroup;
 use AlibabaCloud\SDK\Ess\V20140828\Models\CreateScalingGroupRequest\launchTemplateOverride;
 use AlibabaCloud\SDK\Ess\V20140828\Models\CreateScalingGroupRequest\lifecycleHook;
 use AlibabaCloud\SDK\Ess\V20140828\Models\CreateScalingGroupRequest\tag;
@@ -143,11 +144,6 @@ class CreateScalingGroupRequest extends Model
     public $groupDeletionProtection;
 
     /**
-     * @var bool
-     */
-    public $scaleOutAmountCheck;
-
-    /**
      * @var string[]
      */
     public $vSwitchIds;
@@ -171,6 +167,11 @@ class CreateScalingGroupRequest extends Model
      * @var launchTemplateOverride[]
      */
     public $launchTemplateOverride;
+
+    /**
+     * @var albServerGroup[]
+     */
+    public $albServerGroup;
     protected $_name = [
         'removalPolicy'                       => 'RemovalPolicy',
         'ownerId'                             => 'OwnerId',
@@ -198,12 +199,12 @@ class CreateScalingGroupRequest extends Model
         'spotInstancePools'                   => 'SpotInstancePools',
         'desiredCapacity'                     => 'DesiredCapacity',
         'groupDeletionProtection'             => 'GroupDeletionProtection',
-        'scaleOutAmountCheck'                 => 'ScaleOutAmountCheck',
         'vSwitchIds'                          => 'VSwitchIds',
         'lifecycleHook'                       => 'LifecycleHook',
         'VServerGroup'                        => 'VServerGroup',
         'tag'                                 => 'Tag',
         'launchTemplateOverride'              => 'LaunchTemplateOverride',
+        'albServerGroup'                      => 'AlbServerGroup',
     ];
 
     public function validate()
@@ -291,9 +292,6 @@ class CreateScalingGroupRequest extends Model
         if (null !== $this->groupDeletionProtection) {
             $res['GroupDeletionProtection'] = $this->groupDeletionProtection;
         }
-        if (null !== $this->scaleOutAmountCheck) {
-            $res['ScaleOutAmountCheck'] = $this->scaleOutAmountCheck;
-        }
         if (null !== $this->vSwitchIds) {
             $res['VSwitchIds'] = $this->vSwitchIds;
         }
@@ -330,6 +328,15 @@ class CreateScalingGroupRequest extends Model
                 $n = 0;
                 foreach ($this->launchTemplateOverride as $item) {
                     $res['LaunchTemplateOverride'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->albServerGroup) {
+            $res['AlbServerGroup'] = [];
+            if (null !== $this->albServerGroup && \is_array($this->albServerGroup)) {
+                $n = 0;
+                foreach ($this->albServerGroup as $item) {
+                    $res['AlbServerGroup'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -425,9 +432,6 @@ class CreateScalingGroupRequest extends Model
         if (isset($map['GroupDeletionProtection'])) {
             $model->groupDeletionProtection = $map['GroupDeletionProtection'];
         }
-        if (isset($map['ScaleOutAmountCheck'])) {
-            $model->scaleOutAmountCheck = $map['ScaleOutAmountCheck'];
-        }
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
                 $model->vSwitchIds = $map['VSwitchIds'];
@@ -466,6 +470,15 @@ class CreateScalingGroupRequest extends Model
                 $n                             = 0;
                 foreach ($map['LaunchTemplateOverride'] as $item) {
                     $model->launchTemplateOverride[$n++] = null !== $item ? launchTemplateOverride::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['AlbServerGroup'])) {
+            if (!empty($map['AlbServerGroup'])) {
+                $model->albServerGroup = [];
+                $n                     = 0;
+                foreach ($map['AlbServerGroup'] as $item) {
+                    $model->albServerGroup[$n++] = null !== $item ? albServerGroup::fromMap($item) : $item;
                 }
             }
         }

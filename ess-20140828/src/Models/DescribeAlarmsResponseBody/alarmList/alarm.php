@@ -31,19 +31,14 @@ class alarm extends Model
     public $state;
 
     /**
-     * @var alarmActions
+     * @var int
      */
-    public $alarmActions;
+    public $period;
 
     /**
      * @var string
      */
     public $scalingGroupId;
-
-    /**
-     * @var int
-     */
-    public $period;
 
     /**
      * @var string
@@ -59,11 +54,6 @@ class alarm extends Model
      * @var string
      */
     public $description;
-
-    /**
-     * @var dimensions
-     */
-    public $dimensions;
 
     /**
      * @var string
@@ -89,23 +79,33 @@ class alarm extends Model
      * @var string
      */
     public $statistics;
+
+    /**
+     * @var dimensions
+     */
+    public $dimensions;
+
+    /**
+     * @var alarmActions
+     */
+    public $alarmActions;
     protected $_name = [
         'alarmTaskId'        => 'AlarmTaskId',
         'metricName'         => 'MetricName',
         'evaluationCount'    => 'EvaluationCount',
         'state'              => 'State',
-        'alarmActions'       => 'AlarmActions',
-        'scalingGroupId'     => 'ScalingGroupId',
         'period'             => 'Period',
+        'scalingGroupId'     => 'ScalingGroupId',
         'comparisonOperator' => 'ComparisonOperator',
         'effective'          => 'Effective',
         'description'        => 'Description',
-        'dimensions'         => 'Dimensions',
         'metricType'         => 'MetricType',
         'name'               => 'Name',
         'threshold'          => 'Threshold',
         'enable'             => 'Enable',
         'statistics'         => 'Statistics',
+        'dimensions'         => 'Dimensions',
+        'alarmActions'       => 'AlarmActions',
     ];
 
     public function validate()
@@ -127,14 +127,11 @@ class alarm extends Model
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
-        if (null !== $this->alarmActions) {
-            $res['AlarmActions'] = null !== $this->alarmActions ? $this->alarmActions->toMap() : null;
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
         }
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
-        }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
         }
         if (null !== $this->comparisonOperator) {
             $res['ComparisonOperator'] = $this->comparisonOperator;
@@ -144,9 +141,6 @@ class alarm extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->dimensions) {
-            $res['Dimensions'] = null !== $this->dimensions ? $this->dimensions->toMap() : null;
         }
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
@@ -162,6 +156,12 @@ class alarm extends Model
         }
         if (null !== $this->statistics) {
             $res['Statistics'] = $this->statistics;
+        }
+        if (null !== $this->dimensions) {
+            $res['Dimensions'] = null !== $this->dimensions ? $this->dimensions->toMap() : null;
+        }
+        if (null !== $this->alarmActions) {
+            $res['AlarmActions'] = null !== $this->alarmActions ? $this->alarmActions->toMap() : null;
         }
 
         return $res;
@@ -187,14 +187,11 @@ class alarm extends Model
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
-        if (isset($map['AlarmActions'])) {
-            $model->alarmActions = alarmActions::fromMap($map['AlarmActions']);
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
         }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
         }
         if (isset($map['ComparisonOperator'])) {
             $model->comparisonOperator = $map['ComparisonOperator'];
@@ -204,9 +201,6 @@ class alarm extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['Dimensions'])) {
-            $model->dimensions = dimensions::fromMap($map['Dimensions']);
         }
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
@@ -222,6 +216,12 @@ class alarm extends Model
         }
         if (isset($map['Statistics'])) {
             $model->statistics = $map['Statistics'];
+        }
+        if (isset($map['Dimensions'])) {
+            $model->dimensions = dimensions::fromMap($map['Dimensions']);
+        }
+        if (isset($map['AlarmActions'])) {
+            $model->alarmActions = alarmActions::fromMap($map['AlarmActions']);
         }
 
         return $model;

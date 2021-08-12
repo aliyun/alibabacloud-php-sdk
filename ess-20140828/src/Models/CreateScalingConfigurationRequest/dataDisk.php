@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
+     * @var string[]
+     */
+    public $categorys;
+
+    /**
      * @var string
      */
     public $performanceLevel;
+
+    /**
+     * @var string
+     */
+    public $autoSnapshotPolicyId;
+
+    /**
+     * @var string
+     */
+    public $encrypted;
 
     /**
      * @var string
@@ -41,17 +56,7 @@ class dataDisk extends Model
     /**
      * @var string
      */
-    public $autoSnapshotPolicyId;
-
-    /**
-     * @var string
-     */
     public $category;
-
-    /**
-     * @var string
-     */
-    public $KMSKeyId;
 
     /**
      * @var bool
@@ -61,19 +66,20 @@ class dataDisk extends Model
     /**
      * @var string
      */
-    public $encrypted;
+    public $KMSKeyId;
     protected $_name = [
+        'categorys'            => 'Categorys',
         'performanceLevel'     => 'PerformanceLevel',
+        'autoSnapshotPolicyId' => 'AutoSnapshotPolicyId',
+        'encrypted'            => 'Encrypted',
         'description'          => 'Description',
         'snapshotId'           => 'SnapshotId',
         'size'                 => 'Size',
         'device'               => 'Device',
         'diskName'             => 'DiskName',
-        'autoSnapshotPolicyId' => 'AutoSnapshotPolicyId',
         'category'             => 'Category',
-        'KMSKeyId'             => 'KMSKeyId',
         'deleteWithInstance'   => 'DeleteWithInstance',
-        'encrypted'            => 'Encrypted',
+        'KMSKeyId'             => 'KMSKeyId',
     ];
 
     public function validate()
@@ -83,8 +89,17 @@ class dataDisk extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->categorys) {
+            $res['Categorys'] = $this->categorys;
+        }
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+        if (null !== $this->autoSnapshotPolicyId) {
+            $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
+        }
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -101,20 +116,14 @@ class dataDisk extends Model
         if (null !== $this->diskName) {
             $res['DiskName'] = $this->diskName;
         }
-        if (null !== $this->autoSnapshotPolicyId) {
-            $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
-        }
-        if (null !== $this->KMSKeyId) {
-            $res['KMSKeyId'] = $this->KMSKeyId;
         }
         if (null !== $this->deleteWithInstance) {
             $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
-        if (null !== $this->encrypted) {
-            $res['Encrypted'] = $this->encrypted;
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
         }
 
         return $res;
@@ -128,8 +137,19 @@ class dataDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Categorys'])) {
+            if (!empty($map['Categorys'])) {
+                $model->categorys = $map['Categorys'];
+            }
+        }
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
+        }
+        if (isset($map['AutoSnapshotPolicyId'])) {
+            $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
+        }
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -146,20 +166,14 @@ class dataDisk extends Model
         if (isset($map['DiskName'])) {
             $model->diskName = $map['DiskName'];
         }
-        if (isset($map['AutoSnapshotPolicyId'])) {
-            $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
-        }
-        if (isset($map['KMSKeyId'])) {
-            $model->KMSKeyId = $map['KMSKeyId'];
         }
         if (isset($map['DeleteWithInstance'])) {
             $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
-        if (isset($map['Encrypted'])) {
-            $model->encrypted = $map['Encrypted'];
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
         }
 
         return $model;

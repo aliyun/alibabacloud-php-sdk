@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingRulesRequest extends Model
 {
     /**
-     * @var string[]
-     */
-    public $scalingRuleId;
-
-    /**
-     * @var string[]
-     */
-    public $scalingRuleName;
-
-    /**
-     * @var string[]
-     */
-    public $scalingRuleAri;
-
-    /**
      * @var int
      */
     public $ownerId;
@@ -72,10 +57,22 @@ class DescribeScalingRulesRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
+    /**
+     * @var string[]
+     */
+    public $scalingRuleId;
+
+    /**
+     * @var string[]
+     */
+    public $scalingRuleName;
+
+    /**
+     * @var string[]
+     */
+    public $scalingRuleAri;
     protected $_name = [
-        'scalingRuleId'        => 'ScalingRuleId',
-        'scalingRuleName'      => 'ScalingRuleName',
-        'scalingRuleAri'       => 'ScalingRuleAri',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -86,6 +83,9 @@ class DescribeScalingRulesRequest extends Model
         'scalingRuleType'      => 'ScalingRuleType',
         'showAlarmRules'       => 'ShowAlarmRules',
         'ownerAccount'         => 'OwnerAccount',
+        'scalingRuleId'        => 'ScalingRuleId',
+        'scalingRuleName'      => 'ScalingRuleName',
+        'scalingRuleAri'       => 'ScalingRuleAri',
     ];
 
     public function validate()
@@ -95,15 +95,6 @@ class DescribeScalingRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scalingRuleId) {
-            $res['ScalingRuleId'] = $this->scalingRuleId;
-        }
-        if (null !== $this->scalingRuleName) {
-            $res['ScalingRuleName'] = $this->scalingRuleName;
-        }
-        if (null !== $this->scalingRuleAri) {
-            $res['ScalingRuleAri'] = $this->scalingRuleAri;
-        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -134,6 +125,15 @@ class DescribeScalingRulesRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+        if (null !== $this->scalingRuleId) {
+            $res['ScalingRuleId'] = $this->scalingRuleId;
+        }
+        if (null !== $this->scalingRuleName) {
+            $res['ScalingRuleName'] = $this->scalingRuleName;
+        }
+        if (null !== $this->scalingRuleAri) {
+            $res['ScalingRuleAri'] = $this->scalingRuleAri;
+        }
 
         return $res;
     }
@@ -146,21 +146,6 @@ class DescribeScalingRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScalingRuleId'])) {
-            if (!empty($map['ScalingRuleId'])) {
-                $model->scalingRuleId = $map['ScalingRuleId'];
-            }
-        }
-        if (isset($map['ScalingRuleName'])) {
-            if (!empty($map['ScalingRuleName'])) {
-                $model->scalingRuleName = $map['ScalingRuleName'];
-            }
-        }
-        if (isset($map['ScalingRuleAri'])) {
-            if (!empty($map['ScalingRuleAri'])) {
-                $model->scalingRuleAri = $map['ScalingRuleAri'];
-            }
-        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -190,6 +175,21 @@ class DescribeScalingRulesRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['ScalingRuleId'])) {
+            if (!empty($map['ScalingRuleId'])) {
+                $model->scalingRuleId = $map['ScalingRuleId'];
+            }
+        }
+        if (isset($map['ScalingRuleName'])) {
+            if (!empty($map['ScalingRuleName'])) {
+                $model->scalingRuleName = $map['ScalingRuleName'];
+            }
+        }
+        if (isset($map['ScalingRuleAri'])) {
+            if (!empty($map['ScalingRuleAri'])) {
+                $model->scalingRuleAri = $map['ScalingRuleAri'];
+            }
         }
 
         return $model;

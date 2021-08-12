@@ -15,11 +15,6 @@ class lifecycleAction extends Model
     public $lifecycleHookId;
 
     /**
-     * @var instanceIds
-     */
-    public $instanceIds;
-
-    /**
      * @var string
      */
     public $lifecycleActionToken;
@@ -33,12 +28,17 @@ class lifecycleAction extends Model
      * @var string
      */
     public $lifecycleActionResult;
+
+    /**
+     * @var instanceIds
+     */
+    public $instanceIds;
     protected $_name = [
         'lifecycleHookId'       => 'LifecycleHookId',
-        'instanceIds'           => 'InstanceIds',
         'lifecycleActionToken'  => 'LifecycleActionToken',
         'lifecycleActionStatus' => 'LifecycleActionStatus',
         'lifecycleActionResult' => 'LifecycleActionResult',
+        'instanceIds'           => 'InstanceIds',
     ];
 
     public function validate()
@@ -51,9 +51,6 @@ class lifecycleAction extends Model
         if (null !== $this->lifecycleHookId) {
             $res['LifecycleHookId'] = $this->lifecycleHookId;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
-        }
         if (null !== $this->lifecycleActionToken) {
             $res['LifecycleActionToken'] = $this->lifecycleActionToken;
         }
@@ -62,6 +59,9 @@ class lifecycleAction extends Model
         }
         if (null !== $this->lifecycleActionResult) {
             $res['LifecycleActionResult'] = $this->lifecycleActionResult;
+        }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class lifecycleAction extends Model
         if (isset($map['LifecycleHookId'])) {
             $model->lifecycleHookId = $map['LifecycleHookId'];
         }
-        if (isset($map['InstanceIds'])) {
-            $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
-        }
         if (isset($map['LifecycleActionToken'])) {
             $model->lifecycleActionToken = $map['LifecycleActionToken'];
         }
@@ -89,6 +86,9 @@ class lifecycleAction extends Model
         }
         if (isset($map['LifecycleActionResult'])) {
             $model->lifecycleActionResult = $map['LifecycleActionResult'];
+        }
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
         }
 
         return $model;

@@ -11,15 +11,15 @@ class CreateScheduledTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $scheduledTaskId;
 
     /**
      * @var string
      */
-    public $scheduledTaskId;
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'scheduledTaskId' => 'ScheduledTaskId',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateScheduledTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->scheduledTaskId) {
             $res['ScheduledTaskId'] = $this->scheduledTaskId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateScheduledTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ScheduledTaskId'])) {
             $model->scheduledTaskId = $map['ScheduledTaskId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

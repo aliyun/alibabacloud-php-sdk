@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20140828\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\scalingConfiguration\dataDisks;
 
+use AlibabaCloud\SDK\Ess\V20140828\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\scalingConfiguration\dataDisks\dataDisk\categories;
 use AlibabaCloud\Tea\Model;
 
 class dataDisk extends Model
@@ -62,6 +63,11 @@ class dataDisk extends Model
      * @var string
      */
     public $encrypted;
+
+    /**
+     * @var categories
+     */
+    public $categories;
     protected $_name = [
         'performanceLevel'     => 'PerformanceLevel',
         'description'          => 'Description',
@@ -74,6 +80,7 @@ class dataDisk extends Model
         'KMSKeyId'             => 'KMSKeyId',
         'deleteWithInstance'   => 'DeleteWithInstance',
         'encrypted'            => 'Encrypted',
+        'categories'           => 'Categories',
     ];
 
     public function validate()
@@ -115,6 +122,9 @@ class dataDisk extends Model
         }
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
+        }
+        if (null !== $this->categories) {
+            $res['Categories'] = null !== $this->categories ? $this->categories->toMap() : null;
         }
 
         return $res;
@@ -160,6 +170,9 @@ class dataDisk extends Model
         }
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
+        }
+        if (isset($map['Categories'])) {
+            $model->categories = categories::fromMap($map['Categories']);
         }
 
         return $model;

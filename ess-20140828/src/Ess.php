@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Ess\V20140828;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Ess\V20140828\Models\AttachAlbServerGroupsRequest;
+use AlibabaCloud\SDK\Ess\V20140828\Models\AttachAlbServerGroupsResponse;
 use AlibabaCloud\SDK\Ess\V20140828\Models\AttachDBInstancesRequest;
 use AlibabaCloud\SDK\Ess\V20140828\Models\AttachDBInstancesResponse;
 use AlibabaCloud\SDK\Ess\V20140828\Models\AttachInstancesRequest;
@@ -73,6 +75,8 @@ use AlibabaCloud\SDK\Ess\V20140828\Models\DescribeScalingRulesRequest;
 use AlibabaCloud\SDK\Ess\V20140828\Models\DescribeScalingRulesResponse;
 use AlibabaCloud\SDK\Ess\V20140828\Models\DescribeScheduledTasksRequest;
 use AlibabaCloud\SDK\Ess\V20140828\Models\DescribeScheduledTasksResponse;
+use AlibabaCloud\SDK\Ess\V20140828\Models\DetachAlbServerGroupsRequest;
+use AlibabaCloud\SDK\Ess\V20140828\Models\DetachAlbServerGroupsResponse;
 use AlibabaCloud\SDK\Ess\V20140828\Models\DetachDBInstancesRequest;
 use AlibabaCloud\SDK\Ess\V20140828\Models\DetachDBInstancesResponse;
 use AlibabaCloud\SDK\Ess\V20140828\Models\DetachInstancesRequest;
@@ -124,6 +128,8 @@ use AlibabaCloud\SDK\Ess\V20140828\Models\RemoveInstancesRequest;
 use AlibabaCloud\SDK\Ess\V20140828\Models\RemoveInstancesResponse;
 use AlibabaCloud\SDK\Ess\V20140828\Models\ResumeProcessesRequest;
 use AlibabaCloud\SDK\Ess\V20140828\Models\ResumeProcessesResponse;
+use AlibabaCloud\SDK\Ess\V20140828\Models\ScaleWithAdjustmentRequest;
+use AlibabaCloud\SDK\Ess\V20140828\Models\ScaleWithAdjustmentResponse;
 use AlibabaCloud\SDK\Ess\V20140828\Models\SetGroupDeletionProtectionRequest;
 use AlibabaCloud\SDK\Ess\V20140828\Models\SetGroupDeletionProtectionResponse;
 use AlibabaCloud\SDK\Ess\V20140828\Models\SetInstanceHealthRequest;
@@ -221,6 +227,34 @@ class Ess extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AttachAlbServerGroupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AttachAlbServerGroupsResponse
+     */
+    public function attachAlbServerGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AttachAlbServerGroupsResponse::fromMap($this->doRPCRequest('AttachAlbServerGroups', '2014-08-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AttachAlbServerGroupsRequest $request
+     *
+     * @return AttachAlbServerGroupsResponse
+     */
+    public function attachAlbServerGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachAlbServerGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -1153,6 +1187,34 @@ class Ess extends OpenApiClient
     }
 
     /**
+     * @param DetachAlbServerGroupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DetachAlbServerGroupsResponse
+     */
+    public function detachAlbServerGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetachAlbServerGroupsResponse::fromMap($this->doRPCRequest('DetachAlbServerGroups', '2014-08-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetachAlbServerGroupsRequest $request
+     *
+     * @return DetachAlbServerGroupsResponse
+     */
+    public function detachAlbServerGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachAlbServerGroupsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DetachDBInstancesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1855,6 +1917,34 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resumeProcessesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ScaleWithAdjustmentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ScaleWithAdjustmentResponse
+     */
+    public function scaleWithAdjustmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ScaleWithAdjustmentResponse::fromMap($this->doRPCRequest('ScaleWithAdjustment', '2014-08-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ScaleWithAdjustmentRequest $request
+     *
+     * @return ScaleWithAdjustmentResponse
+     */
+    public function scaleWithAdjustment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->scaleWithAdjustmentWithOptions($request, $runtime);
     }
 
     /**

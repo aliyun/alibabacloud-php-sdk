@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingActivitiesRequest extends Model
 {
     /**
-     * @var string[]
-     */
-    public $scalingActivityId;
-
-    /**
      * @var int
      */
     public $ownerId;
@@ -57,8 +52,12 @@ class DescribeScalingActivitiesRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
+    /**
+     * @var string[]
+     */
+    public $scalingActivityId;
     protected $_name = [
-        'scalingActivityId'    => 'ScalingActivityId',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -68,6 +67,7 @@ class DescribeScalingActivitiesRequest extends Model
         'scalingGroupId'       => 'ScalingGroupId',
         'statusCode'           => 'StatusCode',
         'ownerAccount'         => 'OwnerAccount',
+        'scalingActivityId'    => 'ScalingActivityId',
     ];
 
     public function validate()
@@ -77,9 +77,6 @@ class DescribeScalingActivitiesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scalingActivityId) {
-            $res['ScalingActivityId'] = $this->scalingActivityId;
-        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -107,6 +104,9 @@ class DescribeScalingActivitiesRequest extends Model
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+        if (null !== $this->scalingActivityId) {
+            $res['ScalingActivityId'] = $this->scalingActivityId;
+        }
 
         return $res;
     }
@@ -119,11 +119,6 @@ class DescribeScalingActivitiesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScalingActivityId'])) {
-            if (!empty($map['ScalingActivityId'])) {
-                $model->scalingActivityId = $map['ScalingActivityId'];
-            }
-        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -150,6 +145,11 @@ class DescribeScalingActivitiesRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['ScalingActivityId'])) {
+            if (!empty($map['ScalingActivityId'])) {
+                $model->scalingActivityId = $map['ScalingActivityId'];
+            }
         }
 
         return $model;

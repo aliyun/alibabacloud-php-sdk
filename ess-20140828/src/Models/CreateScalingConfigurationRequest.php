@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ess\V20140828\Models;
 
 use AlibabaCloud\SDK\Ess\V20140828\Models\CreateScalingConfigurationRequest\dataDisk;
+use AlibabaCloud\SDK\Ess\V20140828\Models\CreateScalingConfigurationRequest\instancePatternInfo;
 use AlibabaCloud\SDK\Ess\V20140828\Models\CreateScalingConfigurationRequest\instanceTypeOverride;
 use AlibabaCloud\SDK\Ess\V20140828\Models\CreateScalingConfigurationRequest\privatePoolOptions;
 use AlibabaCloud\SDK\Ess\V20140828\Models\CreateScalingConfigurationRequest\spotPriceLimit;
@@ -252,6 +253,16 @@ class CreateScalingConfigurationRequest extends Model
      * @var string[]
      */
     public $securityGroupIds;
+
+    /**
+     * @var instancePatternInfo[]
+     */
+    public $instancePatternInfo;
+
+    /**
+     * @var string[]
+     */
+    public $systemDiskCategory;
     protected $_name = [
         'systemDisk'                  => 'SystemDisk',
         'privatePoolOptions'          => 'PrivatePoolOptions',
@@ -301,6 +312,8 @@ class CreateScalingConfigurationRequest extends Model
         'dataDisk'                    => 'DataDisk',
         'spotPriceLimit'              => 'SpotPriceLimit',
         'securityGroupIds'            => 'SecurityGroupIds',
+        'instancePatternInfo'         => 'InstancePatternInfo',
+        'systemDiskCategory'          => 'SystemDiskCategory',
     ];
 
     public function validate()
@@ -471,6 +484,18 @@ class CreateScalingConfigurationRequest extends Model
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->instancePatternInfo) {
+            $res['InstancePatternInfo'] = [];
+            if (null !== $this->instancePatternInfo && \is_array($this->instancePatternInfo)) {
+                $n = 0;
+                foreach ($this->instancePatternInfo as $item) {
+                    $res['InstancePatternInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->systemDiskCategory) {
+            $res['SystemDiskCategory'] = $this->systemDiskCategory;
         }
 
         return $res;
@@ -648,6 +673,20 @@ class CreateScalingConfigurationRequest extends Model
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
+            }
+        }
+        if (isset($map['InstancePatternInfo'])) {
+            if (!empty($map['InstancePatternInfo'])) {
+                $model->instancePatternInfo = [];
+                $n                          = 0;
+                foreach ($map['InstancePatternInfo'] as $item) {
+                    $model->instancePatternInfo[$n++] = null !== $item ? instancePatternInfo::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['SystemDiskCategory'])) {
+            if (!empty($map['SystemDiskCategory'])) {
+                $model->systemDiskCategory = $map['SystemDiskCategory'];
             }
         }
 

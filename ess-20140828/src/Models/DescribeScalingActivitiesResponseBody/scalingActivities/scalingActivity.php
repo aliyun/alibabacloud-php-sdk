@@ -14,14 +14,14 @@ class scalingActivity extends Model
     public $progress;
 
     /**
-     * @var string
-     */
-    public $attachedCapacity;
-
-    /**
      * @var int
      */
     public $scalingInstanceNumber;
+
+    /**
+     * @var string
+     */
+    public $attachedCapacity;
 
     /**
      * @var string
@@ -31,12 +31,12 @@ class scalingActivity extends Model
     /**
      * @var string
      */
-    public $autoCreatedCapacity;
+    public $scalingGroupId;
 
     /**
      * @var string
      */
-    public $scalingGroupId;
+    public $autoCreatedCapacity;
 
     /**
      * @var string
@@ -74,11 +74,11 @@ class scalingActivity extends Model
     public $statusMessage;
     protected $_name = [
         'progress'              => 'Progress',
-        'attachedCapacity'      => 'AttachedCapacity',
         'scalingInstanceNumber' => 'ScalingInstanceNumber',
+        'attachedCapacity'      => 'AttachedCapacity',
         'totalCapacity'         => 'TotalCapacity',
-        'autoCreatedCapacity'   => 'AutoCreatedCapacity',
         'scalingGroupId'        => 'ScalingGroupId',
+        'autoCreatedCapacity'   => 'AutoCreatedCapacity',
         'endTime'               => 'EndTime',
         'startTime'             => 'StartTime',
         'description'           => 'Description',
@@ -98,20 +98,20 @@ class scalingActivity extends Model
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
-        if (null !== $this->attachedCapacity) {
-            $res['AttachedCapacity'] = $this->attachedCapacity;
-        }
         if (null !== $this->scalingInstanceNumber) {
             $res['ScalingInstanceNumber'] = $this->scalingInstanceNumber;
+        }
+        if (null !== $this->attachedCapacity) {
+            $res['AttachedCapacity'] = $this->attachedCapacity;
         }
         if (null !== $this->totalCapacity) {
             $res['TotalCapacity'] = $this->totalCapacity;
         }
-        if (null !== $this->autoCreatedCapacity) {
-            $res['AutoCreatedCapacity'] = $this->autoCreatedCapacity;
-        }
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
+        }
+        if (null !== $this->autoCreatedCapacity) {
+            $res['AutoCreatedCapacity'] = $this->autoCreatedCapacity;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -149,20 +149,20 @@ class scalingActivity extends Model
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
-        if (isset($map['AttachedCapacity'])) {
-            $model->attachedCapacity = $map['AttachedCapacity'];
-        }
         if (isset($map['ScalingInstanceNumber'])) {
             $model->scalingInstanceNumber = $map['ScalingInstanceNumber'];
+        }
+        if (isset($map['AttachedCapacity'])) {
+            $model->attachedCapacity = $map['AttachedCapacity'];
         }
         if (isset($map['TotalCapacity'])) {
             $model->totalCapacity = $map['TotalCapacity'];
         }
-        if (isset($map['AutoCreatedCapacity'])) {
-            $model->autoCreatedCapacity = $map['AutoCreatedCapacity'];
-        }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
+        }
+        if (isset($map['AutoCreatedCapacity'])) {
+            $model->autoCreatedCapacity = $map['AutoCreatedCapacity'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

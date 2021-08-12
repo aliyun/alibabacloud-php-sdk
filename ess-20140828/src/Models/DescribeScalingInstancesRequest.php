@@ -69,6 +69,11 @@ class DescribeScalingInstancesRequest extends Model
     public $ownerAccount;
 
     /**
+     * @var string
+     */
+    public $scalingActivityId;
+
+    /**
      * @var string[]
      */
     public $instanceId;
@@ -85,6 +90,7 @@ class DescribeScalingInstancesRequest extends Model
         'pageNumber'             => 'PageNumber',
         'pageSize'               => 'PageSize',
         'ownerAccount'           => 'OwnerAccount',
+        'scalingActivityId'      => 'ScalingActivityId',
         'instanceId'             => 'InstanceId',
     ];
 
@@ -130,6 +136,9 @@ class DescribeScalingInstancesRequest extends Model
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->scalingActivityId) {
+            $res['ScalingActivityId'] = $this->scalingActivityId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -181,6 +190,9 @@ class DescribeScalingInstancesRequest extends Model
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['ScalingActivityId'])) {
+            $model->scalingActivityId = $map['ScalingActivityId'];
         }
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {

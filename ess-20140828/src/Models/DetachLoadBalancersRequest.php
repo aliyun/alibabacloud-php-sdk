@@ -34,6 +34,11 @@ class DetachLoadBalancersRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
      * @var string[]
      */
     public $loadBalancer;
@@ -43,6 +48,7 @@ class DetachLoadBalancersRequest extends Model
         'scalingGroupId'       => 'ScalingGroupId',
         'forceDetach'          => 'ForceDetach',
         'clientToken'          => 'ClientToken',
+        'async'                => 'Async',
         'loadBalancer'         => 'LoadBalancer',
     ];
 
@@ -67,6 +73,9 @@ class DetachLoadBalancersRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
         if (null !== $this->loadBalancer) {
             $res['LoadBalancer'] = $this->loadBalancer;
@@ -97,6 +106,9 @@ class DetachLoadBalancersRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
         if (isset($map['LoadBalancer'])) {
             if (!empty($map['LoadBalancer'])) {

@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
-     * @var string
-     */
-    public $localName;
-
-    /**
-     * @var bool
-     */
-    public $vpcUnavailable;
-
-    /**
      * @var bool
      */
     public $classicUnavailable;
@@ -31,12 +21,22 @@ class region extends Model
     /**
      * @var string
      */
+    public $localName;
+
+    /**
+     * @var bool
+     */
+    public $vpcUnavailable;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
-        'localName'          => 'LocalName',
-        'vpcUnavailable'     => 'VpcUnavailable',
         'classicUnavailable' => 'ClassicUnavailable',
         'regionEndpoint'     => 'RegionEndpoint',
+        'localName'          => 'LocalName',
+        'vpcUnavailable'     => 'VpcUnavailable',
         'regionId'           => 'RegionId',
     ];
 
@@ -47,17 +47,17 @@ class region extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->localName) {
-            $res['LocalName'] = $this->localName;
-        }
-        if (null !== $this->vpcUnavailable) {
-            $res['VpcUnavailable'] = $this->vpcUnavailable;
-        }
         if (null !== $this->classicUnavailable) {
             $res['ClassicUnavailable'] = $this->classicUnavailable;
         }
         if (null !== $this->regionEndpoint) {
             $res['RegionEndpoint'] = $this->regionEndpoint;
+        }
+        if (null !== $this->localName) {
+            $res['LocalName'] = $this->localName;
+        }
+        if (null !== $this->vpcUnavailable) {
+            $res['VpcUnavailable'] = $this->vpcUnavailable;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -74,17 +74,17 @@ class region extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LocalName'])) {
-            $model->localName = $map['LocalName'];
-        }
-        if (isset($map['VpcUnavailable'])) {
-            $model->vpcUnavailable = $map['VpcUnavailable'];
-        }
         if (isset($map['ClassicUnavailable'])) {
             $model->classicUnavailable = $map['ClassicUnavailable'];
         }
         if (isset($map['RegionEndpoint'])) {
             $model->regionEndpoint = $map['RegionEndpoint'];
+        }
+        if (isset($map['LocalName'])) {
+            $model->localName = $map['LocalName'];
+        }
+        if (isset($map['VpcUnavailable'])) {
+            $model->vpcUnavailable = $map['VpcUnavailable'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
