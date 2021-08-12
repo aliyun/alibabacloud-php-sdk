@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobResponseBody;
 
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobResponseBody\smartJobInfo\inputConfig;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobResponseBody\smartJobInfo\outputConfig;
 use AlibabaCloud\Tea\Model;
 
 class smartJobInfo extends Model
@@ -35,7 +36,7 @@ class smartJobInfo extends Model
     public $inputConfig;
 
     /**
-     * @var string
+     * @var outputConfig
      */
     public $outputConfig;
 
@@ -59,7 +60,7 @@ class smartJobInfo extends Model
         'userId'        => 'UserId',
         'editingConfig' => 'EditingConfig',
         'inputConfig'   => 'InputConfig',
-        'outputConfig'  => 'outputConfig',
+        'outputConfig'  => 'OutputConfig',
         'createTime'    => 'CreateTime',
         'modifiedTime'  => 'ModifiedTime',
         'jobType'       => 'JobType',
@@ -88,7 +89,7 @@ class smartJobInfo extends Model
             $res['InputConfig'] = null !== $this->inputConfig ? $this->inputConfig->toMap() : null;
         }
         if (null !== $this->outputConfig) {
-            $res['outputConfig'] = $this->outputConfig;
+            $res['OutputConfig'] = null !== $this->outputConfig ? $this->outputConfig->toMap() : null;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -126,8 +127,8 @@ class smartJobInfo extends Model
         if (isset($map['InputConfig'])) {
             $model->inputConfig = inputConfig::fromMap($map['InputConfig']);
         }
-        if (isset($map['outputConfig'])) {
-            $model->outputConfig = $map['outputConfig'];
+        if (isset($map['OutputConfig'])) {
+            $model->outputConfig = outputConfig::fromMap($map['OutputConfig']);
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
