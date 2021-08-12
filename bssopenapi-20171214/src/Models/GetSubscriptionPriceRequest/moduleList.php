@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class moduleList extends Model
 {
     /**
-     * @var string
-     */
-    public $config;
-
-    /**
-     * @var string
-     */
-    public $moduleCode;
-
-    /**
      * @var int
      */
     public $moduleStatus;
@@ -26,12 +16,22 @@ class moduleList extends Model
     /**
      * @var string
      */
+    public $moduleCode;
+
+    /**
+     * @var string
+     */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $config;
     protected $_name = [
-        'config'       => 'Config',
-        'moduleCode'   => 'ModuleCode',
         'moduleStatus' => 'ModuleStatus',
+        'moduleCode'   => 'ModuleCode',
         'tag'          => 'Tag',
+        'config'       => 'Config',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class moduleList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
+        if (null !== $this->moduleStatus) {
+            $res['ModuleStatus'] = $this->moduleStatus;
         }
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
         }
-        if (null !== $this->moduleStatus) {
-            $res['ModuleStatus'] = $this->moduleStatus;
-        }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class moduleList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
+        if (isset($map['ModuleStatus'])) {
+            $model->moduleStatus = $map['ModuleStatus'];
         }
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
         }
-        if (isset($map['ModuleStatus'])) {
-            $model->moduleStatus = $map['ModuleStatus'];
-        }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
+        }
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
 
         return $model;

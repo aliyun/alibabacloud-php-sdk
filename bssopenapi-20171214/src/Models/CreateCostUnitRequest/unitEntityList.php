@@ -11,20 +11,20 @@ class unitEntityList extends Model
     /**
      * @var int
      */
-    public $ownerUid;
+    public $parentUnitId;
 
     /**
      * @var int
      */
-    public $parentUnitId;
+    public $ownerUid;
 
     /**
      * @var string
      */
     public $unitName;
     protected $_name = [
-        'ownerUid'     => 'OwnerUid',
         'parentUnitId' => 'ParentUnitId',
+        'ownerUid'     => 'OwnerUid',
         'unitName'     => 'UnitName',
     ];
 
@@ -35,11 +35,11 @@ class unitEntityList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerUid) {
-            $res['OwnerUid'] = $this->ownerUid;
-        }
         if (null !== $this->parentUnitId) {
             $res['ParentUnitId'] = $this->parentUnitId;
+        }
+        if (null !== $this->ownerUid) {
+            $res['OwnerUid'] = $this->ownerUid;
         }
         if (null !== $this->unitName) {
             $res['UnitName'] = $this->unitName;
@@ -56,11 +56,11 @@ class unitEntityList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerUid'])) {
-            $model->ownerUid = $map['OwnerUid'];
-        }
         if (isset($map['ParentUnitId'])) {
             $model->parentUnitId = $map['ParentUnitId'];
+        }
+        if (isset($map['OwnerUid'])) {
+            $model->ownerUid = $map['OwnerUid'];
         }
         if (isset($map['UnitName'])) {
             $model->unitName = $map['UnitName'];

@@ -49,6 +49,11 @@ class ApplyInvoiceRequest extends Model
     public $invoiceByAmount;
 
     /**
+     * @var string
+     */
+    public $userRemark;
+
+    /**
      * @var int[]
      */
     public $selectedIds;
@@ -61,6 +66,7 @@ class ApplyInvoiceRequest extends Model
         'processWay'      => 'ProcessWay',
         'applyUserNick'   => 'ApplyUserNick',
         'invoiceByAmount' => 'InvoiceByAmount',
+        'userRemark'      => 'UserRemark',
         'selectedIds'     => 'SelectedIds',
     ];
 
@@ -94,6 +100,9 @@ class ApplyInvoiceRequest extends Model
         }
         if (null !== $this->invoiceByAmount) {
             $res['InvoiceByAmount'] = $this->invoiceByAmount;
+        }
+        if (null !== $this->userRemark) {
+            $res['UserRemark'] = $this->userRemark;
         }
         if (null !== $this->selectedIds) {
             $res['SelectedIds'] = $this->selectedIds;
@@ -133,6 +142,9 @@ class ApplyInvoiceRequest extends Model
         }
         if (isset($map['InvoiceByAmount'])) {
             $model->invoiceByAmount = $map['InvoiceByAmount'];
+        }
+        if (isset($map['UserRemark'])) {
+            $model->userRemark = $map['UserRemark'];
         }
         if (isset($map['SelectedIds'])) {
             if (!empty($map['SelectedIds'])) {

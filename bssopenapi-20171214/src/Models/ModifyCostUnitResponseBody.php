@@ -15,11 +15,6 @@ class ModifyCostUnitResponseBody extends Model
     public $code;
 
     /**
-     * @var data[]
-     */
-    public $data;
-
-    /**
      * @var string
      */
     public $message;
@@ -33,12 +28,17 @@ class ModifyCostUnitResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var data[]
+     */
+    public $data;
     protected $_name = [
         'code'      => 'Code',
-        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
+        'data'      => 'Data',
     ];
 
     public function validate()
@@ -51,15 +51,6 @@ class ModifyCostUnitResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -68,6 +59,15 @@ class ModifyCostUnitResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -84,15 +84,6 @@ class ModifyCostUnitResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -101,6 +92,15 @@ class ModifyCostUnitResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Data'])) {
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

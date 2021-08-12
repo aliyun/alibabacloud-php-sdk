@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateAgAccountResponseBody extends Model
 {
     /**
-     * @var agRelationDto
-     */
-    public $agRelationDto;
-
-    /**
      * @var string
      */
     public $code;
@@ -33,12 +28,17 @@ class CreateAgAccountResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var agRelationDto
+     */
+    public $agRelationDto;
     protected $_name = [
-        'agRelationDto' => 'AgRelationDto',
         'code'          => 'Code',
         'message'       => 'Message',
         'requestId'     => 'RequestId',
         'success'       => 'Success',
+        'agRelationDto' => 'AgRelationDto',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class CreateAgAccountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->agRelationDto) {
-            $res['AgRelationDto'] = null !== $this->agRelationDto ? $this->agRelationDto->toMap() : null;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -62,6 +59,9 @@ class CreateAgAccountResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->agRelationDto) {
+            $res['AgRelationDto'] = null !== $this->agRelationDto ? $this->agRelationDto->toMap() : null;
         }
 
         return $res;
@@ -75,9 +75,6 @@ class CreateAgAccountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AgRelationDto'])) {
-            $model->agRelationDto = agRelationDto::fromMap($map['AgRelationDto']);
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -89,6 +86,9 @@ class CreateAgAccountResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['AgRelationDto'])) {
+            $model->agRelationDto = agRelationDto::fromMap($map['AgRelationDto']);
         }
 
         return $model;

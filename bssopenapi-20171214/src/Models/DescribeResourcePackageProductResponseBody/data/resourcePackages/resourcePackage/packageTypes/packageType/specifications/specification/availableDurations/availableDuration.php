@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class availableDuration extends Model
 {
     /**
+     * @var int
+     */
+    public $value;
+
+    /**
      * @var string
      */
     public $name;
@@ -17,15 +22,10 @@ class availableDuration extends Model
      * @var string
      */
     public $unit;
-
-    /**
-     * @var int
-     */
-    public $value;
     protected $_name = [
+        'value' => 'Value',
         'name'  => 'Name',
         'unit'  => 'Unit',
-        'value' => 'Value',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class availableDuration extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class availableDuration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
         }
 
         return $model;

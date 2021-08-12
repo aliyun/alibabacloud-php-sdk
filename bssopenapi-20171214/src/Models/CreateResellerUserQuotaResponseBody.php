@@ -14,14 +14,14 @@ class CreateResellerUserQuotaResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
-     */
-    public $data;
-
-    /**
      * @var string
      */
     public $message;
+
+    /**
+     * @var bool
+     */
+    public $data;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class CreateResellerUserQuotaResponseBody extends Model
     public $success;
     protected $_name = [
         'code'      => 'Code',
-        'data'      => 'Data',
         'message'   => 'Message',
+        'data'      => 'Data',
         'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
@@ -50,11 +50,11 @@ class CreateResellerUserQuotaResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -77,11 +77,11 @@ class CreateResellerUserQuotaResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -11,11 +11,6 @@ class product extends Model
     /**
      * @var string
      */
-    public $productCode;
-
-    /**
-     * @var string
-     */
     public $productName;
 
     /**
@@ -27,11 +22,16 @@ class product extends Model
      * @var string
      */
     public $subscriptionType;
+
+    /**
+     * @var string
+     */
+    public $productCode;
     protected $_name = [
-        'productCode'      => 'ProductCode',
         'productName'      => 'ProductName',
         'productType'      => 'ProductType',
         'subscriptionType' => 'SubscriptionType',
+        'productCode'      => 'ProductCode',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class product extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
         }
@@ -52,6 +49,9 @@ class product extends Model
         }
         if (null !== $this->subscriptionType) {
             $res['SubscriptionType'] = $this->subscriptionType;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class product extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
         }
@@ -76,6 +73,9 @@ class product extends Model
         }
         if (isset($map['SubscriptionType'])) {
             $model->subscriptionType = $map['SubscriptionType'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
 
         return $model;

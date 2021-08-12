@@ -11,7 +11,7 @@ class agRelationDto extends Model
     /**
      * @var string
      */
-    public $mpk;
+    public $type;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class agRelationDto extends Model
     /**
      * @var string
      */
-    public $type;
+    public $mpk;
     protected $_name = [
-        'mpk'              => 'Mpk',
+        'type'             => 'Type',
         'pk'               => 'Pk',
         'ramAdminRoleName' => 'RamAdminRoleName',
-        'type'             => 'Type',
+        'mpk'              => 'Mpk',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class agRelationDto extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mpk) {
-            $res['Mpk'] = $this->mpk;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->pk) {
             $res['Pk'] = $this->pk;
@@ -50,8 +50,8 @@ class agRelationDto extends Model
         if (null !== $this->ramAdminRoleName) {
             $res['RamAdminRoleName'] = $this->ramAdminRoleName;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->mpk) {
+            $res['Mpk'] = $this->mpk;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class agRelationDto extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Mpk'])) {
-            $model->mpk = $map['Mpk'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['Pk'])) {
             $model->pk = $map['Pk'];
@@ -74,8 +74,8 @@ class agRelationDto extends Model
         if (isset($map['RamAdminRoleName'])) {
             $model->ramAdminRoleName = $map['RamAdminRoleName'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Mpk'])) {
+            $model->mpk = $map['Mpk'];
         }
 
         return $model;

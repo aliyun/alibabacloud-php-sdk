@@ -19,19 +19,19 @@ class resourceInstanceList extends Model
     public $commodityCode;
 
     /**
-     * @var string
-     */
-    public $resourceId;
-
-    /**
      * @var int
      */
     public $resourceUserId;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
     protected $_name = [
         'apportionCode'  => 'ApportionCode',
         'commodityCode'  => 'CommodityCode',
-        'resourceId'     => 'ResourceId',
         'resourceUserId' => 'ResourceUserId',
+        'resourceId'     => 'ResourceId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class resourceInstanceList extends Model
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
-        }
         if (null !== $this->resourceUserId) {
             $res['ResourceUserId'] = $this->resourceUserId;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class resourceInstanceList extends Model
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
-        }
         if (isset($map['ResourceUserId'])) {
             $model->resourceUserId = $map['ResourceUserId'];
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
 
         return $model;

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var costUnitDtoList[]
-     */
-    public $costUnitDtoList;
-
-    /**
      * @var int
      */
     public $pageNum;
@@ -28,11 +23,16 @@ class data extends Model
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var costUnitDtoList[]
+     */
+    public $costUnitDtoList;
     protected $_name = [
-        'costUnitDtoList' => 'CostUnitDtoList',
         'pageNum'         => 'PageNum',
         'pageSize'        => 'PageSize',
         'totalCount'      => 'TotalCount',
+        'costUnitDtoList' => 'CostUnitDtoList',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->costUnitDtoList) {
-            $res['CostUnitDtoList'] = [];
-            if (null !== $this->costUnitDtoList && \is_array($this->costUnitDtoList)) {
-                $n = 0;
-                foreach ($this->costUnitDtoList as $item) {
-                    $res['CostUnitDtoList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -59,6 +50,15 @@ class data extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->costUnitDtoList) {
+            $res['CostUnitDtoList'] = [];
+            if (null !== $this->costUnitDtoList && \is_array($this->costUnitDtoList)) {
+                $n = 0;
+                foreach ($this->costUnitDtoList as $item) {
+                    $res['CostUnitDtoList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -72,15 +72,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CostUnitDtoList'])) {
-            if (!empty($map['CostUnitDtoList'])) {
-                $model->costUnitDtoList = [];
-                $n                      = 0;
-                foreach ($map['CostUnitDtoList'] as $item) {
-                    $model->costUnitDtoList[$n++] = null !== $item ? costUnitDtoList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -89,6 +80,15 @@ class data extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['CostUnitDtoList'])) {
+            if (!empty($map['CostUnitDtoList'])) {
+                $model->costUnitDtoList = [];
+                $n                      = 0;
+                foreach ($map['CostUnitDtoList'] as $item) {
+                    $model->costUnitDtoList[$n++] = null !== $item ? costUnitDtoList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

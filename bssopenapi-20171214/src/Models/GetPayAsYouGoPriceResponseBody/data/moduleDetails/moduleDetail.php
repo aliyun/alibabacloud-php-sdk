@@ -19,9 +19,9 @@ class moduleDetail extends Model
     public $invoiceDiscount;
 
     /**
-     * @var string
+     * @var float
      */
-    public $moduleCode;
+    public $unitPrice;
 
     /**
      * @var float
@@ -29,15 +29,15 @@ class moduleDetail extends Model
     public $originalCost;
 
     /**
-     * @var float
+     * @var string
      */
-    public $unitPrice;
+    public $moduleCode;
     protected $_name = [
         'costAfterDiscount' => 'CostAfterDiscount',
         'invoiceDiscount'   => 'InvoiceDiscount',
-        'moduleCode'        => 'ModuleCode',
-        'originalCost'      => 'OriginalCost',
         'unitPrice'         => 'UnitPrice',
+        'originalCost'      => 'OriginalCost',
+        'moduleCode'        => 'ModuleCode',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class moduleDetail extends Model
         if (null !== $this->invoiceDiscount) {
             $res['InvoiceDiscount'] = $this->invoiceDiscount;
         }
-        if (null !== $this->moduleCode) {
-            $res['ModuleCode'] = $this->moduleCode;
+        if (null !== $this->unitPrice) {
+            $res['UnitPrice'] = $this->unitPrice;
         }
         if (null !== $this->originalCost) {
             $res['OriginalCost'] = $this->originalCost;
         }
-        if (null !== $this->unitPrice) {
-            $res['UnitPrice'] = $this->unitPrice;
+        if (null !== $this->moduleCode) {
+            $res['ModuleCode'] = $this->moduleCode;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class moduleDetail extends Model
         if (isset($map['InvoiceDiscount'])) {
             $model->invoiceDiscount = $map['InvoiceDiscount'];
         }
-        if (isset($map['ModuleCode'])) {
-            $model->moduleCode = $map['ModuleCode'];
+        if (isset($map['UnitPrice'])) {
+            $model->unitPrice = $map['UnitPrice'];
         }
         if (isset($map['OriginalCost'])) {
             $model->originalCost = $map['OriginalCost'];
         }
-        if (isset($map['UnitPrice'])) {
-            $model->unitPrice = $map['UnitPrice'];
+        if (isset($map['ModuleCode'])) {
+            $model->moduleCode = $map['ModuleCode'];
         }
 
         return $model;

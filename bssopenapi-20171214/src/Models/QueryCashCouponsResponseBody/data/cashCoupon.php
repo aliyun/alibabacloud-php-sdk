@@ -11,32 +11,7 @@ class cashCoupon extends Model
     /**
      * @var string
      */
-    public $applicableProducts;
-
-    /**
-     * @var string
-     */
-    public $applicableScenarios;
-
-    /**
-     * @var string
-     */
-    public $balance;
-
-    /**
-     * @var int
-     */
-    public $cashCouponId;
-
-    /**
-     * @var string
-     */
-    public $cashCouponNo;
-
-    /**
-     * @var string
-     */
-    public $effectiveTime;
+    public $status;
 
     /**
      * @var string
@@ -56,18 +31,43 @@ class cashCoupon extends Model
     /**
      * @var string
      */
-    public $status;
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
+    public $applicableScenarios;
+
+    /**
+     * @var int
+     */
+    public $cashCouponId;
+
+    /**
+     * @var string
+     */
+    public $applicableProducts;
+
+    /**
+     * @var string
+     */
+    public $cashCouponNo;
+
+    /**
+     * @var string
+     */
+    public $balance;
     protected $_name = [
-        'applicableProducts'  => 'ApplicableProducts',
-        'applicableScenarios' => 'ApplicableScenarios',
-        'balance'             => 'Balance',
-        'cashCouponId'        => 'CashCouponId',
-        'cashCouponNo'        => 'CashCouponNo',
-        'effectiveTime'       => 'EffectiveTime',
+        'status'              => 'Status',
         'expiryTime'          => 'ExpiryTime',
         'grantedTime'         => 'GrantedTime',
         'nominalValue'        => 'NominalValue',
-        'status'              => 'Status',
+        'effectiveTime'       => 'EffectiveTime',
+        'applicableScenarios' => 'ApplicableScenarios',
+        'cashCouponId'        => 'CashCouponId',
+        'applicableProducts'  => 'ApplicableProducts',
+        'cashCouponNo'        => 'CashCouponNo',
+        'balance'             => 'Balance',
     ];
 
     public function validate()
@@ -77,23 +77,8 @@ class cashCoupon extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->applicableProducts) {
-            $res['ApplicableProducts'] = $this->applicableProducts;
-        }
-        if (null !== $this->applicableScenarios) {
-            $res['ApplicableScenarios'] = $this->applicableScenarios;
-        }
-        if (null !== $this->balance) {
-            $res['Balance'] = $this->balance;
-        }
-        if (null !== $this->cashCouponId) {
-            $res['CashCouponId'] = $this->cashCouponId;
-        }
-        if (null !== $this->cashCouponNo) {
-            $res['CashCouponNo'] = $this->cashCouponNo;
-        }
-        if (null !== $this->effectiveTime) {
-            $res['EffectiveTime'] = $this->effectiveTime;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->expiryTime) {
             $res['ExpiryTime'] = $this->expiryTime;
@@ -104,8 +89,23 @@ class cashCoupon extends Model
         if (null !== $this->nominalValue) {
             $res['NominalValue'] = $this->nominalValue;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
+        if (null !== $this->applicableScenarios) {
+            $res['ApplicableScenarios'] = $this->applicableScenarios;
+        }
+        if (null !== $this->cashCouponId) {
+            $res['CashCouponId'] = $this->cashCouponId;
+        }
+        if (null !== $this->applicableProducts) {
+            $res['ApplicableProducts'] = $this->applicableProducts;
+        }
+        if (null !== $this->cashCouponNo) {
+            $res['CashCouponNo'] = $this->cashCouponNo;
+        }
+        if (null !== $this->balance) {
+            $res['Balance'] = $this->balance;
         }
 
         return $res;
@@ -119,23 +119,8 @@ class cashCoupon extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApplicableProducts'])) {
-            $model->applicableProducts = $map['ApplicableProducts'];
-        }
-        if (isset($map['ApplicableScenarios'])) {
-            $model->applicableScenarios = $map['ApplicableScenarios'];
-        }
-        if (isset($map['Balance'])) {
-            $model->balance = $map['Balance'];
-        }
-        if (isset($map['CashCouponId'])) {
-            $model->cashCouponId = $map['CashCouponId'];
-        }
-        if (isset($map['CashCouponNo'])) {
-            $model->cashCouponNo = $map['CashCouponNo'];
-        }
-        if (isset($map['EffectiveTime'])) {
-            $model->effectiveTime = $map['EffectiveTime'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['ExpiryTime'])) {
             $model->expiryTime = $map['ExpiryTime'];
@@ -146,8 +131,23 @@ class cashCoupon extends Model
         if (isset($map['NominalValue'])) {
             $model->nominalValue = $map['NominalValue'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
+        if (isset($map['ApplicableScenarios'])) {
+            $model->applicableScenarios = $map['ApplicableScenarios'];
+        }
+        if (isset($map['CashCouponId'])) {
+            $model->cashCouponId = $map['CashCouponId'];
+        }
+        if (isset($map['ApplicableProducts'])) {
+            $model->applicableProducts = $map['ApplicableProducts'];
+        }
+        if (isset($map['CashCouponNo'])) {
+            $model->cashCouponNo = $map['CashCouponNo'];
+        }
+        if (isset($map['Balance'])) {
+            $model->balance = $map['Balance'];
         }
 
         return $model;

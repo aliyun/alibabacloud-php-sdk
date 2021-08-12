@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DeleteCostUnitResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeInstanceBillResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribePricingModuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageDetailRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageDetailResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceCoverageTotalRequest;
@@ -44,6 +46,14 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageDetailRequ
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageDetailResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageTotalRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageTotalResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageDetailRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageDetailResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageTotalRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageTotalResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansUsageDetailRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansUsageDetailResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansUsageTotalRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansUsageTotalResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\EnableBillGenerationRequest;
@@ -119,6 +129,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRelationListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRelationListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResellerAvailableQuotaRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResellerAvailableQuotaResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResourcePackageInstancesRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryResourcePackageInstancesResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRIUtilizationDetailRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRIUtilizationDetailResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QuerySavingsPlansDeductLogRequest;
@@ -650,6 +662,34 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * @param DescribePricingModuleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribePricingModuleResponse
+     */
+    public function describePricingModuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribePricingModuleResponse::fromMap($this->doRPCRequest('DescribePricingModule', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribePricingModuleRequest $request
+     *
+     * @return DescribePricingModuleResponse
+     */
+    public function describePricingModule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePricingModuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeResourceCoverageDetailRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -787,6 +827,118 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeResourceUsageTotalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSavingsPlansCoverageDetailRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeSavingsPlansCoverageDetailResponse
+     */
+    public function describeSavingsPlansCoverageDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSavingsPlansCoverageDetailResponse::fromMap($this->doRPCRequest('DescribeSavingsPlansCoverageDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSavingsPlansCoverageDetailRequest $request
+     *
+     * @return DescribeSavingsPlansCoverageDetailResponse
+     */
+    public function describeSavingsPlansCoverageDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSavingsPlansCoverageDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSavingsPlansCoverageTotalRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeSavingsPlansCoverageTotalResponse
+     */
+    public function describeSavingsPlansCoverageTotalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSavingsPlansCoverageTotalResponse::fromMap($this->doRPCRequest('DescribeSavingsPlansCoverageTotal', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSavingsPlansCoverageTotalRequest $request
+     *
+     * @return DescribeSavingsPlansCoverageTotalResponse
+     */
+    public function describeSavingsPlansCoverageTotal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSavingsPlansCoverageTotalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSavingsPlansUsageDetailRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeSavingsPlansUsageDetailResponse
+     */
+    public function describeSavingsPlansUsageDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSavingsPlansUsageDetailResponse::fromMap($this->doRPCRequest('DescribeSavingsPlansUsageDetail', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSavingsPlansUsageDetailRequest $request
+     *
+     * @return DescribeSavingsPlansUsageDetailResponse
+     */
+    public function describeSavingsPlansUsageDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSavingsPlansUsageDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSavingsPlansUsageTotalRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeSavingsPlansUsageTotalResponse
+     */
+    public function describeSavingsPlansUsageTotalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeSavingsPlansUsageTotalResponse::fromMap($this->doRPCRequest('DescribeSavingsPlansUsageTotal', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSavingsPlansUsageTotalRequest $request
+     *
+     * @return DescribeSavingsPlansUsageTotalResponse
+     */
+    public function describeSavingsPlansUsageTotal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSavingsPlansUsageTotalWithOptions($request, $runtime);
     }
 
     /**
@@ -1862,6 +2014,34 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryResellerAvailableQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryResourcePackageInstancesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return QueryResourcePackageInstancesResponse
+     */
+    public function queryResourcePackageInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryResourcePackageInstancesResponse::fromMap($this->doRPCRequest('QueryResourcePackageInstances', '2017-12-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryResourcePackageInstancesRequest $request
+     *
+     * @return QueryResourcePackageInstancesResponse
+     */
+    public function queryResourcePackageInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryResourcePackageInstancesWithOptions($request, $runtime);
     }
 
     /**

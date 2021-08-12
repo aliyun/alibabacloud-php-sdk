@@ -20,19 +20,19 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @var productList
-     */
-    public $productList;
-
-    /**
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var productList
+     */
+    public $productList;
     protected $_name = [
         'pageNum'     => 'PageNum',
         'pageSize'    => 'PageSize',
-        'productList' => 'ProductList',
         'totalCount'  => 'TotalCount',
+        'productList' => 'ProductList',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class data extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->productList) {
-            $res['ProductList'] = null !== $this->productList ? $this->productList->toMap() : null;
-        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->productList) {
+            $res['ProductList'] = null !== $this->productList ? $this->productList->toMap() : null;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class data extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ProductList'])) {
-            $model->productList = productList::fromMap($map['ProductList']);
-        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['ProductList'])) {
+            $model->productList = productList::fromMap($map['ProductList']);
         }
 
         return $model;

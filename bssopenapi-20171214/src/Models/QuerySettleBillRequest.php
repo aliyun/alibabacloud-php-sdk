@@ -62,6 +62,11 @@ class QuerySettleBillRequest extends Model
      * @var int
      */
     public $billOwnerId;
+
+    /**
+     * @var string
+     */
+    public $recordID;
     protected $_name = [
         'billingCycle'           => 'BillingCycle',
         'type'                   => 'Type',
@@ -74,6 +79,7 @@ class QuerySettleBillRequest extends Model
         'nextToken'              => 'NextToken',
         'maxResults'             => 'MaxResults',
         'billOwnerId'            => 'BillOwnerId',
+        'recordID'               => 'RecordID',
     ];
 
     public function validate()
@@ -115,6 +121,9 @@ class QuerySettleBillRequest extends Model
         }
         if (null !== $this->billOwnerId) {
             $res['BillOwnerId'] = $this->billOwnerId;
+        }
+        if (null !== $this->recordID) {
+            $res['RecordID'] = $this->recordID;
         }
 
         return $res;
@@ -160,6 +169,9 @@ class QuerySettleBillRequest extends Model
         }
         if (isset($map['BillOwnerId'])) {
             $model->billOwnerId = $map['BillOwnerId'];
+        }
+        if (isset($map['RecordID'])) {
+            $model->recordID = $map['RecordID'];
         }
 
         return $model;

@@ -27,11 +27,17 @@ class SubscribeBillToOSSRequest extends Model
      * @var int
      */
     public $bucketOwnerId;
+
+    /**
+     * @var string
+     */
+    public $beginBillingCycle;
     protected $_name = [
         'subscribeBucket'         => 'SubscribeBucket',
         'subscribeType'           => 'SubscribeType',
         'multAccountRelSubscribe' => 'MultAccountRelSubscribe',
         'bucketOwnerId'           => 'BucketOwnerId',
+        'beginBillingCycle'       => 'BeginBillingCycle',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class SubscribeBillToOSSRequest extends Model
         }
         if (null !== $this->bucketOwnerId) {
             $res['BucketOwnerId'] = $this->bucketOwnerId;
+        }
+        if (null !== $this->beginBillingCycle) {
+            $res['BeginBillingCycle'] = $this->beginBillingCycle;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class SubscribeBillToOSSRequest extends Model
         }
         if (isset($map['BucketOwnerId'])) {
             $model->bucketOwnerId = $map['BucketOwnerId'];
+        }
+        if (isset($map['BeginBillingCycle'])) {
+            $model->beginBillingCycle = $map['BeginBillingCycle'];
         }
 
         return $model;

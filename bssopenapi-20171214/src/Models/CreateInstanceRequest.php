@@ -50,6 +50,11 @@ class CreateInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $logistics;
+
+    /**
      * @var parameter[]
      */
     public $parameter;
@@ -62,6 +67,7 @@ class CreateInstanceRequest extends Model
         'renewalStatus'    => 'RenewalStatus',
         'renewPeriod'      => 'RenewPeriod',
         'clientToken'      => 'ClientToken',
+        'logistics'        => 'Logistics',
         'parameter'        => 'Parameter',
     ];
 
@@ -95,6 +101,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->logistics) {
+            $res['Logistics'] = $this->logistics;
         }
         if (null !== $this->parameter) {
             $res['Parameter'] = [];
@@ -140,6 +149,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Logistics'])) {
+            $model->logistics = $map['Logistics'];
         }
         if (isset($map['Parameter'])) {
             if (!empty($map['Parameter'])) {

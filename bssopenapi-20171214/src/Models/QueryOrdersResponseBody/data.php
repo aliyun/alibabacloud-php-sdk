@@ -15,11 +15,6 @@ class data extends Model
     public $hostName;
 
     /**
-     * @var orderList
-     */
-    public $orderList;
-
-    /**
      * @var int
      */
     public $pageNum;
@@ -33,12 +28,17 @@ class data extends Model
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var orderList
+     */
+    public $orderList;
     protected $_name = [
         'hostName'   => 'HostName',
-        'orderList'  => 'OrderList',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'totalCount' => 'TotalCount',
+        'orderList'  => 'OrderList',
     ];
 
     public function validate()
@@ -51,9 +51,6 @@ class data extends Model
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
-        if (null !== $this->orderList) {
-            $res['OrderList'] = null !== $this->orderList ? $this->orderList->toMap() : null;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -62,6 +59,9 @@ class data extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->orderList) {
+            $res['OrderList'] = null !== $this->orderList ? $this->orderList->toMap() : null;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class data extends Model
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
-        if (isset($map['OrderList'])) {
-            $model->orderList = orderList::fromMap($map['OrderList']);
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -89,6 +86,9 @@ class data extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['OrderList'])) {
+            $model->orderList = orderList::fromMap($map['OrderList']);
         }
 
         return $model;

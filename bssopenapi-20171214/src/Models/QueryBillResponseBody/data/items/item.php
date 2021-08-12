@@ -9,9 +9,94 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $roundDownDiscount;
+
+    /**
+     * @var string
+     */
+    public $item;
+
+    /**
+     * @var string
+     */
+    public $currency;
+
+    /**
+     * @var string
+     */
+    public $usageStartTime;
+
+    /**
+     * @var string
+     */
+    public $subscriptionType;
+
+    /**
+     * @var float
+     */
+    public $deductedByCashCoupons;
+
+    /**
+     * @var string
+     */
+    public $usageEndTime;
+
+    /**
+     * @var float
+     */
+    public $deductedByCoupons;
+
+    /**
+     * @var string
+     */
+    public $subOrderId;
+
+    /**
+     * @var float
+     */
+    public $outstandingAmount;
+
+    /**
      * @var float
      */
     public $afterTaxAmount;
+
+    /**
+     * @var string
+     */
+    public $paymentTime;
+
+    /**
+     * @var float
+     */
+    public $pretaxAmountLocal;
+
+    /**
+     * @var float
+     */
+    public $tax;
+
+    /**
+     * @var string
+     */
+    public $pipCode;
+
+    /**
+     * @var string
+     */
+    public $paymentTransactionID;
+
+    /**
+     * @var float
+     */
+    public $pretaxAmount;
 
     /**
      * @var string
@@ -21,47 +106,17 @@ class item extends Model
     /**
      * @var string
      */
-    public $currency;
-
-    /**
-     * @var float
-     */
-    public $deductedByCashCoupons;
-
-    /**
-     * @var float
-     */
-    public $deductedByCoupons;
-
-    /**
-     * @var float
-     */
-    public $deductedByPrepaidCard;
-
-    /**
-     * @var float
-     */
-    public $invoiceDiscount;
+    public $productName;
 
     /**
      * @var string
      */
-    public $item;
-
-    /**
-     * @var float
-     */
-    public $outstandingAmount;
+    public $recordID;
 
     /**
      * @var string
      */
-    public $ownerID;
-
-    /**
-     * @var float
-     */
-    public $paymentAmount;
+    public $productDetail;
 
     /**
      * @var string
@@ -71,27 +126,27 @@ class item extends Model
     /**
      * @var string
      */
-    public $paymentTime;
-
-    /**
-     * @var string
-     */
-    public $paymentTransactionID;
-
-    /**
-     * @var string
-     */
-    public $pipCode;
+    public $ownerID;
 
     /**
      * @var float
      */
-    public $pretaxAmount;
+    public $deductedByPrepaidCard;
+
+    /**
+     * @var string
+     */
+    public $productType;
 
     /**
      * @var float
      */
-    public $pretaxAmountLocal;
+    public $invoiceDiscount;
+
+    /**
+     * @var float
+     */
+    public $paymentAmount;
 
     /**
      * @var float
@@ -102,92 +157,37 @@ class item extends Model
      * @var string
      */
     public $productCode;
-
-    /**
-     * @var string
-     */
-    public $productDetail;
-
-    /**
-     * @var string
-     */
-    public $productName;
-
-    /**
-     * @var string
-     */
-    public $productType;
-
-    /**
-     * @var string
-     */
-    public $recordID;
-
-    /**
-     * @var string
-     */
-    public $roundDownDiscount;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $subOrderId;
-
-    /**
-     * @var string
-     */
-    public $subscriptionType;
-
-    /**
-     * @var float
-     */
-    public $tax;
-
-    /**
-     * @var string
-     */
-    public $usageEndTime;
-
-    /**
-     * @var string
-     */
-    public $usageStartTime;
     protected $_name = [
-        'afterTaxAmount'        => 'AfterTaxAmount',
-        'commodityCode'         => 'CommodityCode',
-        'currency'              => 'Currency',
-        'deductedByCashCoupons' => 'DeductedByCashCoupons',
-        'deductedByCoupons'     => 'DeductedByCoupons',
-        'deductedByPrepaidCard' => 'DeductedByPrepaidCard',
-        'invoiceDiscount'       => 'InvoiceDiscount',
+        'status'                => 'Status',
+        'roundDownDiscount'     => 'RoundDownDiscount',
         'item'                  => 'Item',
+        'currency'              => 'Currency',
+        'usageStartTime'        => 'UsageStartTime',
+        'subscriptionType'      => 'SubscriptionType',
+        'deductedByCashCoupons' => 'DeductedByCashCoupons',
+        'usageEndTime'          => 'UsageEndTime',
+        'deductedByCoupons'     => 'DeductedByCoupons',
+        'subOrderId'            => 'SubOrderId',
         'outstandingAmount'     => 'OutstandingAmount',
-        'ownerID'               => 'OwnerID',
-        'paymentAmount'         => 'PaymentAmount',
-        'paymentCurrency'       => 'PaymentCurrency',
+        'afterTaxAmount'        => 'AfterTaxAmount',
         'paymentTime'           => 'PaymentTime',
-        'paymentTransactionID'  => 'PaymentTransactionID',
-        'pipCode'               => 'PipCode',
-        'pretaxAmount'          => 'PretaxAmount',
         'pretaxAmountLocal'     => 'PretaxAmountLocal',
+        'tax'                   => 'Tax',
+        'pipCode'               => 'PipCode',
+        'paymentTransactionID'  => 'PaymentTransactionID',
+        'pretaxAmount'          => 'PretaxAmount',
+        'commodityCode'         => 'CommodityCode',
+        'productName'           => 'ProductName',
+        'recordID'              => 'RecordID',
+        'productDetail'         => 'ProductDetail',
+        'paymentCurrency'       => 'PaymentCurrency',
+        'ownerID'               => 'OwnerID',
+        'deductedByPrepaidCard' => 'DeductedByPrepaidCard',
+        'productType'           => 'ProductType',
+        'invoiceDiscount'       => 'InvoiceDiscount',
+        'paymentAmount'         => 'PaymentAmount',
         'pretaxGrossAmount'     => 'PretaxGrossAmount',
         'productCode'           => 'ProductCode',
-        'productDetail'         => 'ProductDetail',
-        'productName'           => 'ProductName',
-        'productType'           => 'ProductType',
-        'recordID'              => 'RecordID',
-        'roundDownDiscount'     => 'RoundDownDiscount',
-        'status'                => 'Status',
-        'subOrderId'            => 'SubOrderId',
-        'subscriptionType'      => 'SubscriptionType',
-        'tax'                   => 'Tax',
-        'usageEndTime'          => 'UsageEndTime',
-        'usageStartTime'        => 'UsageStartTime',
     ];
 
     public function validate()
@@ -197,95 +197,95 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->afterTaxAmount) {
-            $res['AfterTaxAmount'] = $this->afterTaxAmount;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->commodityCode) {
-            $res['CommodityCode'] = $this->commodityCode;
-        }
-        if (null !== $this->currency) {
-            $res['Currency'] = $this->currency;
-        }
-        if (null !== $this->deductedByCashCoupons) {
-            $res['DeductedByCashCoupons'] = $this->deductedByCashCoupons;
-        }
-        if (null !== $this->deductedByCoupons) {
-            $res['DeductedByCoupons'] = $this->deductedByCoupons;
-        }
-        if (null !== $this->deductedByPrepaidCard) {
-            $res['DeductedByPrepaidCard'] = $this->deductedByPrepaidCard;
-        }
-        if (null !== $this->invoiceDiscount) {
-            $res['InvoiceDiscount'] = $this->invoiceDiscount;
+        if (null !== $this->roundDownDiscount) {
+            $res['RoundDownDiscount'] = $this->roundDownDiscount;
         }
         if (null !== $this->item) {
             $res['Item'] = $this->item;
         }
+        if (null !== $this->currency) {
+            $res['Currency'] = $this->currency;
+        }
+        if (null !== $this->usageStartTime) {
+            $res['UsageStartTime'] = $this->usageStartTime;
+        }
+        if (null !== $this->subscriptionType) {
+            $res['SubscriptionType'] = $this->subscriptionType;
+        }
+        if (null !== $this->deductedByCashCoupons) {
+            $res['DeductedByCashCoupons'] = $this->deductedByCashCoupons;
+        }
+        if (null !== $this->usageEndTime) {
+            $res['UsageEndTime'] = $this->usageEndTime;
+        }
+        if (null !== $this->deductedByCoupons) {
+            $res['DeductedByCoupons'] = $this->deductedByCoupons;
+        }
+        if (null !== $this->subOrderId) {
+            $res['SubOrderId'] = $this->subOrderId;
+        }
         if (null !== $this->outstandingAmount) {
             $res['OutstandingAmount'] = $this->outstandingAmount;
         }
-        if (null !== $this->ownerID) {
-            $res['OwnerID'] = $this->ownerID;
-        }
-        if (null !== $this->paymentAmount) {
-            $res['PaymentAmount'] = $this->paymentAmount;
-        }
-        if (null !== $this->paymentCurrency) {
-            $res['PaymentCurrency'] = $this->paymentCurrency;
+        if (null !== $this->afterTaxAmount) {
+            $res['AfterTaxAmount'] = $this->afterTaxAmount;
         }
         if (null !== $this->paymentTime) {
             $res['PaymentTime'] = $this->paymentTime;
         }
-        if (null !== $this->paymentTransactionID) {
-            $res['PaymentTransactionID'] = $this->paymentTransactionID;
+        if (null !== $this->pretaxAmountLocal) {
+            $res['PretaxAmountLocal'] = $this->pretaxAmountLocal;
+        }
+        if (null !== $this->tax) {
+            $res['Tax'] = $this->tax;
         }
         if (null !== $this->pipCode) {
             $res['PipCode'] = $this->pipCode;
         }
+        if (null !== $this->paymentTransactionID) {
+            $res['PaymentTransactionID'] = $this->paymentTransactionID;
+        }
         if (null !== $this->pretaxAmount) {
             $res['PretaxAmount'] = $this->pretaxAmount;
         }
-        if (null !== $this->pretaxAmountLocal) {
-            $res['PretaxAmountLocal'] = $this->pretaxAmountLocal;
+        if (null !== $this->commodityCode) {
+            $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->productName) {
+            $res['ProductName'] = $this->productName;
+        }
+        if (null !== $this->recordID) {
+            $res['RecordID'] = $this->recordID;
+        }
+        if (null !== $this->productDetail) {
+            $res['ProductDetail'] = $this->productDetail;
+        }
+        if (null !== $this->paymentCurrency) {
+            $res['PaymentCurrency'] = $this->paymentCurrency;
+        }
+        if (null !== $this->ownerID) {
+            $res['OwnerID'] = $this->ownerID;
+        }
+        if (null !== $this->deductedByPrepaidCard) {
+            $res['DeductedByPrepaidCard'] = $this->deductedByPrepaidCard;
+        }
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
+        }
+        if (null !== $this->invoiceDiscount) {
+            $res['InvoiceDiscount'] = $this->invoiceDiscount;
+        }
+        if (null !== $this->paymentAmount) {
+            $res['PaymentAmount'] = $this->paymentAmount;
         }
         if (null !== $this->pretaxGrossAmount) {
             $res['PretaxGrossAmount'] = $this->pretaxGrossAmount;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->productDetail) {
-            $res['ProductDetail'] = $this->productDetail;
-        }
-        if (null !== $this->productName) {
-            $res['ProductName'] = $this->productName;
-        }
-        if (null !== $this->productType) {
-            $res['ProductType'] = $this->productType;
-        }
-        if (null !== $this->recordID) {
-            $res['RecordID'] = $this->recordID;
-        }
-        if (null !== $this->roundDownDiscount) {
-            $res['RoundDownDiscount'] = $this->roundDownDiscount;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->subOrderId) {
-            $res['SubOrderId'] = $this->subOrderId;
-        }
-        if (null !== $this->subscriptionType) {
-            $res['SubscriptionType'] = $this->subscriptionType;
-        }
-        if (null !== $this->tax) {
-            $res['Tax'] = $this->tax;
-        }
-        if (null !== $this->usageEndTime) {
-            $res['UsageEndTime'] = $this->usageEndTime;
-        }
-        if (null !== $this->usageStartTime) {
-            $res['UsageStartTime'] = $this->usageStartTime;
         }
 
         return $res;
@@ -299,95 +299,95 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AfterTaxAmount'])) {
-            $model->afterTaxAmount = $map['AfterTaxAmount'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['CommodityCode'])) {
-            $model->commodityCode = $map['CommodityCode'];
-        }
-        if (isset($map['Currency'])) {
-            $model->currency = $map['Currency'];
-        }
-        if (isset($map['DeductedByCashCoupons'])) {
-            $model->deductedByCashCoupons = $map['DeductedByCashCoupons'];
-        }
-        if (isset($map['DeductedByCoupons'])) {
-            $model->deductedByCoupons = $map['DeductedByCoupons'];
-        }
-        if (isset($map['DeductedByPrepaidCard'])) {
-            $model->deductedByPrepaidCard = $map['DeductedByPrepaidCard'];
-        }
-        if (isset($map['InvoiceDiscount'])) {
-            $model->invoiceDiscount = $map['InvoiceDiscount'];
+        if (isset($map['RoundDownDiscount'])) {
+            $model->roundDownDiscount = $map['RoundDownDiscount'];
         }
         if (isset($map['Item'])) {
             $model->item = $map['Item'];
         }
+        if (isset($map['Currency'])) {
+            $model->currency = $map['Currency'];
+        }
+        if (isset($map['UsageStartTime'])) {
+            $model->usageStartTime = $map['UsageStartTime'];
+        }
+        if (isset($map['SubscriptionType'])) {
+            $model->subscriptionType = $map['SubscriptionType'];
+        }
+        if (isset($map['DeductedByCashCoupons'])) {
+            $model->deductedByCashCoupons = $map['DeductedByCashCoupons'];
+        }
+        if (isset($map['UsageEndTime'])) {
+            $model->usageEndTime = $map['UsageEndTime'];
+        }
+        if (isset($map['DeductedByCoupons'])) {
+            $model->deductedByCoupons = $map['DeductedByCoupons'];
+        }
+        if (isset($map['SubOrderId'])) {
+            $model->subOrderId = $map['SubOrderId'];
+        }
         if (isset($map['OutstandingAmount'])) {
             $model->outstandingAmount = $map['OutstandingAmount'];
         }
-        if (isset($map['OwnerID'])) {
-            $model->ownerID = $map['OwnerID'];
-        }
-        if (isset($map['PaymentAmount'])) {
-            $model->paymentAmount = $map['PaymentAmount'];
-        }
-        if (isset($map['PaymentCurrency'])) {
-            $model->paymentCurrency = $map['PaymentCurrency'];
+        if (isset($map['AfterTaxAmount'])) {
+            $model->afterTaxAmount = $map['AfterTaxAmount'];
         }
         if (isset($map['PaymentTime'])) {
             $model->paymentTime = $map['PaymentTime'];
         }
-        if (isset($map['PaymentTransactionID'])) {
-            $model->paymentTransactionID = $map['PaymentTransactionID'];
+        if (isset($map['PretaxAmountLocal'])) {
+            $model->pretaxAmountLocal = $map['PretaxAmountLocal'];
+        }
+        if (isset($map['Tax'])) {
+            $model->tax = $map['Tax'];
         }
         if (isset($map['PipCode'])) {
             $model->pipCode = $map['PipCode'];
         }
+        if (isset($map['PaymentTransactionID'])) {
+            $model->paymentTransactionID = $map['PaymentTransactionID'];
+        }
         if (isset($map['PretaxAmount'])) {
             $model->pretaxAmount = $map['PretaxAmount'];
         }
-        if (isset($map['PretaxAmountLocal'])) {
-            $model->pretaxAmountLocal = $map['PretaxAmountLocal'];
+        if (isset($map['CommodityCode'])) {
+            $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['ProductName'])) {
+            $model->productName = $map['ProductName'];
+        }
+        if (isset($map['RecordID'])) {
+            $model->recordID = $map['RecordID'];
+        }
+        if (isset($map['ProductDetail'])) {
+            $model->productDetail = $map['ProductDetail'];
+        }
+        if (isset($map['PaymentCurrency'])) {
+            $model->paymentCurrency = $map['PaymentCurrency'];
+        }
+        if (isset($map['OwnerID'])) {
+            $model->ownerID = $map['OwnerID'];
+        }
+        if (isset($map['DeductedByPrepaidCard'])) {
+            $model->deductedByPrepaidCard = $map['DeductedByPrepaidCard'];
+        }
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
+        }
+        if (isset($map['InvoiceDiscount'])) {
+            $model->invoiceDiscount = $map['InvoiceDiscount'];
+        }
+        if (isset($map['PaymentAmount'])) {
+            $model->paymentAmount = $map['PaymentAmount'];
         }
         if (isset($map['PretaxGrossAmount'])) {
             $model->pretaxGrossAmount = $map['PretaxGrossAmount'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['ProductDetail'])) {
-            $model->productDetail = $map['ProductDetail'];
-        }
-        if (isset($map['ProductName'])) {
-            $model->productName = $map['ProductName'];
-        }
-        if (isset($map['ProductType'])) {
-            $model->productType = $map['ProductType'];
-        }
-        if (isset($map['RecordID'])) {
-            $model->recordID = $map['RecordID'];
-        }
-        if (isset($map['RoundDownDiscount'])) {
-            $model->roundDownDiscount = $map['RoundDownDiscount'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['SubOrderId'])) {
-            $model->subOrderId = $map['SubOrderId'];
-        }
-        if (isset($map['SubscriptionType'])) {
-            $model->subscriptionType = $map['SubscriptionType'];
-        }
-        if (isset($map['Tax'])) {
-            $model->tax = $map['Tax'];
-        }
-        if (isset($map['UsageEndTime'])) {
-            $model->usageEndTime = $map['UsageEndTime'];
-        }
-        if (isset($map['UsageStartTime'])) {
-            $model->usageStartTime = $map['UsageStartTime'];
         }
 
         return $model;

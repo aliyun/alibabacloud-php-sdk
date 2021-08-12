@@ -52,6 +52,11 @@ class QueryDPUtilizationDetailRequest extends Model
      * @var bool
      */
     public $includeShare;
+
+    /**
+     * @var string
+     */
+    public $prodCode;
     protected $_name = [
         'instanceId'         => 'InstanceId',
         'instanceSpec'       => 'InstanceSpec',
@@ -62,6 +67,7 @@ class QueryDPUtilizationDetailRequest extends Model
         'lastToken'          => 'LastToken',
         'limit'              => 'Limit',
         'includeShare'       => 'IncludeShare',
+        'prodCode'           => 'ProdCode',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class QueryDPUtilizationDetailRequest extends Model
         }
         if (null !== $this->includeShare) {
             $res['IncludeShare'] = $this->includeShare;
+        }
+        if (null !== $this->prodCode) {
+            $res['ProdCode'] = $this->prodCode;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class QueryDPUtilizationDetailRequest extends Model
         }
         if (isset($map['IncludeShare'])) {
             $model->includeShare = $map['IncludeShare'];
+        }
+        if (isset($map['ProdCode'])) {
+            $model->prodCode = $map['ProdCode'];
         }
 
         return $model;
