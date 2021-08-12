@@ -25,6 +25,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderSh
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProxyAccessRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProxyAccessResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProxyRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProxyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreatePublishGroupTaskRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreatePublishGroupTaskResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateSQLReviewOrderRequest;
@@ -40,6 +44,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobRespon
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyAccessRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyAccessResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DisableUserRequest;
@@ -95,6 +103,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailReque
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetProxyRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetProxyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatusRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatusResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewOptimizeDetailRequest;
@@ -119,6 +129,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserUploadFileJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserUploadFileJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDatabasesRequest;
@@ -145,6 +157,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicTablesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicTablesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListOrdersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListOrdersResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxiesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxiesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxyAccessesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxyAccessesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsRequest;
@@ -549,6 +565,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param CreateProxyAccessRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateProxyAccessResponse
+     */
+    public function createProxyAccessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateProxyAccessResponse::fromMap($this->doRPCRequest('CreateProxyAccess', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateProxyAccessRequest $request
+     *
+     * @return CreateProxyAccessResponse
+     */
+    public function createProxyAccess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProxyAccessWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListUserPermissionsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -602,6 +646,34 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listWorkFlowTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetProxyRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetProxyResponse
+     */
+    public function getProxyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetProxyResponse::fromMap($this->doRPCRequest('GetProxy', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetProxyRequest $request
+     *
+     * @return GetProxyResponse
+     */
+    public function getProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProxyWithOptions($request, $runtime);
     }
 
     /**
@@ -742,6 +814,34 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getStructSyncJobDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateProxyRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateProxyResponse
+     */
+    public function createProxyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateProxyResponse::fromMap($this->doRPCRequest('CreateProxy', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateProxyRequest $request
+     *
+     * @return CreateProxyResponse
+     */
+    public function createProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProxyWithOptions($request, $runtime);
     }
 
     /**
@@ -1519,6 +1619,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ListProxyAccessesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListProxyAccessesResponse
+     */
+    public function listProxyAccessesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListProxyAccessesResponse::fromMap($this->doRPCRequest('ListProxyAccesses', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListProxyAccessesRequest $request
+     *
+     * @return ListProxyAccessesResponse
+     */
+    public function listProxyAccesses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProxyAccessesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreatePublishGroupTaskRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1572,6 +1700,34 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InspectProxyAccessSecretRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return InspectProxyAccessSecretResponse
+     */
+    public function inspectProxyAccessSecretWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return InspectProxyAccessSecretResponse::fromMap($this->doRPCRequest('InspectProxyAccessSecret', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param InspectProxyAccessSecretRequest $request
+     *
+     * @return InspectProxyAccessSecretResponse
+     */
+    public function inspectProxyAccessSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->inspectProxyAccessSecretWithOptions($request, $runtime);
     }
 
     /**
@@ -1799,6 +1955,34 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param DeleteProxyAccessRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteProxyAccessResponse
+     */
+    public function deleteProxyAccessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteProxyAccessResponse::fromMap($this->doRPCRequest('DeleteProxyAccess', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteProxyAccessRequest $request
+     *
+     * @return DeleteProxyAccessResponse
+     */
+    public function deleteProxyAccess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProxyAccessWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDataCorrectTaskDetailRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1852,6 +2036,34 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createUploadFileJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteProxyRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteProxyResponse
+     */
+    public function deleteProxyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteProxyResponse::fromMap($this->doRPCRequest('DeleteProxy', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteProxyRequest $request
+     *
+     * @return DeleteProxyResponse
+     */
+    public function deleteProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProxyWithOptions($request, $runtime);
     }
 
     /**
@@ -2487,6 +2699,34 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listWorkFlowNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProxiesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListProxiesResponse
+     */
+    public function listProxiesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListProxiesResponse::fromMap($this->doRPCRequest('ListProxies', '2018-11-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListProxiesRequest $request
+     *
+     * @return ListProxiesResponse
+     */
+    public function listProxies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProxiesWithOptions($request, $runtime);
     }
 
     /**
