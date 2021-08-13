@@ -56,8 +56,6 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHandwritingRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHandwritingResponse;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHouseCertificationRequest;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHouseCertificationResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHouseholdRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHouseholdResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeIdcardRequest;
@@ -1067,35 +1065,6 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeRussianWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeHouseCertificationRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RecognizeHouseCertificationResponse
-     */
-    public function recognizeHouseCertificationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return RecognizeHouseCertificationResponse::fromMap($this->doRPCRequest('RecognizeHouseCertification', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeHouseCertificationRequest $request
-     *
-     * @return RecognizeHouseCertificationResponse
-     */
-    public function recognizeHouseCertification($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeHouseCertificationWithOptions($request, $runtime);
     }
 
     /**

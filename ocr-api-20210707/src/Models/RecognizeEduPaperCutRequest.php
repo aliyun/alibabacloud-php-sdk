@@ -35,19 +35,11 @@ class RecognizeEduPaperCutRequest extends Model
      * @var string
      */
     public $subject;
-
-    /**
-     * @description 是否输出原图坐标信息(如果图片被做过旋转，图片校正等处理)
-     *
-     * @var bool
-     */
-    public $outputOricoord;
     protected $_name = [
-        'url'            => 'Url',
-        'cutType'        => 'CutType',
-        'imageType'      => 'ImageType',
-        'subject'        => 'Subject',
-        'outputOricoord' => 'OutputOricoord',
+        'url'       => 'Url',
+        'cutType'   => 'CutType',
+        'imageType' => 'ImageType',
+        'subject'   => 'Subject',
     ];
 
     public function validate()
@@ -68,9 +60,6 @@ class RecognizeEduPaperCutRequest extends Model
         }
         if (null !== $this->subject) {
             $res['Subject'] = $this->subject;
-        }
-        if (null !== $this->outputOricoord) {
-            $res['OutputOricoord'] = $this->outputOricoord;
         }
 
         return $res;
@@ -95,9 +84,6 @@ class RecognizeEduPaperCutRequest extends Model
         }
         if (isset($map['Subject'])) {
             $model->subject = $map['Subject'];
-        }
-        if (isset($map['OutputOricoord'])) {
-            $model->outputOricoord = $map['OutputOricoord'];
         }
 
         return $model;
