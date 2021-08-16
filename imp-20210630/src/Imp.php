@@ -74,6 +74,7 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomLivesRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomLivesResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomLivesShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveRequest;
@@ -285,14 +286,19 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param ListRoomLivesRequest $request
+     * @param ListRoomLivesRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return ListRoomLivesResponse
      */
-    public function listRoomLivesWithOptions($request, $runtime)
+    public function listRoomLivesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListRoomLivesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roomIdList)) {
+            $request->roomIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomIdList, 'RoomIdList', 'json');
+        }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);

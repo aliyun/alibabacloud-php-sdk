@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListRoomLivesRequest extends Model
+class ListRoomLivesShrinkRequest extends Model
 {
     /**
      * @description 应用唯一标识，可以包含小写字母、数字，长度为6个字符。
@@ -46,16 +46,16 @@ class ListRoomLivesRequest extends Model
     /**
      * @description 房间ID列表，可指定多个房间id，过滤优先级高于RoomId。
      *
-     * @var string[]
+     * @var string
      */
-    public $roomIdList;
+    public $roomIdListShrink;
     protected $_name = [
-        'appId'          => 'AppId',
-        'roomId'         => 'RoomId',
-        'status'         => 'Status',
-        'queryTimestamp' => 'QueryTimestamp',
-        'size'           => 'Size',
-        'roomIdList'     => 'RoomIdList',
+        'appId'            => 'AppId',
+        'roomId'           => 'RoomId',
+        'status'           => 'Status',
+        'queryTimestamp'   => 'QueryTimestamp',
+        'size'             => 'Size',
+        'roomIdListShrink' => 'RoomIdList',
     ];
 
     public function validate()
@@ -80,8 +80,8 @@ class ListRoomLivesRequest extends Model
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-        if (null !== $this->roomIdList) {
-            $res['RoomIdList'] = $this->roomIdList;
+        if (null !== $this->roomIdListShrink) {
+            $res['RoomIdList'] = $this->roomIdListShrink;
         }
 
         return $res;
@@ -90,7 +90,7 @@ class ListRoomLivesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListRoomLivesRequest
+     * @return ListRoomLivesShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -111,9 +111,7 @@ class ListRoomLivesRequest extends Model
             $model->size = $map['Size'];
         }
         if (isset($map['RoomIdList'])) {
-            if (!empty($map['RoomIdList'])) {
-                $model->roomIdList = $map['RoomIdList'];
-            }
+            $model->roomIdListShrink = $map['RoomIdList'];
         }
 
         return $model;

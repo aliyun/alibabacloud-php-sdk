@@ -21,9 +21,17 @@ class GetLiveDomainStatusShrinkRequest extends Model
      * @var string
      */
     public $liveDomainListShrink;
+
+    /**
+     * @description 直播域名类型，推流域名: push, 拉流域名: pull, 回放域名: palyback
+     *
+     * @var string
+     */
+    public $liveDomainType;
     protected $_name = [
         'appId'                => 'AppId',
         'liveDomainListShrink' => 'LiveDomainList',
+        'liveDomainType'       => 'LiveDomainType',
     ];
 
     public function validate()
@@ -38,6 +46,9 @@ class GetLiveDomainStatusShrinkRequest extends Model
         }
         if (null !== $this->liveDomainListShrink) {
             $res['LiveDomainList'] = $this->liveDomainListShrink;
+        }
+        if (null !== $this->liveDomainType) {
+            $res['LiveDomainType'] = $this->liveDomainType;
         }
 
         return $res;
@@ -56,6 +67,9 @@ class GetLiveDomainStatusShrinkRequest extends Model
         }
         if (isset($map['LiveDomainList'])) {
             $model->liveDomainListShrink = $map['LiveDomainList'];
+        }
+        if (isset($map['LiveDomainType'])) {
+            $model->liveDomainType = $map['LiveDomainType'];
         }
 
         return $model;
