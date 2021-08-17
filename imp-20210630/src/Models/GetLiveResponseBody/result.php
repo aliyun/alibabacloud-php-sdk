@@ -120,6 +120,20 @@ class result extends Model
      * @var playUrlInfoList[]
      */
     public $playUrlInfoList;
+
+    /**
+     * @description 封面图片
+     *
+     * @var string
+     */
+    public $coverUrl;
+
+    /**
+     * @description 用户自定义数据存储
+     *
+     * @var string
+     */
+    public $userDefineField;
     protected $_name = [
         'anchorId'        => 'AnchorId',
         'liveId'          => 'LiveId',
@@ -137,6 +151,8 @@ class result extends Model
         'userId'          => 'UserId',
         'codeLevel'       => 'CodeLevel',
         'playUrlInfoList' => 'PlayUrlInfoList',
+        'coverUrl'        => 'CoverUrl',
+        'userDefineField' => 'UserDefineField',
     ];
 
     public function validate()
@@ -199,6 +215,12 @@ class result extends Model
                     $res['PlayUrlInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->coverUrl) {
+            $res['CoverUrl'] = $this->coverUrl;
+        }
+        if (null !== $this->userDefineField) {
+            $res['UserDefineField'] = $this->userDefineField;
         }
 
         return $res;
@@ -265,6 +287,12 @@ class result extends Model
                     $model->playUrlInfoList[$n++] = null !== $item ? playUrlInfoList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CoverUrl'])) {
+            $model->coverUrl = $map['CoverUrl'];
+        }
+        if (isset($map['UserDefineField'])) {
+            $model->userDefineField = $map['UserDefineField'];
         }
 
         return $model;
