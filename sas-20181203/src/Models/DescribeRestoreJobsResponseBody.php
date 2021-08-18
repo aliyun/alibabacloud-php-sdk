@@ -16,18 +16,18 @@ class DescribeRestoreJobsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var restoreJobs[]
-     */
-    public $restoreJobs;
-
-    /**
      * @var pageInfo
      */
     public $pageInfo;
+
+    /**
+     * @var restoreJobs[]
+     */
+    public $restoreJobs;
     protected $_name = [
         'requestId'   => 'RequestId',
-        'restoreJobs' => 'RestoreJobs',
         'pageInfo'    => 'PageInfo',
+        'restoreJobs' => 'RestoreJobs',
     ];
 
     public function validate()
@@ -40,6 +40,9 @@ class DescribeRestoreJobsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+        }
         if (null !== $this->restoreJobs) {
             $res['RestoreJobs'] = [];
             if (null !== $this->restoreJobs && \is_array($this->restoreJobs)) {
@@ -48,9 +51,6 @@ class DescribeRestoreJobsResponseBody extends Model
                     $res['RestoreJobs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
 
         return $res;
@@ -67,6 +67,9 @@ class DescribeRestoreJobsResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
         if (isset($map['RestoreJobs'])) {
             if (!empty($map['RestoreJobs'])) {
                 $model->restoreJobs = [];
@@ -75,9 +78,6 @@ class DescribeRestoreJobsResponseBody extends Model
                     $model->restoreJobs[$n++] = null !== $item ? restoreJobs::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['PageInfo'])) {
-            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
 
         return $model;

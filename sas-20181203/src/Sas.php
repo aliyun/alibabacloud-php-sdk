@@ -28,6 +28,11 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSasOrderResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniBackupPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniBackupPolicyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniBackupPolicyShrinkRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniRestorePlanRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniRestorePlanResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAssetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAssetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineRequest;
@@ -42,6 +47,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUniBackupPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUniBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccesskeyLeakListRequest;
@@ -65,6 +72,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAutoDelConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupClientsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupClientsResponse;
@@ -121,6 +129,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedRiskNumResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedStatisticsResponse;
@@ -190,6 +199,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeQuaraFileDownloadInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeQuaraFileDownloadInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestoreJobsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestoreJobsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestorePlansRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRestorePlansResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckItemResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckItemResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckResultRequest;
@@ -200,8 +211,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskItemTypeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskItemTypeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskListCheckResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskListCheckResultResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSasAssetStatisticsColumnRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSasAssetStatisticsColumnResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeScanTaskProgressRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeScanTaskProgressResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSearchConditionRequest;
@@ -241,6 +250,16 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupDatabaseRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupDatabaseResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPoliciesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPoliciesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPolicyDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPolicyDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniRecoverableListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniRecoverableListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniSupportRegionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBackupMachinesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBackupMachinesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationRequest;
@@ -275,7 +294,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupStorageCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupStorageCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetIncIOCsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetIncIOCsResponse;
@@ -297,6 +315,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetGroupRequest;
@@ -340,6 +360,9 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStrategyTargetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyStrategyTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyTagWithUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyTagWithUuidResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyUniBackupPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyUniBackupPolicyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyUniBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyVpcHoneyPotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyVulTargetConfigRequest;
@@ -364,6 +387,12 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperationSuspEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PauseClientResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryDiscoverDatabaseRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryDiscoverDatabaseResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryPreCheckDatabaseRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryPreCheckDatabaseResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshAssetsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RefreshContainerAssetsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\RollbackSuspEventQuaraFileRequest;
@@ -372,14 +401,20 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\SasInstallCodeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SasInstallCodeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartBaselineSecurityCheckResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\StartDiscoverDatabaseTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\StartDiscoverDatabaseTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartImageVulScanRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartImageVulScanResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\StartPreCheckDatabaseRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\StartPreCheckDatabaseResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\StartVirusScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallUniBackupAgentRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallUniBackupAgentResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ValidateHcWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ValidateHcWarningsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -787,6 +822,70 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param CreateUniBackupPolicyRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateUniBackupPolicyResponse
+     */
+    public function createUniBackupPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateUniBackupPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->fullPlan)) {
+            $request->fullPlanShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fullPlan, 'FullPlan', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->incPlan)) {
+            $request->incPlanShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->incPlan, 'IncPlan', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateUniBackupPolicyResponse::fromMap($this->doRPCRequest('CreateUniBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateUniBackupPolicyRequest $request
+     *
+     * @return CreateUniBackupPolicyResponse
+     */
+    public function createUniBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUniBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateUniRestorePlanRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateUniRestorePlanResponse
+     */
+    public function createUniRestorePlanWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateUniRestorePlanResponse::fromMap($this->doRPCRequest('CreateUniRestorePlan', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateUniRestorePlanRequest $request
+     *
+     * @return CreateUniRestorePlanResponse
+     */
+    public function createUniRestorePlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUniRestorePlanWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteAssetRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -980,6 +1079,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteTagWithUuidWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteUniBackupPolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteUniBackupPolicyResponse
+     */
+    public function deleteUniBackupPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteUniBackupPolicyResponse::fromMap($this->doRPCRequest('DeleteUniBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteUniBackupPolicyRequest $request
+     *
+     * @return DeleteUniBackupPolicyResponse
+     */
+    public function deleteUniBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUniBackupPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1310,6 +1437,28 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAssetDetailByUuidsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeAssetSummaryResponse
+     */
+    public function describeAssetSummaryWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return DescribeAssetSummaryResponse::fromMap($this->doRPCRequest('DescribeAssetSummary', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return DescribeAssetSummaryResponse
+     */
+    public function describeAssetSummary()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAssetSummaryWithOptions($runtime);
     }
 
     /**
@@ -2110,6 +2259,28 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeExposedInstanceListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeExposedRiskNumResponse
+     */
+    public function describeExposedRiskNumWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return DescribeExposedRiskNumResponse::fromMap($this->doRPCRequest('DescribeExposedRiskNum', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return DescribeExposedRiskNumResponse
+     */
+    public function describeExposedRiskNum()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExposedRiskNumWithOptions($runtime);
     }
 
     /**
@@ -3119,6 +3290,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeRestorePlansRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRestorePlansResponse
+     */
+    public function describeRestorePlansWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRestorePlansResponse::fromMap($this->doRPCRequest('DescribeRestorePlans', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRestorePlansRequest $request
+     *
+     * @return DescribeRestorePlansResponse
+     */
+    public function describeRestorePlans($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRestorePlansWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRiskCheckItemResultRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -3256,34 +3455,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRiskListCheckResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSasAssetStatisticsColumnRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeSasAssetStatisticsColumnResponse
-     */
-    public function describeSasAssetStatisticsColumnWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeSasAssetStatisticsColumnResponse::fromMap($this->doRPCRequest('DescribeSasAssetStatisticsColumn', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSasAssetStatisticsColumnRequest $request
-     *
-     * @return DescribeSasAssetStatisticsColumnResponse
-     */
-    public function describeSasAssetStatisticsColumn($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSasAssetStatisticsColumnWithOptions($request, $runtime);
     }
 
     /**
@@ -3841,6 +4012,162 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeUniBackupDatabaseRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeUniBackupDatabaseResponse
+     */
+    public function describeUniBackupDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeUniBackupDatabaseResponse::fromMap($this->doRPCRequest('DescribeUniBackupDatabase', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUniBackupDatabaseRequest $request
+     *
+     * @return DescribeUniBackupDatabaseResponse
+     */
+    public function describeUniBackupDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUniBackupDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUniBackupPoliciesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeUniBackupPoliciesResponse
+     */
+    public function describeUniBackupPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeUniBackupPoliciesResponse::fromMap($this->doRPCRequest('DescribeUniBackupPolicies', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUniBackupPoliciesRequest $request
+     *
+     * @return DescribeUniBackupPoliciesResponse
+     */
+    public function describeUniBackupPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUniBackupPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUniBackupPolicyDetailRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeUniBackupPolicyDetailResponse
+     */
+    public function describeUniBackupPolicyDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeUniBackupPolicyDetailResponse::fromMap($this->doRPCRequest('DescribeUniBackupPolicyDetail', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUniBackupPolicyDetailRequest $request
+     *
+     * @return DescribeUniBackupPolicyDetailResponse
+     */
+    public function describeUniBackupPolicyDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUniBackupPolicyDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeUniBackupStatisticsResponse
+     */
+    public function describeUniBackupStatisticsWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return DescribeUniBackupStatisticsResponse::fromMap($this->doRPCRequest('DescribeUniBackupStatistics', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return DescribeUniBackupStatisticsResponse
+     */
+    public function describeUniBackupStatistics()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUniBackupStatisticsWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeUniRecoverableListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeUniRecoverableListResponse
+     */
+    public function describeUniRecoverableListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeUniRecoverableListResponse::fromMap($this->doRPCRequest('DescribeUniRecoverableList', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUniRecoverableListRequest $request
+     *
+     * @return DescribeUniRecoverableListResponse
+     */
+    public function describeUniRecoverableList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUniRecoverableListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeUniSupportRegionResponse
+     */
+    public function describeUniSupportRegionWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return DescribeUniSupportRegionResponse::fromMap($this->doRPCRequest('DescribeUniSupportRegion', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return DescribeUniSupportRegionResponse
+     */
+    public function describeUniSupportRegion()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUniSupportRegionWithOptions($runtime);
+    }
+
+    /**
      * @param DescribeUserBackupMachinesRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -4333,31 +4660,25 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param GetBackupStorageCountRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return GetBackupStorageCountResponse
      */
-    public function getBackupStorageCountWithOptions($request, $runtime)
+    public function getBackupStorageCountWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
         return GetBackupStorageCountResponse::fromMap($this->doRPCRequest('GetBackupStorageCount', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetBackupStorageCountRequest $request
-     *
      * @return GetBackupStorageCountResponse
      */
-    public function getBackupStorageCount($request)
+    public function getBackupStorageCount()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getBackupStorageCountWithOptions($request, $runtime);
+        return $this->getBackupStorageCountWithOptions($runtime);
     }
 
     /**
@@ -4638,6 +4959,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installBackupClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InstallUniBackupAgentRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return InstallUniBackupAgentResponse
+     */
+    public function installUniBackupAgentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return InstallUniBackupAgentResponse::fromMap($this->doRPCRequest('InstallUniBackupAgent', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param InstallUniBackupAgentRequest $request
+     *
+     * @return InstallUniBackupAgentResponse
+     */
+    public function installUniBackupAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installUniBackupAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -5234,6 +5583,42 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param ModifyUniBackupPolicyRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyUniBackupPolicyResponse
+     */
+    public function modifyUniBackupPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyUniBackupPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->fullPlan)) {
+            $request->fullPlanShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fullPlan, 'FullPlan', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->incPlan)) {
+            $request->incPlanShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->incPlan, 'IncPlan', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyUniBackupPolicyResponse::fromMap($this->doRPCRequest('ModifyUniBackupPolicy', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyUniBackupPolicyRequest $request
+     *
+     * @return ModifyUniBackupPolicyResponse
+     */
+    public function modifyUniBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUniBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyVpcHoneyPotRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -5570,6 +5955,90 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param QueryDiscoverDatabaseRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryDiscoverDatabaseResponse
+     */
+    public function queryDiscoverDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryDiscoverDatabaseResponse::fromMap($this->doRPCRequest('QueryDiscoverDatabase', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryDiscoverDatabaseRequest $request
+     *
+     * @return QueryDiscoverDatabaseResponse
+     */
+    public function queryDiscoverDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDiscoverDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryPreCheckDatabaseRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryPreCheckDatabaseResponse
+     */
+    public function queryPreCheckDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryPreCheckDatabaseResponse::fromMap($this->doRPCRequest('QueryPreCheckDatabase', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryPreCheckDatabaseRequest $request
+     *
+     * @return QueryPreCheckDatabaseResponse
+     */
+    public function queryPreCheckDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPreCheckDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RefreshAssetsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RefreshAssetsResponse
+     */
+    public function refreshAssetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RefreshAssetsResponse::fromMap($this->doRPCRequest('RefreshAssets', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RefreshAssetsRequest $request
+     *
+     * @return RefreshAssetsResponse
+     */
+    public function refreshAssets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshAssetsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RefreshContainerAssetsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -5682,6 +6151,34 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param StartDiscoverDatabaseTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return StartDiscoverDatabaseTaskResponse
+     */
+    public function startDiscoverDatabaseTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartDiscoverDatabaseTaskResponse::fromMap($this->doRPCRequest('StartDiscoverDatabaseTask', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartDiscoverDatabaseTaskRequest $request
+     *
+     * @return StartDiscoverDatabaseTaskResponse
+     */
+    public function startDiscoverDatabaseTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startDiscoverDatabaseTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StartImageVulScanRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -5707,6 +6204,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startImageVulScanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartPreCheckDatabaseRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return StartPreCheckDatabaseResponse
+     */
+    public function startPreCheckDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartPreCheckDatabaseResponse::fromMap($this->doRPCRequest('StartPreCheckDatabase', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartPreCheckDatabaseRequest $request
+     *
+     * @return StartPreCheckDatabaseResponse
+     */
+    public function startPreCheckDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startPreCheckDatabaseWithOptions($request, $runtime);
     }
 
     /**
@@ -5791,6 +6316,34 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uninstallBackupClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UninstallUniBackupAgentRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UninstallUniBackupAgentResponse
+     */
+    public function uninstallUniBackupAgentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UninstallUniBackupAgentResponse::fromMap($this->doRPCRequest('UninstallUniBackupAgent', '2018-12-03', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UninstallUniBackupAgentRequest $request
+     *
+     * @return UninstallUniBackupAgentResponse
+     */
+    public function uninstallUniBackupAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uninstallUniBackupAgentWithOptions($request, $runtime);
     }
 
     /**

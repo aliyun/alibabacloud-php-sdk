@@ -11,7 +11,7 @@ class pageInfo extends Model
     /**
      * @var int
      */
-    public $count;
+    public $currentPage;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class pageInfo extends Model
     /**
      * @var int
      */
-    public $currentPage;
+    public $count;
     protected $_name = [
-        'count'       => 'Count',
+        'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
         'totalCount'  => 'TotalCount',
-        'currentPage' => 'CurrentPage',
+        'count'       => 'Count',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class pageInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -50,8 +50,8 @@ class pageInfo extends Model
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class pageInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -74,8 +74,8 @@ class pageInfo extends Model
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
 
         return $model;

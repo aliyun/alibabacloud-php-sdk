@@ -29,11 +29,6 @@ class DescribeCloudCenterInstancesRequest extends Model
     public $logicalExp;
 
     /**
-     * @var bool
-     */
-    public $noPage;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -52,7 +47,6 @@ class DescribeCloudCenterInstancesRequest extends Model
         'criteria'     => 'Criteria',
         'machineTypes' => 'MachineTypes',
         'logicalExp'   => 'LogicalExp',
-        'noPage'       => 'NoPage',
         'pageSize'     => 'PageSize',
         'currentPage'  => 'CurrentPage',
         'importance'   => 'Importance',
@@ -76,9 +70,6 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (null !== $this->logicalExp) {
             $res['LogicalExp'] = $this->logicalExp;
-        }
-        if (null !== $this->noPage) {
-            $res['NoPage'] = $this->noPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -112,9 +103,6 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (isset($map['LogicalExp'])) {
             $model->logicalExp = $map['LogicalExp'];
-        }
-        if (isset($map['NoPage'])) {
-            $model->noPage = $map['NoPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

@@ -21,17 +21,7 @@ class details extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $nameDisplay;
-
-    /**
-     * @var string
-     */
-    public $infoType;
 
     /**
      * @var string
@@ -40,9 +30,7 @@ class details extends Model
     protected $_name = [
         'type'         => 'Type',
         'value'        => 'Value',
-        'name'         => 'Name',
         'nameDisplay'  => 'NameDisplay',
-        'infoType'     => 'InfoType',
         'valueDisplay' => 'ValueDisplay',
     ];
 
@@ -59,14 +47,8 @@ class details extends Model
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->nameDisplay) {
             $res['NameDisplay'] = $this->nameDisplay;
-        }
-        if (null !== $this->infoType) {
-            $res['InfoType'] = $this->infoType;
         }
         if (null !== $this->valueDisplay) {
             $res['ValueDisplay'] = $this->valueDisplay;
@@ -89,14 +71,8 @@ class details extends Model
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['NameDisplay'])) {
             $model->nameDisplay = $map['NameDisplay'];
-        }
-        if (isset($map['InfoType'])) {
-            $model->infoType = $map['InfoType'];
         }
         if (isset($map['ValueDisplay'])) {
             $model->valueDisplay = $map['ValueDisplay'];

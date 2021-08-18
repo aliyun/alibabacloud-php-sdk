@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeSasAssetStatisticsColumnResponseBody extends Model
+class StartPreCheckDatabaseResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $statisticsColumn;
+    public $createMark;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'statisticsColumn' => 'StatisticsColumn',
-        'requestId'        => 'RequestId',
+        'createMark' => 'CreateMark',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -29,8 +29,8 @@ class DescribeSasAssetStatisticsColumnResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->statisticsColumn) {
-            $res['StatisticsColumn'] = $this->statisticsColumn;
+        if (null !== $this->createMark) {
+            $res['CreateMark'] = $this->createMark;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -42,13 +42,13 @@ class DescribeSasAssetStatisticsColumnResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSasAssetStatisticsColumnResponseBody
+     * @return StartPreCheckDatabaseResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StatisticsColumn'])) {
-            $model->statisticsColumn = $map['StatisticsColumn'];
+        if (isset($map['CreateMark'])) {
+            $model->createMark = $map['CreateMark'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

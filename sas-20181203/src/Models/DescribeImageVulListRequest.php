@@ -102,44 +102,26 @@ class DescribeImageVulListRequest extends Model
      * @var string
      */
     public $digest;
-
-    /**
-     * @var string
-     */
-    public $containerFieldName;
-
-    /**
-     * @var string
-     */
-    public $containerFieldValue;
-
-    /**
-     * @var string
-     */
-    public $targetType;
     protected $_name = [
-        'lang'                => 'Lang',
-        'type'                => 'Type',
-        'uuids'               => 'Uuids',
-        'name'                => 'Name',
-        'aliasName'           => 'AliasName',
-        'statusList'          => 'StatusList',
-        'necessity'           => 'Necessity',
-        'dealed'              => 'Dealed',
-        'currentPage'         => 'CurrentPage',
-        'pageSize'            => 'PageSize',
-        'repoRegionId'        => 'RepoRegionId',
-        'repoInstanceId'      => 'RepoInstanceId',
-        'repoId'              => 'RepoId',
-        'repoName'            => 'RepoName',
-        'repoNamespace'       => 'RepoNamespace',
-        'regionId'            => 'RegionId',
-        'instanceId'          => 'InstanceId',
-        'tag'                 => 'Tag',
-        'digest'              => 'Digest',
-        'containerFieldName'  => 'ContainerFieldName',
-        'containerFieldValue' => 'ContainerFieldValue',
-        'targetType'          => 'TargetType',
+        'lang'           => 'Lang',
+        'type'           => 'Type',
+        'uuids'          => 'Uuids',
+        'name'           => 'Name',
+        'aliasName'      => 'AliasName',
+        'statusList'     => 'StatusList',
+        'necessity'      => 'Necessity',
+        'dealed'         => 'Dealed',
+        'currentPage'    => 'CurrentPage',
+        'pageSize'       => 'PageSize',
+        'repoRegionId'   => 'RepoRegionId',
+        'repoInstanceId' => 'RepoInstanceId',
+        'repoId'         => 'RepoId',
+        'repoName'       => 'RepoName',
+        'repoNamespace'  => 'RepoNamespace',
+        'regionId'       => 'RegionId',
+        'instanceId'     => 'InstanceId',
+        'tag'            => 'Tag',
+        'digest'         => 'Digest',
     ];
 
     public function validate()
@@ -205,15 +187,6 @@ class DescribeImageVulListRequest extends Model
         }
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
-        }
-        if (null !== $this->containerFieldName) {
-            $res['ContainerFieldName'] = $this->containerFieldName;
-        }
-        if (null !== $this->containerFieldValue) {
-            $res['ContainerFieldValue'] = $this->containerFieldValue;
-        }
-        if (null !== $this->targetType) {
-            $res['TargetType'] = $this->targetType;
         }
 
         return $res;
@@ -283,15 +256,6 @@ class DescribeImageVulListRequest extends Model
         }
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
-        }
-        if (isset($map['ContainerFieldName'])) {
-            $model->containerFieldName = $map['ContainerFieldName'];
-        }
-        if (isset($map['ContainerFieldValue'])) {
-            $model->containerFieldValue = $map['ContainerFieldValue'];
-        }
-        if (isset($map['TargetType'])) {
-            $model->targetType = $map['TargetType'];
         }
 
         return $model;

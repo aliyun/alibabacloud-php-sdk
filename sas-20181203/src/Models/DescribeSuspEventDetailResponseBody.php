@@ -87,11 +87,6 @@ class DescribeSuspEventDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $sasId;
-
-    /**
-     * @var string
-     */
     public $level;
 
     /**
@@ -119,7 +114,6 @@ class DescribeSuspEventDetailResponseBody extends Model
         'eventStatus'      => 'EventStatus',
         'saleVersion'      => 'SaleVersion',
         'operateErrorCode' => 'OperateErrorCode',
-        'sasId'            => 'SasId',
         'level'            => 'Level',
         'id'               => 'Id',
         'details'          => 'Details',
@@ -176,9 +170,6 @@ class DescribeSuspEventDetailResponseBody extends Model
         }
         if (null !== $this->operateErrorCode) {
             $res['OperateErrorCode'] = $this->operateErrorCode;
-        }
-        if (null !== $this->sasId) {
-            $res['SasId'] = $this->sasId;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
@@ -251,9 +242,6 @@ class DescribeSuspEventDetailResponseBody extends Model
         }
         if (isset($map['OperateErrorCode'])) {
             $model->operateErrorCode = $map['OperateErrorCode'];
-        }
-        if (isset($map['SasId'])) {
-            $model->sasId = $map['SasId'];
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];

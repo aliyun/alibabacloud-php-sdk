@@ -14,7 +14,7 @@ class pageContentResource extends Model
     public $currentPage;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $contentResource;
 

@@ -16,16 +16,28 @@ class backupStorageCount extends Model
     /**
      * @var int
      */
+    public $uniUsageStorageByte;
+
+    /**
+     * @var int
+     */
     public $buyStorageByte;
 
     /**
      * @var int
      */
     public $usageStorageByte;
+
+    /**
+     * @var int
+     */
+    public $ecsUsageStorageByte;
     protected $_name = [
-        'overflow'         => 'Overflow',
-        'buyStorageByte'   => 'BuyStorageByte',
-        'usageStorageByte' => 'UsageStorageByte',
+        'overflow'            => 'Overflow',
+        'uniUsageStorageByte' => 'UniUsageStorageByte',
+        'buyStorageByte'      => 'BuyStorageByte',
+        'usageStorageByte'    => 'UsageStorageByte',
+        'ecsUsageStorageByte' => 'EcsUsageStorageByte',
     ];
 
     public function validate()
@@ -38,11 +50,17 @@ class backupStorageCount extends Model
         if (null !== $this->overflow) {
             $res['Overflow'] = $this->overflow;
         }
+        if (null !== $this->uniUsageStorageByte) {
+            $res['UniUsageStorageByte'] = $this->uniUsageStorageByte;
+        }
         if (null !== $this->buyStorageByte) {
             $res['BuyStorageByte'] = $this->buyStorageByte;
         }
         if (null !== $this->usageStorageByte) {
             $res['UsageStorageByte'] = $this->usageStorageByte;
+        }
+        if (null !== $this->ecsUsageStorageByte) {
+            $res['EcsUsageStorageByte'] = $this->ecsUsageStorageByte;
         }
 
         return $res;
@@ -59,11 +77,17 @@ class backupStorageCount extends Model
         if (isset($map['Overflow'])) {
             $model->overflow = $map['Overflow'];
         }
+        if (isset($map['UniUsageStorageByte'])) {
+            $model->uniUsageStorageByte = $map['UniUsageStorageByte'];
+        }
         if (isset($map['BuyStorageByte'])) {
             $model->buyStorageByte = $map['BuyStorageByte'];
         }
         if (isset($map['UsageStorageByte'])) {
             $model->usageStorageByte = $map['UsageStorageByte'];
+        }
+        if (isset($map['EcsUsageStorageByte'])) {
+            $model->ecsUsageStorageByte = $map['EcsUsageStorageByte'];
         }
 
         return $model;

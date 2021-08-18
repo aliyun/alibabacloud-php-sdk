@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeSasAssetStatisticsColumnResponse extends Model
+class DescribeUniRecoverableListResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DescribeSasAssetStatisticsColumnResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeSasAssetStatisticsColumnResponseBody
+     * @var DescribeUniRecoverableListResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DescribeSasAssetStatisticsColumnResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSasAssetStatisticsColumnResponse
+     * @return DescribeUniRecoverableListResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DescribeSasAssetStatisticsColumnResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeSasAssetStatisticsColumnResponseBody::fromMap($map['body']);
+            $model->body = DescribeUniRecoverableListResponseBody::fromMap($map['body']);
         }
 
         return $model;

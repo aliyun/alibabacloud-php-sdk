@@ -16,7 +16,17 @@ class instances extends Model
     /**
      * @var string
      */
+    public $cpuInfo;
+
+    /**
+     * @var string
+     */
     public $internetIp;
+
+    /**
+     * @var string
+     */
+    public $kernel;
 
     /**
      * @var bool
@@ -39,9 +49,19 @@ class instances extends Model
     public $clientStatus;
 
     /**
+     * @var int
+     */
+    public $mem;
+
+    /**
      * @var string
      */
     public $vpcInstanceId;
+
+    /**
+     * @var string
+     */
+    public $tagId;
 
     /**
      * @var int
@@ -86,6 +106,11 @@ class instances extends Model
     /**
      * @var string
      */
+    public $groupTrace;
+
+    /**
+     * @var string
+     */
     public $clusterId;
 
     /**
@@ -107,6 +132,11 @@ class instances extends Model
      * @var string
      */
     public $alarmStatus;
+
+    /**
+     * @var string
+     */
+    public $macListString;
 
     /**
      * @var int
@@ -132,11 +162,6 @@ class instances extends Model
      * @var int
      */
     public $authModifyTime;
-
-    /**
-     * @var int
-     */
-    public $exposedCount;
 
     /**
      * @var int
@@ -174,11 +199,6 @@ class instances extends Model
     public $uuid;
 
     /**
-     * @var int
-     */
-    public $autoSnapshotsLevel;
-
-    /**
      * @var string
      */
     public $groupId;
@@ -192,6 +212,11 @@ class instances extends Model
      * @var string
      */
     public $vendorName;
+
+    /**
+     * @var string
+     */
+    public $authVersionName;
 
     /**
      * @var string
@@ -211,49 +236,54 @@ class instances extends Model
     /**
      * @var string
      */
-    public $clientVersion;
+    public $ipListString;
     protected $_name = [
-        'status'             => 'Status',
-        'internetIp'         => 'InternetIp',
-        'bind'               => 'Bind',
-        'osName'             => 'OsName',
-        'tag'                => 'Tag',
-        'clientStatus'       => 'ClientStatus',
-        'vpcInstanceId'      => 'VpcInstanceId',
-        'flag'               => 'Flag',
-        'authVersion'        => 'AuthVersion',
-        'region'             => 'Region',
-        'instanceName'       => 'InstanceName',
-        'podCount'           => 'PodCount',
-        'vulCount'           => 'VulCount',
-        'hcStatus'           => 'HcStatus',
-        'createdTime'        => 'CreatedTime',
-        'clusterId'          => 'ClusterId',
-        'riskStatus'         => 'RiskStatus',
-        'cores'              => 'Cores',
-        'vulStatus'          => 'VulStatus',
-        'alarmStatus'        => 'AlarmStatus',
-        'importance'         => 'Importance',
-        'healthCheckCount'   => 'HealthCheckCount',
-        'ip'                 => 'Ip',
-        'os'                 => 'Os',
-        'authModifyTime'     => 'AuthModifyTime',
-        'exposedCount'       => 'ExposedCount',
-        'safeEventCount'     => 'SafeEventCount',
-        'instanceId'         => 'InstanceId',
-        'assetType'          => 'AssetType',
-        'intranetIp'         => 'IntranetIp',
-        'vendor'             => 'Vendor',
-        'regionId'           => 'RegionId',
-        'uuid'               => 'Uuid',
-        'autoSnapshotsLevel' => 'AutoSnapshotsLevel',
-        'groupId'            => 'GroupId',
-        'regionName'         => 'RegionName',
-        'vendorName'         => 'VendorName',
-        'clusterName'        => 'ClusterName',
-        'exposedStatus'      => 'ExposedStatus',
-        'riskCount'          => 'RiskCount',
-        'clientVersion'      => 'ClientVersion',
+        'status'           => 'Status',
+        'cpuInfo'          => 'CpuInfo',
+        'internetIp'       => 'InternetIp',
+        'kernel'           => 'Kernel',
+        'bind'             => 'Bind',
+        'osName'           => 'OsName',
+        'tag'              => 'Tag',
+        'clientStatus'     => 'ClientStatus',
+        'mem'              => 'Mem',
+        'vpcInstanceId'    => 'VpcInstanceId',
+        'tagId'            => 'TagId',
+        'flag'             => 'Flag',
+        'authVersion'      => 'AuthVersion',
+        'region'           => 'Region',
+        'instanceName'     => 'InstanceName',
+        'podCount'         => 'PodCount',
+        'vulCount'         => 'VulCount',
+        'hcStatus'         => 'HcStatus',
+        'createdTime'      => 'CreatedTime',
+        'groupTrace'       => 'GroupTrace',
+        'clusterId'        => 'ClusterId',
+        'riskStatus'       => 'RiskStatus',
+        'cores'            => 'Cores',
+        'vulStatus'        => 'VulStatus',
+        'alarmStatus'      => 'AlarmStatus',
+        'macListString'    => 'MacListString',
+        'importance'       => 'Importance',
+        'healthCheckCount' => 'HealthCheckCount',
+        'ip'               => 'Ip',
+        'os'               => 'Os',
+        'authModifyTime'   => 'AuthModifyTime',
+        'safeEventCount'   => 'SafeEventCount',
+        'instanceId'       => 'InstanceId',
+        'assetType'        => 'AssetType',
+        'intranetIp'       => 'IntranetIp',
+        'vendor'           => 'Vendor',
+        'regionId'         => 'RegionId',
+        'uuid'             => 'Uuid',
+        'groupId'          => 'GroupId',
+        'regionName'       => 'RegionName',
+        'vendorName'       => 'VendorName',
+        'authVersionName'  => 'AuthVersionName',
+        'clusterName'      => 'ClusterName',
+        'exposedStatus'    => 'ExposedStatus',
+        'riskCount'        => 'RiskCount',
+        'ipListString'     => 'IpListString',
     ];
 
     public function validate()
@@ -266,8 +296,14 @@ class instances extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->cpuInfo) {
+            $res['CpuInfo'] = $this->cpuInfo;
+        }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->kernel) {
+            $res['Kernel'] = $this->kernel;
         }
         if (null !== $this->bind) {
             $res['Bind'] = $this->bind;
@@ -281,8 +317,14 @@ class instances extends Model
         if (null !== $this->clientStatus) {
             $res['ClientStatus'] = $this->clientStatus;
         }
+        if (null !== $this->mem) {
+            $res['Mem'] = $this->mem;
+        }
         if (null !== $this->vpcInstanceId) {
             $res['VpcInstanceId'] = $this->vpcInstanceId;
+        }
+        if (null !== $this->tagId) {
+            $res['TagId'] = $this->tagId;
         }
         if (null !== $this->flag) {
             $res['Flag'] = $this->flag;
@@ -308,6 +350,9 @@ class instances extends Model
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+        if (null !== $this->groupTrace) {
+            $res['GroupTrace'] = $this->groupTrace;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -323,6 +368,9 @@ class instances extends Model
         if (null !== $this->alarmStatus) {
             $res['AlarmStatus'] = $this->alarmStatus;
         }
+        if (null !== $this->macListString) {
+            $res['MacListString'] = $this->macListString;
+        }
         if (null !== $this->importance) {
             $res['Importance'] = $this->importance;
         }
@@ -337,9 +385,6 @@ class instances extends Model
         }
         if (null !== $this->authModifyTime) {
             $res['AuthModifyTime'] = $this->authModifyTime;
-        }
-        if (null !== $this->exposedCount) {
-            $res['ExposedCount'] = $this->exposedCount;
         }
         if (null !== $this->safeEventCount) {
             $res['SafeEventCount'] = $this->safeEventCount;
@@ -362,9 +407,6 @@ class instances extends Model
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
-        if (null !== $this->autoSnapshotsLevel) {
-            $res['AutoSnapshotsLevel'] = $this->autoSnapshotsLevel;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -373,6 +415,9 @@ class instances extends Model
         }
         if (null !== $this->vendorName) {
             $res['VendorName'] = $this->vendorName;
+        }
+        if (null !== $this->authVersionName) {
+            $res['AuthVersionName'] = $this->authVersionName;
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
@@ -383,8 +428,8 @@ class instances extends Model
         if (null !== $this->riskCount) {
             $res['RiskCount'] = $this->riskCount;
         }
-        if (null !== $this->clientVersion) {
-            $res['ClientVersion'] = $this->clientVersion;
+        if (null !== $this->ipListString) {
+            $res['IpListString'] = $this->ipListString;
         }
 
         return $res;
@@ -401,8 +446,14 @@ class instances extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['CpuInfo'])) {
+            $model->cpuInfo = $map['CpuInfo'];
+        }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['Kernel'])) {
+            $model->kernel = $map['Kernel'];
         }
         if (isset($map['Bind'])) {
             $model->bind = $map['Bind'];
@@ -416,8 +467,14 @@ class instances extends Model
         if (isset($map['ClientStatus'])) {
             $model->clientStatus = $map['ClientStatus'];
         }
+        if (isset($map['Mem'])) {
+            $model->mem = $map['Mem'];
+        }
         if (isset($map['VpcInstanceId'])) {
             $model->vpcInstanceId = $map['VpcInstanceId'];
+        }
+        if (isset($map['TagId'])) {
+            $model->tagId = $map['TagId'];
         }
         if (isset($map['Flag'])) {
             $model->flag = $map['Flag'];
@@ -443,6 +500,9 @@ class instances extends Model
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+        if (isset($map['GroupTrace'])) {
+            $model->groupTrace = $map['GroupTrace'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -458,6 +518,9 @@ class instances extends Model
         if (isset($map['AlarmStatus'])) {
             $model->alarmStatus = $map['AlarmStatus'];
         }
+        if (isset($map['MacListString'])) {
+            $model->macListString = $map['MacListString'];
+        }
         if (isset($map['Importance'])) {
             $model->importance = $map['Importance'];
         }
@@ -472,9 +535,6 @@ class instances extends Model
         }
         if (isset($map['AuthModifyTime'])) {
             $model->authModifyTime = $map['AuthModifyTime'];
-        }
-        if (isset($map['ExposedCount'])) {
-            $model->exposedCount = $map['ExposedCount'];
         }
         if (isset($map['SafeEventCount'])) {
             $model->safeEventCount = $map['SafeEventCount'];
@@ -497,9 +557,6 @@ class instances extends Model
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }
-        if (isset($map['AutoSnapshotsLevel'])) {
-            $model->autoSnapshotsLevel = $map['AutoSnapshotsLevel'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
@@ -508,6 +565,9 @@ class instances extends Model
         }
         if (isset($map['VendorName'])) {
             $model->vendorName = $map['VendorName'];
+        }
+        if (isset($map['AuthVersionName'])) {
+            $model->authVersionName = $map['AuthVersionName'];
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
@@ -518,8 +578,8 @@ class instances extends Model
         if (isset($map['RiskCount'])) {
             $model->riskCount = $map['RiskCount'];
         }
-        if (isset($map['ClientVersion'])) {
-            $model->clientVersion = $map['ClientVersion'];
+        if (isset($map['IpListString'])) {
+            $model->ipListString = $map['IpListString'];
         }
 
         return $model;

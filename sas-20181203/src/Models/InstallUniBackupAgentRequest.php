@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetBackupStorageCountRequest extends Model
+class InstallUniBackupAgentRequest extends Model
 {
     /**
      * @var string
@@ -17,9 +17,15 @@ class GetBackupStorageCountRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $policyId;
     protected $_name = [
         'sourceIp'        => 'SourceIp',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'policyId'        => 'PolicyId',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class GetBackupStorageCountRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
+        }
 
         return $res;
     }
@@ -42,7 +51,7 @@ class GetBackupStorageCountRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetBackupStorageCountRequest
+     * @return InstallUniBackupAgentRequest
      */
     public static function fromMap($map = [])
     {
@@ -52,6 +61,9 @@ class GetBackupStorageCountRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
 
         return $model;

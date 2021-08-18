@@ -26,7 +26,17 @@ class rpmEntityList extends Model
     /**
      * @var string
      */
+    public $imageName;
+
+    /**
+     * @var string
+     */
     public $path;
+
+    /**
+     * @var string
+     */
+    public $containerName;
 
     /**
      * @var string
@@ -38,12 +48,14 @@ class rpmEntityList extends Model
      */
     public $updateCmd;
     protected $_name = [
-        'fullVersion' => 'FullVersion',
-        'version'     => 'Version',
-        'matchDetail' => 'MatchDetail',
-        'path'        => 'Path',
-        'name'        => 'Name',
-        'updateCmd'   => 'UpdateCmd',
+        'fullVersion'   => 'FullVersion',
+        'version'       => 'Version',
+        'matchDetail'   => 'MatchDetail',
+        'imageName'     => 'ImageName',
+        'path'          => 'Path',
+        'containerName' => 'ContainerName',
+        'name'          => 'Name',
+        'updateCmd'     => 'UpdateCmd',
     ];
 
     public function validate()
@@ -62,8 +74,14 @@ class rpmEntityList extends Model
         if (null !== $this->matchDetail) {
             $res['MatchDetail'] = $this->matchDetail;
         }
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
+        }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -92,8 +110,14 @@ class rpmEntityList extends Model
         if (isset($map['MatchDetail'])) {
             $model->matchDetail = $map['MatchDetail'];
         }
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
+        }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

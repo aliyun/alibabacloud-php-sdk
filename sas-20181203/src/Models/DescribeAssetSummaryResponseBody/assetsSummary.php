@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sas\V20181203\Models;
+namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetSummaryResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeSasAssetStatisticsColumnRequest extends Model
+class assetsSummary extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $sourceIp;
+    public $totalCoreNum;
     protected $_name = [
-        'sourceIp' => 'SourceIp',
+        'totalCoreNum' => 'TotalCoreNum',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class DescribeSasAssetStatisticsColumnRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->totalCoreNum) {
+            $res['TotalCoreNum'] = $this->totalCoreNum;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class DescribeSasAssetStatisticsColumnRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSasAssetStatisticsColumnRequest
+     * @return assetsSummary
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['TotalCoreNum'])) {
+            $model->totalCoreNum = $map['TotalCoreNum'];
         }
 
         return $model;

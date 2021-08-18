@@ -36,6 +36,11 @@ class DescribeSuspEventsRequest extends Model
     /**
      * @var string
      */
+    public $eventNames;
+
+    /**
+     * @var string
+     */
     public $remark;
 
     /**
@@ -118,6 +123,7 @@ class DescribeSuspEventsRequest extends Model
         'name'                 => 'Name',
         'levels'               => 'Levels',
         'parentEventTypes'     => 'ParentEventTypes',
+        'eventNames'           => 'EventNames',
         'remark'               => 'Remark',
         'status'               => 'Status',
         'pageSize'             => 'PageSize',
@@ -157,6 +163,9 @@ class DescribeSuspEventsRequest extends Model
         }
         if (null !== $this->parentEventTypes) {
             $res['ParentEventTypes'] = $this->parentEventTypes;
+        }
+        if (null !== $this->eventNames) {
+            $res['EventNames'] = $this->eventNames;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
@@ -232,6 +241,9 @@ class DescribeSuspEventsRequest extends Model
         }
         if (isset($map['ParentEventTypes'])) {
             $model->parentEventTypes = $map['ParentEventTypes'];
+        }
+        if (isset($map['EventNames'])) {
+            $model->eventNames = $map['EventNames'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
