@@ -105,6 +105,7 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateRoomRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateRoomResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateRoomShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\VerifyDomainOwnerRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\VerifyDomainOwnerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -319,14 +320,19 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param UpdateRoomRequest $request
+     * @param UpdateRoomRequest $tmpReq
      * @param RuntimeOptions    $runtime
      *
      * @return UpdateRoomResponse
      */
-    public function updateRoomWithOptions($request, $runtime)
+    public function updateRoomWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateRoomShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extension)) {
+            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
+        }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
