@@ -18,27 +18,9 @@ class GetRealPersonVerificationResultResponseBody extends Model
      * @var data
      */
     public $data;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'data'         => 'Data',
-        'errorMessage' => 'ErrorMessage',
-        'code'         => 'Code',
-        'success'      => 'Success',
+        'requestId' => 'RequestId',
+        'data'      => 'Data',
     ];
 
     public function validate()
@@ -53,15 +35,6 @@ class GetRealPersonVerificationResultResponseBody extends Model
         }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -80,15 +53,6 @@ class GetRealPersonVerificationResultResponseBody extends Model
         }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;
