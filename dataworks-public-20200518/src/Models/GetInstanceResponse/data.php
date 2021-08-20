@@ -132,6 +132,11 @@ class data extends Model
      * @var int
      */
     public $taskRerunTime;
+
+    /**
+     * @var int
+     */
+    public $businessId;
     protected $_name = [
         'nodeId'            => 'NodeId',
         'instanceId'        => 'InstanceId',
@@ -158,6 +163,7 @@ class data extends Model
         'relatedFlowId'     => 'RelatedFlowId',
         'taskType'          => 'TaskType',
         'taskRerunTime'     => 'TaskRerunTime',
+        'businessId'        => 'BusinessId',
     ];
 
     public function validate()
@@ -187,6 +193,7 @@ class data extends Model
         Model::validateRequired('relatedFlowId', $this->relatedFlowId, true);
         Model::validateRequired('taskType', $this->taskType, true);
         Model::validateRequired('taskRerunTime', $this->taskRerunTime, true);
+        Model::validateRequired('businessId', $this->businessId, true);
     }
 
     public function toMap()
@@ -266,6 +273,9 @@ class data extends Model
         }
         if (null !== $this->taskRerunTime) {
             $res['TaskRerunTime'] = $this->taskRerunTime;
+        }
+        if (null !== $this->businessId) {
+            $res['BusinessId'] = $this->businessId;
         }
 
         return $res;
@@ -353,6 +363,9 @@ class data extends Model
         }
         if (isset($map['TaskRerunTime'])) {
             $model->taskRerunTime = $map['TaskRerunTime'];
+        }
+        if (isset($map['BusinessId'])) {
+            $model->businessId = $map['BusinessId'];
         }
 
         return $model;

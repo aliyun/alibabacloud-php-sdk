@@ -52,6 +52,11 @@ class ListFilesRequest extends Model
      * @var string
      */
     public $owner;
+
+    /**
+     * @var int
+     */
+    public $nodeId;
     protected $_name = [
         'fileFolderPath'    => 'FileFolderPath',
         'projectId'         => 'ProjectId',
@@ -62,6 +67,7 @@ class ListFilesRequest extends Model
         'useType'           => 'UseType',
         'fileTypes'         => 'FileTypes',
         'owner'             => 'Owner',
+        'nodeId'            => 'NodeId',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class ListFilesRequest extends Model
         }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class ListFilesRequest extends Model
         }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
 
         return $model;

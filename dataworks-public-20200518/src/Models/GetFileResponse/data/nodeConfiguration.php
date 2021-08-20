@@ -71,6 +71,11 @@ class nodeConfiguration extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $schedulerType;
+
+    /**
      * @var inputList[]
      */
     public $inputList;
@@ -92,6 +97,7 @@ class nodeConfiguration extends Model
         'dependentType'           => 'DependentType',
         'dependentNodeIdList'     => 'DependentNodeIdList',
         'resourceGroupId'         => 'ResourceGroupId',
+        'schedulerType'           => 'SchedulerType',
         'inputList'               => 'InputList',
         'outputList'              => 'OutputList',
     ];
@@ -110,6 +116,7 @@ class nodeConfiguration extends Model
         Model::validateRequired('dependentType', $this->dependentType, true);
         Model::validateRequired('dependentNodeIdList', $this->dependentNodeIdList, true);
         Model::validateRequired('resourceGroupId', $this->resourceGroupId, true);
+        Model::validateRequired('schedulerType', $this->schedulerType, true);
         Model::validateRequired('inputList', $this->inputList, true);
         Model::validateRequired('outputList', $this->outputList, true);
     }
@@ -152,6 +159,9 @@ class nodeConfiguration extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->schedulerType) {
+            $res['SchedulerType'] = $this->schedulerType;
         }
         if (null !== $this->inputList) {
             $res['InputList'] = [];
@@ -218,6 +228,9 @@ class nodeConfiguration extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SchedulerType'])) {
+            $model->schedulerType = $map['SchedulerType'];
         }
         if (isset($map['InputList'])) {
             if (!empty($map['InputList'])) {

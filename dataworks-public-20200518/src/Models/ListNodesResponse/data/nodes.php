@@ -97,6 +97,11 @@ class nodes extends Model
      * @var int
      */
     public $relatedFlowId;
+
+    /**
+     * @var int
+     */
+    public $businessId;
     protected $_name = [
         'nodeId'         => 'NodeId',
         'nodeName'       => 'NodeName',
@@ -116,6 +121,7 @@ class nodes extends Model
         'dqcType'        => 'DqcType',
         'dqcDescription' => 'DqcDescription',
         'relatedFlowId'  => 'RelatedFlowId',
+        'businessId'     => 'BusinessId',
     ];
 
     public function validate()
@@ -138,6 +144,7 @@ class nodes extends Model
         Model::validateRequired('dqcType', $this->dqcType, true);
         Model::validateRequired('dqcDescription', $this->dqcDescription, true);
         Model::validateRequired('relatedFlowId', $this->relatedFlowId, true);
+        Model::validateRequired('businessId', $this->businessId, true);
     }
 
     public function toMap()
@@ -196,6 +203,9 @@ class nodes extends Model
         }
         if (null !== $this->relatedFlowId) {
             $res['RelatedFlowId'] = $this->relatedFlowId;
+        }
+        if (null !== $this->businessId) {
+            $res['BusinessId'] = $this->businessId;
         }
 
         return $res;
@@ -262,6 +272,9 @@ class nodes extends Model
         }
         if (isset($map['RelatedFlowId'])) {
             $model->relatedFlowId = $map['RelatedFlowId'];
+        }
+        if (isset($map['BusinessId'])) {
+            $model->businessId = $map['BusinessId'];
         }
 
         return $model;

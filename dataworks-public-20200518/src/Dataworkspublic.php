@@ -13,12 +13,18 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddToMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddToMetaCategoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ApprovePermissionApplyOrderRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ApprovePermissionApplyOrderResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckEngineMetaPartitionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckEngineMetaPartitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckEngineMetaTableRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckEngineMetaTableResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckFileDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckFileDeploymentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaPartitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaPartitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateConnectionRequest;
@@ -37,6 +43,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDataServiceGroupRequ
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDataServiceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDISyncTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDISyncTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateFolderRequest;
@@ -82,6 +90,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDataServiceApiReques
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDISyncTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteDISyncTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteFolderRequest;
@@ -110,12 +120,18 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteTableThemeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteTableThemeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteViewRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteViewResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployDISyncTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployDISyncTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EstablishRelationTableToBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EstablishRelationTableToBusinessResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportConnectionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportConnectionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDataSourcesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDataSourcesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDISyncTasksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ExportDISyncTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineConfigRequest;
@@ -126,6 +142,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBusinessResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetConnectionMetaRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetConnectionMetaResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceApiRequest;
@@ -138,10 +156,16 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceGroupRequest
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServiceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServicePublishedApiRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataServicePublishedApiResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataSourceMetaRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDataSourceMetaResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDDLJobStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDDLJobStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDeploymentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncInstanceInfoRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncInstanceInfoResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetFileTypeStatisticRequest;
@@ -234,6 +258,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetTopicInfluenceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetTopicInfluenceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetTopicRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetTopicResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportConnectionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportConnectionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportDataSourcesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportDataSourcesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportDISyncTasksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportDISyncTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListAlertMessagesRequest;
@@ -264,6 +292,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServicePublishedAp
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServicePublishedApisResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataSourcesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataSourcesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDISyncTasksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDISyncTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFilesRequest;
@@ -296,6 +326,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListPermissionApplyOrdersR
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListPermissionApplyOrdersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProgramTypeCountRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProgramTypeCountResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectIdsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectIdsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectMembersRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectMembersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectRolesRequest;
@@ -308,6 +340,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityResultsByRuleRe
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityResultsByRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityRulesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityRulesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListRefDISyncTasksRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListRefDISyncTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListRemindsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListRemindsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListResourceGroupsRequest;
@@ -348,16 +382,26 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchMetaTablesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchMetaTablesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchNodesByOutputRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchNodesByOutputResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetConnectionShareRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetConnectionShareResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetDataSourceShareRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetDataSourceShareResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetSuccessInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetSuccessInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartDISyncInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartDISyncInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartMigrationRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartMigrationResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopDISyncInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopDISyncInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SubmitFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SubmitFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SuspendInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SuspendInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TerminateDISyncInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TerminateDISyncInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TestNetworkConnectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TestNetworkConnectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenElapsedTimeInstanceRequest;
@@ -372,6 +416,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDataServiceApiReques
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIProjectConfigRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDIProjectConfigResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDISyncTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateDISyncTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateFolderRequest;
@@ -452,6 +500,606 @@ class Dataworkspublic extends Rpc
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dataworks-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param ListProjectIdsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListProjectIdsResponse
+     */
+    public function listProjectIds($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ListProjectIdsResponse::fromMap($this->doRequest('ListProjectIds', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ListProjectIdsRequest $request
+     *
+     * @return ListProjectIdsResponse
+     */
+    public function listProjectIdsSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectIds($request, $runtime);
+    }
+
+    /**
+     * @param TerminateDISyncInstanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TerminateDISyncInstanceResponse
+     */
+    public function terminateDISyncInstance($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return TerminateDISyncInstanceResponse::fromMap($this->doRequest('TerminateDISyncInstance', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param TerminateDISyncInstanceRequest $request
+     *
+     * @return TerminateDISyncInstanceResponse
+     */
+    public function terminateDISyncInstanceSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->terminateDISyncInstance($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDISyncTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDISyncTaskResponse
+     */
+    public function deleteDISyncTask($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DeleteDISyncTaskResponse::fromMap($this->doRequest('DeleteDISyncTask', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DeleteDISyncTaskRequest $request
+     *
+     * @return DeleteDISyncTaskResponse
+     */
+    public function deleteDISyncTaskSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDISyncTask($request, $runtime);
+    }
+
+    /**
+     * @param DeployDISyncTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeployDISyncTaskResponse
+     */
+    public function deployDISyncTask($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return DeployDISyncTaskResponse::fromMap($this->doRequest('DeployDISyncTask', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param DeployDISyncTaskRequest $request
+     *
+     * @return DeployDISyncTaskResponse
+     */
+    public function deployDISyncTaskSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deployDISyncTask($request, $runtime);
+    }
+
+    /**
+     * @param StartDISyncInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartDISyncInstanceResponse
+     */
+    public function startDISyncInstance($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return StartDISyncInstanceResponse::fromMap($this->doRequest('StartDISyncInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param StartDISyncInstanceRequest $request
+     *
+     * @return StartDISyncInstanceResponse
+     */
+    public function startDISyncInstanceSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startDISyncInstance($request, $runtime);
+    }
+
+    /**
+     * @param GetDISyncInstanceInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDISyncInstanceInfoResponse
+     */
+    public function getDISyncInstanceInfo($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return GetDISyncInstanceInfoResponse::fromMap($this->doRequest('GetDISyncInstanceInfo', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param GetDISyncInstanceInfoRequest $request
+     *
+     * @return GetDISyncInstanceInfoResponse
+     */
+    public function getDISyncInstanceInfoSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDISyncInstanceInfo($request, $runtime);
+    }
+
+    /**
+     * @param StopDISyncInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopDISyncInstanceResponse
+     */
+    public function stopDISyncInstance($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return StopDISyncInstanceResponse::fromMap($this->doRequest('StopDISyncInstance', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param StopDISyncInstanceRequest $request
+     *
+     * @return StopDISyncInstanceResponse
+     */
+    public function stopDISyncInstanceSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDISyncInstance($request, $runtime);
+    }
+
+    /**
+     * @param GetDISyncTaskRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDISyncTaskResponse
+     */
+    public function getDISyncTask($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return GetDISyncTaskResponse::fromMap($this->doRequest('GetDISyncTask', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param GetDISyncTaskRequest $request
+     *
+     * @return GetDISyncTaskResponse
+     */
+    public function getDISyncTaskSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDISyncTask($request, $runtime);
+    }
+
+    /**
+     * @param CheckMetaTableTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckMetaTableTaskResponse
+     */
+    public function checkMetaTableTask($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CheckMetaTableTaskResponse::fromMap($this->doRequest('CheckMetaTableTask', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CheckMetaTableTaskRequest $request
+     *
+     * @return CheckMetaTableTaskResponse
+     */
+    public function checkMetaTableTaskSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkMetaTableTask($request, $runtime);
+    }
+
+    /**
+     * @param CheckEngineMetaPartitionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CheckEngineMetaPartitionResponse
+     */
+    public function checkEngineMetaPartition($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CheckEngineMetaPartitionResponse::fromMap($this->doRequest('CheckEngineMetaPartition', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CheckEngineMetaPartitionRequest $request
+     *
+     * @return CheckEngineMetaPartitionResponse
+     */
+    public function checkEngineMetaPartitionSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkEngineMetaPartition($request, $runtime);
+    }
+
+    /**
+     * @param CheckEngineMetaTableRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CheckEngineMetaTableResponse
+     */
+    public function checkEngineMetaTable($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CheckEngineMetaTableResponse::fromMap($this->doRequest('CheckEngineMetaTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CheckEngineMetaTableRequest $request
+     *
+     * @return CheckEngineMetaTableResponse
+     */
+    public function checkEngineMetaTableSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkEngineMetaTable($request, $runtime);
+    }
+
+    /**
+     * @param ImportDataSourcesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ImportDataSourcesResponse
+     */
+    public function importDataSources($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ImportDataSourcesResponse::fromMap($this->doRequest('ImportDataSources', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ImportDataSourcesRequest $request
+     *
+     * @return ImportDataSourcesResponse
+     */
+    public function importDataSourcesSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importDataSources($request, $runtime);
+    }
+
+    /**
+     * @param ExportDataSourcesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExportDataSourcesResponse
+     */
+    public function exportDataSources($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ExportDataSourcesResponse::fromMap($this->doRequest('ExportDataSources', 'HTTPS', 'GET', '2020-05-18', 'AK,APP,PrivateKey', Tea::merge($request), null, $runtime));
+    }
+
+    /**
+     * @param ExportDataSourcesRequest $request
+     *
+     * @return ExportDataSourcesResponse
+     */
+    public function exportDataSourcesSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportDataSources($request, $runtime);
+    }
+
+    /**
+     * @param GetDataSourceMetaRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetDataSourceMetaResponse
+     */
+    public function getDataSourceMeta($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return GetDataSourceMetaResponse::fromMap($this->doRequest('GetDataSourceMeta', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param GetDataSourceMetaRequest $request
+     *
+     * @return GetDataSourceMetaResponse
+     */
+    public function getDataSourceMetaSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataSourceMeta($request, $runtime);
+    }
+
+    /**
+     * @param SetDataSourceShareRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetDataSourceShareResponse
+     */
+    public function setDataSourceShare($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return SetDataSourceShareResponse::fromMap($this->doRequest('SetDataSourceShare', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param SetDataSourceShareRequest $request
+     *
+     * @return SetDataSourceShareResponse
+     */
+    public function setDataSourceShareSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDataSourceShare($request, $runtime);
+    }
+
+    /**
+     * @param ListDIProjectConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDIProjectConfigResponse
+     */
+    public function listDIProjectConfig($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ListDIProjectConfigResponse::fromMap($this->doRequest('ListDIProjectConfig', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ListDIProjectConfigRequest $request
+     *
+     * @return ListDIProjectConfigResponse
+     */
+    public function listDIProjectConfigSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDIProjectConfig($request, $runtime);
+    }
+
+    /**
+     * @param ExportConnectionsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExportConnectionsResponse
+     */
+    public function exportConnections($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ExportConnectionsResponse::fromMap($this->doRequest('ExportConnections', 'HTTPS', 'GET', '2020-05-18', 'AK,APP,PrivateKey', Tea::merge($request), null, $runtime));
+    }
+
+    /**
+     * @param ExportConnectionsRequest $request
+     *
+     * @return ExportConnectionsResponse
+     */
+    public function exportConnectionsSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportConnections($request, $runtime);
+    }
+
+    /**
+     * @param ListRefDISyncTasksRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListRefDISyncTasksResponse
+     */
+    public function listRefDISyncTasks($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ListRefDISyncTasksResponse::fromMap($this->doRequest('ListRefDISyncTasks', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ListRefDISyncTasksRequest $request
+     *
+     * @return ListRefDISyncTasksResponse
+     */
+    public function listRefDISyncTasksSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRefDISyncTasks($request, $runtime);
+    }
+
+    /**
+     * @param SetConnectionShareRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetConnectionShareResponse
+     */
+    public function setConnectionShare($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return SetConnectionShareResponse::fromMap($this->doRequest('SetConnectionShare', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param SetConnectionShareRequest $request
+     *
+     * @return SetConnectionShareResponse
+     */
+    public function setConnectionShareSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setConnectionShare($request, $runtime);
+    }
+
+    /**
+     * @param ImportConnectionsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ImportConnectionsResponse
+     */
+    public function importConnections($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ImportConnectionsResponse::fromMap($this->doRequest('ImportConnections', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ImportConnectionsRequest $request
+     *
+     * @return ImportConnectionsResponse
+     */
+    public function importConnectionsSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importConnections($request, $runtime);
+    }
+
+    /**
+     * @param GetConnectionMetaRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetConnectionMetaResponse
+     */
+    public function getConnectionMeta($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return GetConnectionMetaResponse::fromMap($this->doRequest('GetConnectionMeta', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param GetConnectionMetaRequest $request
+     *
+     * @return GetConnectionMetaResponse
+     */
+    public function getConnectionMetaSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConnectionMeta($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDIProjectConfigRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDIProjectConfigResponse
+     */
+    public function updateDIProjectConfig($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return UpdateDIProjectConfigResponse::fromMap($this->doRequest('UpdateDIProjectConfig', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param UpdateDIProjectConfigRequest $request
+     *
+     * @return UpdateDIProjectConfigResponse
+     */
+    public function updateDIProjectConfigSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDIProjectConfig($request, $runtime);
+    }
+
+    /**
+     * @param CreateDISyncTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDISyncTaskResponse
+     */
+    public function createDISyncTask($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateDISyncTaskResponse::fromMap($this->doRequest('CreateDISyncTask', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateDISyncTaskRequest $request
+     *
+     * @return CreateDISyncTaskResponse
+     */
+    public function createDISyncTaskSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDISyncTask($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDISyncTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDISyncTaskResponse
+     */
+    public function updateDISyncTask($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return UpdateDISyncTaskResponse::fromMap($this->doRequest('UpdateDISyncTask', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param UpdateDISyncTaskRequest $request
+     *
+     * @return UpdateDISyncTaskResponse
+     */
+    public function updateDISyncTaskSimply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDISyncTask($request, $runtime);
     }
 
     /**

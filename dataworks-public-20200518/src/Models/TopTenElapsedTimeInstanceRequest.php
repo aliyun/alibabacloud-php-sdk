@@ -12,20 +12,13 @@ class TopTenElapsedTimeInstanceRequest extends Model
      * @var int
      */
     public $projectId;
-
-    /**
-     * @var string
-     */
-    public $businessDate;
     protected $_name = [
-        'projectId'    => 'ProjectId',
-        'businessDate' => 'BusinessDate',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
     {
         Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('businessDate', $this->businessDate, true);
     }
 
     public function toMap()
@@ -33,9 +26,6 @@ class TopTenElapsedTimeInstanceRequest extends Model
         $res = [];
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->businessDate) {
-            $res['BusinessDate'] = $this->businessDate;
         }
 
         return $res;
@@ -51,9 +41,6 @@ class TopTenElapsedTimeInstanceRequest extends Model
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['BusinessDate'])) {
-            $model->businessDate = $map['BusinessDate'];
         }
 
         return $model;

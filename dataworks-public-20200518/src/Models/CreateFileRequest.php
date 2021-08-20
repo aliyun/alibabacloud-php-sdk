@@ -127,6 +127,11 @@ class CreateFileRequest extends Model
      * @var bool
      */
     public $autoParsing;
+
+    /**
+     * @var string
+     */
+    public $schedulerType;
     protected $_name = [
         'fileFolderPath'          => 'FileFolderPath',
         'projectId'               => 'ProjectId',
@@ -152,6 +157,7 @@ class CreateFileRequest extends Model
         'resourceGroupId'         => 'ResourceGroupId',
         'connectionName'          => 'ConnectionName',
         'autoParsing'             => 'AutoParsing',
+        'schedulerType'           => 'SchedulerType',
     ];
 
     public function validate()
@@ -236,6 +242,9 @@ class CreateFileRequest extends Model
         if (null !== $this->autoParsing) {
             $res['AutoParsing'] = $this->autoParsing;
         }
+        if (null !== $this->schedulerType) {
+            $res['SchedulerType'] = $this->schedulerType;
+        }
 
         return $res;
     }
@@ -319,6 +328,9 @@ class CreateFileRequest extends Model
         }
         if (isset($map['AutoParsing'])) {
             $model->autoParsing = $map['AutoParsing'];
+        }
+        if (isset($map['SchedulerType'])) {
+            $model->schedulerType = $map['SchedulerType'];
         }
 
         return $model;

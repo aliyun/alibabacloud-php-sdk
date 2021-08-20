@@ -92,6 +92,11 @@ class dataSources extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $content;
     protected $_name = [
         'shared'              => 'Shared',
         'gmtModified'         => 'GmtModified',
@@ -110,6 +115,7 @@ class dataSources extends Model
         'id'                  => 'Id',
         'projectId'           => 'ProjectId',
         'status'              => 'Status',
+        'content'             => 'Content',
     ];
 
     public function validate()
@@ -131,6 +137,7 @@ class dataSources extends Model
         Model::validateRequired('id', $this->id, true);
         Model::validateRequired('projectId', $this->projectId, true);
         Model::validateRequired('status', $this->status, true);
+        Model::validateRequired('content', $this->content, true);
     }
 
     public function toMap()
@@ -186,6 +193,9 @@ class dataSources extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
 
         return $res;
@@ -249,6 +259,9 @@ class dataSources extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
 
         return $model;

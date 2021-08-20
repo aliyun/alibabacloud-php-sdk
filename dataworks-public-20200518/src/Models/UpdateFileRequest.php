@@ -127,6 +127,11 @@ class UpdateFileRequest extends Model
      * @var bool
      */
     public $autoParsing;
+
+    /**
+     * @var string
+     */
+    public $schedulerType;
     protected $_name = [
         'fileFolderPath'          => 'FileFolderPath',
         'projectId'               => 'ProjectId',
@@ -152,6 +157,7 @@ class UpdateFileRequest extends Model
         'connectionName'          => 'ConnectionName',
         'owner'                   => 'Owner',
         'autoParsing'             => 'AutoParsing',
+        'schedulerType'           => 'SchedulerType',
     ];
 
     public function validate()
@@ -233,6 +239,9 @@ class UpdateFileRequest extends Model
         }
         if (null !== $this->autoParsing) {
             $res['AutoParsing'] = $this->autoParsing;
+        }
+        if (null !== $this->schedulerType) {
+            $res['SchedulerType'] = $this->schedulerType;
         }
 
         return $res;
@@ -317,6 +326,9 @@ class UpdateFileRequest extends Model
         }
         if (isset($map['AutoParsing'])) {
             $model->autoParsing = $map['AutoParsing'];
+        }
+        if (isset($map['SchedulerType'])) {
+            $model->schedulerType = $map['SchedulerType'];
         }
 
         return $model;

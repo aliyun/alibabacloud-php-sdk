@@ -31,11 +31,6 @@ class RunCycleDagNodesRequest extends Model
     /**
      * @var string
      */
-    public $includeNodeIds;
-
-    /**
-     * @var string
-     */
     public $excludeNodeIds;
 
     /**
@@ -62,18 +57,23 @@ class RunCycleDagNodesRequest extends Model
      * @var string
      */
     public $nodeParams;
+
+    /**
+     * @var string
+     */
+    public $includeNodeIds;
     protected $_name = [
         'projectEnv'     => 'ProjectEnv',
         'startBizDate'   => 'StartBizDate',
         'name'           => 'Name',
         'rootNodeId'     => 'RootNodeId',
-        'includeNodeIds' => 'IncludeNodeIds',
         'excludeNodeIds' => 'ExcludeNodeIds',
         'bizBeginTime'   => 'BizBeginTime',
         'bizEndTime'     => 'BizEndTime',
         'parallelism'    => 'Parallelism',
         'endBizDate'     => 'EndBizDate',
         'nodeParams'     => 'NodeParams',
+        'includeNodeIds' => 'IncludeNodeIds',
     ];
 
     public function validate()
@@ -82,9 +82,9 @@ class RunCycleDagNodesRequest extends Model
         Model::validateRequired('startBizDate', $this->startBizDate, true);
         Model::validateRequired('name', $this->name, true);
         Model::validateRequired('rootNodeId', $this->rootNodeId, true);
-        Model::validateRequired('includeNodeIds', $this->includeNodeIds, true);
         Model::validateRequired('parallelism', $this->parallelism, true);
         Model::validateRequired('endBizDate', $this->endBizDate, true);
+        Model::validateRequired('includeNodeIds', $this->includeNodeIds, true);
     }
 
     public function toMap()
@@ -101,9 +101,6 @@ class RunCycleDagNodesRequest extends Model
         }
         if (null !== $this->rootNodeId) {
             $res['RootNodeId'] = $this->rootNodeId;
-        }
-        if (null !== $this->includeNodeIds) {
-            $res['IncludeNodeIds'] = $this->includeNodeIds;
         }
         if (null !== $this->excludeNodeIds) {
             $res['ExcludeNodeIds'] = $this->excludeNodeIds;
@@ -122,6 +119,9 @@ class RunCycleDagNodesRequest extends Model
         }
         if (null !== $this->nodeParams) {
             $res['NodeParams'] = $this->nodeParams;
+        }
+        if (null !== $this->includeNodeIds) {
+            $res['IncludeNodeIds'] = $this->includeNodeIds;
         }
 
         return $res;
@@ -147,9 +147,6 @@ class RunCycleDagNodesRequest extends Model
         if (isset($map['RootNodeId'])) {
             $model->rootNodeId = $map['RootNodeId'];
         }
-        if (isset($map['IncludeNodeIds'])) {
-            $model->includeNodeIds = $map['IncludeNodeIds'];
-        }
         if (isset($map['ExcludeNodeIds'])) {
             $model->excludeNodeIds = $map['ExcludeNodeIds'];
         }
@@ -167,6 +164,9 @@ class RunCycleDagNodesRequest extends Model
         }
         if (isset($map['NodeParams'])) {
             $model->nodeParams = $map['NodeParams'];
+        }
+        if (isset($map['IncludeNodeIds'])) {
+            $model->includeNodeIds = $map['IncludeNodeIds'];
         }
 
         return $model;

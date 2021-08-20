@@ -32,12 +32,18 @@ class DeleteFileResponse extends Model
      * @var int
      */
     public $httpStatusCode;
+
+    /**
+     * @var int
+     */
+    public $deploymentId;
     protected $_name = [
         'requestId'      => 'RequestId',
         'success'        => 'Success',
         'errorCode'      => 'ErrorCode',
         'errorMessage'   => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
+        'deploymentId'   => 'DeploymentId',
     ];
 
     public function validate()
@@ -47,6 +53,7 @@ class DeleteFileResponse extends Model
         Model::validateRequired('errorCode', $this->errorCode, true);
         Model::validateRequired('errorMessage', $this->errorMessage, true);
         Model::validateRequired('httpStatusCode', $this->httpStatusCode, true);
+        Model::validateRequired('deploymentId', $this->deploymentId, true);
     }
 
     public function toMap()
@@ -66,6 +73,9 @@ class DeleteFileResponse extends Model
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
+        if (null !== $this->deploymentId) {
+            $res['DeploymentId'] = $this->deploymentId;
         }
 
         return $res;
@@ -93,6 +103,9 @@ class DeleteFileResponse extends Model
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
+        }
+        if (isset($map['DeploymentId'])) {
+            $model->deploymentId = $map['DeploymentId'];
         }
 
         return $model;

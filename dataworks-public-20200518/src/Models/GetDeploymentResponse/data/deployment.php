@@ -52,6 +52,11 @@ class deployment extends Model
      * @var string
      */
     public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $checkingStatus;
     protected $_name = [
         'name'            => 'Name',
         'creatorId'       => 'CreatorId',
@@ -62,6 +67,7 @@ class deployment extends Model
         'fromEnvironment' => 'FromEnvironment',
         'toEnvironment'   => 'ToEnvironment',
         'errorMessage'    => 'ErrorMessage',
+        'checkingStatus'  => 'CheckingStatus',
     ];
 
     public function validate()
@@ -75,6 +81,7 @@ class deployment extends Model
         Model::validateRequired('fromEnvironment', $this->fromEnvironment, true);
         Model::validateRequired('toEnvironment', $this->toEnvironment, true);
         Model::validateRequired('errorMessage', $this->errorMessage, true);
+        Model::validateRequired('checkingStatus', $this->checkingStatus, true);
     }
 
     public function toMap()
@@ -106,6 +113,9 @@ class deployment extends Model
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->checkingStatus) {
+            $res['CheckingStatus'] = $this->checkingStatus;
         }
 
         return $res;
@@ -145,6 +155,9 @@ class deployment extends Model
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['CheckingStatus'])) {
+            $model->checkingStatus = $map['CheckingStatus'];
         }
 
         return $model;

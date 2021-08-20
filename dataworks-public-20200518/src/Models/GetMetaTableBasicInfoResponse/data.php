@@ -132,6 +132,11 @@ class data extends Model
      * @var bool
      */
     public $isView;
+
+    /**
+     * @var int
+     */
+    public $columnCount;
     protected $_name = [
         'tableName'        => 'TableName',
         'tableGuid'        => 'TableGuid',
@@ -158,6 +163,7 @@ class data extends Model
         'viewCount'        => 'ViewCount',
         'favoriteCount'    => 'FavoriteCount',
         'isView'           => 'IsView',
+        'columnCount'      => 'ColumnCount',
     ];
 
     public function validate()
@@ -187,6 +193,7 @@ class data extends Model
         Model::validateRequired('viewCount', $this->viewCount, true);
         Model::validateRequired('favoriteCount', $this->favoriteCount, true);
         Model::validateRequired('isView', $this->isView, true);
+        Model::validateRequired('columnCount', $this->columnCount, true);
     }
 
     public function toMap()
@@ -266,6 +273,9 @@ class data extends Model
         }
         if (null !== $this->isView) {
             $res['IsView'] = $this->isView;
+        }
+        if (null !== $this->columnCount) {
+            $res['ColumnCount'] = $this->columnCount;
         }
 
         return $res;
@@ -353,6 +363,9 @@ class data extends Model
         }
         if (isset($map['IsView'])) {
             $model->isView = $map['IsView'];
+        }
+        if (isset($map['ColumnCount'])) {
+            $model->columnCount = $map['ColumnCount'];
         }
 
         return $model;

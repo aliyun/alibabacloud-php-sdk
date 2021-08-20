@@ -16,22 +16,15 @@ class QueryPublicModelEngineRequest extends Model
     /**
      * @var string
      */
-    public $tenantId;
-
-    /**
-     * @var string
-     */
     public $projectId;
     protected $_name = [
         'text'      => 'Text',
-        'tenantId'  => 'TenantId',
         'projectId' => 'ProjectId',
     ];
 
     public function validate()
     {
         Model::validateRequired('text', $this->text, true);
-        Model::validateRequired('tenantId', $this->tenantId, true);
         Model::validateRequired('projectId', $this->projectId, true);
     }
 
@@ -40,9 +33,6 @@ class QueryPublicModelEngineRequest extends Model
         $res = [];
         if (null !== $this->text) {
             $res['Text'] = $this->text;
-        }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -61,9 +51,6 @@ class QueryPublicModelEngineRequest extends Model
         $model = new self();
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
-        }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];

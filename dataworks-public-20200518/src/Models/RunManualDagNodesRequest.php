@@ -37,6 +37,21 @@ class RunManualDagNodesRequest extends Model
      * @var string
      */
     public $dagParameters;
+
+    /**
+     * @var string
+     */
+    public $includeNodeIds;
+
+    /**
+     * @var string
+     */
+    public $excludeNodeIds;
+
+    /**
+     * @var int
+     */
+    public $projectId;
     protected $_name = [
         'projectEnv'     => 'ProjectEnv',
         'projectName'    => 'ProjectName',
@@ -44,6 +59,9 @@ class RunManualDagNodesRequest extends Model
         'bizDate'        => 'BizDate',
         'nodeParameters' => 'NodeParameters',
         'dagParameters'  => 'DagParameters',
+        'includeNodeIds' => 'IncludeNodeIds',
+        'excludeNodeIds' => 'ExcludeNodeIds',
+        'projectId'      => 'ProjectId',
     ];
 
     public function validate()
@@ -75,6 +93,15 @@ class RunManualDagNodesRequest extends Model
         if (null !== $this->dagParameters) {
             $res['DagParameters'] = $this->dagParameters;
         }
+        if (null !== $this->includeNodeIds) {
+            $res['IncludeNodeIds'] = $this->includeNodeIds;
+        }
+        if (null !== $this->excludeNodeIds) {
+            $res['ExcludeNodeIds'] = $this->excludeNodeIds;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
 
         return $res;
     }
@@ -104,6 +131,15 @@ class RunManualDagNodesRequest extends Model
         }
         if (isset($map['DagParameters'])) {
             $model->dagParameters = $map['DagParameters'];
+        }
+        if (isset($map['IncludeNodeIds'])) {
+            $model->includeNodeIds = $map['IncludeNodeIds'];
+        }
+        if (isset($map['ExcludeNodeIds'])) {
+            $model->excludeNodeIds = $map['ExcludeNodeIds'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;
