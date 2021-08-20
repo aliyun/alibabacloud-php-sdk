@@ -36,10 +36,6 @@ class ListQualityRulesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectName', $this->projectName, true);
-        Model::validateRequired('entityId', $this->entityId, true);
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

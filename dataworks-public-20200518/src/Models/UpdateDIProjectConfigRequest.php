@@ -36,9 +36,6 @@ class UpdateDIProjectConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('destinationType', $this->destinationType, true);
-        Model::validateRequired('projectConfig', $this->projectConfig, true);
     }
 
     public function toMap()

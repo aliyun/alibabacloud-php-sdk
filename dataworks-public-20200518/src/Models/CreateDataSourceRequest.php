@@ -54,11 +54,6 @@ class CreateDataSourceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('dataSourceType', $this->dataSourceType, true);
-        Model::validateRequired('envType', $this->envType, true);
-        Model::validateRequired('content', $this->content, true);
     }
 
     public function toMap()

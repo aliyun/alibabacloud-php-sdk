@@ -9,33 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ListProjectIdsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var int[]
+     * @var ListProjectIdsResponseBody
      */
-    public $projectIds;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'projectIds' => 'ProjectIds',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('projectIds', $this->projectIds, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->projectIds) {
-            $res['ProjectIds'] = $this->projectIds;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,13 +49,11 @@ class ListProjectIdsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ProjectIds'])) {
-            if (!empty($map['ProjectIds'])) {
-                $model->projectIds = $map['ProjectIds'];
-            }
+        if (isset($map['body'])) {
+            $model->body = ListProjectIdsResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -30,9 +30,6 @@ class ListManualDagInstancesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectEnv', $this->projectEnv, true);
-        Model::validateRequired('projectName', $this->projectName, true);
-        Model::validateRequired('dagId', $this->dagId, true);
     }
 
     public function toMap()

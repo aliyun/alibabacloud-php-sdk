@@ -22,16 +22,10 @@ class GetFileRequest extends Model
      * @var int
      */
     public $fileId;
-
-    /**
-     * @var int
-     */
-    public $nodeId;
     protected $_name = [
         'projectId'         => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
         'fileId'            => 'FileId',
-        'nodeId'            => 'NodeId',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class GetFileRequest extends Model
         }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class GetFileRequest extends Model
         }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
         }
 
         return $model;

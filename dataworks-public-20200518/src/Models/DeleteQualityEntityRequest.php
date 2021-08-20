@@ -30,9 +30,6 @@ class DeleteQualityEntityRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('entityId', $this->entityId, true);
-        Model::validateRequired('projectName', $this->projectName, true);
-        Model::validateRequired('envType', $this->envType, true);
     }
 
     public function toMap()

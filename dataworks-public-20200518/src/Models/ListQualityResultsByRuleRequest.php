@@ -48,12 +48,6 @@ class ListQualityResultsByRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('ruleId', $this->ruleId, true);
-        Model::validateRequired('startDate', $this->startDate, true);
-        Model::validateRequired('endDate', $this->endDate, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('projectName', $this->projectName, true);
     }
 
     public function toMap()

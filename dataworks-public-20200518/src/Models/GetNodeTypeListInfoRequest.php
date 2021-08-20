@@ -48,8 +48,6 @@ class GetNodeTypeListInfoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

@@ -102,11 +102,6 @@ class CreateRemindRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('remindName', $this->remindName, true);
-        Model::validateRequired('remindUnit', $this->remindUnit, true);
-        Model::validateRequired('remindType', $this->remindType, true);
-        Model::validateRequired('alertUnit', $this->alertUnit, true);
-        Model::validateRequired('alertMethods', $this->alertMethods, true);
     }
 
     public function toMap()

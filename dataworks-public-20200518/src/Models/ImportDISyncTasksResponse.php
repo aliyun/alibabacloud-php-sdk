@@ -4,49 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ImportDISyncTasksResponse\taskInfo;
 use AlibabaCloud\Tea\Model;
 
 class ImportDISyncTasksResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bool
+     * @var ImportDISyncTasksResponseBody
      */
-    public $success;
-
-    /**
-     * @var taskInfo
-     */
-    public $taskInfo;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'taskInfo'  => 'TaskInfo',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('success', $this->success, true);
-        Model::validateRequired('taskInfo', $this->taskInfo, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->taskInfo) {
-            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -60,14 +49,11 @@ class ImportDISyncTasksResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['TaskInfo'])) {
-            $model->taskInfo = taskInfo::fromMap($map['TaskInfo']);
+        if (isset($map['body'])) {
+            $model->body = ImportDISyncTasksResponseBody::fromMap($map['body']);
         }
 
         return $model;

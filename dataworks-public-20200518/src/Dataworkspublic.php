@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AbolishDataServiceApiRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AbolishDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddProjectMemberToRoleRequest;
@@ -23,7 +24,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaPartitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaPartitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateBusinessResponse;
@@ -459,14 +459,13 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
-use AlibabaCloud\Tea\RpcUtils\RpcUtils;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\OpenApiClient;
 
-class Dataworkspublic extends Rpc
+class Dataworkspublic extends OpenApiClient
 {
     public function __construct($config)
     {
@@ -503,1003 +502,110 @@ class Dataworkspublic extends Rpc
     }
 
     /**
-     * @param ListProjectIdsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
      *
-     * @return ListProjectIdsResponse
+     * @return string
      */
-    public function listProjectIds($request, $runtime)
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        Utils::validateModel($request);
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
 
-        return ListProjectIdsResponse::fromMap($this->doRequest('ListProjectIds', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param ListProjectIdsRequest $request
-     *
-     * @return ListProjectIdsResponse
-     */
-    public function listProjectIdsSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listProjectIds($request, $runtime);
-    }
-
-    /**
-     * @param TerminateDISyncInstanceRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return TerminateDISyncInstanceResponse
-     */
-    public function terminateDISyncInstance($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return TerminateDISyncInstanceResponse::fromMap($this->doRequest('TerminateDISyncInstance', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param TerminateDISyncInstanceRequest $request
-     *
-     * @return TerminateDISyncInstanceResponse
-     */
-    public function terminateDISyncInstanceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->terminateDISyncInstance($request, $runtime);
-    }
-
-    /**
-     * @param DeleteDISyncTaskRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteDISyncTaskResponse
-     */
-    public function deleteDISyncTask($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteDISyncTaskResponse::fromMap($this->doRequest('DeleteDISyncTask', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteDISyncTaskRequest $request
-     *
-     * @return DeleteDISyncTaskResponse
-     */
-    public function deleteDISyncTaskSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteDISyncTask($request, $runtime);
-    }
-
-    /**
-     * @param DeployDISyncTaskRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeployDISyncTaskResponse
-     */
-    public function deployDISyncTask($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeployDISyncTaskResponse::fromMap($this->doRequest('DeployDISyncTask', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeployDISyncTaskRequest $request
-     *
-     * @return DeployDISyncTaskResponse
-     */
-    public function deployDISyncTaskSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deployDISyncTask($request, $runtime);
-    }
-
-    /**
-     * @param StartDISyncInstanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return StartDISyncInstanceResponse
-     */
-    public function startDISyncInstance($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return StartDISyncInstanceResponse::fromMap($this->doRequest('StartDISyncInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param StartDISyncInstanceRequest $request
-     *
-     * @return StartDISyncInstanceResponse
-     */
-    public function startDISyncInstanceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startDISyncInstance($request, $runtime);
-    }
-
-    /**
-     * @param GetDISyncInstanceInfoRequest $request
+     * @param AbolishDataServiceApiRequest $request
      * @param RuntimeOptions               $runtime
      *
-     * @return GetDISyncInstanceInfoResponse
+     * @return AbolishDataServiceApiResponse
      */
-    public function getDISyncInstanceInfo($request, $runtime)
+    public function abolishDataServiceApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetDISyncInstanceInfoResponse::fromMap($this->doRequest('GetDISyncInstanceInfo', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
+        return AbolishDataServiceApiResponse::fromMap($this->doRPCRequest('AbolishDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetDISyncInstanceInfoRequest $request
+     * @param AbolishDataServiceApiRequest $request
      *
-     * @return GetDISyncInstanceInfoResponse
+     * @return AbolishDataServiceApiResponse
      */
-    public function getDISyncInstanceInfoSimply($request)
+    public function abolishDataServiceApi($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getDISyncInstanceInfo($request, $runtime);
+        return $this->abolishDataServiceApiWithOptions($request, $runtime);
     }
 
     /**
-     * @param StopDISyncInstanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return StopDISyncInstanceResponse
-     */
-    public function stopDISyncInstance($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return StopDISyncInstanceResponse::fromMap($this->doRequest('StopDISyncInstance', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param StopDISyncInstanceRequest $request
-     *
-     * @return StopDISyncInstanceResponse
-     */
-    public function stopDISyncInstanceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->stopDISyncInstance($request, $runtime);
-    }
-
-    /**
-     * @param GetDISyncTaskRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetDISyncTaskResponse
-     */
-    public function getDISyncTask($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetDISyncTaskResponse::fromMap($this->doRequest('GetDISyncTask', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetDISyncTaskRequest $request
-     *
-     * @return GetDISyncTaskResponse
-     */
-    public function getDISyncTaskSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDISyncTask($request, $runtime);
-    }
-
-    /**
-     * @param CheckMetaTableTaskRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CheckMetaTableTaskResponse
-     */
-    public function checkMetaTableTask($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CheckMetaTableTaskResponse::fromMap($this->doRequest('CheckMetaTableTask', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CheckMetaTableTaskRequest $request
-     *
-     * @return CheckMetaTableTaskResponse
-     */
-    public function checkMetaTableTaskSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkMetaTableTask($request, $runtime);
-    }
-
-    /**
-     * @param CheckEngineMetaPartitionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CheckEngineMetaPartitionResponse
-     */
-    public function checkEngineMetaPartition($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CheckEngineMetaPartitionResponse::fromMap($this->doRequest('CheckEngineMetaPartition', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CheckEngineMetaPartitionRequest $request
-     *
-     * @return CheckEngineMetaPartitionResponse
-     */
-    public function checkEngineMetaPartitionSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkEngineMetaPartition($request, $runtime);
-    }
-
-    /**
-     * @param CheckEngineMetaTableRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CheckEngineMetaTableResponse
-     */
-    public function checkEngineMetaTable($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CheckEngineMetaTableResponse::fromMap($this->doRequest('CheckEngineMetaTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CheckEngineMetaTableRequest $request
-     *
-     * @return CheckEngineMetaTableResponse
-     */
-    public function checkEngineMetaTableSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkEngineMetaTable($request, $runtime);
-    }
-
-    /**
-     * @param ImportDataSourcesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ImportDataSourcesResponse
-     */
-    public function importDataSources($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ImportDataSourcesResponse::fromMap($this->doRequest('ImportDataSources', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ImportDataSourcesRequest $request
-     *
-     * @return ImportDataSourcesResponse
-     */
-    public function importDataSourcesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->importDataSources($request, $runtime);
-    }
-
-    /**
-     * @param ExportDataSourcesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ExportDataSourcesResponse
-     */
-    public function exportDataSources($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ExportDataSourcesResponse::fromMap($this->doRequest('ExportDataSources', 'HTTPS', 'GET', '2020-05-18', 'AK,APP,PrivateKey', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param ExportDataSourcesRequest $request
-     *
-     * @return ExportDataSourcesResponse
-     */
-    public function exportDataSourcesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->exportDataSources($request, $runtime);
-    }
-
-    /**
-     * @param GetDataSourceMetaRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetDataSourceMetaResponse
-     */
-    public function getDataSourceMeta($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetDataSourceMetaResponse::fromMap($this->doRequest('GetDataSourceMeta', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetDataSourceMetaRequest $request
-     *
-     * @return GetDataSourceMetaResponse
-     */
-    public function getDataSourceMetaSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDataSourceMeta($request, $runtime);
-    }
-
-    /**
-     * @param SetDataSourceShareRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SetDataSourceShareResponse
-     */
-    public function setDataSourceShare($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SetDataSourceShareResponse::fromMap($this->doRequest('SetDataSourceShare', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SetDataSourceShareRequest $request
-     *
-     * @return SetDataSourceShareResponse
-     */
-    public function setDataSourceShareSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setDataSourceShare($request, $runtime);
-    }
-
-    /**
-     * @param ListDIProjectConfigRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListDIProjectConfigResponse
-     */
-    public function listDIProjectConfig($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListDIProjectConfigResponse::fromMap($this->doRequest('ListDIProjectConfig', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListDIProjectConfigRequest $request
-     *
-     * @return ListDIProjectConfigResponse
-     */
-    public function listDIProjectConfigSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDIProjectConfig($request, $runtime);
-    }
-
-    /**
-     * @param ExportConnectionsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ExportConnectionsResponse
-     */
-    public function exportConnections($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ExportConnectionsResponse::fromMap($this->doRequest('ExportConnections', 'HTTPS', 'GET', '2020-05-18', 'AK,APP,PrivateKey', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param ExportConnectionsRequest $request
-     *
-     * @return ExportConnectionsResponse
-     */
-    public function exportConnectionsSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->exportConnections($request, $runtime);
-    }
-
-    /**
-     * @param ListRefDISyncTasksRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListRefDISyncTasksResponse
-     */
-    public function listRefDISyncTasks($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListRefDISyncTasksResponse::fromMap($this->doRequest('ListRefDISyncTasks', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListRefDISyncTasksRequest $request
-     *
-     * @return ListRefDISyncTasksResponse
-     */
-    public function listRefDISyncTasksSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRefDISyncTasks($request, $runtime);
-    }
-
-    /**
-     * @param SetConnectionShareRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SetConnectionShareResponse
-     */
-    public function setConnectionShare($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SetConnectionShareResponse::fromMap($this->doRequest('SetConnectionShare', 'HTTPS', 'POST', '2020-05-18', 'AK,PrivateKey,APP', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SetConnectionShareRequest $request
-     *
-     * @return SetConnectionShareResponse
-     */
-    public function setConnectionShareSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setConnectionShare($request, $runtime);
-    }
-
-    /**
-     * @param ImportConnectionsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ImportConnectionsResponse
-     */
-    public function importConnections($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ImportConnectionsResponse::fromMap($this->doRequest('ImportConnections', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ImportConnectionsRequest $request
-     *
-     * @return ImportConnectionsResponse
-     */
-    public function importConnectionsSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->importConnections($request, $runtime);
-    }
-
-    /**
-     * @param GetConnectionMetaRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetConnectionMetaResponse
-     */
-    public function getConnectionMeta($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetConnectionMetaResponse::fromMap($this->doRequest('GetConnectionMeta', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetConnectionMetaRequest $request
-     *
-     * @return GetConnectionMetaResponse
-     */
-    public function getConnectionMetaSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getConnectionMeta($request, $runtime);
-    }
-
-    /**
-     * @param UpdateDIProjectConfigRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UpdateDIProjectConfigResponse
-     */
-    public function updateDIProjectConfig($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateDIProjectConfigResponse::fromMap($this->doRequest('UpdateDIProjectConfig', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateDIProjectConfigRequest $request
-     *
-     * @return UpdateDIProjectConfigResponse
-     */
-    public function updateDIProjectConfigSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDIProjectConfig($request, $runtime);
-    }
-
-    /**
-     * @param CreateDISyncTaskRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateDISyncTaskResponse
-     */
-    public function createDISyncTask($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateDISyncTaskResponse::fromMap($this->doRequest('CreateDISyncTask', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateDISyncTaskRequest $request
-     *
-     * @return CreateDISyncTaskResponse
-     */
-    public function createDISyncTaskSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDISyncTask($request, $runtime);
-    }
-
-    /**
-     * @param UpdateDISyncTaskRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateDISyncTaskResponse
-     */
-    public function updateDISyncTask($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateDISyncTaskResponse::fromMap($this->doRequest('UpdateDISyncTask', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateDISyncTaskRequest $request
-     *
-     * @return UpdateDISyncTaskResponse
-     */
-    public function updateDISyncTaskSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDISyncTask($request, $runtime);
-    }
-
-    /**
-     * @param TestNetworkConnectionRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return TestNetworkConnectionResponse
-     */
-    public function testNetworkConnection($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return TestNetworkConnectionResponse::fromMap($this->doRequest('TestNetworkConnection', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param TestNetworkConnectionRequest $request
-     *
-     * @return TestNetworkConnectionResponse
-     */
-    public function testNetworkConnectionSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->testNetworkConnection($request, $runtime);
-    }
-
-    /**
-     * @param UpdateNodeRunModeRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateNodeRunModeResponse
-     */
-    public function updateNodeRunMode($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateNodeRunModeResponse::fromMap($this->doRequest('UpdateNodeRunMode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateNodeRunModeRequest $request
-     *
-     * @return UpdateNodeRunModeResponse
-     */
-    public function updateNodeRunModeSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateNodeRunMode($request, $runtime);
-    }
-
-    /**
-     * @param UpdateNodeOwnerRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateNodeOwnerResponse
-     */
-    public function updateNodeOwner($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateNodeOwnerResponse::fromMap($this->doRequest('UpdateNodeOwner', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateNodeOwnerRequest $request
-     *
-     * @return UpdateNodeOwnerResponse
-     */
-    public function updateNodeOwnerSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateNodeOwner($request, $runtime);
-    }
-
-    /**
-     * @param QueryPublicModelEngineRequest $request
+     * @param AddProjectMemberToRoleRequest $request
      * @param RuntimeOptions                $runtime
      *
-     * @return QueryPublicModelEngineResponse
+     * @return AddProjectMemberToRoleResponse
      */
-    public function queryPublicModelEngine($request, $runtime)
+    public function addProjectMemberToRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return QueryPublicModelEngineResponse::fromMap($this->doRequest('QueryPublicModelEngine', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return AddProjectMemberToRoleResponse::fromMap($this->doRPCRequest('AddProjectMemberToRole', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param QueryPublicModelEngineRequest $request
+     * @param AddProjectMemberToRoleRequest $request
      *
-     * @return QueryPublicModelEngineResponse
+     * @return AddProjectMemberToRoleResponse
      */
-    public function queryPublicModelEngineSimply($request)
+    public function addProjectMemberToRole($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->queryPublicModelEngine($request, $runtime);
+        return $this->addProjectMemberToRoleWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteViewRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteViewResponse
-     */
-    public function deleteView($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteViewResponse::fromMap($this->doRequest('DeleteView', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteViewRequest $request
-     *
-     * @return DeleteViewResponse
-     */
-    public function deleteViewSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteView($request, $runtime);
-    }
-
-    /**
-     * @param CreateViewRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateViewResponse
-     */
-    public function createView($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateViewResponse::fromMap($this->doRequest('CreateView', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateViewRequest $request
-     *
-     * @return CreateViewResponse
-     */
-    public function createViewSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createView($request, $runtime);
-    }
-
-    /**
-     * @param CheckFileDeploymentRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CheckFileDeploymentResponse
-     */
-    public function checkFileDeployment($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CheckFileDeploymentResponse::fromMap($this->doRequest('CheckFileDeployment', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CheckFileDeploymentRequest $request
-     *
-     * @return CheckFileDeploymentResponse
-     */
-    public function checkFileDeploymentSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkFileDeployment($request, $runtime);
-    }
-
-    /**
-     * @param ImportDISyncTasksRequest $request
+     * @param AddToMetaCategoryRequest $request
      * @param RuntimeOptions           $runtime
      *
-     * @return ImportDISyncTasksResponse
+     * @return AddToMetaCategoryResponse
      */
-    public function importDISyncTasks($request, $runtime)
+    public function addToMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ImportDISyncTasksResponse::fromMap($this->doRequest('ImportDISyncTasks', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
+        return AddToMetaCategoryResponse::fromMap($this->doRPCRequest('AddToMetaCategory', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ImportDISyncTasksRequest $request
+     * @param AddToMetaCategoryRequest $request
      *
-     * @return ImportDISyncTasksResponse
+     * @return AddToMetaCategoryResponse
      */
-    public function importDISyncTasksSimply($request)
+    public function addToMetaCategory($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->importDISyncTasks($request, $runtime);
-    }
-
-    /**
-     * @param ExportDISyncTasksRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ExportDISyncTasksResponse
-     */
-    public function exportDISyncTasks($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ExportDISyncTasksResponse::fromMap($this->doRequest('ExportDISyncTasks', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ExportDISyncTasksRequest $request
-     *
-     * @return ExportDISyncTasksResponse
-     */
-    public function exportDISyncTasksSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->exportDISyncTasks($request, $runtime);
-    }
-
-    /**
-     * @param ListDISyncTasksRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListDISyncTasksResponse
-     */
-    public function listDISyncTasks($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListDISyncTasksResponse::fromMap($this->doRequest('ListDISyncTasks', 'HTTPS', 'POST', '2020-05-18', 'AK,APP,PrivateKey', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListDISyncTasksRequest $request
-     *
-     * @return ListDISyncTasksResponse
-     */
-    public function listDISyncTasksSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDISyncTasks($request, $runtime);
-    }
-
-    /**
-     * @param RevokeColumnPermissionRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return RevokeColumnPermissionResponse
-     */
-    public function revokeColumnPermission($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RevokeColumnPermissionResponse::fromMap($this->doRequest('RevokeColumnPermission', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RevokeColumnPermissionRequest $request
-     *
-     * @return RevokeColumnPermissionResponse
-     */
-    public function revokeColumnPermissionSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->revokeColumnPermission($request, $runtime);
-    }
-
-    /**
-     * @param RevokeTablePermissionRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RevokeTablePermissionResponse
-     */
-    public function revokeTablePermission($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RevokeTablePermissionResponse::fromMap($this->doRequest('RevokeTablePermission', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RevokeTablePermissionRequest $request
-     *
-     * @return RevokeTablePermissionResponse
-     */
-    public function revokeTablePermissionSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->revokeTablePermission($request, $runtime);
-    }
-
-    /**
-     * @param GetMetaTableThemeLevelRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetMetaTableThemeLevelResponse
-     */
-    public function getMetaTableThemeLevel($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetMetaTableThemeLevelResponse::fromMap($this->doRequest('GetMetaTableThemeLevel', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param GetMetaTableThemeLevelRequest $request
-     *
-     * @return GetMetaTableThemeLevelResponse
-     */
-    public function getMetaTableThemeLevelSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMetaTableThemeLevel($request, $runtime);
-    }
-
-    /**
-     * @param GetPermissionApplyOrderDetailRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return GetPermissionApplyOrderDetailResponse
-     */
-    public function getPermissionApplyOrderDetail($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetPermissionApplyOrderDetailResponse::fromMap($this->doRequest('GetPermissionApplyOrderDetail', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetPermissionApplyOrderDetailRequest $request
-     *
-     * @return GetPermissionApplyOrderDetailResponse
-     */
-    public function getPermissionApplyOrderDetailSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPermissionApplyOrderDetail($request, $runtime);
-    }
-
-    /**
-     * @param ListPermissionApplyOrdersRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListPermissionApplyOrdersResponse
-     */
-    public function listPermissionApplyOrders($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListPermissionApplyOrdersResponse::fromMap($this->doRequest('ListPermissionApplyOrders', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListPermissionApplyOrdersRequest $request
-     *
-     * @return ListPermissionApplyOrdersResponse
-     */
-    public function listPermissionApplyOrdersSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPermissionApplyOrders($request, $runtime);
-    }
-
-    /**
-     * @param CreatePermissionApplyOrderRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreatePermissionApplyOrderResponse
-     */
-    public function createPermissionApplyOrder($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreatePermissionApplyOrderResponse::fromMap($this->doRequest('CreatePermissionApplyOrder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreatePermissionApplyOrderRequest $request
-     *
-     * @return CreatePermissionApplyOrderResponse
-     */
-    public function createPermissionApplyOrderSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createPermissionApplyOrder($request, $runtime);
+        return $this->addToMetaCategoryWithOptions($request, $runtime);
     }
 
     /**
@@ -1508,11 +614,14 @@ class Dataworkspublic extends Rpc
      *
      * @return ApprovePermissionApplyOrderResponse
      */
-    public function approvePermissionApplyOrder($request, $runtime)
+    public function approvePermissionApplyOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ApprovePermissionApplyOrderResponse::fromMap($this->doRequest('ApprovePermissionApplyOrder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return ApprovePermissionApplyOrderResponse::fromMap($this->doRPCRequest('ApprovePermissionApplyOrder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -1520,536 +629,509 @@ class Dataworkspublic extends Rpc
      *
      * @return ApprovePermissionApplyOrderResponse
      */
-    public function approvePermissionApplyOrderSimply($request)
+    public function approvePermissionApplyOrder($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->approvePermissionApplyOrder($request, $runtime);
+        return $this->approvePermissionApplyOrderWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListSuccessInstanceAmountRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListSuccessInstanceAmountResponse
-     */
-    public function listSuccessInstanceAmount($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListSuccessInstanceAmountResponse::fromMap($this->doRequest('ListSuccessInstanceAmount', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListSuccessInstanceAmountRequest $request
-     *
-     * @return ListSuccessInstanceAmountResponse
-     */
-    public function listSuccessInstanceAmountSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSuccessInstanceAmount($request, $runtime);
-    }
-
-    /**
-     * @param ListFileTypeRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListFileTypeResponse
-     */
-    public function listFileType($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListFileTypeResponse::fromMap($this->doRequest('ListFileType', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListFileTypeRequest $request
-     *
-     * @return ListFileTypeResponse
-     */
-    public function listFileTypeSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFileType($request, $runtime);
-    }
-
-    /**
-     * @param ListInstanceAmountRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListInstanceAmountResponse
-     */
-    public function listInstanceAmount($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListInstanceAmountResponse::fromMap($this->doRequest('ListInstanceAmount', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListInstanceAmountRequest $request
-     *
-     * @return ListInstanceAmountResponse
-     */
-    public function listInstanceAmountSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listInstanceAmount($request, $runtime);
-    }
-
-    /**
-     * @param ListDataSourcesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListDataSourcesResponse
-     */
-    public function listDataSources($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListDataSourcesResponse::fromMap($this->doRequest('ListDataSources', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param ListDataSourcesRequest $request
-     *
-     * @return ListDataSourcesResponse
-     */
-    public function listDataSourcesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDataSources($request, $runtime);
-    }
-
-    /**
-     * @param ListNodesByBaselineRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListNodesByBaselineResponse
-     */
-    public function listNodesByBaseline($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListNodesByBaselineResponse::fromMap($this->doRequest('ListNodesByBaseline', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListNodesByBaselineRequest $request
-     *
-     * @return ListNodesByBaselineResponse
-     */
-    public function listNodesByBaselineSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listNodesByBaseline($request, $runtime);
-    }
-
-    /**
-     * @param ListManualDagInstancesRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListManualDagInstancesResponse
-     */
-    public function listManualDagInstances($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListManualDagInstancesResponse::fromMap($this->doRequest('ListManualDagInstances', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListManualDagInstancesRequest $request
-     *
-     * @return ListManualDagInstancesResponse
-     */
-    public function listManualDagInstancesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listManualDagInstances($request, $runtime);
-    }
-
-    /**
-     * @param GetInstanceStatusStatisticRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetInstanceStatusStatisticResponse
-     */
-    public function getInstanceStatusStatistic($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetInstanceStatusStatisticResponse::fromMap($this->doRequest('GetInstanceStatusStatistic', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetInstanceStatusStatisticRequest $request
-     *
-     * @return GetInstanceStatusStatisticResponse
-     */
-    public function getInstanceStatusStatisticSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getInstanceStatusStatistic($request, $runtime);
-    }
-
-    /**
-     * @param DeleteDataSourceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteDataSourceResponse
-     */
-    public function deleteDataSource($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteDataSourceResponse::fromMap($this->doRequest('DeleteDataSource', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteDataSourceRequest $request
-     *
-     * @return DeleteDataSourceResponse
-     */
-    public function deleteDataSourceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteDataSource($request, $runtime);
-    }
-
-    /**
-     * @param CreateDataSourceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateDataSourceResponse
-     */
-    public function createDataSource($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateDataSourceResponse::fromMap($this->doRequest('CreateDataSource', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateDataSourceRequest $request
-     *
-     * @return CreateDataSourceResponse
-     */
-    public function createDataSourceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDataSource($request, $runtime);
-    }
-
-    /**
-     * @param TopTenErrorTimesInstanceRequest $request
+     * @param CheckEngineMetaPartitionRequest $request
      * @param RuntimeOptions                  $runtime
      *
-     * @return TopTenErrorTimesInstanceResponse
+     * @return CheckEngineMetaPartitionResponse
      */
-    public function topTenErrorTimesInstance($request, $runtime)
+    public function checkEngineMetaPartitionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return TopTenErrorTimesInstanceResponse::fromMap($this->doRequest('TopTenErrorTimesInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CheckEngineMetaPartitionResponse::fromMap($this->doRPCRequest('CheckEngineMetaPartition', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param TopTenErrorTimesInstanceRequest $request
+     * @param CheckEngineMetaPartitionRequest $request
      *
-     * @return TopTenErrorTimesInstanceResponse
+     * @return CheckEngineMetaPartitionResponse
      */
-    public function topTenErrorTimesInstanceSimply($request)
+    public function checkEngineMetaPartition($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->topTenErrorTimesInstance($request, $runtime);
+        return $this->checkEngineMetaPartitionWithOptions($request, $runtime);
     }
 
     /**
-     * @param TopTenElapsedTimeInstanceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return TopTenElapsedTimeInstanceResponse
-     */
-    public function topTenElapsedTimeInstance($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return TopTenElapsedTimeInstanceResponse::fromMap($this->doRequest('TopTenElapsedTimeInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param TopTenElapsedTimeInstanceRequest $request
-     *
-     * @return TopTenElapsedTimeInstanceResponse
-     */
-    public function topTenElapsedTimeInstanceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->topTenElapsedTimeInstance($request, $runtime);
-    }
-
-    /**
-     * @param GetProjectRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetProjectResponse
-     */
-    public function getProject($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetProjectResponse::fromMap($this->doRequest('GetProject', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetProjectRequest $request
-     *
-     * @return GetProjectResponse
-     */
-    public function getProjectSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getProject($request, $runtime);
-    }
-
-    /**
-     * @param ListNodesByOutputRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListNodesByOutputResponse
-     */
-    public function listNodesByOutput($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListNodesByOutputResponse::fromMap($this->doRequest('ListNodesByOutput', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListNodesByOutputRequest $request
-     *
-     * @return ListNodesByOutputResponse
-     */
-    public function listNodesByOutputSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listNodesByOutput($request, $runtime);
-    }
-
-    /**
-     * @param GetFileTypeStatisticRequest $request
+     * @param CheckEngineMetaTableRequest $request
      * @param RuntimeOptions              $runtime
      *
-     * @return GetFileTypeStatisticResponse
+     * @return CheckEngineMetaTableResponse
      */
-    public function getFileTypeStatistic($request, $runtime)
+    public function checkEngineMetaTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetFileTypeStatisticResponse::fromMap($this->doRequest('GetFileTypeStatistic', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CheckEngineMetaTableResponse::fromMap($this->doRPCRequest('CheckEngineMetaTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetFileTypeStatisticRequest $request
+     * @param CheckEngineMetaTableRequest $request
      *
-     * @return GetFileTypeStatisticResponse
+     * @return CheckEngineMetaTableResponse
      */
-    public function getFileTypeStatisticSimply($request)
+    public function checkEngineMetaTable($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getFileTypeStatistic($request, $runtime);
+        return $this->checkEngineMetaTableWithOptions($request, $runtime);
     }
 
     /**
-     * @param RunSmokeTestRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return RunSmokeTestResponse
-     */
-    public function runSmokeTest($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RunSmokeTestResponse::fromMap($this->doRequest('RunSmokeTest', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RunSmokeTestRequest $request
-     *
-     * @return RunSmokeTestResponse
-     */
-    public function runSmokeTestSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->runSmokeTest($request, $runtime);
-    }
-
-    /**
-     * @param ListNodeInputOrOutputRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListNodeInputOrOutputResponse
-     */
-    public function listNodeInputOrOutput($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListNodeInputOrOutputResponse::fromMap($this->doRequest('ListNodeInputOrOutput', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListNodeInputOrOutputRequest $request
-     *
-     * @return ListNodeInputOrOutputResponse
-     */
-    public function listNodeInputOrOutputSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listNodeInputOrOutput($request, $runtime);
-    }
-
-    /**
-     * @param RunCycleDagNodesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RunCycleDagNodesResponse
-     */
-    public function runCycleDagNodes($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RunCycleDagNodesResponse::fromMap($this->doRequest('RunCycleDagNodes', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RunCycleDagNodesRequest $request
-     *
-     * @return RunCycleDagNodesResponse
-     */
-    public function runCycleDagNodesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->runCycleDagNodes($request, $runtime);
-    }
-
-    /**
-     * @param RunManualDagNodesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RunManualDagNodesResponse
-     */
-    public function runManualDagNodes($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RunManualDagNodesResponse::fromMap($this->doRequest('RunManualDagNodes', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RunManualDagNodesRequest $request
-     *
-     * @return RunManualDagNodesResponse
-     */
-    public function runManualDagNodesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->runManualDagNodes($request, $runtime);
-    }
-
-    /**
-     * @param UpdateDataSourceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateDataSourceResponse
-     */
-    public function updateDataSource($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateDataSourceResponse::fromMap($this->doRequest('UpdateDataSource', 'HTTPS', 'PUT', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateDataSourceRequest $request
-     *
-     * @return UpdateDataSourceResponse
-     */
-    public function updateDataSourceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDataSource($request, $runtime);
-    }
-
-    /**
-     * @param UpdateTableAddColumnRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateTableAddColumnResponse
-     */
-    public function updateTableAddColumn($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateTableAddColumnResponse::fromMap($this->doRequest('UpdateTableAddColumn', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateTableAddColumnRequest $request
-     *
-     * @return UpdateTableAddColumnResponse
-     */
-    public function updateTableAddColumnSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateTableAddColumn($request, $runtime);
-    }
-
-    /**
-     * @param GetMigrationProcessRequest $request
+     * @param CheckFileDeploymentRequest $request
      * @param RuntimeOptions             $runtime
      *
-     * @return GetMigrationProcessResponse
+     * @return CheckFileDeploymentResponse
      */
-    public function getMigrationProcess($request, $runtime)
+    public function checkFileDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetMigrationProcessResponse::fromMap($this->doRequest('GetMigrationProcess', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CheckFileDeploymentResponse::fromMap($this->doRPCRequest('CheckFileDeployment', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetMigrationProcessRequest $request
+     * @param CheckFileDeploymentRequest $request
      *
-     * @return GetMigrationProcessResponse
+     * @return CheckFileDeploymentResponse
      */
-    public function getMigrationProcessSimply($request)
+    public function checkFileDeployment($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getMigrationProcess($request, $runtime);
+        return $this->checkFileDeploymentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckMetaPartitionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckMetaPartitionResponse
+     */
+    public function checkMetaPartitionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckMetaPartitionResponse::fromMap($this->doRPCRequest('CheckMetaPartition', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckMetaPartitionRequest $request
+     *
+     * @return CheckMetaPartitionResponse
+     */
+    public function checkMetaPartition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkMetaPartitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckMetaTableRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CheckMetaTableResponse
+     */
+    public function checkMetaTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CheckMetaTableResponse::fromMap($this->doRPCRequest('CheckMetaTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CheckMetaTableRequest $request
+     *
+     * @return CheckMetaTableResponse
+     */
+    public function checkMetaTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkMetaTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return CheckMetaTableTaskResponse
+     */
+    public function checkMetaTableTaskWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return CheckMetaTableTaskResponse::fromMap($this->doRPCRequest('CheckMetaTableTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return CheckMetaTableTaskResponse
+     */
+    public function checkMetaTableTask()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkMetaTableTaskWithOptions($runtime);
+    }
+
+    /**
+     * @param CreateBusinessRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateBusinessResponse
+     */
+    public function createBusinessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateBusinessResponse::fromMap($this->doRPCRequest('CreateBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateBusinessRequest $request
+     *
+     * @return CreateBusinessResponse
+     */
+    public function createBusiness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBusinessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateConnectionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateConnectionResponse
+     */
+    public function createConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateConnectionResponse::fromMap($this->doRPCRequest('CreateConnection', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateConnectionRequest $request
+     *
+     * @return CreateConnectionResponse
+     */
+    public function createConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDagComplementRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateDagComplementResponse
+     */
+    public function createDagComplementWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDagComplementResponse::fromMap($this->doRPCRequest('CreateDagComplement', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDagComplementRequest $request
+     *
+     * @return CreateDagComplementResponse
+     */
+    public function createDagComplement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDagComplementWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDagTestRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateDagTestResponse
+     */
+    public function createDagTestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDagTestResponse::fromMap($this->doRPCRequest('CreateDagTest', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDagTestRequest $request
+     *
+     * @return CreateDagTestResponse
+     */
+    public function createDagTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDagTestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDataServiceApiRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDataServiceApiResponse
+     */
+    public function createDataServiceApiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDataServiceApiResponse::fromMap($this->doRPCRequest('CreateDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataServiceApiRequest $request
+     *
+     * @return CreateDataServiceApiResponse
+     */
+    public function createDataServiceApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataServiceApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDataServiceApiAuthorityRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateDataServiceApiAuthorityResponse
+     */
+    public function createDataServiceApiAuthorityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDataServiceApiAuthorityResponse::fromMap($this->doRPCRequest('CreateDataServiceApiAuthority', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataServiceApiAuthorityRequest $request
+     *
+     * @return CreateDataServiceApiAuthorityResponse
+     */
+    public function createDataServiceApiAuthority($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataServiceApiAuthorityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDataServiceFolderRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateDataServiceFolderResponse
+     */
+    public function createDataServiceFolderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDataServiceFolderResponse::fromMap($this->doRPCRequest('CreateDataServiceFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataServiceFolderRequest $request
+     *
+     * @return CreateDataServiceFolderResponse
+     */
+    public function createDataServiceFolder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataServiceFolderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDataServiceGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDataServiceGroupResponse
+     */
+    public function createDataServiceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDataServiceGroupResponse::fromMap($this->doRPCRequest('CreateDataServiceGroup', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataServiceGroupRequest $request
+     *
+     * @return CreateDataServiceGroupResponse
+     */
+    public function createDataServiceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataServiceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDataSourceResponse
+     */
+    public function createDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDataSourceResponse::fromMap($this->doRPCRequest('CreateDataSource', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataSourceRequest $request
+     *
+     * @return CreateDataSourceResponse
+     */
+    public function createDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDISyncTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDISyncTaskResponse
+     */
+    public function createDISyncTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateDISyncTaskResponse::fromMap($this->doRPCRequest('CreateDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateDISyncTaskRequest $request
+     *
+     * @return CreateDISyncTaskResponse
+     */
+    public function createDISyncTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDISyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateFileResponse
+     */
+    public function createFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateFileResponse::fromMap($this->doRPCRequest('CreateFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateFileRequest $request
+     *
+     * @return CreateFileResponse
+     */
+    public function createFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFolderRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateFolderResponse
+     */
+    public function createFolderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateFolderResponse::fromMap($this->doRPCRequest('CreateFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateFolderRequest $request
+     *
+     * @return CreateFolderResponse
+     */
+    public function createFolder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFolderWithOptions($request, $runtime);
     }
 
     /**
@@ -2058,11 +1140,14 @@ class Dataworkspublic extends Rpc
      *
      * @return CreateImportMigrationResponse
      */
-    public function createImportMigration($request, $runtime)
+    public function createImportMigrationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateImportMigrationResponse::fromMap($this->doRequest('CreateImportMigration', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateImportMigrationResponse::fromMap($this->doRPCRequest('CreateImportMigration', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2070,11 +1155,11 @@ class Dataworkspublic extends Rpc
      *
      * @return CreateImportMigrationResponse
      */
-    public function createImportMigrationSimply($request)
+    public function createImportMigration($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createImportMigration($request, $runtime);
+        return $this->createImportMigrationWithOptions($request, $runtime);
     }
 
     /**
@@ -2088,9 +1173,9 @@ class Dataworkspublic extends Rpc
         // Step 0: init client
         $accessKeyId          = $this->_credential->getAccessKeyId();
         $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::isUnset($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
@@ -2123,13 +1208,13 @@ class Dataworkspublic extends Rpc
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        RpcUtils::convert($runtime, $ossRuntime);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
         $createImportMigrationReq = new CreateImportMigrationRequest([]);
-        RpcUtils::convert($request, $createImportMigrationReq);
+        OpenApiUtilClient::convert($request, $createImportMigrationReq);
         if (!Utils::isUnset($request->packageFileObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = RpcUtils::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->objectKey,
@@ -2152,332 +1237,7 @@ class Dataworkspublic extends Rpc
             $createImportMigrationReq->packageFile = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
         }
 
-        return $this->createImportMigration($createImportMigrationReq, $runtime);
-    }
-
-    /**
-     * @param StartMigrationRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return StartMigrationResponse
-     */
-    public function startMigration($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return StartMigrationResponse::fromMap($this->doRequest('StartMigration', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param StartMigrationRequest $request
-     *
-     * @return StartMigrationResponse
-     */
-    public function startMigrationSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startMigration($request, $runtime);
-    }
-
-    /**
-     * @param GetNodeParentsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetNodeParentsResponse
-     */
-    public function getNodeParents($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetNodeParentsResponse::fromMap($this->doRequest('GetNodeParents', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetNodeParentsRequest $request
-     *
-     * @return GetNodeParentsResponse
-     */
-    public function getNodeParentsSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getNodeParents($request, $runtime);
-    }
-
-    /**
-     * @param GetNodeChildrenRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetNodeChildrenResponse
-     */
-    public function getNodeChildren($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetNodeChildrenResponse::fromMap($this->doRequest('GetNodeChildren', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetNodeChildrenRequest $request
-     *
-     * @return GetNodeChildrenResponse
-     */
-    public function getNodeChildrenSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getNodeChildren($request, $runtime);
-    }
-
-    /**
-     * @param GetSensitiveDataRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetSensitiveDataResponse
-     */
-    public function getSensitiveData($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetSensitiveDataResponse::fromMap($this->doRequest('GetSensitiveData', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param GetSensitiveDataRequest $request
-     *
-     * @return GetSensitiveDataResponse
-     */
-    public function getSensitiveDataSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSensitiveData($request, $runtime);
-    }
-
-    /**
-     * @param DesensitizeDataRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DesensitizeDataResponse
-     */
-    public function desensitizeData($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DesensitizeDataResponse::fromMap($this->doRequest('DesensitizeData', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param DesensitizeDataRequest $request
-     *
-     * @return DesensitizeDataResponse
-     */
-    public function desensitizeDataSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->desensitizeData($request, $runtime);
-    }
-
-    /**
-     * @param GetOpRiskDataRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetOpRiskDataResponse
-     */
-    public function getOpRiskData($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetOpRiskDataResponse::fromMap($this->doRequest('GetOpRiskData', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param GetOpRiskDataRequest $request
-     *
-     * @return GetOpRiskDataResponse
-     */
-    public function getOpRiskDataSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getOpRiskData($request, $runtime);
-    }
-
-    /**
-     * @param ScanSensitiveDataRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ScanSensitiveDataResponse
-     */
-    public function scanSensitiveData($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ScanSensitiveDataResponse::fromMap($this->doRequest('ScanSensitiveData', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param ScanSensitiveDataRequest $request
-     *
-     * @return ScanSensitiveDataResponse
-     */
-    public function scanSensitiveDataSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->scanSensitiveData($request, $runtime);
-    }
-
-    /**
-     * @param GetOpSensitiveDataRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetOpSensitiveDataResponse
-     */
-    public function getOpSensitiveData($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetOpSensitiveDataResponse::fromMap($this->doRequest('GetOpSensitiveData', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param GetOpSensitiveDataRequest $request
-     *
-     * @return GetOpSensitiveDataResponse
-     */
-    public function getOpSensitiveDataSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getOpSensitiveData($request, $runtime);
-    }
-
-    /**
-     * @param CreateBusinessRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateBusinessResponse
-     */
-    public function createBusiness($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateBusinessResponse::fromMap($this->doRequest('CreateBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateBusinessRequest $request
-     *
-     * @return CreateBusinessResponse
-     */
-    public function createBusinessSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createBusiness($request, $runtime);
-    }
-
-    /**
-     * @param RunTriggerNodeRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return RunTriggerNodeResponse
-     */
-    public function runTriggerNode($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RunTriggerNodeResponse::fromMap($this->doRequest('RunTriggerNode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RunTriggerNodeRequest $request
-     *
-     * @return RunTriggerNodeResponse
-     */
-    public function runTriggerNodeSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->runTriggerNode($request, $runtime);
-    }
-
-    /**
-     * @param GetDagRequest  $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetDagResponse
-     */
-    public function getDag($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetDagResponse::fromMap($this->doRequest('GetDag', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetDagRequest $request
-     *
-     * @return GetDagResponse
-     */
-    public function getDagSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDag($request, $runtime);
-    }
-
-    /**
-     * @param SearchNodesByOutputRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SearchNodesByOutputResponse
-     */
-    public function searchNodesByOutput($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SearchNodesByOutputResponse::fromMap($this->doRequest('SearchNodesByOutput', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SearchNodesByOutputRequest $request
-     *
-     * @return SearchNodesByOutputResponse
-     */
-    public function searchNodesByOutputSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->searchNodesByOutput($request, $runtime);
-    }
-
-    /**
-     * @param GetManualDagInstancesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetManualDagInstancesResponse
-     */
-    public function getManualDagInstances($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetManualDagInstancesResponse::fromMap($this->doRequest('GetManualDagInstances', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetManualDagInstancesRequest $request
-     *
-     * @return GetManualDagInstancesResponse
-     */
-    public function getManualDagInstancesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getManualDagInstances($request, $runtime);
+        return $this->createImportMigrationWithOptions($createImportMigrationReq, $runtime);
     }
 
     /**
@@ -2486,11 +1246,14 @@ class Dataworkspublic extends Rpc
      *
      * @return CreateManualDagResponse
      */
-    public function createManualDag($request, $runtime)
+    public function createManualDagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateManualDagResponse::fromMap($this->doRequest('CreateManualDag', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateManualDagResponse::fromMap($this->doRPCRequest('CreateManualDag', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -2498,886 +1261,67 @@ class Dataworkspublic extends Rpc
      *
      * @return CreateManualDagResponse
      */
-    public function createManualDagSimply($request)
+    public function createManualDag($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createManualDag($request, $runtime);
+        return $this->createManualDagWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListQualityResultsByEntityRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ListQualityResultsByEntityResponse
-     */
-    public function listQualityResultsByEntity($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListQualityResultsByEntityResponse::fromMap($this->doRequest('ListQualityResultsByEntity', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListQualityResultsByEntityRequest $request
-     *
-     * @return ListQualityResultsByEntityResponse
-     */
-    public function listQualityResultsByEntitySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listQualityResultsByEntity($request, $runtime);
-    }
-
-    /**
-     * @param GetNodeTypeListInfoRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetNodeTypeListInfoResponse
-     */
-    public function getNodeTypeListInfo($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetNodeTypeListInfoResponse::fromMap($this->doRequest('GetNodeTypeListInfo', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetNodeTypeListInfoRequest $request
-     *
-     * @return GetNodeTypeListInfoResponse
-     */
-    public function getNodeTypeListInfoSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getNodeTypeListInfo($request, $runtime);
-    }
-
-    /**
-     * @param GetInstanceStatusCountRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetInstanceStatusCountResponse
-     */
-    public function getInstanceStatusCount($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetInstanceStatusCountResponse::fromMap($this->doRequest('GetInstanceStatusCount', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetInstanceStatusCountRequest $request
-     *
-     * @return GetInstanceStatusCountResponse
-     */
-    public function getInstanceStatusCountSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getInstanceStatusCount($request, $runtime);
-    }
-
-    /**
-     * @param ListDataServiceFoldersRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListDataServiceFoldersResponse
-     */
-    public function listDataServiceFolders($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListDataServiceFoldersResponse::fromMap($this->doRequest('ListDataServiceFolders', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListDataServiceFoldersRequest $request
-     *
-     * @return ListDataServiceFoldersResponse
-     */
-    public function listDataServiceFoldersSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDataServiceFolders($request, $runtime);
-    }
-
-    /**
-     * @param ListQualityResultsByRuleRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListQualityResultsByRuleResponse
-     */
-    public function listQualityResultsByRule($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListQualityResultsByRuleResponse::fromMap($this->doRequest('ListQualityResultsByRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListQualityResultsByRuleRequest $request
-     *
-     * @return ListQualityResultsByRuleResponse
-     */
-    public function listQualityResultsByRuleSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listQualityResultsByRule($request, $runtime);
-    }
-
-    /**
-     * @param ListMetaDBRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListMetaDBResponse
-     */
-    public function listMetaDB($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListMetaDBResponse::fromMap($this->doRequest('ListMetaDB', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param ListMetaDBRequest $request
-     *
-     * @return ListMetaDBResponse
-     */
-    public function listMetaDBSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listMetaDB($request, $runtime);
-    }
-
-    /**
-     * @param CreateTableRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateTableResponse
-     */
-    public function createTable($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateTableResponse::fromMap($this->doRequest('CreateTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateTableRequest $request
-     *
-     * @return CreateTableResponse
-     */
-    public function createTableSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createTable($request, $runtime);
-    }
-
-    /**
-     * @param CreateTableThemeRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateTableThemeResponse
-     */
-    public function createTableTheme($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateTableThemeResponse::fromMap($this->doRequest('CreateTableTheme', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateTableThemeRequest $request
-     *
-     * @return CreateTableThemeResponse
-     */
-    public function createTableThemeSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createTableTheme($request, $runtime);
-    }
-
-    /**
-     * @param GetInstanceErrorRankRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetInstanceErrorRankResponse
-     */
-    public function getInstanceErrorRank($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetInstanceErrorRankResponse::fromMap($this->doRequest('GetInstanceErrorRank', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetInstanceErrorRankRequest $request
-     *
-     * @return GetInstanceErrorRankResponse
-     */
-    public function getInstanceErrorRankSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getInstanceErrorRank($request, $runtime);
-    }
-
-    /**
-     * @param GetDDLJobStatusRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetDDLJobStatusResponse
-     */
-    public function getDDLJobStatus($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetDDLJobStatusResponse::fromMap($this->doRequest('GetDDLJobStatus', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param GetDDLJobStatusRequest $request
-     *
-     * @return GetDDLJobStatusResponse
-     */
-    public function getDDLJobStatusSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDDLJobStatus($request, $runtime);
-    }
-
-    /**
-     * @param GetInstanceConsumeTimeRankRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetInstanceConsumeTimeRankResponse
-     */
-    public function getInstanceConsumeTimeRank($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetInstanceConsumeTimeRankResponse::fromMap($this->doRequest('GetInstanceConsumeTimeRank', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetInstanceConsumeTimeRankRequest $request
-     *
-     * @return GetInstanceConsumeTimeRankResponse
-     */
-    public function getInstanceConsumeTimeRankSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getInstanceConsumeTimeRank($request, $runtime);
-    }
-
-    /**
-     * @param CreateDataServiceApiAuthorityRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CreateDataServiceApiAuthorityResponse
-     */
-    public function createDataServiceApiAuthority($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateDataServiceApiAuthorityResponse::fromMap($this->doRequest('CreateDataServiceApiAuthority', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateDataServiceApiAuthorityRequest $request
-     *
-     * @return CreateDataServiceApiAuthorityResponse
-     */
-    public function createDataServiceApiAuthoritySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDataServiceApiAuthority($request, $runtime);
-    }
-
-    /**
-     * @param DeleteDataServiceApiAuthorityRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DeleteDataServiceApiAuthorityResponse
-     */
-    public function deleteDataServiceApiAuthority($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteDataServiceApiAuthorityResponse::fromMap($this->doRequest('DeleteDataServiceApiAuthority', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteDataServiceApiAuthorityRequest $request
-     *
-     * @return DeleteDataServiceApiAuthorityResponse
-     */
-    public function deleteDataServiceApiAuthoritySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteDataServiceApiAuthority($request, $runtime);
-    }
-
-    /**
-     * @param CreateDataServiceGroupRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateDataServiceGroupResponse
-     */
-    public function createDataServiceGroup($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateDataServiceGroupResponse::fromMap($this->doRequest('CreateDataServiceGroup', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateDataServiceGroupRequest $request
-     *
-     * @return CreateDataServiceGroupResponse
-     */
-    public function createDataServiceGroupSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDataServiceGroup($request, $runtime);
-    }
-
-    /**
-     * @param UpdateMetaTableRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateMetaTableResponse
-     */
-    public function updateMetaTable($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateMetaTableResponse::fromMap($this->doRequest('UpdateMetaTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateMetaTableRequest $request
-     *
-     * @return UpdateMetaTableResponse
-     */
-    public function updateMetaTableSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateMetaTable($request, $runtime);
-    }
-
-    /**
-     * @param GetInstanceCountTrendRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetInstanceCountTrendResponse
-     */
-    public function getInstanceCountTrend($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetInstanceCountTrendResponse::fromMap($this->doRequest('GetInstanceCountTrend', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetInstanceCountTrendRequest $request
-     *
-     * @return GetInstanceCountTrendResponse
-     */
-    public function getInstanceCountTrendSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getInstanceCountTrend($request, $runtime);
-    }
-
-    /**
-     * @param DeleteTableRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteTableResponse
-     */
-    public function deleteTable($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteTableResponse::fromMap($this->doRequest('DeleteTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteTableRequest $request
-     *
-     * @return DeleteTableResponse
-     */
-    public function deleteTableSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteTable($request, $runtime);
-    }
-
-    /**
-     * @param ListTableThemeRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListTableThemeResponse
-     */
-    public function listTableTheme($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListTableThemeResponse::fromMap($this->doRequest('ListTableTheme', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param ListTableThemeRequest $request
-     *
-     * @return ListTableThemeResponse
-     */
-    public function listTableThemeSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTableTheme($request, $runtime);
-    }
-
-    /**
-     * @param GetSuccessInstanceTrendRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetSuccessInstanceTrendResponse
-     */
-    public function getSuccessInstanceTrend($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetSuccessInstanceTrendResponse::fromMap($this->doRequest('GetSuccessInstanceTrend', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetSuccessInstanceTrendRequest $request
-     *
-     * @return GetSuccessInstanceTrendResponse
-     */
-    public function getSuccessInstanceTrendSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSuccessInstanceTrend($request, $runtime);
-    }
-
-    /**
-     * @param UpdateTableRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return UpdateTableResponse
-     */
-    public function updateTable($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateTableResponse::fromMap($this->doRequest('UpdateTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateTableRequest $request
-     *
-     * @return UpdateTableResponse
-     */
-    public function updateTableSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateTable($request, $runtime);
-    }
-
-    /**
-     * @param GetDataServiceFolderRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetDataServiceFolderResponse
-     */
-    public function getDataServiceFolder($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetDataServiceFolderResponse::fromMap($this->doRequest('GetDataServiceFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetDataServiceFolderRequest $request
-     *
-     * @return GetDataServiceFolderResponse
-     */
-    public function getDataServiceFolderSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDataServiceFolder($request, $runtime);
-    }
-
-    /**
-     * @param ListTableLevelRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListTableLevelResponse
-     */
-    public function listTableLevel($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListTableLevelResponse::fromMap($this->doRequest('ListTableLevel', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param ListTableLevelRequest $request
-     *
-     * @return ListTableLevelResponse
-     */
-    public function listTableLevelSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTableLevel($request, $runtime);
-    }
-
-    /**
-     * @param ListDataServiceGroupsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListDataServiceGroupsResponse
-     */
-    public function listDataServiceGroups($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListDataServiceGroupsResponse::fromMap($this->doRequest('ListDataServiceGroups', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListDataServiceGroupsRequest $request
-     *
-     * @return ListDataServiceGroupsResponse
-     */
-    public function listDataServiceGroupsSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDataServiceGroups($request, $runtime);
-    }
-
-    /**
-     * @param UpdateTableThemeRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateTableThemeResponse
-     */
-    public function updateTableTheme($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateTableThemeResponse::fromMap($this->doRequest('UpdateTableTheme', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateTableThemeRequest $request
-     *
-     * @return UpdateTableThemeResponse
-     */
-    public function updateTableThemeSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateTableTheme($request, $runtime);
-    }
-
-    /**
-     * @param CreateDataServiceFolderRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateDataServiceFolderResponse
-     */
-    public function createDataServiceFolder($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateDataServiceFolderResponse::fromMap($this->doRequest('CreateDataServiceFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateDataServiceFolderRequest $request
-     *
-     * @return CreateDataServiceFolderResponse
-     */
-    public function createDataServiceFolderSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDataServiceFolder($request, $runtime);
-    }
-
-    /**
-     * @param GetDataServiceGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetDataServiceGroupResponse
-     */
-    public function getDataServiceGroup($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetDataServiceGroupResponse::fromMap($this->doRequest('GetDataServiceGroup', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetDataServiceGroupRequest $request
-     *
-     * @return GetDataServiceGroupResponse
-     */
-    public function getDataServiceGroupSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDataServiceGroup($request, $runtime);
-    }
-
-    /**
-     * @param CreateTableLevelRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateTableLevelResponse
-     */
-    public function createTableLevel($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateTableLevelResponse::fromMap($this->doRequest('CreateTableLevel', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateTableLevelRequest $request
-     *
-     * @return CreateTableLevelResponse
-     */
-    public function createTableLevelSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createTableLevel($request, $runtime);
-    }
-
-    /**
-     * @param UpdateMetaTableIntroWikiRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return UpdateMetaTableIntroWikiResponse
-     */
-    public function updateMetaTableIntroWiki($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateMetaTableIntroWikiResponse::fromMap($this->doRequest('UpdateMetaTableIntroWiki', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateMetaTableIntroWikiRequest $request
-     *
-     * @return UpdateMetaTableIntroWikiResponse
-     */
-    public function updateMetaTableIntroWikiSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateMetaTableIntroWiki($request, $runtime);
-    }
-
-    /**
-     * @param DeleteTableLevelRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteTableLevelResponse
-     */
-    public function deleteTableLevel($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteTableLevelResponse::fromMap($this->doRequest('DeleteTableLevel', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteTableLevelRequest $request
-     *
-     * @return DeleteTableLevelResponse
-     */
-    public function deleteTableLevelSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteTableLevel($request, $runtime);
-    }
-
-    /**
-     * @param UpdateTableLevelRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateTableLevelResponse
-     */
-    public function updateTableLevel($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateTableLevelResponse::fromMap($this->doRequest('UpdateTableLevel', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateTableLevelRequest $request
-     *
-     * @return UpdateTableLevelResponse
-     */
-    public function updateTableLevelSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateTableLevel($request, $runtime);
-    }
-
-    /**
-     * @param DeleteTableThemeRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteTableThemeResponse
-     */
-    public function deleteTableTheme($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteTableThemeResponse::fromMap($this->doRequest('DeleteTableTheme', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteTableThemeRequest $request
-     *
-     * @return DeleteTableThemeResponse
-     */
-    public function deleteTableThemeSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteTableTheme($request, $runtime);
-    }
-
-    /**
-     * @param ListProgramTypeCountRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListProgramTypeCountResponse
-     */
-    public function listProgramTypeCount($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListProgramTypeCountResponse::fromMap($this->doRequest('ListProgramTypeCount', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListProgramTypeCountRequest $request
-     *
-     * @return ListProgramTypeCountResponse
-     */
-    public function listProgramTypeCountSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listProgramTypeCount($request, $runtime);
-    }
-
-    /**
-     * @param UpdateTableModelInfoRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateTableModelInfoResponse
-     */
-    public function updateTableModelInfo($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateTableModelInfoResponse::fromMap($this->doRequest('UpdateTableModelInfo', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateTableModelInfoRequest $request
-     *
-     * @return UpdateTableModelInfoResponse
-     */
-    public function updateTableModelInfoSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateTableModelInfo($request, $runtime);
-    }
-
-    /**
-     * @param ListProjectsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListProjectsResponse
-     */
-    public function listProjects($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListProjectsResponse::fromMap($this->doRequest('ListProjects', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListProjectsRequest $request
-     *
-     * @return ListProjectsResponse
-     */
-    public function listProjectsSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listProjects($request, $runtime);
-    }
-
-    /**
-     * @param ListProjectMembersRequest $request
+     * @param CreateMetaCategoryRequest $request
      * @param RuntimeOptions            $runtime
      *
-     * @return ListProjectMembersResponse
+     * @return CreateMetaCategoryResponse
      */
-    public function listProjectMembers($request, $runtime)
+    public function createMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListProjectMembersResponse::fromMap($this->doRequest('ListProjectMembers', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateMetaCategoryResponse::fromMap($this->doRPCRequest('CreateMetaCategory', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListProjectMembersRequest $request
+     * @param CreateMetaCategoryRequest $request
      *
-     * @return ListProjectMembersResponse
+     * @return CreateMetaCategoryResponse
      */
-    public function listProjectMembersSimply($request)
+    public function createMetaCategory($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listProjectMembers($request, $runtime);
+        return $this->createMetaCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePermissionApplyOrderRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreatePermissionApplyOrderResponse
+     */
+    public function createPermissionApplyOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreatePermissionApplyOrderResponse::fromMap($this->doRPCRequest('CreatePermissionApplyOrder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreatePermissionApplyOrderRequest $request
+     *
+     * @return CreatePermissionApplyOrderResponse
+     */
+    public function createPermissionApplyOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPermissionApplyOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -3386,11 +1330,14 @@ class Dataworkspublic extends Rpc
      *
      * @return CreateProjectMemberResponse
      */
-    public function createProjectMember($request, $runtime)
+    public function createProjectMemberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateProjectMemberResponse::fromMap($this->doRequest('CreateProjectMember', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateProjectMemberResponse::fromMap($this->doRPCRequest('CreateProjectMember', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -3398,961 +1345,515 @@ class Dataworkspublic extends Rpc
      *
      * @return CreateProjectMemberResponse
      */
-    public function createProjectMemberSimply($request)
+    public function createProjectMember($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createProjectMember($request, $runtime);
+        return $this->createProjectMemberWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListProjectRolesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListProjectRolesResponse
-     */
-    public function listProjectRoles($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListProjectRolesResponse::fromMap($this->doRequest('ListProjectRoles', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListProjectRolesRequest $request
-     *
-     * @return ListProjectRolesResponse
-     */
-    public function listProjectRolesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listProjectRoles($request, $runtime);
-    }
-
-    /**
-     * @param AddProjectMemberToRoleRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return AddProjectMemberToRoleResponse
-     */
-    public function addProjectMemberToRole($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return AddProjectMemberToRoleResponse::fromMap($this->doRequest('AddProjectMemberToRole', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param AddProjectMemberToRoleRequest $request
-     *
-     * @return AddProjectMemberToRoleResponse
-     */
-    public function addProjectMemberToRoleSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addProjectMemberToRole($request, $runtime);
-    }
-
-    /**
-     * @param RemoveProjectMemberFromRoleRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return RemoveProjectMemberFromRoleResponse
-     */
-    public function removeProjectMemberFromRole($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RemoveProjectMemberFromRoleResponse::fromMap($this->doRequest('RemoveProjectMemberFromRole', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RemoveProjectMemberFromRoleRequest $request
-     *
-     * @return RemoveProjectMemberFromRoleResponse
-     */
-    public function removeProjectMemberFromRoleSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeProjectMemberFromRole($request, $runtime);
-    }
-
-    /**
-     * @param DeleteProjectMemberRequest $request
+     * @param CreateQualityEntityRequest $request
      * @param RuntimeOptions             $runtime
      *
-     * @return DeleteProjectMemberResponse
+     * @return CreateQualityEntityResponse
      */
-    public function deleteProjectMember($request, $runtime)
+    public function createQualityEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteProjectMemberResponse::fromMap($this->doRequest('DeleteProjectMember', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateQualityEntityResponse::fromMap($this->doRPCRequest('CreateQualityEntity', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteProjectMemberRequest $request
+     * @param CreateQualityEntityRequest $request
      *
-     * @return DeleteProjectMemberResponse
+     * @return CreateQualityEntityResponse
      */
-    public function deleteProjectMemberSimply($request)
+    public function createQualityEntity($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteProjectMember($request, $runtime);
+        return $this->createQualityEntityWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateDagComplementRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateQualityFollowerRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return CreateDagComplementResponse
+     * @return CreateQualityFollowerResponse
      */
-    public function createDagComplement($request, $runtime)
+    public function createQualityFollowerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateDagComplementResponse::fromMap($this->doRequest('CreateDagComplement', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateQualityFollowerResponse::fromMap($this->doRPCRequest('CreateQualityFollower', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateDagComplementRequest $request
+     * @param CreateQualityFollowerRequest $request
      *
-     * @return CreateDagComplementResponse
+     * @return CreateQualityFollowerResponse
      */
-    public function createDagComplementSimply($request)
+    public function createQualityFollower($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createDagComplement($request, $runtime);
+        return $this->createQualityFollowerWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateDagTestRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateDagTestResponse
-     */
-    public function createDagTest($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateDagTestResponse::fromMap($this->doRequest('CreateDagTest', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateDagTestRequest $request
-     *
-     * @return CreateDagTestResponse
-     */
-    public function createDagTestSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDagTest($request, $runtime);
-    }
-
-    /**
-     * @param ListCalcEnginesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListCalcEnginesResponse
-     */
-    public function listCalcEngines($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListCalcEnginesResponse::fromMap($this->doRequest('ListCalcEngines', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListCalcEnginesRequest $request
-     *
-     * @return ListCalcEnginesResponse
-     */
-    public function listCalcEnginesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCalcEngines($request, $runtime);
-    }
-
-    /**
-     * @param ListConnectionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListConnectionsResponse
-     */
-    public function listConnections($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListConnectionsResponse::fromMap($this->doRequest('ListConnections', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param ListConnectionsRequest $request
-     *
-     * @return ListConnectionsResponse
-     */
-    public function listConnectionsSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listConnections($request, $runtime);
-    }
-
-    /**
-     * @param UpdateConnectionRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateConnectionResponse
-     */
-    public function updateConnection($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateConnectionResponse::fromMap($this->doRequest('UpdateConnection', 'HTTPS', 'PUT', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateConnectionRequest $request
-     *
-     * @return UpdateConnectionResponse
-     */
-    public function updateConnectionSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateConnection($request, $runtime);
-    }
-
-    /**
-     * @param DeleteConnectionRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteConnectionResponse
-     */
-    public function deleteConnection($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteConnectionResponse::fromMap($this->doRequest('DeleteConnection', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteConnectionRequest $request
-     *
-     * @return DeleteConnectionResponse
-     */
-    public function deleteConnectionSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteConnection($request, $runtime);
-    }
-
-    /**
-     * @param GetProjectDetailRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetProjectDetailResponse
-     */
-    public function getProjectDetail($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetProjectDetailResponse::fromMap($this->doRequest('GetProjectDetail', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetProjectDetailRequest $request
-     *
-     * @return GetProjectDetailResponse
-     */
-    public function getProjectDetailSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getProjectDetail($request, $runtime);
-    }
-
-    /**
-     * @param ListResourceGroupsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListResourceGroupsResponse
-     */
-    public function listResourceGroups($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListResourceGroupsResponse::fromMap($this->doRequest('ListResourceGroups', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListResourceGroupsRequest $request
-     *
-     * @return ListResourceGroupsResponse
-     */
-    public function listResourceGroupsSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listResourceGroups($request, $runtime);
-    }
-
-    /**
-     * @param CreateConnectionRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateConnectionResponse
-     */
-    public function createConnection($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateConnectionResponse::fromMap($this->doRequest('CreateConnection', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateConnectionRequest $request
-     *
-     * @return CreateConnectionResponse
-     */
-    public function createConnectionSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createConnection($request, $runtime);
-    }
-
-    /**
-     * @param GetDataServiceApplicationRequest $request
+     * @param CreateQualityRelativeNodeRequest $request
      * @param RuntimeOptions                   $runtime
      *
-     * @return GetDataServiceApplicationResponse
+     * @return CreateQualityRelativeNodeResponse
      */
-    public function getDataServiceApplication($request, $runtime)
+    public function createQualityRelativeNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetDataServiceApplicationResponse::fromMap($this->doRequest('GetDataServiceApplication', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateQualityRelativeNodeResponse::fromMap($this->doRPCRequest('CreateQualityRelativeNode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetDataServiceApplicationRequest $request
+     * @param CreateQualityRelativeNodeRequest $request
      *
-     * @return GetDataServiceApplicationResponse
+     * @return CreateQualityRelativeNodeResponse
      */
-    public function getDataServiceApplicationSimply($request)
+    public function createQualityRelativeNode($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getDataServiceApplication($request, $runtime);
+        return $this->createQualityRelativeNodeWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListDataServiceApplicationsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ListDataServiceApplicationsResponse
-     */
-    public function listDataServiceApplications($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListDataServiceApplicationsResponse::fromMap($this->doRequest('ListDataServiceApplications', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListDataServiceApplicationsRequest $request
-     *
-     * @return ListDataServiceApplicationsResponse
-     */
-    public function listDataServiceApplicationsSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDataServiceApplications($request, $runtime);
-    }
-
-    /**
-     * @param GetNodeOnBaselineRequest $request
+     * @param CreateQualityRuleRequest $request
      * @param RuntimeOptions           $runtime
      *
-     * @return GetNodeOnBaselineResponse
+     * @return CreateQualityRuleResponse
      */
-    public function getNodeOnBaseline($request, $runtime)
+    public function createQualityRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetNodeOnBaselineResponse::fromMap($this->doRequest('GetNodeOnBaseline', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateQualityRuleResponse::fromMap($this->doRPCRequest('CreateQualityRule', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetNodeOnBaselineRequest $request
+     * @param CreateQualityRuleRequest $request
      *
-     * @return GetNodeOnBaselineResponse
+     * @return CreateQualityRuleResponse
      */
-    public function getNodeOnBaselineSimply($request)
+    public function createQualityRule($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getNodeOnBaseline($request, $runtime);
+        return $this->createQualityRuleWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListBaselineConfigsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateRemindRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return ListBaselineConfigsResponse
+     * @return CreateRemindResponse
      */
-    public function listBaselineConfigs($request, $runtime)
+    public function createRemindWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListBaselineConfigsResponse::fromMap($this->doRequest('ListBaselineConfigs', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateRemindResponse::fromMap($this->doRPCRequest('CreateRemind', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListBaselineConfigsRequest $request
+     * @param CreateRemindRequest $request
      *
-     * @return ListBaselineConfigsResponse
+     * @return CreateRemindResponse
      */
-    public function listBaselineConfigsSimply($request)
+    public function createRemind($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listBaselineConfigs($request, $runtime);
+        return $this->createRemindWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetMetaTableChangeLogRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param CreateTableRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return GetMetaTableChangeLogResponse
+     * @return CreateTableResponse
      */
-    public function getMetaTableChangeLog($request, $runtime)
+    public function createTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetMetaTableChangeLogResponse::fromMap($this->doRequest('GetMetaTableChangeLog', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateTableResponse::fromMap($this->doRPCRequest('CreateTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetMetaTableChangeLogRequest $request
+     * @param CreateTableRequest $request
      *
-     * @return GetMetaTableChangeLogResponse
+     * @return CreateTableResponse
      */
-    public function getMetaTableChangeLogSimply($request)
+    public function createTable($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getMetaTableChangeLog($request, $runtime);
+        return $this->createTableWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetMetaTableOutputRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param CreateTableLevelRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetMetaTableOutputResponse
+     * @return CreateTableLevelResponse
      */
-    public function getMetaTableOutput($request, $runtime)
+    public function createTableLevelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetMetaTableOutputResponse::fromMap($this->doRequest('GetMetaTableOutput', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateTableLevelResponse::fromMap($this->doRPCRequest('CreateTableLevel', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetMetaTableOutputRequest $request
+     * @param CreateTableLevelRequest $request
      *
-     * @return GetMetaTableOutputResponse
+     * @return CreateTableLevelResponse
      */
-    public function getMetaTableOutputSimply($request)
+    public function createTableLevel($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getMetaTableOutput($request, $runtime);
+        return $this->createTableLevelWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetMetaTablePartitionRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param CreateTableThemeRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetMetaTablePartitionResponse
+     * @return CreateTableThemeResponse
      */
-    public function getMetaTablePartition($request, $runtime)
+    public function createTableThemeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetMetaTablePartitionResponse::fromMap($this->doRequest('GetMetaTablePartition', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateTableThemeResponse::fromMap($this->doRPCRequest('CreateTableTheme', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetMetaTablePartitionRequest $request
+     * @param CreateTableThemeRequest $request
      *
-     * @return GetMetaTablePartitionResponse
+     * @return CreateTableThemeResponse
      */
-    public function getMetaTablePartitionSimply($request)
+    public function createTableTheme($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getMetaTablePartition($request, $runtime);
+        return $this->createTableThemeWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetMetaTableFullInfoRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetMetaTableFullInfoResponse
-     */
-    public function getMetaTableFullInfo($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetMetaTableFullInfoResponse::fromMap($this->doRequest('GetMetaTableFullInfo', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param GetMetaTableFullInfoRequest $request
-     *
-     * @return GetMetaTableFullInfoResponse
-     */
-    public function getMetaTableFullInfoSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMetaTableFullInfo($request, $runtime);
-    }
-
-    /**
-     * @param GetFileVersionRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetFileVersionResponse
-     */
-    public function getFileVersion($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetFileVersionResponse::fromMap($this->doRequest('GetFileVersion', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetFileVersionRequest $request
-     *
-     * @return GetFileVersionResponse
-     */
-    public function getFileVersionSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getFileVersion($request, $runtime);
-    }
-
-    /**
-     * @param GetMetaTableBasicInfoRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetMetaTableBasicInfoResponse
-     */
-    public function getMetaTableBasicInfo($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetMetaTableBasicInfoResponse::fromMap($this->doRequest('GetMetaTableBasicInfo', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param GetMetaTableBasicInfoRequest $request
-     *
-     * @return GetMetaTableBasicInfoResponse
-     */
-    public function getMetaTableBasicInfoSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMetaTableBasicInfo($request, $runtime);
-    }
-
-    /**
-     * @param GetMetaTableColumnRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetMetaTableColumnResponse
-     */
-    public function getMetaTableColumn($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetMetaTableColumnResponse::fromMap($this->doRequest('GetMetaTableColumn', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param GetMetaTableColumnRequest $request
-     *
-     * @return GetMetaTableColumnResponse
-     */
-    public function getMetaTableColumnSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMetaTableColumn($request, $runtime);
-    }
-
-    /**
-     * @param GetMetaDBInfoRequest $request
+     * @param CreateUdfFileRequest $request
      * @param RuntimeOptions       $runtime
      *
-     * @return GetMetaDBInfoResponse
+     * @return CreateUdfFileResponse
      */
-    public function getMetaDBInfo($request, $runtime)
+    public function createUdfFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetMetaDBInfoResponse::fromMap($this->doRequest('GetMetaDBInfo', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
+        return CreateUdfFileResponse::fromMap($this->doRPCRequest('CreateUdfFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetMetaDBInfoRequest $request
+     * @param CreateUdfFileRequest $request
      *
-     * @return GetMetaDBInfoResponse
+     * @return CreateUdfFileResponse
      */
-    public function getMetaDBInfoSimply($request)
+    public function createUdfFile($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getMetaDBInfo($request, $runtime);
+        return $this->createUdfFileWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetMetaCategoryRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetMetaCategoryResponse
-     */
-    public function getMetaCategory($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetMetaCategoryResponse::fromMap($this->doRequest('GetMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetMetaCategoryRequest $request
-     *
-     * @return GetMetaCategoryResponse
-     */
-    public function getMetaCategorySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMetaCategory($request, $runtime);
-    }
-
-    /**
-     * @param ListAlertMessagesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListAlertMessagesResponse
-     */
-    public function listAlertMessages($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListAlertMessagesResponse::fromMap($this->doRequest('ListAlertMessages', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListAlertMessagesRequest $request
-     *
-     * @return ListAlertMessagesResponse
-     */
-    public function listAlertMessagesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAlertMessages($request, $runtime);
-    }
-
-    /**
-     * @param GetBaselineConfigRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetBaselineConfigResponse
-     */
-    public function getBaselineConfig($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetBaselineConfigResponse::fromMap($this->doRequest('GetBaselineConfig', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetBaselineConfigRequest $request
-     *
-     * @return GetBaselineConfigResponse
-     */
-    public function getBaselineConfigSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getBaselineConfig($request, $runtime);
-    }
-
-    /**
-     * @param SearchMetaTablesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SearchMetaTablesResponse
-     */
-    public function searchMetaTables($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SearchMetaTablesResponse::fromMap($this->doRequest('SearchMetaTables', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SearchMetaTablesRequest $request
-     *
-     * @return SearchMetaTablesResponse
-     */
-    public function searchMetaTablesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->searchMetaTables($request, $runtime);
-    }
-
-    /**
-     * @param GetMetaTableListByCategoryRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetMetaTableListByCategoryResponse
-     */
-    public function getMetaTableListByCategory($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetMetaTableListByCategoryResponse::fromMap($this->doRequest('GetMetaTableListByCategory', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param GetMetaTableListByCategoryRequest $request
-     *
-     * @return GetMetaTableListByCategoryResponse
-     */
-    public function getMetaTableListByCategorySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMetaTableListByCategory($request, $runtime);
-    }
-
-    /**
-     * @param DeleteMetaCategoryRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteMetaCategoryResponse
-     */
-    public function deleteMetaCategory($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteMetaCategoryResponse::fromMap($this->doRequest('DeleteMetaCategory', 'HTTPS', 'GET', '2020-05-18', 'AK', Tea::merge($request), null, $runtime));
-    }
-
-    /**
-     * @param DeleteMetaCategoryRequest $request
-     *
-     * @return DeleteMetaCategoryResponse
-     */
-    public function deleteMetaCategorySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteMetaCategory($request, $runtime);
-    }
-
-    /**
-     * @param UpdateMetaCategoryRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateMetaCategoryResponse
-     */
-    public function updateMetaCategory($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateMetaCategoryResponse::fromMap($this->doRequest('UpdateMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateMetaCategoryRequest $request
-     *
-     * @return UpdateMetaCategoryResponse
-     */
-    public function updateMetaCategorySimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateMetaCategory($request, $runtime);
-    }
-
-    /**
-     * @param ListTopicsRequest $request
+     * @param CreateViewRequest $request
      * @param RuntimeOptions    $runtime
      *
-     * @return ListTopicsResponse
+     * @return CreateViewResponse
      */
-    public function listTopics($request, $runtime)
+    public function createViewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListTopicsResponse::fromMap($this->doRequest('ListTopics', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return CreateViewResponse::fromMap($this->doRPCRequest('CreateView', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListTopicsRequest $request
+     * @param CreateViewRequest $request
      *
-     * @return ListTopicsResponse
+     * @return CreateViewResponse
      */
-    public function listTopicsSimply($request)
+    public function createView($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listTopics($request, $runtime);
+        return $this->createViewWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListFileVersionsRequest $request
+     * @param DeleteBusinessRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteBusinessResponse
+     */
+    public function deleteBusinessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteBusinessResponse::fromMap($this->doRPCRequest('DeleteBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBusinessRequest $request
+     *
+     * @return DeleteBusinessResponse
+     */
+    public function deleteBusiness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBusinessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteConnectionRequest $request
      * @param RuntimeOptions          $runtime
      *
-     * @return ListFileVersionsResponse
+     * @return DeleteConnectionResponse
      */
-    public function listFileVersions($request, $runtime)
+    public function deleteConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListFileVersionsResponse::fromMap($this->doRequest('ListFileVersions', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return DeleteConnectionResponse::fromMap($this->doRPCRequest('DeleteConnection', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListFileVersionsRequest $request
+     * @param DeleteConnectionRequest $request
      *
-     * @return ListFileVersionsResponse
+     * @return DeleteConnectionResponse
      */
-    public function listFileVersionsSimply($request)
+    public function deleteConnection($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listFileVersions($request, $runtime);
+        return $this->deleteConnectionWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateMetaCategoryRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DeleteDataServiceApiRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return CreateMetaCategoryResponse
+     * @return DeleteDataServiceApiResponse
      */
-    public function createMetaCategory($request, $runtime)
+    public function deleteDataServiceApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateMetaCategoryResponse::fromMap($this->doRequest('CreateMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return DeleteDataServiceApiResponse::fromMap($this->doRPCRequest('DeleteDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateMetaCategoryRequest $request
+     * @param DeleteDataServiceApiRequest $request
      *
-     * @return CreateMetaCategoryResponse
+     * @return DeleteDataServiceApiResponse
      */
-    public function createMetaCategorySimply($request)
+    public function deleteDataServiceApi($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createMetaCategory($request, $runtime);
+        return $this->deleteDataServiceApiWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListNodeIORequest $request
+     * @param DeleteDataServiceApiAuthorityRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteDataServiceApiAuthorityResponse
+     */
+    public function deleteDataServiceApiAuthorityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDataServiceApiAuthorityResponse::fromMap($this->doRPCRequest('DeleteDataServiceApiAuthority', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDataServiceApiAuthorityRequest $request
+     *
+     * @return DeleteDataServiceApiAuthorityResponse
+     */
+    public function deleteDataServiceApiAuthority($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataServiceApiAuthorityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDataSourceResponse
+     */
+    public function deleteDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDataSourceResponse::fromMap($this->doRPCRequest('DeleteDataSource', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDataSourceRequest $request
+     *
+     * @return DeleteDataSourceResponse
+     */
+    public function deleteDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDISyncTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDISyncTaskResponse
+     */
+    public function deleteDISyncTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteDISyncTaskResponse::fromMap($this->doRPCRequest('DeleteDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDISyncTaskRequest $request
+     *
+     * @return DeleteDISyncTaskResponse
+     */
+    public function deleteDISyncTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDISyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteFileRequest $request
      * @param RuntimeOptions    $runtime
      *
-     * @return ListNodeIOResponse
+     * @return DeleteFileResponse
      */
-    public function listNodeIO($request, $runtime)
+    public function deleteFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListNodeIOResponse::fromMap($this->doRequest('ListNodeIO', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return DeleteFileResponse::fromMap($this->doRPCRequest('DeleteFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListNodeIORequest $request
+     * @param DeleteFileRequest $request
      *
-     * @return ListNodeIOResponse
+     * @return DeleteFileResponse
      */
-    public function listNodeIOSimply($request)
+    public function deleteFile($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listNodeIO($request, $runtime);
+        return $this->deleteFileWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetTopicInfluenceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DeleteFolderRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return GetTopicInfluenceResponse
+     * @return DeleteFolderResponse
      */
-    public function getTopicInfluence($request, $runtime)
+    public function deleteFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetTopicInfluenceResponse::fromMap($this->doRequest('GetTopicInfluence', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return DeleteFolderResponse::fromMap($this->doRPCRequest('DeleteFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetTopicInfluenceRequest $request
+     * @param DeleteFolderRequest $request
      *
-     * @return GetTopicInfluenceResponse
+     * @return DeleteFolderResponse
      */
-    public function getTopicInfluenceSimply($request)
+    public function deleteFolder($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getTopicInfluence($request, $runtime);
-    }
-
-    /**
-     * @param GetTopicRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return GetTopicResponse
-     */
-    public function getTopic($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetTopicResponse::fromMap($this->doRequest('GetTopic', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetTopicRequest $request
-     *
-     * @return GetTopicResponse
-     */
-    public function getTopicSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getTopic($request, $runtime);
+        return $this->deleteFolderWithOptions($request, $runtime);
     }
 
     /**
@@ -4361,11 +1862,14 @@ class Dataworkspublic extends Rpc
      *
      * @return DeleteFromMetaCategoryResponse
      */
-    public function deleteFromMetaCategory($request, $runtime)
+    public function deleteFromMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteFromMetaCategoryResponse::fromMap($this->doRequest('DeleteFromMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return DeleteFromMetaCategoryResponse::fromMap($this->doRPCRequest('DeleteFromMetaCategory', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4373,86 +1877,405 @@ class Dataworkspublic extends Rpc
      *
      * @return DeleteFromMetaCategoryResponse
      */
-    public function deleteFromMetaCategorySimply($request)
+    public function deleteFromMetaCategory($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteFromMetaCategory($request, $runtime);
+        return $this->deleteFromMetaCategoryWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetNodeRequest $request
-     * @param RuntimeOptions $runtime
+     * @param DeleteMetaCategoryRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return GetNodeResponse
+     * @return DeleteMetaCategoryResponse
      */
-    public function getNode($request, $runtime)
+    public function deleteMetaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
 
-        return GetNodeResponse::fromMap($this->doRequest('GetNode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return DeleteMetaCategoryResponse::fromMap($this->doRPCRequest('DeleteMetaCategory', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetNodeRequest $request
+     * @param DeleteMetaCategoryRequest $request
      *
-     * @return GetNodeResponse
+     * @return DeleteMetaCategoryResponse
      */
-    public function getNodeSimply($request)
+    public function deleteMetaCategory($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getNode($request, $runtime);
+        return $this->deleteMetaCategoryWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListNodesRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param DeleteProjectMemberRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return ListNodesResponse
+     * @return DeleteProjectMemberResponse
      */
-    public function listNodes($request, $runtime)
+    public function deleteProjectMemberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListNodesResponse::fromMap($this->doRequest('ListNodes', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return DeleteProjectMemberResponse::fromMap($this->doRPCRequest('DeleteProjectMember', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListNodesRequest $request
+     * @param DeleteProjectMemberRequest $request
      *
-     * @return ListNodesResponse
+     * @return DeleteProjectMemberResponse
      */
-    public function listNodesSimply($request)
+    public function deleteProjectMember($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listNodes($request, $runtime);
+        return $this->deleteProjectMemberWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetNodeCodeRequest $request
+     * @param DeleteQualityEntityRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteQualityEntityResponse
+     */
+    public function deleteQualityEntityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteQualityEntityResponse::fromMap($this->doRPCRequest('DeleteQualityEntity', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteQualityEntityRequest $request
+     *
+     * @return DeleteQualityEntityResponse
+     */
+    public function deleteQualityEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteQualityEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteQualityFollowerRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteQualityFollowerResponse
+     */
+    public function deleteQualityFollowerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteQualityFollowerResponse::fromMap($this->doRPCRequest('DeleteQualityFollower', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteQualityFollowerRequest $request
+     *
+     * @return DeleteQualityFollowerResponse
+     */
+    public function deleteQualityFollower($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteQualityFollowerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteQualityRelativeNodeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteQualityRelativeNodeResponse
+     */
+    public function deleteQualityRelativeNodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteQualityRelativeNodeResponse::fromMap($this->doRPCRequest('DeleteQualityRelativeNode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteQualityRelativeNodeRequest $request
+     *
+     * @return DeleteQualityRelativeNodeResponse
+     */
+    public function deleteQualityRelativeNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteQualityRelativeNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteQualityRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteQualityRuleResponse
+     */
+    public function deleteQualityRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteQualityRuleResponse::fromMap($this->doRPCRequest('DeleteQualityRule', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteQualityRuleRequest $request
+     *
+     * @return DeleteQualityRuleResponse
+     */
+    public function deleteQualityRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteQualityRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRemindRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteRemindResponse
+     */
+    public function deleteRemindWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteRemindResponse::fromMap($this->doRPCRequest('DeleteRemind', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRemindRequest $request
+     *
+     * @return DeleteRemindResponse
+     */
+    public function deleteRemind($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRemindWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteTableRequest $request
      * @param RuntimeOptions     $runtime
      *
-     * @return GetNodeCodeResponse
+     * @return DeleteTableResponse
      */
-    public function getNodeCode($request, $runtime)
+    public function deleteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetNodeCodeResponse::fromMap($this->doRequest('GetNodeCode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return DeleteTableResponse::fromMap($this->doRPCRequest('DeleteTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetNodeCodeRequest $request
+     * @param DeleteTableRequest $request
      *
-     * @return GetNodeCodeResponse
+     * @return DeleteTableResponse
      */
-    public function getNodeCodeSimply($request)
+    public function deleteTable($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getNodeCode($request, $runtime);
+        return $this->deleteTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteTableLevelRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteTableLevelResponse
+     */
+    public function deleteTableLevelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteTableLevelResponse::fromMap($this->doRPCRequest('DeleteTableLevel', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTableLevelRequest $request
+     *
+     * @return DeleteTableLevelResponse
+     */
+    public function deleteTableLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTableLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteTableThemeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteTableThemeResponse
+     */
+    public function deleteTableThemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteTableThemeResponse::fromMap($this->doRPCRequest('DeleteTableTheme', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTableThemeRequest $request
+     *
+     * @return DeleteTableThemeResponse
+     */
+    public function deleteTableTheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTableThemeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteViewRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteViewResponse
+     */
+    public function deleteViewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteViewResponse::fromMap($this->doRPCRequest('DeleteView', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteViewRequest $request
+     *
+     * @return DeleteViewResponse
+     */
+    public function deleteView($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteViewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeployDISyncTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeployDISyncTaskResponse
+     */
+    public function deployDISyncTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeployDISyncTaskResponse::fromMap($this->doRPCRequest('DeployDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeployDISyncTaskRequest $request
+     *
+     * @return DeployDISyncTaskResponse
+     */
+    public function deployDISyncTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deployDISyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeployFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeployFileResponse
+     */
+    public function deployFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeployFileResponse::fromMap($this->doRPCRequest('DeployFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeployFileRequest $request
+     *
+     * @return DeployFileResponse
+     */
+    public function deployFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deployFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DesensitizeDataRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DesensitizeDataResponse
+     */
+    public function desensitizeDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return DesensitizeDataResponse::fromMap($this->doRPCRequest('DesensitizeData', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DesensitizeDataRequest $request
+     *
+     * @return DesensitizeDataResponse
+     */
+    public function desensitizeData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->desensitizeDataWithOptions($request, $runtime);
     }
 
     /**
@@ -4461,11 +2284,14 @@ class Dataworkspublic extends Rpc
      *
      * @return EstablishRelationTableToBusinessResponse
      */
-    public function establishRelationTableToBusiness($request, $runtime)
+    public function establishRelationTableToBusinessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return EstablishRelationTableToBusinessResponse::fromMap($this->doRequest('EstablishRelationTableToBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return EstablishRelationTableToBusinessResponse::fromMap($this->doRPCRequest('EstablishRelationTableToBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -4473,586 +2299,181 @@ class Dataworkspublic extends Rpc
      *
      * @return EstablishRelationTableToBusinessResponse
      */
-    public function establishRelationTableToBusinessSimply($request)
+    public function establishRelationTableToBusiness($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->establishRelationTableToBusiness($request, $runtime);
+        return $this->establishRelationTableToBusinessWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateDataServiceApiRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateDataServiceApiResponse
-     */
-    public function updateDataServiceApi($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateDataServiceApiResponse::fromMap($this->doRequest('UpdateDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateDataServiceApiRequest $request
-     *
-     * @return UpdateDataServiceApiResponse
-     */
-    public function updateDataServiceApiSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDataServiceApi($request, $runtime);
-    }
-
-    /**
-     * @param UpdateUdfFileRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return UpdateUdfFileResponse
-     */
-    public function updateUdfFile($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateUdfFileResponse::fromMap($this->doRequest('UpdateUdfFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateUdfFileRequest $request
-     *
-     * @return UpdateUdfFileResponse
-     */
-    public function updateUdfFileSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateUdfFile($request, $runtime);
-    }
-
-    /**
-     * @param CreateUdfFileRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateUdfFileResponse
-     */
-    public function createUdfFile($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateUdfFileResponse::fromMap($this->doRequest('CreateUdfFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateUdfFileRequest $request
-     *
-     * @return CreateUdfFileResponse
-     */
-    public function createUdfFileSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createUdfFile($request, $runtime);
-    }
-
-    /**
-     * @param ListFilesRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListFilesResponse
-     */
-    public function listFiles($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListFilesResponse::fromMap($this->doRequest('ListFiles', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListFilesRequest $request
-     *
-     * @return ListFilesResponse
-     */
-    public function listFilesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFiles($request, $runtime);
-    }
-
-    /**
-     * @param ListDataServiceAuthorizedApisRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ListDataServiceAuthorizedApisResponse
-     */
-    public function listDataServiceAuthorizedApis($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListDataServiceAuthorizedApisResponse::fromMap($this->doRequest('ListDataServiceAuthorizedApis', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListDataServiceAuthorizedApisRequest $request
-     *
-     * @return ListDataServiceAuthorizedApisResponse
-     */
-    public function listDataServiceAuthorizedApisSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDataServiceAuthorizedApis($request, $runtime);
-    }
-
-    /**
-     * @param UpdateFileRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return UpdateFileResponse
-     */
-    public function updateFile($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateFileResponse::fromMap($this->doRequest('UpdateFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateFileRequest $request
-     *
-     * @return UpdateFileResponse
-     */
-    public function updateFileSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateFile($request, $runtime);
-    }
-
-    /**
-     * @param DeleteFolderRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteFolderResponse
-     */
-    public function deleteFolder($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteFolderResponse::fromMap($this->doRequest('DeleteFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteFolderRequest $request
-     *
-     * @return DeleteFolderResponse
-     */
-    public function deleteFolderSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteFolder($request, $runtime);
-    }
-
-    /**
-     * @param ListFoldersRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListFoldersResponse
-     */
-    public function listFolders($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListFoldersResponse::fromMap($this->doRequest('ListFolders', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListFoldersRequest $request
-     *
-     * @return ListFoldersResponse
-     */
-    public function listFoldersSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFolders($request, $runtime);
-    }
-
-    /**
-     * @param CheckMetaPartitionRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CheckMetaPartitionResponse
-     */
-    public function checkMetaPartition($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CheckMetaPartitionResponse::fromMap($this->doRequest('CheckMetaPartition', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CheckMetaPartitionRequest $request
-     *
-     * @return CheckMetaPartitionResponse
-     */
-    public function checkMetaPartitionSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkMetaPartition($request, $runtime);
-    }
-
-    /**
-     * @param UpdateFolderRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UpdateFolderResponse
-     */
-    public function updateFolder($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateFolderResponse::fromMap($this->doRequest('UpdateFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateFolderRequest $request
-     *
-     * @return UpdateFolderResponse
-     */
-    public function updateFolderSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateFolder($request, $runtime);
-    }
-
-    /**
-     * @param DeleteRemindRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteRemindResponse
-     */
-    public function deleteRemind($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteRemindResponse::fromMap($this->doRequest('DeleteRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteRemindRequest $request
-     *
-     * @return DeleteRemindResponse
-     */
-    public function deleteRemindSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteRemind($request, $runtime);
-    }
-
-    /**
-     * @param AddToMetaCategoryRequest $request
+     * @param ExportConnectionsRequest $request
      * @param RuntimeOptions           $runtime
      *
-     * @return AddToMetaCategoryResponse
+     * @return ExportConnectionsResponse
      */
-    public function addToMetaCategory($request, $runtime)
+    public function exportConnectionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
 
-        return AddToMetaCategoryResponse::fromMap($this->doRequest('AddToMetaCategory', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return ExportConnectionsResponse::fromMap($this->doRPCRequest('ExportConnections', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param AddToMetaCategoryRequest $request
+     * @param ExportConnectionsRequest $request
      *
-     * @return AddToMetaCategoryResponse
+     * @return ExportConnectionsResponse
      */
-    public function addToMetaCategorySimply($request)
+    public function exportConnections($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->addToMetaCategory($request, $runtime);
+        return $this->exportConnectionsWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ExportDataSourcesRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListInstancesResponse
+     * @return ExportDataSourcesResponse
      */
-    public function listInstances($request, $runtime)
+    public function exportDataSourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
 
-        return ListInstancesResponse::fromMap($this->doRequest('ListInstances', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return ExportDataSourcesResponse::fromMap($this->doRPCRequest('ExportDataSources', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @param ExportDataSourcesRequest $request
      *
-     * @return ListInstancesResponse
+     * @return ExportDataSourcesResponse
      */
-    public function listInstancesSimply($request)
+    public function exportDataSources($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listInstances($request, $runtime);
+        return $this->exportDataSourcesWithOptions($request, $runtime);
     }
 
     /**
-     * @param SetSuccessInstanceRequest $request
+     * @param ExportDISyncTasksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExportDISyncTasksResponse
+     */
+    public function exportDISyncTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ExportDISyncTasksResponse::fromMap($this->doRPCRequest('ExportDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ExportDISyncTasksRequest $request
+     *
+     * @return ExportDISyncTasksResponse
+     */
+    public function exportDISyncTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportDISyncTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBaselineConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetBaselineConfigResponse
+     */
+    public function getBaselineConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetBaselineConfigResponse::fromMap($this->doRPCRequest('GetBaselineConfig', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetBaselineConfigRequest $request
+     *
+     * @return GetBaselineConfigResponse
+     */
+    public function getBaselineConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBaselineConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBaselineKeyPathRequest $request
      * @param RuntimeOptions            $runtime
      *
-     * @return SetSuccessInstanceResponse
+     * @return GetBaselineKeyPathResponse
      */
-    public function setSuccessInstance($request, $runtime)
+    public function getBaselineKeyPathWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return SetSuccessInstanceResponse::fromMap($this->doRequest('SetSuccessInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetBaselineKeyPathResponse::fromMap($this->doRPCRequest('GetBaselineKeyPath', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param SetSuccessInstanceRequest $request
+     * @param GetBaselineKeyPathRequest $request
      *
-     * @return SetSuccessInstanceResponse
+     * @return GetBaselineKeyPathResponse
      */
-    public function setSuccessInstanceSimply($request)
+    public function getBaselineKeyPath($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->setSuccessInstance($request, $runtime);
+        return $this->getBaselineKeyPathWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateFileRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param GetBaselineStatusRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateFileResponse
+     * @return GetBaselineStatusResponse
      */
-    public function createFile($request, $runtime)
+    public function getBaselineStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateFileResponse::fromMap($this->doRequest('CreateFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetBaselineStatusResponse::fromMap($this->doRPCRequest('GetBaselineStatus', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateFileRequest $request
+     * @param GetBaselineStatusRequest $request
      *
-     * @return CreateFileResponse
+     * @return GetBaselineStatusResponse
      */
-    public function createFileSimply($request)
+    public function getBaselineStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createFile($request, $runtime);
-    }
-
-    /**
-     * @param StopInstanceRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return StopInstanceResponse
-     */
-    public function stopInstance($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return StopInstanceResponse::fromMap($this->doRequest('StopInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param StopInstanceRequest $request
-     *
-     * @return StopInstanceResponse
-     */
-    public function stopInstanceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->stopInstance($request, $runtime);
-    }
-
-    /**
-     * @param ResumeInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ResumeInstanceResponse
-     */
-    public function resumeInstance($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ResumeInstanceResponse::fromMap($this->doRequest('ResumeInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ResumeInstanceRequest $request
-     *
-     * @return ResumeInstanceResponse
-     */
-    public function resumeInstanceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->resumeInstance($request, $runtime);
-    }
-
-    /**
-     * @param SuspendInstanceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return SuspendInstanceResponse
-     */
-    public function suspendInstance($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SuspendInstanceResponse::fromMap($this->doRequest('SuspendInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SuspendInstanceRequest $request
-     *
-     * @return SuspendInstanceResponse
-     */
-    public function suspendInstanceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->suspendInstance($request, $runtime);
-    }
-
-    /**
-     * @param RestartInstanceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return RestartInstanceResponse
-     */
-    public function restartInstance($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return RestartInstanceResponse::fromMap($this->doRequest('RestartInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param RestartInstanceRequest $request
-     *
-     * @return RestartInstanceResponse
-     */
-    public function restartInstanceSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->restartInstance($request, $runtime);
-    }
-
-    /**
-     * @param ListDataServiceApiAuthoritiesRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ListDataServiceApiAuthoritiesResponse
-     */
-    public function listDataServiceApiAuthorities($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListDataServiceApiAuthoritiesResponse::fromMap($this->doRequest('ListDataServiceApiAuthorities', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListDataServiceApiAuthoritiesRequest $request
-     *
-     * @return ListDataServiceApiAuthoritiesResponse
-     */
-    public function listDataServiceApiAuthoritiesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDataServiceApiAuthorities($request, $runtime);
-    }
-
-    /**
-     * @param ListDataServicePublishedApisRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListDataServicePublishedApisResponse
-     */
-    public function listDataServicePublishedApis($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListDataServicePublishedApisResponse::fromMap($this->doRequest('ListDataServicePublishedApis', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListDataServicePublishedApisRequest $request
-     *
-     * @return ListDataServicePublishedApisResponse
-     */
-    public function listDataServicePublishedApisSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDataServicePublishedApis($request, $runtime);
-    }
-
-    /**
-     * @param GetInstanceLogRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetInstanceLogResponse
-     */
-    public function getInstanceLog($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetInstanceLogResponse::fromMap($this->doRequest('GetInstanceLog', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetInstanceLogRequest $request
-     *
-     * @return GetInstanceLogResponse
-     */
-    public function getInstanceLogSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getInstanceLog($request, $runtime);
-    }
-
-    /**
-     * @param CreateFolderRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateFolderResponse
-     */
-    public function createFolder($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateFolderResponse::fromMap($this->doRequest('CreateFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateFolderRequest $request
-     *
-     * @return CreateFolderResponse
-     */
-    public function createFolderSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createFolder($request, $runtime);
+        return $this->getBaselineStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -5061,11 +2482,14 @@ class Dataworkspublic extends Rpc
      *
      * @return GetBusinessResponse
      */
-    public function getBusiness($request, $runtime)
+    public function getBusinessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetBusinessResponse::fromMap($this->doRequest('GetBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetBusinessResponse::fromMap($this->doRPCRequest('GetBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5073,536 +2497,179 @@ class Dataworkspublic extends Rpc
      *
      * @return GetBusinessResponse
      */
-    public function getBusinessSimply($request)
+    public function getBusiness($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getBusiness($request, $runtime);
+        return $this->getBusinessWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetInstanceRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param GetConnectionMetaRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return GetInstanceResponse
+     * @return GetConnectionMetaResponse
      */
-    public function getInstance($request, $runtime)
+    public function getConnectionMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetInstanceResponse::fromMap($this->doRequest('GetInstance', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetConnectionMetaResponse::fromMap($this->doRPCRequest('GetConnectionMeta', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetInstanceRequest $request
+     * @param GetConnectionMetaRequest $request
      *
-     * @return GetInstanceResponse
+     * @return GetConnectionMetaResponse
      */
-    public function getInstanceSimply($request)
+    public function getConnectionMeta($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getInstance($request, $runtime);
+        return $this->getConnectionMetaWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetFileRequest $request
+     * @param GetDagRequest  $request
      * @param RuntimeOptions $runtime
      *
-     * @return GetFileResponse
+     * @return GetDagResponse
      */
-    public function getFile($request, $runtime)
+    public function getDagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetFileResponse::fromMap($this->doRequest('GetFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetDagResponse::fromMap($this->doRPCRequest('GetDag', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetFileRequest $request
+     * @param GetDagRequest $request
      *
-     * @return GetFileResponse
+     * @return GetDagResponse
      */
-    public function getFileSimply($request)
+    public function getDag($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getFile($request, $runtime);
+        return $this->getDagWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListBusinessRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param GetDataServiceApiRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListBusinessResponse
+     * @return GetDataServiceApiResponse
      */
-    public function listBusiness($request, $runtime)
+    public function getDataServiceApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListBusinessResponse::fromMap($this->doRequest('ListBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetDataServiceApiResponse::fromMap($this->doRPCRequest('GetDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListBusinessRequest $request
+     * @param GetDataServiceApiRequest $request
      *
-     * @return ListBusinessResponse
+     * @return GetDataServiceApiResponse
      */
-    public function listBusinessSimply($request)
+    public function getDataServiceApi($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listBusiness($request, $runtime);
+        return $this->getDataServiceApiWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetMetaDBTableListRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param GetDataServiceApplicationRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return GetMetaDBTableListResponse
+     * @return GetDataServiceApplicationResponse
      */
-    public function getMetaDBTableList($request, $runtime)
+    public function getDataServiceApplicationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetMetaDBTableListResponse::fromMap($this->doRequest('GetMetaDBTableList', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetDataServiceApplicationResponse::fromMap($this->doRPCRequest('GetDataServiceApplication', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetMetaDBTableListRequest $request
+     * @param GetDataServiceApplicationRequest $request
      *
-     * @return GetMetaDBTableListResponse
+     * @return GetDataServiceApplicationResponse
      */
-    public function getMetaDBTableListSimply($request)
+    public function getDataServiceApplication($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getMetaDBTableList($request, $runtime);
+        return $this->getDataServiceApplicationWithOptions($request, $runtime);
     }
 
     /**
-     * @param CheckMetaTableRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CheckMetaTableResponse
-     */
-    public function checkMetaTable($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CheckMetaTableResponse::fromMap($this->doRequest('CheckMetaTable', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CheckMetaTableRequest $request
-     *
-     * @return CheckMetaTableResponse
-     */
-    public function checkMetaTableSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkMetaTable($request, $runtime);
-    }
-
-    /**
-     * @param GetFolderRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return GetFolderResponse
-     */
-    public function getFolder($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetFolderResponse::fromMap($this->doRequest('GetFolder', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetFolderRequest $request
-     *
-     * @return GetFolderResponse
-     */
-    public function getFolderSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getFolder($request, $runtime);
-    }
-
-    /**
-     * @param DeployFileRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeployFileResponse
-     */
-    public function deployFile($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeployFileResponse::fromMap($this->doRequest('DeployFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeployFileRequest $request
-     *
-     * @return DeployFileResponse
-     */
-    public function deployFileSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deployFile($request, $runtime);
-    }
-
-    /**
-     * @param DeleteBusinessRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteBusinessResponse
-     */
-    public function deleteBusiness($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteBusinessResponse::fromMap($this->doRequest('DeleteBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteBusinessRequest $request
-     *
-     * @return DeleteBusinessResponse
-     */
-    public function deleteBusinessSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteBusiness($request, $runtime);
-    }
-
-    /**
-     * @param DeleteFileRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteFileResponse
-     */
-    public function deleteFile($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteFileResponse::fromMap($this->doRequest('DeleteFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteFileRequest $request
-     *
-     * @return DeleteFileResponse
-     */
-    public function deleteFileSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteFile($request, $runtime);
-    }
-
-    /**
-     * @param ListQualityRulesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListQualityRulesResponse
-     */
-    public function listQualityRules($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return ListQualityRulesResponse::fromMap($this->doRequest('ListQualityRules', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param ListQualityRulesRequest $request
-     *
-     * @return ListQualityRulesResponse
-     */
-    public function listQualityRulesSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listQualityRules($request, $runtime);
-    }
-
-    /**
-     * @param CreateRemindRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateRemindResponse
-     */
-    public function createRemind($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return CreateRemindResponse::fromMap($this->doRequest('CreateRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param CreateRemindRequest $request
-     *
-     * @return CreateRemindResponse
-     */
-    public function createRemindSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRemind($request, $runtime);
-    }
-
-    /**
-     * @param GetQualityRuleRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetQualityRuleResponse
-     */
-    public function getQualityRule($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetQualityRuleResponse::fromMap($this->doRequest('GetQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetQualityRuleRequest $request
-     *
-     * @return GetQualityRuleResponse
-     */
-    public function getQualityRuleSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getQualityRule($request, $runtime);
-    }
-
-    /**
-     * @param GetDeploymentRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetDeploymentResponse
-     */
-    public function getDeployment($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetDeploymentResponse::fromMap($this->doRequest('GetDeployment', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetDeploymentRequest $request
-     *
-     * @return GetDeploymentResponse
-     */
-    public function getDeploymentSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDeployment($request, $runtime);
-    }
-
-    /**
-     * @param UpdateRemindRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UpdateRemindResponse
-     */
-    public function updateRemind($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateRemindResponse::fromMap($this->doRequest('UpdateRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateRemindRequest $request
-     *
-     * @return UpdateRemindResponse
-     */
-    public function updateRemindSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateRemind($request, $runtime);
-    }
-
-    /**
-     * @param GetMetaColumnLineageRequest $request
+     * @param GetDataServiceFolderRequest $request
      * @param RuntimeOptions              $runtime
      *
-     * @return GetMetaColumnLineageResponse
+     * @return GetDataServiceFolderResponse
      */
-    public function getMetaColumnLineage($request, $runtime)
+    public function getDataServiceFolderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetMetaColumnLineageResponse::fromMap($this->doRequest('GetMetaColumnLineage', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetDataServiceFolderResponse::fromMap($this->doRPCRequest('GetDataServiceFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetMetaColumnLineageRequest $request
+     * @param GetDataServiceFolderRequest $request
      *
-     * @return GetMetaColumnLineageResponse
+     * @return GetDataServiceFolderResponse
      */
-    public function getMetaColumnLineageSimply($request)
+    public function getDataServiceFolder($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getMetaColumnLineage($request, $runtime);
+        return $this->getDataServiceFolderWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateBusinessRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateBusinessResponse
-     */
-    public function updateBusiness($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateBusinessResponse::fromMap($this->doRequest('UpdateBusiness', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateBusinessRequest $request
-     *
-     * @return UpdateBusinessResponse
-     */
-    public function updateBusinessSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateBusiness($request, $runtime);
-    }
-
-    /**
-     * @param UpdateQualityRuleRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateQualityRuleResponse
-     */
-    public function updateQualityRule($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return UpdateQualityRuleResponse::fromMap($this->doRequest('UpdateQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param UpdateQualityRuleRequest $request
-     *
-     * @return UpdateQualityRuleResponse
-     */
-    public function updateQualityRuleSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateQualityRule($request, $runtime);
-    }
-
-    /**
-     * @param DeleteQualityRuleRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteQualityRuleResponse
-     */
-    public function deleteQualityRule($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return DeleteQualityRuleResponse::fromMap($this->doRequest('DeleteQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param DeleteQualityRuleRequest $request
-     *
-     * @return DeleteQualityRuleResponse
-     */
-    public function deleteQualityRuleSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteQualityRule($request, $runtime);
-    }
-
-    /**
-     * @param SubmitFileRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return SubmitFileResponse
-     */
-    public function submitFile($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return SubmitFileResponse::fromMap($this->doRequest('SubmitFile', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param SubmitFileRequest $request
-     *
-     * @return SubmitFileResponse
-     */
-    public function submitFileSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitFile($request, $runtime);
-    }
-
-    /**
-     * @param GetDataServiceApiRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetDataServiceApiResponse
-     */
-    public function getDataServiceApi($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetDataServiceApiResponse::fromMap($this->doRequest('GetDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetDataServiceApiRequest $request
-     *
-     * @return GetDataServiceApiResponse
-     */
-    public function getDataServiceApiSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDataServiceApi($request, $runtime);
-    }
-
-    /**
-     * @param ListDataServiceApisRequest $request
+     * @param GetDataServiceGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
-     * @return ListDataServiceApisResponse
+     * @return GetDataServiceGroupResponse
      */
-    public function listDataServiceApis($request, $runtime)
+    public function getDataServiceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListDataServiceApisResponse::fromMap($this->doRequest('ListDataServiceApis', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetDataServiceGroupResponse::fromMap($this->doRPCRequest('GetDataServiceGroup', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListDataServiceApisRequest $request
+     * @param GetDataServiceGroupRequest $request
      *
-     * @return ListDataServiceApisResponse
+     * @return GetDataServiceGroupResponse
      */
-    public function listDataServiceApisSimply($request)
+    public function getDataServiceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listDataServiceApis($request, $runtime);
+        return $this->getDataServiceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -5611,11 +2678,14 @@ class Dataworkspublic extends Rpc
      *
      * @return GetDataServicePublishedApiResponse
      */
-    public function getDataServicePublishedApi($request, $runtime)
+    public function getDataServicePublishedApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetDataServicePublishedApiResponse::fromMap($this->doRequest('GetDataServicePublishedApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetDataServicePublishedApiResponse::fromMap($this->doRPCRequest('GetDataServicePublishedApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5623,336 +2693,1224 @@ class Dataworkspublic extends Rpc
      *
      * @return GetDataServicePublishedApiResponse
      */
-    public function getDataServicePublishedApiSimply($request)
+    public function getDataServicePublishedApi($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getDataServicePublishedApi($request, $runtime);
+        return $this->getDataServicePublishedApiWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetBaselineKeyPathRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetBaselineKeyPathResponse
-     */
-    public function getBaselineKeyPath($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetBaselineKeyPathResponse::fromMap($this->doRequest('GetBaselineKeyPath', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetBaselineKeyPathRequest $request
-     *
-     * @return GetBaselineKeyPathResponse
-     */
-    public function getBaselineKeyPathSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getBaselineKeyPath($request, $runtime);
-    }
-
-    /**
-     * @param GetRemindRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return GetRemindResponse
-     */
-    public function getRemind($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetRemindResponse::fromMap($this->doRequest('GetRemind', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetRemindRequest $request
-     *
-     * @return GetRemindResponse
-     */
-    public function getRemindSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRemind($request, $runtime);
-    }
-
-    /**
-     * @param GetMetaTableIntroWikiRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetMetaTableIntroWikiResponse
-     */
-    public function getMetaTableIntroWiki($request, $runtime)
-    {
-        Utils::validateModel($request);
-
-        return GetMetaTableIntroWikiResponse::fromMap($this->doRequest('GetMetaTableIntroWiki', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
-    }
-
-    /**
-     * @param GetMetaTableIntroWikiRequest $request
-     *
-     * @return GetMetaTableIntroWikiResponse
-     */
-    public function getMetaTableIntroWikiSimply($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMetaTableIntroWiki($request, $runtime);
-    }
-
-    /**
-     * @param GetBaselineStatusRequest $request
+     * @param GetDataSourceMetaRequest $request
      * @param RuntimeOptions           $runtime
      *
-     * @return GetBaselineStatusResponse
+     * @return GetDataSourceMetaResponse
      */
-    public function getBaselineStatus($request, $runtime)
+    public function getDataSourceMetaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetBaselineStatusResponse::fromMap($this->doRequest('GetBaselineStatus', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetDataSourceMetaResponse::fromMap($this->doRPCRequest('GetDataSourceMeta', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetBaselineStatusRequest $request
+     * @param GetDataSourceMetaRequest $request
      *
-     * @return GetBaselineStatusResponse
+     * @return GetDataSourceMetaResponse
      */
-    public function getBaselineStatusSimply($request)
+    public function getDataSourceMeta($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getBaselineStatus($request, $runtime);
+        return $this->getDataSourceMetaWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteDataServiceApiRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param GetDDLJobStatusRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return DeleteDataServiceApiResponse
+     * @return GetDDLJobStatusResponse
      */
-    public function deleteDataServiceApi($request, $runtime)
+    public function getDDLJobStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
 
-        return DeleteDataServiceApiResponse::fromMap($this->doRequest('DeleteDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetDDLJobStatusResponse::fromMap($this->doRPCRequest('GetDDLJobStatus', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteDataServiceApiRequest $request
+     * @param GetDDLJobStatusRequest $request
      *
-     * @return DeleteDataServiceApiResponse
+     * @return GetDDLJobStatusResponse
      */
-    public function deleteDataServiceApiSimply($request)
+    public function getDDLJobStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteDataServiceApi($request, $runtime);
+        return $this->getDDLJobStatusWithOptions($request, $runtime);
     }
 
     /**
-     * @param PublishDataServiceApiRequest $request
+     * @param GetDeploymentRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDeploymentResponse
+     */
+    public function getDeploymentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetDeploymentResponse::fromMap($this->doRPCRequest('GetDeployment', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDeploymentRequest $request
+     *
+     * @return GetDeploymentResponse
+     */
+    public function getDeployment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeploymentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDISyncInstanceInfoRequest $request
      * @param RuntimeOptions               $runtime
      *
-     * @return PublishDataServiceApiResponse
+     * @return GetDISyncInstanceInfoResponse
      */
-    public function publishDataServiceApi($request, $runtime)
+    public function getDISyncInstanceInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return PublishDataServiceApiResponse::fromMap($this->doRequest('PublishDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetDISyncInstanceInfoResponse::fromMap($this->doRPCRequest('GetDISyncInstanceInfo', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param PublishDataServiceApiRequest $request
+     * @param GetDISyncInstanceInfoRequest $request
      *
-     * @return PublishDataServiceApiResponse
+     * @return GetDISyncInstanceInfoResponse
      */
-    public function publishDataServiceApiSimply($request)
+    public function getDISyncInstanceInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->publishDataServiceApi($request, $runtime);
+        return $this->getDISyncInstanceInfoWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetMetaTableLineageRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetDISyncTaskRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return GetMetaTableLineageResponse
+     * @return GetDISyncTaskResponse
      */
-    public function getMetaTableLineage($request, $runtime)
+    public function getDISyncTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetMetaTableLineageResponse::fromMap($this->doRequest('GetMetaTableLineage', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetDISyncTaskResponse::fromMap($this->doRPCRequest('GetDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetMetaTableLineageRequest $request
+     * @param GetDISyncTaskRequest $request
      *
-     * @return GetMetaTableLineageResponse
+     * @return GetDISyncTaskResponse
      */
-    public function getMetaTableLineageSimply($request)
+    public function getDISyncTask($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getMetaTableLineage($request, $runtime);
+        return $this->getDISyncTaskWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListBaselineStatusesRequest $request
+     * @param GetFileRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetFileResponse
+     */
+    public function getFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetFileResponse::fromMap($this->doRPCRequest('GetFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetFileRequest $request
+     *
+     * @return GetFileResponse
+     */
+    public function getFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetFileTypeStatisticRequest $request
      * @param RuntimeOptions              $runtime
      *
-     * @return ListBaselineStatusesResponse
+     * @return GetFileTypeStatisticResponse
      */
-    public function listBaselineStatuses($request, $runtime)
+    public function getFileTypeStatisticWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListBaselineStatusesResponse::fromMap($this->doRequest('ListBaselineStatuses', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetFileTypeStatisticResponse::fromMap($this->doRPCRequest('GetFileTypeStatistic', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListBaselineStatusesRequest $request
+     * @param GetFileTypeStatisticRequest $request
      *
-     * @return ListBaselineStatusesResponse
+     * @return GetFileTypeStatisticResponse
      */
-    public function listBaselineStatusesSimply($request)
+    public function getFileTypeStatistic($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listBaselineStatuses($request, $runtime);
+        return $this->getFileTypeStatisticWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListRemindsRequest $request
+     * @param GetFileVersionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetFileVersionResponse
+     */
+    public function getFileVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetFileVersionResponse::fromMap($this->doRPCRequest('GetFileVersion', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetFileVersionRequest $request
+     *
+     * @return GetFileVersionResponse
+     */
+    public function getFileVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetFolderRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetFolderResponse
+     */
+    public function getFolderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetFolderResponse::fromMap($this->doRPCRequest('GetFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetFolderRequest $request
+     *
+     * @return GetFolderResponse
+     */
+    public function getFolder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFolderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInstanceRequest $request
      * @param RuntimeOptions     $runtime
      *
-     * @return ListRemindsResponse
+     * @return GetInstanceResponse
      */
-    public function listReminds($request, $runtime)
+    public function getInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return ListRemindsResponse::fromMap($this->doRequest('ListReminds', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetInstanceResponse::fromMap($this->doRPCRequest('GetInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListRemindsRequest $request
+     * @param GetInstanceRequest $request
      *
-     * @return ListRemindsResponse
+     * @return GetInstanceResponse
      */
-    public function listRemindsSimply($request)
+    public function getInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listReminds($request, $runtime);
+        return $this->getInstanceWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteQualityEntityRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetInstanceConsumeTimeRankRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return DeleteQualityEntityResponse
+     * @return GetInstanceConsumeTimeRankResponse
      */
-    public function deleteQualityEntity($request, $runtime)
+    public function getInstanceConsumeTimeRankWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteQualityEntityResponse::fromMap($this->doRequest('DeleteQualityEntity', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetInstanceConsumeTimeRankResponse::fromMap($this->doRPCRequest('GetInstanceConsumeTimeRank', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteQualityEntityRequest $request
+     * @param GetInstanceConsumeTimeRankRequest $request
      *
-     * @return DeleteQualityEntityResponse
+     * @return GetInstanceConsumeTimeRankResponse
      */
-    public function deleteQualityEntitySimply($request)
+    public function getInstanceConsumeTimeRank($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteQualityEntity($request, $runtime);
+        return $this->getInstanceConsumeTimeRankWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateQualityFollowerRequest $request
+     * @param GetInstanceCountTrendRequest $request
      * @param RuntimeOptions               $runtime
      *
-     * @return CreateQualityFollowerResponse
+     * @return GetInstanceCountTrendResponse
      */
-    public function createQualityFollower($request, $runtime)
+    public function getInstanceCountTrendWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateQualityFollowerResponse::fromMap($this->doRequest('CreateQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetInstanceCountTrendResponse::fromMap($this->doRPCRequest('GetInstanceCountTrend', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateQualityFollowerRequest $request
+     * @param GetInstanceCountTrendRequest $request
      *
-     * @return CreateQualityFollowerResponse
+     * @return GetInstanceCountTrendResponse
      */
-    public function createQualityFollowerSimply($request)
+    public function getInstanceCountTrend($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createQualityFollower($request, $runtime);
+        return $this->getInstanceCountTrendWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateDataServiceApiRequest $request
+     * @param GetInstanceErrorRankRequest $request
      * @param RuntimeOptions              $runtime
      *
-     * @return CreateDataServiceApiResponse
+     * @return GetInstanceErrorRankResponse
      */
-    public function createDataServiceApi($request, $runtime)
+    public function getInstanceErrorRankWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateDataServiceApiResponse::fromMap($this->doRequest('CreateDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetInstanceErrorRankResponse::fromMap($this->doRPCRequest('GetInstanceErrorRank', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateDataServiceApiRequest $request
+     * @param GetInstanceErrorRankRequest $request
      *
-     * @return CreateDataServiceApiResponse
+     * @return GetInstanceErrorRankResponse
      */
-    public function createDataServiceApiSimply($request)
+    public function getInstanceErrorRank($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createDataServiceApi($request, $runtime);
+        return $this->getInstanceErrorRankWithOptions($request, $runtime);
     }
 
     /**
-     * @param AbolishDataServiceApiRequest $request
+     * @param GetInstanceLogRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetInstanceLogResponse
+     */
+    public function getInstanceLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetInstanceLogResponse::fromMap($this->doRPCRequest('GetInstanceLog', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetInstanceLogRequest $request
+     *
+     * @return GetInstanceLogResponse
+     */
+    public function getInstanceLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInstanceStatusCountRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetInstanceStatusCountResponse
+     */
+    public function getInstanceStatusCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetInstanceStatusCountResponse::fromMap($this->doRPCRequest('GetInstanceStatusCount', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetInstanceStatusCountRequest $request
+     *
+     * @return GetInstanceStatusCountResponse
+     */
+    public function getInstanceStatusCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceStatusCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInstanceStatusStatisticRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetInstanceStatusStatisticResponse
+     */
+    public function getInstanceStatusStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetInstanceStatusStatisticResponse::fromMap($this->doRPCRequest('GetInstanceStatusStatistic', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetInstanceStatusStatisticRequest $request
+     *
+     * @return GetInstanceStatusStatisticResponse
+     */
+    public function getInstanceStatusStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceStatusStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetManualDagInstancesRequest $request
      * @param RuntimeOptions               $runtime
      *
-     * @return AbolishDataServiceApiResponse
+     * @return GetManualDagInstancesResponse
      */
-    public function abolishDataServiceApi($request, $runtime)
+    public function getManualDagInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return AbolishDataServiceApiResponse::fromMap($this->doRequest('AbolishDataServiceApi', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetManualDagInstancesResponse::fromMap($this->doRPCRequest('GetManualDagInstances', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param AbolishDataServiceApiRequest $request
+     * @param GetManualDagInstancesRequest $request
      *
-     * @return AbolishDataServiceApiResponse
+     * @return GetManualDagInstancesResponse
      */
-    public function abolishDataServiceApiSimply($request)
+    public function getManualDagInstances($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->abolishDataServiceApi($request, $runtime);
+        return $this->getManualDagInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaCategoryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetMetaCategoryResponse
+     */
+    public function getMetaCategoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMetaCategoryResponse::fromMap($this->doRPCRequest('GetMetaCategory', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaCategoryRequest $request
+     *
+     * @return GetMetaCategoryResponse
+     */
+    public function getMetaCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaColumnLineageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetMetaColumnLineageResponse
+     */
+    public function getMetaColumnLineageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMetaColumnLineageResponse::fromMap($this->doRPCRequest('GetMetaColumnLineage', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaColumnLineageRequest $request
+     *
+     * @return GetMetaColumnLineageResponse
+     */
+    public function getMetaColumnLineage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaColumnLineageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaDBInfoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMetaDBInfoResponse
+     */
+    public function getMetaDBInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetMetaDBInfoResponse::fromMap($this->doRPCRequest('GetMetaDBInfo', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaDBInfoRequest $request
+     *
+     * @return GetMetaDBInfoResponse
+     */
+    public function getMetaDBInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaDBInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaDBTableListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMetaDBTableListResponse
+     */
+    public function getMetaDBTableListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMetaDBTableListResponse::fromMap($this->doRPCRequest('GetMetaDBTableList', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaDBTableListRequest $request
+     *
+     * @return GetMetaDBTableListResponse
+     */
+    public function getMetaDBTableList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaDBTableListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTableBasicInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetMetaTableBasicInfoResponse
+     */
+    public function getMetaTableBasicInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetMetaTableBasicInfoResponse::fromMap($this->doRPCRequest('GetMetaTableBasicInfo', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTableBasicInfoRequest $request
+     *
+     * @return GetMetaTableBasicInfoResponse
+     */
+    public function getMetaTableBasicInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTableBasicInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTableChangeLogRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetMetaTableChangeLogResponse
+     */
+    public function getMetaTableChangeLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMetaTableChangeLogResponse::fromMap($this->doRPCRequest('GetMetaTableChangeLog', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTableChangeLogRequest $request
+     *
+     * @return GetMetaTableChangeLogResponse
+     */
+    public function getMetaTableChangeLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTableChangeLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTableColumnRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMetaTableColumnResponse
+     */
+    public function getMetaTableColumnWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetMetaTableColumnResponse::fromMap($this->doRPCRequest('GetMetaTableColumn', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTableColumnRequest $request
+     *
+     * @return GetMetaTableColumnResponse
+     */
+    public function getMetaTableColumn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTableColumnWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTableFullInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetMetaTableFullInfoResponse
+     */
+    public function getMetaTableFullInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetMetaTableFullInfoResponse::fromMap($this->doRPCRequest('GetMetaTableFullInfo', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTableFullInfoRequest $request
+     *
+     * @return GetMetaTableFullInfoResponse
+     */
+    public function getMetaTableFullInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTableFullInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTableIntroWikiRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetMetaTableIntroWikiResponse
+     */
+    public function getMetaTableIntroWikiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMetaTableIntroWikiResponse::fromMap($this->doRPCRequest('GetMetaTableIntroWiki', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTableIntroWikiRequest $request
+     *
+     * @return GetMetaTableIntroWikiResponse
+     */
+    public function getMetaTableIntroWiki($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTableIntroWikiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTableLineageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMetaTableLineageResponse
+     */
+    public function getMetaTableLineageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMetaTableLineageResponse::fromMap($this->doRPCRequest('GetMetaTableLineage', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTableLineageRequest $request
+     *
+     * @return GetMetaTableLineageResponse
+     */
+    public function getMetaTableLineage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTableLineageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTableListByCategoryRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetMetaTableListByCategoryResponse
+     */
+    public function getMetaTableListByCategoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetMetaTableListByCategoryResponse::fromMap($this->doRPCRequest('GetMetaTableListByCategory', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTableListByCategoryRequest $request
+     *
+     * @return GetMetaTableListByCategoryResponse
+     */
+    public function getMetaTableListByCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTableListByCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTableOutputRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMetaTableOutputResponse
+     */
+    public function getMetaTableOutputWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMetaTableOutputResponse::fromMap($this->doRPCRequest('GetMetaTableOutput', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTableOutputRequest $request
+     *
+     * @return GetMetaTableOutputResponse
+     */
+    public function getMetaTableOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTableOutputWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTablePartitionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetMetaTablePartitionResponse
+     */
+    public function getMetaTablePartitionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMetaTablePartitionResponse::fromMap($this->doRPCRequest('GetMetaTablePartition', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTablePartitionRequest $request
+     *
+     * @return GetMetaTablePartitionResponse
+     */
+    public function getMetaTablePartition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTablePartitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMetaTableThemeLevelRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetMetaTableThemeLevelResponse
+     */
+    public function getMetaTableThemeLevelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetMetaTableThemeLevelResponse::fromMap($this->doRPCRequest('GetMetaTableThemeLevel', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMetaTableThemeLevelRequest $request
+     *
+     * @return GetMetaTableThemeLevelResponse
+     */
+    public function getMetaTableThemeLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaTableThemeLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMigrationProcessRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMigrationProcessResponse
+     */
+    public function getMigrationProcessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMigrationProcessResponse::fromMap($this->doRPCRequest('GetMigrationProcess', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMigrationProcessRequest $request
+     *
+     * @return GetMigrationProcessResponse
+     */
+    public function getMigrationProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMigrationProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetNodeRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetNodeResponse
+     */
+    public function getNodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetNodeResponse::fromMap($this->doRPCRequest('GetNode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetNodeRequest $request
+     *
+     * @return GetNodeResponse
+     */
+    public function getNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetNodeChildrenRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetNodeChildrenResponse
+     */
+    public function getNodeChildrenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetNodeChildrenResponse::fromMap($this->doRPCRequest('GetNodeChildren', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetNodeChildrenRequest $request
+     *
+     * @return GetNodeChildrenResponse
+     */
+    public function getNodeChildren($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNodeChildrenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetNodeCodeRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetNodeCodeResponse
+     */
+    public function getNodeCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetNodeCodeResponse::fromMap($this->doRPCRequest('GetNodeCode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetNodeCodeRequest $request
+     *
+     * @return GetNodeCodeResponse
+     */
+    public function getNodeCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNodeCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetNodeOnBaselineRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetNodeOnBaselineResponse
+     */
+    public function getNodeOnBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetNodeOnBaselineResponse::fromMap($this->doRPCRequest('GetNodeOnBaseline', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetNodeOnBaselineRequest $request
+     *
+     * @return GetNodeOnBaselineResponse
+     */
+    public function getNodeOnBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNodeOnBaselineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetNodeParentsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetNodeParentsResponse
+     */
+    public function getNodeParentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetNodeParentsResponse::fromMap($this->doRPCRequest('GetNodeParents', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetNodeParentsRequest $request
+     *
+     * @return GetNodeParentsResponse
+     */
+    public function getNodeParents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNodeParentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetNodeTypeListInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetNodeTypeListInfoResponse
+     */
+    public function getNodeTypeListInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetNodeTypeListInfoResponse::fromMap($this->doRPCRequest('GetNodeTypeListInfo', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetNodeTypeListInfoRequest $request
+     *
+     * @return GetNodeTypeListInfoResponse
+     */
+    public function getNodeTypeListInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNodeTypeListInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOpRiskDataRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetOpRiskDataResponse
+     */
+    public function getOpRiskDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetOpRiskDataResponse::fromMap($this->doRPCRequest('GetOpRiskData', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetOpRiskDataRequest $request
+     *
+     * @return GetOpRiskDataResponse
+     */
+    public function getOpRiskData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOpRiskDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOpSensitiveDataRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetOpSensitiveDataResponse
+     */
+    public function getOpSensitiveDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetOpSensitiveDataResponse::fromMap($this->doRPCRequest('GetOpSensitiveData', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetOpSensitiveDataRequest $request
+     *
+     * @return GetOpSensitiveDataResponse
+     */
+    public function getOpSensitiveData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOpSensitiveDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPermissionApplyOrderDetailRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetPermissionApplyOrderDetailResponse
+     */
+    public function getPermissionApplyOrderDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetPermissionApplyOrderDetailResponse::fromMap($this->doRPCRequest('GetPermissionApplyOrderDetail', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetPermissionApplyOrderDetailRequest $request
+     *
+     * @return GetPermissionApplyOrderDetailResponse
+     */
+    public function getPermissionApplyOrderDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPermissionApplyOrderDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetProjectRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetProjectResponse
+     */
+    public function getProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetProjectResponse::fromMap($this->doRPCRequest('GetProject', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetProjectRequest $request
+     *
+     * @return GetProjectResponse
+     */
+    public function getProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetProjectDetailRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetProjectDetailResponse
+     */
+    public function getProjectDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetProjectDetailResponse::fromMap($this->doRPCRequest('GetProjectDetail', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetProjectDetailRequest $request
+     *
+     * @return GetProjectDetailResponse
+     */
+    public function getProjectDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -5961,11 +3919,14 @@ class Dataworkspublic extends Rpc
      *
      * @return GetQualityEntityResponse
      */
-    public function getQualityEntity($request, $runtime)
+    public function getQualityEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetQualityEntityResponse::fromMap($this->doRequest('GetQualityEntity', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetQualityEntityResponse::fromMap($this->doRPCRequest('GetQualityEntity', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5973,11 +3934,11 @@ class Dataworkspublic extends Rpc
      *
      * @return GetQualityEntityResponse
      */
-    public function getQualityEntitySimply($request)
+    public function getQualityEntity($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getQualityEntity($request, $runtime);
+        return $this->getQualityEntityWithOptions($request, $runtime);
     }
 
     /**
@@ -5986,11 +3947,14 @@ class Dataworkspublic extends Rpc
      *
      * @return GetQualityFollowerResponse
      */
-    public function getQualityFollower($request, $runtime)
+    public function getQualityFollowerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return GetQualityFollowerResponse::fromMap($this->doRequest('GetQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetQualityFollowerResponse::fromMap($this->doRPCRequest('GetQualityFollower', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -5998,86 +3962,2650 @@ class Dataworkspublic extends Rpc
      *
      * @return GetQualityFollowerResponse
      */
-    public function getQualityFollowerSimply($request)
+    public function getQualityFollower($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getQualityFollower($request, $runtime);
+        return $this->getQualityFollowerWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteQualityFollowerRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param GetQualityRuleRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return DeleteQualityFollowerResponse
+     * @return GetQualityRuleResponse
      */
-    public function deleteQualityFollower($request, $runtime)
+    public function getQualityRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteQualityFollowerResponse::fromMap($this->doRequest('DeleteQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetQualityRuleResponse::fromMap($this->doRPCRequest('GetQualityRule', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteQualityFollowerRequest $request
+     * @param GetQualityRuleRequest $request
      *
-     * @return DeleteQualityFollowerResponse
+     * @return GetQualityRuleResponse
      */
-    public function deleteQualityFollowerSimply($request)
+    public function getQualityRule($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteQualityFollower($request, $runtime);
+        return $this->getQualityRuleWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateQualityEntityRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetRemindRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return CreateQualityEntityResponse
+     * @return GetRemindResponse
      */
-    public function createQualityEntity($request, $runtime)
+    public function getRemindWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateQualityEntityResponse::fromMap($this->doRequest('CreateQualityEntity', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetRemindResponse::fromMap($this->doRPCRequest('GetRemind', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateQualityEntityRequest $request
+     * @param GetRemindRequest $request
      *
-     * @return CreateQualityEntityResponse
+     * @return GetRemindResponse
      */
-    public function createQualityEntitySimply($request)
+    public function getRemind($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createQualityEntity($request, $runtime);
+        return $this->getRemindWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateQualityRuleRequest $request
+     * @param GetSensitiveDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSensitiveDataResponse
+     */
+    public function getSensitiveDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetSensitiveDataResponse::fromMap($this->doRPCRequest('GetSensitiveData', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSensitiveDataRequest $request
+     *
+     * @return GetSensitiveDataResponse
+     */
+    public function getSensitiveData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSensitiveDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSuccessInstanceTrendRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetSuccessInstanceTrendResponse
+     */
+    public function getSuccessInstanceTrendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetSuccessInstanceTrendResponse::fromMap($this->doRPCRequest('GetSuccessInstanceTrend', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetSuccessInstanceTrendRequest $request
+     *
+     * @return GetSuccessInstanceTrendResponse
+     */
+    public function getSuccessInstanceTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSuccessInstanceTrendWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTopicRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTopicResponse
+     */
+    public function getTopicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetTopicResponse::fromMap($this->doRPCRequest('GetTopic', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetTopicRequest $request
+     *
+     * @return GetTopicResponse
+     */
+    public function getTopic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTopicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTopicInfluenceRequest $request
      * @param RuntimeOptions           $runtime
      *
-     * @return CreateQualityRuleResponse
+     * @return GetTopicInfluenceResponse
      */
-    public function createQualityRule($request, $runtime)
+    public function getTopicInfluenceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateQualityRuleResponse::fromMap($this->doRequest('CreateQualityRule', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return GetTopicInfluenceResponse::fromMap($this->doRPCRequest('GetTopicInfluence', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateQualityRuleRequest $request
+     * @param GetTopicInfluenceRequest $request
      *
-     * @return CreateQualityRuleResponse
+     * @return GetTopicInfluenceResponse
      */
-    public function createQualityRuleSimply($request)
+    public function getTopicInfluence($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createQualityRule($request, $runtime);
+        return $this->getTopicInfluenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportConnectionsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ImportConnectionsResponse
+     */
+    public function importConnectionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ImportConnectionsResponse::fromMap($this->doRPCRequest('ImportConnections', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ImportConnectionsRequest $request
+     *
+     * @return ImportConnectionsResponse
+     */
+    public function importConnections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importConnectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportDataSourcesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ImportDataSourcesResponse
+     */
+    public function importDataSourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ImportDataSourcesResponse::fromMap($this->doRPCRequest('ImportDataSources', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ImportDataSourcesRequest $request
+     *
+     * @return ImportDataSourcesResponse
+     */
+    public function importDataSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importDataSourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportDISyncTasksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ImportDISyncTasksResponse
+     */
+    public function importDISyncTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ImportDISyncTasksResponse::fromMap($this->doRPCRequest('ImportDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ImportDISyncTasksRequest $request
+     *
+     * @return ImportDISyncTasksResponse
+     */
+    public function importDISyncTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importDISyncTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAlertMessagesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAlertMessagesResponse
+     */
+    public function listAlertMessagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListAlertMessagesResponse::fromMap($this->doRPCRequest('ListAlertMessages', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAlertMessagesRequest $request
+     *
+     * @return ListAlertMessagesResponse
+     */
+    public function listAlertMessages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAlertMessagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBaselineConfigsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListBaselineConfigsResponse
+     */
+    public function listBaselineConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBaselineConfigsResponse::fromMap($this->doRPCRequest('ListBaselineConfigs', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBaselineConfigsRequest $request
+     *
+     * @return ListBaselineConfigsResponse
+     */
+    public function listBaselineConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBaselineConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBaselineStatusesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListBaselineStatusesResponse
+     */
+    public function listBaselineStatusesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBaselineStatusesResponse::fromMap($this->doRPCRequest('ListBaselineStatuses', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBaselineStatusesRequest $request
+     *
+     * @return ListBaselineStatusesResponse
+     */
+    public function listBaselineStatuses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBaselineStatusesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBusinessRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListBusinessResponse
+     */
+    public function listBusinessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListBusinessResponse::fromMap($this->doRPCRequest('ListBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListBusinessRequest $request
+     *
+     * @return ListBusinessResponse
+     */
+    public function listBusiness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBusinessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCalcEnginesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCalcEnginesResponse
+     */
+    public function listCalcEnginesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListCalcEnginesResponse::fromMap($this->doRPCRequest('ListCalcEngines', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListCalcEnginesRequest $request
+     *
+     * @return ListCalcEnginesResponse
+     */
+    public function listCalcEngines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCalcEnginesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListConnectionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListConnectionsResponse
+     */
+    public function listConnectionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListConnectionsResponse::fromMap($this->doRPCRequest('ListConnections', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListConnectionsRequest $request
+     *
+     * @return ListConnectionsResponse
+     */
+    public function listConnections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConnectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataServiceApiAuthoritiesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListDataServiceApiAuthoritiesResponse
+     */
+    public function listDataServiceApiAuthoritiesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDataServiceApiAuthoritiesResponse::fromMap($this->doRPCRequest('ListDataServiceApiAuthorities', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDataServiceApiAuthoritiesRequest $request
+     *
+     * @return ListDataServiceApiAuthoritiesResponse
+     */
+    public function listDataServiceApiAuthorities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataServiceApiAuthoritiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataServiceApisRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDataServiceApisResponse
+     */
+    public function listDataServiceApisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDataServiceApisResponse::fromMap($this->doRPCRequest('ListDataServiceApis', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDataServiceApisRequest $request
+     *
+     * @return ListDataServiceApisResponse
+     */
+    public function listDataServiceApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataServiceApisWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataServiceApplicationsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListDataServiceApplicationsResponse
+     */
+    public function listDataServiceApplicationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDataServiceApplicationsResponse::fromMap($this->doRPCRequest('ListDataServiceApplications', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDataServiceApplicationsRequest $request
+     *
+     * @return ListDataServiceApplicationsResponse
+     */
+    public function listDataServiceApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataServiceApplicationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataServiceAuthorizedApisRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListDataServiceAuthorizedApisResponse
+     */
+    public function listDataServiceAuthorizedApisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDataServiceAuthorizedApisResponse::fromMap($this->doRPCRequest('ListDataServiceAuthorizedApis', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDataServiceAuthorizedApisRequest $request
+     *
+     * @return ListDataServiceAuthorizedApisResponse
+     */
+    public function listDataServiceAuthorizedApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataServiceAuthorizedApisWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataServiceFoldersRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDataServiceFoldersResponse
+     */
+    public function listDataServiceFoldersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDataServiceFoldersResponse::fromMap($this->doRPCRequest('ListDataServiceFolders', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDataServiceFoldersRequest $request
+     *
+     * @return ListDataServiceFoldersResponse
+     */
+    public function listDataServiceFolders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataServiceFoldersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataServiceGroupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDataServiceGroupsResponse
+     */
+    public function listDataServiceGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDataServiceGroupsResponse::fromMap($this->doRPCRequest('ListDataServiceGroups', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDataServiceGroupsRequest $request
+     *
+     * @return ListDataServiceGroupsResponse
+     */
+    public function listDataServiceGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataServiceGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataServicePublishedApisRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListDataServicePublishedApisResponse
+     */
+    public function listDataServicePublishedApisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDataServicePublishedApisResponse::fromMap($this->doRPCRequest('ListDataServicePublishedApis', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDataServicePublishedApisRequest $request
+     *
+     * @return ListDataServicePublishedApisResponse
+     */
+    public function listDataServicePublishedApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataServicePublishedApisWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataSourcesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDataSourcesResponse
+     */
+    public function listDataSourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListDataSourcesResponse::fromMap($this->doRPCRequest('ListDataSources', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDataSourcesRequest $request
+     *
+     * @return ListDataSourcesResponse
+     */
+    public function listDataSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataSourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDIProjectConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDIProjectConfigResponse
+     */
+    public function listDIProjectConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDIProjectConfigResponse::fromMap($this->doRPCRequest('ListDIProjectConfig', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDIProjectConfigRequest $request
+     *
+     * @return ListDIProjectConfigResponse
+     */
+    public function listDIProjectConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDIProjectConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDISyncTasksRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDISyncTasksResponse
+     */
+    public function listDISyncTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDISyncTasksResponse::fromMap($this->doRPCRequest('ListDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDISyncTasksRequest $request
+     *
+     * @return ListDISyncTasksResponse
+     */
+    public function listDISyncTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDISyncTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListFilesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListFilesResponse
+     */
+    public function listFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListFilesResponse::fromMap($this->doRPCRequest('ListFiles', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListFilesRequest $request
+     *
+     * @return ListFilesResponse
+     */
+    public function listFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListFileTypeRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListFileTypeResponse
+     */
+    public function listFileTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListFileTypeResponse::fromMap($this->doRPCRequest('ListFileType', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListFileTypeRequest $request
+     *
+     * @return ListFileTypeResponse
+     */
+    public function listFileType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFileTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListFileVersionsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListFileVersionsResponse
+     */
+    public function listFileVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListFileVersionsResponse::fromMap($this->doRPCRequest('ListFileVersions', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListFileVersionsRequest $request
+     *
+     * @return ListFileVersionsResponse
+     */
+    public function listFileVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFileVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListFoldersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListFoldersResponse
+     */
+    public function listFoldersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListFoldersResponse::fromMap($this->doRPCRequest('ListFolders', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListFoldersRequest $request
+     *
+     * @return ListFoldersResponse
+     */
+    public function listFolders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFoldersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInstanceAmountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListInstanceAmountResponse
+     */
+    public function listInstanceAmountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListInstanceAmountResponse::fromMap($this->doRPCRequest('ListInstanceAmount', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListInstanceAmountRequest $request
+     *
+     * @return ListInstanceAmountResponse
+     */
+    public function listInstanceAmount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceAmountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListInstancesResponse::fromMap($this->doRPCRequest('ListInstances', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListManualDagInstancesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListManualDagInstancesResponse
+     */
+    public function listManualDagInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListManualDagInstancesResponse::fromMap($this->doRPCRequest('ListManualDagInstances', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListManualDagInstancesRequest $request
+     *
+     * @return ListManualDagInstancesResponse
+     */
+    public function listManualDagInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listManualDagInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMetaDBRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListMetaDBResponse
+     */
+    public function listMetaDBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListMetaDBResponse::fromMap($this->doRPCRequest('ListMetaDB', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListMetaDBRequest $request
+     *
+     * @return ListMetaDBResponse
+     */
+    public function listMetaDB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMetaDBWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListNodeInputOrOutputRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListNodeInputOrOutputResponse
+     */
+    public function listNodeInputOrOutputWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListNodeInputOrOutputResponse::fromMap($this->doRPCRequest('ListNodeInputOrOutput', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListNodeInputOrOutputRequest $request
+     *
+     * @return ListNodeInputOrOutputResponse
+     */
+    public function listNodeInputOrOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNodeInputOrOutputWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListNodeIORequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListNodeIOResponse
+     */
+    public function listNodeIOWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListNodeIOResponse::fromMap($this->doRPCRequest('ListNodeIO', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListNodeIORequest $request
+     *
+     * @return ListNodeIOResponse
+     */
+    public function listNodeIO($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNodeIOWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListNodesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListNodesResponse
+     */
+    public function listNodesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListNodesResponse::fromMap($this->doRPCRequest('ListNodes', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListNodesRequest $request
+     *
+     * @return ListNodesResponse
+     */
+    public function listNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListNodesByBaselineRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListNodesByBaselineResponse
+     */
+    public function listNodesByBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListNodesByBaselineResponse::fromMap($this->doRPCRequest('ListNodesByBaseline', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListNodesByBaselineRequest $request
+     *
+     * @return ListNodesByBaselineResponse
+     */
+    public function listNodesByBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNodesByBaselineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListNodesByOutputRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListNodesByOutputResponse
+     */
+    public function listNodesByOutputWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListNodesByOutputResponse::fromMap($this->doRPCRequest('ListNodesByOutput', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListNodesByOutputRequest $request
+     *
+     * @return ListNodesByOutputResponse
+     */
+    public function listNodesByOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNodesByOutputWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPermissionApplyOrdersRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListPermissionApplyOrdersResponse
+     */
+    public function listPermissionApplyOrdersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListPermissionApplyOrdersResponse::fromMap($this->doRPCRequest('ListPermissionApplyOrders', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListPermissionApplyOrdersRequest $request
+     *
+     * @return ListPermissionApplyOrdersResponse
+     */
+    public function listPermissionApplyOrders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPermissionApplyOrdersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProgramTypeCountRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListProgramTypeCountResponse
+     */
+    public function listProgramTypeCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListProgramTypeCountResponse::fromMap($this->doRPCRequest('ListProgramTypeCount', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListProgramTypeCountRequest $request
+     *
+     * @return ListProgramTypeCountResponse
+     */
+    public function listProgramTypeCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProgramTypeCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProjectIdsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListProjectIdsResponse
+     */
+    public function listProjectIdsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListProjectIdsResponse::fromMap($this->doRPCRequest('ListProjectIds', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListProjectIdsRequest $request
+     *
+     * @return ListProjectIdsResponse
+     */
+    public function listProjectIds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectIdsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProjectMembersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListProjectMembersResponse
+     */
+    public function listProjectMembersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListProjectMembersResponse::fromMap($this->doRPCRequest('ListProjectMembers', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListProjectMembersRequest $request
+     *
+     * @return ListProjectMembersResponse
+     */
+    public function listProjectMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProjectRolesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListProjectRolesResponse
+     */
+    public function listProjectRolesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListProjectRolesResponse::fromMap($this->doRPCRequest('ListProjectRoles', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListProjectRolesRequest $request
+     *
+     * @return ListProjectRolesResponse
+     */
+    public function listProjectRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectRolesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProjectsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjectsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListProjectsResponse::fromMap($this->doRPCRequest('ListProjects', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListQualityResultsByEntityRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListQualityResultsByEntityResponse
+     */
+    public function listQualityResultsByEntityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListQualityResultsByEntityResponse::fromMap($this->doRPCRequest('ListQualityResultsByEntity', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListQualityResultsByEntityRequest $request
+     *
+     * @return ListQualityResultsByEntityResponse
+     */
+    public function listQualityResultsByEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQualityResultsByEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListQualityResultsByRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListQualityResultsByRuleResponse
+     */
+    public function listQualityResultsByRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListQualityResultsByRuleResponse::fromMap($this->doRPCRequest('ListQualityResultsByRule', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListQualityResultsByRuleRequest $request
+     *
+     * @return ListQualityResultsByRuleResponse
+     */
+    public function listQualityResultsByRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQualityResultsByRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListQualityRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListQualityRulesResponse
+     */
+    public function listQualityRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListQualityRulesResponse::fromMap($this->doRPCRequest('ListQualityRules', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListQualityRulesRequest $request
+     *
+     * @return ListQualityRulesResponse
+     */
+    public function listQualityRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQualityRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRefDISyncTasksRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListRefDISyncTasksResponse
+     */
+    public function listRefDISyncTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListRefDISyncTasksResponse::fromMap($this->doRPCRequest('ListRefDISyncTasks', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListRefDISyncTasksRequest $request
+     *
+     * @return ListRefDISyncTasksResponse
+     */
+    public function listRefDISyncTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRefDISyncTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRemindsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRemindsResponse
+     */
+    public function listRemindsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListRemindsResponse::fromMap($this->doRPCRequest('ListReminds', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListRemindsRequest $request
+     *
+     * @return ListRemindsResponse
+     */
+    public function listReminds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRemindsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListResourceGroupsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListResourceGroupsResponse
+     */
+    public function listResourceGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListResourceGroupsResponse::fromMap($this->doRPCRequest('ListResourceGroups', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListResourceGroupsRequest $request
+     *
+     * @return ListResourceGroupsResponse
+     */
+    public function listResourceGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSuccessInstanceAmountRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListSuccessInstanceAmountResponse
+     */
+    public function listSuccessInstanceAmountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListSuccessInstanceAmountResponse::fromMap($this->doRPCRequest('ListSuccessInstanceAmount', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListSuccessInstanceAmountRequest $request
+     *
+     * @return ListSuccessInstanceAmountResponse
+     */
+    public function listSuccessInstanceAmount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSuccessInstanceAmountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTableLevelRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListTableLevelResponse
+     */
+    public function listTableLevelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListTableLevelResponse::fromMap($this->doRPCRequest('ListTableLevel', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListTableLevelRequest $request
+     *
+     * @return ListTableLevelResponse
+     */
+    public function listTableLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTableLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTableThemeRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListTableThemeResponse
+     */
+    public function listTableThemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListTableThemeResponse::fromMap($this->doRPCRequest('ListTableTheme', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListTableThemeRequest $request
+     *
+     * @return ListTableThemeResponse
+     */
+    public function listTableTheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTableThemeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTopicsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListTopicsResponse
+     */
+    public function listTopicsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListTopicsResponse::fromMap($this->doRPCRequest('ListTopics', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListTopicsRequest $request
+     *
+     * @return ListTopicsResponse
+     */
+    public function listTopics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTopicsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PublishDataServiceApiRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PublishDataServiceApiResponse
+     */
+    public function publishDataServiceApiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return PublishDataServiceApiResponse::fromMap($this->doRPCRequest('PublishDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param PublishDataServiceApiRequest $request
+     *
+     * @return PublishDataServiceApiResponse
+     */
+    public function publishDataServiceApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishDataServiceApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryPublicModelEngineRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryPublicModelEngineResponse
+     */
+    public function queryPublicModelEngineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return QueryPublicModelEngineResponse::fromMap($this->doRPCRequest('QueryPublicModelEngine', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param QueryPublicModelEngineRequest $request
+     *
+     * @return QueryPublicModelEngineResponse
+     */
+    public function queryPublicModelEngine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPublicModelEngineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveProjectMemberFromRoleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RemoveProjectMemberFromRoleResponse
+     */
+    public function removeProjectMemberFromRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RemoveProjectMemberFromRoleResponse::fromMap($this->doRPCRequest('RemoveProjectMemberFromRole', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RemoveProjectMemberFromRoleRequest $request
+     *
+     * @return RemoveProjectMemberFromRoleResponse
+     */
+    public function removeProjectMemberFromRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeProjectMemberFromRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RestartInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RestartInstanceResponse
+     */
+    public function restartInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RestartInstanceResponse::fromMap($this->doRPCRequest('RestartInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RestartInstanceRequest $request
+     *
+     * @return RestartInstanceResponse
+     */
+    public function restartInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResumeInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ResumeInstanceResponse
+     */
+    public function resumeInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ResumeInstanceResponse::fromMap($this->doRPCRequest('ResumeInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ResumeInstanceRequest $request
+     *
+     * @return ResumeInstanceResponse
+     */
+    public function resumeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RevokeColumnPermissionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RevokeColumnPermissionResponse
+     */
+    public function revokeColumnPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RevokeColumnPermissionResponse::fromMap($this->doRPCRequest('RevokeColumnPermission', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RevokeColumnPermissionRequest $request
+     *
+     * @return RevokeColumnPermissionResponse
+     */
+    public function revokeColumnPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeColumnPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RevokeTablePermissionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RevokeTablePermissionResponse
+     */
+    public function revokeTablePermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RevokeTablePermissionResponse::fromMap($this->doRPCRequest('RevokeTablePermission', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RevokeTablePermissionRequest $request
+     *
+     * @return RevokeTablePermissionResponse
+     */
+    public function revokeTablePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeTablePermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RunCycleDagNodesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RunCycleDagNodesResponse
+     */
+    public function runCycleDagNodesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RunCycleDagNodesResponse::fromMap($this->doRPCRequest('RunCycleDagNodes', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RunCycleDagNodesRequest $request
+     *
+     * @return RunCycleDagNodesResponse
+     */
+    public function runCycleDagNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runCycleDagNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RunManualDagNodesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RunManualDagNodesResponse
+     */
+    public function runManualDagNodesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RunManualDagNodesResponse::fromMap($this->doRPCRequest('RunManualDagNodes', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RunManualDagNodesRequest $request
+     *
+     * @return RunManualDagNodesResponse
+     */
+    public function runManualDagNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runManualDagNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RunSmokeTestRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RunSmokeTestResponse
+     */
+    public function runSmokeTestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RunSmokeTestResponse::fromMap($this->doRPCRequest('RunSmokeTest', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RunSmokeTestRequest $request
+     *
+     * @return RunSmokeTestResponse
+     */
+    public function runSmokeTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runSmokeTestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RunTriggerNodeRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RunTriggerNodeResponse
+     */
+    public function runTriggerNodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RunTriggerNodeResponse::fromMap($this->doRPCRequest('RunTriggerNode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RunTriggerNodeRequest $request
+     *
+     * @return RunTriggerNodeResponse
+     */
+    public function runTriggerNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runTriggerNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ScanSensitiveDataRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ScanSensitiveDataResponse
+     */
+    public function scanSensitiveDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ScanSensitiveDataResponse::fromMap($this->doRPCRequest('ScanSensitiveData', '2020-05-18', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ScanSensitiveDataRequest $request
+     *
+     * @return ScanSensitiveDataResponse
+     */
+    public function scanSensitiveData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->scanSensitiveDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchMetaTablesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SearchMetaTablesResponse
+     */
+    public function searchMetaTablesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SearchMetaTablesResponse::fromMap($this->doRPCRequest('SearchMetaTables', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SearchMetaTablesRequest $request
+     *
+     * @return SearchMetaTablesResponse
+     */
+    public function searchMetaTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchMetaTablesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchNodesByOutputRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SearchNodesByOutputResponse
+     */
+    public function searchNodesByOutputWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SearchNodesByOutputResponse::fromMap($this->doRPCRequest('SearchNodesByOutput', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SearchNodesByOutputRequest $request
+     *
+     * @return SearchNodesByOutputResponse
+     */
+    public function searchNodesByOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchNodesByOutputWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetConnectionShareRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetConnectionShareResponse
+     */
+    public function setConnectionShareWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetConnectionShareResponse::fromMap($this->doRPCRequest('SetConnectionShare', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetConnectionShareRequest $request
+     *
+     * @return SetConnectionShareResponse
+     */
+    public function setConnectionShare($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setConnectionShareWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDataSourceShareRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetDataSourceShareResponse
+     */
+    public function setDataSourceShareWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetDataSourceShareResponse::fromMap($this->doRPCRequest('SetDataSourceShare', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetDataSourceShareRequest $request
+     *
+     * @return SetDataSourceShareResponse
+     */
+    public function setDataSourceShare($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDataSourceShareWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetSuccessInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetSuccessInstanceResponse
+     */
+    public function setSuccessInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SetSuccessInstanceResponse::fromMap($this->doRPCRequest('SetSuccessInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SetSuccessInstanceRequest $request
+     *
+     * @return SetSuccessInstanceResponse
+     */
+    public function setSuccessInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setSuccessInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartDISyncInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartDISyncInstanceResponse
+     */
+    public function startDISyncInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartDISyncInstanceResponse::fromMap($this->doRPCRequest('StartDISyncInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartDISyncInstanceRequest $request
+     *
+     * @return StartDISyncInstanceResponse
+     */
+    public function startDISyncInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startDISyncInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartMigrationRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StartMigrationResponse
+     */
+    public function startMigrationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartMigrationResponse::fromMap($this->doRPCRequest('StartMigration', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartMigrationRequest $request
+     *
+     * @return StartMigrationResponse
+     */
+    public function startMigration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startMigrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopDISyncInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopDISyncInstanceResponse
+     */
+    public function stopDISyncInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StopDISyncInstanceResponse::fromMap($this->doRPCRequest('StopDISyncInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StopDISyncInstanceRequest $request
+     *
+     * @return StopDISyncInstanceResponse
+     */
+    public function stopDISyncInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDISyncInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopInstanceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopInstanceResponse
+     */
+    public function stopInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StopInstanceResponse::fromMap($this->doRPCRequest('StopInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StopInstanceRequest $request
+     *
+     * @return StopInstanceResponse
+     */
+    public function stopInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SubmitFileResponse
+     */
+    public function submitFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SubmitFileResponse::fromMap($this->doRPCRequest('SubmitFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SubmitFileRequest $request
+     *
+     * @return SubmitFileResponse
+     */
+    public function submitFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SuspendInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SuspendInstanceResponse
+     */
+    public function suspendInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SuspendInstanceResponse::fromMap($this->doRPCRequest('SuspendInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SuspendInstanceRequest $request
+     *
+     * @return SuspendInstanceResponse
+     */
+    public function suspendInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->suspendInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TerminateDISyncInstanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TerminateDISyncInstanceResponse
+     */
+    public function terminateDISyncInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TerminateDISyncInstanceResponse::fromMap($this->doRPCRequest('TerminateDISyncInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TerminateDISyncInstanceRequest $request
+     *
+     * @return TerminateDISyncInstanceResponse
+     */
+    public function terminateDISyncInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->terminateDISyncInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TestNetworkConnectionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TestNetworkConnectionResponse
+     */
+    public function testNetworkConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TestNetworkConnectionResponse::fromMap($this->doRPCRequest('TestNetworkConnection', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TestNetworkConnectionRequest $request
+     *
+     * @return TestNetworkConnectionResponse
+     */
+    public function testNetworkConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testNetworkConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TopTenElapsedTimeInstanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return TopTenElapsedTimeInstanceResponse
+     */
+    public function topTenElapsedTimeInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TopTenElapsedTimeInstanceResponse::fromMap($this->doRPCRequest('TopTenElapsedTimeInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TopTenElapsedTimeInstanceRequest $request
+     *
+     * @return TopTenElapsedTimeInstanceResponse
+     */
+    public function topTenElapsedTimeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->topTenElapsedTimeInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TopTenErrorTimesInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return TopTenErrorTimesInstanceResponse
+     */
+    public function topTenErrorTimesInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return TopTenErrorTimesInstanceResponse::fromMap($this->doRPCRequest('TopTenErrorTimesInstance', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param TopTenErrorTimesInstanceRequest $request
+     *
+     * @return TopTenErrorTimesInstanceResponse
+     */
+    public function topTenErrorTimesInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->topTenErrorTimesInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateBusinessRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateBusinessResponse
+     */
+    public function updateBusinessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateBusinessResponse::fromMap($this->doRPCRequest('UpdateBusiness', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateBusinessRequest $request
+     *
+     * @return UpdateBusinessResponse
+     */
+    public function updateBusiness($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBusinessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateConnectionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateConnectionResponse
+     */
+    public function updateConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateConnectionResponse::fromMap($this->doRPCRequest('UpdateConnection', '2020-05-18', 'HTTPS', 'PUT', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateConnectionRequest $request
+     *
+     * @return UpdateConnectionResponse
+     */
+    public function updateConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDataServiceApiRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateDataServiceApiResponse
+     */
+    public function updateDataServiceApiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDataServiceApiResponse::fromMap($this->doRPCRequest('UpdateDataServiceApi', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDataServiceApiRequest $request
+     *
+     * @return UpdateDataServiceApiResponse
+     */
+    public function updateDataServiceApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataServiceApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDataSourceResponse
+     */
+    public function updateDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDataSourceResponse::fromMap($this->doRPCRequest('UpdateDataSource', '2020-05-18', 'HTTPS', 'PUT', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDataSourceRequest $request
+     *
+     * @return UpdateDataSourceResponse
+     */
+    public function updateDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDIProjectConfigRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDIProjectConfigResponse
+     */
+    public function updateDIProjectConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDIProjectConfigResponse::fromMap($this->doRPCRequest('UpdateDIProjectConfig', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDIProjectConfigRequest $request
+     *
+     * @return UpdateDIProjectConfigResponse
+     */
+    public function updateDIProjectConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDIProjectConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDISyncTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDISyncTaskResponse
+     */
+    public function updateDISyncTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateDISyncTaskResponse::fromMap($this->doRPCRequest('UpdateDISyncTask', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDISyncTaskRequest $request
+     *
+     * @return UpdateDISyncTaskResponse
+     */
+    public function updateDISyncTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDISyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateFileResponse
+     */
+    public function updateFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateFileResponse::fromMap($this->doRPCRequest('UpdateFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateFileRequest $request
+     *
+     * @return UpdateFileResponse
+     */
+    public function updateFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateFolderRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateFolderResponse
+     */
+    public function updateFolderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateFolderResponse::fromMap($this->doRPCRequest('UpdateFolder', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateFolderRequest $request
+     *
+     * @return UpdateFolderResponse
+     */
+    public function updateFolder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFolderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMetaCategoryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateMetaCategoryResponse
+     */
+    public function updateMetaCategoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateMetaCategoryResponse::fromMap($this->doRPCRequest('UpdateMetaCategory', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMetaCategoryRequest $request
+     *
+     * @return UpdateMetaCategoryResponse
+     */
+    public function updateMetaCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMetaCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMetaTableRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateMetaTableResponse
+     */
+    public function updateMetaTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateMetaTableResponse::fromMap($this->doRPCRequest('UpdateMetaTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMetaTableRequest $request
+     *
+     * @return UpdateMetaTableResponse
+     */
+    public function updateMetaTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMetaTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMetaTableIntroWikiRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateMetaTableIntroWikiResponse
+     */
+    public function updateMetaTableIntroWikiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateMetaTableIntroWikiResponse::fromMap($this->doRPCRequest('UpdateMetaTableIntroWiki', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMetaTableIntroWikiRequest $request
+     *
+     * @return UpdateMetaTableIntroWikiResponse
+     */
+    public function updateMetaTableIntroWiki($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMetaTableIntroWikiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateNodeOwnerRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateNodeOwnerResponse
+     */
+    public function updateNodeOwnerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateNodeOwnerResponse::fromMap($this->doRPCRequest('UpdateNodeOwner', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateNodeOwnerRequest $request
+     *
+     * @return UpdateNodeOwnerResponse
+     */
+    public function updateNodeOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNodeOwnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateNodeRunModeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateNodeRunModeResponse
+     */
+    public function updateNodeRunModeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateNodeRunModeResponse::fromMap($this->doRPCRequest('UpdateNodeRunMode', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateNodeRunModeRequest $request
+     *
+     * @return UpdateNodeRunModeResponse
+     */
+    public function updateNodeRunMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNodeRunModeWithOptions($request, $runtime);
     }
 
     /**
@@ -6086,11 +6614,14 @@ class Dataworkspublic extends Rpc
      *
      * @return UpdateQualityFollowerResponse
      */
-    public function updateQualityFollower($request, $runtime)
+    public function updateQualityFollowerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return UpdateQualityFollowerResponse::fromMap($this->doRequest('UpdateQualityFollower', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return UpdateQualityFollowerResponse::fromMap($this->doRPCRequest('UpdateQualityFollower', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -6098,83 +6629,234 @@ class Dataworkspublic extends Rpc
      *
      * @return UpdateQualityFollowerResponse
      */
-    public function updateQualityFollowerSimply($request)
+    public function updateQualityFollower($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateQualityFollower($request, $runtime);
+        return $this->updateQualityFollowerWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateQualityRelativeNodeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param UpdateQualityRuleRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateQualityRelativeNodeResponse
+     * @return UpdateQualityRuleResponse
      */
-    public function createQualityRelativeNode($request, $runtime)
+    public function updateQualityRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return CreateQualityRelativeNodeResponse::fromMap($this->doRequest('CreateQualityRelativeNode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return UpdateQualityRuleResponse::fromMap($this->doRPCRequest('UpdateQualityRule', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateQualityRelativeNodeRequest $request
+     * @param UpdateQualityRuleRequest $request
      *
-     * @return CreateQualityRelativeNodeResponse
+     * @return UpdateQualityRuleResponse
      */
-    public function createQualityRelativeNodeSimply($request)
+    public function updateQualityRule($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createQualityRelativeNode($request, $runtime);
+        return $this->updateQualityRuleWithOptions($request, $runtime);
     }
 
     /**
-     * @param DeleteQualityRelativeNodeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param UpdateRemindRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return DeleteQualityRelativeNodeResponse
+     * @return UpdateRemindResponse
      */
-    public function deleteQualityRelativeNode($request, $runtime)
+    public function updateRemindWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return DeleteQualityRelativeNodeResponse::fromMap($this->doRequest('DeleteQualityRelativeNode', 'HTTPS', 'POST', '2020-05-18', 'AK', null, Tea::merge($request), $runtime));
+        return UpdateRemindResponse::fromMap($this->doRPCRequest('UpdateRemind', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteQualityRelativeNodeRequest $request
+     * @param UpdateRemindRequest $request
      *
-     * @return DeleteQualityRelativeNodeResponse
+     * @return UpdateRemindResponse
      */
-    public function deleteQualityRelativeNodeSimply($request)
+    public function updateRemind($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteQualityRelativeNode($request, $runtime);
+        return $this->updateRemindWithOptions($request, $runtime);
     }
 
     /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
+     * @param UpdateTableRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return string
+     * @return UpdateTableResponse
      */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    public function updateTableWithOptions($request, $runtime)
     {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
-            return @$endpointMap[$regionId];
-        }
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return UpdateTableResponse::fromMap($this->doRPCRequest('UpdateTable', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTableRequest $request
+     *
+     * @return UpdateTableResponse
+     */
+    public function updateTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTableAddColumnRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateTableAddColumnResponse
+     */
+    public function updateTableAddColumnWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateTableAddColumnResponse::fromMap($this->doRPCRequest('UpdateTableAddColumn', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTableAddColumnRequest $request
+     *
+     * @return UpdateTableAddColumnResponse
+     */
+    public function updateTableAddColumn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTableAddColumnWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTableLevelRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateTableLevelResponse
+     */
+    public function updateTableLevelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateTableLevelResponse::fromMap($this->doRPCRequest('UpdateTableLevel', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTableLevelRequest $request
+     *
+     * @return UpdateTableLevelResponse
+     */
+    public function updateTableLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTableLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTableModelInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateTableModelInfoResponse
+     */
+    public function updateTableModelInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateTableModelInfoResponse::fromMap($this->doRPCRequest('UpdateTableModelInfo', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTableModelInfoRequest $request
+     *
+     * @return UpdateTableModelInfoResponse
+     */
+    public function updateTableModelInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTableModelInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTableThemeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateTableThemeResponse
+     */
+    public function updateTableThemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateTableThemeResponse::fromMap($this->doRPCRequest('UpdateTableTheme', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTableThemeRequest $request
+     *
+     * @return UpdateTableThemeResponse
+     */
+    public function updateTableTheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTableThemeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateUdfFileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateUdfFileResponse
+     */
+    public function updateUdfFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateUdfFileResponse::fromMap($this->doRPCRequest('UpdateUdfFile', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateUdfFileRequest $request
+     *
+     * @return UpdateUdfFileResponse
+     */
+    public function updateUdfFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUdfFileWithOptions($request, $runtime);
     }
 }

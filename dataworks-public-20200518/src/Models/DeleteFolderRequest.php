@@ -30,7 +30,6 @@ class DeleteFolderRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('folderId', $this->folderId, true);
     }
 
     public function toMap()

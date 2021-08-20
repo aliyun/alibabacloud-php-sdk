@@ -48,8 +48,6 @@ class ListCalcEnginesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('calcEngineType', $this->calcEngineType, true);
     }
 
     public function toMap()

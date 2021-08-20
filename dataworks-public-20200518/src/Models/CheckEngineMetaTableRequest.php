@@ -24,8 +24,6 @@ class CheckEngineMetaTableRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('tableGuid', $this->tableGuid, true);
-        Model::validateRequired('dataSourceType', $this->dataSourceType, true);
     }
 
     public function toMap()

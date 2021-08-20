@@ -24,8 +24,6 @@ class DeleteQualityRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectName', $this->projectName, true);
-        Model::validateRequired('ruleId', $this->ruleId, true);
     }
 
     public function toMap()

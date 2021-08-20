@@ -36,8 +36,6 @@ class CreateTableThemeRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('level', $this->level, true);
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

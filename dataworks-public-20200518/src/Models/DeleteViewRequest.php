@@ -24,7 +24,6 @@ class DeleteViewRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('viewName', $this->viewName, true);
     }
 
     public function toMap()

@@ -126,8 +126,6 @@ class UpdateQualityRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('id', $this->id, true);
-        Model::validateRequired('projectName', $this->projectName, true);
     }
 
     public function toMap()

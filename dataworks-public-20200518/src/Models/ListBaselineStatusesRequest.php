@@ -72,9 +72,6 @@ class ListBaselineStatusesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('bizdate', $this->bizdate, true);
     }
 
     public function toMap()

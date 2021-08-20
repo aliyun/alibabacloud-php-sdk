@@ -90,8 +90,6 @@ class ListInstancesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectEnv', $this->projectEnv, true);
-        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

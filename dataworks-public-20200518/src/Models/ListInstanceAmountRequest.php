@@ -30,9 +30,6 @@ class ListInstanceAmountRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectId', $this->projectId, true);
-        Model::validateRequired('beginDate', $this->beginDate, true);
-        Model::validateRequired('endDate', $this->endDate, true);
     }
 
     public function toMap()

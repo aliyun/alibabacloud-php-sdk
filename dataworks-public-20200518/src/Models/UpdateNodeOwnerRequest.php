@@ -30,9 +30,6 @@ class UpdateNodeOwnerRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectEnv', $this->projectEnv, true);
-        Model::validateRequired('nodeId', $this->nodeId, true);
-        Model::validateRequired('userId', $this->userId, true);
     }
 
     public function toMap()

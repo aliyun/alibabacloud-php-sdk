@@ -24,8 +24,6 @@ class GetQualityRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('ruleId', $this->ruleId, true);
-        Model::validateRequired('projectName', $this->projectName, true);
     }
 
     public function toMap()

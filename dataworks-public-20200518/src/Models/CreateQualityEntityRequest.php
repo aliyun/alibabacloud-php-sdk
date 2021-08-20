@@ -42,11 +42,6 @@ class CreateQualityEntityRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectName', $this->projectName, true);
-        Model::validateRequired('tableName', $this->tableName, true);
-        Model::validateRequired('envType', $this->envType, true);
-        Model::validateRequired('matchExpression', $this->matchExpression, true);
-        Model::validateRequired('entityLevel', $this->entityLevel, true);
     }
 
     public function toMap()
