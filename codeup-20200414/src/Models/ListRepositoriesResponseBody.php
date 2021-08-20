@@ -15,19 +15,14 @@ class ListRepositoriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
-     * @var int
-     */
-    public $errorCode;
-
-    /**
      * @var string
      */
     public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $total;
 
     /**
      * @var bool
@@ -35,15 +30,20 @@ class ListRepositoriesResponseBody extends Model
     public $success;
 
     /**
+     * @var int
+     */
+    public $errorCode;
+
+    /**
      * @var result[]
      */
     public $result;
     protected $_name = [
         'requestId'    => 'RequestId',
-        'total'        => 'Total',
-        'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'total'        => 'Total',
         'success'      => 'Success',
+        'errorCode'    => 'ErrorCode',
         'result'       => 'Result',
     ];
 
@@ -57,17 +57,17 @@ class ListRepositoriesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->result) {
             $res['Result'] = [];
@@ -93,17 +93,17 @@ class ListRepositoriesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {

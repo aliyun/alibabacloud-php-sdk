@@ -123,7 +123,7 @@ class namespace_ extends Model
     /**
      * @param array $map
      *
-     * @return namespace
+     * @return namespace_
      */
     public static function fromMap($map = [])
     {

@@ -29,9 +29,9 @@ class result extends Model
     public $createdAt;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $tagPushEvents;
+    public $url;
 
     /**
      * @var bool
@@ -39,19 +39,14 @@ class result extends Model
     public $issuesEvents;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $url;
+    public $tagPushEvents;
 
     /**
      * @var string
      */
     public $lastTestResult;
-
-    /**
-     * @var bool
-     */
-    public $mergeRequestsEvents;
 
     /**
      * @var string
@@ -61,12 +56,17 @@ class result extends Model
     /**
      * @var bool
      */
-    public $noteEvents;
+    public $mergeRequestsEvents;
 
     /**
      * @var string
      */
     public $secretToken;
+
+    /**
+     * @var bool
+     */
+    public $noteEvents;
 
     /**
      * @var int
@@ -82,14 +82,14 @@ class result extends Model
         'buildEvents'           => 'BuildEvents',
         'projectId'             => 'ProjectId',
         'createdAt'             => 'CreatedAt',
-        'tagPushEvents'         => 'TagPushEvents',
-        'issuesEvents'          => 'IssuesEvents',
         'url'                   => 'Url',
+        'issuesEvents'          => 'IssuesEvents',
+        'tagPushEvents'         => 'TagPushEvents',
         'lastTestResult'        => 'LastTestResult',
-        'mergeRequestsEvents'   => 'MergeRequestsEvents',
         'description'           => 'Description',
-        'noteEvents'            => 'NoteEvents',
+        'mergeRequestsEvents'   => 'MergeRequestsEvents',
         'secretToken'           => 'SecretToken',
+        'noteEvents'            => 'NoteEvents',
         'id'                    => 'Id',
         'enableSslVerification' => 'EnableSslVerification',
     ];
@@ -113,29 +113,29 @@ class result extends Model
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
-        if (null !== $this->tagPushEvents) {
-            $res['TagPushEvents'] = $this->tagPushEvents;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
         if (null !== $this->issuesEvents) {
             $res['IssuesEvents'] = $this->issuesEvents;
         }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->tagPushEvents) {
+            $res['TagPushEvents'] = $this->tagPushEvents;
         }
         if (null !== $this->lastTestResult) {
             $res['LastTestResult'] = $this->lastTestResult;
         }
-        if (null !== $this->mergeRequestsEvents) {
-            $res['MergeRequestsEvents'] = $this->mergeRequestsEvents;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->noteEvents) {
-            $res['NoteEvents'] = $this->noteEvents;
+        if (null !== $this->mergeRequestsEvents) {
+            $res['MergeRequestsEvents'] = $this->mergeRequestsEvents;
         }
         if (null !== $this->secretToken) {
             $res['SecretToken'] = $this->secretToken;
+        }
+        if (null !== $this->noteEvents) {
+            $res['NoteEvents'] = $this->noteEvents;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -167,29 +167,29 @@ class result extends Model
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
-        if (isset($map['TagPushEvents'])) {
-            $model->tagPushEvents = $map['TagPushEvents'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
         if (isset($map['IssuesEvents'])) {
             $model->issuesEvents = $map['IssuesEvents'];
         }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['TagPushEvents'])) {
+            $model->tagPushEvents = $map['TagPushEvents'];
         }
         if (isset($map['LastTestResult'])) {
             $model->lastTestResult = $map['LastTestResult'];
         }
-        if (isset($map['MergeRequestsEvents'])) {
-            $model->mergeRequestsEvents = $map['MergeRequestsEvents'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['NoteEvents'])) {
-            $model->noteEvents = $map['NoteEvents'];
+        if (isset($map['MergeRequestsEvents'])) {
+            $model->mergeRequestsEvents = $map['MergeRequestsEvents'];
         }
         if (isset($map['SecretToken'])) {
             $model->secretToken = $map['SecretToken'];
+        }
+        if (isset($map['NoteEvents'])) {
+            $model->noteEvents = $map['NoteEvents'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

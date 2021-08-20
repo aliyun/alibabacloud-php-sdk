@@ -24,6 +24,11 @@ class result extends Model
     public $createdAt;
 
     /**
+     * @var string
+     */
+    public $url;
+
+    /**
      * @var bool
      */
     public $tagPushEvents;
@@ -31,17 +36,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $url;
-
-    /**
-     * @var string
-     */
     public $lastTestResult;
-
-    /**
-     * @var string
-     */
-    public $description;
 
     /**
      * @var bool
@@ -51,7 +46,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $secretToken;
+    public $description;
 
     /**
      * @var bool
@@ -59,27 +54,32 @@ class result extends Model
     public $noteEvents;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $enableSslVerification;
+    public $secretToken;
 
     /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var bool
+     */
+    public $enableSslVerification;
     protected $_name = [
         'pushEvents'            => 'PushEvents',
         'projectId'             => 'ProjectId',
         'createdAt'             => 'CreatedAt',
-        'tagPushEvents'         => 'TagPushEvents',
         'url'                   => 'Url',
+        'tagPushEvents'         => 'TagPushEvents',
         'lastTestResult'        => 'LastTestResult',
-        'description'           => 'Description',
         'mergeRequestsEvents'   => 'MergeRequestsEvents',
-        'secretToken'           => 'SecretToken',
+        'description'           => 'Description',
         'noteEvents'            => 'NoteEvents',
-        'enableSslVerification' => 'EnableSslVerification',
+        'secretToken'           => 'SecretToken',
         'id'                    => 'Id',
+        'enableSslVerification' => 'EnableSslVerification',
     ];
 
     public function validate()
@@ -98,32 +98,32 @@ class result extends Model
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
-        if (null !== $this->tagPushEvents) {
-            $res['TagPushEvents'] = $this->tagPushEvents;
-        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
+        }
+        if (null !== $this->tagPushEvents) {
+            $res['TagPushEvents'] = $this->tagPushEvents;
         }
         if (null !== $this->lastTestResult) {
             $res['LastTestResult'] = $this->lastTestResult;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->mergeRequestsEvents) {
             $res['MergeRequestsEvents'] = $this->mergeRequestsEvents;
         }
-        if (null !== $this->secretToken) {
-            $res['SecretToken'] = $this->secretToken;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->noteEvents) {
             $res['NoteEvents'] = $this->noteEvents;
         }
-        if (null !== $this->enableSslVerification) {
-            $res['EnableSslVerification'] = $this->enableSslVerification;
+        if (null !== $this->secretToken) {
+            $res['SecretToken'] = $this->secretToken;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->enableSslVerification) {
+            $res['EnableSslVerification'] = $this->enableSslVerification;
         }
 
         return $res;
@@ -146,32 +146,32 @@ class result extends Model
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
-        if (isset($map['TagPushEvents'])) {
-            $model->tagPushEvents = $map['TagPushEvents'];
-        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
+        }
+        if (isset($map['TagPushEvents'])) {
+            $model->tagPushEvents = $map['TagPushEvents'];
         }
         if (isset($map['LastTestResult'])) {
             $model->lastTestResult = $map['LastTestResult'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['MergeRequestsEvents'])) {
             $model->mergeRequestsEvents = $map['MergeRequestsEvents'];
         }
-        if (isset($map['SecretToken'])) {
-            $model->secretToken = $map['SecretToken'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['NoteEvents'])) {
             $model->noteEvents = $map['NoteEvents'];
         }
-        if (isset($map['EnableSslVerification'])) {
-            $model->enableSslVerification = $map['EnableSslVerification'];
+        if (isset($map['SecretToken'])) {
+            $model->secretToken = $map['SecretToken'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['EnableSslVerification'])) {
+            $model->enableSslVerification = $map['EnableSslVerification'];
         }
 
         return $model;

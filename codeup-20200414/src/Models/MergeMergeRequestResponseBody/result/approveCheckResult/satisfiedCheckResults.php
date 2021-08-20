@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class satisfiedCheckResults extends Model
 {
     /**
-     * @var string[]
-     */
-    public $satisfiedItems;
-
-    /**
      * @var string
      */
     public $checkStatus;
@@ -25,9 +20,9 @@ class satisfiedCheckResults extends Model
     public $checkType;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $unsatisfiedItems;
+    public $checkName;
 
     /**
      * @var extraUsers[]
@@ -35,16 +30,21 @@ class satisfiedCheckResults extends Model
     public $extraUsers;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $checkName;
+    public $unsatisfiedItems;
+
+    /**
+     * @var string[]
+     */
+    public $satisfiedItems;
     protected $_name = [
-        'satisfiedItems'   => 'SatisfiedItems',
         'checkStatus'      => 'CheckStatus',
         'checkType'        => 'CheckType',
-        'unsatisfiedItems' => 'UnsatisfiedItems',
-        'extraUsers'       => 'ExtraUsers',
         'checkName'        => 'CheckName',
+        'extraUsers'       => 'ExtraUsers',
+        'unsatisfiedItems' => 'UnsatisfiedItems',
+        'satisfiedItems'   => 'SatisfiedItems',
     ];
 
     public function validate()
@@ -54,17 +54,14 @@ class satisfiedCheckResults extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->satisfiedItems) {
-            $res['SatisfiedItems'] = $this->satisfiedItems;
-        }
         if (null !== $this->checkStatus) {
             $res['CheckStatus'] = $this->checkStatus;
         }
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
         }
-        if (null !== $this->unsatisfiedItems) {
-            $res['UnsatisfiedItems'] = $this->unsatisfiedItems;
+        if (null !== $this->checkName) {
+            $res['CheckName'] = $this->checkName;
         }
         if (null !== $this->extraUsers) {
             $res['ExtraUsers'] = [];
@@ -75,8 +72,11 @@ class satisfiedCheckResults extends Model
                 }
             }
         }
-        if (null !== $this->checkName) {
-            $res['CheckName'] = $this->checkName;
+        if (null !== $this->unsatisfiedItems) {
+            $res['UnsatisfiedItems'] = $this->unsatisfiedItems;
+        }
+        if (null !== $this->satisfiedItems) {
+            $res['SatisfiedItems'] = $this->satisfiedItems;
         }
 
         return $res;
@@ -90,21 +90,14 @@ class satisfiedCheckResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SatisfiedItems'])) {
-            if (!empty($map['SatisfiedItems'])) {
-                $model->satisfiedItems = $map['SatisfiedItems'];
-            }
-        }
         if (isset($map['CheckStatus'])) {
             $model->checkStatus = $map['CheckStatus'];
         }
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
         }
-        if (isset($map['UnsatisfiedItems'])) {
-            if (!empty($map['UnsatisfiedItems'])) {
-                $model->unsatisfiedItems = $map['UnsatisfiedItems'];
-            }
+        if (isset($map['CheckName'])) {
+            $model->checkName = $map['CheckName'];
         }
         if (isset($map['ExtraUsers'])) {
             if (!empty($map['ExtraUsers'])) {
@@ -115,8 +108,15 @@ class satisfiedCheckResults extends Model
                 }
             }
         }
-        if (isset($map['CheckName'])) {
-            $model->checkName = $map['CheckName'];
+        if (isset($map['UnsatisfiedItems'])) {
+            if (!empty($map['UnsatisfiedItems'])) {
+                $model->unsatisfiedItems = $map['UnsatisfiedItems'];
+            }
+        }
+        if (isset($map['SatisfiedItems'])) {
+            if (!empty($map['SatisfiedItems'])) {
+                $model->satisfiedItems = $map['SatisfiedItems'];
+            }
         }
 
         return $model;

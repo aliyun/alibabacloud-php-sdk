@@ -22,16 +22,10 @@ class AddGroupMemberRequest extends Model
      * @var string
      */
     public $subUserId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
         'accessToken'    => 'AccessToken',
         'organizationId' => 'OrganizationId',
         'subUserId'      => 'SubUserId',
-        'clientToken'    => 'ClientToken',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class AddGroupMemberRequest extends Model
         }
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class AddGroupMemberRequest extends Model
         }
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

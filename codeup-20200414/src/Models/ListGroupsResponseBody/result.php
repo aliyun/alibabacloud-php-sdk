@@ -24,14 +24,14 @@ class result extends Model
     public $ownerId;
 
     /**
-     * @var int
-     */
-    public $parentId;
-
-    /**
      * @var string
      */
     public $webUrl;
+
+    /**
+     * @var int
+     */
+    public $parentId;
 
     /**
      * @var string
@@ -51,12 +51,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $path;
+    public $visibilityLevel;
 
     /**
      * @var string
      */
-    public $visibilityLevel;
+    public $path;
 
     /**
      * @var int
@@ -81,13 +81,13 @@ class result extends Model
         'type'              => 'Type',
         'createdAt'         => 'CreatedAt',
         'ownerId'           => 'OwnerId',
-        'parentId'          => 'ParentId',
         'webUrl'            => 'WebUrl',
+        'parentId'          => 'ParentId',
         'description'       => 'Description',
         'nameWithNamespace' => 'NameWithNamespace',
         'pathWithNamespace' => 'PathWithNamespace',
-        'path'              => 'Path',
         'visibilityLevel'   => 'VisibilityLevel',
+        'path'              => 'Path',
         'accessLevel'       => 'AccessLevel',
         'updatedAt'         => 'UpdatedAt',
         'name'              => 'Name',
@@ -110,11 +110,11 @@ class result extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
         if (null !== $this->webUrl) {
             $res['WebUrl'] = $this->webUrl;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -125,11 +125,11 @@ class result extends Model
         if (null !== $this->pathWithNamespace) {
             $res['PathWithNamespace'] = $this->pathWithNamespace;
         }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
         if (null !== $this->visibilityLevel) {
             $res['VisibilityLevel'] = $this->visibilityLevel;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
         if (null !== $this->accessLevel) {
             $res['AccessLevel'] = $this->accessLevel;
@@ -164,11 +164,11 @@ class result extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
         if (isset($map['WebUrl'])) {
             $model->webUrl = $map['WebUrl'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -179,11 +179,11 @@ class result extends Model
         if (isset($map['PathWithNamespace'])) {
             $model->pathWithNamespace = $map['PathWithNamespace'];
         }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
         if (isset($map['VisibilityLevel'])) {
             $model->visibilityLevel = $map['VisibilityLevel'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
         if (isset($map['AccessLevel'])) {
             $model->accessLevel = $map['AccessLevel'];

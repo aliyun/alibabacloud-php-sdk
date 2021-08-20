@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var int
+     */
+    public $behindCommitCount;
+
+    /**
      * @var string
      */
     public $state;
@@ -19,17 +24,7 @@ class result extends Model
     /**
      * @var int
      */
-    public $behindCommitCount;
-
-    /**
-     * @var int
-     */
     public $projectId;
-
-    /**
-     * @var assigneeList[]
-     */
-    public $assigneeList;
 
     /**
      * @var string
@@ -37,19 +32,9 @@ class result extends Model
     public $createdAt;
 
     /**
-     * @var author
-     */
-    public $author;
-
-    /**
      * @var string
      */
     public $acceptedRevision;
-
-    /**
-     * @var approveCheckResult
-     */
-    public $approveCheckResult;
 
     /**
      * @var string
@@ -115,15 +100,27 @@ class result extends Model
      * @var string
      */
     public $mergeStatus;
+
+    /**
+     * @var assigneeList[]
+     */
+    public $assigneeList;
+
+    /**
+     * @var author
+     */
+    public $author;
+
+    /**
+     * @var approveCheckResult
+     */
+    public $approveCheckResult;
     protected $_name = [
-        'state'              => 'State',
         'behindCommitCount'  => 'BehindCommitCount',
+        'state'              => 'State',
         'projectId'          => 'ProjectId',
-        'assigneeList'       => 'AssigneeList',
         'createdAt'          => 'CreatedAt',
-        'author'             => 'Author',
         'acceptedRevision'   => 'AcceptedRevision',
-        'approveCheckResult' => 'ApproveCheckResult',
         'sourceBranch'       => 'SourceBranch',
         'webUrl'             => 'WebUrl',
         'description'        => 'Description',
@@ -137,6 +134,9 @@ class result extends Model
         'mergedRevision'     => 'MergedRevision',
         'id'                 => 'Id',
         'mergeStatus'        => 'MergeStatus',
+        'assigneeList'       => 'AssigneeList',
+        'author'             => 'Author',
+        'approveCheckResult' => 'ApproveCheckResult',
     ];
 
     public function validate()
@@ -146,35 +146,20 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->behindCommitCount) {
             $res['BehindCommitCount'] = $this->behindCommitCount;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->assigneeList) {
-            $res['AssigneeList'] = [];
-            if (null !== $this->assigneeList && \is_array($this->assigneeList)) {
-                $n = 0;
-                foreach ($this->assigneeList as $item) {
-                    $res['AssigneeList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
-        if (null !== $this->author) {
-            $res['Author'] = null !== $this->author ? $this->author->toMap() : null;
-        }
         if (null !== $this->acceptedRevision) {
             $res['AcceptedRevision'] = $this->acceptedRevision;
-        }
-        if (null !== $this->approveCheckResult) {
-            $res['ApproveCheckResult'] = null !== $this->approveCheckResult ? $this->approveCheckResult->toMap() : null;
         }
         if (null !== $this->sourceBranch) {
             $res['SourceBranch'] = $this->sourceBranch;
@@ -215,6 +200,21 @@ class result extends Model
         if (null !== $this->mergeStatus) {
             $res['MergeStatus'] = $this->mergeStatus;
         }
+        if (null !== $this->assigneeList) {
+            $res['AssigneeList'] = [];
+            if (null !== $this->assigneeList && \is_array($this->assigneeList)) {
+                $n = 0;
+                foreach ($this->assigneeList as $item) {
+                    $res['AssigneeList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->author) {
+            $res['Author'] = null !== $this->author ? $this->author->toMap() : null;
+        }
+        if (null !== $this->approveCheckResult) {
+            $res['ApproveCheckResult'] = null !== $this->approveCheckResult ? $this->approveCheckResult->toMap() : null;
+        }
 
         return $res;
     }
@@ -227,35 +227,20 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['BehindCommitCount'])) {
             $model->behindCommitCount = $map['BehindCommitCount'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['AssigneeList'])) {
-            if (!empty($map['AssigneeList'])) {
-                $model->assigneeList = [];
-                $n                   = 0;
-                foreach ($map['AssigneeList'] as $item) {
-                    $model->assigneeList[$n++] = null !== $item ? assigneeList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
-        if (isset($map['Author'])) {
-            $model->author = author::fromMap($map['Author']);
-        }
         if (isset($map['AcceptedRevision'])) {
             $model->acceptedRevision = $map['AcceptedRevision'];
-        }
-        if (isset($map['ApproveCheckResult'])) {
-            $model->approveCheckResult = approveCheckResult::fromMap($map['ApproveCheckResult']);
         }
         if (isset($map['SourceBranch'])) {
             $model->sourceBranch = $map['SourceBranch'];
@@ -295,6 +280,21 @@ class result extends Model
         }
         if (isset($map['MergeStatus'])) {
             $model->mergeStatus = $map['MergeStatus'];
+        }
+        if (isset($map['AssigneeList'])) {
+            if (!empty($map['AssigneeList'])) {
+                $model->assigneeList = [];
+                $n                   = 0;
+                foreach ($map['AssigneeList'] as $item) {
+                    $model->assigneeList[$n++] = null !== $item ? assigneeList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Author'])) {
+            $model->author = author::fromMap($map['Author']);
+        }
+        if (isset($map['ApproveCheckResult'])) {
+            $model->approveCheckResult = approveCheckResult::fromMap($map['ApproveCheckResult']);
         }
 
         return $model;

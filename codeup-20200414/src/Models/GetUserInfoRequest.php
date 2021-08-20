@@ -12,8 +12,14 @@ class GetUserInfoRequest extends Model
      * @var string
      */
     public $accessToken;
+
+    /**
+     * @var string
+     */
+    public $organizationId;
     protected $_name = [
-        'accessToken' => 'AccessToken',
+        'accessToken'    => 'AccessToken',
+        'organizationId' => 'OrganizationId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class GetUserInfoRequest extends Model
         $res = [];
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
+        }
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class GetUserInfoRequest extends Model
         $model = new self();
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
+        }
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
         }
 
         return $model;

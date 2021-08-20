@@ -11,16 +11,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var signature
-     */
-    public $signature;
-
-    /**
-     * @var commit
-     */
-    public $commit;
-
-    /**
      * @var string
      */
     public $message;
@@ -34,12 +24,22 @@ class result extends Model
      * @var string
      */
     public $id;
+
+    /**
+     * @var commit
+     */
+    public $commit;
+
+    /**
+     * @var signature
+     */
+    public $signature;
     protected $_name = [
-        'signature' => 'Signature',
-        'commit'    => 'Commit',
         'message'   => 'Message',
         'name'      => 'Name',
         'id'        => 'Id',
+        'commit'    => 'Commit',
+        'signature' => 'Signature',
     ];
 
     public function validate()
@@ -49,12 +49,6 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->signature) {
-            $res['Signature'] = null !== $this->signature ? $this->signature->toMap() : null;
-        }
-        if (null !== $this->commit) {
-            $res['Commit'] = null !== $this->commit ? $this->commit->toMap() : null;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -63,6 +57,12 @@ class result extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->commit) {
+            $res['Commit'] = null !== $this->commit ? $this->commit->toMap() : null;
+        }
+        if (null !== $this->signature) {
+            $res['Signature'] = null !== $this->signature ? $this->signature->toMap() : null;
         }
 
         return $res;
@@ -76,12 +76,6 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Signature'])) {
-            $model->signature = signature::fromMap($map['Signature']);
-        }
-        if (isset($map['Commit'])) {
-            $model->commit = commit::fromMap($map['Commit']);
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -90,6 +84,12 @@ class result extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Commit'])) {
+            $model->commit = commit::fromMap($map['Commit']);
+        }
+        if (isset($map['Signature'])) {
+            $model->signature = signature::fromMap($map['Signature']);
         }
 
         return $model;

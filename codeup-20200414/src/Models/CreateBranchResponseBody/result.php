@@ -15,18 +15,18 @@ class result extends Model
     public $protectedBranch;
 
     /**
-     * @var commitInfo
-     */
-    public $commitInfo;
-
-    /**
      * @var string
      */
     public $branchName;
+
+    /**
+     * @var commitInfo
+     */
+    public $commitInfo;
     protected $_name = [
         'protectedBranch' => 'ProtectedBranch',
-        'commitInfo'      => 'CommitInfo',
         'branchName'      => 'BranchName',
+        'commitInfo'      => 'CommitInfo',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class result extends Model
         if (null !== $this->protectedBranch) {
             $res['ProtectedBranch'] = $this->protectedBranch;
         }
-        if (null !== $this->commitInfo) {
-            $res['CommitInfo'] = null !== $this->commitInfo ? $this->commitInfo->toMap() : null;
-        }
         if (null !== $this->branchName) {
             $res['BranchName'] = $this->branchName;
+        }
+        if (null !== $this->commitInfo) {
+            $res['CommitInfo'] = null !== $this->commitInfo ? $this->commitInfo->toMap() : null;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class result extends Model
         if (isset($map['ProtectedBranch'])) {
             $model->protectedBranch = $map['ProtectedBranch'];
         }
-        if (isset($map['CommitInfo'])) {
-            $model->commitInfo = commitInfo::fromMap($map['CommitInfo']);
-        }
         if (isset($map['BranchName'])) {
             $model->branchName = $map['BranchName'];
+        }
+        if (isset($map['CommitInfo'])) {
+            $model->commitInfo = commitInfo::fromMap($map['CommitInfo']);
         }
 
         return $model;

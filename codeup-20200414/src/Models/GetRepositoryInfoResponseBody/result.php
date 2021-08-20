@@ -13,57 +13,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $defaultBranch;
-
-    /**
-     * @var string
-     */
-    public $importUrl;
-
-    /**
-     * @var string
-     */
-    public $createdAt;
-
-    /**
-     * @var string
-     */
-    public $webUrl;
-
-    /**
-     * @var string[]
-     */
-    public $tagList;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var bool
-     */
-    public $public;
-
-    /**
-     * @var string
-     */
-    public $pathWithNamespace;
-
-    /**
-     * @var string
-     */
-    public $visibilityLevel;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $lastActivityAt;
+
+    /**
+     * @var string
+     */
+    public $defaultBranch;
 
     /**
      * @var string
@@ -76,9 +31,14 @@ class result extends Model
     public $archive;
 
     /**
-     * @var namespace_
+     * @var string
      */
-    public $namespace;
+    public $importUrl;
+
+    /**
+     * @var string
+     */
+    public $createdAt;
 
     /**
      * @var bool
@@ -101,9 +61,14 @@ class result extends Model
     public $httpUrlToRepo;
 
     /**
-     * @var permissions
+     * @var string
      */
-    public $permissions;
+    public $webUrl;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -111,9 +76,24 @@ class result extends Model
     public $nameWithNamespace;
 
     /**
+     * @var bool
+     */
+    public $public;
+
+    /**
+     * @var string
+     */
+    public $pathWithNamespace;
+
+    /**
      * @var string
      */
     public $path;
+
+    /**
+     * @var string
+     */
+    public $visibilityLevel;
 
     /**
      * @var int
@@ -131,35 +111,55 @@ class result extends Model
     public $sshUrlToRepo;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string[]
+     */
+    public $tagList;
+
+    /**
+     * @var namespace_
+     */
+    public $namespace;
+
+    /**
+     * @var permissions
+     */
+    public $permissions;
     protected $_name = [
-        'defaultBranch'        => 'DefaultBranch',
-        'importUrl'            => 'ImportUrl',
-        'createdAt'            => 'CreatedAt',
-        'webUrl'               => 'WebUrl',
-        'tagList'              => 'TagList',
-        'description'          => 'Description',
-        'public'               => 'Public',
-        'pathWithNamespace'    => 'PathWithNamespace',
-        'visibilityLevel'      => 'VisibilityLevel',
-        'name'                 => 'Name',
         'lastActivityAt'       => 'LastActivityAt',
+        'defaultBranch'        => 'DefaultBranch',
         'avatarUrl'            => 'AvatarUrl',
         'archive'              => 'Archive',
-        'namespace'            => 'Namespace',
+        'importUrl'            => 'ImportUrl',
+        'createdAt'            => 'CreatedAt',
         'demoProjectStatus'    => 'DemoProjectStatus',
         'creatorId'            => 'CreatorId',
         'importStatus'         => 'ImportStatus',
         'httpUrlToRepo'        => 'HttpUrlToRepo',
-        'permissions'          => 'Permissions',
+        'webUrl'               => 'WebUrl',
+        'description'          => 'Description',
         'nameWithNamespace'    => 'NameWithNamespace',
+        'public'               => 'Public',
+        'pathWithNamespace'    => 'PathWithNamespace',
         'path'                 => 'Path',
+        'visibilityLevel'      => 'VisibilityLevel',
         'accessLevel'          => 'AccessLevel',
         'importFromSubversion' => 'ImportFromSubversion',
         'sshUrlToRepo'         => 'SshUrlToRepo',
+        'name'                 => 'Name',
         'id'                   => 'Id',
+        'tagList'              => 'TagList',
+        'namespace'            => 'Namespace',
+        'permissions'          => 'Permissions',
     ];
 
     public function validate()
@@ -169,38 +169,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->defaultBranch) {
-            $res['DefaultBranch'] = $this->defaultBranch;
-        }
-        if (null !== $this->importUrl) {
-            $res['ImportUrl'] = $this->importUrl;
-        }
-        if (null !== $this->createdAt) {
-            $res['CreatedAt'] = $this->createdAt;
-        }
-        if (null !== $this->webUrl) {
-            $res['WebUrl'] = $this->webUrl;
-        }
-        if (null !== $this->tagList) {
-            $res['TagList'] = $this->tagList;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->public) {
-            $res['Public'] = $this->public;
-        }
-        if (null !== $this->pathWithNamespace) {
-            $res['PathWithNamespace'] = $this->pathWithNamespace;
-        }
-        if (null !== $this->visibilityLevel) {
-            $res['VisibilityLevel'] = $this->visibilityLevel;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->lastActivityAt) {
             $res['LastActivityAt'] = $this->lastActivityAt;
+        }
+        if (null !== $this->defaultBranch) {
+            $res['DefaultBranch'] = $this->defaultBranch;
         }
         if (null !== $this->avatarUrl) {
             $res['AvatarUrl'] = $this->avatarUrl;
@@ -208,8 +181,11 @@ class result extends Model
         if (null !== $this->archive) {
             $res['Archive'] = $this->archive;
         }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = null !== $this->namespace ? $this->namespace->toMap() : null;
+        if (null !== $this->importUrl) {
+            $res['ImportUrl'] = $this->importUrl;
+        }
+        if (null !== $this->createdAt) {
+            $res['CreatedAt'] = $this->createdAt;
         }
         if (null !== $this->demoProjectStatus) {
             $res['DemoProjectStatus'] = $this->demoProjectStatus;
@@ -223,14 +199,26 @@ class result extends Model
         if (null !== $this->httpUrlToRepo) {
             $res['HttpUrlToRepo'] = $this->httpUrlToRepo;
         }
-        if (null !== $this->permissions) {
-            $res['Permissions'] = null !== $this->permissions ? $this->permissions->toMap() : null;
+        if (null !== $this->webUrl) {
+            $res['WebUrl'] = $this->webUrl;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->nameWithNamespace) {
             $res['NameWithNamespace'] = $this->nameWithNamespace;
         }
+        if (null !== $this->public) {
+            $res['Public'] = $this->public;
+        }
+        if (null !== $this->pathWithNamespace) {
+            $res['PathWithNamespace'] = $this->pathWithNamespace;
+        }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->visibilityLevel) {
+            $res['VisibilityLevel'] = $this->visibilityLevel;
         }
         if (null !== $this->accessLevel) {
             $res['AccessLevel'] = $this->accessLevel;
@@ -241,8 +229,20 @@ class result extends Model
         if (null !== $this->sshUrlToRepo) {
             $res['SshUrlToRepo'] = $this->sshUrlToRepo;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->tagList) {
+            $res['TagList'] = $this->tagList;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = null !== $this->namespace ? $this->namespace->toMap() : null;
+        }
+        if (null !== $this->permissions) {
+            $res['Permissions'] = null !== $this->permissions ? $this->permissions->toMap() : null;
         }
 
         return $res;
@@ -256,40 +256,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DefaultBranch'])) {
-            $model->defaultBranch = $map['DefaultBranch'];
-        }
-        if (isset($map['ImportUrl'])) {
-            $model->importUrl = $map['ImportUrl'];
-        }
-        if (isset($map['CreatedAt'])) {
-            $model->createdAt = $map['CreatedAt'];
-        }
-        if (isset($map['WebUrl'])) {
-            $model->webUrl = $map['WebUrl'];
-        }
-        if (isset($map['TagList'])) {
-            if (!empty($map['TagList'])) {
-                $model->tagList = $map['TagList'];
-            }
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Public'])) {
-            $model->public = $map['Public'];
-        }
-        if (isset($map['PathWithNamespace'])) {
-            $model->pathWithNamespace = $map['PathWithNamespace'];
-        }
-        if (isset($map['VisibilityLevel'])) {
-            $model->visibilityLevel = $map['VisibilityLevel'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['LastActivityAt'])) {
             $model->lastActivityAt = $map['LastActivityAt'];
+        }
+        if (isset($map['DefaultBranch'])) {
+            $model->defaultBranch = $map['DefaultBranch'];
         }
         if (isset($map['AvatarUrl'])) {
             $model->avatarUrl = $map['AvatarUrl'];
@@ -297,8 +268,11 @@ class result extends Model
         if (isset($map['Archive'])) {
             $model->archive = $map['Archive'];
         }
-        if (isset($map['Namespace'])) {
-            $model->namespace = namespace_::fromMap($map['Namespace']);
+        if (isset($map['ImportUrl'])) {
+            $model->importUrl = $map['ImportUrl'];
+        }
+        if (isset($map['CreatedAt'])) {
+            $model->createdAt = $map['CreatedAt'];
         }
         if (isset($map['DemoProjectStatus'])) {
             $model->demoProjectStatus = $map['DemoProjectStatus'];
@@ -312,14 +286,26 @@ class result extends Model
         if (isset($map['HttpUrlToRepo'])) {
             $model->httpUrlToRepo = $map['HttpUrlToRepo'];
         }
-        if (isset($map['Permissions'])) {
-            $model->permissions = permissions::fromMap($map['Permissions']);
+        if (isset($map['WebUrl'])) {
+            $model->webUrl = $map['WebUrl'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['NameWithNamespace'])) {
             $model->nameWithNamespace = $map['NameWithNamespace'];
         }
+        if (isset($map['Public'])) {
+            $model->public = $map['Public'];
+        }
+        if (isset($map['PathWithNamespace'])) {
+            $model->pathWithNamespace = $map['PathWithNamespace'];
+        }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['VisibilityLevel'])) {
+            $model->visibilityLevel = $map['VisibilityLevel'];
         }
         if (isset($map['AccessLevel'])) {
             $model->accessLevel = $map['AccessLevel'];
@@ -330,8 +316,22 @@ class result extends Model
         if (isset($map['SshUrlToRepo'])) {
             $model->sshUrlToRepo = $map['SshUrlToRepo'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['TagList'])) {
+            if (!empty($map['TagList'])) {
+                $model->tagList = $map['TagList'];
+            }
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = namespace_::fromMap($map['Namespace']);
+        }
+        if (isset($map['Permissions'])) {
+            $model->permissions = permissions::fromMap($map['Permissions']);
         }
 
         return $model;

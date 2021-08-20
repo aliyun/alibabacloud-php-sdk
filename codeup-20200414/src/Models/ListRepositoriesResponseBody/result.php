@@ -41,12 +41,12 @@ class result extends Model
     /**
      * @var bool
      */
-    public $demoProjectStatus;
+    public $star;
 
     /**
      * @var bool
      */
-    public $star;
+    public $demoProjectStatus;
 
     /**
      * @var string
@@ -109,8 +109,8 @@ class result extends Model
         'starCount'         => 'StarCount',
         'archive'           => 'Archive',
         'createdAt'         => 'CreatedAt',
-        'demoProjectStatus' => 'DemoProjectStatus',
         'star'              => 'Star',
+        'demoProjectStatus' => 'DemoProjectStatus',
         'importStatus'      => 'ImportStatus',
         'webUrl'            => 'WebUrl',
         'description'       => 'Description',
@@ -149,11 +149,11 @@ class result extends Model
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
-        if (null !== $this->demoProjectStatus) {
-            $res['DemoProjectStatus'] = $this->demoProjectStatus;
-        }
         if (null !== $this->star) {
             $res['Star'] = $this->star;
+        }
+        if (null !== $this->demoProjectStatus) {
+            $res['DemoProjectStatus'] = $this->demoProjectStatus;
         }
         if (null !== $this->importStatus) {
             $res['ImportStatus'] = $this->importStatus;
@@ -218,11 +218,11 @@ class result extends Model
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
-        if (isset($map['DemoProjectStatus'])) {
-            $model->demoProjectStatus = $map['DemoProjectStatus'];
-        }
         if (isset($map['Star'])) {
             $model->star = $map['Star'];
+        }
+        if (isset($map['DemoProjectStatus'])) {
+            $model->demoProjectStatus = $map['DemoProjectStatus'];
         }
         if (isset($map['ImportStatus'])) {
             $model->importStatus = $map['ImportStatus'];

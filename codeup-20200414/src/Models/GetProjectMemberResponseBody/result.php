@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var int
+     */
+    public $accessLevel;
+
+    /**
      * @var string
      */
     public $externUserId;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
@@ -21,22 +31,12 @@ class result extends Model
     /**
      * @var int
      */
-    public $accessLevel;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var int
-     */
     public $id;
     protected $_name = [
-        'externUserId' => 'ExternUserId',
-        'avatarUrl'    => 'AvatarUrl',
         'accessLevel'  => 'AccessLevel',
+        'externUserId' => 'ExternUserId',
         'name'         => 'Name',
+        'avatarUrl'    => 'AvatarUrl',
         'id'           => 'Id',
     ];
 
@@ -47,17 +47,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->externUserId) {
-            $res['ExternUserId'] = $this->externUserId;
-        }
-        if (null !== $this->avatarUrl) {
-            $res['AvatarUrl'] = $this->avatarUrl;
-        }
         if (null !== $this->accessLevel) {
             $res['AccessLevel'] = $this->accessLevel;
         }
+        if (null !== $this->externUserId) {
+            $res['ExternUserId'] = $this->externUserId;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->avatarUrl) {
+            $res['AvatarUrl'] = $this->avatarUrl;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -74,17 +74,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExternUserId'])) {
-            $model->externUserId = $map['ExternUserId'];
-        }
-        if (isset($map['AvatarUrl'])) {
-            $model->avatarUrl = $map['AvatarUrl'];
-        }
         if (isset($map['AccessLevel'])) {
             $model->accessLevel = $map['AccessLevel'];
         }
+        if (isset($map['ExternUserId'])) {
+            $model->externUserId = $map['ExternUserId'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['AvatarUrl'])) {
+            $model->avatarUrl = $map['AvatarUrl'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

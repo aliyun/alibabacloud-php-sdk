@@ -31,12 +31,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $createdAt;
+    public $sshCloneUrl;
 
     /**
      * @var string
      */
-    public $sshCloneUrl;
+    public $createdAt;
 
     /**
      * @var int
@@ -92,8 +92,8 @@ class result extends Model
         'namespaceId'       => 'NamespaceId',
         'httpCloneUrl'      => 'HttpCloneUrl',
         'archive'           => 'Archive',
-        'createdAt'         => 'CreatedAt',
         'sshCloneUrl'       => 'SshCloneUrl',
+        'createdAt'         => 'CreatedAt',
         'creatorId'         => 'CreatorId',
         'importStatus'      => 'ImportStatus',
         'webUrl'            => 'WebUrl',
@@ -125,11 +125,11 @@ class result extends Model
         if (null !== $this->archive) {
             $res['Archive'] = $this->archive;
         }
-        if (null !== $this->createdAt) {
-            $res['CreatedAt'] = $this->createdAt;
-        }
         if (null !== $this->sshCloneUrl) {
             $res['SshCloneUrl'] = $this->sshCloneUrl;
+        }
+        if (null !== $this->createdAt) {
+            $res['CreatedAt'] = $this->createdAt;
         }
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
@@ -185,11 +185,11 @@ class result extends Model
         if (isset($map['Archive'])) {
             $model->archive = $map['Archive'];
         }
-        if (isset($map['CreatedAt'])) {
-            $model->createdAt = $map['CreatedAt'];
-        }
         if (isset($map['SshCloneUrl'])) {
             $model->sshCloneUrl = $map['SshCloneUrl'];
+        }
+        if (isset($map['CreatedAt'])) {
+            $model->createdAt = $map['CreatedAt'];
         }
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];

@@ -12,6 +12,11 @@ class ListRepositoryMemberResponseBody extends Model
     /**
      * @var string
      */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -20,30 +25,25 @@ class ListRepositoryMemberResponseBody extends Model
     public $total;
 
     /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
 
     /**
      * @var result[]
      */
     public $result;
     protected $_name = [
+        'errorMessage' => 'ErrorMessage',
         'requestId'    => 'RequestId',
         'total'        => 'Total',
-        'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
         'success'      => 'Success',
+        'errorCode'    => 'ErrorCode',
         'result'       => 'Result',
     ];
 
@@ -54,20 +54,20 @@ class ListRepositoryMemberResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->result) {
             $res['Result'] = [];
@@ -90,20 +90,20 @@ class ListRepositoryMemberResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {

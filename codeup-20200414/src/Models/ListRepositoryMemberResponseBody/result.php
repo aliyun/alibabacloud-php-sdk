@@ -34,16 +34,28 @@ class result extends Model
     public $accessLevel;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $username;
     protected $_name = [
         'externUserId' => 'ExternUserId',
         'email'        => 'Email',
         'avatarUrl'    => 'AvatarUrl',
         'state'        => 'State',
         'accessLevel'  => 'AccessLevel',
+        'name'         => 'Name',
         'id'           => 'Id',
+        'username'     => 'Username',
     ];
 
     public function validate()
@@ -68,8 +80,14 @@ class result extends Model
         if (null !== $this->accessLevel) {
             $res['AccessLevel'] = $this->accessLevel;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
 
         return $res;
@@ -98,8 +116,14 @@ class result extends Model
         if (isset($map['AccessLevel'])) {
             $model->accessLevel = $map['AccessLevel'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
         return $model;

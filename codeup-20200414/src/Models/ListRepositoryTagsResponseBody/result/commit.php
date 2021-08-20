@@ -17,6 +17,11 @@ class commit extends Model
     /**
      * @var string
      */
+    public $authorName;
+
+    /**
+     * @var string
+     */
     public $createdAt;
 
     /**
@@ -28,21 +33,6 @@ class commit extends Model
      * @var string
      */
     public $authoredDate;
-
-    /**
-     * @var signature
-     */
-    public $signature;
-
-    /**
-     * @var string[]
-     */
-    public $parentIds;
-
-    /**
-     * @var string
-     */
-    public $authorName;
 
     /**
      * @var string
@@ -73,20 +63,30 @@ class commit extends Model
      * @var string
      */
     public $committedDate;
+
+    /**
+     * @var string[]
+     */
+    public $parentIds;
+
+    /**
+     * @var signature
+     */
+    public $signature;
     protected $_name = [
         'shortId'        => 'ShortId',
+        'authorName'     => 'AuthorName',
         'createdAt'      => 'CreatedAt',
         'message'        => 'Message',
         'authoredDate'   => 'AuthoredDate',
-        'signature'      => 'Signature',
-        'parentIds'      => 'ParentIds',
-        'authorName'     => 'AuthorName',
         'committerName'  => 'CommitterName',
         'title'          => 'Title',
         'authorEmail'    => 'AuthorEmail',
         'committerEmail' => 'CommitterEmail',
         'id'             => 'Id',
         'committedDate'  => 'CommittedDate',
+        'parentIds'      => 'ParentIds',
+        'signature'      => 'Signature',
     ];
 
     public function validate()
@@ -99,6 +99,9 @@ class commit extends Model
         if (null !== $this->shortId) {
             $res['ShortId'] = $this->shortId;
         }
+        if (null !== $this->authorName) {
+            $res['AuthorName'] = $this->authorName;
+        }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
@@ -107,15 +110,6 @@ class commit extends Model
         }
         if (null !== $this->authoredDate) {
             $res['AuthoredDate'] = $this->authoredDate;
-        }
-        if (null !== $this->signature) {
-            $res['Signature'] = null !== $this->signature ? $this->signature->toMap() : null;
-        }
-        if (null !== $this->parentIds) {
-            $res['ParentIds'] = $this->parentIds;
-        }
-        if (null !== $this->authorName) {
-            $res['AuthorName'] = $this->authorName;
         }
         if (null !== $this->committerName) {
             $res['CommitterName'] = $this->committerName;
@@ -135,6 +129,12 @@ class commit extends Model
         if (null !== $this->committedDate) {
             $res['CommittedDate'] = $this->committedDate;
         }
+        if (null !== $this->parentIds) {
+            $res['ParentIds'] = $this->parentIds;
+        }
+        if (null !== $this->signature) {
+            $res['Signature'] = null !== $this->signature ? $this->signature->toMap() : null;
+        }
 
         return $res;
     }
@@ -150,6 +150,9 @@ class commit extends Model
         if (isset($map['ShortId'])) {
             $model->shortId = $map['ShortId'];
         }
+        if (isset($map['AuthorName'])) {
+            $model->authorName = $map['AuthorName'];
+        }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
@@ -158,17 +161,6 @@ class commit extends Model
         }
         if (isset($map['AuthoredDate'])) {
             $model->authoredDate = $map['AuthoredDate'];
-        }
-        if (isset($map['Signature'])) {
-            $model->signature = signature::fromMap($map['Signature']);
-        }
-        if (isset($map['ParentIds'])) {
-            if (!empty($map['ParentIds'])) {
-                $model->parentIds = $map['ParentIds'];
-            }
-        }
-        if (isset($map['AuthorName'])) {
-            $model->authorName = $map['AuthorName'];
         }
         if (isset($map['CommitterName'])) {
             $model->committerName = $map['CommitterName'];
@@ -187,6 +179,14 @@ class commit extends Model
         }
         if (isset($map['CommittedDate'])) {
             $model->committedDate = $map['CommittedDate'];
+        }
+        if (isset($map['ParentIds'])) {
+            if (!empty($map['ParentIds'])) {
+                $model->parentIds = $map['ParentIds'];
+            }
+        }
+        if (isset($map['Signature'])) {
+            $model->signature = signature::fromMap($map['Signature']);
         }
 
         return $model;

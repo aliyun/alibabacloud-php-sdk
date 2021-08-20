@@ -16,12 +16,12 @@ class author extends Model
     /**
      * @var string
      */
-    public $avatarUrl;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $avatarUrl;
 
     /**
      * @var int
@@ -29,8 +29,8 @@ class author extends Model
     public $id;
     protected $_name = [
         'externUserId' => 'ExternUserId',
-        'avatarUrl'    => 'AvatarUrl',
         'name'         => 'Name',
+        'avatarUrl'    => 'AvatarUrl',
         'id'           => 'Id',
     ];
 
@@ -44,11 +44,11 @@ class author extends Model
         if (null !== $this->externUserId) {
             $res['ExternUserId'] = $this->externUserId;
         }
-        if (null !== $this->avatarUrl) {
-            $res['AvatarUrl'] = $this->avatarUrl;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->avatarUrl) {
+            $res['AvatarUrl'] = $this->avatarUrl;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -68,11 +68,11 @@ class author extends Model
         if (isset($map['ExternUserId'])) {
             $model->externUserId = $map['ExternUserId'];
         }
-        if (isset($map['AvatarUrl'])) {
-            $model->avatarUrl = $map['AvatarUrl'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['AvatarUrl'])) {
+            $model->avatarUrl = $map['AvatarUrl'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

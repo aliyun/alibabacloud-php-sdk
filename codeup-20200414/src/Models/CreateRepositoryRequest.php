@@ -32,18 +32,12 @@ class CreateRepositoryRequest extends Model
      * @var string
      */
     public $subUserId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
         'accessToken'      => 'AccessToken',
         'sync'             => 'Sync',
         'createParentPath' => 'CreateParentPath',
         'organizationId'   => 'OrganizationId',
         'subUserId'        => 'SubUserId',
-        'clientToken'      => 'ClientToken',
     ];
 
     public function validate()
@@ -67,9 +61,6 @@ class CreateRepositoryRequest extends Model
         }
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -97,9 +88,6 @@ class CreateRepositoryRequest extends Model
         }
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

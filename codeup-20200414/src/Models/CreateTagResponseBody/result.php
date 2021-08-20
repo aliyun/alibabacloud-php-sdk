@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var release
+     * @var string
      */
-    public $release;
+    public $name;
 
     /**
      * @var string
@@ -26,14 +26,14 @@ class result extends Model
     public $commitInfo;
 
     /**
-     * @var string
+     * @var release
      */
-    public $name;
+    public $release;
     protected $_name = [
-        'release'    => 'Release',
+        'name'       => 'Name',
         'message'    => 'Message',
         'commitInfo' => 'CommitInfo',
-        'name'       => 'Name',
+        'release'    => 'Release',
     ];
 
     public function validate()
@@ -43,8 +43,8 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->release) {
-            $res['Release'] = null !== $this->release ? $this->release->toMap() : null;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -52,8 +52,8 @@ class result extends Model
         if (null !== $this->commitInfo) {
             $res['CommitInfo'] = null !== $this->commitInfo ? $this->commitInfo->toMap() : null;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->release) {
+            $res['Release'] = null !== $this->release ? $this->release->toMap() : null;
         }
 
         return $res;
@@ -67,8 +67,8 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Release'])) {
-            $model->release = release::fromMap($map['Release']);
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -76,8 +76,8 @@ class result extends Model
         if (isset($map['CommitInfo'])) {
             $model->commitInfo = commitInfo::fromMap($map['CommitInfo']);
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Release'])) {
+            $model->release = release::fromMap($map['Release']);
         }
 
         return $model;

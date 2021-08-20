@@ -16,6 +16,11 @@ class commitInfo extends Model
     /**
      * @var string
      */
+    public $authorName;
+
+    /**
+     * @var string
+     */
     public $authorDate;
 
     /**
@@ -27,16 +32,6 @@ class commitInfo extends Model
      * @var string
      */
     public $message;
-
-    /**
-     * @var string[]
-     */
-    public $parentIds;
-
-    /**
-     * @var string
-     */
-    public $authorName;
 
     /**
      * @var string
@@ -67,19 +62,24 @@ class commitInfo extends Model
      * @var string
      */
     public $committedDate;
+
+    /**
+     * @var string[]
+     */
+    public $parentIds;
     protected $_name = [
         'shortId'        => 'ShortId',
+        'authorName'     => 'AuthorName',
         'authorDate'     => 'AuthorDate',
         'createdAt'      => 'CreatedAt',
         'message'        => 'Message',
-        'parentIds'      => 'ParentIds',
-        'authorName'     => 'AuthorName',
         'committerName'  => 'CommitterName',
         'title'          => 'Title',
         'authorEmail'    => 'AuthorEmail',
         'committerEmail' => 'CommitterEmail',
         'id'             => 'Id',
         'committedDate'  => 'CommittedDate',
+        'parentIds'      => 'ParentIds',
     ];
 
     public function validate()
@@ -92,6 +92,9 @@ class commitInfo extends Model
         if (null !== $this->shortId) {
             $res['ShortId'] = $this->shortId;
         }
+        if (null !== $this->authorName) {
+            $res['AuthorName'] = $this->authorName;
+        }
         if (null !== $this->authorDate) {
             $res['AuthorDate'] = $this->authorDate;
         }
@@ -100,12 +103,6 @@ class commitInfo extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->parentIds) {
-            $res['ParentIds'] = $this->parentIds;
-        }
-        if (null !== $this->authorName) {
-            $res['AuthorName'] = $this->authorName;
         }
         if (null !== $this->committerName) {
             $res['CommitterName'] = $this->committerName;
@@ -125,6 +122,9 @@ class commitInfo extends Model
         if (null !== $this->committedDate) {
             $res['CommittedDate'] = $this->committedDate;
         }
+        if (null !== $this->parentIds) {
+            $res['ParentIds'] = $this->parentIds;
+        }
 
         return $res;
     }
@@ -140,6 +140,9 @@ class commitInfo extends Model
         if (isset($map['ShortId'])) {
             $model->shortId = $map['ShortId'];
         }
+        if (isset($map['AuthorName'])) {
+            $model->authorName = $map['AuthorName'];
+        }
         if (isset($map['AuthorDate'])) {
             $model->authorDate = $map['AuthorDate'];
         }
@@ -148,14 +151,6 @@ class commitInfo extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['ParentIds'])) {
-            if (!empty($map['ParentIds'])) {
-                $model->parentIds = $map['ParentIds'];
-            }
-        }
-        if (isset($map['AuthorName'])) {
-            $model->authorName = $map['AuthorName'];
         }
         if (isset($map['CommitterName'])) {
             $model->committerName = $map['CommitterName'];
@@ -174,6 +169,11 @@ class commitInfo extends Model
         }
         if (isset($map['CommittedDate'])) {
             $model->committedDate = $map['CommittedDate'];
+        }
+        if (isset($map['ParentIds'])) {
+            if (!empty($map['ParentIds'])) {
+                $model->parentIds = $map['ParentIds'];
+            }
         }
 
         return $model;
