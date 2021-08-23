@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20171011\Models;
 
+use AlibabaCloud\SDK\Chatbot\V20171011\Models\CreateKnowledgeRequest\knowledge;
 use AlibabaCloud\Tea\Model;
 
 class CreateKnowledgeRequest extends Model
 {
     /**
-     * @var string
+     * @var knowledge
      */
     public $knowledge;
     protected $_name = [
@@ -24,7 +25,7 @@ class CreateKnowledgeRequest extends Model
     {
         $res = [];
         if (null !== $this->knowledge) {
-            $res['Knowledge'] = $this->knowledge;
+            $res['Knowledge'] = null !== $this->knowledge ? $this->knowledge->toMap() : null;
         }
 
         return $res;
@@ -39,7 +40,7 @@ class CreateKnowledgeRequest extends Model
     {
         $model = new self();
         if (isset($map['Knowledge'])) {
-            $model->knowledge = $map['Knowledge'];
+            $model->knowledge = knowledge::fromMap($map['Knowledge']);
         }
 
         return $model;

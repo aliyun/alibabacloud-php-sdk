@@ -17,9 +17,21 @@ class CreateCategoryRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $knowledgeType;
+
+    /**
+     * @var string
+     */
+    public $bizCode;
     protected $_name = [
         'parentCategoryId' => 'ParentCategoryId',
         'name'             => 'Name',
+        'knowledgeType'    => 'KnowledgeType',
+        'bizCode'          => 'BizCode',
     ];
 
     public function validate()
@@ -34,6 +46,12 @@ class CreateCategoryRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->knowledgeType) {
+            $res['KnowledgeType'] = $this->knowledgeType;
+        }
+        if (null !== $this->bizCode) {
+            $res['BizCode'] = $this->bizCode;
         }
 
         return $res;
@@ -52,6 +70,12 @@ class CreateCategoryRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['KnowledgeType'])) {
+            $model->knowledgeType = $map['KnowledgeType'];
+        }
+        if (isset($map['BizCode'])) {
+            $model->bizCode = $map['BizCode'];
         }
 
         return $model;

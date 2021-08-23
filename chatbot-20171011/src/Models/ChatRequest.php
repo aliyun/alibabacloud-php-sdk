@@ -61,49 +61,25 @@ class ChatRequest extends Model
     /**
      * @var string
      */
-    public $defaultPerspective;
-
-    /**
-     * @var string
-     */
-    public $businessScope;
-
-    /**
-     * @var string
-     */
     public $vendorParam;
-
-    /**
-     * @var bool
-     */
-    public $emotion;
-
-    /**
-     * @var bool
-     */
-    public $sandBox;
 
     /**
      * @var string[]
      */
     public $perspective;
     protected $_name = [
-        'instanceId'         => 'InstanceId',
-        'sessionId'          => 'SessionId',
-        'knowledgeId'        => 'KnowledgeId',
-        'senderId'           => 'SenderId',
-        'senderNick'         => 'SenderNick',
-        'tag'                => 'Tag',
-        'utterance'          => 'Utterance',
-        'recommend'          => 'Recommend',
-        'recommendNum'       => 'RecommendNum',
-        'intentName'         => 'IntentName',
-        'defaultPerspective' => 'DefaultPerspective',
-        'businessScope'      => 'BusinessScope',
-        'vendorParam'        => 'VendorParam',
-        'emotion'            => 'Emotion',
-        'sandBox'            => 'SandBox',
-        'perspective'        => 'Perspective',
+        'instanceId'   => 'InstanceId',
+        'sessionId'    => 'SessionId',
+        'knowledgeId'  => 'KnowledgeId',
+        'senderId'     => 'SenderId',
+        'senderNick'   => 'SenderNick',
+        'tag'          => 'Tag',
+        'utterance'    => 'Utterance',
+        'recommend'    => 'Recommend',
+        'recommendNum' => 'RecommendNum',
+        'intentName'   => 'IntentName',
+        'vendorParam'  => 'VendorParam',
+        'perspective'  => 'Perspective',
     ];
 
     public function validate()
@@ -143,20 +119,8 @@ class ChatRequest extends Model
         if (null !== $this->intentName) {
             $res['IntentName'] = $this->intentName;
         }
-        if (null !== $this->defaultPerspective) {
-            $res['DefaultPerspective'] = $this->defaultPerspective;
-        }
-        if (null !== $this->businessScope) {
-            $res['BusinessScope'] = $this->businessScope;
-        }
         if (null !== $this->vendorParam) {
             $res['VendorParam'] = $this->vendorParam;
-        }
-        if (null !== $this->emotion) {
-            $res['Emotion'] = $this->emotion;
-        }
-        if (null !== $this->sandBox) {
-            $res['SandBox'] = $this->sandBox;
         }
         if (null !== $this->perspective) {
             $res['Perspective'] = $this->perspective;
@@ -203,20 +167,8 @@ class ChatRequest extends Model
         if (isset($map['IntentName'])) {
             $model->intentName = $map['IntentName'];
         }
-        if (isset($map['DefaultPerspective'])) {
-            $model->defaultPerspective = $map['DefaultPerspective'];
-        }
-        if (isset($map['BusinessScope'])) {
-            $model->businessScope = $map['BusinessScope'];
-        }
         if (isset($map['VendorParam'])) {
             $model->vendorParam = $map['VendorParam'];
-        }
-        if (isset($map['Emotion'])) {
-            $model->emotion = $map['Emotion'];
-        }
-        if (isset($map['SandBox'])) {
-            $model->sandBox = $map['SandBox'];
         }
         if (isset($map['Perspective'])) {
             if (!empty($map['Perspective'])) {

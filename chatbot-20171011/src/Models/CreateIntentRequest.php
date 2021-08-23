@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateIntentRequest extends Model
 {
     /**
-     * @var string
+     * @var IntentCreateDTO
      */
     public $intentDefinition;
 
@@ -30,7 +30,7 @@ class CreateIntentRequest extends Model
     {
         $res = [];
         if (null !== $this->intentDefinition) {
-            $res['IntentDefinition'] = $this->intentDefinition;
+            $res['IntentDefinition'] = null !== $this->intentDefinition ? $this->intentDefinition->toMap() : null;
         }
         if (null !== $this->dialogId) {
             $res['DialogId'] = $this->dialogId;
@@ -48,7 +48,7 @@ class CreateIntentRequest extends Model
     {
         $model = new self();
         if (isset($map['IntentDefinition'])) {
-            $model->intentDefinition = $map['IntentDefinition'];
+            $model->intentDefinition = IntentCreateDTO::fromMap($map['IntentDefinition']);
         }
         if (isset($map['DialogId'])) {
             $model->dialogId = $map['DialogId'];

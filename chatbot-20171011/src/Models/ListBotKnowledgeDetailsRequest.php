@@ -11,16 +11,6 @@ class ListBotKnowledgeDetailsRequest extends Model
     /**
      * @var string
      */
-    public $cubeId;
-
-    /**
-     * @var string
-     */
-    public $measures;
-
-    /**
-     * @var string
-     */
     public $startTime;
 
     /**
@@ -37,25 +27,11 @@ class ListBotKnowledgeDetailsRequest extends Model
      * @var string
      */
     public $limit;
-
-    /**
-     * @var string
-     */
-    public $dimensions;
-
-    /**
-     * @var string
-     */
-    public $orders;
     protected $_name = [
-        'cubeId'          => 'CubeId',
-        'measures'        => 'Measures',
         'startTime'       => 'StartTime',
         'endTime'         => 'EndTime',
         'robotInstanceId' => 'RobotInstanceId',
         'limit'           => 'Limit',
-        'dimensions'      => 'Dimensions',
-        'orders'          => 'Orders',
     ];
 
     public function validate()
@@ -65,12 +41,6 @@ class ListBotKnowledgeDetailsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cubeId) {
-            $res['CubeId'] = $this->cubeId;
-        }
-        if (null !== $this->measures) {
-            $res['Measures'] = $this->measures;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -82,12 +52,6 @@ class ListBotKnowledgeDetailsRequest extends Model
         }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
-        }
-        if (null !== $this->dimensions) {
-            $res['Dimensions'] = $this->dimensions;
-        }
-        if (null !== $this->orders) {
-            $res['Orders'] = $this->orders;
         }
 
         return $res;
@@ -101,12 +65,6 @@ class ListBotKnowledgeDetailsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CubeId'])) {
-            $model->cubeId = $map['CubeId'];
-        }
-        if (isset($map['Measures'])) {
-            $model->measures = $map['Measures'];
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
@@ -118,12 +76,6 @@ class ListBotKnowledgeDetailsRequest extends Model
         }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
-        }
-        if (isset($map['Dimensions'])) {
-            $model->dimensions = $map['Dimensions'];
-        }
-        if (isset($map['Orders'])) {
-            $model->orders = $map['Orders'];
         }
 
         return $model;

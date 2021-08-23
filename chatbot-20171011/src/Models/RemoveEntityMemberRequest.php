@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20171011\Models;
 
+use AlibabaCloud\SDK\Chatbot\V20171011\Models\RemoveEntityMemberRequest\member;
 use AlibabaCloud\Tea\Model;
 
 class RemoveEntityMemberRequest extends Model
@@ -19,7 +20,7 @@ class RemoveEntityMemberRequest extends Model
     public $removeType;
 
     /**
-     * @var string
+     * @var member
      */
     public $member;
     protected $_name = [
@@ -42,7 +43,7 @@ class RemoveEntityMemberRequest extends Model
             $res['RemoveType'] = $this->removeType;
         }
         if (null !== $this->member) {
-            $res['Member'] = $this->member;
+            $res['Member'] = null !== $this->member ? $this->member->toMap() : null;
         }
 
         return $res;
@@ -63,7 +64,7 @@ class RemoveEntityMemberRequest extends Model
             $model->removeType = $map['RemoveType'];
         }
         if (isset($map['Member'])) {
-            $model->member = $map['Member'];
+            $model->member = member::fromMap($map['Member']);
         }
 
         return $model;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20171011\Models;
 
+use AlibabaCloud\SDK\Chatbot\V20171011\Models\CreateEntityRequest\members;
 use AlibabaCloud\Tea\Model;
 
 class CreateEntityRequest extends Model
@@ -29,7 +30,7 @@ class CreateEntityRequest extends Model
     public $regex;
 
     /**
-     * @var string
+     * @var members[]
      */
     public $members;
     protected $_name = [
@@ -60,7 +61,13 @@ class CreateEntityRequest extends Model
             $res['Regex'] = $this->regex;
         }
         if (null !== $this->members) {
-            $res['Members'] = $this->members;
+            $res['Members'] = [];
+            if (null !== $this->members && \is_array($this->members)) {
+                $n = 0;
+                foreach ($this->members as $item) {
+                    $res['Members'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -87,7 +94,13 @@ class CreateEntityRequest extends Model
             $model->regex = $map['Regex'];
         }
         if (isset($map['Members'])) {
-            $model->members = $map['Members'];
+            if (!empty($map['Members'])) {
+                $model->members = [];
+                $n              = 0;
+                foreach ($map['Members'] as $item) {
+                    $model->members[$n++] = null !== $item ? members::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

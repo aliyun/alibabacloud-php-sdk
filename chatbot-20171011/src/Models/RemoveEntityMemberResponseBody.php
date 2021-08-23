@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveEntityMemberResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $entityId;
 

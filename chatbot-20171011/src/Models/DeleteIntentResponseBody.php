@@ -14,7 +14,7 @@ class DeleteIntentResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var int
      */
     public $intentId;
     protected $_name = [

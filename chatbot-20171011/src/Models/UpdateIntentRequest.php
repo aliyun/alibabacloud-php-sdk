@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateIntentRequest extends Model
 {
     /**
-     * @var string
+     * @var IntentCreateDTO
      */
     public $intentDefinition;
 
@@ -30,7 +30,7 @@ class UpdateIntentRequest extends Model
     {
         $res = [];
         if (null !== $this->intentDefinition) {
-            $res['IntentDefinition'] = $this->intentDefinition;
+            $res['IntentDefinition'] = null !== $this->intentDefinition ? $this->intentDefinition->toMap() : null;
         }
         if (null !== $this->intentId) {
             $res['IntentId'] = $this->intentId;
@@ -48,7 +48,7 @@ class UpdateIntentRequest extends Model
     {
         $model = new self();
         if (isset($map['IntentDefinition'])) {
-            $model->intentDefinition = $map['IntentDefinition'];
+            $model->intentDefinition = IntentCreateDTO::fromMap($map['IntentDefinition']);
         }
         if (isset($map['IntentId'])) {
             $model->intentId = $map['IntentId'];

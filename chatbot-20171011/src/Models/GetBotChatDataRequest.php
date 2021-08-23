@@ -11,16 +11,6 @@ class GetBotChatDataRequest extends Model
     /**
      * @var string
      */
-    public $cubeId;
-
-    /**
-     * @var string
-     */
-    public $measures;
-
-    /**
-     * @var string
-     */
     public $startTime;
 
     /**
@@ -33,8 +23,6 @@ class GetBotChatDataRequest extends Model
      */
     public $robotInstanceId;
     protected $_name = [
-        'cubeId'          => 'CubeId',
-        'measures'        => 'Measures',
         'startTime'       => 'StartTime',
         'endTime'         => 'EndTime',
         'robotInstanceId' => 'RobotInstanceId',
@@ -47,12 +35,6 @@ class GetBotChatDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cubeId) {
-            $res['CubeId'] = $this->cubeId;
-        }
-        if (null !== $this->measures) {
-            $res['Measures'] = $this->measures;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -74,12 +56,6 @@ class GetBotChatDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CubeId'])) {
-            $model->cubeId = $map['CubeId'];
-        }
-        if (isset($map['Measures'])) {
-            $model->measures = $map['Measures'];
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

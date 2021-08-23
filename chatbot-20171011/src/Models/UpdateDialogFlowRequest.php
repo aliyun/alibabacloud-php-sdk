@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20171011\Models;
 
+use AlibabaCloud\SDK\Chatbot\V20171011\Models\UpdateDialogFlowRequest\moduleDefinition;
 use AlibabaCloud\Tea\Model;
 
 class UpdateDialogFlowRequest extends Model
@@ -14,7 +15,7 @@ class UpdateDialogFlowRequest extends Model
     public $dialogId;
 
     /**
-     * @var string
+     * @var moduleDefinition
      */
     public $moduleDefinition;
     protected $_name = [
@@ -33,7 +34,7 @@ class UpdateDialogFlowRequest extends Model
             $res['DialogId'] = $this->dialogId;
         }
         if (null !== $this->moduleDefinition) {
-            $res['ModuleDefinition'] = $this->moduleDefinition;
+            $res['ModuleDefinition'] = null !== $this->moduleDefinition ? $this->moduleDefinition->toMap() : null;
         }
 
         return $res;
@@ -51,7 +52,7 @@ class UpdateDialogFlowRequest extends Model
             $model->dialogId = $map['DialogId'];
         }
         if (isset($map['ModuleDefinition'])) {
-            $model->moduleDefinition = $map['ModuleDefinition'];
+            $model->moduleDefinition = moduleDefinition::fromMap($map['ModuleDefinition']);
         }
 
         return $model;

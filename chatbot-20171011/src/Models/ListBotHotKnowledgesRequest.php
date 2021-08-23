@@ -11,11 +11,6 @@ class ListBotHotKnowledgesRequest extends Model
     /**
      * @var string
      */
-    public $cubeId;
-
-    /**
-     * @var string
-     */
     public $startTime;
 
     /**
@@ -29,38 +24,13 @@ class ListBotHotKnowledgesRequest extends Model
     public $robotInstanceId;
 
     /**
-     * @var string
-     */
-    public $dimensions;
-
-    /**
-     * @var string
-     */
-    public $orders;
-
-    /**
-     * @var string
-     */
-    public $measures;
-
-    /**
-     * @var string
-     */
-    public $filters;
-
-    /**
      * @var int
      */
     public $limit;
     protected $_name = [
-        'cubeId'          => 'CubeId',
         'startTime'       => 'StartTime',
         'endTime'         => 'EndTime',
         'robotInstanceId' => 'RobotInstanceId',
-        'dimensions'      => 'Dimensions',
-        'orders'          => 'Orders',
-        'measures'        => 'Measures',
-        'filters'         => 'Filters',
         'limit'           => 'Limit',
     ];
 
@@ -71,9 +41,6 @@ class ListBotHotKnowledgesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cubeId) {
-            $res['CubeId'] = $this->cubeId;
-        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -82,18 +49,6 @@ class ListBotHotKnowledgesRequest extends Model
         }
         if (null !== $this->robotInstanceId) {
             $res['RobotInstanceId'] = $this->robotInstanceId;
-        }
-        if (null !== $this->dimensions) {
-            $res['Dimensions'] = $this->dimensions;
-        }
-        if (null !== $this->orders) {
-            $res['Orders'] = $this->orders;
-        }
-        if (null !== $this->measures) {
-            $res['Measures'] = $this->measures;
-        }
-        if (null !== $this->filters) {
-            $res['Filters'] = $this->filters;
         }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
@@ -110,9 +65,6 @@ class ListBotHotKnowledgesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CubeId'])) {
-            $model->cubeId = $map['CubeId'];
-        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
@@ -121,18 +73,6 @@ class ListBotHotKnowledgesRequest extends Model
         }
         if (isset($map['RobotInstanceId'])) {
             $model->robotInstanceId = $map['RobotInstanceId'];
-        }
-        if (isset($map['Dimensions'])) {
-            $model->dimensions = $map['Dimensions'];
-        }
-        if (isset($map['Orders'])) {
-            $model->orders = $map['Orders'];
-        }
-        if (isset($map['Measures'])) {
-            $model->measures = $map['Measures'];
-        }
-        if (isset($map['Filters'])) {
-            $model->filters = $map['Filters'];
         }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];

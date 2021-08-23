@@ -16,11 +16,6 @@ class CreateBotRequest extends Model
     /**
      * @var string
      */
-    public $timeZone;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -39,7 +34,6 @@ class CreateBotRequest extends Model
     public $robotType;
     protected $_name = [
         'languageCode' => 'LanguageCode',
-        'timeZone'     => 'TimeZone',
         'name'         => 'Name',
         'avatar'       => 'Avatar',
         'introduction' => 'Introduction',
@@ -55,9 +49,6 @@ class CreateBotRequest extends Model
         $res = [];
         if (null !== $this->languageCode) {
             $res['LanguageCode'] = $this->languageCode;
-        }
-        if (null !== $this->timeZone) {
-            $res['TimeZone'] = $this->timeZone;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -85,9 +76,6 @@ class CreateBotRequest extends Model
         $model = new self();
         if (isset($map['LanguageCode'])) {
             $model->languageCode = $map['LanguageCode'];
-        }
-        if (isset($map['TimeZone'])) {
-            $model->timeZone = $map['TimeZone'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

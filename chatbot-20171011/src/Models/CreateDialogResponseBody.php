@@ -14,7 +14,7 @@ class CreateDialogResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var int
      */
     public $dialogId;
     protected $_name = [

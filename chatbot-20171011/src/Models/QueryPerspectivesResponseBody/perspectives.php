@@ -34,7 +34,7 @@ class perspectives extends Model
     public $perspectiveId;
 
     /**
-     * @var string
+     * @var bool
      */
     public $selfDefine;
 

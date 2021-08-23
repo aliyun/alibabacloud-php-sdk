@@ -12,8 +12,14 @@ class PublishKnowledgeRequest extends Model
      * @var int
      */
     public $knowledgeId;
+
+    /**
+     * @var bool
+     */
+    public $async;
     protected $_name = [
         'knowledgeId' => 'KnowledgeId',
+        'async'       => 'Async',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class PublishKnowledgeRequest extends Model
         $res = [];
         if (null !== $this->knowledgeId) {
             $res['KnowledgeId'] = $this->knowledgeId;
+        }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class PublishKnowledgeRequest extends Model
         $model = new self();
         if (isset($map['KnowledgeId'])) {
             $model->knowledgeId = $map['KnowledgeId'];
+        }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
         }
 
         return $model;

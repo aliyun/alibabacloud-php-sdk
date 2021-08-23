@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Chatbot\V20171011\Models;
 
+use AlibabaCloud\SDK\Chatbot\V20171011\Models\AppendEntityMemberRequest\member;
 use AlibabaCloud\Tea\Model;
 
 class AppendEntityMemberRequest extends Model
@@ -19,7 +20,7 @@ class AppendEntityMemberRequest extends Model
     public $applyType;
 
     /**
-     * @var string
+     * @var member
      */
     public $member;
     protected $_name = [
@@ -42,7 +43,7 @@ class AppendEntityMemberRequest extends Model
             $res['ApplyType'] = $this->applyType;
         }
         if (null !== $this->member) {
-            $res['Member'] = $this->member;
+            $res['Member'] = null !== $this->member ? $this->member->toMap() : null;
         }
 
         return $res;
@@ -63,7 +64,7 @@ class AppendEntityMemberRequest extends Model
             $model->applyType = $map['ApplyType'];
         }
         if (isset($map['Member'])) {
-            $model->member = $map['Member'];
+            $model->member = member::fromMap($map['Member']);
         }
 
         return $model;

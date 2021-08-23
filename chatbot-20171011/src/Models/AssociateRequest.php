@@ -24,11 +24,6 @@ class AssociateRequest extends Model
     public $sessionId;
 
     /**
-     * @var string
-     */
-    public $businessScope;
-
-    /**
      * @var int
      */
     public $recommendNum;
@@ -38,12 +33,11 @@ class AssociateRequest extends Model
      */
     public $perspective;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'utterance'     => 'Utterance',
-        'sessionId'     => 'SessionId',
-        'businessScope' => 'BusinessScope',
-        'recommendNum'  => 'RecommendNum',
-        'perspective'   => 'Perspective',
+        'instanceId'   => 'InstanceId',
+        'utterance'    => 'Utterance',
+        'sessionId'    => 'SessionId',
+        'recommendNum' => 'RecommendNum',
+        'perspective'  => 'Perspective',
     ];
 
     public function validate()
@@ -61,9 +55,6 @@ class AssociateRequest extends Model
         }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
-        }
-        if (null !== $this->businessScope) {
-            $res['BusinessScope'] = $this->businessScope;
         }
         if (null !== $this->recommendNum) {
             $res['RecommendNum'] = $this->recommendNum;
@@ -91,9 +82,6 @@ class AssociateRequest extends Model
         }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
-        }
-        if (isset($map['BusinessScope'])) {
-            $model->businessScope = $map['BusinessScope'];
         }
         if (isset($map['RecommendNum'])) {
             $model->recommendNum = $map['RecommendNum'];

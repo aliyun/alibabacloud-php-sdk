@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateEntityResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $entityId;
 
