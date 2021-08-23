@@ -91,6 +91,13 @@ class DetailSubSceneResponseBody extends Model
      * @var int
      */
     public $gmtModified;
+
+    /**
+     * @description 切图路径
+     *
+     * @var string
+     */
+    public $cubemapPath;
     protected $_name = [
         'requestId'   => 'RequestId',
         'code'        => 'Code',
@@ -104,6 +111,7 @@ class DetailSubSceneResponseBody extends Model
         'status'      => 'Status',
         'gmtCreate'   => 'GmtCreate',
         'gmtModified' => 'GmtModified',
+        'cubemapPath' => 'CubemapPath',
     ];
 
     public function validate()
@@ -148,6 +156,9 @@ class DetailSubSceneResponseBody extends Model
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->cubemapPath) {
+            $res['CubemapPath'] = $this->cubemapPath;
         }
 
         return $res;
@@ -196,6 +207,9 @@ class DetailSubSceneResponseBody extends Model
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['CubemapPath'])) {
+            $model->cubemapPath = $map['CubemapPath'];
         }
 
         return $model;

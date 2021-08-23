@@ -63,15 +63,31 @@ class list_ extends Model
      * @var int
      */
     public $gmtModified;
+
+    /**
+     * @description 资源名称
+     *
+     * @var string
+     */
+    public $resourceName;
+
+    /**
+     * @description 切图的路径
+     *
+     * @var string
+     */
+    public $cubemapPath;
     protected $_name = [
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'resourceId'  => 'ResourceId',
-        'url'         => 'Url',
-        'coverUrl'    => 'CoverUrl',
-        'status'      => 'Status',
-        'gmtCreate'   => 'GmtCreate',
-        'gmtModified' => 'GmtModified',
+        'id'           => 'Id',
+        'name'         => 'Name',
+        'resourceId'   => 'ResourceId',
+        'url'          => 'Url',
+        'coverUrl'     => 'CoverUrl',
+        'status'       => 'Status',
+        'gmtCreate'    => 'GmtCreate',
+        'gmtModified'  => 'GmtModified',
+        'resourceName' => 'ResourceName',
+        'cubemapPath'  => 'CubemapPath',
     ];
 
     public function validate()
@@ -104,6 +120,12 @@ class list_ extends Model
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->cubemapPath) {
+            $res['CubemapPath'] = $this->cubemapPath;
         }
 
         return $res;
@@ -140,6 +162,12 @@ class list_ extends Model
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['CubemapPath'])) {
+            $model->cubemapPath = $map['CubemapPath'];
         }
 
         return $model;
