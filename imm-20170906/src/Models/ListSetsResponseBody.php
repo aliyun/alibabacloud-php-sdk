@@ -12,21 +12,21 @@ class ListSetsResponseBody extends Model
     /**
      * @var string
      */
+    public $nextMarker;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var sets[]
      */
     public $sets;
-
-    /**
-     * @var string
-     */
-    public $nextMarker;
     protected $_name = [
+        'nextMarker' => 'NextMarker',
         'requestId'  => 'RequestId',
         'sets'       => 'Sets',
-        'nextMarker' => 'NextMarker',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class ListSetsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextMarker) {
+            $res['NextMarker'] = $this->nextMarker;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,9 +50,6 @@ class ListSetsResponseBody extends Model
                     $res['Sets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nextMarker) {
-            $res['NextMarker'] = $this->nextMarker;
         }
 
         return $res;
@@ -63,6 +63,9 @@ class ListSetsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextMarker'])) {
+            $model->nextMarker = $map['NextMarker'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -74,9 +77,6 @@ class ListSetsResponseBody extends Model
                     $model->sets[$n++] = null !== $item ? sets::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['NextMarker'])) {
-            $model->nextMarker = $map['NextMarker'];
         }
 
         return $model;

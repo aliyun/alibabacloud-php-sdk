@@ -11,6 +11,21 @@ use AlibabaCloud\Tea\Model;
 class faces extends Model
 {
     /**
+     * @var float
+     */
+    public $emotionConfidence;
+
+    /**
+     * @var float
+     */
+    public $attractive;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
      * @var string
      */
     public $gender;
@@ -24,11 +39,6 @@ class faces extends Model
      * @var float
      */
     public $genderConfidence;
-
-    /**
-     * @var faceAttributes
-     */
-    public $faceAttributes;
 
     /**
      * @var float
@@ -51,37 +61,27 @@ class faces extends Model
     public $faceConfidence;
 
     /**
-     * @var float
-     */
-    public $emotionConfidence;
-
-    /**
-     * @var float
-     */
-    public $attractive;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
      * @var emotionDetails
      */
     public $emotionDetails;
+
+    /**
+     * @var faceAttributes
+     */
+    public $faceAttributes;
     protected $_name = [
+        'emotionConfidence' => 'EmotionConfidence',
+        'attractive'        => 'Attractive',
+        'groupId'           => 'GroupId',
         'gender'            => 'Gender',
         'faceId'            => 'FaceId',
         'genderConfidence'  => 'GenderConfidence',
-        'faceAttributes'    => 'FaceAttributes',
         'faceQuality'       => 'FaceQuality',
         'emotion'           => 'Emotion',
         'age'               => 'Age',
         'faceConfidence'    => 'FaceConfidence',
-        'emotionConfidence' => 'EmotionConfidence',
-        'attractive'        => 'Attractive',
-        'groupId'           => 'GroupId',
         'emotionDetails'    => 'EmotionDetails',
+        'faceAttributes'    => 'FaceAttributes',
     ];
 
     public function validate()
@@ -91,6 +91,15 @@ class faces extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->emotionConfidence) {
+            $res['EmotionConfidence'] = $this->emotionConfidence;
+        }
+        if (null !== $this->attractive) {
+            $res['Attractive'] = $this->attractive;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
         if (null !== $this->gender) {
             $res['Gender'] = $this->gender;
         }
@@ -99,9 +108,6 @@ class faces extends Model
         }
         if (null !== $this->genderConfidence) {
             $res['GenderConfidence'] = $this->genderConfidence;
-        }
-        if (null !== $this->faceAttributes) {
-            $res['FaceAttributes'] = null !== $this->faceAttributes ? $this->faceAttributes->toMap() : null;
         }
         if (null !== $this->faceQuality) {
             $res['FaceQuality'] = $this->faceQuality;
@@ -115,17 +121,11 @@ class faces extends Model
         if (null !== $this->faceConfidence) {
             $res['FaceConfidence'] = $this->faceConfidence;
         }
-        if (null !== $this->emotionConfidence) {
-            $res['EmotionConfidence'] = $this->emotionConfidence;
-        }
-        if (null !== $this->attractive) {
-            $res['Attractive'] = $this->attractive;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->emotionDetails) {
             $res['EmotionDetails'] = null !== $this->emotionDetails ? $this->emotionDetails->toMap() : null;
+        }
+        if (null !== $this->faceAttributes) {
+            $res['FaceAttributes'] = null !== $this->faceAttributes ? $this->faceAttributes->toMap() : null;
         }
 
         return $res;
@@ -139,6 +139,15 @@ class faces extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EmotionConfidence'])) {
+            $model->emotionConfidence = $map['EmotionConfidence'];
+        }
+        if (isset($map['Attractive'])) {
+            $model->attractive = $map['Attractive'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
         if (isset($map['Gender'])) {
             $model->gender = $map['Gender'];
         }
@@ -147,9 +156,6 @@ class faces extends Model
         }
         if (isset($map['GenderConfidence'])) {
             $model->genderConfidence = $map['GenderConfidence'];
-        }
-        if (isset($map['FaceAttributes'])) {
-            $model->faceAttributes = faceAttributes::fromMap($map['FaceAttributes']);
         }
         if (isset($map['FaceQuality'])) {
             $model->faceQuality = $map['FaceQuality'];
@@ -163,17 +169,11 @@ class faces extends Model
         if (isset($map['FaceConfidence'])) {
             $model->faceConfidence = $map['FaceConfidence'];
         }
-        if (isset($map['EmotionConfidence'])) {
-            $model->emotionConfidence = $map['EmotionConfidence'];
-        }
-        if (isset($map['Attractive'])) {
-            $model->attractive = $map['Attractive'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['EmotionDetails'])) {
             $model->emotionDetails = emotionDetails::fromMap($map['EmotionDetails']);
+        }
+        if (isset($map['FaceAttributes'])) {
+            $model->faceAttributes = faceAttributes::fromMap($map['FaceAttributes']);
         }
 
         return $model;

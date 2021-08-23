@@ -12,21 +12,21 @@ class DetectImageBodiesResponseBody extends Model
     /**
      * @var string
      */
+    public $imageUri;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var bodies[]
      */
     public $bodies;
-
-    /**
-     * @var string
-     */
-    public $imageUri;
     protected $_name = [
+        'imageUri'  => 'ImageUri',
         'requestId' => 'RequestId',
         'bodies'    => 'Bodies',
-        'imageUri'  => 'ImageUri',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class DetectImageBodiesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageUri) {
+            $res['ImageUri'] = $this->imageUri;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,9 +50,6 @@ class DetectImageBodiesResponseBody extends Model
                     $res['Bodies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->imageUri) {
-            $res['ImageUri'] = $this->imageUri;
         }
 
         return $res;
@@ -63,6 +63,9 @@ class DetectImageBodiesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageUri'])) {
+            $model->imageUri = $map['ImageUri'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -74,9 +77,6 @@ class DetectImageBodiesResponseBody extends Model
                     $model->bodies[$n++] = null !== $item ? bodies::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['ImageUri'])) {
-            $model->imageUri = $map['ImageUri'];
         }
 
         return $model;

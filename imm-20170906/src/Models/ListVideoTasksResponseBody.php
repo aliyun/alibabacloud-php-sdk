@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListVideoTasksResponseBody extends Model
 {
     /**
-     * @var tasks[]
+     * @var string
      */
-    public $tasks;
+    public $nextMarker;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class ListVideoTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var tasks[]
      */
-    public $nextMarker;
+    public $tasks;
     protected $_name = [
-        'tasks'      => 'Tasks',
-        'requestId'  => 'RequestId',
         'nextMarker' => 'NextMarker',
+        'requestId'  => 'RequestId',
+        'tasks'      => 'Tasks',
     ];
 
     public function validate()
@@ -36,6 +36,12 @@ class ListVideoTasksResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextMarker) {
+            $res['NextMarker'] = $this->nextMarker;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->tasks) {
             $res['Tasks'] = [];
             if (null !== $this->tasks && \is_array($this->tasks)) {
@@ -44,12 +50,6 @@ class ListVideoTasksResponseBody extends Model
                     $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->nextMarker) {
-            $res['NextMarker'] = $this->nextMarker;
         }
 
         return $res;
@@ -63,6 +63,12 @@ class ListVideoTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextMarker'])) {
+            $model->nextMarker = $map['NextMarker'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
                 $model->tasks = [];
@@ -71,12 +77,6 @@ class ListVideoTasksResponseBody extends Model
                     $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['NextMarker'])) {
-            $model->nextMarker = $map['NextMarker'];
         }
 
         return $model;

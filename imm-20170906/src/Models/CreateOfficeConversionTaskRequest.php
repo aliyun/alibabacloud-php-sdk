@@ -127,6 +127,11 @@ class CreateOfficeConversionTaskRequest extends Model
      * @var int
      */
     public $displayDpi;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
         'project'         => 'Project',
         'srcUri'          => 'SrcUri',
@@ -152,6 +157,7 @@ class CreateOfficeConversionTaskRequest extends Model
         'pdfVector'       => 'PdfVector',
         'hidecomments'    => 'Hidecomments',
         'displayDpi'      => 'DisplayDpi',
+        'userData'        => 'UserData',
     ];
 
     public function validate()
@@ -232,6 +238,9 @@ class CreateOfficeConversionTaskRequest extends Model
         }
         if (null !== $this->displayDpi) {
             $res['DisplayDpi'] = $this->displayDpi;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -316,6 +325,9 @@ class CreateOfficeConversionTaskRequest extends Model
         }
         if (isset($map['DisplayDpi'])) {
             $model->displayDpi = $map['DisplayDpi'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

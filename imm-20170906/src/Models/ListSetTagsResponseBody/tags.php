@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @var int
+     */
+    public $tagLevel;
+
+    /**
      * @var string
      */
     public $tagName;
@@ -17,15 +22,10 @@ class tags extends Model
      * @var int
      */
     public $tagCount;
-
-    /**
-     * @var int
-     */
-    public $tagLevel;
     protected $_name = [
+        'tagLevel' => 'TagLevel',
         'tagName'  => 'TagName',
         'tagCount' => 'TagCount',
-        'tagLevel' => 'TagLevel',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class tags extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->tagLevel) {
+            $res['TagLevel'] = $this->tagLevel;
+        }
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
         if (null !== $this->tagCount) {
             $res['TagCount'] = $this->tagCount;
-        }
-        if (null !== $this->tagLevel) {
-            $res['TagLevel'] = $this->tagLevel;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class tags extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TagLevel'])) {
+            $model->tagLevel = $map['TagLevel'];
+        }
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }
         if (isset($map['TagCount'])) {
             $model->tagCount = $map['TagCount'];
-        }
-        if (isset($map['TagLevel'])) {
-            $model->tagLevel = $map['TagLevel'];
         }
 
         return $model;

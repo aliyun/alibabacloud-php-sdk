@@ -11,6 +11,11 @@ class logoBoundary extends Model
     /**
      * @var int
      */
+    public $left;
+
+    /**
+     * @var int
+     */
     public $top;
 
     /**
@@ -22,16 +27,11 @@ class logoBoundary extends Model
      * @var int
      */
     public $height;
-
-    /**
-     * @var int
-     */
-    public $left;
     protected $_name = [
+        'left'   => 'Left',
         'top'    => 'Top',
         'width'  => 'Width',
         'height' => 'Height',
-        'left'   => 'Left',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class logoBoundary extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->left) {
+            $res['Left'] = $this->left;
+        }
         if (null !== $this->top) {
             $res['Top'] = $this->top;
         }
@@ -49,9 +52,6 @@ class logoBoundary extends Model
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
-        }
-        if (null !== $this->left) {
-            $res['Left'] = $this->left;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class logoBoundary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Left'])) {
+            $model->left = $map['Left'];
+        }
         if (isset($map['Top'])) {
             $model->top = $map['Top'];
         }
@@ -73,9 +76,6 @@ class logoBoundary extends Model
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
-        }
-        if (isset($map['Left'])) {
-            $model->left = $map['Left'];
         }
 
         return $model;

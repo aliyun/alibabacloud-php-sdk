@@ -66,11 +66,6 @@ class IndexImageRequest extends Model
     /**
      * @var string
      */
-    public $realUid;
-
-    /**
-     * @var string
-     */
     public $notifyEndpoint;
 
     /**
@@ -99,7 +94,6 @@ class IndexImageRequest extends Model
         'remarksC'        => 'RemarksC',
         'remarksD'        => 'RemarksD',
         'externalId'      => 'ExternalId',
-        'realUid'         => 'RealUid',
         'notifyEndpoint'  => 'NotifyEndpoint',
         'notifyTopicName' => 'NotifyTopicName',
         'remarksArrayA'   => 'RemarksArrayA',
@@ -145,9 +139,6 @@ class IndexImageRequest extends Model
         }
         if (null !== $this->externalId) {
             $res['ExternalId'] = $this->externalId;
-        }
-        if (null !== $this->realUid) {
-            $res['RealUid'] = $this->realUid;
         }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
@@ -205,9 +196,6 @@ class IndexImageRequest extends Model
         }
         if (isset($map['ExternalId'])) {
             $model->externalId = $map['ExternalId'];
-        }
-        if (isset($map['RealUid'])) {
-            $model->realUid = $map['RealUid'];
         }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];

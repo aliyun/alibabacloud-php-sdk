@@ -11,17 +11,12 @@ class GetProjectResponseBody extends Model
     /**
      * @var string
      */
-    public $project;
-
-    /**
-     * @var string
-     */
-    public $modifyTime;
-
-    /**
-     * @var string
-     */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
@@ -31,12 +26,7 @@ class GetProjectResponseBody extends Model
     /**
      * @var string
      */
-    public $serviceRole;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $createTime;
 
     /**
      * @var string
@@ -46,7 +36,12 @@ class GetProjectResponseBody extends Model
     /**
      * @var string
      */
-    public $createTime;
+    public $serviceRole;
+
+    /**
+     * @var string
+     */
+    public $project;
 
     /**
      * @var string
@@ -57,17 +52,22 @@ class GetProjectResponseBody extends Model
      * @var string
      */
     public $billingType;
+
+    /**
+     * @var string
+     */
+    public $modifyTime;
     protected $_name = [
-        'project'     => 'Project',
-        'modifyTime'  => 'ModifyTime',
         'type'        => 'Type',
-        'CU'          => 'CU',
-        'serviceRole' => 'ServiceRole',
         'requestId'   => 'RequestId',
-        'endpoint'    => 'Endpoint',
+        'CU'          => 'CU',
         'createTime'  => 'CreateTime',
+        'endpoint'    => 'Endpoint',
+        'serviceRole' => 'ServiceRole',
+        'project'     => 'Project',
         'regionId'    => 'RegionId',
         'billingType' => 'BillingType',
+        'modifyTime'  => 'ModifyTime',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class GetProjectResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->CU) {
-            $res['CU'] = $this->CU;
-        }
-        if (null !== $this->serviceRole) {
-            $res['ServiceRole'] = $this->serviceRole;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->endpoint) {
-            $res['Endpoint'] = $this->endpoint;
+        if (null !== $this->CU) {
+            $res['CU'] = $this->CU;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->endpoint) {
+            $res['Endpoint'] = $this->endpoint;
+        }
+        if (null !== $this->serviceRole) {
+            $res['ServiceRole'] = $this->serviceRole;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->billingType) {
             $res['BillingType'] = $this->billingType;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class GetProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['CU'])) {
-            $model->CU = $map['CU'];
-        }
-        if (isset($map['ServiceRole'])) {
-            $model->serviceRole = $map['ServiceRole'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Endpoint'])) {
-            $model->endpoint = $map['Endpoint'];
+        if (isset($map['CU'])) {
+            $model->CU = $map['CU'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Endpoint'])) {
+            $model->endpoint = $map['Endpoint'];
+        }
+        if (isset($map['ServiceRole'])) {
+            $model->serviceRole = $map['ServiceRole'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['BillingType'])) {
             $model->billingType = $map['BillingType'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
 
         return $model;

@@ -12,17 +12,12 @@ class ListVideoAudiosResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var audios[]
-     */
-    public $audios;
+    public $videoUri;
 
     /**
      * @var string
      */
-    public $videoUri;
+    public $requestId;
 
     /**
      * @var string
@@ -33,12 +28,17 @@ class ListVideoAudiosResponseBody extends Model
      * @var string
      */
     public $setId;
+
+    /**
+     * @var audios[]
+     */
+    public $audios;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'audios'     => 'Audios',
         'videoUri'   => 'VideoUri',
+        'requestId'  => 'RequestId',
         'nextMarker' => 'NextMarker',
         'setId'      => 'SetId',
+        'audios'     => 'Audios',
     ];
 
     public function validate()
@@ -48,8 +48,17 @@ class ListVideoAudiosResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->videoUri) {
+            $res['VideoUri'] = $this->videoUri;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->nextMarker) {
+            $res['NextMarker'] = $this->nextMarker;
+        }
+        if (null !== $this->setId) {
+            $res['SetId'] = $this->setId;
         }
         if (null !== $this->audios) {
             $res['Audios'] = [];
@@ -59,15 +68,6 @@ class ListVideoAudiosResponseBody extends Model
                     $res['Audios'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->videoUri) {
-            $res['VideoUri'] = $this->videoUri;
-        }
-        if (null !== $this->nextMarker) {
-            $res['NextMarker'] = $this->nextMarker;
-        }
-        if (null !== $this->setId) {
-            $res['SetId'] = $this->setId;
         }
 
         return $res;
@@ -81,8 +81,17 @@ class ListVideoAudiosResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['VideoUri'])) {
+            $model->videoUri = $map['VideoUri'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['NextMarker'])) {
+            $model->nextMarker = $map['NextMarker'];
+        }
+        if (isset($map['SetId'])) {
+            $model->setId = $map['SetId'];
         }
         if (isset($map['Audios'])) {
             if (!empty($map['Audios'])) {
@@ -92,15 +101,6 @@ class ListVideoAudiosResponseBody extends Model
                     $model->audios[$n++] = null !== $item ? audios::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['VideoUri'])) {
-            $model->videoUri = $map['VideoUri'];
-        }
-        if (isset($map['NextMarker'])) {
-            $model->nextMarker = $map['NextMarker'];
-        }
-        if (isset($map['SetId'])) {
-            $model->setId = $map['SetId'];
         }
 
         return $model;

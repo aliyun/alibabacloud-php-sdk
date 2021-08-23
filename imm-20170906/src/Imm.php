@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imm\V20170906;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CompareImageFacesRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CompareImageFacesResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\ConvertOfficeFormatRequest;
@@ -23,8 +24,6 @@ use AlibabaCloud\SDK\Imm\V20170906\Models\CreateOfficeConversionTaskRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateOfficeConversionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateSetRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateSetResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateStreamAnalyseTaskRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\CreateStreamAnalyseTaskResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateVideoAbstractTaskRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateVideoAbstractTaskResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\CreateVideoAnalyseTaskRequest;
@@ -136,6 +135,7 @@ use AlibabaCloud\SDK\Imm\V20170906\Models\UpdateFaceGroupRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\UpdateFaceGroupResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\UpdateImageRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\UpdateImageResponse;
+use AlibabaCloud\SDK\Imm\V20170906\Models\UpdateImageShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\UpdateProjectResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\UpdateSetRequest;
@@ -431,34 +431,6 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateStreamAnalyseTaskRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateStreamAnalyseTaskResponse
-     */
-    public function createStreamAnalyseTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateStreamAnalyseTaskResponse::fromMap($this->doRPCRequest('CreateStreamAnalyseTask', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateStreamAnalyseTaskRequest $request
-     *
-     * @return CreateStreamAnalyseTaskResponse
-     */
-    public function createStreamAnalyseTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createStreamAnalyseTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1996,14 +1968,19 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateImageRequest $request
+     * @param UpdateImageRequest $tmpReq
      * @param RuntimeOptions     $runtime
      *
      * @return UpdateImageResponse
      */
-    public function updateImageWithOptions($request, $runtime)
+    public function updateImageWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateImageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->faces)) {
+            $request->facesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->faces, 'Faces', 'json');
+        }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);

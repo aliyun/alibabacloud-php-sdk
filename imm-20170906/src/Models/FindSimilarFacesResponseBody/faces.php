@@ -13,6 +13,16 @@ class faces extends Model
     /**
      * @var string
      */
+    public $externalId;
+
+    /**
+     * @var float
+     */
+    public $similarity;
+
+    /**
+     * @var string
+     */
     public $faceId;
 
     /**
@@ -21,31 +31,21 @@ class faces extends Model
     public $imageUri;
 
     /**
-     * @var string
+     * @var similarFaces[]
      */
-    public $externalId;
+    public $similarFaces;
 
     /**
      * @var faceAttributes
      */
     public $faceAttributes;
-
-    /**
-     * @var float
-     */
-    public $similarity;
-
-    /**
-     * @var similarFaces[]
-     */
-    public $similarFaces;
     protected $_name = [
+        'externalId'     => 'ExternalId',
+        'similarity'     => 'Similarity',
         'faceId'         => 'FaceId',
         'imageUri'       => 'ImageUri',
-        'externalId'     => 'ExternalId',
-        'faceAttributes' => 'FaceAttributes',
-        'similarity'     => 'Similarity',
         'similarFaces'   => 'SimilarFaces',
+        'faceAttributes' => 'FaceAttributes',
     ];
 
     public function validate()
@@ -55,20 +55,17 @@ class faces extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->externalId) {
+            $res['ExternalId'] = $this->externalId;
+        }
+        if (null !== $this->similarity) {
+            $res['Similarity'] = $this->similarity;
+        }
         if (null !== $this->faceId) {
             $res['FaceId'] = $this->faceId;
         }
         if (null !== $this->imageUri) {
             $res['ImageUri'] = $this->imageUri;
-        }
-        if (null !== $this->externalId) {
-            $res['ExternalId'] = $this->externalId;
-        }
-        if (null !== $this->faceAttributes) {
-            $res['FaceAttributes'] = null !== $this->faceAttributes ? $this->faceAttributes->toMap() : null;
-        }
-        if (null !== $this->similarity) {
-            $res['Similarity'] = $this->similarity;
         }
         if (null !== $this->similarFaces) {
             $res['SimilarFaces'] = [];
@@ -78,6 +75,9 @@ class faces extends Model
                     $res['SimilarFaces'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->faceAttributes) {
+            $res['FaceAttributes'] = null !== $this->faceAttributes ? $this->faceAttributes->toMap() : null;
         }
 
         return $res;
@@ -91,20 +91,17 @@ class faces extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExternalId'])) {
+            $model->externalId = $map['ExternalId'];
+        }
+        if (isset($map['Similarity'])) {
+            $model->similarity = $map['Similarity'];
+        }
         if (isset($map['FaceId'])) {
             $model->faceId = $map['FaceId'];
         }
         if (isset($map['ImageUri'])) {
             $model->imageUri = $map['ImageUri'];
-        }
-        if (isset($map['ExternalId'])) {
-            $model->externalId = $map['ExternalId'];
-        }
-        if (isset($map['FaceAttributes'])) {
-            $model->faceAttributes = faceAttributes::fromMap($map['FaceAttributes']);
-        }
-        if (isset($map['Similarity'])) {
-            $model->similarity = $map['Similarity'];
         }
         if (isset($map['SimilarFaces'])) {
             if (!empty($map['SimilarFaces'])) {
@@ -114,6 +111,9 @@ class faces extends Model
                     $model->similarFaces[$n++] = null !== $item ? similarFaces::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['FaceAttributes'])) {
+            $model->faceAttributes = faceAttributes::fromMap($map['FaceAttributes']);
         }
 
         return $model;

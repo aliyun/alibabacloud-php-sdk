@@ -12,6 +12,16 @@ class similarFaces extends Model
     /**
      * @var string
      */
+    public $externalId;
+
+    /**
+     * @var float
+     */
+    public $similarity;
+
+    /**
+     * @var string
+     */
     public $faceId;
 
     /**
@@ -20,25 +30,15 @@ class similarFaces extends Model
     public $imageUri;
 
     /**
-     * @var string
-     */
-    public $externalId;
-
-    /**
      * @var faceAttributes
      */
     public $faceAttributes;
-
-    /**
-     * @var float
-     */
-    public $similarity;
     protected $_name = [
+        'externalId'     => 'ExternalId',
+        'similarity'     => 'Similarity',
         'faceId'         => 'FaceId',
         'imageUri'       => 'ImageUri',
-        'externalId'     => 'ExternalId',
         'faceAttributes' => 'FaceAttributes',
-        'similarity'     => 'Similarity',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class similarFaces extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->externalId) {
+            $res['ExternalId'] = $this->externalId;
+        }
+        if (null !== $this->similarity) {
+            $res['Similarity'] = $this->similarity;
+        }
         if (null !== $this->faceId) {
             $res['FaceId'] = $this->faceId;
         }
         if (null !== $this->imageUri) {
             $res['ImageUri'] = $this->imageUri;
         }
-        if (null !== $this->externalId) {
-            $res['ExternalId'] = $this->externalId;
-        }
         if (null !== $this->faceAttributes) {
             $res['FaceAttributes'] = null !== $this->faceAttributes ? $this->faceAttributes->toMap() : null;
-        }
-        if (null !== $this->similarity) {
-            $res['Similarity'] = $this->similarity;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class similarFaces extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExternalId'])) {
+            $model->externalId = $map['ExternalId'];
+        }
+        if (isset($map['Similarity'])) {
+            $model->similarity = $map['Similarity'];
+        }
         if (isset($map['FaceId'])) {
             $model->faceId = $map['FaceId'];
         }
         if (isset($map['ImageUri'])) {
             $model->imageUri = $map['ImageUri'];
         }
-        if (isset($map['ExternalId'])) {
-            $model->externalId = $map['ExternalId'];
-        }
         if (isset($map['FaceAttributes'])) {
             $model->faceAttributes = faceAttributes::fromMap($map['FaceAttributes']);
-        }
-        if (isset($map['Similarity'])) {
-            $model->similarity = $map['Similarity'];
         }
 
         return $model;

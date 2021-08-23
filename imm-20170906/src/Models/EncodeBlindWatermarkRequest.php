@@ -47,11 +47,6 @@ class EncodeBlindWatermarkRequest extends Model
      * @var string
      */
     public $model;
-
-    /**
-     * @var string
-     */
-    public $watermarkType;
     protected $_name = [
         'project'         => 'Project',
         'imageUri'        => 'ImageUri',
@@ -61,7 +56,6 @@ class EncodeBlindWatermarkRequest extends Model
         'content'         => 'Content',
         'targetImageType' => 'TargetImageType',
         'model'           => 'Model',
-        'watermarkType'   => 'WatermarkType',
     ];
 
     public function validate()
@@ -94,9 +88,6 @@ class EncodeBlindWatermarkRequest extends Model
         }
         if (null !== $this->model) {
             $res['Model'] = $this->model;
-        }
-        if (null !== $this->watermarkType) {
-            $res['WatermarkType'] = $this->watermarkType;
         }
 
         return $res;
@@ -133,9 +124,6 @@ class EncodeBlindWatermarkRequest extends Model
         }
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
-        }
-        if (isset($map['WatermarkType'])) {
-            $model->watermarkType = $map['WatermarkType'];
         }
 
         return $model;

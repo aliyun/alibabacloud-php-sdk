@@ -12,20 +12,20 @@ class DetectImageQRCodesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $imageUri;
 
     /**
      * @var string
      */
-    public $imageUri;
+    public $requestId;
 
     /**
      * @var QRCodes[]
      */
     public $QRCodes;
     protected $_name = [
-        'requestId' => 'RequestId',
         'imageUri'  => 'ImageUri',
+        'requestId' => 'RequestId',
         'QRCodes'   => 'QRCodes',
     ];
 
@@ -36,11 +36,11 @@ class DetectImageQRCodesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->imageUri) {
             $res['ImageUri'] = $this->imageUri;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->QRCodes) {
             $res['QRCodes'] = [];
@@ -63,11 +63,11 @@ class DetectImageQRCodesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ImageUri'])) {
             $model->imageUri = $map['ImageUri'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['QRCodes'])) {
             if (!empty($map['QRCodes'])) {

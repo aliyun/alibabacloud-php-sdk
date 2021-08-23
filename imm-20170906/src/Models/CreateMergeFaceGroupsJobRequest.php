@@ -37,6 +37,11 @@ class CreateMergeFaceGroupsJobRequest extends Model
      * @var string
      */
     public $groupIdTo;
+
+    /**
+     * @var string
+     */
+    public $customMessage;
     protected $_name = [
         'project'         => 'Project',
         'setId'           => 'SetId',
@@ -44,6 +49,7 @@ class CreateMergeFaceGroupsJobRequest extends Model
         'notifyEndpoint'  => 'NotifyEndpoint',
         'groupIdFrom'     => 'GroupIdFrom',
         'groupIdTo'       => 'GroupIdTo',
+        'customMessage'   => 'CustomMessage',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class CreateMergeFaceGroupsJobRequest extends Model
         }
         if (null !== $this->groupIdTo) {
             $res['GroupIdTo'] = $this->groupIdTo;
+        }
+        if (null !== $this->customMessage) {
+            $res['CustomMessage'] = $this->customMessage;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class CreateMergeFaceGroupsJobRequest extends Model
         }
         if (isset($map['GroupIdTo'])) {
             $model->groupIdTo = $map['GroupIdTo'];
+        }
+        if (isset($map['CustomMessage'])) {
+            $model->customMessage = $map['CustomMessage'];
         }
 
         return $model;

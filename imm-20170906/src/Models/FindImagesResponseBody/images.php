@@ -50,11 +50,6 @@ class images extends Model
     public $facesFailReason;
 
     /**
-     * @var tags[]
-     */
-    public $tags;
-
-    /**
      * @var string
      */
     public $facesModifyTime;
@@ -75,11 +70,6 @@ class images extends Model
     public $addressModifyTime;
 
     /**
-     * @var OCR[]
-     */
-    public $OCR;
-
-    /**
      * @var string
      */
     public $imageQualityFailReason;
@@ -90,19 +80,14 @@ class images extends Model
     public $facesStatus;
 
     /**
-     * @var int
-     */
-    public $imageHeight;
-
-    /**
      * @var string
      */
     public $remarksArrayA;
 
     /**
-     * @var address
+     * @var int
      */
-    public $address;
+    public $imageHeight;
 
     /**
      * @var string
@@ -115,11 +100,6 @@ class images extends Model
     public $sourceUri;
 
     /**
-     * @var string
-     */
-    public $modifyTime;
-
-    /**
      * @var int
      */
     public $fileSize;
@@ -127,12 +107,12 @@ class images extends Model
     /**
      * @var string
      */
-    public $sourcePosition;
+    public $modifyTime;
 
     /**
-     * @var faces[]
+     * @var string
      */
-    public $faces;
+    public $sourcePosition;
 
     /**
      * @var string
@@ -148,11 +128,6 @@ class images extends Model
      * @var string
      */
     public $addressFailReason;
-
-    /**
-     * @var imageQuality
-     */
-    public $imageQuality;
 
     /**
      * @var string
@@ -173,11 +148,6 @@ class images extends Model
      * @var string
      */
     public $remarksArrayB;
-
-    /**
-     * @var croppingSuggestion[]
-     */
-    public $croppingSuggestion;
 
     /**
      * @var string
@@ -238,6 +208,36 @@ class images extends Model
      * @var string
      */
     public $remarksB;
+
+    /**
+     * @var croppingSuggestion[]
+     */
+    public $croppingSuggestion;
+
+    /**
+     * @var faces[]
+     */
+    public $faces;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @var OCR[]
+     */
+    public $OCR;
+
+    /**
+     * @var imageQuality
+     */
+    public $imageQuality;
+
+    /**
+     * @var address
+     */
+    public $address;
     protected $_name = [
         'croppingSuggestionStatus'     => 'CroppingSuggestionStatus',
         'imageQualityModifyTime'       => 'ImageQualityModifyTime',
@@ -246,32 +246,26 @@ class images extends Model
         'createTime'                   => 'CreateTime',
         'sourceType'                   => 'SourceType',
         'facesFailReason'              => 'FacesFailReason',
-        'tags'                         => 'Tags',
         'facesModifyTime'              => 'FacesModifyTime',
         'imageTime'                    => 'ImageTime',
         'OCRModifyTime'                => 'OCRModifyTime',
         'addressModifyTime'            => 'AddressModifyTime',
-        'OCR'                          => 'OCR',
         'imageQualityFailReason'       => 'ImageQualityFailReason',
         'facesStatus'                  => 'FacesStatus',
-        'imageHeight'                  => 'ImageHeight',
         'remarksArrayA'                => 'RemarksArrayA',
-        'address'                      => 'Address',
+        'imageHeight'                  => 'ImageHeight',
         'externalId'                   => 'ExternalId',
         'sourceUri'                    => 'SourceUri',
-        'modifyTime'                   => 'ModifyTime',
         'fileSize'                     => 'FileSize',
+        'modifyTime'                   => 'ModifyTime',
         'sourcePosition'               => 'SourcePosition',
-        'faces'                        => 'Faces',
         'imageQualityStatus'           => 'ImageQualityStatus',
         'OCRFailReason'                => 'OCRFailReason',
         'addressFailReason'            => 'AddressFailReason',
-        'imageQuality'                 => 'ImageQuality',
         'croppingSuggestionModifyTime' => 'CroppingSuggestionModifyTime',
         'imageFormat'                  => 'ImageFormat',
         'imageWidth'                   => 'ImageWidth',
         'remarksArrayB'                => 'RemarksArrayB',
-        'croppingSuggestion'           => 'CroppingSuggestion',
         'orientation'                  => 'Orientation',
         'remarksD'                     => 'RemarksD',
         'tagsStatus'                   => 'TagsStatus',
@@ -284,6 +278,12 @@ class images extends Model
         'exif'                         => 'Exif',
         'location'                     => 'Location',
         'remarksB'                     => 'RemarksB',
+        'croppingSuggestion'           => 'CroppingSuggestion',
+        'faces'                        => 'Faces',
+        'tags'                         => 'Tags',
+        'OCR'                          => 'OCR',
+        'imageQuality'                 => 'ImageQuality',
+        'address'                      => 'Address',
     ];
 
     public function validate()
@@ -314,15 +314,6 @@ class images extends Model
         if (null !== $this->facesFailReason) {
             $res['FacesFailReason'] = $this->facesFailReason;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->facesModifyTime) {
             $res['FacesModifyTime'] = $this->facesModifyTime;
         }
@@ -335,29 +326,17 @@ class images extends Model
         if (null !== $this->addressModifyTime) {
             $res['AddressModifyTime'] = $this->addressModifyTime;
         }
-        if (null !== $this->OCR) {
-            $res['OCR'] = [];
-            if (null !== $this->OCR && \is_array($this->OCR)) {
-                $n = 0;
-                foreach ($this->OCR as $item) {
-                    $res['OCR'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->imageQualityFailReason) {
             $res['ImageQualityFailReason'] = $this->imageQualityFailReason;
         }
         if (null !== $this->facesStatus) {
             $res['FacesStatus'] = $this->facesStatus;
         }
-        if (null !== $this->imageHeight) {
-            $res['ImageHeight'] = $this->imageHeight;
-        }
         if (null !== $this->remarksArrayA) {
             $res['RemarksArrayA'] = $this->remarksArrayA;
         }
-        if (null !== $this->address) {
-            $res['Address'] = null !== $this->address ? $this->address->toMap() : null;
+        if (null !== $this->imageHeight) {
+            $res['ImageHeight'] = $this->imageHeight;
         }
         if (null !== $this->externalId) {
             $res['ExternalId'] = $this->externalId;
@@ -365,23 +344,14 @@ class images extends Model
         if (null !== $this->sourceUri) {
             $res['SourceUri'] = $this->sourceUri;
         }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
-        }
         if (null !== $this->fileSize) {
             $res['FileSize'] = $this->fileSize;
         }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
+        }
         if (null !== $this->sourcePosition) {
             $res['SourcePosition'] = $this->sourcePosition;
-        }
-        if (null !== $this->faces) {
-            $res['Faces'] = [];
-            if (null !== $this->faces && \is_array($this->faces)) {
-                $n = 0;
-                foreach ($this->faces as $item) {
-                    $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->imageQualityStatus) {
             $res['ImageQualityStatus'] = $this->imageQualityStatus;
@@ -391,9 +361,6 @@ class images extends Model
         }
         if (null !== $this->addressFailReason) {
             $res['AddressFailReason'] = $this->addressFailReason;
-        }
-        if (null !== $this->imageQuality) {
-            $res['ImageQuality'] = null !== $this->imageQuality ? $this->imageQuality->toMap() : null;
         }
         if (null !== $this->croppingSuggestionModifyTime) {
             $res['CroppingSuggestionModifyTime'] = $this->croppingSuggestionModifyTime;
@@ -406,15 +373,6 @@ class images extends Model
         }
         if (null !== $this->remarksArrayB) {
             $res['RemarksArrayB'] = $this->remarksArrayB;
-        }
-        if (null !== $this->croppingSuggestion) {
-            $res['CroppingSuggestion'] = [];
-            if (null !== $this->croppingSuggestion && \is_array($this->croppingSuggestion)) {
-                $n = 0;
-                foreach ($this->croppingSuggestion as $item) {
-                    $res['CroppingSuggestion'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->orientation) {
             $res['Orientation'] = $this->orientation;
@@ -452,6 +410,48 @@ class images extends Model
         if (null !== $this->remarksB) {
             $res['RemarksB'] = $this->remarksB;
         }
+        if (null !== $this->croppingSuggestion) {
+            $res['CroppingSuggestion'] = [];
+            if (null !== $this->croppingSuggestion && \is_array($this->croppingSuggestion)) {
+                $n = 0;
+                foreach ($this->croppingSuggestion as $item) {
+                    $res['CroppingSuggestion'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->faces) {
+            $res['Faces'] = [];
+            if (null !== $this->faces && \is_array($this->faces)) {
+                $n = 0;
+                foreach ($this->faces as $item) {
+                    $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->OCR) {
+            $res['OCR'] = [];
+            if (null !== $this->OCR && \is_array($this->OCR)) {
+                $n = 0;
+                foreach ($this->OCR as $item) {
+                    $res['OCR'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->imageQuality) {
+            $res['ImageQuality'] = null !== $this->imageQuality ? $this->imageQuality->toMap() : null;
+        }
+        if (null !== $this->address) {
+            $res['Address'] = null !== $this->address ? $this->address->toMap() : null;
+        }
 
         return $res;
     }
@@ -485,15 +485,6 @@ class images extends Model
         if (isset($map['FacesFailReason'])) {
             $model->facesFailReason = $map['FacesFailReason'];
         }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['FacesModifyTime'])) {
             $model->facesModifyTime = $map['FacesModifyTime'];
         }
@@ -506,29 +497,17 @@ class images extends Model
         if (isset($map['AddressModifyTime'])) {
             $model->addressModifyTime = $map['AddressModifyTime'];
         }
-        if (isset($map['OCR'])) {
-            if (!empty($map['OCR'])) {
-                $model->OCR = [];
-                $n          = 0;
-                foreach ($map['OCR'] as $item) {
-                    $model->OCR[$n++] = null !== $item ? OCR::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['ImageQualityFailReason'])) {
             $model->imageQualityFailReason = $map['ImageQualityFailReason'];
         }
         if (isset($map['FacesStatus'])) {
             $model->facesStatus = $map['FacesStatus'];
         }
-        if (isset($map['ImageHeight'])) {
-            $model->imageHeight = $map['ImageHeight'];
-        }
         if (isset($map['RemarksArrayA'])) {
             $model->remarksArrayA = $map['RemarksArrayA'];
         }
-        if (isset($map['Address'])) {
-            $model->address = address::fromMap($map['Address']);
+        if (isset($map['ImageHeight'])) {
+            $model->imageHeight = $map['ImageHeight'];
         }
         if (isset($map['ExternalId'])) {
             $model->externalId = $map['ExternalId'];
@@ -536,23 +515,14 @@ class images extends Model
         if (isset($map['SourceUri'])) {
             $model->sourceUri = $map['SourceUri'];
         }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
-        }
         if (isset($map['FileSize'])) {
             $model->fileSize = $map['FileSize'];
         }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
+        }
         if (isset($map['SourcePosition'])) {
             $model->sourcePosition = $map['SourcePosition'];
-        }
-        if (isset($map['Faces'])) {
-            if (!empty($map['Faces'])) {
-                $model->faces = [];
-                $n            = 0;
-                foreach ($map['Faces'] as $item) {
-                    $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['ImageQualityStatus'])) {
             $model->imageQualityStatus = $map['ImageQualityStatus'];
@@ -562,9 +532,6 @@ class images extends Model
         }
         if (isset($map['AddressFailReason'])) {
             $model->addressFailReason = $map['AddressFailReason'];
-        }
-        if (isset($map['ImageQuality'])) {
-            $model->imageQuality = imageQuality::fromMap($map['ImageQuality']);
         }
         if (isset($map['CroppingSuggestionModifyTime'])) {
             $model->croppingSuggestionModifyTime = $map['CroppingSuggestionModifyTime'];
@@ -577,15 +544,6 @@ class images extends Model
         }
         if (isset($map['RemarksArrayB'])) {
             $model->remarksArrayB = $map['RemarksArrayB'];
-        }
-        if (isset($map['CroppingSuggestion'])) {
-            if (!empty($map['CroppingSuggestion'])) {
-                $model->croppingSuggestion = [];
-                $n                         = 0;
-                foreach ($map['CroppingSuggestion'] as $item) {
-                    $model->croppingSuggestion[$n++] = null !== $item ? croppingSuggestion::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Orientation'])) {
             $model->orientation = $map['Orientation'];
@@ -622,6 +580,48 @@ class images extends Model
         }
         if (isset($map['RemarksB'])) {
             $model->remarksB = $map['RemarksB'];
+        }
+        if (isset($map['CroppingSuggestion'])) {
+            if (!empty($map['CroppingSuggestion'])) {
+                $model->croppingSuggestion = [];
+                $n                         = 0;
+                foreach ($map['CroppingSuggestion'] as $item) {
+                    $model->croppingSuggestion[$n++] = null !== $item ? croppingSuggestion::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Faces'])) {
+            if (!empty($map['Faces'])) {
+                $model->faces = [];
+                $n            = 0;
+                foreach ($map['Faces'] as $item) {
+                    $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['OCR'])) {
+            if (!empty($map['OCR'])) {
+                $model->OCR = [];
+                $n          = 0;
+                foreach ($map['OCR'] as $item) {
+                    $model->OCR[$n++] = null !== $item ? OCR::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ImageQuality'])) {
+            $model->imageQuality = imageQuality::fromMap($map['ImageQuality']);
+        }
+        if (isset($map['Address'])) {
+            $model->address = address::fromMap($map['Address']);
         }
 
         return $model;

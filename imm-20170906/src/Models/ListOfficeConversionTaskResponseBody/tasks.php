@@ -46,7 +46,7 @@ class tasks extends Model
     /**
      * @var string
      */
-    public $tgtUri;
+    public $srcUri;
 
     /**
      * @var string
@@ -56,7 +56,7 @@ class tasks extends Model
     /**
      * @var string
      */
-    public $srcUri;
+    public $tgtUri;
 
     /**
      * @var string
@@ -80,9 +80,9 @@ class tasks extends Model
         'pageCount'       => 'PageCount',
         'notifyTopicName' => 'NotifyTopicName',
         'notifyEndpoint'  => 'NotifyEndpoint',
-        'tgtUri'          => 'TgtUri',
-        'tgtType'         => 'TgtType',
         'srcUri'          => 'SrcUri',
+        'tgtType'         => 'TgtType',
+        'tgtUri'          => 'TgtUri',
         'imageSpec'       => 'ImageSpec',
         'externalID'      => 'ExternalID',
         'taskId'          => 'TaskId',
@@ -116,14 +116,14 @@ class tasks extends Model
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
-        if (null !== $this->tgtUri) {
-            $res['TgtUri'] = $this->tgtUri;
+        if (null !== $this->srcUri) {
+            $res['SrcUri'] = $this->srcUri;
         }
         if (null !== $this->tgtType) {
             $res['TgtType'] = $this->tgtType;
         }
-        if (null !== $this->srcUri) {
-            $res['SrcUri'] = $this->srcUri;
+        if (null !== $this->tgtUri) {
+            $res['TgtUri'] = $this->tgtUri;
         }
         if (null !== $this->imageSpec) {
             $res['ImageSpec'] = $this->imageSpec;
@@ -167,14 +167,14 @@ class tasks extends Model
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
-        if (isset($map['TgtUri'])) {
-            $model->tgtUri = $map['TgtUri'];
+        if (isset($map['SrcUri'])) {
+            $model->srcUri = $map['SrcUri'];
         }
         if (isset($map['TgtType'])) {
             $model->tgtType = $map['TgtType'];
         }
-        if (isset($map['SrcUri'])) {
-            $model->srcUri = $map['SrcUri'];
+        if (isset($map['TgtUri'])) {
+            $model->tgtUri = $map['TgtUri'];
         }
         if (isset($map['ImageSpec'])) {
             $model->imageSpec = $map['ImageSpec'];

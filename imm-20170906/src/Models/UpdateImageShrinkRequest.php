@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20170906\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateFaceGroupRequest extends Model
+class UpdateImageShrinkRequest extends Model
 {
     /**
      * @var string
@@ -21,17 +21,7 @@ class UpdateFaceGroupRequest extends Model
     /**
      * @var string
      */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
-     * @var string
-     */
-    public $groupCoverFaceId;
+    public $imageUri;
 
     /**
      * @var string
@@ -46,12 +36,32 @@ class UpdateFaceGroupRequest extends Model
     /**
      * @var string
      */
+    public $sourceType;
+
+    /**
+     * @var string
+     */
+    public $sourceUri;
+
+    /**
+     * @var string
+     */
+    public $sourcePosition;
+
+    /**
+     * @var string
+     */
     public $remarksC;
 
     /**
      * @var string
      */
     public $remarksD;
+
+    /**
+     * @var string
+     */
+    public $externalId;
 
     /**
      * @var string
@@ -66,26 +76,22 @@ class UpdateFaceGroupRequest extends Model
     /**
      * @var string
      */
-    public $externalId;
-
-    /**
-     * @var string
-     */
-    public $resetItems;
+    public $facesShrink;
     protected $_name = [
-        'project'          => 'Project',
-        'setId'            => 'SetId',
-        'groupId'          => 'GroupId',
-        'groupName'        => 'GroupName',
-        'groupCoverFaceId' => 'GroupCoverFaceId',
-        'remarksA'         => 'RemarksA',
-        'remarksB'         => 'RemarksB',
-        'remarksC'         => 'RemarksC',
-        'remarksD'         => 'RemarksD',
-        'remarksArrayA'    => 'RemarksArrayA',
-        'remarksArrayB'    => 'RemarksArrayB',
-        'externalId'       => 'ExternalId',
-        'resetItems'       => 'ResetItems',
+        'project'        => 'Project',
+        'setId'          => 'SetId',
+        'imageUri'       => 'ImageUri',
+        'remarksA'       => 'RemarksA',
+        'remarksB'       => 'RemarksB',
+        'sourceType'     => 'SourceType',
+        'sourceUri'      => 'SourceUri',
+        'sourcePosition' => 'SourcePosition',
+        'remarksC'       => 'RemarksC',
+        'remarksD'       => 'RemarksD',
+        'externalId'     => 'ExternalId',
+        'remarksArrayA'  => 'RemarksArrayA',
+        'remarksArrayB'  => 'RemarksArrayB',
+        'facesShrink'    => 'Faces',
     ];
 
     public function validate()
@@ -101,14 +107,8 @@ class UpdateFaceGroupRequest extends Model
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->groupCoverFaceId) {
-            $res['GroupCoverFaceId'] = $this->groupCoverFaceId;
+        if (null !== $this->imageUri) {
+            $res['ImageUri'] = $this->imageUri;
         }
         if (null !== $this->remarksA) {
             $res['RemarksA'] = $this->remarksA;
@@ -116,11 +116,23 @@ class UpdateFaceGroupRequest extends Model
         if (null !== $this->remarksB) {
             $res['RemarksB'] = $this->remarksB;
         }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->sourceUri) {
+            $res['SourceUri'] = $this->sourceUri;
+        }
+        if (null !== $this->sourcePosition) {
+            $res['SourcePosition'] = $this->sourcePosition;
+        }
         if (null !== $this->remarksC) {
             $res['RemarksC'] = $this->remarksC;
         }
         if (null !== $this->remarksD) {
             $res['RemarksD'] = $this->remarksD;
+        }
+        if (null !== $this->externalId) {
+            $res['ExternalId'] = $this->externalId;
         }
         if (null !== $this->remarksArrayA) {
             $res['RemarksArrayA'] = $this->remarksArrayA;
@@ -128,11 +140,8 @@ class UpdateFaceGroupRequest extends Model
         if (null !== $this->remarksArrayB) {
             $res['RemarksArrayB'] = $this->remarksArrayB;
         }
-        if (null !== $this->externalId) {
-            $res['ExternalId'] = $this->externalId;
-        }
-        if (null !== $this->resetItems) {
-            $res['ResetItems'] = $this->resetItems;
+        if (null !== $this->facesShrink) {
+            $res['Faces'] = $this->facesShrink;
         }
 
         return $res;
@@ -141,7 +150,7 @@ class UpdateFaceGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateFaceGroupRequest
+     * @return UpdateImageShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -152,14 +161,8 @@ class UpdateFaceGroupRequest extends Model
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['GroupCoverFaceId'])) {
-            $model->groupCoverFaceId = $map['GroupCoverFaceId'];
+        if (isset($map['ImageUri'])) {
+            $model->imageUri = $map['ImageUri'];
         }
         if (isset($map['RemarksA'])) {
             $model->remarksA = $map['RemarksA'];
@@ -167,11 +170,23 @@ class UpdateFaceGroupRequest extends Model
         if (isset($map['RemarksB'])) {
             $model->remarksB = $map['RemarksB'];
         }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['SourceUri'])) {
+            $model->sourceUri = $map['SourceUri'];
+        }
+        if (isset($map['SourcePosition'])) {
+            $model->sourcePosition = $map['SourcePosition'];
+        }
         if (isset($map['RemarksC'])) {
             $model->remarksC = $map['RemarksC'];
         }
         if (isset($map['RemarksD'])) {
             $model->remarksD = $map['RemarksD'];
+        }
+        if (isset($map['ExternalId'])) {
+            $model->externalId = $map['ExternalId'];
         }
         if (isset($map['RemarksArrayA'])) {
             $model->remarksArrayA = $map['RemarksArrayA'];
@@ -179,11 +194,8 @@ class UpdateFaceGroupRequest extends Model
         if (isset($map['RemarksArrayB'])) {
             $model->remarksArrayB = $map['RemarksArrayB'];
         }
-        if (isset($map['ExternalId'])) {
-            $model->externalId = $map['ExternalId'];
-        }
-        if (isset($map['ResetItems'])) {
-            $model->resetItems = $map['ResetItems'];
+        if (isset($map['Faces'])) {
+            $model->facesShrink = $map['Faces'];
         }
 
         return $model;

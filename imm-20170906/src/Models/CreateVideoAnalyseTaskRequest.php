@@ -21,31 +21,6 @@ class CreateVideoAnalyseTaskRequest extends Model
     /**
      * @var string
      */
-    public $grabType;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var bool
-     */
-    public $saveType;
-
-    /**
-     * @var string
-     */
-    public $interval;
-
-    /**
-     * @var string
-     */
     public $tgtUri;
 
     /**
@@ -60,11 +35,6 @@ class CreateVideoAnalyseTaskRequest extends Model
     protected $_name = [
         'project'         => 'Project',
         'videoUri'        => 'VideoUri',
-        'grabType'        => 'GrabType',
-        'startTime'       => 'StartTime',
-        'endTime'         => 'EndTime',
-        'saveType'        => 'SaveType',
-        'interval'        => 'Interval',
         'tgtUri'          => 'TgtUri',
         'notifyTopicName' => 'NotifyTopicName',
         'notifyEndpoint'  => 'NotifyEndpoint',
@@ -82,21 +52,6 @@ class CreateVideoAnalyseTaskRequest extends Model
         }
         if (null !== $this->videoUri) {
             $res['VideoUri'] = $this->videoUri;
-        }
-        if (null !== $this->grabType) {
-            $res['GrabType'] = $this->grabType;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->saveType) {
-            $res['SaveType'] = $this->saveType;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
         }
         if (null !== $this->tgtUri) {
             $res['TgtUri'] = $this->tgtUri;
@@ -124,21 +79,6 @@ class CreateVideoAnalyseTaskRequest extends Model
         }
         if (isset($map['VideoUri'])) {
             $model->videoUri = $map['VideoUri'];
-        }
-        if (isset($map['GrabType'])) {
-            $model->grabType = $map['GrabType'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['SaveType'])) {
-            $model->saveType = $map['SaveType'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
         }
         if (isset($map['TgtUri'])) {
             $model->tgtUri = $map['TgtUri'];

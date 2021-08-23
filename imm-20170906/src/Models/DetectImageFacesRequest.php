@@ -17,15 +17,9 @@ class DetectImageFacesRequest extends Model
      * @var string
      */
     public $imageUri;
-
-    /**
-     * @var string
-     */
-    public $realUid;
     protected $_name = [
         'project'  => 'Project',
         'imageUri' => 'ImageUri',
-        'realUid'  => 'RealUid',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class DetectImageFacesRequest extends Model
         }
         if (null !== $this->imageUri) {
             $res['ImageUri'] = $this->imageUri;
-        }
-        if (null !== $this->realUid) {
-            $res['RealUid'] = $this->realUid;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class DetectImageFacesRequest extends Model
         }
         if (isset($map['ImageUri'])) {
             $model->imageUri = $map['ImageUri'];
-        }
-        if (isset($map['RealUid'])) {
-            $model->realUid = $map['RealUid'];
         }
 
         return $model;

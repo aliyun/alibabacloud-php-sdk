@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QRCodes extends Model
 {
     /**
-     * @var QRCodesRectangle
-     */
-    public $QRCodesRectangle;
-
-    /**
      * @var string
      */
     public $content;
+
+    /**
+     * @var QRCodesRectangle
+     */
+    public $QRCodesRectangle;
     protected $_name = [
-        'QRCodesRectangle' => 'QRCodesRectangle',
         'content'          => 'Content',
+        'QRCodesRectangle' => 'QRCodesRectangle',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class QRCodes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->QRCodesRectangle) {
-            $res['QRCodesRectangle'] = null !== $this->QRCodesRectangle ? $this->QRCodesRectangle->toMap() : null;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->QRCodesRectangle) {
+            $res['QRCodesRectangle'] = null !== $this->QRCodesRectangle ? $this->QRCodesRectangle->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class QRCodes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['QRCodesRectangle'])) {
-            $model->QRCodesRectangle = QRCodesRectangle::fromMap($map['QRCodesRectangle']);
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['QRCodesRectangle'])) {
+            $model->QRCodesRectangle = QRCodesRectangle::fromMap($map['QRCodesRectangle']);
         }
 
         return $model;

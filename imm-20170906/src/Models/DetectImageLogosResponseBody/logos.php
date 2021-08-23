@@ -15,18 +15,18 @@ class logos extends Model
     public $logoConfidence;
 
     /**
-     * @var logoBoundary
-     */
-    public $logoBoundary;
-
-    /**
      * @var string
      */
     public $logoName;
+
+    /**
+     * @var logoBoundary
+     */
+    public $logoBoundary;
     protected $_name = [
         'logoConfidence' => 'LogoConfidence',
-        'logoBoundary'   => 'LogoBoundary',
         'logoName'       => 'LogoName',
+        'logoBoundary'   => 'LogoBoundary',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class logos extends Model
         if (null !== $this->logoConfidence) {
             $res['LogoConfidence'] = $this->logoConfidence;
         }
-        if (null !== $this->logoBoundary) {
-            $res['LogoBoundary'] = null !== $this->logoBoundary ? $this->logoBoundary->toMap() : null;
-        }
         if (null !== $this->logoName) {
             $res['LogoName'] = $this->logoName;
+        }
+        if (null !== $this->logoBoundary) {
+            $res['LogoBoundary'] = null !== $this->logoBoundary ? $this->logoBoundary->toMap() : null;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class logos extends Model
         if (isset($map['LogoConfidence'])) {
             $model->logoConfidence = $map['LogoConfidence'];
         }
-        if (isset($map['LogoBoundary'])) {
-            $model->logoBoundary = logoBoundary::fromMap($map['LogoBoundary']);
-        }
         if (isset($map['LogoName'])) {
             $model->logoName = $map['LogoName'];
+        }
+        if (isset($map['LogoBoundary'])) {
+            $model->logoBoundary = logoBoundary::fromMap($map['LogoBoundary']);
         }
 
         return $model;

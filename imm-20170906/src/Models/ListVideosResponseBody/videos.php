@@ -35,11 +35,6 @@ class videos extends Model
     public $videoDuration;
 
     /**
-     * @var videoTags[]
-     */
-    public $videoTags;
-
-    /**
      * @var string
      */
     public $processModifyTime;
@@ -65,14 +60,14 @@ class videos extends Model
     public $sourceUri;
 
     /**
-     * @var int
-     */
-    public $fileSize;
-
-    /**
      * @var string
      */
     public $modifyTime;
+
+    /**
+     * @var int
+     */
+    public $fileSize;
 
     /**
      * @var string
@@ -85,14 +80,14 @@ class videos extends Model
     public $videoWidth;
 
     /**
-     * @var string
-     */
-    public $videoFormat;
-
-    /**
      * @var int
      */
     public $videoHeight;
+
+    /**
+     * @var string
+     */
+    public $videoFormat;
 
     /**
      * @var string
@@ -107,12 +102,12 @@ class videos extends Model
     /**
      * @var string
      */
-    public $processFailReason;
+    public $videoTagsModifyTime;
 
     /**
      * @var string
      */
-    public $videoTagsModifyTime;
+    public $processFailReason;
 
     /**
      * @var string
@@ -128,31 +123,36 @@ class videos extends Model
      * @var string
      */
     public $remarksB;
+
+    /**
+     * @var videoTags[]
+     */
+    public $videoTags;
     protected $_name = [
         'createTime'          => 'CreateTime',
         'remarksC'            => 'RemarksC',
         'videoTagsFailReason' => 'VideoTagsFailReason',
         'sourceType'          => 'SourceType',
         'videoDuration'       => 'VideoDuration',
-        'videoTags'           => 'VideoTags',
         'processModifyTime'   => 'ProcessModifyTime',
         'videoFrames'         => 'VideoFrames',
         'videoTagsStatus'     => 'VideoTagsStatus',
         'externalId'          => 'ExternalId',
         'sourceUri'           => 'SourceUri',
-        'fileSize'            => 'FileSize',
         'modifyTime'          => 'ModifyTime',
+        'fileSize'            => 'FileSize',
         'sourcePosition'      => 'SourcePosition',
         'videoWidth'          => 'VideoWidth',
-        'videoFormat'         => 'VideoFormat',
         'videoHeight'         => 'VideoHeight',
+        'videoFormat'         => 'VideoFormat',
         'remarksD'            => 'RemarksD',
         'videoUri'            => 'VideoUri',
-        'processFailReason'   => 'ProcessFailReason',
         'videoTagsModifyTime' => 'VideoTagsModifyTime',
+        'processFailReason'   => 'ProcessFailReason',
         'remarksA'            => 'RemarksA',
         'processStatus'       => 'ProcessStatus',
         'remarksB'            => 'RemarksB',
+        'videoTags'           => 'VideoTags',
     ];
 
     public function validate()
@@ -177,15 +177,6 @@ class videos extends Model
         if (null !== $this->videoDuration) {
             $res['VideoDuration'] = $this->videoDuration;
         }
-        if (null !== $this->videoTags) {
-            $res['VideoTags'] = [];
-            if (null !== $this->videoTags && \is_array($this->videoTags)) {
-                $n = 0;
-                foreach ($this->videoTags as $item) {
-                    $res['VideoTags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->processModifyTime) {
             $res['ProcessModifyTime'] = $this->processModifyTime;
         }
@@ -201,11 +192,11 @@ class videos extends Model
         if (null !== $this->sourceUri) {
             $res['SourceUri'] = $this->sourceUri;
         }
-        if (null !== $this->fileSize) {
-            $res['FileSize'] = $this->fileSize;
-        }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->fileSize) {
+            $res['FileSize'] = $this->fileSize;
         }
         if (null !== $this->sourcePosition) {
             $res['SourcePosition'] = $this->sourcePosition;
@@ -213,11 +204,11 @@ class videos extends Model
         if (null !== $this->videoWidth) {
             $res['VideoWidth'] = $this->videoWidth;
         }
-        if (null !== $this->videoFormat) {
-            $res['VideoFormat'] = $this->videoFormat;
-        }
         if (null !== $this->videoHeight) {
             $res['VideoHeight'] = $this->videoHeight;
+        }
+        if (null !== $this->videoFormat) {
+            $res['VideoFormat'] = $this->videoFormat;
         }
         if (null !== $this->remarksD) {
             $res['RemarksD'] = $this->remarksD;
@@ -225,11 +216,11 @@ class videos extends Model
         if (null !== $this->videoUri) {
             $res['VideoUri'] = $this->videoUri;
         }
-        if (null !== $this->processFailReason) {
-            $res['ProcessFailReason'] = $this->processFailReason;
-        }
         if (null !== $this->videoTagsModifyTime) {
             $res['VideoTagsModifyTime'] = $this->videoTagsModifyTime;
+        }
+        if (null !== $this->processFailReason) {
+            $res['ProcessFailReason'] = $this->processFailReason;
         }
         if (null !== $this->remarksA) {
             $res['RemarksA'] = $this->remarksA;
@@ -239,6 +230,15 @@ class videos extends Model
         }
         if (null !== $this->remarksB) {
             $res['RemarksB'] = $this->remarksB;
+        }
+        if (null !== $this->videoTags) {
+            $res['VideoTags'] = [];
+            if (null !== $this->videoTags && \is_array($this->videoTags)) {
+                $n = 0;
+                foreach ($this->videoTags as $item) {
+                    $res['VideoTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -267,15 +267,6 @@ class videos extends Model
         if (isset($map['VideoDuration'])) {
             $model->videoDuration = $map['VideoDuration'];
         }
-        if (isset($map['VideoTags'])) {
-            if (!empty($map['VideoTags'])) {
-                $model->videoTags = [];
-                $n                = 0;
-                foreach ($map['VideoTags'] as $item) {
-                    $model->videoTags[$n++] = null !== $item ? videoTags::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['ProcessModifyTime'])) {
             $model->processModifyTime = $map['ProcessModifyTime'];
         }
@@ -291,11 +282,11 @@ class videos extends Model
         if (isset($map['SourceUri'])) {
             $model->sourceUri = $map['SourceUri'];
         }
-        if (isset($map['FileSize'])) {
-            $model->fileSize = $map['FileSize'];
-        }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['FileSize'])) {
+            $model->fileSize = $map['FileSize'];
         }
         if (isset($map['SourcePosition'])) {
             $model->sourcePosition = $map['SourcePosition'];
@@ -303,11 +294,11 @@ class videos extends Model
         if (isset($map['VideoWidth'])) {
             $model->videoWidth = $map['VideoWidth'];
         }
-        if (isset($map['VideoFormat'])) {
-            $model->videoFormat = $map['VideoFormat'];
-        }
         if (isset($map['VideoHeight'])) {
             $model->videoHeight = $map['VideoHeight'];
+        }
+        if (isset($map['VideoFormat'])) {
+            $model->videoFormat = $map['VideoFormat'];
         }
         if (isset($map['RemarksD'])) {
             $model->remarksD = $map['RemarksD'];
@@ -315,11 +306,11 @@ class videos extends Model
         if (isset($map['VideoUri'])) {
             $model->videoUri = $map['VideoUri'];
         }
-        if (isset($map['ProcessFailReason'])) {
-            $model->processFailReason = $map['ProcessFailReason'];
-        }
         if (isset($map['VideoTagsModifyTime'])) {
             $model->videoTagsModifyTime = $map['VideoTagsModifyTime'];
+        }
+        if (isset($map['ProcessFailReason'])) {
+            $model->processFailReason = $map['ProcessFailReason'];
         }
         if (isset($map['RemarksA'])) {
             $model->remarksA = $map['RemarksA'];
@@ -329,6 +320,15 @@ class videos extends Model
         }
         if (isset($map['RemarksB'])) {
             $model->remarksB = $map['RemarksB'];
+        }
+        if (isset($map['VideoTags'])) {
+            if (!empty($map['VideoTags'])) {
+                $model->videoTags = [];
+                $n                = 0;
+                foreach ($map['VideoTags'] as $item) {
+                    $model->videoTags[$n++] = null !== $item ? videoTags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

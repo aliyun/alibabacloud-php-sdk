@@ -17,22 +17,22 @@ class audios extends Model
     /**
      * @var string
      */
+    public $remarksC;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
      * @var string
      */
-    public $remarksC;
+    public $sourceType;
 
     /**
      * @var float
      */
     public $audioDuration;
-
-    /**
-     * @var string
-     */
-    public $sourceType;
 
     /**
      * @var string
@@ -52,22 +52,22 @@ class audios extends Model
     /**
      * @var string
      */
-    public $processModifyTime;
-
-    /**
-     * @var string
-     */
     public $processFailReason;
 
     /**
      * @var string
      */
-    public $audioUri;
+    public $processModifyTime;
 
     /**
      * @var int
      */
     public $audioRate;
+
+    /**
+     * @var string
+     */
+    public $audioUri;
 
     /**
      * @var string
@@ -78,11 +78,6 @@ class audios extends Model
      * @var string
      */
     public $remarksA;
-
-    /**
-     * @var audioTexts[]
-     */
-    public $audioTexts;
 
     /**
      * @var string
@@ -118,22 +113,26 @@ class audios extends Model
      * @var string
      */
     public $modifyTime;
+
+    /**
+     * @var audioTexts[]
+     */
+    public $audioTexts;
     protected $_name = [
         'sourcePosition'       => 'SourcePosition',
-        'createTime'           => 'CreateTime',
         'remarksC'             => 'RemarksC',
-        'audioDuration'        => 'AudioDuration',
+        'createTime'           => 'CreateTime',
         'sourceType'           => 'SourceType',
+        'audioDuration'        => 'AudioDuration',
         'audioTextsStatus'     => 'AudioTextsStatus',
         'audioFormat'          => 'AudioFormat',
         'remarksD'             => 'RemarksD',
-        'processModifyTime'    => 'ProcessModifyTime',
         'processFailReason'    => 'ProcessFailReason',
-        'audioUri'             => 'AudioUri',
+        'processModifyTime'    => 'ProcessModifyTime',
         'audioRate'            => 'AudioRate',
+        'audioUri'             => 'AudioUri',
         'audioTextsModifyTime' => 'AudioTextsModifyTime',
         'remarksA'             => 'RemarksA',
-        'audioTexts'           => 'AudioTexts',
         'externalId'           => 'ExternalId',
         'sourceUri'            => 'SourceUri',
         'processStatus'        => 'ProcessStatus',
@@ -141,6 +140,7 @@ class audios extends Model
         'remarksB'             => 'RemarksB',
         'fileSize'             => 'FileSize',
         'modifyTime'           => 'ModifyTime',
+        'audioTexts'           => 'AudioTexts',
     ];
 
     public function validate()
@@ -153,17 +153,17 @@ class audios extends Model
         if (null !== $this->sourcePosition) {
             $res['SourcePosition'] = $this->sourcePosition;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->remarksC) {
             $res['RemarksC'] = $this->remarksC;
         }
-        if (null !== $this->audioDuration) {
-            $res['AudioDuration'] = $this->audioDuration;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->audioDuration) {
+            $res['AudioDuration'] = $this->audioDuration;
         }
         if (null !== $this->audioTextsStatus) {
             $res['AudioTextsStatus'] = $this->audioTextsStatus;
@@ -174,32 +174,23 @@ class audios extends Model
         if (null !== $this->remarksD) {
             $res['RemarksD'] = $this->remarksD;
         }
-        if (null !== $this->processModifyTime) {
-            $res['ProcessModifyTime'] = $this->processModifyTime;
-        }
         if (null !== $this->processFailReason) {
             $res['ProcessFailReason'] = $this->processFailReason;
         }
-        if (null !== $this->audioUri) {
-            $res['AudioUri'] = $this->audioUri;
+        if (null !== $this->processModifyTime) {
+            $res['ProcessModifyTime'] = $this->processModifyTime;
         }
         if (null !== $this->audioRate) {
             $res['AudioRate'] = $this->audioRate;
+        }
+        if (null !== $this->audioUri) {
+            $res['AudioUri'] = $this->audioUri;
         }
         if (null !== $this->audioTextsModifyTime) {
             $res['AudioTextsModifyTime'] = $this->audioTextsModifyTime;
         }
         if (null !== $this->remarksA) {
             $res['RemarksA'] = $this->remarksA;
-        }
-        if (null !== $this->audioTexts) {
-            $res['AudioTexts'] = [];
-            if (null !== $this->audioTexts && \is_array($this->audioTexts)) {
-                $n = 0;
-                foreach ($this->audioTexts as $item) {
-                    $res['AudioTexts'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->externalId) {
             $res['ExternalId'] = $this->externalId;
@@ -222,6 +213,15 @@ class audios extends Model
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
+        if (null !== $this->audioTexts) {
+            $res['AudioTexts'] = [];
+            if (null !== $this->audioTexts && \is_array($this->audioTexts)) {
+                $n = 0;
+                foreach ($this->audioTexts as $item) {
+                    $res['AudioTexts'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -237,17 +237,17 @@ class audios extends Model
         if (isset($map['SourcePosition'])) {
             $model->sourcePosition = $map['SourcePosition'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['RemarksC'])) {
             $model->remarksC = $map['RemarksC'];
         }
-        if (isset($map['AudioDuration'])) {
-            $model->audioDuration = $map['AudioDuration'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['AudioDuration'])) {
+            $model->audioDuration = $map['AudioDuration'];
         }
         if (isset($map['AudioTextsStatus'])) {
             $model->audioTextsStatus = $map['AudioTextsStatus'];
@@ -258,32 +258,23 @@ class audios extends Model
         if (isset($map['RemarksD'])) {
             $model->remarksD = $map['RemarksD'];
         }
-        if (isset($map['ProcessModifyTime'])) {
-            $model->processModifyTime = $map['ProcessModifyTime'];
-        }
         if (isset($map['ProcessFailReason'])) {
             $model->processFailReason = $map['ProcessFailReason'];
         }
-        if (isset($map['AudioUri'])) {
-            $model->audioUri = $map['AudioUri'];
+        if (isset($map['ProcessModifyTime'])) {
+            $model->processModifyTime = $map['ProcessModifyTime'];
         }
         if (isset($map['AudioRate'])) {
             $model->audioRate = $map['AudioRate'];
+        }
+        if (isset($map['AudioUri'])) {
+            $model->audioUri = $map['AudioUri'];
         }
         if (isset($map['AudioTextsModifyTime'])) {
             $model->audioTextsModifyTime = $map['AudioTextsModifyTime'];
         }
         if (isset($map['RemarksA'])) {
             $model->remarksA = $map['RemarksA'];
-        }
-        if (isset($map['AudioTexts'])) {
-            if (!empty($map['AudioTexts'])) {
-                $model->audioTexts = [];
-                $n                 = 0;
-                foreach ($map['AudioTexts'] as $item) {
-                    $model->audioTexts[$n++] = null !== $item ? audioTexts::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['ExternalId'])) {
             $model->externalId = $map['ExternalId'];
@@ -305,6 +296,15 @@ class audios extends Model
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['AudioTexts'])) {
+            if (!empty($map['AudioTexts'])) {
+                $model->audioTexts = [];
+                $n                 = 0;
+                foreach ($map['AudioTexts'] as $item) {
+                    $model->audioTexts[$n++] = null !== $item ? audioTexts::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

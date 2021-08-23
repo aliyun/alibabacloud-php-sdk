@@ -11,22 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DetectQRCodesResponseBody extends Model
 {
     /**
-     * @var successDetails[]
-     */
-    public $successDetails;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var successDetails[]
+     */
+    public $successDetails;
 
     /**
      * @var failDetails[]
      */
     public $failDetails;
     protected $_name = [
-        'successDetails' => 'SuccessDetails',
         'requestId'      => 'RequestId',
+        'successDetails' => 'SuccessDetails',
         'failDetails'    => 'FailDetails',
     ];
 
@@ -37,6 +37,9 @@ class DetectQRCodesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->successDetails) {
             $res['SuccessDetails'] = [];
             if (null !== $this->successDetails && \is_array($this->successDetails)) {
@@ -45,9 +48,6 @@ class DetectQRCodesResponseBody extends Model
                     $res['SuccessDetails'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->failDetails) {
             $res['FailDetails'] = [];
@@ -70,6 +70,9 @@ class DetectQRCodesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['SuccessDetails'])) {
             if (!empty($map['SuccessDetails'])) {
                 $model->successDetails = [];
@@ -78,9 +81,6 @@ class DetectQRCodesResponseBody extends Model
                     $model->successDetails[$n++] = null !== $item ? successDetails::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['FailDetails'])) {
             if (!empty($map['FailDetails'])) {

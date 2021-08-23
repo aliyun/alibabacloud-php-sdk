@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20170906\Models;
 
+use AlibabaCloud\SDK\Imm\V20170906\Models\UpdateImageRequest\faces;
 use AlibabaCloud\Tea\Model;
 
 class UpdateImageRequest extends Model
@@ -72,6 +73,11 @@ class UpdateImageRequest extends Model
      * @var string
      */
     public $remarksArrayB;
+
+    /**
+     * @var faces[]
+     */
+    public $faces;
     protected $_name = [
         'project'        => 'Project',
         'setId'          => 'SetId',
@@ -86,6 +92,7 @@ class UpdateImageRequest extends Model
         'externalId'     => 'ExternalId',
         'remarksArrayA'  => 'RemarksArrayA',
         'remarksArrayB'  => 'RemarksArrayB',
+        'faces'          => 'Faces',
     ];
 
     public function validate()
@@ -133,6 +140,15 @@ class UpdateImageRequest extends Model
         }
         if (null !== $this->remarksArrayB) {
             $res['RemarksArrayB'] = $this->remarksArrayB;
+        }
+        if (null !== $this->faces) {
+            $res['Faces'] = [];
+            if (null !== $this->faces && \is_array($this->faces)) {
+                $n = 0;
+                foreach ($this->faces as $item) {
+                    $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -184,6 +200,15 @@ class UpdateImageRequest extends Model
         }
         if (isset($map['RemarksArrayB'])) {
             $model->remarksArrayB = $map['RemarksArrayB'];
+        }
+        if (isset($map['Faces'])) {
+            if (!empty($map['Faces'])) {
+                $model->faces = [];
+                $n            = 0;
+                foreach ($map['Faces'] as $item) {
+                    $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

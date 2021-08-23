@@ -11,11 +11,6 @@ class UpdateSetResponseBody extends Model
     /**
      * @var string
      */
-    public $modifyTime;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
@@ -31,12 +26,17 @@ class UpdateSetResponseBody extends Model
     /**
      * @var string
      */
+    public $modifyTime;
+
+    /**
+     * @var string
+     */
     public $setId;
     protected $_name = [
-        'modifyTime' => 'ModifyTime',
         'requestId'  => 'RequestId',
         'createTime' => 'CreateTime',
         'setName'    => 'SetName',
+        'modifyTime' => 'ModifyTime',
         'setId'      => 'SetId',
     ];
 
@@ -47,9 +47,6 @@ class UpdateSetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,6 +55,9 @@ class UpdateSetResponseBody extends Model
         }
         if (null !== $this->setName) {
             $res['SetName'] = $this->setName;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
@@ -74,9 +74,6 @@ class UpdateSetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -85,6 +82,9 @@ class UpdateSetResponseBody extends Model
         }
         if (isset($map['SetName'])) {
             $model->setName = $map['SetName'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];

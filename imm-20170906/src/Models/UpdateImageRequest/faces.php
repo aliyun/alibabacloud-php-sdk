@@ -2,30 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20170906\Models;
+namespace AlibabaCloud\SDK\Imm\V20170906\Models\UpdateImageRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateFaceGroupResponseBody extends Model
+class faces extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $faceId;
 
     /**
      * @var string
      */
     public $groupId;
-
-    /**
-     * @var string
-     */
-    public $setId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'groupId'   => 'GroupId',
-        'setId'     => 'SetId',
+        'faceId'  => 'FaceId',
+        'groupId' => 'GroupId',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class UpdateFaceGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->faceId) {
+            $res['FaceId'] = $this->faceId;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->setId) {
-            $res['SetId'] = $this->setId;
         }
 
         return $res;
@@ -51,19 +42,16 @@ class UpdateFaceGroupResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateFaceGroupResponseBody
+     * @return faces
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['FaceId'])) {
+            $model->faceId = $map['FaceId'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['SetId'])) {
-            $model->setId = $map['SetId'];
         }
 
         return $model;

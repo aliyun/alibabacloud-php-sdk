@@ -15,18 +15,18 @@ class croppingSuggestions extends Model
     public $score;
 
     /**
-     * @var croppingBoundary
-     */
-    public $croppingBoundary;
-
-    /**
      * @var string
      */
     public $aspectRatio;
+
+    /**
+     * @var croppingBoundary
+     */
+    public $croppingBoundary;
     protected $_name = [
         'score'            => 'Score',
-        'croppingBoundary' => 'CroppingBoundary',
         'aspectRatio'      => 'AspectRatio',
+        'croppingBoundary' => 'CroppingBoundary',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class croppingSuggestions extends Model
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
-        if (null !== $this->croppingBoundary) {
-            $res['CroppingBoundary'] = null !== $this->croppingBoundary ? $this->croppingBoundary->toMap() : null;
-        }
         if (null !== $this->aspectRatio) {
             $res['AspectRatio'] = $this->aspectRatio;
+        }
+        if (null !== $this->croppingBoundary) {
+            $res['CroppingBoundary'] = null !== $this->croppingBoundary ? $this->croppingBoundary->toMap() : null;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class croppingSuggestions extends Model
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
-        if (isset($map['CroppingBoundary'])) {
-            $model->croppingBoundary = croppingBoundary::fromMap($map['CroppingBoundary']);
-        }
         if (isset($map['AspectRatio'])) {
             $model->aspectRatio = $map['AspectRatio'];
+        }
+        if (isset($map['CroppingBoundary'])) {
+            $model->croppingBoundary = croppingBoundary::fromMap($map['CroppingBoundary']);
         }
 
         return $model;

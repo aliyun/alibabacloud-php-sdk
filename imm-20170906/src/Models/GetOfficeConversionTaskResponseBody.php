@@ -15,26 +15,6 @@ class GetOfficeConversionTaskResponseBody extends Model
     public $status;
 
     /**
-     * @var failDetail
-     */
-    public $failDetail;
-
-    /**
-     * @var string
-     */
-    public $tgtType;
-
-    /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $percent;
@@ -42,32 +22,12 @@ class GetOfficeConversionTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $externalID;
-
-    /**
-     * @var string
-     */
-    public $imageSpec;
-
-    /**
-     * @var string
-     */
-    public $notifyEndpoint;
-
-    /**
-     * @var string
-     */
-    public $tgtUri;
-
-    /**
-     * @var string
-     */
     public $finishTime;
+
+    /**
+     * @var string
+     */
+    public $createTime;
 
     /**
      * @var int
@@ -82,23 +42,63 @@ class GetOfficeConversionTaskResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $notifyEndpoint;
+
+    /**
+     * @var string
+     */
     public $srcUri;
+
+    /**
+     * @var string
+     */
+    public $tgtType;
+
+    /**
+     * @var string
+     */
+    public $tgtUri;
+
+    /**
+     * @var string
+     */
+    public $imageSpec;
+
+    /**
+     * @var string
+     */
+    public $externalID;
+
+    /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
+     * @var failDetail
+     */
+    public $failDetail;
     protected $_name = [
         'status'          => 'Status',
-        'failDetail'      => 'FailDetail',
-        'tgtType'         => 'TgtType',
-        'taskId'          => 'TaskId',
-        'requestId'       => 'RequestId',
         'percent'         => 'Percent',
-        'createTime'      => 'CreateTime',
-        'externalID'      => 'ExternalID',
-        'imageSpec'       => 'ImageSpec',
-        'notifyEndpoint'  => 'NotifyEndpoint',
-        'tgtUri'          => 'TgtUri',
         'finishTime'      => 'FinishTime',
+        'createTime'      => 'CreateTime',
         'pageCount'       => 'PageCount',
         'notifyTopicName' => 'NotifyTopicName',
+        'requestId'       => 'RequestId',
+        'notifyEndpoint'  => 'NotifyEndpoint',
         'srcUri'          => 'SrcUri',
+        'tgtType'         => 'TgtType',
+        'tgtUri'          => 'TgtUri',
+        'imageSpec'       => 'ImageSpec',
+        'externalID'      => 'ExternalID',
+        'taskId'          => 'TaskId',
+        'failDetail'      => 'FailDetail',
     ];
 
     public function validate()
@@ -111,38 +111,14 @@ class GetOfficeConversionTaskResponseBody extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->failDetail) {
-            $res['FailDetail'] = null !== $this->failDetail ? $this->failDetail->toMap() : null;
-        }
-        if (null !== $this->tgtType) {
-            $res['TgtType'] = $this->tgtType;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->percent) {
             $res['Percent'] = $this->percent;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->externalID) {
-            $res['ExternalID'] = $this->externalID;
-        }
-        if (null !== $this->imageSpec) {
-            $res['ImageSpec'] = $this->imageSpec;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
-        }
-        if (null !== $this->tgtUri) {
-            $res['TgtUri'] = $this->tgtUri;
-        }
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->pageCount) {
             $res['PageCount'] = $this->pageCount;
@@ -150,8 +126,32 @@ class GetOfficeConversionTaskResponseBody extends Model
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->notifyEndpoint) {
+            $res['NotifyEndpoint'] = $this->notifyEndpoint;
+        }
         if (null !== $this->srcUri) {
             $res['SrcUri'] = $this->srcUri;
+        }
+        if (null !== $this->tgtType) {
+            $res['TgtType'] = $this->tgtType;
+        }
+        if (null !== $this->tgtUri) {
+            $res['TgtUri'] = $this->tgtUri;
+        }
+        if (null !== $this->imageSpec) {
+            $res['ImageSpec'] = $this->imageSpec;
+        }
+        if (null !== $this->externalID) {
+            $res['ExternalID'] = $this->externalID;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->failDetail) {
+            $res['FailDetail'] = null !== $this->failDetail ? $this->failDetail->toMap() : null;
         }
 
         return $res;
@@ -168,38 +168,14 @@ class GetOfficeConversionTaskResponseBody extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['FailDetail'])) {
-            $model->failDetail = failDetail::fromMap($map['FailDetail']);
-        }
-        if (isset($map['TgtType'])) {
-            $model->tgtType = $map['TgtType'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Percent'])) {
             $model->percent = $map['Percent'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ExternalID'])) {
-            $model->externalID = $map['ExternalID'];
-        }
-        if (isset($map['ImageSpec'])) {
-            $model->imageSpec = $map['ImageSpec'];
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
-        }
-        if (isset($map['TgtUri'])) {
-            $model->tgtUri = $map['TgtUri'];
-        }
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['PageCount'])) {
             $model->pageCount = $map['PageCount'];
@@ -207,8 +183,32 @@ class GetOfficeConversionTaskResponseBody extends Model
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['NotifyEndpoint'])) {
+            $model->notifyEndpoint = $map['NotifyEndpoint'];
+        }
         if (isset($map['SrcUri'])) {
             $model->srcUri = $map['SrcUri'];
+        }
+        if (isset($map['TgtType'])) {
+            $model->tgtType = $map['TgtType'];
+        }
+        if (isset($map['TgtUri'])) {
+            $model->tgtUri = $map['TgtUri'];
+        }
+        if (isset($map['ImageSpec'])) {
+            $model->imageSpec = $map['ImageSpec'];
+        }
+        if (isset($map['ExternalID'])) {
+            $model->externalID = $map['ExternalID'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['FailDetail'])) {
+            $model->failDetail = failDetail::fromMap($map['FailDetail']);
         }
 
         return $model;

@@ -42,6 +42,11 @@ class CreateVideoCompressTaskRequest extends Model
      * @var string
      */
     public $targetContainer;
+
+    /**
+     * @var string
+     */
+    public $targetSegment;
     protected $_name = [
         'project'         => 'Project',
         'videoUri'        => 'VideoUri',
@@ -50,6 +55,7 @@ class CreateVideoCompressTaskRequest extends Model
         'targetList'      => 'TargetList',
         'customMessage'   => 'CustomMessage',
         'targetContainer' => 'TargetContainer',
+        'targetSegment'   => 'TargetSegment',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class CreateVideoCompressTaskRequest extends Model
         }
         if (null !== $this->targetContainer) {
             $res['TargetContainer'] = $this->targetContainer;
+        }
+        if (null !== $this->targetSegment) {
+            $res['TargetSegment'] = $this->targetSegment;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class CreateVideoCompressTaskRequest extends Model
         }
         if (isset($map['TargetContainer'])) {
             $model->targetContainer = $map['TargetContainer'];
+        }
+        if (isset($map['TargetSegment'])) {
+            $model->targetSegment = $map['TargetSegment'];
         }
 
         return $model;

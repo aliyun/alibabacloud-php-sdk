@@ -12,21 +12,21 @@ class ListProjectsResponseBody extends Model
     /**
      * @var string
      */
+    public $nextMarker;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var projects[]
      */
     public $projects;
-
-    /**
-     * @var string
-     */
-    public $nextMarker;
     protected $_name = [
+        'nextMarker' => 'NextMarker',
         'requestId'  => 'RequestId',
         'projects'   => 'Projects',
-        'nextMarker' => 'NextMarker',
     ];
 
     public function validate()
@@ -36,6 +36,9 @@ class ListProjectsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextMarker) {
+            $res['NextMarker'] = $this->nextMarker;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,9 +50,6 @@ class ListProjectsResponseBody extends Model
                     $res['Projects'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->nextMarker) {
-            $res['NextMarker'] = $this->nextMarker;
         }
 
         return $res;
@@ -63,6 +63,9 @@ class ListProjectsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextMarker'])) {
+            $model->nextMarker = $map['NextMarker'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -74,9 +77,6 @@ class ListProjectsResponseBody extends Model
                     $model->projects[$n++] = null !== $item ? projects::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['NextMarker'])) {
-            $model->nextMarker = $map['NextMarker'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class CreateGrabFrameTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $taskType;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class CreateGrabFrameTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $taskType;
+    public $taskId;
     protected $_name = [
-        'taskId'    => 'TaskId',
-        'requestId' => 'RequestId',
         'taskType'  => 'TaskType',
+        'requestId' => 'RequestId',
+        'taskId'    => 'TaskId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateGrabFrameTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateGrabFrameTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

@@ -37,11 +37,6 @@ class frames extends Model
     public $facesFailReason;
 
     /**
-     * @var tags[]
-     */
-    public $tags;
-
-    /**
      * @var string
      */
     public $facesModifyTime;
@@ -55,11 +50,6 @@ class frames extends Model
      * @var string
      */
     public $OCRModifyTime;
-
-    /**
-     * @var OCR[]
-     */
-    public $OCR;
 
     /**
      * @var string
@@ -82,6 +72,11 @@ class frames extends Model
     public $sourceUri;
 
     /**
+     * @var string
+     */
+    public $modifyTime;
+
+    /**
      * @var int
      */
     public $fileSize;
@@ -89,17 +84,7 @@ class frames extends Model
     /**
      * @var string
      */
-    public $modifyTime;
-
-    /**
-     * @var string
-     */
     public $sourcePosition;
-
-    /**
-     * @var faces[]
-     */
-    public $faces;
 
     /**
      * @var string
@@ -165,25 +150,37 @@ class frames extends Model
      * @var string
      */
     public $remarksB;
+
+    /**
+     * @var faces[]
+     */
+    public $faces;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @var OCR[]
+     */
+    public $OCR;
     protected $_name = [
         'tagsFailReason'  => 'TagsFailReason',
         'remarksC'        => 'RemarksC',
         'createTime'      => 'CreateTime',
         'sourceType'      => 'SourceType',
         'facesFailReason' => 'FacesFailReason',
-        'tags'            => 'Tags',
         'facesModifyTime' => 'FacesModifyTime',
         'imageTime'       => 'ImageTime',
         'OCRModifyTime'   => 'OCRModifyTime',
-        'OCR'             => 'OCR',
         'facesStatus'     => 'FacesStatus',
         'imageHeight'     => 'ImageHeight',
         'externalId'      => 'ExternalId',
         'sourceUri'       => 'SourceUri',
-        'fileSize'        => 'FileSize',
         'modifyTime'      => 'ModifyTime',
+        'fileSize'        => 'FileSize',
         'sourcePosition'  => 'SourcePosition',
-        'faces'           => 'Faces',
         'OCRFailReason'   => 'OCRFailReason',
         'imageFormat'     => 'ImageFormat',
         'imageWidth'      => 'ImageWidth',
@@ -197,6 +194,9 @@ class frames extends Model
         'exif'            => 'Exif',
         'location'        => 'Location',
         'remarksB'        => 'RemarksB',
+        'faces'           => 'Faces',
+        'tags'            => 'Tags',
+        'OCR'             => 'OCR',
     ];
 
     public function validate()
@@ -221,15 +221,6 @@ class frames extends Model
         if (null !== $this->facesFailReason) {
             $res['FacesFailReason'] = $this->facesFailReason;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->facesModifyTime) {
             $res['FacesModifyTime'] = $this->facesModifyTime;
         }
@@ -238,15 +229,6 @@ class frames extends Model
         }
         if (null !== $this->OCRModifyTime) {
             $res['OCRModifyTime'] = $this->OCRModifyTime;
-        }
-        if (null !== $this->OCR) {
-            $res['OCR'] = [];
-            if (null !== $this->OCR && \is_array($this->OCR)) {
-                $n = 0;
-                foreach ($this->OCR as $item) {
-                    $res['OCR'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->facesStatus) {
             $res['FacesStatus'] = $this->facesStatus;
@@ -260,23 +242,14 @@ class frames extends Model
         if (null !== $this->sourceUri) {
             $res['SourceUri'] = $this->sourceUri;
         }
-        if (null !== $this->fileSize) {
-            $res['FileSize'] = $this->fileSize;
-        }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
+        if (null !== $this->fileSize) {
+            $res['FileSize'] = $this->fileSize;
+        }
         if (null !== $this->sourcePosition) {
             $res['SourcePosition'] = $this->sourcePosition;
-        }
-        if (null !== $this->faces) {
-            $res['Faces'] = [];
-            if (null !== $this->faces && \is_array($this->faces)) {
-                $n = 0;
-                foreach ($this->faces as $item) {
-                    $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->OCRFailReason) {
             $res['OCRFailReason'] = $this->OCRFailReason;
@@ -317,6 +290,33 @@ class frames extends Model
         if (null !== $this->remarksB) {
             $res['RemarksB'] = $this->remarksB;
         }
+        if (null !== $this->faces) {
+            $res['Faces'] = [];
+            if (null !== $this->faces && \is_array($this->faces)) {
+                $n = 0;
+                foreach ($this->faces as $item) {
+                    $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->OCR) {
+            $res['OCR'] = [];
+            if (null !== $this->OCR && \is_array($this->OCR)) {
+                $n = 0;
+                foreach ($this->OCR as $item) {
+                    $res['OCR'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -344,15 +344,6 @@ class frames extends Model
         if (isset($map['FacesFailReason'])) {
             $model->facesFailReason = $map['FacesFailReason'];
         }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['FacesModifyTime'])) {
             $model->facesModifyTime = $map['FacesModifyTime'];
         }
@@ -361,15 +352,6 @@ class frames extends Model
         }
         if (isset($map['OCRModifyTime'])) {
             $model->OCRModifyTime = $map['OCRModifyTime'];
-        }
-        if (isset($map['OCR'])) {
-            if (!empty($map['OCR'])) {
-                $model->OCR = [];
-                $n          = 0;
-                foreach ($map['OCR'] as $item) {
-                    $model->OCR[$n++] = null !== $item ? OCR::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['FacesStatus'])) {
             $model->facesStatus = $map['FacesStatus'];
@@ -383,23 +365,14 @@ class frames extends Model
         if (isset($map['SourceUri'])) {
             $model->sourceUri = $map['SourceUri'];
         }
-        if (isset($map['FileSize'])) {
-            $model->fileSize = $map['FileSize'];
-        }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
+        if (isset($map['FileSize'])) {
+            $model->fileSize = $map['FileSize'];
+        }
         if (isset($map['SourcePosition'])) {
             $model->sourcePosition = $map['SourcePosition'];
-        }
-        if (isset($map['Faces'])) {
-            if (!empty($map['Faces'])) {
-                $model->faces = [];
-                $n            = 0;
-                foreach ($map['Faces'] as $item) {
-                    $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['OCRFailReason'])) {
             $model->OCRFailReason = $map['OCRFailReason'];
@@ -439,6 +412,33 @@ class frames extends Model
         }
         if (isset($map['RemarksB'])) {
             $model->remarksB = $map['RemarksB'];
+        }
+        if (isset($map['Faces'])) {
+            if (!empty($map['Faces'])) {
+                $model->faces = [];
+                $n            = 0;
+                foreach ($map['Faces'] as $item) {
+                    $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['OCR'])) {
+            if (!empty($map['OCR'])) {
+                $model->OCR = [];
+                $n          = 0;
+                foreach ($map['OCR'] as $item) {
+                    $model->OCR[$n++] = null !== $item ? OCR::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

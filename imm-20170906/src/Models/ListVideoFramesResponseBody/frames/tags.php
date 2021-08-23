@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @var float
-     */
-    public $tagConfidence;
-
-    /**
-     * @var string
-     */
-    public $tagName;
-
-    /**
      * @var int
      */
     public $tagLevel;
@@ -27,11 +17,21 @@ class tags extends Model
      * @var string
      */
     public $parentTagName;
+
+    /**
+     * @var float
+     */
+    public $tagConfidence;
+
+    /**
+     * @var string
+     */
+    public $tagName;
     protected $_name = [
-        'tagConfidence' => 'TagConfidence',
-        'tagName'       => 'TagName',
         'tagLevel'      => 'TagLevel',
         'parentTagName' => 'ParentTagName',
+        'tagConfidence' => 'TagConfidence',
+        'tagName'       => 'TagName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class tags extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagConfidence) {
-            $res['TagConfidence'] = $this->tagConfidence;
-        }
-        if (null !== $this->tagName) {
-            $res['TagName'] = $this->tagName;
-        }
         if (null !== $this->tagLevel) {
             $res['TagLevel'] = $this->tagLevel;
         }
         if (null !== $this->parentTagName) {
             $res['ParentTagName'] = $this->parentTagName;
+        }
+        if (null !== $this->tagConfidence) {
+            $res['TagConfidence'] = $this->tagConfidence;
+        }
+        if (null !== $this->tagName) {
+            $res['TagName'] = $this->tagName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class tags extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagConfidence'])) {
-            $model->tagConfidence = $map['TagConfidence'];
-        }
-        if (isset($map['TagName'])) {
-            $model->tagName = $map['TagName'];
-        }
         if (isset($map['TagLevel'])) {
             $model->tagLevel = $map['TagLevel'];
         }
         if (isset($map['ParentTagName'])) {
             $model->parentTagName = $map['ParentTagName'];
+        }
+        if (isset($map['TagConfidence'])) {
+            $model->tagConfidence = $map['TagConfidence'];
+        }
+        if (isset($map['TagName'])) {
+            $model->tagName = $map['TagName'];
         }
 
         return $model;

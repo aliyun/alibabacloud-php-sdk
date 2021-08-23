@@ -12,20 +12,20 @@ class ListSetTagsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $setId;
 
     /**
      * @var string
      */
-    public $setId;
+    public $requestId;
 
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'requestId' => 'RequestId',
         'setId'     => 'SetId',
+        'requestId' => 'RequestId',
         'tags'      => 'Tags',
     ];
 
@@ -36,11 +36,11 @@ class ListSetTagsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -63,11 +63,11 @@ class ListSetTagsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

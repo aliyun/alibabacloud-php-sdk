@@ -16,16 +16,16 @@ class DecodeBlindWatermarkResponseBody extends Model
     /**
      * @var string
      */
-    public $content;
+    public $targetUri;
 
     /**
      * @var string
      */
-    public $targetUri;
+    public $content;
     protected $_name = [
         'requestId' => 'RequestId',
-        'content'   => 'Content',
         'targetUri' => 'TargetUri',
+        'content'   => 'Content',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DecodeBlindWatermarkResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
         if (null !== $this->targetUri) {
             $res['TargetUri'] = $this->targetUri;
+        }
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DecodeBlindWatermarkResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
         if (isset($map['TargetUri'])) {
             $model->targetUri = $map['TargetUri'];
+        }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
 
         return $model;

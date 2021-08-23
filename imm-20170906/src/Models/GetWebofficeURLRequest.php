@@ -47,6 +47,16 @@ class GetWebofficeURLRequest extends Model
      * @var string
      */
     public $notifyTopicName;
+
+    /**
+     * @var string
+     */
+    public $watermark;
+
+    /**
+     * @var bool
+     */
+    public $hidecmb;
     protected $_name = [
         'project'         => 'Project',
         'srcType'         => 'SrcType',
@@ -56,6 +66,8 @@ class GetWebofficeURLRequest extends Model
         'file'            => 'File',
         'notifyEndpoint'  => 'NotifyEndpoint',
         'notifyTopicName' => 'NotifyTopicName',
+        'watermark'       => 'Watermark',
+        'hidecmb'         => 'Hidecmb',
     ];
 
     public function validate()
@@ -88,6 +100,12 @@ class GetWebofficeURLRequest extends Model
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
+        }
+        if (null !== $this->watermark) {
+            $res['Watermark'] = $this->watermark;
+        }
+        if (null !== $this->hidecmb) {
+            $res['Hidecmb'] = $this->hidecmb;
         }
 
         return $res;
@@ -124,6 +142,12 @@ class GetWebofficeURLRequest extends Model
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
+        }
+        if (isset($map['Watermark'])) {
+            $model->watermark = $map['Watermark'];
+        }
+        if (isset($map['Hidecmb'])) {
+            $model->hidecmb = $map['Hidecmb'];
         }
 
         return $model;

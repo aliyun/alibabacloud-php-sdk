@@ -12,20 +12,20 @@ class GetImageCroppingSuggestionsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $imageUri;
 
     /**
      * @var string
      */
-    public $imageUri;
+    public $requestId;
 
     /**
      * @var croppingSuggestions[]
      */
     public $croppingSuggestions;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'imageUri'            => 'ImageUri',
+        'requestId'           => 'RequestId',
         'croppingSuggestions' => 'CroppingSuggestions',
     ];
 
@@ -36,11 +36,11 @@ class GetImageCroppingSuggestionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->imageUri) {
             $res['ImageUri'] = $this->imageUri;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->croppingSuggestions) {
             $res['CroppingSuggestions'] = [];
@@ -63,11 +63,11 @@ class GetImageCroppingSuggestionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ImageUri'])) {
             $model->imageUri = $map['ImageUri'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['CroppingSuggestions'])) {
             if (!empty($map['CroppingSuggestions'])) {

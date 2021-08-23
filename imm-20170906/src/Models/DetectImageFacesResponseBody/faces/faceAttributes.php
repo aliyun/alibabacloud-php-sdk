@@ -36,6 +36,11 @@ class faceAttributes extends Model
     public $maskConfidence;
 
     /**
+     * @var string
+     */
+    public $beard;
+
+    /**
      * @var faceBoundary
      */
     public $faceBoundary;
@@ -44,20 +49,15 @@ class faceAttributes extends Model
      * @var headPose
      */
     public $headPose;
-
-    /**
-     * @var string
-     */
-    public $beard;
     protected $_name = [
         'glassesConfidence' => 'GlassesConfidence',
         'glasses'           => 'Glasses',
         'mask'              => 'Mask',
         'beardConfidence'   => 'BeardConfidence',
         'maskConfidence'    => 'MaskConfidence',
+        'beard'             => 'Beard',
         'faceBoundary'      => 'FaceBoundary',
         'headPose'          => 'HeadPose',
-        'beard'             => 'Beard',
     ];
 
     public function validate()
@@ -82,14 +82,14 @@ class faceAttributes extends Model
         if (null !== $this->maskConfidence) {
             $res['MaskConfidence'] = $this->maskConfidence;
         }
+        if (null !== $this->beard) {
+            $res['Beard'] = $this->beard;
+        }
         if (null !== $this->faceBoundary) {
             $res['FaceBoundary'] = null !== $this->faceBoundary ? $this->faceBoundary->toMap() : null;
         }
         if (null !== $this->headPose) {
             $res['HeadPose'] = null !== $this->headPose ? $this->headPose->toMap() : null;
-        }
-        if (null !== $this->beard) {
-            $res['Beard'] = $this->beard;
         }
 
         return $res;
@@ -118,14 +118,14 @@ class faceAttributes extends Model
         if (isset($map['MaskConfidence'])) {
             $model->maskConfidence = $map['MaskConfidence'];
         }
+        if (isset($map['Beard'])) {
+            $model->beard = $map['Beard'];
+        }
         if (isset($map['FaceBoundary'])) {
             $model->faceBoundary = faceBoundary::fromMap($map['FaceBoundary']);
         }
         if (isset($map['HeadPose'])) {
             $model->headPose = headPose::fromMap($map['HeadPose']);
-        }
-        if (isset($map['Beard'])) {
-            $model->beard = $map['Beard'];
         }
 
         return $model;
