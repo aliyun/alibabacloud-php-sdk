@@ -151,6 +151,9 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeHandGestureRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizeHandGestureResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizePublicFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RecognizePublicFaceResponse;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\RetouchBodyAdvanceRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\RetouchBodyRequest;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\RetouchBodyResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchBodyTraceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchBodyTraceResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchBodyTraceShrinkRequest;
@@ -4065,6 +4068,112 @@ class Facebody extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addFaceEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RetouchBodyRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RetouchBodyResponse
+     */
+    public function retouchBodyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RetouchBodyResponse::fromMap($this->doRPCRequest('RetouchBody', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RetouchBodyRequest $request
+     *
+     * @return RetouchBodyResponse
+     */
+    public function retouchBody($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retouchBodyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RetouchBodyAdvanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RetouchBodyResponse
+     */
+    public function retouchBodyAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'facebody',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $retouchBodyReq = new RetouchBodyRequest([]);
+        OpenApiUtilClient::convert($request, $retouchBodyReq);
+        if (!Utils::isUnset($request->imageURLObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageURLObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $retouchBodyReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->retouchBodyWithOptions($retouchBodyReq, $runtime);
     }
 
     /**
