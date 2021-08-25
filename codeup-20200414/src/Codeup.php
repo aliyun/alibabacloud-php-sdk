@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\Codeup\V20200414\Models\DeleteRepositoryGroupRequest;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\DeleteRepositoryGroupResponse;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\DeleteRepositoryMemberRequest;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\DeleteRepositoryMemberResponse;
+use AlibabaCloud\SDK\Codeup\V20200414\Models\DeleteRepositoryMemberWithExternUidRequest;
+use AlibabaCloud\SDK\Codeup\V20200414\Models\DeleteRepositoryMemberWithExternUidResponse;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\DeleteRepositoryProtectedBranchRequest;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\DeleteRepositoryProtectedBranchResponse;
 use AlibabaCloud\SDK\Codeup\V20200414\Models\DeleteRepositoryRequest;
@@ -302,6 +304,49 @@ class Codeup extends OpenApiClient
         ]);
 
         return CreateMergeRequestResponse::fromMap($this->doROARequest('CreateMergeRequest', '2020-04-14', 'HTTPS', 'POST', 'AK', '/api/v4/projects/' . $ProjectId . '/merge_requests', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param string                                     $ProjectId
+     * @param DeleteRepositoryMemberWithExternUidRequest $request
+     *
+     * @return DeleteRepositoryMemberWithExternUidResponse
+     */
+    public function deleteRepositoryMemberWithExternUid($ProjectId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRepositoryMemberWithExternUidWithOptions($ProjectId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                                     $ProjectId
+     * @param DeleteRepositoryMemberWithExternUidRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DeleteRepositoryMemberWithExternUidResponse
+     */
+    public function deleteRepositoryMemberWithExternUidWithOptions($ProjectId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            @$query['AccessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->externUserId)) {
+            @$query['ExternUserId'] = $request->externUserId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+
+        return DeleteRepositoryMemberWithExternUidResponse::fromMap($this->doROARequest('DeleteRepositoryMemberWithExternUid', '2020-04-14', 'HTTPS', 'POST', 'AK', '/api/v4/projects/' . $ProjectId . '/members/remove', 'json', $req, $runtime));
     }
 
     /**
