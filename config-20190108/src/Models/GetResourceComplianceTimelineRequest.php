@@ -66,9 +66,6 @@ class GetResourceComplianceTimelineRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('resourceType', $this->resourceType, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
-        Model::validateRequired('region', $this->region, true);
     }
 
     public function toMap()

@@ -66,9 +66,6 @@ class PutDeliveryChannelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deliveryChannelType', $this->deliveryChannelType, true);
-        Model::validateRequired('deliveryChannelTargetArn', $this->deliveryChannelTargetArn, true);
-        Model::validateRequired('deliveryChannelAssumeRoleArn', $this->deliveryChannelAssumeRoleArn, true);
     }
 
     public function toMap()

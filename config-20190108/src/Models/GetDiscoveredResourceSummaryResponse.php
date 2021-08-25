@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Config\V20190108\Models;
 
-use AlibabaCloud\SDK\Config\V20190108\Models\GetDiscoveredResourceSummaryResponse\discoveredResourceSummary;
 use AlibabaCloud\Tea\Model;
 
 class GetDiscoveredResourceSummaryResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var discoveredResourceSummary
+     * @var GetDiscoveredResourceSummaryResponseBody
      */
-    public $discoveredResourceSummary;
+    public $body;
     protected $_name = [
-        'requestId'                 => 'RequestId',
-        'discoveredResourceSummary' => 'DiscoveredResourceSummary',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('discoveredResourceSummary', $this->discoveredResourceSummary, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->discoveredResourceSummary) {
-            $res['DiscoveredResourceSummary'] = null !== $this->discoveredResourceSummary ? $this->discoveredResourceSummary->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class GetDiscoveredResourceSummaryResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DiscoveredResourceSummary'])) {
-            $model->discoveredResourceSummary = discoveredResourceSummary::fromMap($map['DiscoveredResourceSummary']);
+        if (isset($map['body'])) {
+            $model->body = GetDiscoveredResourceSummaryResponseBody::fromMap($map['body']);
         }
 
         return $model;

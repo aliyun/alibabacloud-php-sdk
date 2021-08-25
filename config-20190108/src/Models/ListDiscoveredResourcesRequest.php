@@ -66,8 +66,6 @@ class ListDiscoveredResourcesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('pageNumber', $this->pageNumber, true);
     }
 
     public function toMap()

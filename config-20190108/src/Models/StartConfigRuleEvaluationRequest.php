@@ -12,25 +12,12 @@ class StartConfigRuleEvaluationRequest extends Model
      * @var string
      */
     public $configRuleId;
-
-    /**
-     * @var bool
-     */
-    public $multiAccount;
-
-    /**
-     * @var int
-     */
-    public $memberId;
     protected $_name = [
         'configRuleId' => 'ConfigRuleId',
-        'multiAccount' => 'MultiAccount',
-        'memberId'     => 'MemberId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('configRuleId', $this->configRuleId, true);
     }
 
     public function toMap()
@@ -38,12 +25,6 @@ class StartConfigRuleEvaluationRequest extends Model
         $res = [];
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
-        }
-        if (null !== $this->multiAccount) {
-            $res['MultiAccount'] = $this->multiAccount;
-        }
-        if (null !== $this->memberId) {
-            $res['MemberId'] = $this->memberId;
         }
 
         return $res;
@@ -59,12 +40,6 @@ class StartConfigRuleEvaluationRequest extends Model
         $model = new self();
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
-        }
-        if (isset($map['MultiAccount'])) {
-            $model->multiAccount = $map['MultiAccount'];
-        }
-        if (isset($map['MemberId'])) {
-            $model->memberId = $map['MemberId'];
         }
 
         return $model;

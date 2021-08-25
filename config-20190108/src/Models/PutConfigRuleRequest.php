@@ -96,12 +96,6 @@ class PutConfigRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('configRuleName', $this->configRuleName, true);
-        Model::validateRequired('sourceOwner', $this->sourceOwner, true);
-        Model::validateRequired('sourceIdentifier', $this->sourceIdentifier, true);
-        Model::validateRequired('sourceDetailMessageType', $this->sourceDetailMessageType, true);
-        Model::validateRequired('scopeComplianceResourceTypes', $this->scopeComplianceResourceTypes, true);
-        Model::validateRequired('riskLevel', $this->riskLevel, true);
     }
 
     public function toMap()

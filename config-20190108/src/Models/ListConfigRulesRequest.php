@@ -24,11 +24,6 @@ class ListConfigRulesRequest extends Model
     public $riskLevel;
 
     /**
-     * @var string
-     */
-    public $messageType;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -47,15 +42,26 @@ class ListConfigRulesRequest extends Model
      * @var int
      */
     public $memberId;
+
+    /**
+     * @var string
+     */
+    public $configRuleName;
+
+    /**
+     * @var string
+     */
+    public $compliancePackId;
     protected $_name = [
-        'configRuleState' => 'ConfigRuleState',
-        'complianceType'  => 'ComplianceType',
-        'riskLevel'       => 'RiskLevel',
-        'messageType'     => 'MessageType',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'multiAccount'    => 'MultiAccount',
-        'memberId'        => 'MemberId',
+        'configRuleState'  => 'ConfigRuleState',
+        'complianceType'   => 'ComplianceType',
+        'riskLevel'        => 'RiskLevel',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'multiAccount'     => 'MultiAccount',
+        'memberId'         => 'MemberId',
+        'configRuleName'   => 'ConfigRuleName',
+        'compliancePackId' => 'CompliancePackId',
     ];
 
     public function validate()
@@ -74,9 +80,6 @@ class ListConfigRulesRequest extends Model
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
-        if (null !== $this->messageType) {
-            $res['MessageType'] = $this->messageType;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -88,6 +91,12 @@ class ListConfigRulesRequest extends Model
         }
         if (null !== $this->memberId) {
             $res['MemberId'] = $this->memberId;
+        }
+        if (null !== $this->configRuleName) {
+            $res['ConfigRuleName'] = $this->configRuleName;
+        }
+        if (null !== $this->compliancePackId) {
+            $res['CompliancePackId'] = $this->compliancePackId;
         }
 
         return $res;
@@ -110,9 +119,6 @@ class ListConfigRulesRequest extends Model
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
-        if (isset($map['MessageType'])) {
-            $model->messageType = $map['MessageType'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -124,6 +130,12 @@ class ListConfigRulesRequest extends Model
         }
         if (isset($map['MemberId'])) {
             $model->memberId = $map['MemberId'];
+        }
+        if (isset($map['ConfigRuleName'])) {
+            $model->configRuleName = $map['ConfigRuleName'];
+        }
+        if (isset($map['CompliancePackId'])) {
+            $model->compliancePackId = $map['CompliancePackId'];
         }
 
         return $model;

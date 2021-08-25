@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Config\V20190108\Models;
 
-use AlibabaCloud\SDK\Config\V20190108\Models\GetResourceComplianceTimelineResponse\resourceComplianceTimeline;
 use AlibabaCloud\Tea\Model;
 
 class GetResourceComplianceTimelineResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var resourceComplianceTimeline
+     * @var GetResourceComplianceTimelineResponseBody
      */
-    public $resourceComplianceTimeline;
+    public $body;
     protected $_name = [
-        'requestId'                  => 'RequestId',
-        'resourceComplianceTimeline' => 'ResourceComplianceTimeline',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('resourceComplianceTimeline', $this->resourceComplianceTimeline, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->resourceComplianceTimeline) {
-            $res['ResourceComplianceTimeline'] = null !== $this->resourceComplianceTimeline ? $this->resourceComplianceTimeline->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class GetResourceComplianceTimelineResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ResourceComplianceTimeline'])) {
-            $model->resourceComplianceTimeline = resourceComplianceTimeline::fromMap($map['ResourceComplianceTimeline']);
+        if (isset($map['body'])) {
+            $model->body = GetResourceComplianceTimelineResponseBody::fromMap($map['body']);
         }
 
         return $model;

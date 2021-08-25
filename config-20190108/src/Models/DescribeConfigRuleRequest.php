@@ -30,7 +30,6 @@ class DescribeConfigRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('configRuleId', $this->configRuleId, true);
     }
 
     public function toMap()

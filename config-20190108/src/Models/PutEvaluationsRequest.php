@@ -24,7 +24,6 @@ class PutEvaluationsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('resultToken', $this->resultToken, true);
     }
 
     public function toMap()

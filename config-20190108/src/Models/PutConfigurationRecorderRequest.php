@@ -18,7 +18,6 @@ class PutConfigurationRecorderRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('resourceTypes', $this->resourceTypes, true);
     }
 
     public function toMap()

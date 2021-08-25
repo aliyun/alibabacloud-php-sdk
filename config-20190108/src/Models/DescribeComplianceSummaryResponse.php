@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Config\V20190108\Models;
 
-use AlibabaCloud\SDK\Config\V20190108\Models\DescribeComplianceSummaryResponse\complianceSummary;
 use AlibabaCloud\Tea\Model;
 
 class DescribeComplianceSummaryResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var complianceSummary
+     * @var DescribeComplianceSummaryResponseBody
      */
-    public $complianceSummary;
+    public $body;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'complianceSummary' => 'ComplianceSummary',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('complianceSummary', $this->complianceSummary, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->complianceSummary) {
-            $res['ComplianceSummary'] = null !== $this->complianceSummary ? $this->complianceSummary->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class DescribeComplianceSummaryResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ComplianceSummary'])) {
-            $model->complianceSummary = complianceSummary::fromMap($map['ComplianceSummary']);
+        if (isset($map['body'])) {
+            $model->body = DescribeComplianceSummaryResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -4,39 +4,38 @@
 
 namespace AlibabaCloud\SDK\Config\V20190108\Models;
 
-use AlibabaCloud\SDK\Config\V20190108\Models\ListConfigRulesResponse\configRules;
 use AlibabaCloud\Tea\Model;
 
 class ListConfigRulesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var configRules
+     * @var ListConfigRulesResponseBody
      */
-    public $configRules;
+    public $body;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'configRules' => 'ConfigRules',
+        'headers' => 'headers',
+        'body'    => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('configRules', $this->configRules, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->configRules) {
-            $res['ConfigRules'] = null !== $this->configRules ? $this->configRules->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -50,11 +49,11 @@ class ListConfigRulesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ConfigRules'])) {
-            $model->configRules = configRules::fromMap($map['ConfigRules']);
+        if (isset($map['body'])) {
+            $model->body = ListConfigRulesResponseBody::fromMap($map['body']);
         }
 
         return $model;

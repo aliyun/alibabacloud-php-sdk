@@ -18,7 +18,6 @@ class DeleteConfigRulesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('configRuleIds', $this->configRuleIds, true);
     }
 
     public function toMap()

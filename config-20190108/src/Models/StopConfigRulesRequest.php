@@ -18,7 +18,6 @@ class StopConfigRulesRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('configRuleIds', $this->configRuleIds, true);
     }
 
     public function toMap()
