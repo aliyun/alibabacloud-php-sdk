@@ -20,7 +20,7 @@ class CreateAppTemplateShrinkRequest extends Model
      *
      * @var string
      */
-    public $sence;
+    public $scene;
 
     /**
      * @description 组件列表
@@ -30,7 +30,7 @@ class CreateAppTemplateShrinkRequest extends Model
     public $componentListShrink;
     protected $_name = [
         'appTemplateName'     => 'AppTemplateName',
-        'sence'               => 'Sence',
+        'scene'               => 'Scene',
         'componentListShrink' => 'ComponentList',
     ];
 
@@ -44,8 +44,8 @@ class CreateAppTemplateShrinkRequest extends Model
         if (null !== $this->appTemplateName) {
             $res['AppTemplateName'] = $this->appTemplateName;
         }
-        if (null !== $this->sence) {
-            $res['Sence'] = $this->sence;
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
         }
         if (null !== $this->componentListShrink) {
             $res['ComponentList'] = $this->componentListShrink;
@@ -65,8 +65,8 @@ class CreateAppTemplateShrinkRequest extends Model
         if (isset($map['AppTemplateName'])) {
             $model->appTemplateName = $map['AppTemplateName'];
         }
-        if (isset($map['Sence'])) {
-            $model->sence = $map['Sence'];
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
         }
         if (isset($map['ComponentList'])) {
             $model->componentListShrink = $map['ComponentList'];
