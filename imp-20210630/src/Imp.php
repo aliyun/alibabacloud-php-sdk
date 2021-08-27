@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppTemplateResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateAppTemplateShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateConferenceRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateConferenceResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CreateIceProjectRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\CreateIceProjectResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\CreateRoomRequest;
@@ -79,6 +81,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\RegisterIceOssMediaRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\RegisterIceOssMediaResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\RejectLinkMicRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\RejectLinkMicResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\RemoveMemberRequest;
@@ -147,59 +151,31 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param VerifyDomainOwnerRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateIceProjectRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return VerifyDomainOwnerResponse
+     * @return CreateIceProjectResponse
      */
-    public function verifyDomainOwnerWithOptions($request, $runtime)
+    public function createIceProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return VerifyDomainOwnerResponse::fromMap($this->doRPCRequest('VerifyDomainOwner', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateIceProjectResponse::fromMap($this->doRPCRequest('CreateIceProject', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param VerifyDomainOwnerRequest $request
+     * @param CreateIceProjectRequest $request
      *
-     * @return VerifyDomainOwnerResponse
+     * @return CreateIceProjectResponse
      */
-    public function verifyDomainOwner($request)
+    public function createIceProject($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->verifyDomainOwnerWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateLiveRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateLiveResponse
-     */
-    public function createLiveWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateLiveResponse::fromMap($this->doRPCRequest('CreateLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateLiveRequest $request
-     *
-     * @return CreateLiveResponse
-     */
-    public function createLive($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createLiveWithOptions($request, $runtime);
+        return $this->createIceProjectWithOptions($request, $runtime);
     }
 
     /**
@@ -231,34 +207,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return DeleteAppResponse
-     */
-    public function deleteAppWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteAppResponse::fromMap($this->doRPCRequest('DeleteApp', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAppRequest $request
-     *
-     * @return DeleteAppResponse
-     */
-    public function deleteApp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAppWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListApplyLinkMicUsersRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -284,100 +232,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplyLinkMicUsersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListRoomLivesRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListRoomLivesResponse
-     */
-    public function listRoomLivesWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ListRoomLivesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->roomIdList)) {
-            $request->roomIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomIdList, 'RoomIdList', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListRoomLivesResponse::fromMap($this->doRPCRequest('ListRoomLives', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListRoomLivesRequest $request
-     *
-     * @return ListRoomLivesResponse
-     */
-    public function listRoomLives($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRoomLivesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateRoomRequest $tmpReq
-     * @param RuntimeOptions    $runtime
-     *
-     * @return UpdateRoomResponse
-     */
-    public function updateRoomWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateRoomShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extension)) {
-            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateRoomResponse::fromMap($this->doRPCRequest('UpdateRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateRoomRequest $request
-     *
-     * @return UpdateRoomResponse
-     */
-    public function updateRoom($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateRoomWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAppTemplateRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetAppTemplateResponse
-     */
-    public function getAppTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetAppTemplateResponse::fromMap($this->doRPCRequest('GetAppTemplate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAppTemplateRequest $request
-     *
-     * @return GetAppTemplateResponse
-     */
-    public function getAppTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAppTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -409,100 +263,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param SendCommentRequest $tmpReq
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SendCommentResponse
-     */
-    public function sendCommentWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new SendCommentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extension)) {
-            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SendCommentResponse::fromMap($this->doRPCRequest('SendComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SendCommentRequest $request
-     *
-     * @return SendCommentResponse
-     */
-    public function sendComment($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->sendCommentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateAppTemplateRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateAppTemplateResponse
-     */
-    public function createAppTemplateWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateAppTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->componentList)) {
-            $request->componentListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->componentList, 'ComponentList', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateAppTemplateResponse::fromMap($this->doRPCRequest('CreateAppTemplate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateAppTemplateRequest $request
-     *
-     * @return CreateAppTemplateResponse
-     */
-    public function createAppTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createAppTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetConferenceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetConferenceResponse
-     */
-    public function getConferenceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetConferenceResponse::fromMap($this->doRPCRequest('GetConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetConferenceRequest $request
-     *
-     * @return GetConferenceResponse
-     */
-    public function getConference($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getConferenceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param BanCommentRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -531,62 +291,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param RejectLinkMicRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RejectLinkMicResponse
-     */
-    public function rejectLinkMicWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RejectLinkMicResponse::fromMap($this->doRPCRequest('RejectLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RejectLinkMicRequest $request
-     *
-     * @return RejectLinkMicResponse
-     */
-    public function rejectLinkMic($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->rejectLinkMicWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAppsRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return ListAppsResponse
-     */
-    public function listAppsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListAppsResponse::fromMap($this->doRPCRequest('ListApps', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAppsRequest $request
-     *
-     * @return ListAppsResponse
-     */
-    public function listApps($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAppsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param AddMemberRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -612,34 +316,6 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addMemberWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CancelBanAllCommentRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CancelBanAllCommentResponse
-     */
-    public function cancelBanAllCommentWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CancelBanAllCommentResponse::fromMap($this->doRPCRequest('CancelBanAllComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CancelBanAllCommentRequest $request
-     *
-     * @return CancelBanAllCommentResponse
-     */
-    public function cancelBanAllComment($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cancelBanAllCommentWithOptions($request, $runtime);
     }
 
     /**
@@ -699,146 +375,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param ListConferenceUsersRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListConferenceUsersResponse
-     */
-    public function listConferenceUsersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListConferenceUsersResponse::fromMap($this->doRPCRequest('ListConferenceUsers', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListConferenceUsersRequest $request
-     *
-     * @return ListConferenceUsersResponse
-     */
-    public function listConferenceUsers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listConferenceUsersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CancelBanCommentRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CancelBanCommentResponse
-     */
-    public function cancelBanCommentWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CancelBanCommentResponse::fromMap($this->doRPCRequest('CancelBanComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CancelBanCommentRequest $request
-     *
-     * @return CancelBanCommentResponse
-     */
-    public function cancelBanComment($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cancelBanCommentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAppTemplatesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListAppTemplatesResponse
-     */
-    public function listAppTemplatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListAppTemplatesResponse::fromMap($this->doRPCRequest('ListAppTemplates', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAppTemplatesRequest $request
-     *
-     * @return ListAppTemplatesResponse
-     */
-    public function listAppTemplates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAppTemplatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListComponentsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListComponentsResponse
-     */
-    public function listComponentsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListComponentsResponse::fromMap($this->doRPCRequest('ListComponents', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListComponentsRequest $request
-     *
-     * @return ListComponentsResponse
-     */
-    public function listComponents($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listComponentsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateLiveRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return UpdateLiveResponse
-     */
-    public function updateLiveWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateLiveResponse::fromMap($this->doRPCRequest('UpdateLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateLiveRequest $request
-     *
-     * @return UpdateLiveResponse
-     */
-    public function updateLive($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateLiveWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateAppTemplateConfigRequest $tmpReq
      * @param RuntimeOptions                 $runtime
      *
@@ -872,62 +408,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param ApplyLinkMicRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ApplyLinkMicResponse
-     */
-    public function applyLinkMicWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ApplyLinkMicResponse::fromMap($this->doRPCRequest('ApplyLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ApplyLinkMicRequest $request
-     *
-     * @return ApplyLinkMicResponse
-     */
-    public function applyLinkMic($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->applyLinkMicWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CancelApplyLinkMicRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CancelApplyLinkMicResponse
-     */
-    public function cancelApplyLinkMicWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CancelApplyLinkMicResponse::fromMap($this->doRPCRequest('CancelApplyLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CancelApplyLinkMicRequest $request
-     *
-     * @return CancelApplyLinkMicResponse
-     */
-    public function cancelApplyLinkMic($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cancelApplyLinkMicWithOptions($request, $runtime);
-    }
-
-    /**
      * @param StopLiveRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -956,31 +436,31 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param GetAppRequest  $request
-     * @param RuntimeOptions $runtime
+     * @param RegisterIceOssMediaRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return GetAppResponse
+     * @return RegisterIceOssMediaResponse
      */
-    public function getAppWithOptions($request, $runtime)
+    public function registerIceOssMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetAppResponse::fromMap($this->doRPCRequest('GetApp', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterIceOssMediaResponse::fromMap($this->doRPCRequest('RegisterIceOssMedia', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetAppRequest $request
+     * @param RegisterIceOssMediaRequest $request
      *
-     * @return GetAppResponse
+     * @return RegisterIceOssMediaResponse
      */
-    public function getApp($request)
+    public function registerIceOssMedia($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getAppWithOptions($request, $runtime);
+        return $this->registerIceOssMediaWithOptions($request, $runtime);
     }
 
     /**
@@ -1157,62 +637,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param SendCustomMessageToUsersRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return SendCustomMessageToUsersResponse
-     */
-    public function sendCustomMessageToUsersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SendCustomMessageToUsersResponse::fromMap($this->doRPCRequest('SendCustomMessageToUsers', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SendCustomMessageToUsersRequest $request
-     *
-     * @return SendCustomMessageToUsersResponse
-     */
-    public function sendCustomMessageToUsers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->sendCustomMessageToUsersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BanAllCommentRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return BanAllCommentResponse
-     */
-    public function banAllCommentWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BanAllCommentResponse::fromMap($this->doRPCRequest('BanAllComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BanAllCommentRequest $request
-     *
-     * @return BanAllCommentResponse
-     */
-    public function banAllComment($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->banAllCommentWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetAuthTokenRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1319,34 +743,6 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param GetLiveRequest $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetLiveResponse
-     */
-    public function getLiveWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetLiveResponse::fromMap($this->doRPCRequest('GetLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetLiveRequest $request
-     *
-     * @return GetLiveResponse
-     */
-    public function getLive($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getLiveWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteRoomRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1372,6 +768,726 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteConferenceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteConferenceResponse
+     */
+    public function deleteConferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteConferenceResponse::fromMap($this->doRPCRequest('DeleteConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteConferenceRequest $request
+     *
+     * @return DeleteConferenceResponse
+     */
+    public function deleteConference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteConferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateAppResponse
+     */
+    public function updateAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateAppResponse::fromMap($this->doRPCRequest('UpdateApp', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAppRequest $request
+     *
+     * @return UpdateAppResponse
+     */
+    public function updateApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyDomainOwnerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return VerifyDomainOwnerResponse
+     */
+    public function verifyDomainOwnerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return VerifyDomainOwnerResponse::fromMap($this->doRPCRequest('VerifyDomainOwner', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param VerifyDomainOwnerRequest $request
+     *
+     * @return VerifyDomainOwnerResponse
+     */
+    public function verifyDomainOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyDomainOwnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateLiveRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateLiveResponse
+     */
+    public function createLiveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateLiveResponse::fromMap($this->doRPCRequest('CreateLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateLiveRequest $request
+     *
+     * @return CreateLiveResponse
+     */
+    public function createLive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLiveWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteAppResponse
+     */
+    public function deleteAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteAppResponse::fromMap($this->doRPCRequest('DeleteApp', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAppRequest $request
+     *
+     * @return DeleteAppResponse
+     */
+    public function deleteApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRoomLivesRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListRoomLivesResponse
+     */
+    public function listRoomLivesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListRoomLivesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roomIdList)) {
+            $request->roomIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roomIdList, 'RoomIdList', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListRoomLivesResponse::fromMap($this->doRPCRequest('ListRoomLives', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListRoomLivesRequest $request
+     *
+     * @return ListRoomLivesResponse
+     */
+    public function listRoomLives($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRoomLivesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRoomRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateRoomResponse
+     */
+    public function updateRoomWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateRoomShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extension)) {
+            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateRoomResponse::fromMap($this->doRPCRequest('UpdateRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRoomRequest $request
+     *
+     * @return UpdateRoomResponse
+     */
+    public function updateRoom($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRoomWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAppTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAppTemplateResponse
+     */
+    public function getAppTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetAppTemplateResponse::fromMap($this->doRPCRequest('GetAppTemplate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAppTemplateRequest $request
+     *
+     * @return GetAppTemplateResponse
+     */
+    public function getAppTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendCommentRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SendCommentResponse
+     */
+    public function sendCommentWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SendCommentShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extension)) {
+            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SendCommentResponse::fromMap($this->doRPCRequest('SendComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SendCommentRequest $request
+     *
+     * @return SendCommentResponse
+     */
+    public function sendComment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendCommentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAppTemplateRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAppTemplateResponse
+     */
+    public function createAppTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateAppTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->componentList)) {
+            $request->componentListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->componentList, 'ComponentList', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateAppTemplateResponse::fromMap($this->doRPCRequest('CreateAppTemplate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateAppTemplateRequest $request
+     *
+     * @return CreateAppTemplateResponse
+     */
+    public function createAppTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetConferenceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetConferenceResponse
+     */
+    public function getConferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetConferenceResponse::fromMap($this->doRPCRequest('GetConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetConferenceRequest $request
+     *
+     * @return GetConferenceResponse
+     */
+    public function getConference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RejectLinkMicRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RejectLinkMicResponse
+     */
+    public function rejectLinkMicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return RejectLinkMicResponse::fromMap($this->doRPCRequest('RejectLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param RejectLinkMicRequest $request
+     *
+     * @return RejectLinkMicResponse
+     */
+    public function rejectLinkMic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rejectLinkMicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAppsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListAppsResponse
+     */
+    public function listAppsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListAppsResponse::fromMap($this->doRPCRequest('ListApps', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAppsRequest $request
+     *
+     * @return ListAppsResponse
+     */
+    public function listApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelBanAllCommentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CancelBanAllCommentResponse
+     */
+    public function cancelBanAllCommentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelBanAllCommentResponse::fromMap($this->doRPCRequest('CancelBanAllComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelBanAllCommentRequest $request
+     *
+     * @return CancelBanAllCommentResponse
+     */
+    public function cancelBanAllComment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelBanAllCommentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListConferenceUsersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListConferenceUsersResponse
+     */
+    public function listConferenceUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListConferenceUsersResponse::fromMap($this->doRPCRequest('ListConferenceUsers', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListConferenceUsersRequest $request
+     *
+     * @return ListConferenceUsersResponse
+     */
+    public function listConferenceUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConferenceUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelBanCommentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CancelBanCommentResponse
+     */
+    public function cancelBanCommentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelBanCommentResponse::fromMap($this->doRPCRequest('CancelBanComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelBanCommentRequest $request
+     *
+     * @return CancelBanCommentResponse
+     */
+    public function cancelBanComment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelBanCommentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAppTemplatesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAppTemplatesResponse
+     */
+    public function listAppTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListAppTemplatesResponse::fromMap($this->doRPCRequest('ListAppTemplates', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAppTemplatesRequest $request
+     *
+     * @return ListAppTemplatesResponse
+     */
+    public function listAppTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListComponentsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListComponentsResponse
+     */
+    public function listComponentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListComponentsResponse::fromMap($this->doRPCRequest('ListComponents', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListComponentsRequest $request
+     *
+     * @return ListComponentsResponse
+     */
+    public function listComponents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listComponentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateLiveRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateLiveResponse
+     */
+    public function updateLiveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateLiveResponse::fromMap($this->doRPCRequest('UpdateLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateLiveRequest $request
+     *
+     * @return UpdateLiveResponse
+     */
+    public function updateLive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLiveWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ApplyLinkMicRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ApplyLinkMicResponse
+     */
+    public function applyLinkMicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ApplyLinkMicResponse::fromMap($this->doRPCRequest('ApplyLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ApplyLinkMicRequest $request
+     *
+     * @return ApplyLinkMicResponse
+     */
+    public function applyLinkMic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyLinkMicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelApplyLinkMicRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CancelApplyLinkMicResponse
+     */
+    public function cancelApplyLinkMicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CancelApplyLinkMicResponse::fromMap($this->doRPCRequest('CancelApplyLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CancelApplyLinkMicRequest $request
+     *
+     * @return CancelApplyLinkMicResponse
+     */
+    public function cancelApplyLinkMic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelApplyLinkMicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAppRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAppResponse
+     */
+    public function getAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetAppResponse::fromMap($this->doRPCRequest('GetApp', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAppRequest $request
+     *
+     * @return GetAppResponse
+     */
+    public function getApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendCustomMessageToUsersRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SendCustomMessageToUsersResponse
+     */
+    public function sendCustomMessageToUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return SendCustomMessageToUsersResponse::fromMap($this->doRPCRequest('SendCustomMessageToUsers', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param SendCustomMessageToUsersRequest $request
+     *
+     * @return SendCustomMessageToUsersResponse
+     */
+    public function sendCustomMessageToUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendCustomMessageToUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BanAllCommentRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return BanAllCommentResponse
+     */
+    public function banAllCommentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return BanAllCommentResponse::fromMap($this->doRPCRequest('BanAllComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param BanAllCommentRequest $request
+     *
+     * @return BanAllCommentResponse
+     */
+    public function banAllComment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->banAllCommentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLiveRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetLiveResponse
+     */
+    public function getLiveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetLiveResponse::fromMap($this->doRPCRequest('GetLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetLiveRequest $request
+     *
+     * @return GetLiveResponse
+     */
+    public function getLive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLiveWithOptions($request, $runtime);
     }
 
     /**
@@ -1461,61 +1577,5 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateConferenceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteConferenceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteConferenceResponse
-     */
-    public function deleteConferenceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteConferenceResponse::fromMap($this->doRPCRequest('DeleteConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteConferenceRequest $request
-     *
-     * @return DeleteConferenceResponse
-     */
-    public function deleteConference($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteConferenceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateAppRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return UpdateAppResponse
-     */
-    public function updateAppWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateAppResponse::fromMap($this->doRPCRequest('UpdateApp', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateAppRequest $request
-     *
-     * @return UpdateAppResponse
-     */
-    public function updateApp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateAppWithOptions($request, $runtime);
     }
 }
